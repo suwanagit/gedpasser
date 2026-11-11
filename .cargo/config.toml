@@ -1,3 +1,7 @@
 [alias]
 # Validate the question bank and check every answer: `cargo content`
 content = "run -q -p ged-content -- content"
+
+[env]
+# ts-rs writes generated TypeScript API types here (`cargo test -p gedpasser-server`).
+TS_RS_EXPORT_DIR = { value = "web/src/api/types", relative = true }

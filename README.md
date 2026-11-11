@@ -10,3 +10,20 @@ Not affiliated with or endorsed by GED Testing Service. GED® is a registered
 trademark of the American Council on Education.
 
 See `docs/spec.md` for the full plan.
+
+## How to run
+
+From the repo root, in PowerShell:
+
+```powershell
+cargo content                       # validate questions and check every answer
+cargo test                          # unit + fixture tests; regenerates TS API types
+.\scripts\build.ps1                 # types -> web\dist -> target\release\gedpasser-server.exe
+.\target\release\gedpasser-server.exe   # serves http://<this-pc>:8080 on the LAN
+```
+
+For frontend work, run `cargo run -p gedpasser-server` and `npm --prefix web run dev`
+together; Vite forwards `/api` to the server on port 8080.
+
+Settings (environment variables): `GED_ADDR` (default `0.0.0.0:8080`),
+`GED_CONTENT` (default `content`).

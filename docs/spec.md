@@ -208,10 +208,10 @@ Seven phases take the app from an empty repo to a public site; Phases 0 to 3 are
 
 **Phase 0: Foundations**
 
-- [ ] Skill map checked against the official Math assessment targets and committed as `content/skills.toml`
-- [ ] Question schema written; validator and answer checker run from one command
-- [ ] Rust server serves a placeholder React page on the LAN from one binary
-- [ ] Repo pushed to GitHub with `CLAUDE.md`, this spec, and the decisions log
+- [x] Skill map checked against the official Math assessment targets and committed as `content/skills.toml`
+- [x] Question schema written; validator and answer checker run from one command
+- [x] Rust server serves a placeholder React page on the LAN from one binary
+- [x] Repo pushed to GitHub with `CLAUDE.md`, this spec, and the decisions log
 
 **Phase 1: Core practice loop**
 

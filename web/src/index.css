@@ -1,0 +1,106 @@
+:root {
+  --bg: #f7f8fa;
+  --surface: #ffffff;
+  --text: #1c2430;
+  --muted: #5b6676;
+  --border: #dde2e9;
+  --accent: #1f6feb;
+  --ok: #1a7f37;
+  --err: #cf222e;
+
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f141a;
+    --surface: #171d25;
+    --text: #e6eaf0;
+    --muted: #9aa5b4;
+    --border: #2a333f;
+    --accent: #58a6ff;
+    --ok: #3fb950;
+    --err: #f85149;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+}
+
+.page {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+h1 {
+  margin: 0 0 0.25rem;
+  font-size: 2.25rem;
+  color: var(--accent);
+}
+
+.lead {
+  margin: 0 0 2rem;
+  font-size: 1.15rem;
+  color: var(--muted);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+}
+
+.card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+.card p {
+  margin: 0;
+}
+
+.dot {
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  margin-right: 0.25rem;
+}
+
+.dot.ok {
+  background: var(--ok);
+}
+
+.dot.err {
+  background: var(--err);
+}
+
+.fine {
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Animations arrive in Phase 1; this guard applies to all of them. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

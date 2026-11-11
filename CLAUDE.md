@@ -17,7 +17,8 @@ Repo: https://github.com/suwanagit/gedpasser.git
 - Frontend: React + TypeScript + Vite + Motion + KaTeX in `web/`.
 - One binary serves `/api` and the built frontend. Docker on vs00 in production.
 - Question bank: TOML files in `content/` (skill map in `content/skills.toml`).
-- Validator and answer checker in `tools/`.
+- Validator and answer checker in `tools/`: run `cargo content` from the
+  repo root. Release build: `scripts\build.ps1` (see README "How to run").
 
 ## Rules
 - Work one roadmap phase at a time (see `docs/spec.md`, Roadmap). Plan in
