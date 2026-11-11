@@ -4,8 +4,8 @@ import { api, errorMessage } from '../api/client'
 import type { FlagReason } from '../api/types/FlagReason'
 
 const REASONS: { value: FlagReason; label: string }[] = [
-  { value: 'wrong_answer', label: 'The answer looks wrong' },
-  { value: 'unclear', label: 'The question is confusing or could mean two things' },
+  { value: 'wrong_answer', label: 'Wrong answer' },
+  { value: 'unclear', label: 'Confusing' },
   { value: 'typo', label: 'Typo or display problem' },
   { value: 'other', label: 'Something else' },
 ]
@@ -85,12 +85,9 @@ export function FlagDialog({
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: reduce ? 0 : 0.2 }}
       >
-        <h2 id="flag-title">Flag this question</h2>
-        <p className="muted">
-          Thanks for helping. A flagged question is taken out of practice for everyone until it has been checked.
-        </p>
+        <h2 id="flag-title">Report a problem</h2>
         <fieldset className="reasons">
-          <legend>What's wrong?</legend>
+          <legend className="sr-only">What's wrong?</legend>
           {REASONS.map((r, i) => (
             <label key={r.value} className="reason">
               <input
@@ -106,13 +103,13 @@ export function FlagDialog({
           ))}
         </fieldset>
         <label className="note">
-          Details <span className="muted">(optional)</span>
+          <span className="sr-only">Details (optional)</span>
           <textarea
-            rows={3}
+            rows={2}
             maxLength={500}
             value={note}
             onChange={(e) => setNote(e.target.value)}
-            placeholder="For example: I get 26.30, not 26.35."
+            placeholder="Details (optional)"
           />
         </label>
         {error && (
@@ -125,7 +122,7 @@ export function FlagDialog({
             Cancel
           </button>
           <button type="submit" className="primary" disabled={busy}>
-            {busy ? 'Sending…' : 'Send flag'}
+            {busy ? 'Sending…' : 'Send'}
           </button>
         </div>
       </motion.form>

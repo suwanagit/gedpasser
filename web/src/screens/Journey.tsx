@@ -1,67 +1,170 @@
 import { motion, useReducedMotion } from 'motion/react'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { api, errorMessage } from '../api/client'
 import type { JourneyRun } from '../api/types/JourneyRun'
 import type { JourneyView } from '../api/types/JourneyView'
+import type { Plan } from '../api/types/Plan'
+import type { PlanTask } from '../api/types/PlanTask'
 import type { StageResult } from '../api/types/StageResult'
 import type { StageView } from '../api/types/StageView'
-import { Hack, LessonCard } from '../components/LessonCard'
+import type { Stats } from '../api/types/Stats'
+import { Confetti } from '../components/Confetti'
+import { Icon, type IconName } from '../components/Icon'
+import { CARD_PARTS, Hack, LessonCard } from '../components/LessonCard'
+import { Mascot } from '../components/Mascot'
 import { QuestionView } from '../components/QuestionView'
+import { Ring } from '../components/Ring'
+import { SessionShell } from '../components/SessionShell'
+import { play } from '../sound'
 
-/** The guided path: stages in order, each unlocked by passing the last. */
-export function JourneyMap({ onOpen }: { onOpen: (stageId: string) => void }) {
+export const DAILY_GOAL = 10
+
+const TASK_ICON: Record<PlanTask['kind'], IconName> = {
+  diagnostic: 'clock',
+  power_set: 'bolt',
+  review: 'refresh',
+  full_test: 'clock',
+  hacks: 'bulb',
+  tactics: 'target',
+  journey: 'route',
+  set_date: 'calendar',
+  rest: 'star',
+}
+
+const TASK_LABEL: Record<PlanTask['kind'], string> = {
+  diagnostic: 'Short test',
+  power_set: 'Power set',
+  review: 'Review',
+  full_test: 'Full test',
+  hacks: 'Hacks',
+  tactics: 'Test-day tips',
+  journey: 'Journey',
+  set_date: 'Set test date',
+  rest: 'Rest up',
+}
+
+/** Home: the path, with today's goal beside it. One tap starts the next stage. */
+export function Learn({
+  stats,
+  plan,
+  onOpen,
+  onTask,
+}: {
+  stats: Stats | null
+  plan: Plan | null
+  onOpen: (stageId: string) => void
+  onTask: (t: PlanTask) => void
+}) {
   const [view, setView] = useState<JourneyView | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const currentRef = useRef<HTMLLIElement>(null)
+
   useEffect(() => {
     api.journey().then(setView).catch((e) => setError(errorMessage(e)))
   }, [])
+
+  // Land on the stage that's up next.
+  const loaded = !!view
+  useEffect(() => {
+    if (loaded) currentRef.current?.scrollIntoView({ block: 'center' })
+  }, [loaded])
+
   if (error) return <p className="error">{error}</p>
-  if (!view) return <p className="muted">Loading your journey…</p>
-  const total = view.stages.length
+  if (!view)
+    return (
+      <div className="center loading">
+        <Mascot mood="think" />
+      </div>
+    )
+
+  // A band is the run of stages up to and including a checkpoint.
+  const bands: StageView[][] = [[]]
+  for (const s of view.stages) {
+    bands[bands.length - 1].push(s)
+    if (s.checkpoint) bands.push([])
+  }
+  if (bands[bands.length - 1].length === 0) bands.pop()
+
+  const today = stats?.answered_today ?? 0
+  const tasks = (plan?.today ?? []).filter((t) => t.kind !== 'journey' && t.kind !== 'rest').slice(0, 3)
+  let n = 0
   return (
-    <section className="journey">
-      <div className="journey-head">
-        <h2>Your journey</h2>
-        <span className="muted">
-          {view.passed} of {total} stages
-        </span>
-      </div>
-      <div className="set-progress" aria-hidden="true">
-        <span style={{ width: `${(view.passed / total) * 100}%` }} />
-      </div>
-      <p className="muted intro">Short lessons, then a few questions. Easy first — it builds as you go.</p>
-      <ol className="path">
-        {view.stages.map((s, i) => (
-          <li key={s.id} className={`path-node ${s.status}${s.checkpoint ? ' checkpoint' : ''}${s.id === view.current ? ' current' : ''}`} style={{ ['--offset' as string]: `${Math.sin(i * 0.9) * 22}%` }}>
-            <button disabled={s.status === 'locked'} onClick={() => onOpen(s.id)} aria-label={`${s.title}, ${s.status}`}>
-              <span className="node-dot" aria-hidden="true">
-                {s.status === 'locked' ? '🔒' : s.status === 'done' ? '✓' : s.checkpoint ? '🏁' : i + 1}
-              </span>
-              <span className="node-text">
-                <span className="node-title">{s.title}</span>
-                <span className="node-meta">
-                  {s.checkpoint ? `Checkpoint · ${s.size} questions` : `${s.principles.length} ideas · ${s.size} questions`}
-                  {s.stars > 0 && <span className="stars"> {'★'.repeat(s.stars)}{'☆'.repeat(3 - s.stars)}</span>}
+    <div className="learn">
+      <aside className="today panel">
+        <Ring value={today / DAILY_GOAL} size={64} className="sun">
+          {today >= DAILY_GOAL ? <Icon name="check" /> : `${today}/${DAILY_GOAL}`}
+        </Ring>
+        <div className="today-text">
+          <h3>{today >= DAILY_GOAL ? 'Goal done!' : 'Today'}</h3>
+          <div className="today-tasks">
+            {tasks.map((t, i) => (
+              <button key={i} className="task-chip" onClick={() => onTask(t)} title={t.detail}>
+                <Icon name={TASK_ICON[t.kind]} size={18} />
+                {TASK_LABEL[t.kind]}
+              </button>
+            ))}
+          </div>
+        </div>
+      </aside>
+
+      <div className="path-col">
+        {bands.map((band, b) => {
+          const done = band.filter((s) => s.status === 'done').length
+          return (
+            <section key={b} className={`band band-${b % 6}`}>
+              <header className="band-head">
+                <span>Part {b + 1}</span>
+                <span className="band-count">
+                  {done}/{band.length}
                 </span>
-              </span>
-              {s.id === view.current && <span className="node-go">Start</span>}
-            </button>
-          </li>
-        ))}
-      </ol>
-    </section>
+              </header>
+              <ol className="path">
+                {band.map((s) => {
+                  const i = n++
+                  const isCurrent = s.id === view.current
+                  const icon: IconName = s.status === 'locked' ? 'lock' : s.checkpoint ? 'flag' : s.status === 'done' ? 'check' : 'play'
+                  return (
+                    <li
+                      key={s.id}
+                      ref={isCurrent ? currentRef : undefined}
+                      className={`node ${s.status}${isCurrent ? ' current' : ''}`}
+                      style={{ ['--dx' as string]: `${Math.round(Math.sin(i * 0.9) * 64)}px` }}
+                    >
+                      {isCurrent && <span className="start-bubble">Start</span>}
+                      <button className="node-btn" disabled={s.status === 'locked'} onClick={() => onOpen(s.id)} aria-label={`${s.title}, ${s.status}`}>
+                        <Icon name={icon} size={isCurrent ? 34 : 28} fill={icon === 'play'} />
+                      </button>
+                      {s.status === 'done' && (
+                        <span className="node-stars" aria-label={`${s.stars} of 3 stars`}>
+                          {[0, 1, 2].map((k) => (
+                            <span key={k} className={k < s.stars ? 'on' : ''}>
+                              <Icon name="star" size={14} fill />
+                            </span>
+                          ))}
+                        </span>
+                      )}
+                      <span className="node-title">{s.title}</span>
+                    </li>
+                  )
+                })}
+              </ol>
+            </section>
+          )
+        })}
+      </div>
+    </div>
   )
 }
 
 type Phase =
   | { kind: 'loading' }
   | { kind: 'error'; message: string }
-  | { kind: 'cards'; index: number }
+  | { kind: 'cards'; index: number; part: number }
   | { kind: 'quiz'; index: number }
   | { kind: 'finishing' }
   | { kind: 'result'; result: StageResult }
 
-/** One stage: read the cards, answer the quiz, see how it went. */
+/** One stage: cards a piece at a time, then the quiz, then the result. */
 export function StageRunner({
   stageId,
   onExit,
@@ -73,7 +176,6 @@ export function StageRunner({
 }) {
   const [run, setRun] = useState<JourneyRun | null>(null)
   const [phase, setPhase] = useState<Phase>({ kind: 'loading' })
-  const [right, setRight] = useState(0)
   const reduce = useReducedMotion()
 
   useEffect(() => {
@@ -81,7 +183,7 @@ export function StageRunner({
       .startStage(stageId)
       .then((r) => {
         setRun(r)
-        setPhase(r.cards.length > 0 ? { kind: 'cards', index: 0 } : { kind: 'quiz', index: 0 })
+        setPhase(r.cards.length > 0 ? { kind: 'cards', index: 0, part: 1 } : { kind: 'quiz', index: 0 })
       })
       .catch((e) => setPhase({ kind: 'error', message: errorMessage(e) }))
   }, [stageId])
@@ -90,138 +192,178 @@ export function StageRunner({
     if (!run) return
     setPhase({ kind: 'finishing' })
     try {
-      setPhase({ kind: 'result', result: await api.finishStage(Number(run.run_id)) })
+      const result = await api.finishStage(Number(run.run_id))
+      if (result.passed) play('done')
+      setPhase({ kind: 'result', result })
     } catch (e) {
       setPhase({ kind: 'error', message: errorMessage(e) })
     }
   }, [run])
 
-  if (phase.kind === 'loading') return <p className="muted">Getting the stage ready…</p>
   if (phase.kind === 'error')
     return (
-      <div className="card">
-        <p className="error">{phase.message}</p>
-        <button className="primary" onClick={onExit}>
-          Back to the journey
-        </button>
-      </div>
+      <SessionShell
+        progress={null}
+        onClose={onExit}
+        footer={
+          <button className="primary wide" onClick={onExit}>
+            Back
+          </button>
+        }
+      >
+        <div className="center loading">
+          <Mascot mood="think" />
+          <p className="error">{phase.message}</p>
+        </div>
+      </SessionShell>
     )
-  if (!run) return null
-  const stage: StageView = run.stage
+  if (phase.kind === 'loading' || phase.kind === 'finishing' || !run)
+    return (
+      <SessionShell progress={null} onClose={onExit}>
+        <div className="center loading">
+          <Mascot mood="think" />
+        </div>
+      </SessionShell>
+    )
 
-  return (
-    <section className="stage">
-      <div className="practice-bar">
-        <button className="link" onClick={onExit}>
-          ← Journey
-        </button>
-        <h2>{stage.title}</h2>
-        <span className="muted">
-          {phase.kind === 'cards' && `Lesson ${phase.index + 1} of ${run.cards.length}`}
-          {phase.kind === 'quiz' && `Question ${phase.index + 1} of ${run.questions.length}`}
-        </span>
-      </div>
+  const cardSteps = run.cards.length * CARD_PARTS
+  const total = cardSteps + run.questions.length
 
-      {phase.kind === 'cards' && (
-        <motion.div key={`card${phase.index}`} initial={reduce ? false : { opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: reduce ? 0 : 0.2 }}>
-          <LessonCard card={run.cards[phase.index]} />
-          <div className="actions">
-            {phase.index > 0 && (
-              <button className="secondary" onClick={() => setPhase({ kind: 'cards', index: phase.index - 1 })}>
-                Back
-              </button>
-            )}
-            <button
-              className="primary"
-              autoFocus
-              onClick={() =>
-                setPhase(phase.index + 1 < run.cards.length ? { kind: 'cards', index: phase.index + 1 } : { kind: 'quiz', index: 0 })
-              }
-            >
-              {phase.index + 1 < run.cards.length ? 'Next' : `Try ${run.questions.length} questions`}
-            </button>
-          </div>
+  if (phase.kind === 'cards') {
+    const { index, part } = phase
+    const lastPart = part >= CARD_PARTS
+    const lastCard = index + 1 >= run.cards.length
+    const next = () =>
+      setPhase(!lastPart ? { kind: 'cards', index, part: part + 1 } : !lastCard ? { kind: 'cards', index: index + 1, part: 1 } : { kind: 'quiz', index: 0 })
+    return (
+      <SessionShell
+        progress={(index * CARD_PARTS + part - 1) / total}
+        onClose={onExit}
+        footer={
+          <button key={`${index}-${part}`} className="primary wide" autoFocus onClick={next}>
+            {lastPart && lastCard ? 'Start quiz' : lastPart ? 'Next' : 'Continue'}
+          </button>
+        }
+      >
+        <motion.div key={index} initial={reduce ? false : { opacity: 0, x: 28 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: reduce ? 0 : 0.2 }}>
+          <LessonCard card={run.cards[index]} parts={part} />
         </motion.div>
-      )}
+      </SessionShell>
+    )
+  }
 
-      {phase.kind === 'quiz' && (
-        <QuestionView
-          key={run.questions[phase.index].id}
-          q={run.questions[phase.index]}
-          mode="journey"
-          nextLabel={phase.index + 1 < run.questions.length ? 'Next question' : 'See how you did'}
-          onAnswered={(r) => r.correct && setRight((n) => n + 1)}
-          onNext={() => (phase.index + 1 < run.questions.length ? setPhase({ kind: 'quiz', index: phase.index + 1 }) : void finish())}
-          onFlagged={() => (phase.index + 1 < run.questions.length ? setPhase({ kind: 'quiz', index: phase.index + 1 }) : void finish())}
-        />
-      )}
+  if (phase.kind === 'quiz') {
+    const { index } = phase
+    const advance = () => (index + 1 < run.questions.length ? setPhase({ kind: 'quiz', index: index + 1 }) : void finish())
+    return (
+      <QuestionView
+        key={run.questions[index].id}
+        q={run.questions[index]}
+        mode="journey"
+        progress={(cardSteps + index) / total}
+        onClose={onExit}
+        onNext={advance}
+        onFlagged={advance}
+      />
+    )
+  }
 
-      {phase.kind === 'finishing' && <p className="muted">Scoring… ({right} right so far)</p>}
-
-      {phase.kind === 'result' && (
-        <StageResultCard result={phase.result} onRetry={() => onOpen(stageId)} onNext={phase.result.next_stage ? () => onOpen(phase.result.next_stage!) : undefined} onExit={onExit} />
-      )}
-    </section>
+  const { result } = phase
+  const again = () => onOpen(stageId)
+  const nextStage = result.passed && result.next_stage ? result.next_stage : null
+  return (
+    <SessionShell
+      progress={null}
+      onClose={onExit}
+      footer={
+        <button className="primary wide" autoFocus onClick={nextStage ? () => onOpen(nextStage) : result.passed ? onExit : again}>
+          {nextStage ? 'Next stage' : result.passed ? 'Done' : 'Try again'}
+        </button>
+      }
+    >
+      <ResultScreen
+        passed={result.passed}
+        stars={result.stars}
+        title={result.passed ? (result.stars === 3 ? 'Perfect!' : 'Stage passed!') : 'So close!'}
+        score={`${result.correct} / ${result.total}`}
+        xp={result.bonus_xp}
+        hack={result.hacks[0]?.hack}
+      />
+    </SessionShell>
   )
 }
 
-function StageResultCard({
-  result,
-  onRetry,
-  onNext,
-  onExit,
+/** The end-of-session screen: mascot, stars, score, XP, one hack. */
+export function ResultScreen({
+  passed,
+  stars,
+  title,
+  score,
+  xp,
+  hack,
 }: {
-  result: StageResult
-  onRetry: () => void
-  onNext?: () => void
-  onExit: () => void
+  passed: boolean
+  /** Leave out to hide the stars. */
+  stars?: number
+  title: string
+  score: string
+  xp: number
+  hack?: string | null
 }) {
   const reduce = useReducedMotion()
+  const shownXp = useCountUp(xp)
   return (
-    <section className={`card stage-result ${result.passed ? 'right' : 'wrong'}`} role="status">
-      <div className="result-stars" aria-label={`${result.stars} of 3 stars`}>
-        {[0, 1, 2].map((i) => (
-          <motion.span
-            key={i}
-            className={i < result.stars ? 'star on' : 'star'}
-            initial={reduce ? false : { scale: 0, rotate: -30 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ delay: reduce ? 0 : 0.15 * i, duration: reduce ? 0 : 0.3 }}
-          >
-            ★
-          </motion.span>
-        ))}
-      </div>
-      <h3>
-        {result.passed ? (result.stars === 3 ? 'Perfect!' : 'Stage passed!') : 'Almost — give it another go.'} {result.correct} of {result.total}
-      </h3>
-      {result.bonus_xp > 0 && <p className="xp-pop big">+{result.bonus_xp} XP stage bonus</p>}
-      {!result.passed && <p className="muted">Pass with about two out of three right. The lesson cards are there to help.</p>}
-      {result.hacks.length > 0 && (
-        <>
-          <h4>{result.missed.length > 0 ? 'Take these with you' : 'Hacks to remember'}</h4>
-          {result.hacks.map((h) => (
-            <div key={h.principle.id} className="hack-row">
-              <span className="badge">{h.principle.id}</span> <strong>{h.title}</strong>
-              <Hack text={h.hack} />
-            </div>
+    <div className="result center" role="status">
+      {passed && <Confetti />}
+      <Mascot mood={passed ? 'cheer' : 'think'} size={128} />
+      {stars !== undefined && (
+        <div className="result-stars" aria-label={`${stars} of 3 stars`}>
+          {[0, 1, 2].map((i) => (
+            <motion.span
+              key={i}
+              className={i < stars ? 'on' : ''}
+              initial={reduce ? false : { scale: 0, rotate: -40 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={reduce ? { duration: 0 } : { delay: 0.2 + 0.18 * i, type: 'spring', stiffness: 380, damping: 14 }}
+            >
+              <Icon name="star" size={52} fill />
+            </motion.span>
           ))}
-        </>
+        </div>
       )}
-      <div className="actions">
-        <button className="secondary" onClick={onExit}>
-          Journey
-        </button>
-        {!result.passed || !onNext ? (
-          <button className="primary" autoFocus onClick={onRetry}>
-            Try again
-          </button>
-        ) : (
-          <button className="primary" autoFocus onClick={onNext}>
-            Next stage →
-          </button>
+      <h1>{title}</h1>
+      <div className="result-stats">
+        <span className="result-stat">
+          <span className="eyebrow">Score</span>
+          <strong>{score}</strong>
+        </span>
+        {xp > 0 && (
+          <span className="result-stat sun">
+            <span className="eyebrow">XP</span>
+            <strong>+{shownXp}</strong>
+          </span>
         )}
       </div>
-    </section>
+      {hack && <Hack text={hack} />}
+    </div>
   )
+}
+
+function useCountUp(target: number): number {
+  const reduce = useReducedMotion()
+  const [n, setN] = useState(reduce ? target : 0)
+  useEffect(() => {
+    if (reduce || target <= 0) {
+      setN(target)
+      return
+    }
+    const began = performance.now()
+    let frame = requestAnimationFrame(function tick(now) {
+      const t = Math.min(1, (now - began) / 700)
+      setN(Math.round(target * t))
+      if (t < 1) frame = requestAnimationFrame(tick)
+    })
+    return () => cancelAnimationFrame(frame)
+  }, [target, reduce])
+  return n
 }

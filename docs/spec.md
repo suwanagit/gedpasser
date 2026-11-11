@@ -269,6 +269,16 @@ Seven phases take the app from an empty repo to a public site; Phases 0 to 3 are
 - [x] Test-week plan: test date, days left, priorities by yield × weakness, daily tasks (check-up, power set, review, full test 2–3 days out, tactics, rest)
 - [x] Tips: test-day tactics, every memory hack, printable formula sheet
 
+**Phase 5c: Redesign** (added 2026-11-11 at Jon's request: clean, playful, few words; frontend only)
+
+- [x] Four tabs (Learn, Practice, Library, Me): bottom bar on phones, side rail on wide screens; Back and reload work
+- [x] The path is the home screen; one tap starts the next stage; today's goal ring and tasks beside it
+- [x] Full-screen sessions: one question per screen, Check fixed at the bottom, verdict in the footer, explanation behind a tap
+- [x] Lesson cards reveal one part per tap; result screen with stars, XP, confetti and one hack
+- [x] Own look: Alaska palette in light and dark, bundled rounded font, one SVG icon set, moose mascot, pressable buttons, optional sounds
+- [x] Practice test kept plain; report with a score ring, a bar per skill, and missed questions that open on tap
+- [ ] Jon checks the look on a phone and a PC, in light and dark mode
+
 **Phase 6: Deploy and go public**
 
 - [ ] Docker image runs on vs00 behind Caddy on the LAN

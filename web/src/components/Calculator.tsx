@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Icon } from './Icon'
 
 /**
  * A small on-screen calculator: + − × ÷, powers, square roots, π and
@@ -29,8 +30,8 @@ export function Calculator({ onClose }: { onClose: () => void }) {
     <div className="calculator" role="group" aria-label="Calculator">
       <div className="calc-head">
         <strong>Calculator</strong>
-        <button className="link" onClick={onClose} aria-label="Close calculator">
-          ×
+        <button className="icon-btn" onClick={onClose} aria-label="Close calculator">
+          <Icon name="x" size={18} />
         </button>
       </div>
       <input

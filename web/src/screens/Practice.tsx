@@ -1,210 +1,247 @@
 import { useCallback, useEffect, useState } from 'react'
 import { api, errorMessage, type Scope } from '../api/client'
+import type { Plan } from '../api/types/Plan'
 import type { PracticeQuestion } from '../api/types/PracticeQuestion'
 import type { PrincipleRef } from '../api/types/PrincipleRef'
+import type { Progress } from '../api/types/Progress'
+import type { Stats } from '../api/types/Stats'
+import type { TestKind } from '../api/types/TestKind'
+import type { TestSummary } from '../api/types/TestSummary'
+import { Icon, type IconName } from '../components/Icon'
 import { LessonPanel } from '../components/LessonPanel'
+import { Mascot } from '../components/Mascot'
 import { QuestionView } from '../components/QuestionView'
+import { Ring } from '../components/Ring'
+import { SessionShell } from '../components/SessionShell'
+import { play } from '../sound'
+import { ResultScreen } from './Journey'
+
+export const TEST_KINDS: { kind: TestKind; title: string; questions: number; minutes: number }[] = [
+  { kind: 'short', title: 'Short', questions: 10, minutes: 25 },
+  { kind: 'long', title: 'Long', questions: 25, minutes: 60 },
+  { kind: 'full', title: 'Full', questions: 46, minutes: 115 },
+]
+
+/** Practice tab: three quick ways in, practice tests, then every skill. */
+export function PracticeMenu({
+  stats,
+  plan,
+  onStart,
+  onTest,
+}: {
+  stats: Stats | null
+  plan: Plan | null
+  onStart: (scope: Scope, setLength?: number) => void
+  onTest: (kind: TestKind) => void
+}) {
+  const [progress, setProgress] = useState<Progress | null>(null)
+  const [history, setHistory] = useState<TestSummary[]>([])
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    api.progress().then(setProgress).catch((e) => setError(errorMessage(e)))
+    api.tests().then(setHistory).catch(() => setHistory([]))
+  }, [])
+
+  const due = stats?.review_due ?? 0
+  const weak = (plan?.priorities ?? []).slice(0, 5).map((p) => p.principle.id)
+  const quick: { icon: IconName; title: string; sub: string; tone: string; badge?: number; disabled?: boolean; go: () => void }[] = [
+    { icon: 'bolt', title: 'Quick 5', sub: '2 min', tone: 'sun', go: () => onStart({ mode: 'mixed' }, 5) },
+    {
+      icon: 'target',
+      title: 'Weak spots',
+      sub: '10 questions',
+      tone: 'coral',
+      go: () => onStart(weak.length > 0 ? { mode: 'principle', id: weak.join(','), name: 'Weak spots' } : { mode: 'mixed' }),
+    },
+    { icon: 'refresh', title: 'Review', sub: due > 0 ? `${due} due` : 'All caught up', tone: 'violet', badge: due, disabled: due === 0, go: () => onStart({ mode: 'review' }) },
+  ]
+
+  return (
+    <div className="practice-menu">
+      <div className="quick-grid">
+        {quick.map((t) => (
+          <button key={t.title} className={`tile ${t.tone}`} disabled={t.disabled} onClick={t.go}>
+            <span className="tile-icon">
+              <Icon name={t.icon} size={28} fill={t.icon === 'bolt'} />
+            </span>
+            <strong>{t.title}</strong>
+            <span className="tile-sub">{t.sub}</span>
+            {!!t.badge && <span className="tile-badge">{t.badge}</span>}
+          </button>
+        ))}
+      </div>
+
+      <h2>Practice test</h2>
+      <div className="quick-grid">
+        {TEST_KINDS.map((k) => (
+          <button key={k.kind} className="tile plain" onClick={() => onTest(k.kind)}>
+            <strong>{k.title}</strong>
+            <span className="tile-sub">
+              {k.questions} Q · {k.minutes} min
+            </span>
+          </button>
+        ))}
+      </div>
+      {history.length > 0 && (
+        <ul className="rows">
+          {history.slice(0, 3).map((h) => (
+            <li key={h.id} className="row">
+              <span>{TEST_KINDS.find((k) => k.kind === h.kind)?.title}</span>
+              <span className="muted small">{new Date(h.finished_at * 1000).toLocaleDateString()}</span>
+              <strong>{h.percent}%</strong>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <h2>Skills</h2>
+      {error && <p className="error">{error}</p>}
+      {progress && progress.skills.every((s) => s.available === 0) && (
+        <p className="panel muted">
+          No reviewed questions yet. To try drafts, run <code>scripts\run-with-drafts.cmd</code>.
+        </p>
+      )}
+      <div className="skill-grid">
+        {progress?.skills.map((s) => (
+          <button key={s.id} className="skill-tile" disabled={s.available === 0} onClick={() => onStart({ mode: 'skill', id: s.id, name: s.name })}>
+            <Ring value={s.mastery ?? 0} size={48} stroke={6} className={`level-${s.level}`}>
+              {s.mastery === null ? '' : Math.round(s.mastery * 100)}
+            </Ring>
+            <span>{s.name}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 type Outcome = { principle: PrincipleRef; correct: boolean }
 
-function scopeTitle(scope: Scope): string {
-  if (scope.mode === 'mixed') return 'Mixed practice'
-  if (scope.mode === 'review') return 'Review'
-  return scope.name
-}
-
-/**
- * Practice from a skill, principle(s), a weighted mix, or due reviews. With
- * `setLength`, the session ends after that many answers with a summary.
- */
+/** A practice set: `setLength` questions from a scope, then a short result. */
 export function Practice({
   scope,
   setLength,
   onExit,
-  onStart,
+  onAgain,
 }: {
   scope: Scope
-  setLength: number | null
+  setLength: number
   onExit: () => void
-  onStart: (scope: Scope, setLength: number | null) => void
+  onAgain: () => void
 }) {
   const [q, setQ] = useState<PracticeQuestion | null>(null)
   const [status, setStatus] = useState<'loading' | 'ready' | 'empty' | 'summary'>('loading')
   const [error, setError] = useState<string | null>(null)
   const [outcomes, setOutcomes] = useState<Outcome[]>([])
   const [xp, setXp] = useState(0)
-  const [notice, setNotice] = useState<string | null>(null)
   const [lessonFor, setLessonFor] = useState<string | null>(null)
   const closeLesson = useCallback(() => setLessonFor(null), [])
 
+  const finishSet = useCallback(() => {
+    play('done')
+    setStatus('summary')
+  }, [])
+
   const load = useCallback(
-    async (after?: string) => {
+    async (after?: string, answeredSoFar = 0) => {
       setStatus('loading')
       setError(null)
       try {
         const { question } = await api.next(scope, after)
         setQ(question)
-        setStatus(question ? 'ready' : 'empty')
+        // Running out of questions part-way through still ends with a result.
+        if (question) setStatus('ready')
+        else if (answeredSoFar > 0) finishSet()
+        else setStatus('empty')
       } catch (e) {
         setError(errorMessage(e))
       }
     },
-    [scope],
+    [scope, finishSet],
   )
 
   useEffect(() => {
     void load()
   }, [load])
 
-  const done = setLength !== null && outcomes.length >= setLength
-  const next = useCallback(() => {
-    if (done) setStatus('summary')
-    else void load(q?.id)
-  }, [done, load, q])
+  const count = outcomes.length
+  const next = () => (count >= setLength ? finishSet() : void load(q?.id, count))
 
-  const mode = scope.mode
+  if (status === 'ready' && q && !error)
+    return (
+      <QuestionView
+        key={q.id}
+        q={q}
+        mode={scope.mode}
+        showSkill={scope.mode !== 'skill'}
+        progress={count / setLength}
+        onClose={onExit}
+        onAnswered={(r) => {
+          setOutcomes((o) => [...o, { principle: r.principle, correct: r.correct }])
+          setXp((x) => x + r.xp)
+        }}
+        onNext={next}
+        onFlagged={() => void load(q.id, count)}
+      />
+    )
+
+  if (status === 'summary') {
+    const right = outcomes.filter((o) => o.correct).length
+    const missed = [...new Map(outcomes.filter((o) => !o.correct).map((o) => [o.principle.id, o.principle])).values()].slice(0, 3)
+    return (
+      <SessionShell
+        progress={null}
+        onClose={onExit}
+        footer={
+          <div className="check-row">
+            <button className="secondary" onClick={onAgain}>
+              Again
+            </button>
+            <button className="primary wide" autoFocus onClick={onExit}>
+              Done
+            </button>
+          </div>
+        }
+      >
+        <ResultScreen passed={right * 3 >= count * 2} title={right === count ? 'Perfect!' : right * 3 >= count * 2 ? 'Nice work!' : 'Keep going!'} score={`${right} / ${count}`} xp={xp} />
+        {missed.length > 0 && (
+          <div className="missed">
+            <p className="eyebrow">Worth a look</p>
+            {missed.map((p) => (
+              <button key={p.id} className="row row-btn" onClick={() => setLessonFor(p.id)}>
+                <span>{p.name}</span>
+                <Icon name="right" size={18} />
+              </button>
+            ))}
+          </div>
+        )}
+        {lessonFor && <LessonPanel principleId={lessonFor} onClose={closeLesson} />}
+      </SessionShell>
+    )
+  }
+
   return (
-    <section className="practice">
-      <div className="practice-bar">
-        <button className="link" onClick={onExit}>
-          ← Back
-        </button>
-        <h2>{scopeTitle(scope)}</h2>
-        <span className="muted" aria-live="polite">
-          {setLength !== null && status !== 'summary'
-            ? `Question ${Math.min(outcomes.length + (status === 'ready' && q && outcomes.length < setLength ? 1 : 0), setLength)} of ${setLength}`
-            : outcomes.length > 0
-              ? `${outcomes.filter((o) => o.correct).length} / ${outcomes.length} · +${xp} XP`
-              : ''}
-        </span>
-      </div>
-      {setLength !== null && status !== 'summary' && (
-        <div className="set-progress" aria-hidden="true">
-          <span style={{ width: `${(outcomes.length / setLength) * 100}%` }} />
-        </div>
-      )}
-
-      {notice && (
-        <p className="flash" role="status">
-          {notice}{' '}
-          <button className="link" onClick={() => setNotice(null)} aria-label="Dismiss">
-            ×
-          </button>
-        </p>
-      )}
-      {error && (
-        <div className="card">
-          <p className="error">{error}</p>
-          <button className="primary" onClick={() => void load()}>
+    <SessionShell
+      progress={null}
+      onClose={onExit}
+      footer={
+        error ? (
+          <button className="primary wide" onClick={() => void load()}>
             Try again
           </button>
-        </div>
-      )}
-      {status === 'loading' && !error && <p className="muted">Loading…</p>}
-      {status === 'empty' && (
-        <div className="card">
-          <p>{mode === 'review' ? 'Nothing is due for review right now. Nice work.' : 'There are no questions here yet.'}</p>
-          <button className="primary" onClick={onExit}>
+        ) : status === 'empty' ? (
+          <button className="primary wide" autoFocus onClick={onExit}>
             Back
           </button>
-        </div>
-      )}
-      {status === 'ready' && q && (
-        <QuestionView
-          key={q.id}
-          q={q}
-          mode={mode === 'review' ? 'review' : mode}
-          showSkill={mode !== 'skill'}
-          nextLabel={setLength !== null && outcomes.length >= setLength ? 'See results' : 'Next question'}
-          onAnswered={(r) => {
-            setOutcomes((o) => [...o, { principle: r.principle, correct: r.correct }])
-            setXp((x) => x + r.xp)
-          }}
-          onNext={next}
-          onFlagged={() => {
-            setNotice('Thanks — this question is out of practice until it has been checked.')
-            void load(q.id)
-          }}
-        />
-      )}
-      {status === 'summary' && (
-        <SetSummary
-          outcomes={outcomes}
-          xp={xp}
-          onLearn={setLessonFor}
-          onPractice={(p) => onStart({ mode: 'principle', id: p.id, name: p.name }, setLength)}
-          onAgain={() => onStart(scope, setLength)}
-          onExit={onExit}
-        />
-      )}
-      {lessonFor && <LessonPanel principleId={lessonFor} onClose={closeLesson} />}
-    </section>
-  )
-}
-
-/** End-of-set results: score, and the principles missed with ways to fix them. */
-function SetSummary({
-  outcomes,
-  xp,
-  onLearn,
-  onPractice,
-  onAgain,
-  onExit,
-}: {
-  outcomes: Outcome[]
-  xp: number
-  onLearn: (principleId: string) => void
-  onPractice: (p: PrincipleRef) => void
-  onAgain: () => void
-  onExit: () => void
-}) {
-  const right = outcomes.filter((o) => o.correct).length
-  const missed = new Map<string, { p: PrincipleRef; count: number }>()
-  for (const o of outcomes) {
-    if (o.correct) continue
-    const m = missed.get(o.principle.id)
-    if (m) m.count += 1
-    else missed.set(o.principle.id, { p: o.principle, count: 1 })
-  }
-  return (
-    <section className="card summary" role="status">
-      <h3>
-        Set complete: {right} of {outcomes.length} correct
-      </h3>
-      <p className="muted">+{xp} XP</p>
-      {missed.size === 0 ? (
-        <p>Nothing missed — nice work.</p>
-      ) : (
-        <>
-          <h4>Worth another look</h4>
-          <ul className="missed">
-            {[...missed.values()].map(({ p, count }) => (
-              <li key={p.id}>
-                <span>
-                  <span className="badge">{p.id}</span> {p.name}
-                  {count > 1 ? ` (missed ${count})` : ''}
-                </span>
-                <span className="missed-actions">
-                  <button className="link" onClick={() => onLearn(p.id)}>
-                    Learn this
-                  </button>
-                  <button className="secondary small" onClick={() => onPractice(p)}>
-                    Practice this
-                  </button>
-                </span>
-              </li>
-            ))}
-          </ul>
-        </>
-      )}
-      <div className="actions">
-        <button className="secondary" onClick={onExit}>
-          Done
-        </button>
-        <button className="primary" autoFocus onClick={onAgain}>
-          Another set
-        </button>
+        ) : undefined
+      }
+    >
+      <div className="center loading">
+        <Mascot mood={status === 'empty' && scope.mode === 'review' ? 'cheer' : 'think'} />
+        {error && <p className="error">{error}</p>}
+        {status === 'empty' && !error && <h2>{scope.mode === 'review' ? 'All caught up!' : 'No questions here yet'}</h2>}
       </div>
-    </section>
+    </SessionShell>
   )
 }

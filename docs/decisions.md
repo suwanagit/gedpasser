@@ -4,6 +4,15 @@ Newest first. One line per decision: date, decision, reason.
 
 | Date | Decision | Reason |
 | --- | --- | --- |
+| 2026-11-11 | Redesign (branch `redesign`): four tabs instead of six. Learn (the path, home), Practice (quick sets, practice tests, skills), Library (lessons, hacks, formulas, test day), Me (level, test date, strengths, settings, About). Bottom bar on phones, side rail on wide screens | Jon: it read like a document; finding your way around must take no effort |
+| 2026-11-11 | Design rules: one obvious next step per screen; one thing per screen while learning; labels of 1–3 words, detail behind a tap; phone first with the main button fixed at the bottom | Effort should go into the math, not the app |
+| 2026-11-11 | Stages, practice sets and review run full screen with navigation hidden: close, progress bar, question, Check. The verdict slides into the footer (right: cheer + XP; wrong: answer + hack); the explanation is behind "Why?" / "See how". Lesson cards reveal rule → steps → example → hack, one tap each | The old question screen showed five blocks of text at once |
+| 2026-11-11 | Own look, not a Duolingo copy: aurora teal, sun yellow for XP and stars, coral for mistakes, navy dark mode; Nunito bundled via `@fontsource-variable/nunito`; inline SVG icons replace emoji; a moose mascot; pressable buttons | Friendly and consistent on every device, and works offline on the LAN |
+| 2026-11-11 | Sounds are short Web Audio tones (no files) with a phone buzz on a miss; on by default, switch in Me, stored per browser | Instant feedback without assets |
+| 2026-11-11 | Practice tests stay plain (no XP pops, sounds or mascot while answering) | They should feel like test day |
+| 2026-11-11 | The tab is kept in the address bar (`#learn`, `#practice`, `#library`, `#me`); a session adds one history entry | Reload stays put and the phone Back button moves between screens instead of leaving the app |
+| 2026-11-11 | The AI and "not affiliated" notices moved from a footer on every page to one line on sign-in plus Me → About | Still seen before use, without two paragraphs under every screen |
+| 2026-11-11 | Daily goal ring = answers today out of 10; path bands are "Part N", one per checkpoint | Both come from existing data, so the redesign needed no server change |
 | 2026-11-11 | Work on the `journey` branch; `main` stays at the Phase 3 build until Jon merges | Jon asked to "fork here" before a large redesign |
 | 2026-11-11 | Short cards (`content/cards/<skill>.toml`) are the first thing learners read; the long lesson becomes "More detail". The validator caps a card at 90 words outside math, 4 steps of 16 words, a 1–5 word title | Learners don't read much; brevity is enforced, not hoped for |
 | 2026-11-11 | Every card has a memory hack, also shown after a miss, on stage results, in the test report, in today's plan, and on the Tips page | Hacks are what learners carry into the test |

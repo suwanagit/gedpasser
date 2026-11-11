@@ -4,8 +4,8 @@
   "description": "Free GED Math practice for Alaskans: a guided journey, short lessons, memory hacks and practice tests.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0f141a",
-  "theme_color": "#1f6feb",
+  "background_color": "#ffffff",
+  "theme_color": "#0c9d91",
   "icons": [
     { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
   ]

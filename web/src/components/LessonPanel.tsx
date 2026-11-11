@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'motion/react'
 import { useEffect, useRef, useState } from 'react'
 import { api, errorMessage } from '../api/client'
 import type { Lesson } from '../api/types/Lesson'
+import { Icon } from './Icon'
 import { LessonCard } from './LessonCard'
 import { LessonText } from './LessonText'
 import { MathText } from './MathText'
@@ -78,20 +79,20 @@ export function LessonPanel({
         transition={{ duration: reduce ? 0 : 0.2 }}
       >
         <div className="lesson-head">
-          <div>
-            {lesson && <span className="muted lesson-skill">{lesson.skill_name}</span>}
-          </div>
-          <button ref={closeRef} className="secondary small" onClick={onClose}>
-            Close
+          <p className="eyebrow">{lesson?.skill_name}</p>
+          <button ref={closeRef} className="icon-btn" onClick={onClose} aria-label="Close">
+            <Icon name="x" />
           </button>
         </div>
         {error && <p className="error">{error}</p>}
-        {!lesson && !error && <p className="muted">Loading lesson…</p>}
+        {!lesson && !error && <p className="muted">Loading…</p>}
         {lesson && (
           <>
-            <h2 id="lesson-title">{lesson.name}</h2>
+            <h2 id="lesson-title" className={lesson.card ? 'sr-only' : undefined}>
+              {lesson.name}
+            </h2>
             {lesson.card ? (
-              <LessonCard card={lesson.card} compact />
+              <LessonCard card={lesson.card} />
             ) : (
               <p className="lesson-summary">
                 <MathText text={lesson.summary} />
@@ -100,16 +101,16 @@ export function LessonPanel({
             {lesson.lesson ? (
               <details className="more-detail" open={!lesson.card}>
                 <summary>More detail</summary>
-                {lesson.draft && <p className="badge draft">Draft lesson – not reviewed</p>}
+                {lesson.draft && <p className="pill draft">Draft</p>}
                 <LessonText text={lesson.lesson} />
               </details>
             ) : (
-              !lesson.card && <p className="muted">The full lesson for this principle is coming soon.</p>
+              !lesson.card && <p className="muted">Lesson coming soon.</p>
             )}
             {onPractice && (
               <div className="actions">
-                <button className="primary" onClick={onPractice}>
-                  Practice this principle
+                <button className="primary wide" onClick={onPractice}>
+                  Practice
                 </button>
               </div>
             )}

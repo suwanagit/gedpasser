@@ -1,189 +1,255 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { ApiError, api, errorMessage, type Scope } from './api/client'
-import type { Me } from './api/types/Me'
+import type { Me as MeInfo } from './api/types/Me'
+import type { Plan } from './api/types/Plan'
+import type { PlanTask } from './api/types/PlanTask'
+import type { Stats } from './api/types/Stats'
 import type { TestKind } from './api/types/TestKind'
-import { Dashboard } from './screens/Dashboard'
-import { Home } from './screens/Home'
-import { JourneyMap, StageRunner } from './screens/Journey'
-import { Lessons } from './screens/Lessons'
-import { Practice } from './screens/Practice'
+import { Icon, type IconName } from './components/Icon'
+import { Mascot } from './components/Mascot'
+import { Learn, StageRunner } from './screens/Journey'
+import { Library, type LibraryTab } from './screens/Library'
+import { Me } from './screens/Me'
+import { Practice, PracticeMenu } from './screens/Practice'
 import { ProfilePicker } from './screens/ProfilePicker'
-import { TestRunner, TestsHome } from './screens/Tests'
-import { Tips } from './screens/Tips'
+import { TestRunner } from './screens/Tests'
 
-type Tab = 'home' | 'journey' | 'practice' | 'tests' | 'explore' | 'tips'
+type Tab = 'learn' | 'practice' | 'library' | 'me'
 
 type View =
-  | { kind: 'home' }
-  | { kind: 'journey' }
+  | { kind: 'learn' }
   | { kind: 'stage'; stageId: string; run: number }
   | { kind: 'practice-menu' }
-  | { kind: 'practice'; scope: Scope; setLength: number | null; run: number; back: Tab }
-  | { kind: 'tests' }
+  | { kind: 'practice'; scope: Scope; setLength: number; run: number; back: Tab }
   | { kind: 'test'; testKind: TestKind; run: number }
-  | { kind: 'explore' }
-  | { kind: 'tips' }
+  | { kind: 'library'; tab: LibraryTab }
+  | { kind: 'me' }
 
 type Screen =
   | { kind: 'starting' }
   | { kind: 'error'; message: string }
   | { kind: 'profiles' }
-  | { kind: 'app'; me: Me; view: View }
+  | { kind: 'app'; me: MeInfo; view: View }
 
-const TABS: { tab: Tab; label: string; icon: string }[] = [
-  { tab: 'home', label: 'Home', icon: '🏠' },
-  { tab: 'journey', label: 'Journey', icon: '🗺' },
-  { tab: 'practice', label: 'Practice', icon: '✏️' },
-  { tab: 'tests', label: 'Tests', icon: '⏱' },
-  { tab: 'explore', label: 'Explore', icon: '📚' },
-  { tab: 'tips', label: 'Tips', icon: '💡' },
+const TABS: { tab: Tab; label: string; icon: IconName }[] = [
+  { tab: 'learn', label: 'Learn', icon: 'route' },
+  { tab: 'practice', label: 'Practice', icon: 'target' },
+  { tab: 'library', label: 'Library', icon: 'book' },
+  { tab: 'me', label: 'Me', icon: 'user' },
 ]
-
-function tabOf(v: View): Tab {
-  switch (v.kind) {
-    case 'home':
-      return 'home'
-    case 'journey':
-    case 'stage':
-      return 'journey'
-    case 'practice-menu':
-      return 'practice'
-    case 'practice':
-      return v.back
-    case 'tests':
-    case 'test':
-      return 'tests'
-    case 'explore':
-      return 'explore'
-    case 'tips':
-      return 'tips'
-  }
-}
 
 function tabView(t: Tab): View {
   switch (t) {
-    case 'home':
-      return { kind: 'home' }
-    case 'journey':
-      return { kind: 'journey' }
+    case 'learn':
+      return { kind: 'learn' }
     case 'practice':
       return { kind: 'practice-menu' }
-    case 'tests':
-      return { kind: 'tests' }
-    case 'explore':
-      return { kind: 'explore' }
-    case 'tips':
-      return { kind: 'tips' }
+    case 'library':
+      return { kind: 'library', tab: 'lessons' }
+    case 'me':
+      return { kind: 'me' }
   }
+}
+
+function tabOf(v: View): Tab | null {
+  switch (v.kind) {
+    case 'learn':
+      return 'learn'
+    case 'practice-menu':
+      return 'practice'
+    case 'library':
+      return 'library'
+    case 'me':
+      return 'me'
+    default:
+      return null // a session: full screen, no navigation
+  }
+}
+
+/** The tab named in the address bar, so reload and the Back button work. */
+function hashTab(): Tab {
+  const h = window.location.hash.slice(1)
+  return TABS.some((t) => t.tab === h) ? (h as Tab) : 'learn'
 }
 
 export default function App() {
   const [screen, setScreen] = useState<Screen>({ kind: 'starting' })
+  const [stats, setStats] = useState<Stats | null>(null)
+  const [plan, setPlan] = useState<Plan | null>(null)
 
   useEffect(() => {
     api
       .me()
-      .then((me) => setScreen({ kind: 'app', me, view: { kind: 'home' } }))
+      .then((me) => setScreen({ kind: 'app', me, view: tabView(hashTab()) }))
       .catch((e) => {
         if (e instanceof ApiError && e.status === 401) setScreen({ kind: 'profiles' })
         else setScreen({ kind: 'error', message: errorMessage(e) })
       })
   }, [])
 
+  const me = screen.kind === 'app' ? screen.me : null
+  const view = screen.kind === 'app' ? screen.view : null
+  const current = view ? tabOf(view) : null
+
+  const refresh = useCallback(() => {
+    Promise.all([api.stats(), api.plan()])
+      .then(([s, p]) => {
+        setStats(s)
+        setPlan(p)
+      })
+      .catch(() => {
+        // the screens show their own errors
+      })
+  }, [])
+
+  // Fresh numbers every time the learner lands on a tab.
+  const meId = me?.id
+  useEffect(() => {
+    if (meId !== undefined && current) refresh()
+  }, [meId, current, refresh])
+
+  // Back and Forward move between tabs; Back from a session returns to its tab.
+  useEffect(() => {
+    const onPop = () => setScreen((s) => (s.kind === 'app' ? { ...s, view: tabView(hashTab()) } : s))
+    window.addEventListener('popstate', onPop)
+    return () => window.removeEventListener('popstate', onPop)
+  }, [])
+
   async function logout() {
     try {
       await api.logout()
     } finally {
+      setStats(null)
+      setPlan(null)
       setScreen({ kind: 'profiles' })
     }
   }
 
-  const me = screen.kind === 'app' ? screen.me : null
-  const go = (view: View) => {
+  const go = (next: View) => {
     if (me) {
-      setScreen({ kind: 'app', me, view })
+      const hash = `#${tabOf(next) ?? 'go'}`
+      // Leaving a session replaces its entry, so Back never lands on a dead one.
+      if (view && tabOf(view) === null) window.history.replaceState(null, '', hash)
+      else if (window.location.hash !== hash) window.history.pushState(null, '', hash)
+      setScreen({ kind: 'app', me, view: next })
       window.scrollTo({ top: 0 })
     }
   }
-  const start = (scope: Scope, setLength: number | null, back: Tab) =>
-    go({ kind: 'practice', scope, setLength, run: Date.now(), back })
-  const openStage = (stageId?: string) =>
-    go(stageId ? { kind: 'stage', stageId, run: Date.now() } : { kind: 'journey' })
+  const back: Tab = current ?? (view?.kind === 'practice' ? view.back : 'learn')
+  const start = (scope: Scope, setLength = 10) => go({ kind: 'practice', scope, setLength, run: Date.now(), back })
+  const openStage = (stageId: string) => go({ kind: 'stage', stageId, run: Date.now() })
   const startTest = (testKind: TestKind) => go({ kind: 'test', testKind, run: Date.now() })
 
-  const view = screen.kind === 'app' ? screen.view : null
-  const current = view ? tabOf(view) : null
-  // A running test hides the navigation, like the real thing.
-  const inTest = view?.kind === 'test'
+  function runTask(t: PlanTask) {
+    switch (t.kind) {
+      case 'diagnostic':
+        return startTest('short')
+      case 'full_test':
+        return startTest('full')
+      case 'power_set':
+        return start({ mode: 'principle', id: t.principles.join(','), name: 'Power set' })
+      case 'review':
+        return start({ mode: 'review' })
+      case 'hacks':
+        return go({ kind: 'library', tab: 'hacks' })
+      case 'tactics':
+        return go({ kind: 'library', tab: 'testday' })
+      case 'set_date':
+        return go({ kind: 'me' })
+      case 'journey':
+      case 'rest':
+        return go({ kind: 'learn' })
+    }
+  }
 
+  if (screen.kind === 'starting')
+    return (
+      <div className="center loading">
+        <Mascot mood="think" />
+      </div>
+    )
+  if (screen.kind === 'error')
+    return (
+      <div className="center loading">
+        <Mascot mood="think" />
+        <p className="error">Can’t reach the server.</p>
+        <p className="muted small">{screen.message}</p>
+      </div>
+    )
+  if (screen.kind === 'profiles' || !me || !view)
+    return <ProfilePicker onLoggedIn={(m) => setScreen({ kind: 'app', me: m, view: { kind: 'learn' } })} />
+
+  if (view.kind === 'stage')
+    return <StageRunner key={view.run} stageId={view.stageId} onExit={() => go({ kind: 'learn' })} onOpen={openStage} />
+  if (view.kind === 'practice')
+    return (
+      <Practice
+        key={view.run}
+        scope={view.scope}
+        setLength={view.setLength}
+        onExit={() => go(tabView(view.back))}
+        onAgain={() => start(view.scope, view.setLength)}
+      />
+    )
+  if (view.kind === 'test') return <TestRunner key={view.run} kind={view.testKind} onExit={() => go({ kind: 'practice-menu' })} />
+
+  const days = plan?.days_left ?? null
   return (
-    <div className="app">
-      <header className="top">
-        <span className="brand">GED Passer</span>
-        {me && !inTest && (
-          <nav className="tabs-nav" aria-label="Main">
-            {TABS.map((t) => (
-              <button key={t.tab} className={current === t.tab ? 'nav-btn on' : 'nav-btn'} aria-current={current === t.tab ? 'page' : undefined} onClick={() => go(tabView(t.tab))}>
-                <span className="nav-icon" aria-hidden="true">
-                  {t.icon}
-                </span>
-                <span className="nav-label">{t.label}</span>
-              </button>
-            ))}
-          </nav>
-        )}
-        {me && (
-          <span className="who">
-            <span className="who-name">{me.display_name}</span>
-            <button className="secondary small" onClick={() => void logout()}>
-              Log out
+    <div className="shell">
+      <nav className="rail" aria-label="Main">
+        <span className="brand">
+          <Mascot size={40} /> GED Passer
+        </span>
+        {TABS.map((t) => (
+          <button key={t.tab} className={current === t.tab ? 'nav-btn on' : 'nav-btn'} aria-current={current === t.tab ? 'page' : undefined} onClick={() => go(tabView(t.tab))}>
+            <Icon name={t.icon} size={26} />
+            <span>{t.label}</span>
+          </button>
+        ))}
+      </nav>
+
+      <div className="main">
+        <header className="topbar">
+          <span className="brand brand-small">
+            <Mascot size={32} />
+          </span>
+          <span className="chips">
+            <span className="chip flame" title="Day streak">
+              <Icon name="flame" fill size={20} />
+              {stats?.streak_days ?? 0}
+              <span className="sr-only"> day streak</span>
+            </span>
+            <span className="chip xp" title="XP">
+              <Icon name="bolt" fill size={20} />
+              {stats?.xp ?? 0}
+              <span className="sr-only"> XP</span>
+            </span>
+            <button className="chip date" onClick={() => go({ kind: 'me' })} title="Test date">
+              <Icon name="calendar" size={20} />
+              {days === null ? 'Set date' : days < 0 ? 'Past' : days === 0 ? 'Today!' : `${days}d`}
             </button>
           </span>
-        )}
-      </header>
-      {me?.serve_drafts && <p className="dev-banner">Development mode: unreviewed draft questions are being shown.</p>}
+        </header>
+        {me.serve_drafts && <p className="dev-banner">Dev mode: drafts shown</p>}
 
-      <main className="page">
-        {screen.kind === 'starting' && <p className="muted">Loading…</p>}
-        {screen.kind === 'error' && <p className="error">Can’t reach the server ({screen.message}). Is it running?</p>}
-        {screen.kind === 'profiles' && (
-          <ProfilePicker onLoggedIn={(me) => setScreen({ kind: 'app', me, view: { kind: 'home' } })} />
-        )}
-        {view?.kind === 'home' && (
-          <Home onStart={(s, n) => start(s, n, 'home')} onJourney={openStage} onTest={startTest} onTips={() => go({ kind: 'tips' })} />
-        )}
-        {view?.kind === 'journey' && <JourneyMap onOpen={(id) => openStage(id)} />}
-        {view?.kind === 'stage' && (
-          <StageRunner key={view.run} stageId={view.stageId} onExit={() => go({ kind: 'journey' })} onOpen={(id) => openStage(id)} />
-        )}
-        {view?.kind === 'practice-menu' && <Dashboard onStart={(s, n) => start(s, n, 'practice')} />}
-        {view?.kind === 'practice' && (
-          <Practice
-            key={view.run}
-            scope={view.scope}
-            setLength={view.setLength}
-            onExit={() => go(tabView(view.back))}
-            onStart={(s, n) => start(s, n, view.back)}
-          />
-        )}
-        {view?.kind === 'tests' && <TestsHome onStart={startTest} />}
-        {view?.kind === 'test' && <TestRunner key={view.run} kind={view.testKind} onExit={() => go({ kind: 'tests' })} />}
-        {view?.kind === 'explore' && (
-          <Lessons onBack={() => go({ kind: 'home' })} onPractice={(s, n) => start(s, n, 'explore')} />
-        )}
-        {view?.kind === 'tips' && <Tips />}
-      </main>
+        <main className="page">
+          {view.kind === 'learn' && <Learn stats={stats} plan={plan} onOpen={openStage} onTask={runTask} />}
+          {view.kind === 'practice-menu' && <PracticeMenu stats={stats} plan={plan} onStart={start} onTest={startTest} />}
+          {view.kind === 'library' && <Library initialTab={view.tab} onPractice={start} />}
+          {view.kind === 'me' && (
+            <Me name={me.display_name} stats={stats} plan={plan} onChanged={refresh} onStart={start} onLogout={() => void logout()} />
+          )}
+        </main>
+      </div>
 
-      <footer className="fine">
-        <p>
-          Questions and lessons are written and checked by AI and may contain mistakes. If something looks wrong, use
-          “Flag this question”.
-        </p>
-        <p>
-          Free GED test practice. Not affiliated with or endorsed by GED Testing Service. GED® is a registered
-          trademark of the American Council on Education.
-        </p>
-      </footer>
+      <nav className="bottom-nav" aria-label="Main">
+        {TABS.map((t) => (
+          <button key={t.tab} className={current === t.tab ? 'nav-btn on' : 'nav-btn'} aria-current={current === t.tab ? 'page' : undefined} onClick={() => go(tabView(t.tab))}>
+            <Icon name={t.icon} size={26} />
+            <span>{t.label}</span>
+          </button>
+        ))}
+      </nav>
     </div>
   )
 }

@@ -1,0 +1,142 @@
+.math-block {
+  display: block;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+
+.math-block .katex-display {
+  margin: 0.4rem 0;
+}
+
+.figure {
+  margin: 0.5rem 0 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.fig-svg {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  font-family: inherit;
+  font-size: 10px;
+  color: var(--text);
+}
+
+.fig-grid line,
+.fig-gridline {
+  stroke: var(--border);
+  stroke-width: 0.6;
+}
+
+.fig-axis line,
+.fig-axis-line {
+  stroke: var(--muted);
+  stroke-width: 1.2;
+}
+
+.fig-tick {
+  stroke: var(--muted);
+}
+
+.fig-ticklabels,
+.fig-ticklabels text {
+  fill: var(--muted);
+  font-size: 9px;
+}
+
+.fig-axis-label {
+  fill: var(--muted);
+  font-size: 10px;
+  font-style: italic;
+}
+
+.fig-curve {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.2;
+  stroke-linejoin: round;
+}
+
+.fig-curve.c1 {
+  stroke: var(--lvl-weak);
+}
+
+.fig-curve.c2 {
+  stroke: var(--lvl-strong);
+}
+
+.fig-seg {
+  stroke: var(--text);
+  stroke-width: 1.4;
+}
+
+.fig-seg.dashed {
+  stroke-dasharray: 4 3;
+  stroke: var(--muted);
+}
+
+.fig-point,
+.fig-closed {
+  fill: var(--accent);
+  stroke: var(--surface);
+  stroke-width: 1;
+}
+
+.fig-open {
+  fill: var(--surface);
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+
+.fig-ray {
+  stroke: var(--accent);
+  stroke-width: 3.5;
+}
+
+.fig-arrowhead {
+  fill: var(--muted);
+}
+
+.fig-label {
+  fill: var(--text);
+  font-size: 10.5px;
+  font-weight: 600;
+  paint-order: stroke;
+  stroke: var(--surface);
+  stroke-width: 3px;
+}
+
+.fig-bar {
+  fill: var(--accent);
+  opacity: 0.85;
+}
+
+.fig-dot {
+  fill: var(--accent);
+}
+
+.fig-box {
+  fill: color-mix(in srgb, var(--accent) 20%, transparent);
+  stroke: var(--accent);
+  stroke-width: 1.6;
+}
+
+.fig-median {
+  stroke: var(--text);
+  stroke-width: 2.4;
+}
+
+.fig-shape {
+  fill: color-mix(in srgb, var(--accent) 10%, transparent);
+  stroke: var(--text);
+  stroke-width: 1.6;
+}
+
+.fig-right-angle {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 1.2;
+}
+

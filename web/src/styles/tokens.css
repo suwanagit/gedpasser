@@ -1,0 +1,95 @@
+/* Design tokens: Alaska palette. Aurora teal leads, sun yellow rewards,
+   coral corrects, night-sky navy for dark mode. */
+:root {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f2f6f8;
+  --surface-3: #e4eaef;
+  --line: #e1e7ed;
+  --text: #1f2d3a;
+  --muted: #66778a;
+
+  --brand: #0c9d91;
+  --brand-dark: #08776e;
+  --brand-soft: #dcf5f2;
+  --on-brand: #ffffff;
+
+  --ok: #3aa655;
+  --ok-dark: #2b8443;
+  --ok-soft: #def5e3;
+  --ok-text: #1f6b35;
+
+  --coral: #f2545b;
+  --coral-dark: #cc3a41;
+  --coral-soft: #ffe4e5;
+  --coral-text: #b3262d;
+
+  --sun: #ffc233;
+  --sun-dark: #dd9f0c;
+  --sun-soft: #fff4d2;
+  --sun-text: #7a5600;
+
+  --violet: #7c5cf0;
+  --violet-dark: #5f42cc;
+  --blue: #2f8fe6;
+  --blue-dark: #1f6fbd;
+  --pink: #e55aa4;
+  --pink-dark: #bd3f85;
+  --orange: #f08a24;
+  --orange-dark: #c96c10;
+
+  --lvl-none: #c9d2db;
+  --lvl-weak: var(--coral);
+  --lvl-mid: var(--sun-dark);
+  --lvl-strong: var(--ok);
+
+  /* Names the figure styles expect. */
+  --border: var(--line);
+  --accent: var(--brand);
+
+  --radius: 16px;
+  --radius-sm: 12px;
+  --edge: 4px;
+  --nav-h: 68px;
+  --rail-w: 232px;
+
+  font-family: 'Nunito Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.45;
+  color: var(--text);
+  background: var(--bg);
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1a2b;
+    --surface: #16243a;
+    --surface-2: #1c2d47;
+    --surface-3: #263a59;
+    --line: #2a3e5e;
+    --text: #ecf1f8;
+    --muted: #93a4ba;
+
+    --brand: #25c2b3;
+    --brand-dark: #14897e;
+    --brand-soft: #12383c;
+    --on-brand: #04201d;
+
+    --ok: #56c271;
+    --ok-dark: #37914f;
+    --ok-soft: #153526;
+    --ok-text: #8fe0a4;
+
+    --coral: #ff6b70;
+    --coral-dark: #c9434a;
+    --coral-soft: #40202b;
+    --coral-text: #ffa3a6;
+
+    --sun: #ffc94a;
+    --sun-dark: #c9950f;
+    --sun-soft: #3a3016;
+    --sun-text: #ffd97a;
+
+    --lvl-none: #34486a;
+  }
+}
