@@ -7,8 +7,17 @@
 //! and lcm(a, b).
 
 pub fn eval(src: &str) -> Result<f64, String> {
+    eval_inner(src, None)
+}
+
+/// Evaluate an expression in one variable `x` (for plotting figures).
+pub fn eval_x(src: &str, x: f64) -> Result<f64, String> {
+    eval_inner(src, Some(x))
+}
+
+fn eval_inner(src: &str, x: Option<f64>) -> Result<f64, String> {
     let tokens = lex(src)?;
-    let mut p = Parser { tokens, pos: 0 };
+    let mut p = Parser { tokens, pos: 0, x };
     let v = p.expr()?;
     if p.pos != p.tokens.len() {
         return Err(format!("unexpected {:?}", p.tokens[p.pos]));
@@ -60,6 +69,7 @@ fn lex(src: &str) -> Result<Vec<Tok>, String> {
 struct Parser {
     tokens: Vec<Tok>,
     pos: usize,
+    x: Option<f64>,
 }
 
 impl Parser {
@@ -143,8 +153,9 @@ impl Parser {
             Some(Tok::Ident(name)) => {
                 self.pos += 1;
                 if self.peek_op() != Some('(') {
-                    return match name.as_str() {
-                        "pi" => Ok(std::f64::consts::PI),
+                    return match (name.as_str(), self.x) {
+                        ("pi", _) => Ok(std::f64::consts::PI),
+                        ("x", Some(x)) => Ok(x),
                         _ => Err(format!("unknown name {name:?}")),
                     };
                 }
@@ -269,6 +280,13 @@ mod tests {
         assert_eq!(eval("fact(4)").unwrap(), 24.0);
         assert_eq!(eval("gcd(36, 48)").unwrap(), 12.0);
         assert_eq!(eval("lcm(6, 8)").unwrap(), 24.0);
+    }
+
+    #[test]
+    fn variable_x() {
+        assert_eq!(super::eval_x("2*x - 3", 4.0).unwrap(), 5.0);
+        assert_eq!(super::eval_x("-5*x^2 + 20*x", 2.0).unwrap(), 20.0);
+        assert!(eval("x + 1").is_err(), "x is only allowed when plotting");
     }
 
     #[test]

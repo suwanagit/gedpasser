@@ -5,7 +5,7 @@
 $ErrorActionPreference = 'Stop'
 Set-Location (Split-Path -Parent $PSScriptRoot)
 
-cargo test -q -p gedpasser-server
+cargo test -q
 if ($LASTEXITCODE -ne 0) { throw 'type generation (cargo test) failed' }
 
 npm --prefix web ci

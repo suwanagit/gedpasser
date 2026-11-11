@@ -64,6 +64,9 @@ fn quiz(root: &std::path::Path, skill: &str) -> ExitCode {
     for (_, q) in report.questions.iter().filter(|(_, q)| q.skill == skill && q.status != Status::Retired) {
         println!("## {} (difficulty {})", q.id, q.difficulty);
         println!("{}", q.prompt.trim());
+        if let Some(f) = &q.figure {
+            println!("[figure shown with the question: {f:?}]");
+        }
         if q.choices.is_empty() {
             println!("(type your answer)");
         }
@@ -130,10 +133,12 @@ fn check(root: PathBuf) -> ExitCode {
     let count = |s: Status| report.questions.iter().filter(|(_, q)| q.status == s).count();
     let lessons_reviewed = report.principles.iter().filter(|p| p.status == Status::Reviewed).count();
     println!(
-        "\n{} skills, {} principles ({} lessons reviewed), {} questions ({} reviewed, {} draft, {} retired), {} review notes: {} error(s), {} warning(s)",
+        "\n{} skills, {} principles ({} lessons reviewed, {} cards / {} reviewed), {} questions ({} reviewed, {} draft, {} retired), {} review notes: {} error(s), {} warning(s)",
         report.skills.len(),
         report.principles.len(),
         lessons_reviewed,
+        report.cards.len(),
+        report.cards.iter().filter(|(_, c)| c.status == Status::Reviewed).count(),
         report.questions.len(),
         count(Status::Reviewed),
         count(Status::Draft),
