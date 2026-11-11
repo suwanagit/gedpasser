@@ -259,12 +259,27 @@ pub enum QuestionKind {
     Dropdown,
 }
 
+/// Which principle (official indicator) a question tests.
+#[derive(Debug, Clone, Serialize, TS)]
+#[ts(export)]
+pub struct PrincipleRef {
+    /// Official indicator code, e.g. "Q.3.d".
+    pub id: String,
+    pub name: String,
+}
+
+fn principle_ref(state: &AppState, id: &str) -> PrincipleRef {
+    let name = state.bank.principle(id).map(|p| p.name.clone()).unwrap_or_default();
+    PrincipleRef { id: id.to_string(), name }
+}
+
 /// A question as shown to the learner: no answer, check or explanation.
 #[derive(Debug, Serialize, TS)]
 #[ts(export)]
 pub struct PracticeQuestion {
     pub id: String,
     pub skill: String,
+    pub principle: PrincipleRef,
     pub difficulty: u8,
     pub kind: QuestionKind,
     /// Text with math between `$...$`; a literal dollar sign is `\$`.
@@ -356,6 +371,7 @@ pub async fn next_question(
         question: Some(PracticeQuestion {
             id: q.id.clone(),
             skill: q.skill.clone(),
+            principle: principle_ref(&state, &q.principle),
             difficulty: q.difficulty,
             kind,
             prompt: q.prompt.trim().to_string(),
@@ -373,6 +389,9 @@ pub struct AnswerRequest {
     pub response: String,
     /// Milliseconds from showing the question to submitting.
     pub time_ms: u32,
+    /// True if the learner opened the principle's lesson before answering.
+    #[serde(default)]
+    pub hint_used: bool,
 }
 
 #[derive(Debug, Serialize, TS)]
@@ -383,6 +402,7 @@ pub struct AnswerResult {
     pub answer: String,
     pub explanation: String,
     pub common_mistake: String,
+    pub principle: PrincipleRef,
 }
 
 pub async fn submit_answer(
@@ -402,15 +422,18 @@ pub async fn submit_answer(
     let response: String = req.response.chars().take(200).collect();
     let correct = grade(q, &response);
     sqlx::query(
-        "INSERT INTO attempts (user_id, question_id, response, correct, time_ms, mode, content_hash)
-         VALUES (?, ?, ?, ?, ?, 'practice', ?)",
+        "INSERT INTO attempts
+             (user_id, question_id, principle_id, response, correct, time_ms, mode, content_hash, hint_used)
+         VALUES (?, ?, ?, ?, ?, ?, 'practice', ?, ?)",
     )
     .bind(user.id)
     .bind(&q.id)
+    .bind(&q.principle)
     .bind(&response)
     .bind(correct as i64)
     .bind(req.time_ms.min(24 * 60 * 60 * 1000) as i64)
     .bind(&state.bank.hashes[&q.id])
+    .bind(req.hint_used as i64)
     .execute(&state.pool)
     .await?;
     Ok(Json(AnswerResult {
@@ -418,6 +441,94 @@ pub async fn submit_answer(
         answer: q.answer.clone(),
         explanation: q.explanation.trim().to_string(),
         common_mistake: q.common_mistake.trim().to_string(),
+        principle: principle_ref(&state, &q.principle),
+    }))
+}
+
+// ── Principles and lessons ────────────────────────────────────────────────
+
+/// A principle on the Lessons page, with this learner's progress on it.
+#[derive(Debug, Serialize, TS)]
+#[ts(export)]
+pub struct PrincipleSummary {
+    /// Official indicator code, e.g. "Q.3.d".
+    pub id: String,
+    pub skill: String,
+    pub name: String,
+    pub summary: String,
+    /// False when the lesson exists but isn't reviewed yet (and drafts are off).
+    pub has_lesson: bool,
+    pub answered: u32,
+    pub correct: u32,
+}
+
+/// A principle's full lesson, from `GET /api/principles/{id}`.
+#[derive(Debug, Serialize, TS)]
+#[ts(export)]
+pub struct Lesson {
+    pub id: String,
+    pub skill: String,
+    pub skill_name: String,
+    pub name: String,
+    pub summary: String,
+    /// Paragraphs separated by blank lines; "- " lines are bullets; math in
+    /// `$...$`. `null` when the lesson isn't available yet.
+    pub lesson: Option<String>,
+    /// True if the lesson has not been reviewed yet (dev mode only).
+    pub draft: bool,
+}
+
+/// Every principle, in skill order.
+pub async fn list_principles(
+    State(state): State<Arc<AppState>>,
+    user: CurrentUser,
+) -> ApiResult<Json<Vec<PrincipleSummary>>> {
+    let rows: Vec<(String, i64, i64)> = sqlx::query_as(
+        "SELECT principle_id, COUNT(*), COALESCE(SUM(correct), 0) FROM attempts
+         WHERE user_id = ? AND principle_id IS NOT NULL GROUP BY principle_id",
+    )
+    .bind(user.id)
+    .fetch_all(&state.pool)
+    .await?;
+    let stats: HashMap<String, (i64, i64)> = rows.into_iter().map(|(p, n, c)| (p, (n, c))).collect();
+    let out = state
+        .bank
+        .principles
+        .iter()
+        .map(|p| {
+            let (answered, correct) = stats.get(&p.id).copied().unwrap_or((0, 0));
+            PrincipleSummary {
+                id: p.id.clone(),
+                skill: p.skill.clone(),
+                name: p.name.clone(),
+                summary: p.summary.trim().to_string(),
+                has_lesson: Bank::lesson_servable(p, state.serve_drafts),
+                answered: answered as u32,
+                correct: correct as u32,
+            }
+        })
+        .collect();
+    Ok(Json(out))
+}
+
+pub async fn get_principle(
+    State(state): State<Arc<AppState>>,
+    _user: CurrentUser,
+    Path(id): Path<String>,
+) -> ApiResult<Json<Lesson>> {
+    let p = state
+        .bank
+        .principle(&id)
+        .ok_or_else(|| ApiError::new(StatusCode::NOT_FOUND, "No such principle."))?;
+    let show = Bank::lesson_servable(p, state.serve_drafts);
+    Ok(Json(Lesson {
+        id: p.id.clone(),
+        skill: p.skill.clone(),
+        skill_name: state.bank.skill(&p.skill).map(|s| s.name.clone()).unwrap_or_default(),
+        name: p.name.clone(),
+        summary: p.summary.trim().to_string(),
+        lesson: show.then(|| p.lesson.trim().to_string()),
+        draft: show && p.status == ged_content::Status::Draft,
     }))
 }
 

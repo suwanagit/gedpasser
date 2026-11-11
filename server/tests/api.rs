@@ -175,6 +175,63 @@ async fn drafts_only_served_with_flag() {
 }
 
 #[tokio::test]
+async fn principles_and_lessons() {
+    let db = temp_db("principles");
+    let app = app(&db, false).await;
+    let (_, cookie) = create(&app.router, "Eve", "pw12").await;
+
+    // Without drafts: every principle is listed, but draft lessons are withheld.
+    let (status, list, _) = call(&app.router, "GET", "/api/principles", Some(&cookie), None).await;
+    assert_eq!(status, StatusCode::OK);
+    let list = list.as_array().unwrap();
+    assert_eq!(list.len(), 62);
+    assert_eq!(list[0]["skill"], "q-number-ops", "listed in skill order");
+    assert!(list.iter().all(|p| p["has_lesson"] == false && !p["name"].as_str().unwrap().is_empty()));
+    let (status, lesson, _) = call(&app.router, "GET", "/api/principles/Q.3.d", Some(&cookie), None).await;
+    assert_eq!(status, StatusCode::OK);
+    assert_eq!(lesson["lesson"], Value::Null);
+    assert_eq!(lesson["skill_name"], "Ratios, rates, percents and scale");
+    let (status, _, _) = call(&app.router, "GET", "/api/principles/Q.9.z", Some(&cookie), None).await;
+    assert_eq!(status, StatusCode::NOT_FOUND);
+    let (status, _, _) = call(&app.router, "GET", "/api/principles", None, None).await;
+    assert_eq!(status, StatusCode::UNAUTHORIZED);
+    app.pool.close().await;
+
+    // With drafts: lessons are served and marked as drafts.
+    let app = self::app(&db, true).await;
+    let (_, lesson, _) = call(&app.router, "GET", "/api/principles/Q.3.d", Some(&cookie), None).await;
+    assert!(lesson["lesson"].as_str().unwrap().contains("Percent"));
+    assert_eq!(lesson["draft"], true);
+
+    // Questions and results carry their principle; hint use and principle are saved.
+    let (_, next, _) = call(&app.router, "GET", "/api/practice/q-ratios-percent/next", Some(&cookie), None).await;
+    let q = &next["question"];
+    assert!(q["principle"]["id"].as_str().unwrap().starts_with("Q.3."));
+    assert!(!q["principle"]["name"].as_str().unwrap().is_empty());
+    let (_, res, _) = call(
+        &app.router,
+        "POST",
+        "/api/answer",
+        Some(&cookie),
+        Some(json!({"question_id": "q-ratios-percent-0002", "response": "88.2", "time_ms": 900, "hint_used": true})),
+    )
+    .await;
+    assert_eq!(res["correct"], true);
+    assert_eq!(res["principle"]["id"], "Q.3.d");
+    let row: (String, i64) =
+        sqlx::query_as("SELECT principle_id, hint_used FROM attempts WHERE question_id = 'q-ratios-percent-0002'")
+            .fetch_one(&app.pool)
+            .await
+            .unwrap();
+    assert_eq!(row, ("Q.3.d".to_string(), 1));
+
+    // Per-principle progress shows up on the list.
+    let (_, list, _) = call(&app.router, "GET", "/api/principles", Some(&cookie), None).await;
+    let p = list.as_array().unwrap().iter().find(|p| p["id"] == "Q.3.d").unwrap();
+    assert_eq!((p["answered"].as_u64(), p["correct"].as_u64(), p["has_lesson"].as_bool()), (Some(1), Some(1), Some(true)));
+}
+
+#[tokio::test]
 async fn answers_graded_saved_and_survive_restart() {
     let db = temp_db("restart");
     let app = app(&db, true).await;

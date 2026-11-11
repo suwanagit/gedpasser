@@ -5,12 +5,14 @@
 use std::collections::HashMap;
 use std::path::Path;
 
-use ged_content::{Question, QuestionType, Skill, Status, check_content};
+use ged_content::{Principle, Question, QuestionType, Skill, Status, check_content};
 use sha2::{Digest, Sha256};
 use sqlx::SqlitePool;
 
 pub struct Bank {
     pub skills: Vec<Skill>,
+    /// In skill order, then file order within each skill.
+    pub principles: Vec<Principle>,
     pub questions: HashMap<String, Question>,
     /// Question ids per skill, in file order.
     pub by_skill: HashMap<String, Vec<String>>,
@@ -43,16 +45,30 @@ impl Bank {
             hashes.insert(q.id.clone(), content_hash(&q));
             questions.insert(q.id.clone(), q);
         }
-        Ok(Bank { skills: report.skills, questions, by_skill, hashes })
+        let skill_order: HashMap<&str, usize> =
+            report.skills.iter().enumerate().map(|(i, s)| (s.id.as_str(), i)).collect();
+        let mut principles = report.principles.clone();
+        principles.sort_by_key(|p| skill_order.get(p.skill.as_str()).copied().unwrap_or(usize::MAX));
+        Ok(Bank { skills: report.skills, principles, questions, by_skill, hashes })
+    }
+
+    pub fn principle(&self, id: &str) -> Option<&Principle> {
+        self.principles.iter().find(|p| p.id == id)
+    }
+
+    pub fn skill(&self, id: &str) -> Option<&Skill> {
+        self.skills.iter().find(|s| s.id == id)
     }
 
     /// Whether learners may be served this question.
     pub fn servable(q: &Question, serve_drafts: bool) -> bool {
-        match q.status {
-            Status::Reviewed => true,
-            Status::Draft => serve_drafts,
-            Status::Retired => false,
-        }
+        status_servable(q.status, serve_drafts)
+    }
+
+    /// Whether learners may read this principle's lesson. The name and
+    /// summary are always shown.
+    pub fn lesson_servable(p: &Principle, serve_drafts: bool) -> bool {
+        status_servable(p.status, serve_drafts)
     }
 
     /// Upsert skills and questions into SQLite; retire questions that are
@@ -76,17 +92,32 @@ impl Bank {
             .execute(&mut *tx)
             .await?;
         }
+        sqlx::query("UPDATE principles SET status = 'retired'").execute(&mut *tx).await?;
+        for p in &self.principles {
+            sqlx::query(
+                "INSERT INTO principles (id, skill_id, name, status) VALUES (?, ?, ?, ?)
+                 ON CONFLICT(id) DO UPDATE SET skill_id = excluded.skill_id, name = excluded.name,
+                     status = excluded.status",
+            )
+            .bind(&p.id)
+            .bind(&p.skill)
+            .bind(&p.name)
+            .bind(status_name(p.status))
+            .execute(&mut *tx)
+            .await?;
+        }
         sqlx::query("UPDATE questions SET status = 'retired'").execute(&mut *tx).await?;
         for q in self.questions.values() {
             sqlx::query(
-                "INSERT INTO questions (id, skill_id, difficulty, type, status, content_hash)
-                 VALUES (?, ?, ?, ?, ?, ?)
+                "INSERT INTO questions (id, skill_id, principle_id, difficulty, type, status, content_hash)
+                 VALUES (?, ?, ?, ?, ?, ?, ?)
                  ON CONFLICT(id) DO UPDATE SET skill_id = excluded.skill_id,
-                     difficulty = excluded.difficulty, type = excluded.type,
-                     status = excluded.status, content_hash = excluded.content_hash",
+                     principle_id = excluded.principle_id, difficulty = excluded.difficulty,
+                     type = excluded.type, status = excluded.status, content_hash = excluded.content_hash",
             )
             .bind(&q.id)
             .bind(&q.skill)
+            .bind(&q.principle)
             .bind(q.difficulty as i64)
             .bind(type_name(q.kind))
             .bind(status_name(q.status))
@@ -94,7 +125,23 @@ impl Bank {
             .execute(&mut *tx)
             .await?;
         }
+        // Attempts made before principles existed take their question's principle.
+        sqlx::query(
+            "UPDATE attempts SET principle_id =
+                 (SELECT q.principle_id FROM questions q WHERE q.id = attempts.question_id)
+             WHERE principle_id IS NULL",
+        )
+        .execute(&mut *tx)
+        .await?;
         tx.commit().await
+    }
+}
+
+fn status_servable(s: Status, serve_drafts: bool) -> bool {
+    match s {
+        Status::Reviewed => true,
+        Status::Draft => serve_drafts,
+        Status::Retired => false,
     }
 }
 

@@ -4,4 +4,8 @@ export type AnswerRequest = { question_id: string, response: string,
 /**
  * Milliseconds from showing the question to submitting.
  */
-time_ms: number, };
+time_ms: number, 
+/**
+ * True if the learner opened the principle's lesson before answering.
+ */
+hint_used: boolean, };

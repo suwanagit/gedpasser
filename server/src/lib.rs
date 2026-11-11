@@ -81,6 +81,8 @@ pub async fn build_app(config: &Config) -> Result<App, String> {
         .route("/api/skills", get(api::list_skills))
         .route("/api/practice/{skill}/next", get(api::next_question))
         .route("/api/answer", post(api::submit_answer))
+        .route("/api/principles", get(api::list_principles))
+        .route("/api/principles/{id}", get(api::get_principle))
         .route("/api/{*rest}", get(api::api_not_found).post(api::api_not_found))
         .fallback(static_file)
         .with_state(state);
