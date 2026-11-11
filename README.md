@@ -45,6 +45,23 @@ Settings (environment variables):
 | `GED_DB` | `data\ged.db` beside `content` | SQLite database file |
 | `GED_SERVE_DRAFTS` | off | `1` also serves draft questions (development only) |
 
+## About the content
+
+Questions and lessons are written and checked by AI and may contain mistakes.
+Each skill's batch is reviewed by a separate AI reviewer that solves every
+question blind before seeing the answer key, and every answer is also checked
+by code. Learners can report a problem with **Flag this question**: the
+question leaves practice for everyone until it is fixed.
+
+Flags, from the repo root:
+
+```powershell
+.\target\release\gedpasser-server.exe flags              # list open flags
+.\target\release\gedpasser-server.exe flags resolve 3    # dismiss flag #3
+```
+
+Editing a flagged question in `content\` clears its flag on the next start.
+
 ## Writing questions
 
 Questions live in `content\math\<skill>.toml`. Each needs a `principle`, an
@@ -56,3 +73,12 @@ blank lines, with lines starting `- ` for bullets. Put math between `$...$`
 isn't a plain number (like `$2x + 12$`), give `answer_value` and a `check`
 that both evaluate the expression at the same test value. Run `cargo content`
 before committing.
+
+Review workflow for a skill (see `content\reviews\CHECKLIST.md`):
+
+```powershell
+cargo content-quiz <skill>       # questions without answers, for a blind solve
+cargo content-template <skill>   # review-note skeleton with content hashes
+# reviewer writes content\reviews\<skill>.toml
+cargo content-approve <skill>    # marks items with a current pass as reviewed
+```

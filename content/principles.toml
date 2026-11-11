@@ -526,7 +526,7 @@ Tip: in a histogram you cannot read exact values, only how many fall in each ran
 [[principle]]
 id = "Q.6.c"
 skill = "q-data-stats"
-status = "draft"
+status = "reviewed"
 name = "Tables, scatter plots and two-variable graphs"
 summary = "Read and interpret data that pairs two quantities in tables, scatter plots and line graphs."
 lesson = '''
@@ -546,7 +546,7 @@ Tip: a trend in a scatter plot does not prove one thing causes the other.
 [[principle]]
 id = "Q.7.a"
 skill = "q-data-stats"
-status = "draft"
+status = "reviewed"
 name = "Mean, median, mode, range and weighted average"
 summary = "Calculate the center and spread of data, a missing value from an average, and weighted averages."
 lesson = '''
@@ -583,7 +583,7 @@ Ask yourself: if I swap two of the chosen items, is it a different result? If ye
 [[principle]]
 id = "Q.8.b"
 skill = "q-probability"
-status = "draft"
+status = "reviewed"
 name = "Probability of simple and compound events"
 summary = "Find the probability of one event, and of two events happening together."
 lesson = '''
@@ -604,7 +604,7 @@ Tip: the probability something does not happen is 1 minus the probability it doe
 [[principle]]
 id = "A.1.a"
 skill = "a-expressions"
-status = "draft"
+status = "reviewed"
 name = "Simplifying linear expressions"
 summary = "Add, subtract, expand and factor expressions like 3(2x − 4) + 5x."
 lesson = '''
@@ -640,7 +640,7 @@ Tip: $4x$ means $4 \times x$. With $x = 5$, $4x$ is 20, not 45.
 [[principle]]
 id = "A.1.c"
 skill = "a-expressions"
-status = "draft"
+status = "reviewed"
 name = "Writing linear expressions from words"
 summary = "Turn a description in words into an algebraic expression."
 lesson = '''

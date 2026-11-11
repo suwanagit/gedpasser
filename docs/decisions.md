@@ -4,6 +4,9 @@ Newest first. One line per decision: date, decision, reason.
 
 | Date | Decision | Reason |
 | --- | --- | --- |
+| 2026-11-10 | A flag removes the question from rotation for everyone; it clears automatically when the question's content hash changes, or by `gedpasser-server flags resolve` | One report protects every learner; fixing the file is the normal way to clear it |
+| 2026-11-10 | Learners see an "AI-written, AI-checked" notice (dismissible, remembered per browser) and a footer line pointing to the flag button | Honest about the review model Jon chose |
+| 2026-11-10 | Reviewers solve blind from `cargo content-quiz` (questions without keys) and must record their own answer in `solved` for every passed question | Makes the independent check real rather than a read-through |
 | 2026-11-10 | AI review replaces Jon's sign-off: a fresh reviewer subagent per skill solves each item blind and records pass/fix/reject in `content/reviews/<skill>.toml`; only `cargo content-approve` sets `reviewed`, and the validator rejects a `reviewed` item without a pass for its current content hash | Jon is not an educator and the service is free; mechanical gating keeps "reviewed" honest |
 | 2026-11-10 | One content hash (`ged_content::question_hash`, all reviewed fields except status) is used for review notes, flags and attempts | "Changed since reviewed" and "changed since answered" mean the same thing |
 | 2026-11-10 | US English spelling everywhere (meter, liter, practice, center, harbor); units stay metric | The learners are in Alaska |

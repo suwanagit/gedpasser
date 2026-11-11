@@ -139,3 +139,30 @@ hash = "5298e1b5e88cd84e"
 verdict = "fix"
 note = "All statements and arithmetic are correct (320 - 247 = 73; 78). But the weighted-average example (tests 60%, homework 40%, scores 70 and 90, answer 78) is word for word the same problem as q-data-stats-0003, which gives that question away. Change the example numbers, e.g. tests 70% and homework 30% with scores 80 and 60: 0.7*80 + 0.3*60 = 56 + 18 = 74."
 date = "2026-11-10"
+
+# Re-review after fixes (2026-11-10)
+
+[[review]]
+id = "q-data-stats-0002"
+kind = "question"
+hash = "df419e98b58fed4e"
+verdict = "pass"
+solved = "26"
+note = "Re-checked: sorted 18,22,25,27,31,40, median (25+27)/2 = 26. Distractor 26.5 now matches the stated common mistake (unsorted middle pair 31 and 22); 25 and 31 remain plausible. Exactly one correct choice."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.6.c"
+kind = "lesson"
+hash = "35f37764f8b9748e"
+verdict = "pass"
+note = "Re-checked: table example 45/3 = 15 and 105/7 = 15, 10 hours gives 150, all correct; dollar signs escaped. Temperature vs ice-cream sales is a clear positive-trend scatter plot and pairs well with the causation tip."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.7.a"
+kind = "lesson"
+hash = "18f55628252a2338"
+verdict = "pass"
+note = "Re-checked: weighted example 0.7*80 + 0.3*60 = 56 + 18 = 74 is correct and no longer duplicates q-data-stats-0003. Missing-value example 320 - 247 = 73 still correct."
+date = "2026-11-10"

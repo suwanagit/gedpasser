@@ -24,7 +24,7 @@ skill = "q-geometry-3d"
 principle = "Q.5.b"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = '''
 A cylindrical water tank has a radius of 1 m and a height of 2.5 m.
 Using $V = \pi r^2 h$ and $\pi \approx 3.14$, what is its volume in cubic meters?

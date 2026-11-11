@@ -131,3 +131,39 @@ hash = "100abbf30799cd18"
 verdict = "fix"
 note = "Rules and examples are correct ('3 less than n' is n - 3; 'five more than twice a number' is 2n + 5). However the taxi example (3.50 dollars plus 2.25 dollars per kilometer, answer 3.50 + 2.25k) is identical to question a-expressions-0003, so a learner who reads the lesson just copies the answer. Change the lesson example to a different context or numbers (for example a 5-dollar delivery fee plus 1.50 dollars per kilometer: 5 + 1.50k)."
 date = "2026-11-10"
+
+# Re-review after fixes (2026-11-10)
+
+[[review]]
+id = "a-expressions-0003"
+kind = "question"
+hash = "1f4dac8c6cda5e55"
+verdict = "pass"
+solved = "3.50 + 2.25k"
+note = "Re-checked: all four choices are now distinct expressions and only 3.50 + 2.25k fits (at k = 4: 12.50 vs 16.25, 16.25, 23.00). New distractor 3.50k + 2.25 is a plausible swap. Lesson A.1.c no longer gives the answer away."
+date = "2026-11-10"
+
+[[review]]
+id = "a-expressions-0006"
+kind = "question"
+hash = "7cf9850d73577315"
+verdict = "pass"
+solved = "6(2x - 3)"
+note = "Re-checked: explanation now correctly separates 3(4x - 6) and 2(6x - 9) (equal, not complete: 4x - 6 shares 2, 6x - 9 shares 3) from 6(2x - 18) (expands to 12x - 108, wrong). Difficulty 2 is appropriate."
+date = "2026-11-10"
+
+[[review]]
+id = "A.1.a"
+kind = "lesson"
+hash = "934081c586dd9a3a"
+verdict = "pass"
+note = "Re-checked: distribute wording now precise; 8x + 12 = 4(2x + 3) is correct and 2(4x + 6) is correctly described as equal but incomplete. Other examples unchanged and correct. Optional polish: put '4x and 6' inside math delimiters for consistency."
+date = "2026-11-10"
+
+[[review]]
+id = "A.1.c"
+kind = "lesson"
+hash = "afccc1b095f99c5f"
+verdict = "pass"
+note = "Re-checked: phone plan example (25 dollars plus 0.10 per text gives 25 + 0.10t) is correct, dollar signs escaped, and no longer duplicates question 0003. Translation rules and the less-than order warning are correct."
+date = "2026-11-10"

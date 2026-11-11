@@ -155,3 +155,12 @@ hash = "b5ac84f693706b6a"
 verdict = "pass"
 note = "Cylinder 62.8 + cone 6.28 = 69.08 m^3 correct; hidden-face rule for surface area is correct and clearly stated."
 date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-3d-0002"
+kind = "question"
+hash = "af51f1734866a132"
+verdict = "pass"
+solved = "7.85"
+note = "Re-review: the common_mistake now describes doubling the radius instead of squaring it (3.14 x 2 x 1 x 2.5 = 15.7), which matches distractor 15.7. Key 7.85 is correct and is the only correct choice; prompt, explanation and other distractors unchanged and fine."
+date = "2026-11-10"

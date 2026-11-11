@@ -40,7 +40,7 @@ skill = "a-expressions"
 principle = "A.1.c"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 alaska = true
 prompt = '''
 A taxi in Anchorage charges \$3.50 to start plus \$2.25 for each kilometer.
@@ -98,7 +98,7 @@ skill = "a-expressions"
 principle = "A.1.a"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = 'Factor $12x - 18$ completely.'
 choices = ['$6(2x - 3)$', '$3(4x - 6)$', '$2(6x - 9)$', '$6(2x - 18)$']
 answer = '$6(2x - 3)$'
