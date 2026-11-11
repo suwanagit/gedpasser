@@ -1,0 +1,14 @@
+# File named for a skill that does not exist, with an unknown field.
+
+[[question]]
+id = "q-not-real-0001"
+skill = "q-not-real"
+difficulty = 1
+type = "fill_in"
+status = "draft"
+prompt = "What is 2 + 2?"
+answer = "4"
+check = "2 + 2"
+explanation = "2 + 2 = 4."
+common_mistake = "None."
+hint = "count"

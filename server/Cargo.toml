@@ -1,0 +1,10 @@
+[package]
+name = "gedpasser-server"
+description = "GED Passer web server: JSON API under /api plus the embedded React app"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+ged-content = { path = "../tools" }

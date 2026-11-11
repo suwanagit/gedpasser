@@ -1,0 +1,185 @@
+# Skill map for GED Mathematical Reasoning practice.
+#
+# Every question carries exactly one skill id from this file. Skills follow
+# the GED Testing Service's published assessment targets for Mathematical
+# Reasoning ("Assessment Guide for Educators: Mathematical Reasoning",
+# June 2016 edition). `targets` lists the official indicator codes each
+# skill covers, so coverage can be traced back to the source.
+#
+# Fields:
+#   id              stable id, used in question ids and file names
+#   area            "quantitative" or "algebraic"
+#   name            short display name
+#   description     plain-language explanation shown to learners
+#   difficulty_min  lowest question difficulty for this skill (1-3)
+#   difficulty_max  highest question difficulty for this skill (1-3)
+#   targets         official assessment target indicators covered
+
+# ── Quantitative problem solving ─────────────────────────────────────────
+
+[[skill]]
+id = "q-number-ops"
+area = "quantitative"
+name = "Number sense and operations"
+description = """
+Working with whole numbers, fractions, decimals and negative numbers: \
+putting them in order, finding factors and multiples, absolute value, \
+order of operations, and solving everyday arithmetic problems.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["Q.1.a", "Q.1.b", "Q.1.d", "Q.2.a", "Q.2.d", "Q.2.e"]
+
+[[skill]]
+id = "q-ratios-percent"
+area = "quantitative"
+name = "Ratios, rates, percents and scale"
+description = """
+Comparing quantities with ratios and unit rates, setting up proportions, \
+converting units, using scale drawings, and solving percent problems \
+such as tax, discounts, interest and percent change.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["Q.3.a", "Q.3.b", "Q.3.c", "Q.3.d"]
+
+[[skill]]
+id = "q-exponents-roots"
+area = "quantitative"
+name = "Exponents, roots and scientific notation"
+description = """
+Using the rules of exponents, squares and square roots, cubes and cube \
+roots, and writing very large or very small numbers in scientific notation.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["Q.1.c", "Q.2.b", "Q.2.c"]
+
+[[skill]]
+id = "q-geometry-2d"
+area = "quantitative"
+name = "Perimeter, area and the Pythagorean theorem"
+description = """
+Finding perimeter and area of triangles, rectangles, polygons and circles \
+(including combined shapes), working backwards to a missing side, and using \
+the Pythagorean theorem for right triangles.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["Q.4.a", "Q.4.b", "Q.4.c", "Q.4.d", "Q.4.e"]
+
+[[skill]]
+id = "q-geometry-3d"
+area = "quantitative"
+name = "Surface area and volume"
+description = """
+Using the formula sheet to find volume and surface area of boxes, prisms, \
+cylinders, pyramids, cones, spheres and combined solids, and working \
+backwards to a missing length.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["Q.5.a", "Q.5.b", "Q.5.c", "Q.5.d", "Q.5.e", "Q.5.f"]
+
+[[skill]]
+id = "q-data-stats"
+area = "quantitative"
+name = "Data displays and statistics"
+description = """
+Reading and making bar graphs, circle graphs, dot plots, histograms, box \
+plots, tables and scatter plots, and finding the mean, median, mode, range \
+and weighted average.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["Q.6.a", "Q.6.b", "Q.6.c", "Q.7.a"]
+
+[[skill]]
+id = "q-probability"
+area = "quantitative"
+name = "Counting and probability"
+description = """
+Counting outcomes, combinations and permutations, and finding the \
+probability of simple and compound events.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["Q.8.a", "Q.8.b"]
+
+# ── Algebraic problem solving ────────────────────────────────────────────
+
+[[skill]]
+id = "a-expressions"
+area = "algebraic"
+name = "Linear expressions"
+description = """
+Simplifying, expanding and factoring expressions like 3(x + 2) - x, \
+substituting numbers for variables, and turning words into algebra.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["A.1.a", "A.1.b", "A.1.c"]
+
+[[skill]]
+id = "a-linear-equations"
+area = "algebraic"
+name = "Linear equations and inequalities"
+description = """
+Solving one-variable equations and inequalities, showing inequality \
+solutions on a number line, and writing equations or inequalities for \
+real-world situations.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["A.2.a", "A.2.b", "A.2.c", "A.3.a", "A.3.b", "A.3.c", "A.3.d"]
+
+[[skill]]
+id = "a-systems"
+area = "algebraic"
+name = "Systems of linear equations"
+description = """
+Solving two equations with two unknowns by graphing, substitution or \
+elimination, and setting up systems from word problems.\
+"""
+difficulty_min = 2
+difficulty_max = 3
+targets = ["A.2.d"]
+
+[[skill]]
+id = "a-polynomials"
+area = "algebraic"
+name = "Polynomials, rational expressions and quadratics"
+description = """
+Adding, multiplying and factoring polynomials, working with algebraic \
+fractions, and solving quadratic equations by factoring or the quadratic \
+formula.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["A.1.d", "A.1.e", "A.1.f", "A.1.g", "A.1.h", "A.1.i", "A.1.j", "A.4.a", "A.4.b"]
+
+[[skill]]
+id = "a-graphs-lines"
+area = "algebraic"
+name = "Slope and equations of lines"
+description = """
+Plotting points, finding slope from a graph, table or equation, graphing \
+lines, writing the equation of a line, and spotting parallel and \
+perpendicular lines.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["A.5.a", "A.5.b", "A.5.c", "A.5.d", "A.6.a", "A.6.b", "A.6.c"]
+
+[[skill]]
+id = "a-functions"
+area = "algebraic"
+name = "Functions"
+description = """
+Using function notation like f(3), deciding whether a table or graph is \
+a function, reading key features of graphs, and comparing functions \
+shown in different ways.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["A.5.e", "A.7.a", "A.7.b", "A.7.c", "A.7.d"]

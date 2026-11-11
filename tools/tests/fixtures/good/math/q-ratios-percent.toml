@@ -1,0 +1,41 @@
+[[question]]
+id = "q-ratios-percent-0001"
+skill = "q-ratios-percent"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+alaska = true
+prompt = """
+A Juneau fish processor packs 240 kg of salmon in 6 hours.
+At the same rate, how many kilograms does it pack in 9 hours?
+"""
+choices = ["320", "360", "400", "480"]
+answer = "360"
+check = "240 / 6 * 9"
+explanation = "Rate = 240 / 6 = 40 kg per hour. 40 x 9 = 360 kg."
+common_mistake = "Adding 3 hours' worth to 240 without finding the hourly rate first."
+
+[[question]]
+id = "q-ratios-percent-0002"
+skill = "q-ratios-percent"
+difficulty = 1
+type = "fill_in"
+status = "draft"
+prompt = "A jacket costs $80 and is on sale for 25% off. What is the sale price in dollars?"
+answer = "60"
+check = "80 * (1 - 0.25)"
+explanation = "25% of 80 is 20. 80 - 20 = 60."
+common_mistake = "Giving the discount (20) instead of the sale price."
+
+[[question]]
+id = "q-ratios-percent-0003"
+skill = "q-ratios-percent"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+prompt = "Write the ratio 6 to 8 as a fraction in lowest terms."
+choices = ["3/4", "6/8", "4/3", "2/3"]
+answer = "3/4"
+check = "6 / 8"
+explanation = "Divide 6 and 8 by their greatest common factor, 2: 6/8 = 3/4."
+common_mistake = "Not reducing the fraction."

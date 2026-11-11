@@ -1,0 +1,3 @@
+[alias]
+# Validate the question bank and check every answer: `cargo content`
+content = "run -q -p ged-content -- content"

@@ -1,0 +1,25 @@
+# Difficulty outside the skill's range (1-2), and an expression answer with no answer_value.
+
+[[question]]
+id = "q-geometry-2d-0001"
+skill = "q-geometry-2d"
+difficulty = 3
+type = "fill_in"
+status = "draft"
+prompt = "A rectangle is 4 m by 7 m. What is its area in square metres?"
+answer = "28"
+check = "4 * 7"
+explanation = "Area = length x width = 4 x 7 = 28 square metres."
+common_mistake = "Adding the sides to get 11."
+
+[[question]]
+id = "q-geometry-2d-0002"
+skill = "q-geometry-2d"
+difficulty = 1
+type = "fill_in"
+status = "draft"
+prompt = "Write an expression for the perimeter of a square with side s."
+answer = "4s"
+check = "4"
+explanation = "A square has four equal sides, so the perimeter is 4s."
+common_mistake = "Writing s^2, which is the area."

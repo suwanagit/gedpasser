@@ -1,0 +1,87 @@
+# Each question here breaks exactly one rule; see tests/fixtures.rs.
+
+[[question]]
+id = "q-ratios-percent-0001"
+skill = "q-ratios-percent"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = "A boat travels 120 km in 3 hours. How far does it travel in 5 hours at the same speed?"
+choices = ["160", "200", "240", "360"]
+answer = "240"                       # wrong key: correct is 200
+check = "120 / 3 * 5"
+explanation = "Speed = 40 km/h. 40 x 5 = 200 km."
+common_mistake = "Multiplying 120 by 2."
+
+[[question]]
+id = "q-ratios-percent-0002"
+skill = "a-not-a-skill"              # bad skill tag
+difficulty = 1
+type = "fill_in"
+status = "draft"
+prompt = "What is 10% of 50?"
+answer = "5"
+check = "50 * 0.1"
+explanation = "10% of 50 is 5."
+common_mistake = "Moving the decimal the wrong way."
+
+[[question]]
+id = "q-ratios-percent-0003"
+skill = "q-ratios-percent"
+difficulty = 1
+type = "fill_in"
+status = "draft"
+prompt = "What is 20% of 40?"
+answer = "8"
+check = "40 * 0.2"
+explanation = "20% of 40 is 8."
+common_mistake = "Answering 20."
+
+[[question]]
+id = "q-ratios-percent-0004"
+skill = "q-ratios-percent"
+difficulty = 1
+type = "fill_in"
+status = "draft"
+prompt = "What is 20% of 40?"            # duplicate prompt of 0003
+answer = "8"
+check = "40 * 0.2"
+explanation = "20% of 40 is 8."
+common_mistake = "Answering 20."
+
+[[question]]
+id = "q-ratios-percent-0005"
+skill = "q-ratios-percent"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+prompt = "Simplify the ratio 10 to 15."
+choices = ["1/3", "3/2", "5/3"]
+answer = "2/3"                        # answer not among choices
+check = "10 / 15"
+explanation = "Divide both by 5: 2/3."
+common_mistake = "Flipping the ratio."
+
+[[question]]
+id = "q-ratios-percent-0006"
+skill = "q-ratios-percent"
+difficulty = 1
+type = "fill_in"
+status = "draft"
+prompt = "A recipe uses 2 cups of flour for 3 loaves. How much flour for 9 loaves?"
+answer = "6"
+check = "2 / 3 * 9 +"                 # broken check expression
+explanation = "Triple the recipe: 6 cups."
+common_mistake = "Adding 6 instead of multiplying by 3."
+
+[[question]]
+id = "q-ratios-percent-07"            # bad id format
+skill = "q-ratios-percent"
+difficulty = 1
+type = "fill_in"
+status = "draft"
+prompt = "A car uses 6 litres of fuel per 100 km. How many litres for 250 km?"
+answer = "15"
+check = "6 / 100 * 250"
+explanation = "6 x 2.5 = 15 litres."
+common_mistake = "Dividing 250 by 6."
