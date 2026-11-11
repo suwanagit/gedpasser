@@ -5,4 +5,12 @@ export type AnswerResult = { correct: boolean,
 /**
  * The correct answer, as written in the question bank.
  */
-answer: string, explanation: string, common_mistake: string, principle: PrincipleRef, };
+answer: string, explanation: string, common_mistake: string, principle: PrincipleRef, 
+/**
+ * The principle's memory hack, if its card is available.
+ */
+hack: string | null, 
+/**
+ * XP earned for this answer.
+ */
+xp: number, };

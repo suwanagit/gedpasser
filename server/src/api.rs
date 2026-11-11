@@ -396,6 +396,10 @@ pub enum PracticeMode {
     Principle,
     /// Any skill, weighted toward the learner's weak ones.
     Mixed,
+    /// Missed questions that are due again (spaced review).
+    Review,
+    /// A journey stage quiz.
+    Journey,
 }
 
 impl PracticeMode {
@@ -404,12 +408,14 @@ impl PracticeMode {
             PracticeMode::Skill => "skill",
             PracticeMode::Principle => "principle",
             PracticeMode::Mixed => "mixed",
+            PracticeMode::Review => "review",
+            PracticeMode::Journey => "journey",
         }
     }
 }
 
-/// `GET /api/practice/next?skill=ID` | `?principle=ID` | `?mode=mixed`, each
-/// with an optional `&after=ID` (the question just shown).
+/// `GET /api/practice/next?skill=ID` | `?principle=ID[,ID…]` | `?mode=mixed`
+/// | `?mode=review`, each with an optional `&after=ID` (the question just shown).
 #[derive(Debug, Deserialize)]
 pub struct NextParams {
     pub skill: Option<String>,
@@ -449,17 +455,32 @@ pub async fn next_question(
     Query(params): Query<NextParams>,
 ) -> ApiResult<Json<NextQuestion>> {
     let flagged = crate::flags::flagged_ids(&state.pool).await?;
+    if params.mode == Some(PracticeMode::Review) {
+        // Soonest-due first; skip the question just shown if there's another.
+        let due = crate::spaced::due_ids(&state.pool, user.id).await?;
+        let due = servable(&state, &flagged, due.iter());
+        let pick = due.iter().find(|id| Some(id.as_str()) != params.after.as_deref()).or(due.first());
+        let question = match pick {
+            Some(id) => Some(practice_question(&state, &state.bank.questions[*id])?),
+            None => None,
+        };
+        return Ok(Json(NextQuestion { question }));
+    }
     let mut pool: Vec<&String> = if let Some(skill) = &params.skill {
         if state.bank.skill(skill).is_none() {
             return Err(ApiError::new(StatusCode::NOT_FOUND, "No such skill."));
         }
         let ids = state.bank.by_skill.get(skill).map(Vec::as_slice).unwrap_or(&[]);
         servable(&state, &flagged, ids.iter())
-    } else if let Some(principle) = &params.principle {
-        if state.bank.principle(principle).is_none() {
-            return Err(ApiError::new(StatusCode::NOT_FOUND, "No such principle."));
+    } else if let Some(list) = &params.principle {
+        let mut ids = Vec::new();
+        for principle in list.split(',').map(str::trim).filter(|p| !p.is_empty()) {
+            if state.bank.principle(principle).is_none() {
+                return Err(ApiError::new(StatusCode::NOT_FOUND, "No such principle."));
+            }
+            ids.extend(servable(&state, &flagged, principle_question_ids(&state, principle)));
         }
-        servable(&state, &flagged, principle_question_ids(&state, principle))
+        ids
     } else if params.mode == Some(PracticeMode::Mixed) {
         let stats = LearnerStats::load(&state, user.id).await?;
         let weights: Vec<(String, f64)> = state
@@ -572,6 +593,10 @@ pub struct AnswerResult {
     pub explanation: String,
     pub common_mistake: String,
     pub principle: PrincipleRef,
+    /// The principle's memory hack, if its card is available.
+    pub hack: Option<String>,
+    /// XP earned for this answer.
+    pub xp: u32,
 }
 
 pub async fn submit_answer(
@@ -606,12 +631,15 @@ pub async fn submit_answer(
     .bind(req.hint_used as i64)
     .execute(&state.pool)
     .await?;
+    crate::spaced::record(&state.pool, user.id, &q.id, correct).await?;
     Ok(Json(AnswerResult {
         correct,
         answer: q.answer.clone(),
         explanation: q.explanation.trim().to_string(),
         common_mistake: q.common_mistake.trim().to_string(),
         principle: principle_ref(&state, &q.principle),
+        hack: state.bank.card(&q.principle, state.serve_drafts).map(|c| c.hack.trim().to_string()),
+        xp: crate::stats::answer_xp(correct),
     }))
 }
 
@@ -651,6 +679,8 @@ pub struct Lesson {
     pub lesson: Option<String>,
     /// True if the lesson has not been reviewed yet (dev mode only).
     pub draft: bool,
+    /// The short card: shown first; the long lesson is "more detail".
+    pub card: Option<crate::journey::CardView>,
 }
 
 /// Every principle, in skill order.
@@ -701,6 +731,7 @@ pub async fn get_principle(
         summary: p.summary.trim().to_string(),
         lesson: show.then(|| p.lesson.trim().to_string()),
         draft: show && p.status == ged_content::Status::Draft,
+        card: crate::journey::card_view(&state, &p.id),
     }))
 }
 

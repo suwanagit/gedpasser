@@ -516,3 +516,163 @@ fn weighted_pick_and_focus_order() {
     assert_eq!(pick_weighted(&w, 1.0).as_deref(), Some("b"));
     assert_eq!(pick_weighted(&[], 0.5), None);
 }
+
+fn keys() -> std::collections::HashMap<String, String> {
+    ged_content::check_content(&content_dir()).questions.into_iter().map(|(_, q)| (q.id, q.answer)).collect()
+}
+
+#[tokio::test]
+async fn journey_review_stats_tests_and_plan() {
+    let db = temp_db("journey");
+    let app = app(&db, false).await;
+    let r = &app.router;
+    let (_, cookie) = create(r, "Hal", "path").await;
+    let keys = keys();
+
+    // Journey: first stage open, the rest locked; a locked stage can't start.
+    let (status, j, _) = call(r, "GET", "/api/journey", Some(&cookie), None).await;
+    assert_eq!(status, StatusCode::OK);
+    let stages = j["stages"].as_array().unwrap();
+    assert_eq!(stages.len(), 30);
+    assert_eq!(stages[0]["status"], "open");
+    assert!(stages[1..].iter().all(|s| s["status"] == "locked"));
+    assert_eq!(j["current"], "s01");
+    let (status, _, _) = call(r, "POST", "/api/journey/s02/start", Some(&cookie), None).await;
+    assert_eq!(status, StatusCode::FORBIDDEN);
+
+    // Start s01: short cards and a few easy questions.
+    let (status, run, _) = call(r, "POST", "/api/journey/s01/start", Some(&cookie), None).await;
+    assert_eq!(status, StatusCode::OK, "{run}");
+    let cards = run["cards"].as_array().unwrap();
+    assert_eq!(cards.len(), 3);
+    assert!(cards.iter().all(|c| !c["hack"].as_str().unwrap().is_empty() && !c["key"].as_str().unwrap().is_empty()));
+    let qs = run["questions"].as_array().unwrap();
+    assert_eq!(qs.len(), 3);
+    assert!(qs.iter().all(|q| q["difficulty"].as_u64().unwrap() <= 2));
+    for q in qs {
+        let id = q["id"].as_str().unwrap();
+        let (_, res, _) = call(r, "POST", "/api/answer", Some(&cookie), Some(json!({"question_id": id, "response": keys[id], "time_ms": 900, "mode": "journey"}))).await;
+        assert_eq!(res["correct"], true);
+        assert_eq!(res["xp"], 10);
+    }
+    let run_id = run["run_id"].as_i64().unwrap();
+    let (status, result, _) = call(r, "POST", &format!("/api/journey/runs/{run_id}/finish"), Some(&cookie), None).await;
+    assert_eq!(status, StatusCode::OK, "{result}");
+    assert_eq!((result["correct"].as_u64(), result["total"].as_u64(), result["stars"].as_u64()), (Some(3), Some(3), Some(3)));
+    assert_eq!(result["passed"], true);
+    assert_eq!(result["bonus_xp"], 55);
+    assert_eq!(result["next_stage"], "s02");
+    let (status, _, _) = call(r, "POST", &format!("/api/journey/runs/{run_id}/finish"), Some(&cookie), None).await;
+    assert_eq!(status, StatusCode::CONFLICT);
+    let (_, j, _) = call(r, "GET", "/api/journey", Some(&cookie), None).await;
+    assert_eq!(j["stages"][0]["status"], "done");
+    assert_eq!(j["stages"][1]["status"], "open");
+
+    // Spaced review: a miss is queued (due in 10 minutes), then served when due.
+    let (_, next, _) = call(r, "GET", "/api/practice/next?skill=q-geometry-2d", Some(&cookie), None).await;
+    let missed = next["question"]["id"].as_str().unwrap().to_string();
+    call(r, "POST", "/api/answer", Some(&cookie), Some(json!({"question_id": missed, "response": "123456", "time_ms": 900}))).await;
+    let (_, due, _) = call(r, "GET", "/api/practice/next?mode=review", Some(&cookie), None).await;
+    assert_eq!(due["question"], Value::Null, "not due for 10 minutes");
+    sqlx::query("UPDATE review_queue SET due_at = 0").execute(&app.pool).await.unwrap();
+    let (_, due, _) = call(r, "GET", "/api/practice/next?mode=review", Some(&cookie), None).await;
+    assert_eq!(due["question"]["id"], missed.as_str());
+    call(r, "POST", "/api/answer", Some(&cookie), Some(json!({"question_id": missed, "response": keys[&missed], "time_ms": 900, "mode": "review"}))).await;
+    let interval: i64 = sqlx::query_scalar("SELECT interval_days FROM review_queue").fetch_one(&app.pool).await.unwrap();
+    assert_eq!(interval, 1);
+
+    // Stats: XP from 5 answers (4 right) + stage bonus; streak of 1 day.
+    let (_, s, _) = call(r, "GET", "/api/stats?tz=-540", Some(&cookie), None).await;
+    assert_eq!(s["xp"], 4 * 10 + 2 + 55);
+    assert_eq!(s["streak_days"], 1);
+    assert_eq!(s["answered_today"], 5);
+    assert_eq!(s["level"], 1);
+
+    // Practice test: 10 questions, ~45% quantitative; graded only on submit.
+    let (status, paper, _) = call(r, "POST", "/api/tests", Some(&cookie), Some(json!({"kind": "short"}))).await;
+    assert_eq!(status, StatusCode::OK, "{paper}");
+    let qs = paper["questions"].as_array().unwrap();
+    assert_eq!(qs.len(), 10);
+    assert_eq!(paper["time_limit_secs"], 1500);
+    let quant = qs.iter().filter(|q| q["skill"].as_str().unwrap().starts_with("q-")).count();
+    assert!((4..=5).contains(&quant), "quantitative {quant}");
+    let answers: Vec<Value> = qs
+        .iter()
+        .enumerate()
+        .map(|(i, q)| {
+            let id = q["id"].as_str().unwrap();
+            let resp = if i < 6 { keys[id].clone() } else if i < 9 { "999999".into() } else { String::new() };
+            json!({"question_id": id, "response": resp, "time_ms": 30000})
+        })
+        .collect();
+    let test_id = paper["id"].as_i64().unwrap();
+    let (status, report, _) = call(r, "POST", &format!("/api/tests/{test_id}/submit"), Some(&cookie), Some(json!({"answers": answers}))).await;
+    assert_eq!(status, StatusCode::OK, "{report}");
+    assert_eq!((report["correct"].as_u64(), report["total"].as_u64(), report["percent"].as_u64()), (Some(6), Some(10), Some(60)));
+    assert_eq!(report["band"], "building");
+    assert_eq!(report["items"].as_array().unwrap().len(), 10);
+    let skill_total: u64 = report["by_skill"].as_array().unwrap().iter().map(|s| s["total"].as_u64().unwrap()).sum();
+    assert_eq!(skill_total, 10);
+    let (status, _, _) = call(r, "POST", &format!("/api/tests/{test_id}/submit"), Some(&cookie), Some(json!({"answers": []}))).await;
+    assert_eq!(status, StatusCode::CONFLICT);
+    let (_, history, _) = call(r, "GET", "/api/tests", Some(&cookie), None).await;
+    assert_eq!(history.as_array().unwrap().len(), 1);
+
+    // Plan: bad date refused; five days out gives a power set and hacks.
+    let (status, _, _) = call(r, "POST", "/api/me/test-date", Some(&cookie), Some(json!({"test_date": "soon"}))).await;
+    assert_eq!(status, StatusCode::BAD_REQUEST);
+    let (_, plan, _) = call(r, "GET", "/api/plan", Some(&cookie), None).await;
+    assert_eq!(plan["days_left"], Value::Null);
+    let today = (gedpasser_server::spaced::now_unix()).div_euclid(86400);
+    let target = today + 5;
+    // Civil date for `target` days since the epoch.
+    let date = civil(target);
+    let (status, _, _) = call(r, "POST", "/api/me/test-date", Some(&cookie), Some(json!({"test_date": date}))).await;
+    assert_eq!(status, StatusCode::NO_CONTENT);
+    let (_, plan, _) = call(r, "GET", "/api/plan?tz=0", Some(&cookie), None).await;
+    assert_eq!(plan["days_left"], 5, "{plan}");
+    let kinds: Vec<&str> = plan["today"].as_array().unwrap().iter().map(|t| t["kind"].as_str().unwrap()).collect();
+    assert!(kinds.contains(&"power_set"), "{kinds:?}");
+    assert!(!kinds.contains(&"diagnostic"), "a test was already taken");
+    assert_eq!(plan["focus_count"], 24);
+    assert!(!plan["hacks"].as_array().unwrap().is_empty());
+    let power = plan["today"].as_array().unwrap().iter().find(|t| t["kind"] == "power_set").unwrap();
+    let list = power["principles"].as_array().unwrap().iter().map(|p| p.as_str().unwrap()).collect::<Vec<_>>().join(",");
+    let (status, next, _) = call(r, "GET", &format!("/api/practice/next?principle={list}"), Some(&cookie), None).await;
+    assert_eq!(status, StatusCode::OK);
+    assert!(list.contains(next["question"]["principle"]["id"].as_str().unwrap()));
+
+    // Strategy and lesson cards.
+    let (_, strat, _) = call(r, "GET", "/api/strategy", Some(&cookie), None).await;
+    assert_eq!(strat["tactics"].as_array().unwrap().len(), 12);
+    assert_eq!(strat["formulas"].as_array().unwrap().len(), 22);
+    assert_eq!(strat["hacks"].as_array().unwrap().len(), 62);
+    let (_, lesson, _) = call(r, "GET", "/api/principles/Q.3.d", Some(&cookie), None).await;
+    assert!(!lesson["card"]["key"].as_str().unwrap().is_empty());
+}
+
+/// YYYY-MM-DD for days since 1970-01-01.
+fn civil(z: i64) -> String {
+    let z = z + 719468;
+    let era = z.div_euclid(146097);
+    let doe = z - era * 146097;
+    let yoe = (doe - doe / 1460 + doe / 36524 - doe / 146096) / 365;
+    let doy = doe - (365 * yoe + yoe / 4 - yoe / 100);
+    let mp = (5 * doy + 2) / 153;
+    let d = doy - (153 * mp + 2) / 5 + 1;
+    let m = if mp < 10 { mp + 3 } else { mp - 9 };
+    let y = yoe + era * 400 + if m <= 2 { 1 } else { 0 };
+    format!("{y:04}-{m:02}-{d:02}")
+}
+
+#[tokio::test]
+async fn figures_are_sampled_for_the_client() {
+    let db = temp_db("figures");
+    let app = app(&db, false).await;
+    let (_, cookie) = create(&app.router, "Ivy", "plot").await;
+    let (_, lesson, _) = call(&app.router, "GET", "/api/principles/A.5.b", Some(&cookie), None).await;
+    let fig = &lesson["card"]["figure"];
+    assert_eq!(fig["figure"]["kind"], "plane");
+    let curve = &fig["curves"][0][0];
+    assert!(curve.as_array().unwrap().len() > 20, "sampled polyline");
+}

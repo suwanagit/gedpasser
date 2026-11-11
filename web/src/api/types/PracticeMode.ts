@@ -3,4 +3,4 @@
 /**
  * What a practice session draws from.
  */
-export type PracticeMode = "skill" | "principle" | "mixed";
+export type PracticeMode = "skill" | "principle" | "mixed" | "review" | "journey";

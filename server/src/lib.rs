@@ -4,8 +4,14 @@
 pub mod api;
 pub mod auth;
 pub mod content;
+pub mod exams;
+pub mod figures;
 pub mod flags;
+pub mod journey;
 pub mod mastery;
+pub mod plan;
+pub mod spaced;
+pub mod stats;
 
 use std::path::{Path, PathBuf};
 use std::str::FromStr;
@@ -87,6 +93,15 @@ pub async fn build_app(config: &Config) -> Result<App, String> {
         .route("/api/principles", get(api::list_principles))
         .route("/api/principles/{id}", get(api::get_principle))
         .route("/api/flags", post(flags::create_flag))
+        .route("/api/journey", get(journey::get_journey))
+        .route("/api/journey/{id}/start", post(journey::start_stage))
+        .route("/api/journey/runs/{run_id}/finish", post(journey::finish_stage))
+        .route("/api/stats", get(stats::get_stats))
+        .route("/api/tests", get(exams::list_tests).post(exams::new_test))
+        .route("/api/tests/{id}/submit", post(exams::submit_test))
+        .route("/api/plan", get(plan::get_plan))
+        .route("/api/me/test-date", post(plan::set_test_date))
+        .route("/api/strategy", get(plan::get_strategy))
         .route("/api/{*rest}", get(api::api_not_found).post(api::api_not_found))
         .fallback(static_file)
         .with_state(state);
