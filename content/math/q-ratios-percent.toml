@@ -7,7 +7,7 @@ skill = "q-ratios-percent"
 principle = "Q.3.a"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 alaska = true
 prompt = '''
 A fishing boat out of Kodiak burns 45 liters of fuel every 3 hours.
@@ -28,7 +28,7 @@ skill = "q-ratios-percent"
 principle = "Q.3.d"
 difficulty = 2
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = '''
 A jacket costs \$120. It is on sale for 30% off, and then a 5% local sales tax is added to the sale price.
 What is the final price in dollars?
@@ -47,7 +47,7 @@ skill = "q-ratios-percent"
 principle = "Q.3.b"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 alaska = true
 prompt = '''
 On a map of the Yukon–Kuskokwim Delta, 2 cm represents 15 km.
@@ -68,7 +68,7 @@ skill = "q-ratios-percent"
 principle = "Q.3.a"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = "A 1.5-liter bottle of juice costs \\$3.60. What is the price per liter, in dollars?"
 choices = ["2.40", "5.40", "2.10", "0.42"]
 answer = "2.40"
@@ -82,7 +82,7 @@ skill = "q-ratios-percent"
 principle = "Q.3.a"
 difficulty = 2
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 alaska = true
 prompt = "A floatplane flies 420 km in 2.5 hours. What is its average speed, in kilometers per hour?"
 answer = "168"
@@ -96,7 +96,7 @@ skill = "q-ratios-percent"
 principle = "Q.3.b"
 difficulty = 2
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = '''
 A model boat is built at a scale of 1 : 24. The model is 45 cm long.
 How long is the real boat, in meters?
@@ -115,7 +115,7 @@ skill = "q-ratios-percent"
 principle = "Q.3.b"
 difficulty = 3
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = '''
 A rectangle with an area of 8 cm² is enlarged by a scale factor of 3.
 What is the area of the enlarged rectangle, in cm²?
@@ -135,7 +135,7 @@ skill = "q-ratios-percent"
 principle = "Q.3.c"
 difficulty = 2
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = '''
 A recipe uses 250 g of flour to make 12 pieces of bannock.
 How many grams of flour are needed for 30 pieces?
@@ -154,7 +154,7 @@ skill = "q-ratios-percent"
 principle = "Q.3.c"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = "How many meters are in 3.2 kilometers?"
 choices = ["3200", "320", "32000", "0.0032"]
 answer = "3200"
@@ -168,7 +168,7 @@ skill = "q-ratios-percent"
 principle = "Q.3.c"
 difficulty = 3
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = '''
 A two-stroke engine needs oil and gas mixed in a ratio of 1 : 50.
 How many milliliters of oil should be mixed with 4 liters of gas?
@@ -189,7 +189,7 @@ difficulty = 2
 type = "multiple_choice"
 status = "draft"
 prompt = "A town's population grew from 2,400 to 2,700. What was the percent increase?"
-choices = ["12.5%", "11.1%", "300%", "25%"]
+choices = ["12.5%", "11.1%", "300%", "112.5%"]
 answer = "12.5%"
 check = "(2700 - 2400) / 2400 * 100"
 explanation = '''
@@ -204,7 +204,7 @@ skill = "q-ratios-percent"
 principle = "Q.3.d"
 difficulty = 3
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = '''
 \$2,500 is put in an account that pays 3% simple interest per year.
 How many dollars will be in the account after 4 years?

@@ -26,6 +26,11 @@ async fn main() {
     let serve_drafts = matches!(std::env::var("GED_SERVE_DRAFTS").as_deref(), Ok("1" | "true" | "yes"));
     let config = Config { content_dir, db_path, serve_drafts };
 
+    let args: Vec<String> = std::env::args().skip(1).collect();
+    if args.first().map(String::as_str) == Some("flags") {
+        std::process::exit(flags_command(&config, &args[1..]).await);
+    }
+
     let app = build_app(&config).await.unwrap_or_else(|e| fatal(&e));
     tracing::info!(
         "loaded {} skills and {} questions from {}",
@@ -57,6 +62,64 @@ async fn main() {
         .await
         .expect("server error");
     app.pool.close().await;
+}
+
+/// `gedpasser-server flags` lists open flags; `flags resolve ID` dismisses one.
+async fn flags_command(config: &Config, args: &[String]) -> i32 {
+    let pool = match gedpasser_server::open_db(&config.db_path).await {
+        Ok(p) => p,
+        Err(e) => {
+            eprintln!("{e}");
+            return 1;
+        }
+    };
+    let code = match (args.first().map(String::as_str), args.get(1)) {
+        (None, _) => match gedpasser_server::flags::list_open(&pool).await {
+            Ok(rows) if rows.is_empty() => {
+                println!("No open flags.");
+                0
+            }
+            Ok(rows) => {
+                println!("{} open flag(s) in {}:", rows.len(), config.db_path.display());
+                for f in rows {
+                    let note = if f.note.is_empty() { String::new() } else { format!(" — {:?}", f.note) };
+                    println!("  #{}  {}  {}  {} by {}{}", f.id, &f.created_at[..10], f.question_id, f.reason, f.display_name, note);
+                }
+                println!("Fix the question in content/ (its flag clears on restart), or: gedpasser-server flags resolve ID");
+                0
+            }
+            Err(e) => {
+                eprintln!("database error: {e}");
+                1
+            }
+        },
+        (Some("resolve"), Some(id)) => match id.trim_start_matches('#').parse::<i64>() {
+            Ok(n) => match gedpasser_server::flags::dismiss(&pool, n).await {
+                Ok(true) => {
+                    println!("Flag #{n} dismissed. The question returns to practice.");
+                    0
+                }
+                Ok(false) => {
+                    eprintln!("No open flag #{n}.");
+                    1
+                }
+                Err(e) => {
+                    eprintln!("database error: {e}");
+                    1
+                }
+            },
+            Err(_) => {
+                eprintln!("usage: gedpasser-server flags resolve ID");
+                1
+            }
+        },
+        _ => {
+            eprintln!("usage: gedpasser-server flags [resolve ID]");
+            1
+        }
+    };
+    pool.close().await;
+    code
 }
 
 /// Find the question bank: `GED_CONTENT` if set, else a `content` folder

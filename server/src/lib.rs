@@ -4,6 +4,7 @@
 pub mod api;
 pub mod auth;
 pub mod content;
+pub mod flags;
 
 use std::path::{Path, PathBuf};
 use std::str::FromStr;
@@ -83,6 +84,7 @@ pub async fn build_app(config: &Config) -> Result<App, String> {
         .route("/api/answer", post(api::submit_answer))
         .route("/api/principles", get(api::list_principles))
         .route("/api/principles/{id}", get(api::get_principle))
+        .route("/api/flags", post(flags::create_flag))
         .route("/api/{*rest}", get(api::api_not_found).post(api::api_not_found))
         .fallback(static_file)
         .with_state(state);

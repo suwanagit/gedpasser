@@ -1,0 +1,141 @@
+# Review notes for q-ratios-percent.
+
+[[review]]
+id = "q-ratios-percent-0001"
+kind = "question"
+hash = "3fe5e03cc50db852"
+verdict = "pass"
+solved = "105"
+note = "45/3 = 15 L/h, x7 = 105 matches key. Distractors are real errors (135 = 45x3, 49 additive, 315 = 45x7). Explanation and common_mistake correct; Q.3.a fits."
+date = "2026-11-10"
+
+[[review]]
+id = "q-ratios-percent-0002"
+kind = "question"
+hash = "e1ae62cd9cb46e8e"
+verdict = "pass"
+solved = "88.20"
+note = "120 x 0.70 = 84, x 1.05 = 88.20 matches key; grader accepts 88.2 / 88.20 / $88.20. Order of discount then tax is stated clearly. Common mistake (single 25% off = 90) is a real error. Dollar signs escaped."
+date = "2026-11-10"
+
+[[review]]
+id = "q-ratios-percent-0003"
+kind = "question"
+hash = "c905d3d342bdc243"
+verdict = "pass"
+solved = "52.5"
+note = "15/2 = 7.5 km per cm, x7 = 52.5 matches key. Distractors 105 (7x15), 30 (2x15), 22.5 (15+7.5) are definitely wrong. Explanation correct; Q.3.b fits."
+date = "2026-11-10"
+
+[[review]]
+id = "q-ratios-percent-0004"
+kind = "question"
+hash = "83b99e32b4787f7e"
+verdict = "pass"
+solved = "2.40"
+note = "3.60/1.5 = 2.40 matches key. Distractors 5.40 (multiply), 2.10 (subtract), 0.42 (inverted rate) are plausible and wrong. Explanation correct."
+date = "2026-11-10"
+
+[[review]]
+id = "q-ratios-percent-0005"
+kind = "question"
+hash = "c48ea454c39d995a"
+verdict = "pass"
+solved = "168"
+note = "420/2.5 = 168 km/h matches key. Clear wording, explanation correct, Q.3.a fits."
+date = "2026-11-10"
+
+[[review]]
+id = "q-ratios-percent-0006"
+kind = "question"
+hash = "769bc054da49e731"
+verdict = "pass"
+solved = "10.8"
+note = "45 x 24 = 1080 cm = 10.8 m matches key; grader accepts 10.80. Unit asked for explicitly. Explanation and common mistake (answering 1080) correct."
+date = "2026-11-10"
+
+[[review]]
+id = "q-ratios-percent-0007"
+kind = "question"
+hash = "654ec8aeaae972ff"
+verdict = "pass"
+solved = "72"
+note = "Area scales by 3^2 = 9: 8 x 9 = 72 matches key. Distractors 24 (x3), 11 (+3), 216 (x27) are real errors. Matches the Q.3.b lesson; difficulty 3 reasonable."
+date = "2026-11-10"
+
+[[review]]
+id = "q-ratios-percent-0008"
+kind = "question"
+hash = "29236245d5b549e6"
+verdict = "pass"
+solved = "625"
+note = "250/12 x 30 = 7500/12 = 625 g matches key. Proportion explanation correct; additive-reasoning mistake (268) is a real error. Q.3.c fits."
+date = "2026-11-10"
+
+[[review]]
+id = "q-ratios-percent-0009"
+kind = "question"
+hash = "b7de30a89845b50a"
+verdict = "pass"
+solved = "3200"
+note = "3.2 x 1000 = 3200 matches key. Distractors 320 (x100), 32000 (x10000), 0.0032 (divide by 1000) are plausible slips. Q.3.c (unit conversion) fits."
+date = "2026-11-10"
+
+[[review]]
+id = "q-ratios-percent-0010"
+kind = "question"
+hash = "ed2033ed71bb2e68"
+verdict = "pass"
+solved = "80"
+note = "Oil:gas = 1:50, 4 L = 4000 mL, 4000/50 = 80 mL matches key. Ratio order (oil to gas) is stated in the prompt. Explanation correct; common mistake (0.08, unconverted liters) is a real error."
+date = "2026-11-10"
+
+[[review]]
+id = "q-ratios-percent-0011"
+kind = "question"
+hash = "c2038ef12a5f7926"
+verdict = "fix"
+solved = "12.5%"
+note = "Key 12.5% (300/2400) is correct and 11.1% / 300% are good distractors, but 25% does not come from any recognizable mistake on these numbers. Replace 25% with 112.5% (2700/2400 x 100, forgetting to subtract the original 100%), which is a common real error."
+date = "2026-11-10"
+
+[[review]]
+id = "q-ratios-percent-0012"
+kind = "question"
+hash = "d76fca231e7c6d59"
+verdict = "pass"
+solved = "2800"
+note = "I = 2500 x 0.03 x 4 = 300, total 2800 matches key; grader accepts 2,800 and $2800. Prompt clearly asks for the account total. Explanation and common mistake (300) correct."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.3.a"
+kind = "lesson"
+hash = "29831386cacac202"
+verdict = "pass"
+note = "Checked rule (divide first quantity by second), bullets, salmon example (15.50 vs 15.00 per kg, 3 kg cheaper) and tip (15 x 4 = 60). All correct and clear; dollar signs escaped."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.3.b"
+kind = "lesson"
+hash = "01377005b48a158f"
+verdict = "pass"
+note = "Checked map-to-real (7 x 5 = 35), real-to-map (20/5 = 4), area factor 3^2 = 9, house plan 4 x 50 = 200 cm = 2 m, and the 2 cm : 15 km tip (7.5 km). All correct, sensible order."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.3.c"
+kind = "lesson"
+hash = "bd92730da35ee442"
+verdict = "pass"
+note = "Checked cross-multiplication rule, paint example (3/24 = x/40, 24x = 120, x = 5 L), metric conversion table and 2.5 km = 2500 m. All correct; tip on keeping units aligned is sound."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.3.d"
+kind = "lesson"
+hash = "8db067603bf5189e"
+verdict = "pass"
+note = "Checked 15% of 60 = 9, discount 51, percent change 10/40 = 25%, simple interest 500 x 0.04 x 3 = 60, and the tip that successive percents do not add. All correct; percent signs escaped inside math."
+date = "2026-11-10"

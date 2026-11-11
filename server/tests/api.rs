@@ -231,6 +231,78 @@ async fn principles_and_lessons() {
     assert_eq!((p["answered"].as_u64(), p["correct"].as_u64(), p["has_lesson"].as_bool()), (Some(1), Some(1), Some(true)));
 }
 
+fn copy_dir(from: &Path, to: &Path) {
+    std::fs::create_dir_all(to).unwrap();
+    for entry in std::fs::read_dir(from).unwrap() {
+        let p = entry.unwrap().path();
+        let dest = to.join(p.file_name().unwrap());
+        if p.is_dir() {
+            copy_dir(&p, &dest);
+        } else {
+            std::fs::copy(&p, &dest).unwrap();
+        }
+    }
+}
+
+#[tokio::test]
+async fn flags_remove_questions_until_resolved() {
+    // Work on a copy of the content so we can edit a question.
+    let content = PathBuf::from(env!("CARGO_TARGET_TMPDIR")).join("server-tests").join("flag-content");
+    let _ = std::fs::remove_dir_all(&content);
+    copy_dir(&content_dir(), &content);
+    let db = temp_db("flags");
+    let config = Config { content_dir: content.clone(), db_path: db.clone(), serve_drafts: true };
+    let app = build_app(&config).await.unwrap();
+    let (_, cookie) = create(&app.router, "Fay", "flag1").await;
+
+    let flag = json!({"question_id": "q-number-ops-0001", "reason": "wrong_answer", "note": "  I think it's 26.30  "});
+    let (status, _, _) = call(&app.router, "POST", "/api/flags", None, Some(flag.clone())).await;
+    assert_eq!(status, StatusCode::UNAUTHORIZED);
+    let (status, _, _) = call(&app.router, "POST", "/api/flags", Some(&cookie), Some(flag)).await;
+    assert_eq!(status, StatusCode::NO_CONTENT);
+    let (status, _, _) = call(
+        &app.router,
+        "POST",
+        "/api/flags",
+        Some(&cookie),
+        Some(json!({"question_id": "nope-0001", "reason": "typo"})),
+    )
+    .await;
+    assert_eq!(status, StatusCode::NOT_FOUND);
+
+    // The flagged question is never served, and the count drops by one.
+    let (_, skills, _) = call(&app.router, "GET", "/api/skills", Some(&cookie), None).await;
+    let ops = skills.as_array().unwrap().iter().find(|s| s["id"] == "q-number-ops").unwrap()["available"].as_u64().unwrap();
+    let total = std::fs::read_to_string(content.join("math").join("q-number-ops.toml")).unwrap().matches("[[question]]").count() as u64;
+    assert_eq!(ops, total - 1);
+    for _ in 0..30 {
+        let (_, next, _) = call(&app.router, "GET", "/api/practice/q-number-ops/next", Some(&cookie), None).await;
+        assert_ne!(next["question"]["id"], "q-number-ops-0001");
+    }
+
+    let open = gedpasser_server::flags::list_open(&app.pool).await.unwrap();
+    assert_eq!(open.len(), 1);
+    assert_eq!(open[0].note, "I think it's 26.30");
+    app.pool.close().await;
+
+    // Editing the question settles the flag on the next start.
+    let file = content.join("math").join("q-number-ops.toml");
+    let text = std::fs::read_to_string(&file).unwrap().replace("How many dollars do they spend in all?", "How many dollars do they spend altogether?");
+    std::fs::write(&file, text).unwrap();
+    let app = build_app(&config).await.unwrap();
+    assert!(gedpasser_server::flags::list_open(&app.pool).await.unwrap().is_empty());
+    let (_, skills, _) = call(&app.router, "GET", "/api/skills", Some(&cookie), None).await;
+    let ops = skills.as_array().unwrap().iter().find(|s| s["id"] == "q-number-ops").unwrap()["available"].as_u64().unwrap();
+    assert_eq!(ops, total);
+
+    // A flag can also be dismissed by hand.
+    call(&app.router, "POST", "/api/flags", Some(&cookie), Some(json!({"question_id": "q-number-ops-0002", "reason": "typo"}))).await;
+    let id = gedpasser_server::flags::list_open(&app.pool).await.unwrap()[0].id;
+    assert!(gedpasser_server::flags::dismiss(&app.pool, id).await.unwrap());
+    assert!(!gedpasser_server::flags::dismiss(&app.pool, id).await.unwrap(), "already resolved");
+    assert!(gedpasser_server::flags::list_open(&app.pool).await.unwrap().is_empty());
+}
+
 #[tokio::test]
 async fn answers_graded_saved_and_survive_restart() {
     let db = temp_db("restart");
@@ -265,9 +337,10 @@ async fn answers_graded_saved_and_survive_restart() {
     assert_eq!(res["answer"], "6");
     assert!(!res["common_mistake"].as_str().unwrap().is_empty());
 
-    // The next question prefers the one never answered (0003).
+    // The next question prefers one never answered.
     let (_, next, _) = call(&app.router, "GET", "/api/practice/q-number-ops/next", Some(&cookie), None).await;
-    assert_eq!(next["question"]["id"], "q-number-ops-0003");
+    let next_id = next["question"]["id"].as_str().unwrap();
+    assert!(next_id != "q-number-ops-0001" && next_id != "q-number-ops-0002", "{next_id}");
 
     let rows: Vec<(String, i64, i64)> =
         sqlx::query_as("SELECT question_id, correct, time_ms FROM attempts WHERE user_id = ? ORDER BY id")
@@ -288,17 +361,27 @@ async fn answers_graded_saved_and_survive_restart() {
     let ops = skills.as_array().unwrap().iter().find(|s| s["id"] == "q-number-ops").unwrap();
     assert_eq!(ops["answered"], 2);
     assert_eq!(ops["correct"], 1);
-    assert_eq!(ops["available"], 3);
+    let bank = ged_content::check_content(&content_dir());
+    let ops_questions: Vec<&ged_content::Question> =
+        bank.questions.iter().map(|(_, q)| q).filter(|q| q.skill == "q-number-ops").collect();
+    assert_eq!(ops["available"].as_u64(), Some(ops_questions.len() as u64));
 
-    // After answering 0003, a missed question (0002) comes before a correct one.
-    call(
-        &app.router,
-        "POST",
-        "/api/answer",
-        Some(&cookie),
-        Some(json!({"question_id": "q-number-ops-0003", "response": "$\\frac{17}{12}$", "time_ms": 100})),
-    )
-    .await;
-    let (_, next, _) = call(&app.router, "GET", "/api/practice/q-number-ops/next?after=q-number-ops-0003", Some(&cookie), None).await;
+    // Once everything else has been answered correctly, the missed question
+    // (0002) comes before any question answered correctly.
+    let mut last = String::new();
+    for q in ops_questions.iter().filter(|q| q.id != "q-number-ops-0001" && q.id != "q-number-ops-0002") {
+        let (_, res, _) = call(
+            &app.router,
+            "POST",
+            "/api/answer",
+            Some(&cookie),
+            Some(json!({"question_id": q.id, "response": q.answer, "time_ms": 100})),
+        )
+        .await;
+        assert_eq!(res["correct"], true, "{} graded wrong with its own answer", q.id);
+        last = q.id.clone();
+    }
+    let (_, next, _) =
+        call(&app.router, "GET", &format!("/api/practice/q-number-ops/next?after={last}"), Some(&cookie), None).await;
     assert_eq!(next["question"]["id"], "q-number-ops-0002");
 }

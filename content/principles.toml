@@ -14,7 +14,7 @@
 [[principle]]
 id = "Q.1.a"
 skill = "q-number-ops"
-status = "draft"
+status = "reviewed"
 name = "Putting fractions and decimals in order"
 summary = "Compare and order fractions and decimals, including placing them on a number line."
 lesson = '''
@@ -33,7 +33,7 @@ Tip: adding zeros to the end of a decimal ($0.6 = 0.600$) does not change it, an
 [[principle]]
 id = "Q.1.b"
 skill = "q-number-ops"
-status = "draft"
+status = "reviewed"
 name = "Factors, multiples and the distributive property"
 summary = "Use greatest common factors, least common multiples and the distributive property to rewrite numbers and expressions."
 lesson = '''
@@ -51,7 +51,7 @@ Example: rewrite $24 + 36$ using the GCF: $24 + 36 = 12(2 + 3)$.
 [[principle]]
 id = "Q.1.d"
 skill = "q-number-ops"
-status = "draft"
+status = "reviewed"
 name = "Absolute value and distance on a number line"
 summary = "Absolute value is a number's distance from zero; the distance between two numbers is the absolute value of their difference."
 lesson = '''
@@ -68,7 +68,7 @@ Tip: subtracting a negative is the same as adding: $4 - (-12) = 4 + 12$.
 [[principle]]
 id = "Q.2.a"
 skill = "q-number-ops"
-status = "draft"
+status = "reviewed"
 name = "Arithmetic with fractions, decimals and negatives"
 summary = "Add, subtract, multiply and divide fractions, decimals and signed numbers, following the order of operations."
 lesson = '''
@@ -89,7 +89,7 @@ Tip: never add the denominators. $\frac{1}{2} + \frac{1}{2}$ is $1$, not $\frac{
 [[principle]]
 id = "Q.2.d"
 skill = "q-number-ops"
-status = "draft"
+status = "reviewed"
 name = "When an expression is undefined"
 summary = "Recognize expressions that have no value, such as division by zero."
 lesson = '''
@@ -115,14 +115,17 @@ Word problems are easier when you slow down and plan.
 
 - Read the question twice and underline what it asks for.
 - List the numbers you are given, with their units.
+- Estimate a rough answer first, so you can spot a mistake later.
 - Decide the steps, do them one at a time, and label each result.
-- Check that the answer is sensible: estimate first.
+- Compare your answer with your estimate.
 
 Example: a family drives 340 km on the Parks Highway. Their truck uses 8 liters of fuel per 100 km, and fuel costs \$1.80 per liter. What does the 340 km cost?
+- Estimate: about 3 hundreds of km at 8 liters each is about 24–27 liters; at about \$2 a liter that is roughly \$50.
 - Fuel used: $340 \div 100 \times 8 = 27.2$ liters.
-- Cost: $27.2 \times 1.80 = 48.96$, so \$48.96.
+- Cost: $27.2 \times 1.80 = 48.96$, so \$48.96 — close to the estimate.
 
-Estimate check: about 3.4 hundreds of km times 8 is about 27 liters; 27 times about \$2 is about \$54. Close enough.
+Very large or very small numbers are often written in scientific notation. To multiply them, multiply the front numbers and add the powers of ten:
+$(3 \times 10^4) \times (2 \times 10^3) = 6 \times 10^7$, which is 60,000,000.
 '''
 
 # ── q-ratios-percent ─────────────────────────────────────────────────────
@@ -130,7 +133,7 @@ Estimate check: about 3.4 hundreds of km times 8 is about 27 liters; 27 times ab
 [[principle]]
 id = "Q.3.a"
 skill = "q-ratios-percent"
-status = "draft"
+status = "reviewed"
 name = "Unit rates"
 summary = "Find how much of one quantity goes with exactly one unit of another, such as price per kilogram or kilometers per hour."
 lesson = '''
@@ -151,7 +154,7 @@ Tip: once you know the unit rate, multiply it by any amount: at 15 km per hour, 
 [[principle]]
 id = "Q.3.b"
 skill = "q-ratios-percent"
-status = "draft"
+status = "reviewed"
 name = "Scale drawings and scale factors"
 summary = "Use a scale or scale factor to move between a drawing or map and real size."
 lesson = '''
@@ -169,7 +172,7 @@ Tip: if the scale is given for more than 1 unit (2 cm : 15 km), first find what 
 [[principle]]
 id = "Q.3.c"
 skill = "q-ratios-percent"
-status = "draft"
+status = "reviewed"
 name = "Proportions and converting units"
 summary = "Set up and solve proportions in multi-step problems, including ones that change units."
 lesson = '''
@@ -190,7 +193,7 @@ Tip: keep the units in the same places on both sides of a proportion (liters on 
 [[principle]]
 id = "Q.3.d"
 skill = "q-ratios-percent"
-status = "draft"
+status = "reviewed"
 name = "Percent problems in everyday life"
 summary = "Find a percent of an amount and use it for tax, tips, discounts, interest and percent change."
 lesson = '''
@@ -210,7 +213,7 @@ Tip: two percent changes in a row do not simply add. Apply them one after the ot
 [[principle]]
 id = "Q.1.c"
 skill = "q-exponents-roots"
-status = "draft"
+status = "reviewed"
 name = "Rules of exponents"
 summary = "Use the exponent rules to simplify and rewrite numerical expressions, including fractional and negative exponents."
 lesson = '''
@@ -229,7 +232,7 @@ These rules also handle scientific notation: $(3 \times 10^5)(4 \times 10^2) = 1
 [[principle]]
 id = "Q.2.b"
 skill = "q-exponents-roots"
-status = "draft"
+status = "reviewed"
 name = "Squares and square roots"
 summary = "Compute and write expressions with squares and square roots of positive numbers."
 lesson = '''
@@ -247,7 +250,7 @@ Tip: $\sqrt{9 + 16}$ is $\sqrt{25} = 5$, not $3 + 4$. Do what is under the root 
 [[principle]]
 id = "Q.2.c"
 skill = "q-exponents-roots"
-status = "draft"
+status = "reviewed"
 name = "Cubes and cube roots"
 summary = "Compute and write expressions with cubes and cube roots, including of negative numbers."
 lesson = '''
@@ -266,7 +269,7 @@ Tip: $5^3$ means $5 \times 5 \times 5 = 125$, not $5 \times 3 = 15$.
 [[principle]]
 id = "Q.4.a"
 skill = "q-geometry-2d"
-status = "draft"
+status = "reviewed"
 name = "Area and perimeter of rectangles and triangles"
 summary = "Find the area and perimeter of rectangles and triangles, and work backwards to a missing side."
 lesson = '''
@@ -285,7 +288,7 @@ Tip: the height of a triangle must meet the base at a right angle; it is not alw
 [[principle]]
 id = "Q.4.b"
 skill = "q-geometry-2d"
-status = "draft"
+status = "reviewed"
 name = "Circles: circumference and area"
 summary = "Find a circle's circumference and area, and work back to its radius or diameter."
 lesson = '''
@@ -306,7 +309,7 @@ Tip: if you are given the diameter, halve it before using $A = \pi r^2$.
 [[principle]]
 id = "Q.4.c"
 skill = "q-geometry-2d"
-status = "draft"
+status = "reviewed"
 name = "Perimeter and area of other polygons"
 summary = "Find the perimeter of any polygon and use a given formula for its area, or work back to a missing side."
 lesson = '''
@@ -326,7 +329,7 @@ Working backwards: a square has perimeter 36 m, so each side is $36 \div 4 = 9$ 
 [[principle]]
 id = "Q.4.d"
 skill = "q-geometry-2d"
-status = "draft"
+status = "reviewed"
 name = "Combined (composite) shapes"
 summary = "Find the perimeter and area of shapes made from rectangles, triangles and circles."
 lesson = '''
@@ -346,7 +349,7 @@ Tip: sketch the shape and label each piece before calculating.
 [[principle]]
 id = "Q.4.e"
 skill = "q-geometry-2d"
-status = "draft"
+status = "reviewed"
 name = "The Pythagorean theorem"
 summary = "In a right triangle, use a² + b² = c² to find a missing side."
 lesson = '''

@@ -221,6 +221,7 @@ pub async fn list_skills(State(state): State<Arc<AppState>>, user: CurrentUser) 
     .fetch_all(&state.pool)
     .await?;
     let stats: HashMap<String, (i64, i64)> = rows.into_iter().map(|(s, n, c)| (s, (n, c))).collect();
+    let flagged = crate::flags::flagged_ids(&state.pool).await?;
     let out = state
         .bank
         .skills
@@ -230,7 +231,12 @@ pub async fn list_skills(State(state): State<Arc<AppState>>, user: CurrentUser) 
                 .bank
                 .by_skill
                 .get(&s.id)
-                .map(|ids| ids.iter().filter(|id| Bank::servable(&state.bank.questions[*id], state.serve_drafts)).count())
+                .map(|ids| {
+                    ids.iter()
+                        .filter(|id| !flagged.contains(*id))
+                        .filter(|id| Bank::servable(&state.bank.questions[*id], state.serve_drafts))
+                        .count()
+                })
                 .unwrap_or(0);
             let (answered, correct) = stats.get(&s.id).copied().unwrap_or((0, 0));
             SkillSummary {
@@ -316,8 +322,10 @@ pub async fn next_question(
         return Err(ApiError::new(StatusCode::NOT_FOUND, "no such skill"));
     }
     let ids = state.bank.by_skill.get(&skill).map(Vec::as_slice).unwrap_or(&[]);
+    let flagged = crate::flags::flagged_ids(&state.pool).await?;
     let mut pool: Vec<&String> = ids
         .iter()
+        .filter(|id| !flagged.contains(*id))
         .filter(|id| Bank::servable(&state.bank.questions[*id], state.serve_drafts))
         .collect();
     if pool.is_empty() {

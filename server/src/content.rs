@@ -124,6 +124,14 @@ impl Bank {
             .execute(&mut *tx)
             .await?;
         }
+        // A flag on a question that has since been edited is settled.
+        sqlx::query(
+            "UPDATE flags SET resolved_at = strftime('%Y-%m-%dT%H:%M:%fZ', 'now'), resolution = 'question changed'
+             WHERE resolved_at IS NULL
+               AND content_hash != (SELECT q.content_hash FROM questions q WHERE q.id = flags.question_id)",
+        )
+        .execute(&mut *tx)
+        .await?;
         // Attempts made before principles existed take their question's principle.
         sqlx::query(
             "UPDATE attempts SET principle_id =

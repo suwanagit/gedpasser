@@ -1,0 +1,149 @@
+# Review notes for q-geometry-2d.
+
+[[review]]
+id = "q-geometry-2d-0001"
+kind = "question"
+hash = "46b64a82d1b8d456"
+verdict = "pass"
+solved = "26"
+note = "2 x (8 + 5) = 26 matches key. Explanation clear; common mistake (area 40) is real. Metric, difficulty 1 fits."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-2d-0002"
+kind = "question"
+hash = "f9a0d43c5f5dcab5"
+verdict = "pass"
+solved = "1.13"
+note = "3.14 x 0.36 = 1.1304 -> 1.13 matches key. Only one correct choice; distractors are 2*pi*r (3.77), r^2 (0.36), pi*r (1.88). Rounding instruction present."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-2d-0003"
+kind = "question"
+hash = "4326c85faf32f061"
+verdict = "pass"
+solved = "3.7"
+note = "sqrt(1.44 + 12.25) = sqrt(13.69) = 3.7 exactly; matches key. Distractors: sum of legs (4.7), horizontal only (3.5), forgot square root (13.69). Seward setting realistic. Minor: 'ramp down ... rises' reads slightly odd but is unambiguous."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-2d-0004"
+kind = "question"
+hash = "d6677a59773e872d"
+verdict = "pass"
+solved = "7.5"
+note = "1/2 x 3 x 5 = 7.5 matches key. Explanation and common mistake (15, forgot 1/2) correct."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-2d-0005"
+kind = "question"
+hash = "6bbc0861bca215cb"
+verdict = "pass"
+solved = "30"
+note = "Length 54/6 = 9, perimeter 2(9+6) = 30 matches key. Distractors 15 (half perimeter), 24 (treated as 6x6 square), 60 (54+6) are plausible and wrong. Fits Q.4.a working backwards."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-2d-0006"
+kind = "question"
+hash = "7f3eb1cded30a5e2"
+verdict = "pass"
+solved = "3.77"
+note = "3.14 x 1.2 = 3.768 -> 3.77 matches key; rounding instruction present. Common mistake 2*pi*d = 7.536 -> 7.54 checked."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-2d-0007"
+kind = "question"
+hash = "242e2491d644ddf3"
+verdict = "pass"
+solved = "314"
+note = "r = 62.8/6.28 = 10, A = 3.14 x 100 = 314 matches key. Distractors: circumference (62.8), r^2 (100), used diameter 3.14 x 400 = 1256. Difficulty 3 reasonable."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-2d-0008"
+kind = "question"
+hash = "d0876613612be47b"
+verdict = "pass"
+solved = "40"
+note = "1/2 x 16 x 5 = 40 matches key. Formula given, fits Q.4.c. Distractors 80 (no 1/2), 300 (6x10x5), 21 (sum) all wrong."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-2d-0009"
+kind = "question"
+hash = "f350fb05dab81d9c"
+verdict = "pass"
+solved = "12"
+note = "5 x 2.4 = 12 matches key. Clear wording; common mistake (wrong number of sides) is plausible. Difficulty 1 fits."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-2d-0010"
+kind = "question"
+hash = "1fa18679d648d6c3"
+verdict = "pass"
+solved = "30"
+note = "24 + 6 = 30 matches key. 'Do not overlap' removes ambiguity. Distractors 24 (one piece), 15 (sum of sides), 36 plausible and wrong."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-2d-0011"
+kind = "question"
+hash = "8540b7be7a757b88"
+verdict = "pass"
+solved = "87.44"
+note = "100 - 3.14 x 4 = 87.44 exactly with pi = 3.14, so no rounding needed. Common mistake (radius 4 -> 50.24) checked. Subtract-a-piece fits Q.4.d."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-2d-0012"
+kind = "question"
+hash = "b2cb7e2c24735cb8"
+verdict = "pass"
+solved = "4"
+note = "sqrt(25 - 9) = 4 matches key. Distractors sqrt(34) = 5.83, 5-3 = 2, 5+3 = 8 are plausible and wrong. Explanation and common mistake correct."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.4.a"
+kind = "lesson"
+hash = "f19db2bd89955d53"
+verdict = "pass"
+note = "Rectangle and triangle formulas correct; example 1/2 x 6 x 4 = 12 and working-backwards 48/6 = 8 correct. Tip on perpendicular height is accurate."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.4.b"
+kind = "lesson"
+hash = "c80e27da02c564f5"
+verdict = "pass"
+note = "d = 2r, C = 2*pi*r = pi*d, A = pi*r^2 correct. Checked 18.84 and 28.26 for r = 3, and 31.4/3.14 = 10 -> r = 5."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.4.c"
+kind = "lesson"
+hash = "41541167777a6d37"
+verdict = "pass"
+note = "Hexagon 6 x 3 = 18, trapezoid 1/2 x 14 x 4 = 28, square side 36/4 = 9 all correct. Parallelogram and trapezoid formulas correct."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.4.d"
+kind = "lesson"
+hash = "e05b96934b14703d"
+verdict = "pass"
+note = "Decomposition rules correct (inside edges excluded from perimeter). Example: 60 + 1/2 x 3.14 x 9 = 60 + 14.13 = 74.13 checked."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.4.e"
+kind = "lesson"
+hash = "87a8b8a4f141dc52"
+verdict = "pass"
+note = "Legs/hypotenuse defined correctly; 6-8-10 and 5-12-13 examples correct; tip about hypotenuse being longest is accurate."
+date = "2026-11-10"

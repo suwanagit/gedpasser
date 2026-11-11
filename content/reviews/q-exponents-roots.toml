@@ -1,0 +1,133 @@
+# Independent review of q-exponents-roots.
+
+[[review]]
+id = "q-exponents-roots-0001"
+kind = "question"
+hash = "6c96400870ac926b"
+verdict = "pass"
+solved = "125"
+note = "5^3 = 125 matches key; one correct choice; 15 (5x3), 25 (5^2), 243 (3^5) are plausible slips. Explanation and common_mistake correct; Q.2.c fits."
+date = "2026-11-10"
+
+[[review]]
+id = "q-exponents-roots-0002"
+kind = "question"
+hash = "330556487709ee5b"
+verdict = "pass"
+solved = "15"
+note = "12 + 3 = 15 matches key; fill-in natural form '15'. Explanation correct. Mixes a square root and a cube root, Q.2.b is acceptable for the square-root part."
+date = "2026-11-10"
+
+[[review]]
+id = "q-exponents-roots-0003"
+kind = "question"
+hash = "cb0243fab12c7ebf"
+verdict = "pass"
+solved = "1.2 x 10^8"
+note = "3x4 = 12, 10^5 x 10^2 = 10^7, 12 x 10^7 = 1.2 x 10^8 matches key and answer_value. Distractors: added coefficients (7x10^7), multiplied exponents (1.2x10^10, 12x10^10). Explanation clear; metric; Q.1.c fits."
+date = "2026-11-10"
+
+[[review]]
+id = "q-exponents-roots-0004"
+kind = "question"
+hash = "e5784d47dede89fb"
+verdict = "pass"
+solved = "2^7"
+note = "Product rule gives 2^7 = 128, matches key and answer_value. 4^7 and 4^12 (multiplying bases) and 2^12 (multiplying exponents) are real errors and all wrong. Explanation includes a numeric check."
+date = "2026-11-10"
+
+[[review]]
+id = "q-exponents-roots-0005"
+kind = "question"
+hash = "fc31d9c71ae32693"
+verdict = "pass"
+solved = "25"
+note = "5^(6-4) = 5^2 = 25 matches key; fill-in natural form '25'. Explanation correct; Q.1.c fits."
+date = "2026-11-10"
+
+[[review]]
+id = "q-exponents-roots-0006"
+kind = "question"
+hash = "e9f1494d1874b154"
+verdict = "pass"
+solved = "4.25"
+note = "16^(1/2) = 4, 2^-2 = 0.25, sum 4.25 matches key. Distractors 8 (half of 16), 3.75 (negative value), 4.5 (2^-2 read as 1/2) are plausible and wrong. Explanation correct; difficulty 3 reasonable."
+date = "2026-11-10"
+
+[[review]]
+id = "q-exponents-roots-0007"
+kind = "question"
+hash = "d19b4003d8c6ea09"
+verdict = "pass"
+solved = "8"
+note = "sqrt(60) ~ 7.746, closest whole number 8, matches key. 7.5^2 = 56.25 < 60 confirms 8 over 7. Explanation correct; distractor 30 matches common_mistake."
+date = "2026-11-10"
+
+[[review]]
+id = "q-exponents-roots-0008"
+kind = "question"
+hash = "165d569326d48d7b"
+verdict = "pass"
+solved = "14"
+note = "sqrt(196) = 14 matches key; metric units; fill-in '14'. Explanation and common_mistake (area/4 = 49) are sound."
+date = "2026-11-10"
+
+[[review]]
+id = "q-exponents-roots-0009"
+kind = "question"
+hash = "7f513f1c3f07532d"
+verdict = "fix"
+solved = "7/8"
+note = "Key 7/8 is correct and the only correct choice. Fix the common_mistake wording: 'or halving it (7/32)' is unclear, since 'it' reads as the bottom number alone. Rewrite as: 'Taking the square root of only the bottom number (49/8), or halving the bottom instead of taking its square root (7/32).' Also consider difficulty 2 instead of 3; both roots are perfect squares."
+date = "2026-11-10"
+
+[[review]]
+id = "q-exponents-roots-0010"
+kind = "question"
+hash = "6645498816800a17"
+verdict = "pass"
+solved = "5"
+note = "cbrt(125) = 5 matches key; fill-in '5'. Explanation shows 5x5x5 = 125 (wording 'multiplies by itself three times' is informal but the example makes it clear). Q.2.c fits."
+date = "2026-11-10"
+
+[[review]]
+id = "q-exponents-roots-0011"
+kind = "question"
+hash = "a65d52158dd2525a"
+verdict = "pass"
+solved = "0.8"
+note = "0.8^3 = 0.512 matches key. Distractors 0.17 (divide by 3), 0.08 (0.08^3 = 0.000512, decimal slip), 8 (512 = 8^3) are plausible and wrong. An 80 cm fish tote (512 L) is a realistic Alaska setting; metric."
+date = "2026-11-10"
+
+[[review]]
+id = "q-exponents-roots-0012"
+kind = "question"
+hash = "971e7beb04a3a02d"
+verdict = "pass"
+solved = "-27"
+note = "(-3)^3 = -27 matches key; 27 (sign error), -9 and 9 (multiplying by 3, squaring) are plausible and wrong. Explanation correct; Q.2.c covers negative cubes."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.1.c"
+kind = "lesson"
+hash = "e02e51eeaa88dc2f"
+verdict = "pass"
+note = "Checked every rule and example: 2^4 = 16, 2^3 x 2^4 = 2^7 = 128, 5^6/5^4 = 25, (3^2)^3 = 3^6, 7^0 = 1 with the 0 exception, 2^-3 = 1/8, 9^(1/2) = 3, and the scientific-notation example 1.2 x 10^8. All correct and in a sensible order."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.2.b"
+kind = "lesson"
+hash = "8275b3ebb0294752"
+verdict = "pass"
+note = "Perfect squares 1 to 225 listed correctly; sqrt(1/4) = 1/2, (2/3)^2 = 4/9, sqrt(50) ~ 7.07, sqrt(4x9) = 6 and the sqrt(9+16) = 5 tip are all correct and clear."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.2.c"
+kind = "lesson"
+hash = "5dcfb3a4ecbcb4d8"
+verdict = "pass"
+note = "Cubes 1 to 1000 listed correctly; cbrt(27) = 3, (-2)^3 = -8, cbrt(64) = 4 m tank example and the 5^3 tip are correct. Metric units used."
+date = "2026-11-10"

@@ -1,0 +1,157 @@
+# Independent review notes for q-number-ops.
+
+[[review]]
+id = "q-number-ops-0001"
+kind = "question"
+hash = "681899ca21610ca1"
+verdict = "pass"
+solved = "26.35"
+note = "Blind answer 26.35 matches key and check. Explanation correct, common mistake realistic, Alaska setting fine."
+date = "2026-11-10"
+
+[[review]]
+id = "q-number-ops-0002"
+kind = "question"
+hash = "2f3cf2e5c8819511"
+verdict = "pass"
+solved = "6"
+note = "Blind answer 6 matches. Distractors map to real errors (12 = stopping at 3x4, 30 = (18-3)x2, 60 = left to right). Explanation follows order of operations correctly."
+date = "2026-11-10"
+
+[[review]]
+id = "q-number-ops-0003"
+kind = "question"
+hash = "920b9471112af1cf"
+verdict = "pass"
+solved = "17/12"
+note = "Blind answer 17/12 matches. Distractors are plausible (5/7 add tops and bottoms, 6/12 multiplied, 5/12 dropped whole part). Explanation and mixed-number form correct."
+date = "2026-11-10"
+
+[[review]]
+id = "q-number-ops-0004"
+kind = "question"
+hash = "6bc3674c6bdc0160"
+verdict = "pass"
+solved = "5/8"
+note = "Blind answer 5/8 (0.625) matches. 0.6 and 3/5 are equal but both less than 0.625, so exactly one choice is correct. Explanation correct."
+date = "2026-11-10"
+
+[[review]]
+id = "q-number-ops-0005"
+kind = "question"
+hash = "8f2b24ddf99a75e4"
+verdict = "fix"
+solved = "9.405"
+note = "Answer 9.405 is correct, but the common_mistake is self-contradictory: if a learner thought fewer digits meant smaller, they would pick 9.5 (fewest digits), not 9.45. Reword to something like: 'Thinking 9.405 is greater than 9.45 because 405 is greater than 45, and so picking 9.45 as the shortest time.'"
+date = "2026-11-10"
+
+[[review]]
+id = "q-number-ops-0006"
+kind = "question"
+hash = "a761310416afd544"
+verdict = "pass"
+solved = "12"
+note = "Blind answer 12 matches. Factor lists correct; 144 is indeed the LCM, so the common mistake matches a distractor."
+date = "2026-11-10"
+
+[[review]]
+id = "q-number-ops-0007"
+kind = "question"
+hash = "97d05a377e3500ae"
+verdict = "pass"
+solved = "24"
+note = "Blind answer 24 matches lcm(6, 8). Wording clear, explanation correct, Alaska setting realistic."
+date = "2026-11-10"
+
+[[review]]
+id = "q-number-ops-0008"
+kind = "question"
+hash = "7edcb49c516ece9f"
+verdict = "pass"
+solved = "19"
+note = "Blind answer 19 matches. Rise from -28 to -9 is 19 degrees; distractors 37, -19, 28 are plausible errors. Metric units used."
+date = "2026-11-10"
+
+[[review]]
+id = "q-number-ops-0009"
+kind = "question"
+hash = "00d7358f03d10630"
+verdict = "pass"
+solved = "12"
+note = "Blind answer 12 matches. Explanation gives both the absolute-value method and counting; correct."
+date = "2026-11-10"
+
+[[review]]
+id = "q-number-ops-0010"
+kind = "question"
+hash = "009a016aada96c17"
+verdict = "pass"
+solved = "4"
+note = "Blind answer 4 matches; 2x - 8 = 0 gives x = 4, and none of 8, 0, -4 makes the denominator zero. Explanation correct."
+date = "2026-11-10"
+
+[[review]]
+id = "q-number-ops-0011"
+kind = "question"
+hash = "5448857224813e0a"
+verdict = "pass"
+solved = "-23"
+note = "Blind answer -23 matches (-14 + (-9)). Common mistake value -5 checked and correct."
+date = "2026-11-10"
+
+[[review]]
+id = "q-number-ops-0012"
+kind = "question"
+hash = "2832cb81283a1fa1"
+verdict = "pass"
+solved = "1968"
+note = "Blind answer 1968 matches (4 x 1312 = 5248; 5248 / 8 x 3 = 1968). Distractors 492 (one person) and 3280 (5/8) are real errors; exactly one choice correct. Explanation correct."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.1.a"
+kind = "lesson"
+hash = "934e71fdf48f1728"
+verdict = "pass"
+note = "Steps correct and in sensible order; example 0.58 < 0.6 < 5/8 correct; trailing-zero tip accurate."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.1.b"
+kind = "lesson"
+hash = "d87e687dffba7b2a"
+verdict = "pass"
+note = "Checked GCF(24,36)=12, LCM(4,6)=12, 6 x 47 = 282 and 24 + 36 = 12(2 + 3). Definitions and examples correct."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.1.d"
+kind = "lesson"
+hash = "79a7760c75a8549f"
+verdict = "pass"
+note = "Absolute value and distance rules correct; Fairbanks example |4 - (-12)| = 16 correct; metric units."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.2.a"
+kind = "lesson"
+hash = "b70dbafee1ec8116"
+verdict = "pass"
+note = "Order of operations stated correctly with left-to-right rule; fraction examples (7/12, 2/5, 3/2) and sign rules checked and correct."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.2.d"
+kind = "lesson"
+hash = "3d74f540f1ba9f73"
+verdict = "pass"
+note = "Division by zero, 0/5 = 0, x = 3 example and square root of a negative all stated correctly."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.2.e"
+kind = "lesson"
+hash = "795cdfc097d3438b"
+verdict = "fix"
+note = "Arithmetic checked and correct (27.2 L, 48.96 dollars, estimate about 54 dollars). But the summary promises problems 'including ones with scientific notation' and the lesson never mentions scientific notation. Add a short bullet or example (for example, multiplying (3 x 10^4)(2 x 10^3) = 6 x 10^7), or drop that phrase from the summary. Minor: the checklist says 'estimate first' while the example estimates after; make them consistent."
+date = "2026-11-10"

@@ -7,7 +7,7 @@ skill = "q-geometry-2d"
 principle = "Q.4.a"
 difficulty = 1
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = "A rectangular garden is 8 m long and 5 m wide. What is its perimeter in meters?"
 answer = "26"
 check = "2 * (8 + 5)"
@@ -23,7 +23,7 @@ skill = "q-geometry-2d"
 principle = "Q.4.b"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = '''
 A round hatch on a boat deck has a radius of 0.6 m.
 What is its area, to the nearest hundredth of a square meter? Use $\pi \approx 3.14$.
@@ -43,7 +43,7 @@ skill = "q-geometry-2d"
 principle = "Q.4.e"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 alaska = true
 prompt = '''
 At a Seward harbor, the ramp down to a floating dock rises 1.2 m over a horizontal distance of 3.5 m.
@@ -64,7 +64,7 @@ skill = "q-geometry-2d"
 principle = "Q.4.a"
 difficulty = 1
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = "A triangular sail has a base of 3 m and a height of 5 m. What is its area, in square meters?"
 answer = "7.5"
 check = "3 * 5 / 2"
@@ -77,7 +77,7 @@ skill = "q-geometry-2d"
 principle = "Q.4.a"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = '''
 A rectangular plot has an area of 54 square meters and a width of 6 meters.
 What is its perimeter, in meters?
@@ -97,7 +97,7 @@ skill = "q-geometry-2d"
 principle = "Q.4.b"
 difficulty = 2
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = '''
 A round fire pit has a diameter of 1.2 m.
 What is its circumference, to the nearest hundredth of a meter? Use $\pi \approx 3.14$.
@@ -116,7 +116,7 @@ skill = "q-geometry-2d"
 principle = "Q.4.b"
 difficulty = 3
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = 'A circle has a circumference of 62.8 cm. Using $\pi \approx 3.14$, what is its area, in square centimeters?'
 choices = ["314", "62.8", "1256", "100"]
 answer = "314"
@@ -133,7 +133,7 @@ skill = "q-geometry-2d"
 principle = "Q.4.c"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = '''
 A trapezoid has parallel sides of 6 m and 10 m and a height of 5 m.
 Using $A = \frac{1}{2}(b_1 + b_2)h$, what is its area, in square meters?
@@ -150,7 +150,7 @@ skill = "q-geometry-2d"
 principle = "Q.4.c"
 difficulty = 1
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = "A garden bed is shaped like a regular pentagon with sides of 2.4 m. What is its perimeter, in meters?"
 answer = "12"
 check = "5 * 2.4"
@@ -163,7 +163,7 @@ skill = "q-geometry-2d"
 principle = "Q.4.d"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = '''
 An L-shaped floor is made of two rectangles that do not overlap: one is 6 m by 4 m and the other is 3 m by 2 m.
 What is the total floor area, in square meters?
@@ -183,7 +183,7 @@ skill = "q-geometry-2d"
 principle = "Q.4.d"
 difficulty = 3
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = '''
 A square yard is 10 m on each side. It has a round pond with a radius of 2 m.
 How many square meters of the yard are not covered by the pond? Use $\pi \approx 3.14$.
@@ -202,7 +202,7 @@ skill = "q-geometry-2d"
 principle = "Q.4.e"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 alaska = true
 prompt = '''
 A 5-meter ladder leans against the wall of a cabin. The foot of the ladder is 3 m from the wall.
