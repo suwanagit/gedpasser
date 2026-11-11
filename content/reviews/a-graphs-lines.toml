@@ -181,3 +181,86 @@ hash = "d98a40fabd83bf01"
 verdict = "pass"
 note = "Re-review: tip now shows 3/4 becoming -4/3, which is correct ((3/4)(-4/3) = -1) and no longer gives away question 0003 (2/3 to -3/2). Parallel and perpendicular examples for slope 2 remain correct."
 date = "2026-11-10"
+
+[[review]]
+id = "a-graphs-lines-0001"
+kind = "question"
+hash = "3f948117748a6e4b"
+verdict = "pass"
+solved = "3"
+note = "Figure re-check: curve 3x - 1 passes through both labeled points (1, 2) and (4, 11), which are the prompt's points; window -1..6 by -2..13 shows both. The figure only shows the given data; the learner still has to compute 9/3 = 3. Distractors 1/3 (run over rise), 9 (rise only), -3 (sign) are real errors."
+date = "2026-11-10"
+
+[[review]]
+id = "a-graphs-lines-0006"
+kind = "question"
+hash = "2850fb159902b3d9"
+verdict = "pass"
+solved = "8"
+note = "Figure re-check: curve 8x through labeled (0, 0) and (5, 40), axes labeled liters and km, matching the prompt. The prompt itself is about the graph, so reading the rate from it is the skill being tested; no extra answer point is labeled. 40/5 = 8; distractor 0.125 matches the common mistake."
+date = "2026-11-10"
+
+[[review]]
+id = "a-graphs-lines-0007"
+kind = "question"
+hash = "f9f0611330b391ca"
+verdict = "pass"
+solved = "18"
+note = "Figure re-check: curve 18x through labeled (3, 54), axes kg and dollars, window up to 80 shows it. Matches the prompt and does not label (1, 18). 54/3 = 18; fill-in '18' is the natural answer."
+date = "2026-11-10"
+
+[[review]]
+id = "A.5.a"
+kind = "card"
+hash = "ca1ad31060f2acd1"
+verdict = "pass"
+note = "(-3, 2) is 3 left, 2 up, Quadrant II (top left): correct. Figure: point (-3, 2) with dashed '3 left' along the x-axis then '2 up', matching the text. x-before-y hack is correct and memorable. Short."
+date = "2026-11-10"
+
+[[review]]
+id = "A.5.b"
+kind = "card"
+hash = "0e4911891ee3012e"
+verdict = "pass"
+note = "m = (3 - (-1))/(3 - 1) = 4/2 = 2 correct. Figure: curve 2x - 3 passes through (1, -1) and (3, 3); run 2 from (1,-1) to (3,-1) and rise 4 to (3, 3) are correct. 'Same order' step prevents the sign mix-up. Hack and uphill/downhill/flat rule correct."
+date = "2026-11-10"
+
+[[review]]
+id = "A.5.c"
+kind = "card"
+hash = "54752eae836e4918"
+verdict = "pass"
+note = "k = 280/4 = 70 km/h correct. Figure: curve 70x through (1, 70) and (4, 280), axes hours and km, window 0..350 fits. Hack (unit rate = y at x = 1; must pass through origin to be proportional) is correct. Numbers differ from 0006 and 0007."
+date = "2026-11-10"
+
+[[review]]
+id = "A.5.d"
+kind = "card"
+hash = "179e5f0e1ac5441f"
+verdict = "pass"
+note = "y = x/2 - 2: start (0, -2), right 2 up 1 to (2, -1), x-intercept 0 = x/2 - 2 -> x = 4: all correct. Figure points and dashed run 2 / rise 1 match. b = begin, m = move hack is correct and memorable."
+date = "2026-11-10"
+
+[[review]]
+id = "A.6.a"
+kind = "card"
+hash = "0f95bf780b349e42"
+verdict = "pass"
+note = "y - 1 = 3(x - 2) -> y = 3x - 5; check 3(2) - 5 = 1. Shortcut b = y - mx = 1 - 6 = -5 correct and faster. Differs from 0008 and 0009."
+date = "2026-11-10"
+
+[[review]]
+id = "A.6.b"
+kind = "card"
+hash = "6d65887c2a414b29"
+verdict = "pass"
+note = "m = 8/2 = 4, b = 1 - 8 = -7, y = 4x - 7; check (4, 9): 16 - 7 = 9. Plug-in-both-points hack is correct and a real test tactic. Differs from 0010 and 0011."
+date = "2026-11-10"
+
+[[review]]
+id = "A.6.c"
+kind = "card"
+hash = "c320b105d18aa391"
+verdict = "pass"
+note = "Parallel slope 2 (y = 2x - 3), perpendicular -1/2 (y = -x/2 + 1) correct. Figure: the three label points (1.5, 4), (3.5, 4), (-4, 3) each lie on their own line; square window -5..5 keeps the right angle looking right. Hack (flip and change sign; slopes multiply to -1) correct; 3/4 -> -4/3 does not give away 0003 (2/3)."
+date = "2026-11-10"

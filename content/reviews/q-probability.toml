@@ -157,3 +157,27 @@ hash = "b904ef4fc6a5f48e"
 verdict = "fix"
 note = "Example 3/5 x 3/5 = 9/25 is correct. Two problems: (1) step 4 'No replacement: one fewer in the total' is incomplete; when the first pick was a favorable one, the favorable count drops too (4/10 x 3/9, question 0010 style). Change to 'No replacement: one fewer in the total, and one fewer favorable if you took one.' (2) The hack 'OR -> add' drops the caveat from step 3 and misleads for overlapping events (e.g. even OR greater than 4 on a cube). Change to 'AND -> multiply, OR (no overlap) -> add.'"
 date = "2026-11-10"
+
+[[review]]
+id = "Q.8.b"
+kind = "card"
+hash = "4851c3464d63b3f5"
+verdict = "fix"
+note = "Hack is fixed (OR now limited to no overlap; 1 - P and the above-1 check are correct). Step 4 is still wrong in the other direction: it says top and bottom drop only after a favorable pick, but the bottom (total) drops after every pick. For red then blue from 4 red and 6 blue, it is 4/10 x 6/9, but a learner following the step would leave the bottom at 10. Reword to: 'No replacement: the bottom drops by 1 after each pick; the top drops too if you took one you want.'"
+date = "2026-11-10"
+
+[[review]]
+id = "Q.8.b"
+kind = "card"
+hash = "2b7ee592c9d1e414"
+verdict = "pass"
+note = "Re-checked: step 4 now correctly says the total drops after every pick and the favorable count drops only when a wanted item was taken (4/10 x 3/9 and 4/10 x 6/9 both follow). Hack limits OR-add to non-overlapping events; complement and above-1 check correct. Example 3/5 x 3/5 = 9/25 correct. Short and clear."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.8.b"
+kind = "card"
+hash = "ba58c8185c4d6b93"
+verdict = "pass"
+note = "Re-checked shortened step 4: the total drops after every pick and the favorable count drops only after a wanted pick, so 4/10 x 3/9 and 4/10 x 6/9 both follow. It is within the word limit and still clear. Hack limits OR-add to non-overlapping events; complement and above-1 check correct. Example 3/5 x 3/5 = 9/25 correct."
+date = "2026-11-10"

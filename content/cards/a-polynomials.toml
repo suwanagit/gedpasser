@@ -2,7 +2,7 @@
 
 [[card]]
 id = "A.1.d"
-status = "draft"
+status = "reviewed"
 title = "Add and multiply polynomials"
 key = '$$(a + b)(c + d) = ac + ad + bc + bd$$'
 steps = [
@@ -18,7 +18,7 @@ hack = 'FOIL: **F**irst, **O**uter, **I**nner, **L**ast. Two binomials always gi
 
 [[card]]
 id = "A.1.e"
-status = "draft"
+status = "reviewed"
 title = "Evaluate a polynomial"
 key = '$$\text{every } x \;\to\; (\text{number})$$'
 steps = [
@@ -34,7 +34,7 @@ hack = 'Parentheses protect the sign: $(-3)^2 = 9$, but $-3^2 = -9$.'
 
 [[card]]
 id = "A.1.f"
-status = "draft"
+status = "reviewed"
 title = "Factoring"
 key = '$$x^2 + bx + c = (x + p)(x + q) \quad \text{where } p \cdot q = c,\; p + q = b$$'
 steps = [
@@ -50,7 +50,7 @@ hack = 'Difference of squares: $a^2 - b^2 = (a - b)(a + b)$. Spot two perfect sq
 
 [[card]]
 id = "A.1.g"
-status = "draft"
+status = "reviewed"
 title = "Polynomials from words"
 key = '$$\text{Area} = \text{length} \times \text{width}$$'
 steps = [
@@ -71,7 +71,7 @@ polygons = [{ points = [{ x = 0, y = 0 }, { x = 7, y = 0 }, { x = 7, y = 3 }, { 
 
 [[card]]
 id = "A.1.h"
-status = "draft"
+status = "reviewed"
 title = "Algebraic fractions"
 key = '$$\frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd} \qquad \frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \cdot \frac{d}{c}$$'
 steps = [
@@ -87,7 +87,7 @@ hack = 'Divide: keep, change, flip. Cancel only factors (multiplied), never term
 
 [[card]]
 id = "A.1.i"
-status = "draft"
+status = "reviewed"
 title = "Evaluate a fraction"
 key = 'The bar works like parentheses: $$\frac{a + b}{c - d} = (a + b) \div (c - d)$$'
 steps = [
@@ -103,7 +103,7 @@ hack = 'Zero on the bottom means undefined. $\frac{x + 1}{x - 3}$ is undefined a
 
 [[card]]
 id = "A.1.j"
-status = "draft"
+status = "reviewed"
 title = "Fractions from words"
 key = '$$\text{rate} = \frac{\text{amount}}{\text{time}} \qquad \text{time} = \frac{\text{distance}}{\text{speed}}$$'
 steps = [
@@ -119,7 +119,7 @@ hack = '"Per" means divide: km **per** hour $= \frac{\text{km}}{\text{h}}$. Test
 
 [[card]]
 id = "A.4.a"
-status = "draft"
+status = "reviewed"
 title = "Solve a quadratic"
 key = '$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$'
 steps = [
@@ -145,7 +145,7 @@ points = [{ x = -3, y = 0, label = "(−3, 0)" }, { x = 5, y = 0, label = "(5, 0
 
 [[card]]
 id = "A.4.b"
-status = "draft"
+status = "reviewed"
 title = "Quadratics from words"
 key = '$$\text{length} \times \text{width} = \text{area}$$'
 steps = [

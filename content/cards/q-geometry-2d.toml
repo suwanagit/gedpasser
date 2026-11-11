@@ -45,7 +45,7 @@ circles = [{ x = 0, y = 0, r = 4, radius_label = "r = 4 cm" }]
 
 [[card]]
 id = "Q.4.c"
-status = "draft"
+status = "reviewed"
 title = "Other polygons"
 key = '$$A_{\text{trapezoid}} = \tfrac{1}{2}(b_1 + b_2)h$$'
 steps = [

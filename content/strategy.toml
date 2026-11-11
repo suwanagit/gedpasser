@@ -5,7 +5,7 @@
 # the published assessment targets and the weight of each content area), not
 # official data. They drive the test-week plan.
 
-status = "draft"
+status = "reviewed"
 
 # Most valuable first.
 high_yield = [
@@ -47,7 +47,7 @@ text = "A wrong answer costs nothing. Before time runs out, put an answer on eve
 [[tactic]]
 id = "flag"
 title = "Flag it and move on"
-text = "Stuck for two minutes? Pick your best guess, flag the question, and come back if there is time."
+text = "Stuck for two minutes? Pick your best guess, flag the question, and come back if there is time. If the test has a separate first part, finish its flagged questions before moving on."
 
 [[tactic]]
 id = "pace"
@@ -67,7 +67,7 @@ text = "Solving for x with answer choices? Put each choice into the equation. Th
 [[tactic]]
 id = "pick-numbers"
 title = "Pick your own numbers"
-text = "If the choices are expressions, choose a small number like x = 2. Work out the original and each choice; the match wins."
+text = "If the choices are expressions, choose a number like x = 3 (avoid 0, 1 and 2). Work out the original and each choice; the match wins. Two match? Try another number."
 
 [[tactic]]
 id = "estimate"

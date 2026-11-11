@@ -2,7 +2,7 @@
 
 [[card]]
 id = "Q.6.a"
-status = "draft"
+status = "reviewed"
 title = "Bar and circle graphs"
 key = 'Circle graph: $$\text{amount} = \text{percent} \times \text{total}$$'
 steps = [

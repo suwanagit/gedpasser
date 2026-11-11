@@ -184,7 +184,7 @@ skill = "a-functions"
 principle = "A.7.d"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = '''
 Function $f$ is $f(x) = 2x + 5$. Function $g$ is linear, with $g(0) = 1$ and $g(3) = 13$.
 How much greater is the $y$-intercept of $f$ than the $y$-intercept of $g$?
@@ -198,22 +198,13 @@ The difference is $5 - 1 = 4$.
 '''
 common_mistake = "Comparing slopes (4 − 2 = 2) instead of y-intercepts."
 
-[question.figure]
-kind = "plane"
-x_min = -1
-x_max = 4
-y_min = -2
-y_max = 16
-curves = ["2*x + 5", "4*x + 1"]
-points = [{ x = 3, y = 11, label = "f" }, { x = 3, y = 13, label = "g" }]
-
 [[question]]
 id = "a-functions-0012"
 skill = "a-functions"
 principle = "A.7.d"
 difficulty = 3
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = '''
 The quadratic function $f(x) = x^2 - 6x + 10$ has a lowest point. The linear function $g(x) = 4x + 7$ has a $y$-intercept.
 How much less is the minimum value of $f$ than the $y$-intercept of $g$?
@@ -225,11 +216,3 @@ The vertex of $f$ is at $x = \frac{6}{2} = 3$, and $f(3) = 9 - 18 + 10 = 1$, so 
 The $y$-intercept of $g$ is $g(0) = 7$. The difference is $7 - 1 = 6$.
 '''
 common_mistake = "Using f(0) = 10 instead of the minimum, which gives −3."
-
-[question.figure]
-kind = "plane"
-x_min = -1
-x_max = 6
-y_min = 0
-y_max = 20
-curves = ["x^2 - 6*x + 10", "4*x + 7"]

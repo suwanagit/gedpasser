@@ -19,7 +19,7 @@ hack = '“Per” means “divide by.” Kilometers per hour is $\text{km} \div 
 
 [[card]]
 id = "Q.3.b"
-status = "draft"
+status = "reviewed"
 title = "Scale drawings"
 key = '$$\text{real} = \text{map length} \times \text{what 1 cm stands for}$$'
 steps = [

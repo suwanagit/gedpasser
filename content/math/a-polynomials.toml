@@ -75,7 +75,7 @@ skill = "a-polynomials"
 principle = "A.1.g"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = '''
 A garden is a square with sides of $s$ meters. It is made 1 meter longer in one direction, so it becomes a rectangle $s$ meters by $s + 1$ meters.
 Which expression gives the new area, in square meters?

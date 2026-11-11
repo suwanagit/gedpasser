@@ -2,7 +2,7 @@
 
 [[card]]
 id = "A.5.e"
-status = "draft"
+status = "reviewed"
 title = "Reading a graph"
 key = 'Top or bottom of a parabola: $$x = \frac{-b}{2a}$$'
 steps = [
@@ -34,7 +34,7 @@ points = [
 
 [[card]]
 id = "A.7.a"
-status = "draft"
+status = "reviewed"
 title = "Compare unit rates"
 key = '$$\text{unit rate} = \frac{y}{x}$$'
 steps = [
@@ -52,7 +52,7 @@ hack = 'Turn everything into "per 1" first. Then the bigger number is faster (or
 
 [[card]]
 id = "A.7.b"
-status = "draft"
+status = "reviewed"
 title = "Is it a function?"
 key = '$$\text{each input } x \to \text{exactly one output } y$$'
 steps = [
@@ -78,7 +78,7 @@ segments = [{ from = [4, -3], to = [4, 3], dashed = true, label = "x = 4" }]
 
 [[card]]
 id = "A.7.c"
-status = "draft"
+status = "reviewed"
 title = "Function notation"
 key = '$$f(\text{input}) \;\to\; \text{replace every } x \text{ with } (\text{input})$$'
 steps = [
@@ -95,7 +95,7 @@ hack = '$f(3)$ means "put 3 in for $x$." It is not $f$ times 3.'
 
 [[card]]
 id = "A.7.d"
-status = "draft"
+status = "reviewed"
 title = "Compare two functions"
 key = '$$\text{slope} = \frac{\text{change in } y}{\text{change in } x} \qquad \text{start} = f(0)$$'
 steps = [

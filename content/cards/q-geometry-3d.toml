@@ -18,7 +18,7 @@ hack = 'Volume fills it (water); surface area wraps it (gift paper). Every face 
 
 [[card]]
 id = "Q.5.b"
-status = "draft"
+status = "reviewed"
 title = "Cylinders"
 key = '$$V = \pi r^2 h$$'
 steps = [

@@ -171,3 +171,79 @@ hash = "b87d7f3d1e937c07"
 verdict = "pass"
 note = "Third re-review. The tie rule is now limited to parabolas and names the input, so it is accurate. Rechecked the whole lesson: the feature list is correct; the worked example h(t) = -5t^2 + 40t is correct (intercepts 0 and 8, vertex t = 4, maximum 80 m, increasing then decreasing); the table guidance correctly separates x- and y-intercepts. It does not give 0004 or 0005 away, since those use different coefficients and have different answers (2 and 6). Notation renders and units are metric."
 date = "2026-11-10"
+
+[[review]]
+id = "a-functions-0011"
+kind = "question"
+hash = "51de643a810864eb"
+verdict = "fix"
+solved = "4"
+note = "Math is right (5 - 1 = 4; check 5 - 1), but the new figure draws both lines across the y-axis (window x from -1), so a learner just reads the two asked-for y-intercepts, 5 and 1, off the axis and skips the skill (reading b from f's equation). Fix: draw only g's line with its given points labeled (0, 1) and (3, 13), and drop the curve 2x + 5 so f must be read from its equation; or remove the figure."
+date = "2026-11-10"
+
+[[review]]
+id = "a-functions-0012"
+kind = "question"
+hash = "5a3ca72da84f2f25"
+verdict = "fix"
+solved = "6"
+note = "Math is right (vertex x = 3, f(3) = 1; g(0) = 7; 7 - 1 = 6). But the figure draws the parabola with its vertex (3, 1) in view and the line crossing the y-axis at 7, so both asked-for values can be read straight off the graph; the question becomes reading, not finding a minimum. Fix: remove the figure, or show only g's line (its intercept is already in the equation) and not the parabola. Minor: in the explanation write x = -b/(2a) = 6/2 = 3 so the source of 6/2 is clear."
+date = "2026-11-10"
+
+[[review]]
+id = "A.5.e"
+kind = "card"
+hash = "f282e299a6f975e4"
+verdict = "pass"
+note = "-x^2 + 6x - 5 = -(x - 1)(x - 5), roots 1 and 5; vertex x = 3 (also -b/(2a) = -6/-2), y = 4. Figure: curve through labeled (1, 0), (5, 0), vertex (3, 4) and y-intercept (0, -5), all correct and in the window. Mirror and frown/smile hacks are correct. Does not give away 0004/0005."
+date = "2026-11-10"
+
+[[review]]
+id = "A.7.a"
+kind = "card"
+hash = "49dfa4746b2de5fc"
+verdict = "pass"
+note = "A: 12 per hour, B: 50/4 = 12.5 per hour, so A is cheaper: correct. Steps cover equation, table, graph. 'Per 1 first' hack is correct and memorable. Differs from 0006 and 0007."
+date = "2026-11-10"
+
+[[review]]
+id = "A.7.b"
+kind = "card"
+hash = "fc819a237f182adc"
+verdict = "pass"
+note = "{(1, 2), (3, 2), (1, 5)}: x = 1 gives 2 and 5, not a function: correct; 'same y twice is fine' covers the classic trap. Figure: sqrt(x) and -sqrt(x) form a sideways parabola; dashed x = 4 hits (4, 2) and (4, -2), both correct. Vertical line test hack correct."
+date = "2026-11-10"
+
+[[review]]
+id = "A.7.c"
+kind = "card"
+hash = "9922ffcde954d37a"
+verdict = "pass"
+note = "f(-1) = (-1)^2 - 4(-1) = 1 + 4 = 5 correct, with the input in parentheses. Steps include solving for x given the output. 'f(3) is not f times 3' hack is correct and targets a real misreading. Short."
+date = "2026-11-10"
+
+[[review]]
+id = "A.7.d"
+kind = "card"
+hash = "fb8e0bea56f87d56"
+verdict = "pass"
+note = "Slope of g = (10 - 2)/2 = 4 > 3; f starts at 6, g at 2: correct. Figure: curves 3x + 6 and 4x + 2 with labeled intercepts (0, 6) and (0, 2), window 0..30 fits both to x = 6. 'Compare m with m, b with b' hack is correct and memorable."
+date = "2026-11-10"
+
+[[review]]
+id = "a-functions-0011"
+kind = "question"
+hash = "70bd35c2dd9992ef"
+verdict = "pass"
+solved = "4"
+note = "Re-review: figure removed, so the y-intercepts are no longer readable off a graph. f's intercept 5 comes from the equation, g(0) = 1, so the difference is 4; check 5 - 1 matches. Distractor 2 matches the slope-comparison mistake."
+date = "2026-11-10"
+
+[[review]]
+id = "a-functions-0012"
+kind = "question"
+hash = "e185aaea93dcb607"
+verdict = "pass"
+solved = "6"
+note = "Re-review: figure removed, so the vertex can no longer be read off. Vertex x = 3, f(3) = 1; g(0) = 7; 7 - 1 = 6; check matches. Fill-in '6' is natural. The common mistake (f(0) = 10 gives -3) is real."
+date = "2026-11-10"

@@ -1,0 +1,17 @@
+# Review notes for content/strategy.toml (test-day tactics, formula sheet, yield lists).
+
+[[review]]
+id = "strategy"
+kind = "strategy"
+hash = "75e7782180a523d5"
+verdict = "fix"
+note = "One tactic can mislead. 'pick-numbers' suggests x = 2, but 2 is the worst pick: x + x, 2x, x^2 and x*2 all give 4, and these are exactly the distractor pairs (2x vs x^2) a GED item uses, so two choices can 'match'. Change to: 'If the choices are expressions, pick an easy number like x = 3 (avoid 0, 1 and 2). Work out the original and each choice; the match wins. Two match? Try another number.' Minor, same fix: in 'flag', 'come back if there is time' should say 'before you leave that part', because the short no-calculator part at the start cannot be reopened once you move on. Everything else checked and correct: no penalty for wrong answers; about 2.5 min per question fits 115 min for about 46 questions; calculator tactic is suitably hedged; all tactics are under 40 words and use metric units. Formula sheet: rectangle, triangle, parallelogram, trapezoid, circle C and A, Pythagorean, prism/cylinder/pyramid/cone/sphere volumes, box/cylinder/sphere surface areas, slope, slope-intercept, point-slope, quadratic formula, I = prt, d = rt, total cost are all correct. Yield lists are a reasonable estimate (percents, rates, linear equations, area, data first) and the file says they are not official."
+date = "2026-11-10"
+
+[[review]]
+id = "strategy"
+kind = "strategy"
+hash = "2ca21c3f2e7a1b75"
+verdict = "pass"
+note = "Re-review: pick-numbers now uses x = 3, says to avoid 0, 1 and 2, and to try another number if two choices match, which fixes the coincidence trap. Flag now says to finish a separate first part's flagged questions before moving on, which is correct and suitably hedged. Both stay under 40 words. The other tactics, all formulas and the yield lists are unchanged and were already checked correct."
+date = "2026-11-10"

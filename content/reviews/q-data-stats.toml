@@ -234,3 +234,11 @@ hash = "2027173715d242fc"
 verdict = "pass"
 note = "Checked 3, 5, 6, 8, 8: sum 30, mean 6, median 6, mode 8, range 5 all correct; dot figure (3:1, 5:1, 6:1, 8:2) matches. Steps cover the missing-value method without reusing question 0010 numbers. Hacks (highway median, mo = most) correct and memorable."
 date = "2026-11-10"
+
+[[review]]
+id = "Q.6.a"
+kind = "card"
+hash = "646df44b9e8cf6de"
+verdict = "pass"
+note = "Re-checked: step 3 now shows the percent-to-decimal conversion (0.25 x 80 = 20, correct) without reusing question 0004 numbers. Bar example 65 - 40 = 25 matches the figure; hack correct. Short and clear."
+date = "2026-11-10"

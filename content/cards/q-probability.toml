@@ -19,14 +19,14 @@ hack = 'Order matters? Permutation (P for podium: gold ≠ silver). Order doesn�
 
 [[card]]
 id = "Q.8.b"
-status = "draft"
+status = "reviewed"
 title = "Probability"
 key = '$$P = \frac{\text{favorable outcomes}}{\text{total outcomes}}$$'
 steps = [
   'Count what you want, then count everything.',
   'Both happen (AND): multiply.',
   'Either one, when they can’t both happen (OR): add.',
-  'No replacement: after a favorable pick, top and bottom each drop by 1.',
+  'No replacement: bottom drops 1 each pick; top drops if you took a wanted one.',
 ]
 example = '''
 A spinner has 5 equal parts; 3 are blue. Blue on two spins?
