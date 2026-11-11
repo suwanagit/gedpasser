@@ -3,10 +3,12 @@
 //!
 //! Environment:
 //!   GED_ADDR     listen address (default 0.0.0.0:8080, reachable on the LAN)
-//!   GED_CONTENT  question bank directory (default ./content)
+//!   GED_CONTENT  question bank directory (default: the nearest `content`
+//!                folder, see `find_content_dir`)
 
+use std::io::IsTerminal;
 use std::net::SocketAddr;
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 use std::sync::Arc;
 
 use axum::Router;
@@ -40,13 +42,10 @@ struct AppState {
 async fn main() {
     tracing_subscriber::fmt().with_target(false).init();
 
-    let content = PathBuf::from(std::env::var("GED_CONTENT").unwrap_or_else(|_| "content".into()));
+    let content = find_content_dir();
     let skills = match ged_content::load_skills(&content) {
         Ok(s) => s,
-        Err(e) => {
-            eprintln!("cannot load skill map from {}:\n{e}", content.display());
-            std::process::exit(1);
-        }
+        Err(e) => fatal(&format!("cannot load skill map from {}:\n{e}", content.display())),
     };
     tracing::info!("loaded {} skills from {}", skills.len(), content.display());
 
@@ -57,21 +56,55 @@ async fn main() {
         .fallback(static_file)
         .with_state(state);
 
-    let addr: SocketAddr = std::env::var("GED_ADDR")
-        .unwrap_or_else(|_| "0.0.0.0:8080".into())
+    let addr_text = std::env::var("GED_ADDR").unwrap_or_else(|_| "0.0.0.0:8080".into());
+    let addr: SocketAddr = addr_text
         .parse()
-        .expect("GED_ADDR must be host:port");
-    let listener = tokio::net::TcpListener::bind(addr).await.unwrap_or_else(|e| {
-        eprintln!("cannot listen on {addr}: {e}");
-        std::process::exit(1);
-    });
-    tracing::info!("listening on http://{addr}");
+        .unwrap_or_else(|_| fatal(&format!("GED_ADDR {addr_text:?} must look like 0.0.0.0:8080")));
+    let listener = tokio::net::TcpListener::bind(addr)
+        .await
+        .unwrap_or_else(|e| fatal(&format!("cannot listen on {addr}: {e}")));
+    tracing::info!("listening on {addr}");
+    println!("\nGED Passer is running. Open http://localhost:{} in a browser.", addr.port());
+    println!("Other devices on your network: http://<this PC's IP address>:{}", addr.port());
+    println!("Press Ctrl+C or close this window to stop.\n");
     axum::serve(listener, app)
         .with_graceful_shutdown(async {
             let _ = tokio::signal::ctrl_c().await;
         })
         .await
         .expect("server error");
+}
+
+/// Find the question bank: `GED_CONTENT` if set, else a `content` folder
+/// with a `skills.toml` in the current directory, the executable's folder,
+/// or any parent of it (so `target\release\gedpasser-server.exe` finds the
+/// repo's `content` when double-clicked).
+fn find_content_dir() -> PathBuf {
+    if let Ok(dir) = std::env::var("GED_CONTENT") {
+        return PathBuf::from(dir);
+    }
+    let has_skills = |dir: &Path| dir.join("content").join("skills.toml").is_file();
+    let cwd = std::env::current_dir().ok();
+    if let Some(cwd) = cwd.as_deref().filter(|d| has_skills(d)) {
+        return cwd.join("content");
+    }
+    if let Some(exe_dir) = std::env::current_exe().ok().and_then(|p| p.parent().map(Path::to_path_buf)) {
+        if let Some(found) = exe_dir.ancestors().find(|d| has_skills(d)) {
+            return found.join("content");
+        }
+    }
+    PathBuf::from("content")
+}
+
+/// Print an error and exit. When run from a console window (for example a
+/// double-click), wait for Enter first so the message can be read.
+fn fatal(msg: &str) -> ! {
+    eprintln!("\nERROR: {msg}");
+    if std::io::stdin().is_terminal() {
+        eprintln!("\nPress Enter to close.");
+        let _ = std::io::stdin().read_line(&mut String::new());
+    }
+    std::process::exit(1);
 }
 
 async fn health(State(state): State<Arc<AppState>>) -> Json<Health> {

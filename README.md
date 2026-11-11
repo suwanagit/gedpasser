@@ -25,5 +25,9 @@ cargo test                          # unit + fixture tests; regenerates TS API t
 For frontend work, run `cargo run -p gedpasser-server` and `npm --prefix web run dev`
 together; Vite forwards `/api` to the server on port 8080.
 
+The exe can be double-clicked: it finds the repo's `content` folder by looking
+in the current folder, then beside the exe and in its parent folders. Keep its
+window open while you use the app; closing it stops the server.
+
 Settings (environment variables): `GED_ADDR` (default `0.0.0.0:8080`),
-`GED_CONTENT` (default `content`).
+`GED_CONTENT` (overrides the content folder search).
