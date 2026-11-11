@@ -1,6 +1,10 @@
 [alias]
 # Validate the question bank and check every answer: `cargo content`
-content = "run -q -p ged-content -- content"
+content = "run -q -p ged-content -- check content"
+# Review-note skeleton for one skill: `cargo content-template q-number-ops`
+content-template = "run -q -p ged-content -- template"
+# Mark items the reviewer passed as reviewed: `cargo content-approve q-number-ops`
+content-approve = "run -q -p ged-content -- approve"
 
 [env]
 # ts-rs writes generated TypeScript API types here (`cargo test -p gedpasser-server`).

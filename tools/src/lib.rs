@@ -6,13 +6,19 @@
 //! [`Report`].
 
 pub mod expr;
+pub mod review;
 pub mod schema;
+
+pub use review::{approve, lesson_hash, question_hash, template};
 
 use std::collections::{BTreeSet, HashMap, HashSet};
 use std::fmt;
 use std::path::{Path, PathBuf};
 
-pub use schema::{Area, Principle, PrincipleFile, Question, QuestionFile, QuestionType, Skill, SkillFile, Status};
+pub use schema::{
+    Area, Principle, PrincipleFile, Question, QuestionFile, QuestionType, Review, ReviewKind, Skill, SkillFile, Status,
+    Verdict,
+};
 
 /// Prompts whose word sets overlap at least this much are flagged.
 pub const NEAR_DUPLICATE_THRESHOLD: f64 = 0.85;
@@ -52,6 +58,7 @@ pub struct Report {
     pub skills: Vec<Skill>,
     pub principles: Vec<Principle>,
     pub questions: Vec<(PathBuf, Question)>,
+    pub reviews: Vec<(PathBuf, Review)>,
     pub diagnostics: Vec<Diagnostic>,
 }
 
@@ -97,10 +104,11 @@ pub fn check_content(root: &Path) -> Report {
     validate_questions(&mut report);
     check_answers(&mut report);
     check_duplicates(&mut report);
+    review::check_reviews(root, &mut report);
     report
 }
 
-fn read_toml<T: serde::de::DeserializeOwned>(path: &Path, report: &mut Report) -> Option<T> {
+pub(crate) fn read_toml<T: serde::de::DeserializeOwned>(path: &Path, report: &mut Report) -> Option<T> {
     let text = match std::fs::read_to_string(path) {
         Ok(t) => t,
         Err(e) => {

@@ -98,6 +98,46 @@ pub enum QuestionType {
     DragDrop,
 }
 
+/// `content/reviews/<skill>.toml`: notes from an independent reviewer.
+/// Later entries for the same item replace earlier ones.
+#[derive(Debug, Clone, Default, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct ReviewFile {
+    #[serde(default)]
+    pub review: Vec<Review>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct Review {
+    /// Question id, or principle code for a lesson.
+    pub id: String,
+    pub kind: ReviewKind,
+    /// Content hash of the item the reviewer saw (`ged-content template`).
+    pub hash: String,
+    pub verdict: Verdict,
+    /// The reviewer's own answer, worked out before reading the key.
+    #[serde(default)]
+    pub solved: Option<String>,
+    pub note: String,
+    pub date: String,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum ReviewKind {
+    Question,
+    Lesson,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum Verdict {
+    Pass,
+    Fix,
+    Reject,
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum Status {

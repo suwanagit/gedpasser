@@ -19,6 +19,7 @@ A free, self-hosted web app that helps Alaskans study for and pass the GED, star
 - No subjects beyond Math until Math is solid.
 - No official GED content. Questions are original and aligned to the published test specifications. GED and GED Ready are trademarks of GED Testing Service, so the app avoids implying endorsement.
 - No strong security model on the LAN. Login is for personalization; real auth arrives with public hosting.
+- No human educator sign-off. Questions and lessons are written by AI and checked by a separate AI reviewer and by code; the app says so plainly and lets learners flag mistakes.
 
 ## Decisions so far
 
@@ -145,9 +146,9 @@ common_mistake = "Adding 3 hours' worth to 240 without finding the hourly rate f
 1. Claude Code drafts questions for one skill with `status = "draft"`.
 2. The validator checks the schema, ids, skill tags, duplicate or near-duplicate prompts, and that the answer is among the choices.
 3. The answer checker evaluates each `check` expression and fails any question whose stored answer does not match.
-4. A fresh Claude session that did not write the batch reviews it for wrong keys, ambiguity, more than one correct answer, and level fit, and writes a short review note.
-5. Jon skims the batch and flips passing questions to `reviewed`. Only reviewed questions are served.
-6. In the app, a "flag this question" button records problems; flagged questions drop out of rotation until fixed.
+4. A fresh reviewer subagent that did not write the batch solves each question blind, then checks the key, ambiguity, more than one correct answer, distractors, explanation and level fit. It also checks the skill's lessons. It writes a verdict (pass, fix or reject) and a note for each item in `content/reviews/<skill>.toml`, tied to the item's content hash.
+5. `cargo content-approve <skill>` flips items with a current `pass` to `reviewed`. The validator rejects any `reviewed` item without a matching pass, so a hand-flip or an edit after review is caught. Only reviewed questions and lessons are served. (Jon decided on 2026-11-10 that AI review replaces human sign-off, with a disclaimer in the app.)
+6. In the app, a "flag this question" button records problems. A flagged question drops out of rotation for everyone until it is fixed (editing it clears the flag) or the flag is dismissed with `gedpasser-server flags resolve`.
 
 Question types should mirror the real test's formats over time, starting with multiple choice and fill-in, then dropdown and drag-and-drop.
 

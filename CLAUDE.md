@@ -19,15 +19,24 @@ Repo: https://github.com/suwanagit/gedpasser.git
 - Question bank: TOML files in `content/` (skill map in `content/skills.toml`).
 - Validator and answer checker in `tools/`: run `cargo content` from the
   repo root. Release build: `scripts\build.ps1` (see README "How to run").
+- PowerShell 5.1 mangles double quotes in native-exe arguments: for commit
+  messages containing `"`, write the message to a file and `git commit -F`.
 
 ## Rules
 - Work one roadmap phase at a time (see `docs/spec.md`, Roadmap). Plan in
   Plan Mode and get Jon's approval before editing. Stop when that phase's
   checkboxes are met.
 - The question bank lives in `content/`. Never edit questions in the database.
-- Every new question starts as `status = "draft"` with a `check` expression
-  and a worked explanation. Run the validator and answer checker before
-  finishing. Never mark a question `reviewed` yourself.
+- Every new question starts as `status = "draft"` with a `check` expression,
+  a worked explanation and a common mistake. Run `cargo content` before
+  finishing.
+- Review (Jon's decision, 2026-11-10: AI review replaces human sign-off; the
+  app carries a disclaimer): each skill's batch is reviewed by a FRESH
+  reviewer subagent that did not write it and solves each question blind
+  before reading the key. It writes `content/reviews/<skill>.toml` (start
+  from `cargo content-template <skill>`). Only `cargo content-approve <skill>`
+  may set `status = "reviewed"`, and only for items with a current `pass`.
+  Never set `reviewed` by hand. Any edit to a reviewed item needs a new review.
 - Every question has exactly one skill from `content/skills.toml` and exactly
   one `principle` from `content/principles.toml` that belongs to that skill.
 - Principles are the official GED Math indicator codes (Q.1.a … A.7.d), but

@@ -4,6 +4,8 @@ Newest first. One line per decision: date, decision, reason.
 
 | Date | Decision | Reason |
 | --- | --- | --- |
+| 2026-11-10 | AI review replaces Jon's sign-off: a fresh reviewer subagent per skill solves each item blind and records pass/fix/reject in `content/reviews/<skill>.toml`; only `cargo content-approve` sets `reviewed`, and the validator rejects a `reviewed` item without a pass for its current content hash | Jon is not an educator and the service is free; mechanical gating keeps "reviewed" honest |
+| 2026-11-10 | One content hash (`ged_content::question_hash`, all reviewed fields except status) is used for review notes, flags and attempts | "Changed since reviewed" and "changed since answered" mean the same thing |
 | 2026-11-10 | US English spelling everywhere (meter, liter, practice, center, harbor); units stay metric | The learners are in Alaska |
 | 2026-11-10 | Each question tests one principle, and principles are the 62 official GED Math indicators (Q.1.a to A.7.d). Codes are kept, but names and lessons are our own words | A fixed, authoritative set to study and practice later; avoids copying the copyrighted guide |
 | 2026-11-10 | Lessons live in `content/principles.toml` and follow the draft → reviewed rule; without drafts on, a principle's name and summary still show and its lesson says "coming soon" | Lesson accuracy matters as much as question accuracy |

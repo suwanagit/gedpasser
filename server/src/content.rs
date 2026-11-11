@@ -6,7 +6,6 @@ use std::collections::HashMap;
 use std::path::Path;
 
 use ged_content::{Principle, Question, QuestionType, Skill, Status, check_content};
-use sha2::{Digest, Sha256};
 use sqlx::SqlitePool;
 
 pub struct Bank {
@@ -162,19 +161,13 @@ fn status_name(s: Status) -> &'static str {
     }
 }
 
-/// SHA-256 over what a learner sees and is graded on.
+/// The same hash the review gate uses, so "changed since answered" and
+/// "changed since reviewed" agree.
 fn content_hash(q: &Question) -> String {
-    let mut h = Sha256::new();
-    for part in [type_name(q.kind), q.prompt.as_str(), &q.choices.join("\u{1f}"), q.answer.as_str()] {
-        h.update(part.as_bytes());
-        h.update([0u8]);
-    }
-    hex(&h.finalize())
+    ged_content::question_hash(q)
 }
 
-pub fn hex(bytes: &[u8]) -> String {
-    bytes.iter().map(|b| format!("{b:02x}")).collect()
-}
+pub use ged_content::review::hex;
 
 /// Grade a learner's response.
 /// Choice questions need the exact choice. Fill-in answers compare as
