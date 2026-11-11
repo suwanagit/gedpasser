@@ -1,0 +1,52 @@
+# Polynomials, rational expressions and quadratics (A.1.d-j, A.4.a/b)
+# Text conventions: math goes in $...$ (KaTeX); a literal dollar sign is \$.
+# Expression answers: `check` and `answer_value` both evaluate at a test value.
+
+[[question]]
+id = "a-polynomials-0001"
+skill = "a-polynomials"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+prompt = 'Multiply: $(x + 3)(x + 5)$.'
+choices = ['$x^2 + 8x + 15$', '$x^2 + 15$', '$x^2 + 8x + 8$', '$2x + 8$']
+answer = '$x^2 + 8x + 15$'
+answer_value = 35.0            # x^2 + 8x + 15 at x = 2
+check = "(2 + 3) * (2 + 5)"    # original product at x = 2
+explanation = '''
+Multiply each term in the first binomial by each term in the second:
+$x \cdot x + x \cdot 5 + 3 \cdot x + 3 \cdot 5 = x^2 + 5x + 3x + 15 = x^2 + 8x + 15$.
+'''
+common_mistake = "Multiplying only the first terms and the last terms, which gives x² + 15."
+
+[[question]]
+id = "a-polynomials-0002"
+skill = "a-polynomials"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+prompt = 'What is the positive solution of $x^2 - 5x - 14 = 0$?'
+answer = "7"
+check = "(5 + sqrt(5^2 + 4 * 14)) / 2"
+explanation = '''
+Factor: find two numbers that multiply to $-14$ and add to $-5$. They are $-7$ and $2$.
+So $(x - 7)(x + 2) = 0$, which gives $x = 7$ or $x = -2$. The positive solution is 7.
+'''
+common_mistake = "Getting the signs backwards and answering 2 from (x + 7)(x − 2)."
+
+[[question]]
+id = "a-polynomials-0003"
+skill = "a-polynomials"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = 'Factor completely: $x^2 - 9$.'
+choices = ['$(x - 3)(x + 3)$', '$(x - 3)^2$', '$(x - 9)(x + 1)$', '$(x + 3)^2$']
+answer = '$(x - 3)(x + 3)$'
+answer_value = 16.0            # (x - 3)(x + 3) at x = 5
+check = "5^2 - 9"              # original expression at x = 5
+explanation = '''
+$x^2 - 9$ is a difference of two squares: $x^2 - 3^2$.
+A difference of squares factors as $a^2 - b^2 = (a - b)(a + b)$, so $x^2 - 9 = (x - 3)(x + 3)$.
+'''
+common_mistake = "Writing (x − 3)², which expands to x² − 6x + 9, not x² − 9."

@@ -1,0 +1,56 @@
+# Data displays and statistics (Q.6.a-c, Q.7.a)
+# Text conventions: math goes in $...$ (KaTeX); a literal dollar sign is \$.
+
+[[question]]
+id = "q-data-stats-0001"
+skill = "q-data-stats"
+difficulty = 1
+type = "fill_in"
+status = "draft"
+alaska = true
+prompt = '''
+The daily high temperatures in Nome for five days were $-2$, $1$, $4$, $0$ and $-3$ degrees Celsius.
+What was the mean daily high, in degrees Celsius?
+'''
+answer = "0"
+check = "(-2 + 1 + 4 + 0 - 3) / 5"
+explanation = '''
+Add the values: $-2 + 1 + 4 + 0 + (-3) = 0$.
+Divide by the number of days: $0 \div 5 = 0$ °C.
+'''
+common_mistake = "Ignoring the minus signs and adding 2 + 1 + 4 + 0 + 3 = 10, giving a mean of 2."
+
+[[question]]
+id = "q-data-stats-0002"
+skill = "q-data-stats"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = "The ages of six people in a study group are 18, 25, 31, 22, 40 and 27. What is the median age?"
+choices = ["26", "25", "28", "31"]
+answer = "26"
+check = "(25 + 27) / 2"
+explanation = '''
+Put the ages in order: 18, 22, 25, 27, 31, 40.
+With six values, the median is the mean of the middle two: $(25 + 27) \div 2 = 26$.
+'''
+common_mistake = "Taking the middle of the list without sorting it first."
+
+[[question]]
+id = "q-data-stats-0003"
+skill = "q-data-stats"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+prompt = '''
+In a class, tests count for 60% of the final grade and homework counts for 40%.
+A student has a test average of 70 and a homework average of 90. What is the final grade?
+'''
+choices = ["78", "80", "82", "76"]
+answer = "78"
+check = "0.6 * 70 + 0.4 * 90"
+explanation = '''
+Weight each average: $0.6 \times 70 = 42$ and $0.4 \times 90 = 36$.
+Add them: $42 + 36 = 78$.
+'''
+common_mistake = "Taking the plain average (70 + 90) ÷ 2 = 80, which ignores the weights."

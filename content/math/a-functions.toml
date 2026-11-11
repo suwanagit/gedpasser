@@ -1,0 +1,48 @@
+# Functions (A.5.e, A.7.a-d)
+# Text conventions: math goes in $...$ (KaTeX); a literal dollar sign is \$.
+
+[[question]]
+id = "a-functions-0001"
+skill = "a-functions"
+difficulty = 1
+type = "fill_in"
+status = "draft"
+prompt = 'If $f(x) = 4x - 9$, what is $f(6)$?'
+answer = "15"
+check = "4 * 6 - 9"
+explanation = 'Replace $x$ with 6: $f(6) = 4(6) - 9 = 24 - 9 = 15$.'
+common_mistake = "Treating f(6) as f times 6."
+
+[[question]]
+id = "a-functions-0002"
+skill = "a-functions"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = 'If $g(x) = x^2 - 3x + 2$, what is $g(-2)$?'
+choices = ["12", "0", "-8", "4"]
+answer = "12"
+check = "(-2)^2 - 3 * (-2) + 2"
+explanation = '''
+Replace $x$ with $-2$: $g(-2) = (-2)^2 - 3(-2) + 2 = 4 + 6 + 2 = 12$.
+'''
+common_mistake = "Squaring −2 as −4, which gives −4 + 6 + 2 = 4."
+
+[[question]]
+id = "a-functions-0003"
+skill = "a-functions"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+prompt = '''
+A linear function $g$ has $g(1) = 7$ and $g(5) = 19$.
+How much greater is the slope of $g$ than the slope of $f(x) = 2x + 1$?
+'''
+choices = ["1", "5", "-1", "3"]
+answer = "1"
+check = "(19 - 7) / (5 - 1) - 2"
+explanation = '''
+Slope of $g$: $\frac{19 - 7}{5 - 1} = \frac{12}{4} = 3$. The slope of $f$ is 2.
+The difference is $3 - 2 = 1$.
+'''
+common_mistake = "Giving the slope of g (3) instead of the difference."

@@ -1,0 +1,53 @@
+# Number sense and operations (Q.1.a/b/d, Q.2.a/d/e)
+# Text conventions: math goes in $...$ (KaTeX); a literal dollar sign is \$.
+
+[[question]]
+id = "q-number-ops-0001"
+skill = "q-number-ops"
+difficulty = 1
+type = "fill_in"
+status = "draft"
+alaska = true
+prompt = '''
+A family in Bethel buys 3 bags of rice at \$4.25 each and 2 jugs of cooking oil at \$6.80 each.
+How many dollars do they spend in all?
+'''
+answer = "26.35"
+check = "3 * 4.25 + 2 * 6.80"
+explanation = '''
+Rice: 3 × \$4.25 = \$12.75. Oil: 2 × \$6.80 = \$13.60.
+Total: \$12.75 + \$13.60 = \$26.35.
+'''
+common_mistake = "Adding one price of each item (4.25 + 6.80) without multiplying by how many were bought."
+
+[[question]]
+id = "q-number-ops-0002"
+skill = "q-number-ops"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = 'Evaluate $18 - 3 \times (4 - 2)^2$.'
+choices = ["6", "12", "30", "60"]
+answer = "6"
+check = "18 - 3 * (4 - 2)^2"
+explanation = '''
+Parentheses first: $4 - 2 = 2$. Then the exponent: $2^2 = 4$.
+Then multiply: $3 \times 4 = 12$. Last, subtract: $18 - 12 = 6$.
+'''
+common_mistake = "Working left to right: 18 − 3 = 15 and then 15 × 4 = 60."
+
+[[question]]
+id = "q-number-ops-0003"
+skill = "q-number-ops"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = 'What is $\frac{2}{3} + \frac{3}{4}$?'
+choices = ['$\frac{17}{12}$', '$\frac{5}{7}$', '$\frac{6}{12}$', '$\frac{5}{12}$']
+answer = '$\frac{17}{12}$'
+check = "2/3 + 3/4"
+explanation = '''
+Use the common denominator 12: $\frac{2}{3} = \frac{8}{12}$ and $\frac{3}{4} = \frac{9}{12}$.
+So $\frac{8}{12} + \frac{9}{12} = \frac{17}{12}$, which is $1\frac{5}{12}$.
+'''
+common_mistake = "Adding tops and bottoms separately: (2 + 3)/(3 + 4) = 5/7."

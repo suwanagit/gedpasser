@@ -1,0 +1,56 @@
+# Counting and probability (Q.8.a/b)
+# Text conventions: math goes in $...$ (KaTeX); a literal dollar sign is \$.
+
+[[question]]
+id = "q-probability-0001"
+skill = "q-probability"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+prompt = '''
+A bag holds 3 red beads, 5 blue beads and 2 green beads.
+One bead is drawn at random. What is the probability that it is blue?
+'''
+choices = ['$\frac{1}{2}$', '$\frac{1}{5}$', '$\frac{5}{3}$', '$\frac{3}{10}$']
+answer = '$\frac{1}{2}$'
+check = "5 / (3 + 5 + 2)"
+explanation = '''
+There are $3 + 5 + 2 = 10$ beads, and 5 of them are blue.
+Probability $= \frac{5}{10} = \frac{1}{2}$.
+'''
+common_mistake = "Comparing blue to red (5/3) instead of blue to all the beads."
+
+[[question]]
+id = "q-probability-0002"
+skill = "q-probability"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+alaska = true
+prompt = '''
+A café in Sitka offers 4 kinds of soup and 3 kinds of bread.
+A lunch special is one soup and one bread. How many different lunch specials are possible?
+'''
+answer = "12"
+check = "4 * 3"
+explanation = 'Each of the 4 soups can go with each of the 3 breads, so there are $4 \times 3 = 12$ choices.'
+common_mistake = "Adding the choices (4 + 3 = 7) instead of multiplying."
+
+[[question]]
+id = "q-probability-0003"
+skill = "q-probability"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+prompt = '''
+A coin is flipped and a six-sided number cube is rolled.
+What is the probability of getting heads and a number greater than 4?
+'''
+choices = ['$\frac{1}{6}$', '$\frac{1}{3}$', '$\frac{5}{6}$', '$\frac{2}{3}$']
+answer = '$\frac{1}{6}$'
+check = "1/2 * 2/6"
+explanation = '''
+Heads: $\frac{1}{2}$. A number greater than 4 (5 or 6): $\frac{2}{6} = \frac{1}{3}$.
+The events are independent, so multiply: $\frac{1}{2} \times \frac{1}{3} = \frac{1}{6}$.
+'''
+common_mistake = "Adding the two probabilities instead of multiplying them."

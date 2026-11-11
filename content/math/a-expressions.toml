@@ -1,0 +1,54 @@
+# Linear expressions (A.1.a-c)
+# Text conventions: math goes in $...$ (KaTeX); a literal dollar sign is \$.
+# Expression answers: `check` and `answer_value` both evaluate at a test value.
+
+[[question]]
+id = "a-expressions-0001"
+skill = "a-expressions"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+prompt = 'Evaluate $3x - 7$ when $x = 5$.'
+choices = ["8", "22", "-2", "15"]
+answer = "8"
+check = "3 * 5 - 7"
+explanation = 'Replace $x$ with 5: $3(5) - 7 = 15 - 7 = 8$.'
+common_mistake = "Adding 7 instead of subtracting it: 15 + 7 = 22."
+
+[[question]]
+id = "a-expressions-0002"
+skill = "a-expressions"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = 'Simplify $4(x + 3) - 2x$.'
+choices = ['$2x + 12$', '$2x + 3$', '$6x + 12$', '$2x + 7$']
+answer = '$2x + 12$'
+answer_value = 16.0          # 2x + 12 at x = 2
+check = "4 * (2 + 3) - 2 * 2" # original expression at x = 2
+explanation = '''
+Distribute the 4: $4(x + 3) = 4x + 12$.
+Then combine like terms: $4x + 12 - 2x = 2x + 12$.
+'''
+common_mistake = "Multiplying only the x by 4 and leaving the 3 alone, which gives 2x + 3."
+
+[[question]]
+id = "a-expressions-0003"
+skill = "a-expressions"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+alaska = true
+prompt = '''
+A taxi in Anchorage charges \$3.50 to start plus \$2.25 for each kilometre.
+Which expression gives the cost, in dollars, of a ride of $k$ kilometres?
+'''
+choices = ['$3.50 + 2.25k$', '$2.25 + 3.50k$', '$5.75k$', '$3.50k + 2.25k$']
+answer = '$3.50 + 2.25k$'
+answer_value = 12.5          # 3.50 + 2.25k at k = 4
+check = "3.50 + 2.25 * 4"    # cost of a 4 km ride
+explanation = '''
+The \$3.50 is charged once. The \$2.25 is charged for each of the $k$ kilometres, which is $2.25k$.
+Total: $3.50 + 2.25k$.
+'''
+common_mistake = "Swapping the fixed fee and the per-kilometre rate."

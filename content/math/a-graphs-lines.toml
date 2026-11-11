@@ -1,0 +1,50 @@
+# Slope and equations of lines (A.5.a-d, A.6.a-c)
+# Text conventions: math goes in $...$ (KaTeX); a literal dollar sign is \$.
+# Expression answers: `check` and `answer_value` both evaluate at a test value.
+
+[[question]]
+id = "a-graphs-lines-0001"
+skill = "a-graphs-lines"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+prompt = 'What is the slope of the line through $(1, 2)$ and $(4, 11)$?'
+choices = ["3", "1/3", "9", "-3"]
+answer = "3"
+check = "(11 - 2) / (4 - 1)"
+explanation = '''
+Slope is rise over run: $m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{11 - 2}{4 - 1} = \frac{9}{3} = 3$.
+'''
+common_mistake = "Putting the x change on top (run over rise), which gives 1/3."
+
+[[question]]
+id = "a-graphs-lines-0002"
+skill = "a-graphs-lines"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+prompt = 'At what value of $x$ does the line $y = -2x + 7$ cross the $x$-axis?'
+answer = "3.5"
+check = "7 / 2"
+explanation = '''
+The line crosses the $x$-axis where $y = 0$: $0 = -2x + 7$.
+So $2x = 7$ and $x = 3.5$.
+'''
+common_mistake = "Giving the y-intercept (7) instead of the x-intercept."
+
+[[question]]
+id = "a-graphs-lines-0003"
+skill = "a-graphs-lines"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+prompt = 'Which line is perpendicular to $y = \frac{2}{3}x - 1$ and passes through $(0, 4)$?'
+choices = ['$y = -\frac{3}{2}x + 4$', '$y = \frac{3}{2}x + 4$', '$y = -\frac{2}{3}x + 4$', '$y = \frac{2}{3}x + 4$']
+answer = '$y = -\frac{3}{2}x + 4$'
+answer_value = 1.0             # the answer line at x = 2
+check = "-1 / (2/3) * 2 + 4"   # perpendicular slope through (0, 4), at x = 2
+explanation = '''
+Perpendicular slopes are negative reciprocals. The reciprocal of $\frac{2}{3}$ is $\frac{3}{2}$, so the new slope is $-\frac{3}{2}$.
+The line passes through $(0, 4)$, so the $y$-intercept is 4: $y = -\frac{3}{2}x + 4$.
+'''
+common_mistake = "Changing only the sign (−2/3) or only flipping the fraction (3/2)."

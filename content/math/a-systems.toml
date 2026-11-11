@@ -1,0 +1,53 @@
+# Systems of linear equations (A.2.d)
+# Text conventions: math goes in $...$ (KaTeX); a literal dollar sign is \$.
+
+[[question]]
+id = "a-systems-0001"
+skill = "a-systems"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+prompt = 'Solve the system $x + y = 10$ and $x - y = 4$. What is the value of $x$?'
+answer = "7"
+check = "(10 + 4) / 2"
+explanation = '''
+Add the two equations: $(x + y) + (x - y) = 10 + 4$, so $2x = 14$ and $x = 7$.
+(Then $y = 10 - 7 = 3$.)
+'''
+common_mistake = "Giving the value of y (3) instead of x."
+
+[[question]]
+id = "a-systems-0002"
+skill = "a-systems"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+alaska = true
+prompt = '''
+At a fish market in Homer, 2 kg of halibut and 1 kg of salmon cost \$70.
+1 kg of halibut and 1 kg of salmon cost \$45. What is the price of 1 kg of halibut, in dollars?
+'''
+choices = ["25", "20", "35", "45"]
+answer = "25"
+check = "70 - 45"
+explanation = '''
+Let $h$ be the price of halibut and $s$ the price of salmon: $2h + s = 70$ and $h + s = 45$.
+Subtract the second equation from the first: $h = 25$. (Then $s = 45 - 25 = 20$.)
+'''
+common_mistake = "Giving the price of salmon (20) instead of halibut."
+
+[[question]]
+id = "a-systems-0003"
+skill = "a-systems"
+difficulty = 3
+type = "fill_in"
+status = "draft"
+prompt = 'Solve the system $2x + 3y = 12$ and $x - y = 1$. What is the value of $y$?'
+answer = "2"
+check = "(12 - 2 * 1) / (2 + 3)"
+explanation = '''
+From the second equation, $x = y + 1$.
+Substitute into the first: $2(y + 1) + 3y = 12$, so $5y + 2 = 12$, $5y = 10$ and $y = 2$.
+(Then $x = 3$.)
+'''
+common_mistake = "Substituting x = y − 1 instead of x = y + 1."

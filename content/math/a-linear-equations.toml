@@ -1,0 +1,49 @@
+# Linear equations and inequalities (A.2.a-c, A.3.a-d)
+# Text conventions: math goes in $...$ (KaTeX); a literal dollar sign is \$.
+
+[[question]]
+id = "a-linear-equations-0001"
+skill = "a-linear-equations"
+difficulty = 1
+type = "fill_in"
+status = "draft"
+prompt = 'Solve for $x$: $5x + 8 = 43$.'
+answer = "7"
+check = "(43 - 8) / 5"
+explanation = '''
+Subtract 8 from both sides: $5x = 35$.
+Divide both sides by 5: $x = 7$.
+'''
+common_mistake = "Adding 8 to 43 instead of subtracting, which gives 51 ÷ 5 = 10.2."
+
+[[question]]
+id = "a-linear-equations-0002"
+skill = "a-linear-equations"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = 'Solve for $x$: $3(x - 4) = x + 6$.'
+choices = ["9", "5", "3", "-3"]
+answer = "9"
+check = "(6 + 12) / (3 - 1)"
+explanation = '''
+Distribute: $3x - 12 = x + 6$.
+Subtract $x$ from both sides: $2x - 12 = 6$.
+Add 12 to both sides: $2x = 18$, so $x = 9$.
+'''
+common_mistake = "Distributing only to the x: 3x − 4 = x + 6, which gives x = 5."
+
+[[question]]
+id = "a-linear-equations-0003"
+skill = "a-linear-equations"
+difficulty = 3
+type = "fill_in"
+status = "draft"
+prompt = 'Solve the inequality $-3x + 4 \le 19$. The solution is $x \ge$ what number?'
+answer = "-5"
+check = "(19 - 4) / -3"
+explanation = '''
+Subtract 4 from both sides: $-3x \le 15$.
+Divide both sides by $-3$. Dividing by a negative number flips the sign: $x \ge -5$.
+'''
+common_mistake = "Forgetting to flip the inequality sign when dividing by a negative number."

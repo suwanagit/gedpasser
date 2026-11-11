@@ -282,7 +282,39 @@ fn validate_questions(report: &mut Report) {
 /// Parse an answer string as a number. Accepts integers, decimals,
 /// thousands separators ("1,200"), a leading "$", fractions ("3/4"), mixed
 /// numbers ("1 1/2", "-2 3/4") and percents ("25%" parses as 25).
+/// Math markup is understood too: "$\frac{3}{4}$", "$1\dfrac{1}{2}$",
+/// "$25\%$".
 pub fn parse_answer(s: &str) -> Option<f64> {
+    let s = s.trim();
+    if s.contains('\\') || (s.len() >= 2 && s.starts_with('$') && s.ends_with('$') && s[1..].contains('$')) {
+        return parse_answer(&delatex(s)?);
+    }
+    parse_plain(s)
+}
+
+/// Turn simple LaTeX number markup into plain text: strips `$…$`, turns
+/// `\frac{a}{b}` / `\dfrac{a}{b}` into ` a/b`, and `\%` into `%`.
+fn delatex(s: &str) -> Option<String> {
+    let inner = s.strip_prefix('$').and_then(|t| t.strip_suffix('$')).unwrap_or(s);
+    let mut t = inner.replace("\\dfrac", "\\frac").replace("\\tfrac", "\\frac").replace("\\%", "%");
+    t = t.replace("\\,", "").replace("{,}", ",").replace("\\$", "");
+    while let Some(pos) = t.find("\\frac{") {
+        let rest = &t[pos + 6..];
+        let n_end = rest.find('}')?;
+        let num = &rest[..n_end];
+        let rest2 = rest[n_end + 1..].strip_prefix('{')?;
+        let d_end = rest2.find('}')?;
+        let den = &rest2[..d_end];
+        let tail = &rest2[d_end + 1..];
+        t = format!("{} {num}/{den}{tail}", t[..pos].trim_end());
+    }
+    if t.contains('\\') || t.contains('$') {
+        return None;
+    }
+    Some(t.trim().to_string())
+}
+
+fn parse_plain(s: &str) -> Option<f64> {
     let mut t = s.trim();
     let mut sign = 1.0;
     if let Some(rest) = t.strip_prefix('-') {
@@ -315,7 +347,8 @@ pub fn parse_answer(s: &str) -> Option<f64> {
     Some(sign * value)
 }
 
-fn close_enough(a: f64, b: f64) -> bool {
+/// True when two numbers agree within [`TOLERANCE`] (relative, floor of 1).
+pub fn close_enough(a: f64, b: f64) -> bool {
     (a - b).abs() <= TOLERANCE * a.abs().max(b.abs()).max(1.0)
 }
 
@@ -407,5 +440,17 @@ mod tests {
         assert_eq!(parse_answer("-0.5"), Some(-0.5));
         assert_eq!(parse_answer("2x + 3"), None);
         assert_eq!(parse_answer("1/0"), None);
+    }
+
+    #[test]
+    fn latex_answers() {
+        assert_eq!(parse_answer(r"$\frac{3}{4}$"), Some(0.75));
+        assert_eq!(parse_answer(r"$-\frac{1}{2}$"), Some(-0.5));
+        assert_eq!(parse_answer(r"$1\dfrac{1}{2}$"), Some(1.5));
+        assert_eq!(parse_answer(r"$25\%$"), Some(25.0));
+        assert_eq!(parse_answer("$12$"), Some(12.0));
+        assert_eq!(parse_answer("$12.50"), Some(12.5)); // dollars, not math
+        assert_eq!(parse_answer(r"$x^{2}$"), None);
+        assert_eq!(parse_answer(r"$\sqrt{2}$"), None);
     }
 }

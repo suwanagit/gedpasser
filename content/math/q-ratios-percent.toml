@@ -1,0 +1,60 @@
+# Ratios, rates, percents and scale (Q.3.a-d)
+# Text conventions: math goes in $...$ (KaTeX); a literal dollar sign is \$.
+
+[[question]]
+id = "q-ratios-percent-0001"
+skill = "q-ratios-percent"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+alaska = true
+prompt = '''
+A fishing boat out of Kodiak burns 45 litres of fuel every 3 hours.
+At that rate, how many litres will it burn on a 7-hour trip?
+'''
+choices = ["105", "135", "49", "315"]
+answer = "105"
+check = "45 / 3 * 7"
+explanation = '''
+Find the rate per hour: $45 \div 3 = 15$ litres per hour.
+Then $15 \times 7 = 105$ litres.
+'''
+common_mistake = "Multiplying 45 by 7 without first finding the hourly rate (315)."
+
+[[question]]
+id = "q-ratios-percent-0002"
+skill = "q-ratios-percent"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+prompt = '''
+A jacket costs \$120. It is on sale for 30% off, and then a 5% local sales tax is added to the sale price.
+What is the final price in dollars?
+'''
+answer = "88.20"
+check = "120 * (1 - 0.30) * 1.05"
+explanation = '''
+Sale price: 30% of \$120 is \$36, so the sale price is \$120 − \$36 = \$84.
+Tax: 5% of \$84 is \$4.20. Final price: \$84 + \$4.20 = \$88.20.
+'''
+common_mistake = "Combining the percents into one 25% discount, which gives \\$90."
+
+[[question]]
+id = "q-ratios-percent-0003"
+skill = "q-ratios-percent"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+alaska = true
+prompt = '''
+On a map of the Yukon–Kuskokwim Delta, 2 cm represents 15 km.
+Two villages are 7 cm apart on the map. How many kilometres apart are they?
+'''
+choices = ["52.5", "105", "30", "22.5"]
+answer = "52.5"
+check = "7 / 2 * 15"
+explanation = '''
+Each centimetre stands for $15 \div 2 = 7.5$ km.
+So 7 cm stands for $7 \times 7.5 = 52.5$ km.
+'''
+common_mistake = "Multiplying 7 by 15 and forgetting that 15 km goes with 2 cm, not 1 cm."

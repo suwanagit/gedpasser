@@ -1,0 +1,56 @@
+# Perimeter, area and the Pythagorean theorem (Q.4.a-e)
+# Text conventions: math goes in $...$ (KaTeX); a literal dollar sign is \$.
+
+[[question]]
+id = "q-geometry-2d-0001"
+skill = "q-geometry-2d"
+difficulty = 1
+type = "fill_in"
+status = "draft"
+prompt = "A rectangular garden is 8 m long and 5 m wide. What is its perimeter in metres?"
+answer = "26"
+check = "2 * (8 + 5)"
+explanation = '''
+Perimeter is the distance around: $8 + 5 + 8 + 5 = 26$ m,
+or $2 \times (8 + 5) = 26$ m.
+'''
+common_mistake = "Finding the area (8 × 5 = 40) instead of the perimeter."
+
+[[question]]
+id = "q-geometry-2d-0002"
+skill = "q-geometry-2d"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = '''
+A round hatch on a boat deck has a radius of 0.6 m.
+What is its area, to the nearest hundredth of a square metre? Use $\pi \approx 3.14$.
+'''
+choices = ["1.13", "3.77", "0.36", "1.88"]
+answer = "1.13"
+check = "round(3.14 * 0.6^2, 2)"
+explanation = '''
+Area of a circle: $A = \pi r^2$.
+$A \approx 3.14 \times 0.6^2 = 3.14 \times 0.36 = 1.1304$, which rounds to 1.13 m².
+'''
+common_mistake = "Using the circumference formula 2πr, which gives 3.77."
+
+[[question]]
+id = "q-geometry-2d-0003"
+skill = "q-geometry-2d"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+alaska = true
+prompt = '''
+At a Seward harbour, the ramp down to a floating dock rises 1.2 m over a horizontal distance of 3.5 m.
+How long is the ramp, in metres?
+'''
+choices = ["3.7", "4.7", "3.5", "13.69"]
+answer = "3.7"
+check = "sqrt(1.2^2 + 3.5^2)"
+explanation = '''
+The ramp is the hypotenuse of a right triangle, so use $a^2 + b^2 = c^2$:
+$1.2^2 + 3.5^2 = 1.44 + 12.25 = 13.69$, and $c = \sqrt{13.69} = 3.7$ m.
+'''
+common_mistake = "Adding the two sides (1.2 + 3.5 = 4.7) instead of using the Pythagorean theorem."
