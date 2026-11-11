@@ -235,11 +235,11 @@ Seven phases take the app from an empty repo to a public site; Phases 0 to 3 are
 
 **Phase 2: Question bank v1**
 
-- [ ] At least 10 reviewed questions for every skill
-- [ ] Lessons reviewed for every principle used by a reviewed question
-- [ ] Validator and answer checker pass with zero errors
-- [ ] Every batch has a review note from a separate session
-- [ ] Flag button works and removes flagged questions from rotation
+- [x] At least 10 reviewed questions for every skill (12 each, 156 total; "reviewed" = AI-reviewed, see pipeline)
+- [x] Lessons reviewed for every principle used by a reviewed question (all 62)
+- [x] Validator and answer checker pass with zero errors
+- [x] Every batch has a review note from a separate session (`content/reviews/<skill>.toml`, one per skill)
+- [x] Flag button works and removes flagged questions from rotation
 
 **Phase 3: Progress and weak areas (MVP complete)**
 
