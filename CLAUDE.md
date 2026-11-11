@@ -28,7 +28,11 @@ Repo: https://github.com/suwanagit/gedpasser.git
 - Every new question starts as `status = "draft"` with a `check` expression
   and a worked explanation. Run the validator and answer checker before
   finishing. Never mark a question `reviewed` yourself.
-- Every question has exactly one skill from `content/skills.toml`.
+- Every question has exactly one skill from `content/skills.toml` and exactly
+  one `principle` from `content/principles.toml` that belongs to that skill.
+- Principles are the official GED Math indicator codes (Q.1.a … A.7.d), but
+  names and lessons are our own words. Never copy text from the GED guide.
+  Lessons follow the same draft -> reviewed rule as questions.
 - Never use real GED test items or claim official GED status.
 - Hash passwords with Argon2. Never log passwords or session tokens.
 - Use metric units in all questions and UI.

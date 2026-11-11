@@ -47,7 +47,10 @@ Settings (environment variables):
 
 ## Writing questions
 
-Questions live in `content\math\<skill>.toml`. Put math between `$...$`
+Questions live in `content\math\<skill>.toml`. Each needs a `principle`, an
+official indicator code from `content\principles.toml` that belongs to the
+same skill. Each principle has a short `lesson`: paragraphs separated by
+blank lines, with lines starting `- ` for bullets. Put math between `$...$`
 (KaTeX), write a literal dollar sign as `\$`, and use TOML literal strings
 (`'...'` or `'''...'''`) so backslashes need no escaping. For an answer that
 isn't a plain number (like `$2x + 12$`), give `answer_value` and a `check`

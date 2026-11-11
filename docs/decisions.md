@@ -4,6 +4,10 @@ Newest first. One line per decision: date, decision, reason.
 
 | Date | Decision | Reason |
 | --- | --- | --- |
+| 2026-11-10 | Each question tests one principle, and principles are the 62 official GED Math indicators (Q.1.a to A.7.d). Codes are kept, but names and lessons are our own words | A fixed, authoritative set to study and practise later; avoids copying the copyrighted guide |
+| 2026-11-10 | Lessons live in `content/principles.toml` and follow the draft → reviewed rule; without drafts on, a principle's name and summary still show and its lesson says "coming soon" | Lesson accuracy matters as much as question accuracy |
+| 2026-11-10 | `attempts` stores `principle_id` (as answered) and `hint_used` (lesson opened before answering) | Ready for per-principle progress in Phase 3; a hinted answer can count for less in mastery |
+| 2026-11-10 | Validator: principles must match `skills.toml` targets one-to-one; a reviewed question linked to an unreviewed lesson is a warning, not an error | Keeps the two files in step without blocking question review |
 | 2026-11-10 | Math in question text goes between `$...$` (KaTeX, rendered at display size); a literal dollar sign is `\$`; LaTeX strings use TOML literal strings. `parse_answer` understands `$\frac{a}{b}$`, `\%` and `\$` | Fractions read clearly, and math-formatted answers are still checked numerically |
 | 2026-11-10 | Expression answers (e.g. `$2x + 12$`): `check` evaluates the original problem at a test value and `answer_value` is the answer at the same value | Gives algebra questions a real machine check without a symbolic algebra engine |
 | 2026-11-10 | `GED_SERVE_DRAFTS=1` (or `scripts\run-with-drafts.cmd`) also serves drafts, with a banner and a "Draft" badge; normal runs serve `reviewed` only | Lets Phase 1 be tried before any question is reviewed, without weakening the review rule |

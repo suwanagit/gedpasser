@@ -4,9 +4,11 @@ import type { AnswerRequest } from './types/AnswerRequest'
 import type { AnswerResult } from './types/AnswerResult'
 import type { ApiErrorBody } from './types/ApiErrorBody'
 import type { CreateProfile } from './types/CreateProfile'
+import type { Lesson } from './types/Lesson'
 import type { LoginRequest } from './types/LoginRequest'
 import type { Me } from './types/Me'
 import type { NextQuestion } from './types/NextQuestion'
+import type { PrincipleSummary } from './types/PrincipleSummary'
 import type { Profile } from './types/Profile'
 import type { SkillSummary } from './types/SkillSummary'
 
@@ -51,6 +53,8 @@ export const api = {
       `/api/practice/${encodeURIComponent(skill)}/next${after ? `?after=${encodeURIComponent(after)}` : ''}`,
     ),
   answer: (body: AnswerRequest) => request<AnswerResult>('POST', '/api/answer', body),
+  principles: () => request<PrincipleSummary[]>('GET', '/api/principles'),
+  lesson: (id: string) => request<Lesson>('GET', `/api/principles/${encodeURIComponent(id)}`),
 }
 
 export function errorMessage(e: unknown): string {

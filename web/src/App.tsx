@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { ApiError, api, errorMessage } from './api/client'
 import type { Me } from './api/types/Me'
 import type { SkillSummary } from './api/types/SkillSummary'
+import { Lessons } from './screens/Lessons'
 import { Practice } from './screens/Practice'
 import { ProfilePicker } from './screens/ProfilePicker'
 import { SkillList } from './screens/SkillList'
@@ -12,6 +13,7 @@ type Screen =
   | { kind: 'profiles' }
   | { kind: 'skills'; me: Me }
   | { kind: 'practice'; me: Me; skill: SkillSummary }
+  | { kind: 'lessons'; me: Me }
 
 export default function App() {
   const [screen, setScreen] = useState<Screen>({ kind: 'starting' })
@@ -26,7 +28,7 @@ export default function App() {
       })
   }, [])
 
-  const me = screen.kind === 'skills' || screen.kind === 'practice' ? screen.me : null
+  const me = screen.kind === 'skills' || screen.kind === 'practice' || screen.kind === 'lessons' ? screen.me : null
 
   async function logout() {
     try {
@@ -42,7 +44,13 @@ export default function App() {
         <span className="brand">GED Passer</span>
         {me && (
           <span className="who">
-            {me.display_name}
+            <button className="link" onClick={() => setScreen({ kind: 'skills', me })}>
+              Practice
+            </button>
+            <button className="link" onClick={() => setScreen({ kind: 'lessons', me })}>
+              Lessons
+            </button>
+            <span className="who-name">{me.display_name}</span>
             <button className="secondary small" onClick={() => void logout()}>
               Log out
             </button>
@@ -65,6 +73,7 @@ export default function App() {
         {screen.kind === 'practice' && (
           <Practice skill={screen.skill} onExit={() => setScreen({ kind: 'skills', me: screen.me })} />
         )}
+        {screen.kind === 'lessons' && <Lessons onBack={() => setScreen({ kind: 'skills', me: screen.me })} />}
       </main>
 
       <footer className="fine">

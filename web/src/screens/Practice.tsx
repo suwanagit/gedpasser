@@ -4,6 +4,7 @@ import { api, errorMessage } from '../api/client'
 import type { AnswerResult } from '../api/types/AnswerResult'
 import type { PracticeQuestion } from '../api/types/PracticeQuestion'
 import type { SkillSummary } from '../api/types/SkillSummary'
+import { LessonPanel } from '../components/LessonPanel'
 import { MathText } from '../components/MathText'
 
 type State =
@@ -19,14 +20,18 @@ export function Practice({ skill, onExit }: { skill: SkillSummary; onExit: () =>
   const [typed, setTyped] = useState('')
   const [busy, setBusy] = useState(false)
   const [tally, setTally] = useState({ right: 0, total: 0 })
+  const [lessonFor, setLessonFor] = useState<string | null>(null)
   const shownAt = useRef(0)
+  const hintUsed = useRef(false)
   const reduce = useReducedMotion()
+  const closeLesson = useCallback(() => setLessonFor(null), [])
 
   const load = useCallback(
     async (after?: string) => {
       setState({ kind: 'loading' })
       setSelected(null)
       setTyped('')
+      hintUsed.current = false
       try {
         const { question } = await api.next(skill.id, after)
         if (!question) {
@@ -53,7 +58,7 @@ export function Practice({ skill, onExit }: { skill: SkillSummary; onExit: () =>
     setBusy(true)
     try {
       const time_ms = Math.round(performance.now() - shownAt.current)
-      const result = await api.answer({ question_id: state.q.id, response, time_ms })
+      const result = await api.answer({ question_id: state.q.id, response, time_ms, hint_used: hintUsed.current })
       setTally((t) => ({ right: t.right + (result.correct ? 1 : 0), total: t.total + 1 }))
       setState({ kind: 'answered', q: state.q, response, result })
     } catch (e) {
@@ -126,6 +131,20 @@ export function Practice({ skill, onExit }: { skill: SkillSummary; onExit: () =>
               <p className="prompt">
                 <MathText text={state.q.prompt} />
               </p>
+              {state.kind === 'asking' && (
+                <p className="refresher">
+                  Need a refresher?{' '}
+                  <button
+                    className="link"
+                    onClick={() => {
+                      hintUsed.current = true
+                      setLessonFor(state.q.principle.id)
+                    }}
+                  >
+                    {state.q.principle.name}
+                  </button>
+                </p>
+              )}
 
               {state.q.kind === 'fill_in' ? (
                 <FillIn
@@ -196,6 +215,14 @@ export function Practice({ skill, onExit }: { skill: SkillSummary; onExit: () =>
                 <p className="explanation">
                   <MathText text={state.result.common_mistake} />
                 </p>
+                <h4>Principle</h4>
+                <p className="explanation">
+                  This question tests <span className="badge">{state.result.principle.id}</span>{' '}
+                  {state.result.principle.name}.{' '}
+                  <button className="link" onClick={() => setLessonFor(state.result.principle.id)}>
+                    Learn this →
+                  </button>
+                </p>
                 <div className="actions">
                   <button className="primary" autoFocus onClick={next}>
                     Next question
@@ -206,6 +233,8 @@ export function Practice({ skill, onExit }: { skill: SkillSummary; onExit: () =>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {lessonFor && <LessonPanel principleId={lessonFor} onClose={closeLesson} />}
     </section>
   )
 }

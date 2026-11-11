@@ -110,6 +110,8 @@ The GED Math test splits into quantitative problem solving and algebraic problem
 
 Each skill entry also holds a short plain-language description and a difficulty range, so the app can explain what a weak area means.
 
+**Principles.** Under the skills sit 62 principles, one for each official assessment indicator (Q.1.a to Q.8.b and A.1.a to A.7.d). They live in `content/principles.toml`. Each principle has the official code as its id, a plain-language name, a one-line summary and a short lesson with a worked example, all written in our own words. Every question names exactly one principle within its skill. Learners can open the lesson while answering (recorded as a hint), after answering, or from the Lessons page. Practising one principle at a time comes in Phase 3. Lessons go through the same draft → reviewed process as questions.
+
 ## Question bank and accuracy pipeline
 
 Questions live as files in the repo, and no question reaches learners until it passes automated checks and a separate review. Claude Code adds questions by writing files and running the validator; there is no in-app editor.
@@ -120,6 +122,7 @@ Questions live as files in the repo, and no question reaches learners until it p
 [[question]]
 id = "q-ratios-percent-0007"
 skill = "q-ratios-percent"
+principle = "Q.3.a"            # official indicator code, in content/principles.toml
 difficulty = 2                 # 1 easy to 3 hard
 type = "multiple_choice"       # also: fill_in, dropdown, drag_drop
 status = "reviewed"            # draft | reviewed | retired
@@ -195,8 +198,10 @@ Six SQLite tables cover the MVP; questions and skills are copied in from the con
 | --- | --- | --- |
 | users | Profiles | id, display_name, password_hash, created_at |
 | skills | Skill map, synced from `skills.toml` | id, area, name, description |
-| questions | Question bank, synced from `content/` | id, skill_id, difficulty, type, status, content_hash |
-| attempts | Every answer given | id, user_id, question_id, correct, time_ms, mode, answered_at |
+| principles | Principles (official indicators), synced from `principles.toml` | id, skill_id, name, status |
+| questions | Question bank, synced from `content/` | id, skill_id, principle_id, difficulty, type, status, content_hash |
+| attempts | Every answer given | id, user_id, question_id, principle_id, correct, hint_used, time_ms, mode, answered_at |
+| sessions | Login sessions | token_hash, user_id, expires_at |
 | review_queue | Spaced review schedule | user_id, question_id, due_at, interval_days |
 | flags | Reported problems | id, user_id, question_id, note, resolved |
 
@@ -220,9 +225,17 @@ Seven phases take the app from an empty repo to a public site; Phases 0 to 3 are
 - [x] Every answer saved to `attempts`; data survives a server restart
 - [x] KaTeX renders fractions and exponents correctly
 
+**Phase 1b: Principles and lessons**
+
+- [x] All 62 principles (official indicators) have a drafted lesson in `content/principles.toml`
+- [x] Every question links to a principle in its own skill, checked by the validator
+- [x] Lessons open while answering, after answering, and from a Lessons page
+- [x] Attempts record the principle and whether the lesson was opened first
+
 **Phase 2: Question bank v1**
 
 - [ ] At least 10 reviewed questions for every skill
+- [ ] Lessons reviewed for every principle used by a reviewed question
 - [ ] Validator and answer checker pass with zero errors
 - [ ] Every batch has a review note from a separate session
 - [ ] Flag button works and removes flagged questions from rotation
@@ -232,6 +245,7 @@ Seven phases take the app from an empty repo to a public site; Phases 0 to 3 are
 - [ ] Mastery shown per skill on a dashboard
 - [ ] "Focus next" lists the three weakest skills and starts a set in one tap
 - [ ] Mixed practice weights toward weak skills
+- [ ] Practise one principle at a time, with progress shown per principle
 - [ ] Jon uses it for a week and the weak areas it shows match his own sense of them
 
 **Phase 4: Mobile and fun**
