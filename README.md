@@ -24,15 +24,19 @@ cargo test                          # unit + fixture tests; regenerates TS API t
 
 After logging in you land on **Learn**. The four tabs:
 
-- **Learn**: the path. Tap the stage marked Start: a few short lesson cards,
-  then a short quiz; pass to unlock the next. Today's goal and tasks sit
-  beside it.
-- **Practice**: Quick 5, Weak spots, Review; practice tests (10, 25 or 46
-  questions, timed, with a calculator and formula sheet); every skill.
-- **Library**: lesson cards by skill, memory hacks, the formula sheet and
-  test-day tactics (printable).
-- **Me**: level, streak, test date, what to work on next, strengths, sound,
-  log out, About.
+- **Learn**: an "up next" button, today's goal and tasks, and the four GED
+  subjects. A subject opens its path: tap the stage marked Start for a few
+  short lesson cards, then a short quiz; pass to unlock the next.
+- **Practice**: Quick 5, Weak spots, Review, then the subjects. A subject
+  opens its practice tests (10, 25 or 46 questions, timed, with a calculator
+  and formula sheet) and its skills.
+- **Library**: the subjects, each with lesson cards by skill, memory hacks
+  and the formula sheet, plus test-day tactics (printable).
+- **Me**: level, streak, test date, what to work on next, strengths by
+  subject, sound, log out, About.
+
+Only Math has content so far. Language Arts, Science and Social Studies are
+placeholders marked "Soon".
 
 Set a test date in Me to get daily tasks that put the most common, weakest
 principles first.

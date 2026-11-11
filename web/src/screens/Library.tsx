@@ -8,18 +8,53 @@ import { Icon } from '../components/Icon'
 import { Hack } from '../components/LessonCard'
 import { LessonPanel } from '../components/LessonPanel'
 import { Mascot } from '../components/Mascot'
+import { ComingSoon, SubHead, SubjectCard } from '../components/Subject'
+import { SUBJECTS, type Subject, type SubjectId } from '../subjects'
 
-export type LibraryTab = 'lessons' | 'hacks' | 'formulas' | 'testday'
+export type LibraryTab = 'lessons' | 'hacks' | 'formulas'
 
 const TABS: { tab: LibraryTab; label: string }[] = [
   { tab: 'lessons', label: 'Lessons' },
   { tab: 'hacks', label: 'Hacks' },
   { tab: 'formulas', label: 'Formulas' },
-  { tab: 'testday', label: 'Test day' },
 ]
 
-/** Look things up: lesson cards, memory hacks, formulas, test-day tactics. */
-export function Library({ initialTab, onPractice }: { initialTab: LibraryTab; onPractice: (scope: Scope) => void }) {
+/** Library tab: pick a subject to look things up, or read the test-day tips. */
+export function Library({ onSubject, onTestDay }: { onSubject: (id: SubjectId) => void; onTestDay: () => void }) {
+  return (
+    <div className="library">
+      <div className="subject-grid">
+        {SUBJECTS.map((s) => (
+          <SubjectCard key={s.id} subject={s} sub={s.id === 'math' ? 'Lessons · Hacks · Formulas' : undefined} onClick={() => onSubject(s.id)} />
+        ))}
+      </div>
+      <h2>For every test</h2>
+      <button className="subject-card subj-any" onClick={onTestDay}>
+        <span className="subject-icon">
+          <Icon name="target" size={28} />
+        </span>
+        <span className="subject-text">
+          <strong>Test day</strong>
+          <span className="muted small">Tips for the day itself</span>
+        </span>
+        <Icon name="right" size={20} />
+      </button>
+    </div>
+  )
+}
+
+/** Lesson cards, memory hacks and formulas for one subject. */
+export function LibrarySubject({
+  subject,
+  initialTab,
+  onBack,
+  onPractice,
+}: {
+  subject: Subject
+  initialTab: LibraryTab
+  onBack: () => void
+  onPractice: (scope: Scope) => void
+}) {
   const [tab, setTab] = useState<LibraryTab>(initialTab)
   const [skills, setSkills] = useState<SkillSummary[] | null>(null)
   const [principles, setPrinciples] = useState<PrincipleSummary[] | null>(null)
@@ -30,6 +65,7 @@ export function Library({ initialTab, onPractice }: { initialTab: LibraryTab; on
   const close = useCallback(() => setOpen(null), [])
 
   useEffect(() => {
+    if (!subject.ready) return
     Promise.all([api.skills(), api.principles(), api.strategy()])
       .then(([s, p, st]) => {
         setSkills(s)
@@ -37,7 +73,30 @@ export function Library({ initialTab, onPractice }: { initialTab: LibraryTab; on
         setStrategy(st)
       })
       .catch((e) => setError(errorMessage(e)))
-  }, [])
+  }, [subject.ready])
+
+  if (!subject.ready)
+    return (
+      <div className="library">
+        <SubHead subject={subject} onBack={onBack} />
+        <ComingSoon />
+        <div className="seg" role="tablist">
+          <button role="tab" aria-selected className="on">
+            Lessons
+          </button>
+          <button role="tab" aria-selected={false} disabled>
+            Hacks
+          </button>
+        </div>
+        {subject.units.map((u) => (
+          <div key={u} className="row soon-row">
+            <span className="dot" />
+            <span>{u}</span>
+            <Icon name="lock" size={18} />
+          </div>
+        ))}
+      </div>
+    )
 
   if (error) return <p className="error">{error}</p>
   if (!skills || !principles || !strategy)
@@ -53,6 +112,7 @@ export function Library({ initialTab, onPractice }: { initialTab: LibraryTab; on
 
   return (
     <div className="library">
+      <SubHead subject={subject} onBack={onBack} />
       <div className="seg no-print" role="tablist">
         {TABS.map((t) => (
           <button key={t.tab} role="tab" aria-selected={tab === t.tab} className={tab === t.tab ? 'on' : ''} onClick={() => setTab(t.tab)}>
@@ -112,9 +172,37 @@ export function Library({ initialTab, onPractice }: { initialTab: LibraryTab; on
         <FormulaSheet formulas={strategy.formulas} />
       </div>
 
-      <div className={tab === 'testday' ? 'stack' : 'print-only'}>
-        <h2 className="print-only">Test day</h2>
-        {strategy.tactics.map((t, i) => (
+      {open && (
+        <LessonPanel
+          principleId={open}
+          onClose={close}
+          onPractice={opened && opened.available > 0 ? () => onPractice({ mode: 'principle', id: opened.id, name: opened.name }) : undefined}
+        />
+      )}
+    </div>
+  )
+}
+
+/** Test-day tactics: the same for every subject. */
+export function TestDay({ onBack }: { onBack: () => void }) {
+  const [strategy, setStrategy] = useState<StrategyView | null>(null)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    api.strategy().then(setStrategy).catch((e) => setError(errorMessage(e)))
+  }, [])
+
+  return (
+    <div className="library">
+      <SubHead title="Test day" onBack={onBack}>
+        <button className="icon-btn" aria-label="Print" onClick={() => window.print()}>
+          <Icon name="print" />
+        </button>
+      </SubHead>
+      <h2 className="print-only">Test day</h2>
+      {error && <p className="error">{error}</p>}
+      <div className="stack">
+        {strategy?.tactics.map((t, i) => (
           <div key={t.id} className="tactic panel">
             <span className="tactic-num">{i + 1}</span>
             <span>
@@ -124,14 +212,6 @@ export function Library({ initialTab, onPractice }: { initialTab: LibraryTab; on
           </div>
         ))}
       </div>
-
-      {open && (
-        <LessonPanel
-          principleId={open}
-          onClose={close}
-          onPractice={opened && opened.available > 0 ? () => onPractice({ mode: 'principle', id: opened.id, name: opened.name }) : undefined}
-        />
-      )}
     </div>
   )
 }

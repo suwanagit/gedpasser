@@ -13,7 +13,9 @@ import { Mascot } from '../components/Mascot'
 import { QuestionView } from '../components/QuestionView'
 import { Ring } from '../components/Ring'
 import { SessionShell } from '../components/SessionShell'
+import { ComingSoon, SubHead, SubjectCard } from '../components/Subject'
 import { play } from '../sound'
+import { SUBJECTS, type Subject, type SubjectId } from '../subjects'
 import { ResultScreen } from './Journey'
 
 export const TEST_KINDS: { kind: TestKind; title: string; questions: number; minutes: number }[] = [
@@ -22,27 +24,18 @@ export const TEST_KINDS: { kind: TestKind; title: string; questions: number; min
   { kind: 'full', title: 'Full', questions: 46, minutes: 115 },
 ]
 
-/** Practice tab: three quick ways in, practice tests, then every skill. */
+/** Practice tab: three quick ways in, then pick a subject. */
 export function PracticeMenu({
   stats,
   plan,
   onStart,
-  onTest,
+  onSubject,
 }: {
   stats: Stats | null
   plan: Plan | null
   onStart: (scope: Scope, setLength?: number) => void
-  onTest: (kind: TestKind) => void
+  onSubject: (id: SubjectId) => void
 }) {
-  const [progress, setProgress] = useState<Progress | null>(null)
-  const [history, setHistory] = useState<TestSummary[]>([])
-  const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    api.progress().then(setProgress).catch((e) => setError(errorMessage(e)))
-    api.tests().then(setHistory).catch(() => setHistory([]))
-  }, [])
-
   const due = stats?.review_due ?? 0
   const weak = (plan?.priorities ?? []).slice(0, 5).map((p) => p.principle.id)
   const quick: { icon: IconName; title: string; sub: string; tone: string; badge?: number; disabled?: boolean; go: () => void }[] = [
@@ -72,14 +65,53 @@ export function PracticeMenu({
         ))}
       </div>
 
+      <h2>Tests and skills</h2>
+      <div className="subject-grid">
+        {SUBJECTS.map((s) => (
+          <SubjectCard key={s.id} subject={s} onClick={() => onSubject(s.id)} />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+/** One subject's practice: its practice tests, then its skills. */
+export function PracticeSubject({
+  subject,
+  onBack,
+  onStart,
+  onTest,
+}: {
+  subject: Subject
+  onBack: () => void
+  onStart: (scope: Scope, setLength?: number) => void
+  onTest: (kind: TestKind) => void
+}) {
+  const [progress, setProgress] = useState<Progress | null>(null)
+  const [history, setHistory] = useState<TestSummary[]>([])
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!subject.ready) return
+    api.progress().then(setProgress).catch((e) => setError(errorMessage(e)))
+    api.tests().then(setHistory).catch(() => setHistory([]))
+  }, [subject.ready])
+
+  return (
+    <div className="practice-menu">
+      <SubHead subject={subject} onBack={onBack} />
+      {!subject.ready && <ComingSoon />}
+
       <h2>Practice test</h2>
       <div className="quick-grid">
         {TEST_KINDS.map((k) => (
-          <button key={k.kind} className="tile plain" onClick={() => onTest(k.kind)}>
+          <button key={k.kind} className="tile plain" disabled={!subject.ready} onClick={() => onTest(k.kind)}>
             <strong>{k.title}</strong>
-            <span className="tile-sub">
-              {k.questions} Q · {k.minutes} min
-            </span>
+            {subject.ready && (
+              <span className="tile-sub">
+                {k.questions} Q · {k.minutes} min
+              </span>
+            )}
           </button>
         ))}
       </div>
@@ -111,6 +143,13 @@ export function PracticeMenu({
             <span>{s.name}</span>
           </button>
         ))}
+        {!subject.ready &&
+          subject.units.map((u) => (
+            <button key={u} className="skill-tile" disabled>
+              <Ring value={0} size={48} stroke={6} />
+              <span>{u}</span>
+            </button>
+          ))}
       </div>
     </div>
   )

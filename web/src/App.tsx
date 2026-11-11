@@ -7,23 +7,35 @@ import type { Stats } from './api/types/Stats'
 import type { TestKind } from './api/types/TestKind'
 import { Icon, type IconName } from './components/Icon'
 import { Mascot } from './components/Mascot'
-import { Learn, StageRunner } from './screens/Journey'
-import { Library, type LibraryTab } from './screens/Library'
+import { StageRunner, SubjectPath } from './screens/Journey'
+import { Learn } from './screens/Learn'
+import { Library, LibrarySubject, TestDay, type LibraryTab } from './screens/Library'
 import { Me } from './screens/Me'
-import { Practice, PracticeMenu } from './screens/Practice'
+import { Practice, PracticeMenu, PracticeSubject } from './screens/Practice'
 import { ProfilePicker } from './screens/ProfilePicker'
 import { TestRunner } from './screens/Tests'
+import { SUBJECTS, subjectOf, type Subject, type SubjectId } from './subjects'
 
 type Tab = 'learn' | 'practice' | 'library' | 'me'
 
-type View =
+/** A screen with the navigation showing: a tab, or a page one layer down. */
+type Place =
   | { kind: 'learn' }
-  | { kind: 'stage'; stageId: string; run: number }
+  | { kind: 'path'; subject: SubjectId }
   | { kind: 'practice-menu' }
-  | { kind: 'practice'; scope: Scope; setLength: number; run: number; back: Tab }
-  | { kind: 'test'; testKind: TestKind; run: number }
-  | { kind: 'library'; tab: LibraryTab }
+  | { kind: 'practice-subject'; subject: SubjectId }
+  | { kind: 'library' }
+  | { kind: 'library-subject'; subject: SubjectId; tab: LibraryTab }
+  | { kind: 'testday' }
   | { kind: 'me' }
+
+/** A session is full screen, and remembers where to go back to. */
+type Session =
+  | { kind: 'stage'; stageId: string; run: number; back: Place }
+  | { kind: 'practice'; scope: Scope; setLength: number; run: number; back: Place }
+  | { kind: 'test'; testKind: TestKind; run: number; back: Place }
+
+type View = Place | Session
 
 type Screen =
   | { kind: 'starting' }
@@ -38,38 +50,58 @@ const TABS: { tab: Tab; label: string; icon: IconName }[] = [
   { tab: 'me', label: 'Me', icon: 'user' },
 ]
 
-function tabView(t: Tab): View {
+function tabView(t: Tab): Place {
   switch (t) {
     case 'learn':
       return { kind: 'learn' }
     case 'practice':
       return { kind: 'practice-menu' }
     case 'library':
-      return { kind: 'library', tab: 'lessons' }
+      return { kind: 'library' }
     case 'me':
       return { kind: 'me' }
   }
 }
 
-function tabOf(v: View): Tab | null {
-  switch (v.kind) {
+function isSession(v: View): v is Session {
+  return v.kind === 'stage' || v.kind === 'practice' || v.kind === 'test'
+}
+
+function tabOf(p: Place): Tab {
+  switch (p.kind) {
     case 'learn':
+    case 'path':
       return 'learn'
     case 'practice-menu':
+    case 'practice-subject':
       return 'practice'
     case 'library':
+    case 'library-subject':
+    case 'testday':
       return 'library'
     case 'me':
       return 'me'
-    default:
-      return null // a session: full screen, no navigation
   }
 }
 
-/** The tab named in the address bar, so reload and the Back button work. */
-function hashTab(): Tab {
-  const h = window.location.hash.slice(1)
-  return TABS.some((t) => t.tab === h) ? (h as Tab) : 'learn'
+/** The address of a place, so reload and the Back button work. */
+function placeHash(p: Place): string {
+  if (p.kind === 'testday') return 'library/testday'
+  return 'subject' in p ? `${tabOf(p)}/${p.subject}` : tabOf(p)
+}
+
+function hashPlace(): Place {
+  const [tab, sub] = window.location.hash.slice(1).split('/')
+  const subject = SUBJECTS.find((s) => s.id === sub)?.id
+  if (tab === 'learn' && subject) return { kind: 'path', subject }
+  if (tab === 'practice' && subject) return { kind: 'practice-subject', subject }
+  if (tab === 'library' && subject) return { kind: 'library-subject', subject, tab: 'lessons' }
+  if (tab === 'library' && sub === 'testday') return { kind: 'testday' }
+  return tabView(TABS.some((t) => t.tab === tab) ? (tab as Tab) : 'learn')
+}
+
+function subj(id: SubjectId): Subject {
+  return subjectOf(id) ?? SUBJECTS[0]
 }
 
 export default function App() {
@@ -80,7 +112,7 @@ export default function App() {
   useEffect(() => {
     api
       .me()
-      .then((me) => setScreen({ kind: 'app', me, view: tabView(hashTab()) }))
+      .then((me) => setScreen({ kind: 'app', me, view: hashPlace() }))
       .catch((e) => {
         if (e instanceof ApiError && e.status === 401) setScreen({ kind: 'profiles' })
         else setScreen({ kind: 'error', message: errorMessage(e) })
@@ -89,7 +121,10 @@ export default function App() {
 
   const me = screen.kind === 'app' ? screen.me : null
   const view = screen.kind === 'app' ? screen.view : null
-  const current = view ? tabOf(view) : null
+  const here: Place | null = view ? (isSession(view) ? view.back : view) : null
+  const onPlace = !!view && !isSession(view)
+  const current = onPlace && here ? tabOf(here) : null
+  const placeKey = onPlace && here ? placeHash(here) : null
 
   const refresh = useCallback(() => {
     Promise.all([api.stats(), api.plan()])
@@ -102,15 +137,15 @@ export default function App() {
       })
   }, [])
 
-  // Fresh numbers every time the learner lands on a tab.
+  // Fresh numbers every time the learner lands on a page.
   const meId = me?.id
   useEffect(() => {
-    if (meId !== undefined && current) refresh()
-  }, [meId, current, refresh])
+    if (meId !== undefined && placeKey) refresh()
+  }, [meId, placeKey, refresh])
 
-  // Back and Forward move between tabs; Back from a session returns to its tab.
+  // Back and Forward move between pages; Back from a session returns to its page.
   useEffect(() => {
-    const onPop = () => setScreen((s) => (s.kind === 'app' ? { ...s, view: tabView(hashTab()) } : s))
+    const onPop = () => setScreen((s) => (s.kind === 'app' ? { ...s, view: hashPlace() } : s))
     window.addEventListener('popstate', onPop)
     return () => window.removeEventListener('popstate', onPop)
   }, [])
@@ -127,18 +162,18 @@ export default function App() {
 
   const go = (next: View) => {
     if (me) {
-      const hash = `#${tabOf(next) ?? 'go'}`
+      const hash = `#${isSession(next) ? 'go' : placeHash(next)}`
       // Leaving a session replaces its entry, so Back never lands on a dead one.
-      if (view && tabOf(view) === null) window.history.replaceState(null, '', hash)
+      if (view && isSession(view)) window.history.replaceState(null, '', hash)
       else if (window.location.hash !== hash) window.history.pushState(null, '', hash)
       setScreen({ kind: 'app', me, view: next })
       window.scrollTo({ top: 0 })
     }
   }
-  const back: Tab = current ?? (view?.kind === 'practice' ? view.back : 'learn')
+  const back: Place = here ?? { kind: 'learn' }
   const start = (scope: Scope, setLength = 10) => go({ kind: 'practice', scope, setLength, run: Date.now(), back })
-  const openStage = (stageId: string) => go({ kind: 'stage', stageId, run: Date.now() })
-  const startTest = (testKind: TestKind) => go({ kind: 'test', testKind, run: Date.now() })
+  const openStage = (stageId: string) => go({ kind: 'stage', stageId, run: Date.now(), back })
+  const startTest = (testKind: TestKind) => go({ kind: 'test', testKind, run: Date.now(), back })
 
   function runTask(t: PlanTask) {
     switch (t.kind) {
@@ -151,12 +186,13 @@ export default function App() {
       case 'review':
         return start({ mode: 'review' })
       case 'hacks':
-        return go({ kind: 'library', tab: 'hacks' })
+        return go({ kind: 'library-subject', subject: 'math', tab: 'hacks' })
       case 'tactics':
-        return go({ kind: 'library', tab: 'testday' })
+        return go({ kind: 'testday' })
       case 'set_date':
         return go({ kind: 'me' })
       case 'journey':
+        return go({ kind: 'path', subject: 'math' })
       case 'rest':
         return go({ kind: 'learn' })
     }
@@ -180,18 +216,18 @@ export default function App() {
     return <ProfilePicker onLoggedIn={(m) => setScreen({ kind: 'app', me: m, view: { kind: 'learn' } })} />
 
   if (view.kind === 'stage')
-    return <StageRunner key={view.run} stageId={view.stageId} onExit={() => go({ kind: 'learn' })} onOpen={openStage} />
+    return <StageRunner key={view.run} stageId={view.stageId} onExit={() => go(view.back)} onOpen={openStage} />
   if (view.kind === 'practice')
     return (
       <Practice
         key={view.run}
         scope={view.scope}
         setLength={view.setLength}
-        onExit={() => go(tabView(view.back))}
+        onExit={() => go(view.back)}
         onAgain={() => start(view.scope, view.setLength)}
       />
     )
-  if (view.kind === 'test') return <TestRunner key={view.run} kind={view.testKind} onExit={() => go({ kind: 'practice-menu' })} />
+  if (view.kind === 'test') return <TestRunner key={view.run} kind={view.testKind} onExit={() => go(view.back)} />
 
   const days = plan?.days_left ?? null
   return (
@@ -233,9 +269,21 @@ export default function App() {
         {me.serve_drafts && <p className="dev-banner">Dev mode: drafts shown</p>}
 
         <main className="page">
-          {view.kind === 'learn' && <Learn stats={stats} plan={plan} onOpen={openStage} onTask={runTask} />}
-          {view.kind === 'practice-menu' && <PracticeMenu stats={stats} plan={plan} onStart={start} onTest={startTest} />}
-          {view.kind === 'library' && <Library initialTab={view.tab} onPractice={start} />}
+          {view.kind === 'learn' && <Learn stats={stats} plan={plan} onSubject={(subject) => go({ kind: 'path', subject })} onOpen={openStage} onTask={runTask} />}
+          {view.kind === 'path' && <SubjectPath key={view.subject} subject={subj(view.subject)} onOpen={openStage} onBack={() => go({ kind: 'learn' })} />}
+          {view.kind === 'practice-menu' && (
+            <PracticeMenu stats={stats} plan={plan} onStart={start} onSubject={(subject) => go({ kind: 'practice-subject', subject })} />
+          )}
+          {view.kind === 'practice-subject' && (
+            <PracticeSubject key={view.subject} subject={subj(view.subject)} onBack={() => go({ kind: 'practice-menu' })} onStart={start} onTest={startTest} />
+          )}
+          {view.kind === 'library' && (
+            <Library onSubject={(subject) => go({ kind: 'library-subject', subject, tab: 'lessons' })} onTestDay={() => go({ kind: 'testday' })} />
+          )}
+          {view.kind === 'library-subject' && (
+            <LibrarySubject key={view.subject} subject={subj(view.subject)} initialTab={view.tab} onBack={() => go({ kind: 'library' })} onPractice={start} />
+          )}
+          {view.kind === 'testday' && <TestDay onBack={() => go({ kind: 'library' })} />}
           {view.kind === 'me' && (
             <Me name={me.display_name} stats={stats} plan={plan} onChanged={refresh} onStart={start} onLogout={() => void logout()} />
           )}

@@ -1,0 +1,238 @@
+/* ── Subjects: the layer above skills ─────────────────────────────────── */
+
+.subj-math {
+  --c: var(--brand);
+  --c-dark: var(--brand-dark);
+}
+
+.subj-language {
+  --c: var(--violet);
+  --c-dark: var(--violet-dark);
+}
+
+.subj-science {
+  --c: var(--blue);
+  --c-dark: var(--blue-dark);
+}
+
+.subj-social {
+  --c: var(--orange);
+  --c-dark: var(--orange-dark);
+}
+
+.subj-any {
+  --c: var(--pink);
+  --c-dark: var(--pink-dark);
+}
+
+.learn-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.subject-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 560px) {
+  .subject-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.subject-card {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  width: 100%;
+  min-height: 88px;
+  padding: 0.9rem;
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 var(--edge) 0 var(--line);
+  color: var(--text);
+  text-align: left;
+  transition:
+    transform 60ms,
+    box-shadow 60ms;
+}
+
+.subject-card:active {
+  transform: translateY(var(--edge));
+  box-shadow: none;
+}
+
+.subject-card > .icon:last-child {
+  flex: none;
+  color: var(--muted);
+}
+
+.subject-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--c);
+  box-shadow: 0 4px 0 var(--c-dark);
+  color: #fff;
+}
+
+.subject-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.subject-text strong {
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.subject-text .bar {
+  width: 100%;
+  height: 10px;
+}
+
+.subject-text .bar > span {
+  min-width: 10px;
+  background: var(--c);
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem;
+  border-radius: var(--radius);
+  background: var(--c);
+  box-shadow: 0 var(--edge) 0 var(--c-dark);
+  color: #fff;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero .eyebrow {
+  color: rgb(255 255 255 / 85%);
+}
+
+.page .hero h2 {
+  margin: 0.1rem 0 0;
+  color: #fff;
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: none;
+  min-height: 48px;
+  padding: 0 1.1rem;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: #fff;
+  box-shadow: 0 4px 0 rgb(0 0 0 / 22%);
+  color: var(--c-dark);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hero-btn:active {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+.sub-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: -0.25rem 0 1rem -0.5rem;
+}
+
+.sub-head h1 {
+  flex: 1;
+  font-size: 1.4rem;
+}
+
+.sub-head .subject-icon,
+.subject-fold .subject-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  box-shadow: 0 3px 0 var(--c-dark);
+}
+
+.library > .sub-head {
+  margin-bottom: 0.25rem;
+}
+
+.soon-note {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1rem;
+  background: var(--surface-2);
+}
+
+.soon-note > span {
+  display: flex;
+  flex-direction: column;
+}
+
+.soon-row,
+.soon-row .icon {
+  color: var(--muted);
+}
+
+.subject-fold {
+  border-bottom: 2px solid var(--line);
+  font-weight: 800;
+}
+
+.subject-fold.row > .subject-icon {
+  flex: none;
+}
+
+.subject-fold.soon .subject-icon {
+  opacity: 0.6;
+}
+
+.subject-fold .strength:last-child {
+  padding-bottom: 1rem;
+}
+
+.path-page .path-col {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+  .learn-main {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+/* A leading dot or icon is not the label: the text after it takes the room. */
+.row > .dot + span,
+.row > .subject-icon + span {
+  flex: 1;
+}
+
+.subject-icon .icon,
+details.fold > summary .subject-icon .icon {
+  color: #fff;
+}

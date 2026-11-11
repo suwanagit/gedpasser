@@ -3,65 +3,36 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { api, errorMessage } from '../api/client'
 import type { JourneyRun } from '../api/types/JourneyRun'
 import type { JourneyView } from '../api/types/JourneyView'
-import type { Plan } from '../api/types/Plan'
-import type { PlanTask } from '../api/types/PlanTask'
 import type { StageResult } from '../api/types/StageResult'
 import type { StageView } from '../api/types/StageView'
-import type { Stats } from '../api/types/Stats'
 import { Confetti } from '../components/Confetti'
 import { Icon, type IconName } from '../components/Icon'
 import { CARD_PARTS, Hack, LessonCard } from '../components/LessonCard'
 import { Mascot } from '../components/Mascot'
 import { QuestionView } from '../components/QuestionView'
-import { Ring } from '../components/Ring'
 import { SessionShell } from '../components/SessionShell'
+import { ComingSoon, SubHead } from '../components/Subject'
 import { play } from '../sound'
+import type { Subject } from '../subjects'
 
-export const DAILY_GOAL = 10
-
-const TASK_ICON: Record<PlanTask['kind'], IconName> = {
-  diagnostic: 'clock',
-  power_set: 'bolt',
-  review: 'refresh',
-  full_test: 'clock',
-  hacks: 'bulb',
-  tactics: 'target',
-  journey: 'route',
-  set_date: 'calendar',
-  rest: 'star',
+function placeholderStages(units: string[]): { names: string[]; stages: StageView[] } {
+  const stages: StageView[] = []
+  units.forEach((_, u) => {
+    for (let k = 0; k < 4; k++)
+      stages.push({ id: `soon-${u}-${k}`, title: '', checkpoint: k === 3, principles: [], size: 0, status: 'locked', stars: 0, best_correct: null, best_total: null })
+  })
+  return { names: units, stages }
 }
 
-const TASK_LABEL: Record<PlanTask['kind'], string> = {
-  diagnostic: 'Short test',
-  power_set: 'Power set',
-  review: 'Review',
-  full_test: 'Full test',
-  hacks: 'Hacks',
-  tactics: 'Test-day tips',
-  journey: 'Journey',
-  set_date: 'Set test date',
-  rest: 'Rest up',
-}
-
-/** Home: the path, with today's goal beside it. One tap starts the next stage. */
-export function Learn({
-  stats,
-  plan,
-  onOpen,
-  onTask,
-}: {
-  stats: Stats | null
-  plan: Plan | null
-  onOpen: (stageId: string) => void
-  onTask: (t: PlanTask) => void
-}) {
+/** One subject's path. One tap starts the next stage. */
+export function SubjectPath({ subject, onOpen, onBack }: { subject: Subject; onOpen: (stageId: string) => void; onBack: () => void }) {
   const [view, setView] = useState<JourneyView | null>(null)
   const [error, setError] = useState<string | null>(null)
   const currentRef = useRef<HTMLLIElement>(null)
 
   useEffect(() => {
-    api.journey().then(setView).catch((e) => setError(errorMessage(e)))
-  }, [])
+    if (subject.ready) api.journey().then(setView).catch((e) => setError(errorMessage(e)))
+  }, [subject.ready])
 
   // Land on the stage that's up next.
   const loaded = !!view
@@ -69,51 +40,36 @@ export function Learn({
     if (loaded) currentRef.current?.scrollIntoView({ block: 'center' })
   }, [loaded])
 
-  if (error) return <p className="error">{error}</p>
-  if (!view)
-    return (
-      <div className="center loading">
-        <Mascot mood="think" />
-      </div>
-    )
+  const soon = subject.ready ? null : placeholderStages(subject.units)
+  const stages = soon ? soon.stages : view?.stages
+  const current = soon ? null : (view?.current ?? null)
 
   // A band is the run of stages up to and including a checkpoint.
   const bands: StageView[][] = [[]]
-  for (const s of view.stages) {
+  for (const s of stages ?? []) {
     bands[bands.length - 1].push(s)
     if (s.checkpoint) bands.push([])
   }
   if (bands[bands.length - 1].length === 0) bands.pop()
 
-  const today = stats?.answered_today ?? 0
-  const tasks = (plan?.today ?? []).filter((t) => t.kind !== 'journey' && t.kind !== 'rest').slice(0, 3)
   let n = 0
   return (
-    <div className="learn">
-      <aside className="today panel">
-        <Ring value={today / DAILY_GOAL} size={64} className="sun">
-          {today >= DAILY_GOAL ? <Icon name="check" /> : `${today}/${DAILY_GOAL}`}
-        </Ring>
-        <div className="today-text">
-          <h3>{today >= DAILY_GOAL ? 'Goal done!' : 'Today'}</h3>
-          <div className="today-tasks">
-            {tasks.map((t, i) => (
-              <button key={i} className="task-chip" onClick={() => onTask(t)} title={t.detail}>
-                <Icon name={TASK_ICON[t.kind]} size={18} />
-                {TASK_LABEL[t.kind]}
-              </button>
-            ))}
-          </div>
+    <div className="path-page">
+      <SubHead subject={subject} onBack={onBack} />
+      {soon && <ComingSoon />}
+      {error && <p className="error">{error}</p>}
+      {!stages && !error && (
+        <div className="center loading">
+          <Mascot mood="think" />
         </div>
-      </aside>
-
+      )}
       <div className="path-col">
         {bands.map((band, b) => {
           const done = band.filter((s) => s.status === 'done').length
           return (
             <section key={b} className={`band band-${b % 6}`}>
               <header className="band-head">
-                <span>Part {b + 1}</span>
+                <span>{soon ? soon.names[b] : `Part ${b + 1}`}</span>
                 <span className="band-count">
                   {done}/{band.length}
                 </span>
@@ -121,7 +77,7 @@ export function Learn({
               <ol className="path">
                 {band.map((s) => {
                   const i = n++
-                  const isCurrent = s.id === view.current
+                  const isCurrent = s.id === current
                   const icon: IconName = s.status === 'locked' ? 'lock' : s.checkpoint ? 'flag' : s.status === 'done' ? 'check' : 'play'
                   return (
                     <li
@@ -131,7 +87,7 @@ export function Learn({
                       style={{ ['--dx' as string]: `${Math.round(Math.sin(i * 0.9) * 64)}px` }}
                     >
                       {isCurrent && <span className="start-bubble">Start</span>}
-                      <button className="node-btn" disabled={s.status === 'locked'} onClick={() => onOpen(s.id)} aria-label={`${s.title}, ${s.status}`}>
+                      <button className="node-btn" disabled={s.status === 'locked'} onClick={() => onOpen(s.id)} aria-label={`${s.title || 'Stage'}, ${s.status}`}>
                         <Icon name={icon} size={isCurrent ? 34 : 28} fill={icon === 'play'} />
                       </button>
                       {s.status === 'done' && (
@@ -143,7 +99,7 @@ export function Learn({
                           ))}
                         </span>
                       )}
-                      <span className="node-title">{s.title}</span>
+                      {s.title && <span className="node-title">{s.title}</span>}
                     </li>
                   )
                 })}

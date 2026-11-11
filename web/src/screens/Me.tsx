@@ -6,6 +6,7 @@ import type { Stats } from '../api/types/Stats'
 import { Icon } from '../components/Icon'
 import { MasteryBar } from '../components/MasteryBar'
 import { setSoundOn, soundOn } from '../sound'
+import { SUBJECTS } from '../subjects'
 
 /** Me: level and streak, test date, what to work on, strengths, settings. */
 export function Me({
@@ -110,19 +111,41 @@ export function Me({
         </section>
       )}
 
-      {skills.length > 0 && (
-        <section>
-          <h2>Strengths</h2>
-          <ul className="rows">
-            {skills.map((s) => (
-              <li key={s.id} className="strength">
-                <span>{s.name}</span>
-                <MasteryBar mastery={s.mastery} level={s.level} />
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
+      <section>
+        <h2>Subjects</h2>
+        {SUBJECTS.map((sub) =>
+          sub.ready ? (
+            <details key={sub.id} className={`fold subject-fold subj-${sub.id}`}>
+              <summary>
+                <span className="subject-icon">
+                  <Icon name={sub.icon} size={20} />
+                </span>
+                <span className="fold-text">{sub.name}</span>
+                <span className="muted small">
+                  {skills.filter((s) => s.level === 'strong').length}/{skills.length} strong
+                </span>
+                <Icon name="down" size={18} />
+              </summary>
+              <ul className="rows">
+                {skills.map((s) => (
+                  <li key={s.id} className="strength">
+                    <span>{s.name}</span>
+                    <MasteryBar mastery={s.mastery} level={s.level} />
+                  </li>
+                ))}
+              </ul>
+            </details>
+          ) : (
+            <div key={sub.id} className={`row subject-fold soon subj-${sub.id}`}>
+              <span className="subject-icon">
+                <Icon name={sub.icon} size={20} />
+              </span>
+              <span className="fold-text">{sub.name}</span>
+              <span className="pill">Soon</span>
+            </div>
+          ),
+        )}
+      </section>
 
       <section className="settings">
         <button
