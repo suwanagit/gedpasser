@@ -3,6 +3,8 @@
 content = "run -q -p ged-content -- check content"
 # Review-note skeleton for one skill: `cargo content-template q-number-ops`
 content-template = "run -q -p ged-content -- template"
+# Questions without answers, for a reviewer's blind solve: `cargo content-quiz q-number-ops`
+content-quiz = "run -q -p ged-content -- quiz"
 # Mark items the reviewer passed as reviewed: `cargo content-approve q-number-ops`
 content-approve = "run -q -p ged-content -- approve"
 

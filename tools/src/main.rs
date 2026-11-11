@@ -4,6 +4,7 @@
 //!   ged-content [check] [DIR]           validate everything (cargo content)
 //!   ged-content template SKILL [DIR]    review-note skeleton for SKILL (cargo content-template SKILL)
 //!   ged-content approve SKILL [DIR]     mark passed items reviewed  (cargo content-approve SKILL)
+//!   ged-content quiz SKILL [DIR]        questions without answers, for blind review (cargo content-quiz SKILL)
 //!
 //! DIR defaults to `content`. Exit code 1 on any error.
 
@@ -41,11 +42,37 @@ fn main() -> ExitCode {
             },
             None => fail("usage: ged-content approve SKILL [DIR]"),
         },
+        Some("quiz") => match args.get(1) {
+            Some(skill) => quiz(&dir(2), skill),
+            None => fail("usage: ged-content quiz SKILL [DIR]"),
+        },
         Some("check") => check(dir(1)),
         Some(other) if other.starts_with('-') => fail("usage: ged-content [check|template|approve] ..."),
         Some(_) => check(dir(0)),
         None => check(dir(0)),
     }
+}
+
+/// Print a skill's draft questions WITHOUT answers, for blind solving by a
+/// reviewer: id, difficulty, prompt and choices only.
+fn quiz(root: &std::path::Path, skill: &str) -> ExitCode {
+    let report = check_content(root);
+    if !report.skills.iter().any(|s| s.id == skill) {
+        return fail(&format!("unknown skill {skill:?}"));
+    }
+    println!("# Blind quiz for {skill}: solve each one BEFORE opening the question file.\n");
+    for (_, q) in report.questions.iter().filter(|(_, q)| q.skill == skill && q.status != Status::Retired) {
+        println!("## {} (difficulty {})", q.id, q.difficulty);
+        println!("{}", q.prompt.trim());
+        if q.choices.is_empty() {
+            println!("(type your answer)");
+        }
+        for (i, c) in q.choices.iter().enumerate() {
+            println!("  {}. {c}", i + 1);
+        }
+        println!();
+    }
+    ExitCode::SUCCESS
 }
 
 fn fail(msg: &str) -> ExitCode {

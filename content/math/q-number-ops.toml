@@ -54,3 +54,170 @@ Use the common denominator 12: $\frac{2}{3} = \frac{8}{12}$ and $\frac{3}{4} = \
 So $\frac{8}{12} + \frac{9}{12} = \frac{17}{12}$, which is $1\frac{5}{12}$.
 '''
 common_mistake = "Adding tops and bottoms separately: (2 + 3)/(3 + 4) = 5/7."
+
+[[question]]
+id = "q-number-ops-0004"
+skill = "q-number-ops"
+principle = "Q.1.a"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+prompt = 'Which number is the greatest: $0.6$, $\frac{5}{8}$, $0.58$ or $\frac{3}{5}$?'
+choices = ['$0.6$', '$\frac{5}{8}$', '$0.58$', '$\frac{3}{5}$']
+answer = '$\frac{5}{8}$'
+check = "max(max(0.6, 5/8), max(0.58, 3/5))"
+explanation = '''
+Write each number as a decimal: $0.6 = 0.600$, $\frac{5}{8} = 5 \div 8 = 0.625$, $0.58 = 0.580$ and $\frac{3}{5} = 3 \div 5 = 0.600$.
+Comparing $0.625$, $0.600$, $0.580$ and $0.600$, the greatest is $0.625$, which is $\frac{5}{8}$.
+'''
+common_mistake = "Thinking 0.58 is greater than 0.6 because 58 is greater than 6."
+
+[[question]]
+id = "q-number-ops-0005"
+skill = "q-number-ops"
+principle = "Q.1.a"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+alaska = true
+prompt = '''
+Three dog teams finished a sled race in 9.45 hours, 9.405 hours and 9.5 hours.
+What was the shortest time, in hours?
+'''
+answer = "9.405"
+check = "min(min(9.45, 9.405), 9.5)"
+explanation = '''
+Line up the decimals with the same number of places: $9.450$, $9.405$ and $9.500$.
+The smallest is $9.405$ hours.
+'''
+common_mistake = "Picking 9.45 because it has fewer digits, without lining up the decimal places."
+
+[[question]]
+id = "q-number-ops-0006"
+skill = "q-number-ops"
+principle = "Q.1.b"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+prompt = "What is the greatest common factor of 36 and 48?"
+choices = ["12", "6", "4", "144"]
+answer = "12"
+check = "gcd(36, 48)"
+explanation = '''
+Factors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36.
+Factors of 48: 1, 2, 3, 4, 6, 8, 12, 16, 24, 48.
+The largest number on both lists is 12.
+'''
+common_mistake = "Giving the least common multiple (144) instead of the greatest common factor."
+
+[[question]]
+id = "q-number-ops-0007"
+skill = "q-number-ops"
+principle = "Q.1.b"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+alaska = true
+prompt = '''
+A supply barge stops at a village every 6 days, and the mail plane comes every 8 days.
+Both arrived today. In how many days will they next arrive on the same day?
+'''
+answer = "24"
+check = "lcm(6, 8)"
+explanation = '''
+You need the least common multiple of 6 and 8.
+Multiples of 6: 6, 12, 18, 24, …  Multiples of 8: 8, 16, 24, …
+The first number on both lists is 24, so they meet again in 24 days.
+'''
+common_mistake = "Multiplying 6 × 8 = 48, which is a common multiple but not the least one."
+
+[[question]]
+id = "q-number-ops-0008"
+skill = "q-number-ops"
+principle = "Q.1.d"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+alaska = true
+prompt = '''
+At Prudhoe Bay the temperature was $-28$ °C at 6 a.m. and $-9$ °C at noon.
+By how many degrees did the temperature rise?
+'''
+choices = ["19", "37", "-19", "28"]
+answer = "19"
+check = "abs(-9 - (-28))"
+explanation = '''
+The change is the distance between the two temperatures: $|-9 - (-28)| = |-9 + 28| = 19$.
+The temperature rose 19 degrees.
+'''
+common_mistake = "Adding 28 and 9 to get 37, as if one temperature were above zero."
+
+[[question]]
+id = "q-number-ops-0009"
+skill = "q-number-ops"
+principle = "Q.1.d"
+difficulty = 1
+type = "fill_in"
+status = "draft"
+prompt = 'What is the distance between $-7$ and $5$ on a number line?'
+answer = "12"
+check = "abs(5 - (-7))"
+explanation = '''
+Distance is the absolute value of the difference: $|5 - (-7)| = |5 + 7| = 12$.
+You can also count: 7 steps from $-7$ to 0, then 5 more to 5, which is 12.
+'''
+common_mistake = "Subtracting 7 from 5 to get −2 instead of finding the distance."
+
+[[question]]
+id = "q-number-ops-0010"
+skill = "q-number-ops"
+principle = "Q.2.d"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = 'For which value of $x$ is $\frac{10}{2x - 8}$ undefined?'
+choices = ["4", "8", "0", "-4"]
+answer = "4"
+check = "8 / 2"
+explanation = '''
+A fraction is undefined when its bottom is zero.
+Set $2x - 8 = 0$: then $2x = 8$ and $x = 4$.
+'''
+common_mistake = "Choosing x = 0, but 2(0) − 8 = −8, which is not zero."
+
+[[question]]
+id = "q-number-ops-0011"
+skill = "q-number-ops"
+principle = "Q.2.a"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+prompt = 'What is $-3.5 \times 4 + 18 \div (-2)$?'
+answer = "-23"
+check = "-3.5 * 4 + 18 / (-2)"
+explanation = '''
+Multiply and divide first: $-3.5 \times 4 = -14$ and $18 \div (-2) = -9$.
+Then add: $-14 + (-9) = -23$.
+'''
+common_mistake = "Dropping a negative sign: 18 ÷ (−2) is −9, not 9, which would give −5."
+
+[[question]]
+id = "q-number-ops-0012"
+skill = "q-number-ops"
+principle = "Q.2.e"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+alaska = true
+prompt = '''
+Suppose each of the 4 people in a family receives a \$1,312 dividend.
+The family puts $\frac{3}{8}$ of the total into savings. How many dollars do they save?
+'''
+choices = ["1968", "492", "3280", "1640"]
+answer = "1968"
+check = "1312 * 4 * 3 / 8"
+explanation = '''
+Total for the family: $4 \times 1312 = 5248$ dollars.
+Savings: $\frac{3}{8} \times 5248 = 5248 \div 8 \times 3 = 656 \times 3 = 1968$ dollars.
+'''
+common_mistake = "Finding 3/8 of one person's dividend (492) instead of the family's total."

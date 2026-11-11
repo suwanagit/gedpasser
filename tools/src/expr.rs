@@ -3,7 +3,8 @@
 //! Everything is computed in f64, so `7 / 2` is 3.5 (no integer division).
 //! Supported: numbers, `+ - * / ^`, parentheses, unary minus, the constant
 //! `pi`, and the functions sqrt, cbrt, abs, floor, ceil, round(x) or
-//! round(x, places), min, max, fact(n), comb(n, k) and perm(n, k).
+//! round(x, places), min, max, fact(n), comb(n, k), perm(n, k), gcd(a, b)
+//! and lcm(a, b).
 
 pub fn eval(src: &str) -> Result<f64, String> {
     let tokens = lex(src)?;
@@ -190,6 +191,18 @@ fn call(name: &str, a: &[f64]) -> Result<f64, String> {
             }
             _ => Err("round takes 1 or 2 arguments".into()),
         },
+        "gcd" => {
+            arity(2)?;
+            Ok(gcd(whole(a[0])?, whole(a[1])?) as f64)
+        }
+        "lcm" => {
+            arity(2)?;
+            let (x, y) = (whole(a[0])?, whole(a[1])?);
+            if x == 0 || y == 0 {
+                return Ok(0.0);
+            }
+            Ok((x / gcd(x, y) * y) as f64)
+        }
         "min" => arity(2).map(|_| a[0].min(a[1])),
         "max" => arity(2).map(|_| a[0].max(a[1])),
         "fact" => {
@@ -215,6 +228,13 @@ fn call(name: &str, a: &[f64]) -> Result<f64, String> {
         }
         _ => Err(format!("unknown function {name:?}")),
     }
+}
+
+fn gcd(mut a: u64, mut b: u64) -> u64 {
+    while b != 0 {
+        (a, b) = (b, a % b);
+    }
+    a
 }
 
 fn whole(x: f64) -> Result<u64, String> {
@@ -247,6 +267,8 @@ mod tests {
         assert_eq!(eval("comb(5, 2)").unwrap(), 10.0);
         assert_eq!(eval("perm(5, 2)").unwrap(), 20.0);
         assert_eq!(eval("fact(4)").unwrap(), 24.0);
+        assert_eq!(eval("gcd(36, 48)").unwrap(), 12.0);
+        assert_eq!(eval("lcm(6, 8)").unwrap(), 24.0);
     }
 
     #[test]

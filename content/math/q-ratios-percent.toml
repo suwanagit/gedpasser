@@ -61,3 +61,158 @@ Each centimeter stands for $15 \div 2 = 7.5$ km.
 So 7 cm stands for $7 \times 7.5 = 52.5$ km.
 '''
 common_mistake = "Multiplying 7 by 15 and forgetting that 15 km goes with 2 cm, not 1 cm."
+
+[[question]]
+id = "q-ratios-percent-0004"
+skill = "q-ratios-percent"
+principle = "Q.3.a"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+prompt = "A 1.5-liter bottle of juice costs \\$3.60. What is the price per liter, in dollars?"
+choices = ["2.40", "5.40", "2.10", "0.42"]
+answer = "2.40"
+check = "3.60 / 1.5"
+explanation = 'Divide the price by the number of liters: $3.60 \div 1.5 = 2.40$, so \$2.40 per liter.'
+common_mistake = "Dividing the liters by the price (1.5 ÷ 3.60 ≈ 0.42), which gives liters per dollar."
+
+[[question]]
+id = "q-ratios-percent-0005"
+skill = "q-ratios-percent"
+principle = "Q.3.a"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+alaska = true
+prompt = "A floatplane flies 420 km in 2.5 hours. What is its average speed, in kilometers per hour?"
+answer = "168"
+check = "420 / 2.5"
+explanation = 'Speed is distance divided by time: $420 \div 2.5 = 168$ km per hour.'
+common_mistake = "Multiplying 420 by 2.5 instead of dividing."
+
+[[question]]
+id = "q-ratios-percent-0006"
+skill = "q-ratios-percent"
+principle = "Q.3.b"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+prompt = '''
+A model boat is built at a scale of 1 : 24. The model is 45 cm long.
+How long is the real boat, in meters?
+'''
+answer = "10.8"
+check = "45 * 24 / 100"
+explanation = '''
+Each centimeter on the model stands for 24 cm on the real boat: $45 \times 24 = 1080$ cm.
+Change to meters: $1080 \div 100 = 10.8$ m.
+'''
+common_mistake = "Forgetting to change centimeters to meters and answering 1080."
+
+[[question]]
+id = "q-ratios-percent-0007"
+skill = "q-ratios-percent"
+principle = "Q.3.b"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+prompt = '''
+A rectangle with an area of 8 cm² is enlarged by a scale factor of 3.
+What is the area of the enlarged rectangle, in cm²?
+'''
+choices = ["72", "24", "11", "216"]
+answer = "72"
+check = "8 * 3^2"
+explanation = '''
+Each length is multiplied by 3, so the area is multiplied by $3 \times 3 = 9$.
+New area: $8 \times 9 = 72$ cm².
+'''
+common_mistake = "Multiplying the area by 3 (giving 24) instead of by 3² = 9."
+
+[[question]]
+id = "q-ratios-percent-0008"
+skill = "q-ratios-percent"
+principle = "Q.3.c"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+prompt = '''
+A recipe uses 250 g of flour to make 12 pieces of bannock.
+How many grams of flour are needed for 30 pieces?
+'''
+answer = "625"
+check = "250 / 12 * 30"
+explanation = '''
+Set up a proportion: $\frac{250}{12} = \frac{x}{30}$.
+Cross-multiply: $12x = 250 \times 30 = 7500$, so $x = 625$ g.
+'''
+common_mistake = "Adding the 18 extra pieces to 250 (giving 268) instead of scaling the whole amount."
+
+[[question]]
+id = "q-ratios-percent-0009"
+skill = "q-ratios-percent"
+principle = "Q.3.c"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+prompt = "How many meters are in 3.2 kilometers?"
+choices = ["3200", "320", "32000", "0.0032"]
+answer = "3200"
+check = "3.2 * 1000"
+explanation = 'There are 1000 meters in a kilometer: $3.2 \times 1000 = 3200$ m.'
+common_mistake = "Multiplying by 100 instead of 1000."
+
+[[question]]
+id = "q-ratios-percent-0010"
+skill = "q-ratios-percent"
+principle = "Q.3.c"
+difficulty = 3
+type = "fill_in"
+status = "draft"
+prompt = '''
+A two-stroke engine needs oil and gas mixed in a ratio of 1 : 50.
+How many milliliters of oil should be mixed with 4 liters of gas?
+'''
+answer = "80"
+check = "4 * 1000 / 50"
+explanation = '''
+Change liters to milliliters: $4 \text{ L} = 4000$ mL.
+The oil is $\frac{1}{50}$ of the gas: $4000 \div 50 = 80$ mL.
+'''
+common_mistake = "Dividing 4 by 50 without converting to milliliters (0.08)."
+
+[[question]]
+id = "q-ratios-percent-0011"
+skill = "q-ratios-percent"
+principle = "Q.3.d"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = "A town's population grew from 2,400 to 2,700. What was the percent increase?"
+choices = ["12.5%", "11.1%", "300%", "25%"]
+answer = "12.5%"
+check = "(2700 - 2400) / 2400 * 100"
+explanation = '''
+Change: $2700 - 2400 = 300$.
+Percent increase $= \frac{300}{2400} \times 100\% = 12.5\%$.
+'''
+common_mistake = "Dividing by the new population (300 ÷ 2700 ≈ 11.1%) instead of the original."
+
+[[question]]
+id = "q-ratios-percent-0012"
+skill = "q-ratios-percent"
+principle = "Q.3.d"
+difficulty = 3
+type = "fill_in"
+status = "draft"
+prompt = '''
+\$2,500 is put in an account that pays 3% simple interest per year.
+How many dollars will be in the account after 4 years?
+'''
+answer = "2800"
+check = "2500 + 2500 * 0.03 * 4"
+explanation = '''
+Interest: $I = Prt = 2500 \times 0.03 \times 4 = 300$ dollars.
+Total: $2500 + 300 = 2800$ dollars.
+'''
+common_mistake = "Giving only the interest (300) instead of the total in the account."

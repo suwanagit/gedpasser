@@ -57,3 +57,162 @@ The ramp is the hypotenuse of a right triangle, so use $a^2 + b^2 = c^2$:
 $1.2^2 + 3.5^2 = 1.44 + 12.25 = 13.69$, and $c = \sqrt{13.69} = 3.7$ m.
 '''
 common_mistake = "Adding the two sides (1.2 + 3.5 = 4.7) instead of using the Pythagorean theorem."
+
+[[question]]
+id = "q-geometry-2d-0004"
+skill = "q-geometry-2d"
+principle = "Q.4.a"
+difficulty = 1
+type = "fill_in"
+status = "draft"
+prompt = "A triangular sail has a base of 3 m and a height of 5 m. What is its area, in square meters?"
+answer = "7.5"
+check = "3 * 5 / 2"
+explanation = 'Area of a triangle: $A = \frac{1}{2}bh = \frac{1}{2} \times 3 \times 5 = 7.5$ m².'
+common_mistake = "Forgetting the ½ and answering 15."
+
+[[question]]
+id = "q-geometry-2d-0005"
+skill = "q-geometry-2d"
+principle = "Q.4.a"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = '''
+A rectangular plot has an area of 54 square meters and a width of 6 meters.
+What is its perimeter, in meters?
+'''
+choices = ["30", "15", "24", "60"]
+answer = "30"
+check = "2 * (54 / 6 + 6)"
+explanation = '''
+First find the length: $54 \div 6 = 9$ m.
+Then the perimeter: $2 \times (9 + 6) = 2 \times 15 = 30$ m.
+'''
+common_mistake = "Adding the length and width once (9 + 6 = 15) instead of going all the way around."
+
+[[question]]
+id = "q-geometry-2d-0006"
+skill = "q-geometry-2d"
+principle = "Q.4.b"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+prompt = '''
+A round fire pit has a diameter of 1.2 m.
+What is its circumference, to the nearest hundredth of a meter? Use $\pi \approx 3.14$.
+'''
+answer = "3.77"
+check = "round(3.14 * 1.2, 2)"
+explanation = '''
+Circumference: $C = \pi d \approx 3.14 \times 1.2 = 3.768$ m.
+Rounded to the nearest hundredth: 3.77 m.
+'''
+common_mistake = "Using 2πd (doubling the diameter), which gives 7.54."
+
+[[question]]
+id = "q-geometry-2d-0007"
+skill = "q-geometry-2d"
+principle = "Q.4.b"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+prompt = 'A circle has a circumference of 62.8 cm. Using $\pi \approx 3.14$, what is its area, in square centimeters?'
+choices = ["314", "62.8", "1256", "100"]
+answer = "314"
+check = "3.14 * (62.8 / (2 * 3.14))^2"
+explanation = '''
+Find the radius from $C = 2\pi r$: $r = 62.8 \div (2 \times 3.14) = 62.8 \div 6.28 = 10$ cm.
+Area: $A = \pi r^2 \approx 3.14 \times 10^2 = 314$ cm².
+'''
+common_mistake = "Using the diameter (20 cm) in πr², which gives 1256."
+
+[[question]]
+id = "q-geometry-2d-0008"
+skill = "q-geometry-2d"
+principle = "Q.4.c"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = '''
+A trapezoid has parallel sides of 6 m and 10 m and a height of 5 m.
+Using $A = \frac{1}{2}(b_1 + b_2)h$, what is its area, in square meters?
+'''
+choices = ["40", "80", "300", "21"]
+answer = "40"
+check = "(6 + 10) / 2 * 5"
+explanation = 'Put the numbers into the formula: $A = \frac{1}{2}(6 + 10) \times 5 = \frac{1}{2} \times 16 \times 5 = 40$ m².'
+common_mistake = "Forgetting the ½ and answering 80."
+
+[[question]]
+id = "q-geometry-2d-0009"
+skill = "q-geometry-2d"
+principle = "Q.4.c"
+difficulty = 1
+type = "fill_in"
+status = "draft"
+prompt = "A garden bed is shaped like a regular pentagon with sides of 2.4 m. What is its perimeter, in meters?"
+answer = "12"
+check = "5 * 2.4"
+explanation = 'A regular pentagon has 5 equal sides: $5 \times 2.4 = 12$ m.'
+common_mistake = "Using 6 sides (a hexagon) instead of 5."
+
+[[question]]
+id = "q-geometry-2d-0010"
+skill = "q-geometry-2d"
+principle = "Q.4.d"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = '''
+An L-shaped floor is made of two rectangles that do not overlap: one is 6 m by 4 m and the other is 3 m by 2 m.
+What is the total floor area, in square meters?
+'''
+choices = ["30", "24", "15", "36"]
+answer = "30"
+check = "6 * 4 + 3 * 2"
+explanation = '''
+Find each area and add: $6 \times 4 = 24$ m² and $3 \times 2 = 6$ m².
+Total: $24 + 6 = 30$ m².
+'''
+common_mistake = "Adding all the side lengths (6 + 4 + 3 + 2 = 15) instead of finding areas."
+
+[[question]]
+id = "q-geometry-2d-0011"
+skill = "q-geometry-2d"
+principle = "Q.4.d"
+difficulty = 3
+type = "fill_in"
+status = "draft"
+prompt = '''
+A square yard is 10 m on each side. It has a round pond with a radius of 2 m.
+How many square meters of the yard are not covered by the pond? Use $\pi \approx 3.14$.
+'''
+answer = "87.44"
+check = "10^2 - 3.14 * 2^2"
+explanation = '''
+Yard: $10 \times 10 = 100$ m². Pond: $\pi r^2 \approx 3.14 \times 2^2 = 12.56$ m².
+Not covered: $100 - 12.56 = 87.44$ m².
+'''
+common_mistake = "Using the diameter (4 m) as the radius, which makes the pond 50.24 m²."
+
+[[question]]
+id = "q-geometry-2d-0012"
+skill = "q-geometry-2d"
+principle = "Q.4.e"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+alaska = true
+prompt = '''
+A 5-meter ladder leans against the wall of a cabin. The foot of the ladder is 3 m from the wall.
+How high up the wall does the ladder reach, in meters?
+'''
+choices = ["4", "5.83", "2", "8"]
+answer = "4"
+check = "sqrt(5^2 - 3^2)"
+explanation = '''
+The ladder is the hypotenuse: $3^2 + h^2 = 5^2$.
+So $h^2 = 25 - 9 = 16$ and $h = 4$ m.
+'''
+common_mistake = "Adding the squares (√34 ≈ 5.83) as if the ladder were a leg instead of the hypotenuse."

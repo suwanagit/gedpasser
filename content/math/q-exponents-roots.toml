@@ -53,3 +53,152 @@ That gives $12 \times 10^{7}$. In scientific notation the first number must be l
 so write $12 = 1.2 \times 10^{1}$: the answer is $1.2 \times 10^{8}$.
 '''
 common_mistake = "Multiplying the exponents (5 × 2 = 10) instead of adding them."
+
+[[question]]
+id = "q-exponents-roots-0004"
+skill = "q-exponents-roots"
+principle = "Q.1.c"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+prompt = 'Simplify $2^3 \times 2^4$.'
+choices = ['$2^7$', '$2^{12}$', '$4^7$', '$4^{12}$']
+answer = '$2^7$'
+answer_value = 128.0
+check = "2^3 * 2^4"
+explanation = '''
+When you multiply powers with the same base, add the exponents: $2^3 \times 2^4 = 2^{3 + 4} = 2^7$.
+(Check: $8 \times 16 = 128 = 2^7$.)
+'''
+common_mistake = "Multiplying the exponents (3 × 4 = 12) instead of adding them."
+
+[[question]]
+id = "q-exponents-roots-0005"
+skill = "q-exponents-roots"
+principle = "Q.1.c"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+prompt = 'What is the value of $\frac{5^6}{5^4}$?'
+answer = "25"
+check = "5^6 / 5^4"
+explanation = '''
+When you divide powers with the same base, subtract the exponents: $\frac{5^6}{5^4} = 5^{6 - 4} = 5^2 = 25$.
+'''
+common_mistake = "Dividing the exponents (6 ÷ 4) instead of subtracting them."
+
+[[question]]
+id = "q-exponents-roots-0006"
+skill = "q-exponents-roots"
+principle = "Q.1.c"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+prompt = 'What is $16^{1/2} + 2^{-2}$?'
+choices = ["4.25", "8", "3.75", "4.5"]
+answer = "4.25"
+check = "16^(1/2) + 2^(-2)"
+explanation = '''
+A power of $\frac{1}{2}$ is a square root: $16^{1/2} = \sqrt{16} = 4$.
+A negative exponent means "one over": $2^{-2} = \frac{1}{2^2} = \frac{1}{4} = 0.25$.
+So the sum is $4 + 0.25 = 4.25$.
+'''
+common_mistake = "Reading 16^(1/2) as half of 16 (8), or treating 2^(−2) as −0.25 (giving 3.75)."
+
+[[question]]
+id = "q-exponents-roots-0007"
+skill = "q-exponents-roots"
+principle = "Q.2.b"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+prompt = 'Which whole number is closest to $\sqrt{60}$?'
+choices = ["8", "7", "30", "6"]
+answer = "8"
+check = "round(sqrt(60))"
+explanation = '''
+$7^2 = 49$ and $8^2 = 64$, so $\sqrt{60}$ is between 7 and 8.
+60 is much closer to 64 than to 49, so $\sqrt{60}$ is closest to 8. (It is about 7.75.)
+'''
+common_mistake = "Dividing 60 by 2 to get 30 instead of finding the square root."
+
+[[question]]
+id = "q-exponents-roots-0008"
+skill = "q-exponents-roots"
+principle = "Q.2.b"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+prompt = "A square garden has an area of 196 square meters. How long is one side, in meters?"
+answer = "14"
+check = "sqrt(196)"
+explanation = 'The area of a square is side × side, so the side is $\sqrt{196} = 14$ m, because $14 \times 14 = 196$.'
+common_mistake = "Dividing the area by 4 (49), which mixes up area and perimeter."
+
+[[question]]
+id = "q-exponents-roots-0009"
+skill = "q-exponents-roots"
+principle = "Q.2.b"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+prompt = 'What is $\sqrt{\frac{49}{64}}$?'
+choices = ['$\frac{7}{8}$', '$\frac{7}{32}$', '$\frac{49}{8}$', '$\frac{8}{7}$']
+answer = '$\frac{7}{8}$'
+check = "sqrt(49 / 64)"
+explanation = '''
+Take the square root of the top and the bottom separately: $\sqrt{49} = 7$ and $\sqrt{64} = 8$.
+So $\sqrt{\frac{49}{64}} = \frac{7}{8}$.
+'''
+common_mistake = "Taking the square root of only the bottom number (49/8) or halving it (7/32)."
+
+[[question]]
+id = "q-exponents-roots-0010"
+skill = "q-exponents-roots"
+principle = "Q.2.c"
+difficulty = 1
+type = "fill_in"
+status = "draft"
+prompt = 'What is $\sqrt[3]{125}$?'
+answer = "5"
+check = "cbrt(125)"
+explanation = 'Find the number that multiplies by itself three times to make 125: $5 \times 5 \times 5 = 125$, so $\sqrt[3]{125} = 5$.'
+common_mistake = "Dividing 125 by 3 (about 41.7) instead of finding the cube root."
+
+[[question]]
+id = "q-exponents-roots-0011"
+skill = "q-exponents-roots"
+principle = "Q.2.c"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+alaska = true
+prompt = '''
+A cube-shaped fish box holds 0.512 cubic meters.
+How long is each edge of the box, in meters?
+'''
+choices = ["0.8", "0.17", "0.08", "8"]
+answer = "0.8"
+check = "cbrt(0.512)"
+explanation = '''
+The volume of a cube is edge × edge × edge, so the edge is $\sqrt[3]{0.512}$.
+Since $0.8 \times 0.8 \times 0.8 = 0.512$, each edge is 0.8 m.
+'''
+common_mistake = "Dividing 0.512 by 3 (about 0.17) instead of taking the cube root."
+
+[[question]]
+id = "q-exponents-roots-0012"
+skill = "q-exponents-roots"
+principle = "Q.2.c"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = 'What is $(-3)^3$?'
+choices = ["-27", "27", "-9", "9"]
+answer = "-27"
+check = "(-3)^3"
+explanation = '''
+$(-3)^3 = (-3) \times (-3) \times (-3)$.
+$(-3) \times (-3) = 9$, and $9 \times (-3) = -27$.
+'''
+common_mistake = "Thinking any power of a negative number is positive; an odd power stays negative."
