@@ -22,9 +22,22 @@ cargo test                          # unit + fixture tests; regenerates TS API t
 .\target\release\gedpasser-server.exe   # serves http://<this-pc>:8080 on the LAN
 ```
 
-After logging in you land on the dashboard: mastery per skill, the three
-skills to focus on next, and mixed practice that leans toward weak spots.
-The Lessons page lets you practice one principle at a time.
+After logging in you land on **Home**: XP, level and streak, your test date
+and today's plan, and quick buttons (Quick 5, Review, Practice test). The
+tabs:
+
+- **Journey**: a guided path. Each stage is a few short lesson cards, then a
+  short quiz; pass to unlock the next. Starts with three easy questions.
+- **Practice**: by skill, mixed (leans toward weak spots), focus next.
+- **Tests**: short (10), long (25) or full length (46), timed, with a
+  calculator and formula sheet, and a report by skill.
+- **Explore**: every principle by skill; open one for its card, the full
+  lesson, and a practice set.
+- **Tips**: test-day tactics, every memory hack, the formula sheet
+  (printable).
+
+Set a test date on Home to get a day-by-day plan that puts the most common,
+weakest principles first.
 
 For frontend work, run `cargo run -p gedpasser-server` and `npm --prefix web run dev`
 together; Vite forwards `/api` to the server on port 8080.

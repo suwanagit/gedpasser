@@ -11,21 +11,10 @@ const AREAS: { id: string; title: string }[] = [
   { id: 'algebraic', title: 'Algebraic problem solving' },
 ]
 
-const AI_NOTICE_KEY = 'ged.aiNoticeDismissed'
-
-function readDismissed(): boolean {
-  try {
-    return localStorage.getItem(AI_NOTICE_KEY) === '1'
-  } catch {
-    return false
-  }
-}
-
-/** Home screen: focus next, mixed practice, and the skill map by mastery. */
+/** Practice menu: focus next, mixed practice, and the skill map by mastery. */
 export function Dashboard({ onStart }: { onStart: (scope: Scope, setLength: number | null) => void }) {
   const [progress, setProgress] = useState<Progress | null>(null)
   const [error, setError] = useState<string | null>(null)
-  const [aiNoticeHidden, setAiNoticeHidden] = useState(readDismissed)
 
   useEffect(() => {
     api
@@ -33,15 +22,6 @@ export function Dashboard({ onStart }: { onStart: (scope: Scope, setLength: numb
       .then(setProgress)
       .catch((e) => setError(errorMessage(e)))
   }, [])
-
-  function hideAiNotice() {
-    setAiNoticeHidden(true)
-    try {
-      localStorage.setItem(AI_NOTICE_KEY, '1')
-    } catch {
-      // storage unavailable; the notice just comes back next visit
-    }
-  }
 
   if (error) return <p className="error">{error}</p>
   if (!progress) return <p className="muted">Loading your progress…</p>
@@ -55,18 +35,6 @@ export function Dashboard({ onStart }: { onStart: (scope: Scope, setLength: numb
 
   return (
     <>
-      {!aiNoticeHidden && (
-        <div className="card ai-notice">
-          <span>
-            Every question and lesson here was written by AI and checked by a separate AI reviewer and by code — not by a
-            teacher. Mistakes are possible. If something looks wrong, use <strong>Flag this question</strong> and it
-            will be pulled until it’s checked.
-          </span>
-          <button className="secondary small" onClick={hideAiNotice}>
-            Got it
-          </button>
-        </div>
-      )}
       {nothingReviewed && (
         <div className="card notice">
           <strong>No reviewed questions yet.</strong> Only reviewed questions are shown to learners. To try the
@@ -109,7 +77,7 @@ export function Dashboard({ onStart }: { onStart: (scope: Scope, setLength: numb
         </div>
       )}
 
-      <h2 className="screen-title">All skills</h2>
+      <h2 className="screen-title">Practice by skill</h2>
       {AREAS.map((area) => (
         <section key={area.id} className="area">
           <h3>{area.title}</h3>

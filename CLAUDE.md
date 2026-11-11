@@ -42,6 +42,11 @@ Repo: https://github.com/suwanagit/gedpasser.git
 - Principles are the official GED Math indicator codes (Q.1.a … A.7.d), but
   names and lessons are our own words. Never copy text from the GED guide.
   Lessons follow the same draft -> reviewed rule as questions.
+- Every principle has a short card in `content/cards/<skill>.toml` (format in
+  `content/cards/WRITING.md`): as few words as possible, high-school reading
+  level, one memory hack. Cards, figures and `content/strategy.toml` go
+  through the same independent review and `cargo content-approve`.
+- Figures must match the prompt and must not reveal the answer.
 - Never use real GED test items or claim official GED status.
 - Hash passwords with Argon2. Never log passwords or session tokens.
 - Use metric units in all questions and UI, with US spelling (meters,

@@ -5,21 +5,36 @@ import type { AnswerResult } from './types/AnswerResult'
 import type { ApiErrorBody } from './types/ApiErrorBody'
 import type { CreateProfile } from './types/CreateProfile'
 import type { FlagRequest } from './types/FlagRequest'
+import type { JourneyRun } from './types/JourneyRun'
+import type { JourneyView } from './types/JourneyView'
 import type { Lesson } from './types/Lesson'
 import type { LoginRequest } from './types/LoginRequest'
 import type { Me } from './types/Me'
 import type { NextQuestion } from './types/NextQuestion'
+import type { Plan } from './types/Plan'
 import type { PracticeMode } from './types/PracticeMode'
 import type { PrincipleSummary } from './types/PrincipleSummary'
-import type { Progress } from './types/Progress'
 import type { Profile } from './types/Profile'
+import type { Progress } from './types/Progress'
 import type { SkillSummary } from './types/SkillSummary'
+import type { StageResult } from './types/StageResult'
+import type { Stats } from './types/Stats'
+import type { StrategyView } from './types/StrategyView'
+import type { TestKind } from './types/TestKind'
+import type { TestPaper } from './types/TestPaper'
+import type { TestReport } from './types/TestReport'
+import type { TestSubmission } from './types/TestSubmission'
+import type { TestSummary } from './types/TestSummary'
 
-/** What a practice session draws questions from. `name` is for display. */
+/**
+ * What a practice session draws questions from. `name` is for display.
+ * For `principle`, `id` may be a comma-separated list (a power set).
+ */
 export type Scope =
   | { mode: Extract<PracticeMode, 'skill'>; id: string; name: string }
   | { mode: Extract<PracticeMode, 'principle'>; id: string; name: string }
   | { mode: Extract<PracticeMode, 'mixed'> }
+  | { mode: Extract<PracticeMode, 'review'> }
 
 export class ApiError extends Error {
   status: number
@@ -49,6 +64,9 @@ async function request<T>(method: 'GET' | 'POST', url: string, body?: unknown): 
   return (await res.json()) as T
 }
 
+/** Minutes east of UTC, for streaks and "today" (Alaska is about −540). */
+const tz = () => -new Date().getTimezoneOffset()
+
 export const api = {
   me: () => request<Me>('GET', '/api/me'),
   profiles: () => request<Profile[]>('GET', '/api/profiles'),
@@ -60,7 +78,7 @@ export const api = {
     const q = new URLSearchParams()
     if (scope.mode === 'skill') q.set('skill', scope.id)
     else if (scope.mode === 'principle') q.set('principle', scope.id)
-    else q.set('mode', 'mixed')
+    else q.set('mode', scope.mode)
     if (after) q.set('after', after)
     return request<NextQuestion>('GET', `/api/practice/next?${q.toString()}`)
   },
@@ -69,6 +87,16 @@ export const api = {
   principles: () => request<PrincipleSummary[]>('GET', '/api/principles'),
   lesson: (id: string) => request<Lesson>('GET', `/api/principles/${encodeURIComponent(id)}`),
   flag: (body: FlagRequest) => request<void>('POST', '/api/flags', body),
+  journey: () => request<JourneyView>('GET', '/api/journey'),
+  startStage: (id: string) => request<JourneyRun>('POST', `/api/journey/${encodeURIComponent(id)}/start`),
+  finishStage: (runId: number) => request<StageResult>('POST', `/api/journey/runs/${runId}/finish`),
+  stats: () => request<Stats>('GET', `/api/stats?tz=${tz()}`),
+  plan: () => request<Plan>('GET', `/api/plan?tz=${tz()}`),
+  setTestDate: (test_date: string | null) => request<void>('POST', '/api/me/test-date', { test_date }),
+  strategy: () => request<StrategyView>('GET', '/api/strategy'),
+  newTest: (kind: TestKind) => request<TestPaper>('POST', '/api/tests', { kind }),
+  submitTest: (id: number, body: TestSubmission) => request<TestReport>('POST', `/api/tests/${id}/submit`, body),
+  tests: () => request<TestSummary[]>('GET', '/api/tests'),
 }
 
 export function errorMessage(e: unknown): string {

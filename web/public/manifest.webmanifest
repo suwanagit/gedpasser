@@ -1,0 +1,12 @@
+{
+  "name": "GED Passer — free GED test practice",
+  "short_name": "GED Passer",
+  "description": "Free GED Math practice for Alaskans: a guided journey, short lessons, memory hacks and practice tests.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f141a",
+  "theme_color": "#1f6feb",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

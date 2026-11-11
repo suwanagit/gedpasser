@@ -251,14 +251,23 @@ Seven phases take the app from an empty repo to a public site; Phases 0 to 3 are
 
 **Phase 4: Mobile and fun**
 
-- [ ] Mobile review mode usable one-handed on a phone
-- [ ] Spaced review queue working
-- [ ] XP, streaks, and animations in place; reduce-motion respected
+- [x] Mobile review mode usable one-handed on a phone (bottom tab bar, Quick 5, Review; Jon to try on his phone)
+- [x] Spaced review queue working (10 minutes after a miss, then 1/3/7/14/30 days)
+- [x] XP, streaks, and animations in place; reduce-motion respected
 
 **Phase 5: Timed test mode**
 
-- [ ] Full-length timed test with calculator and formula sheet
-- [ ] Score report by skill feeds mastery
+- [x] Full-length timed test with calculator and formula sheet (short 10 / long 25 / full 46 questions)
+- [x] Score report by skill feeds mastery (test answers are attempts)
+
+**Phase 5b: Journey and test-week plan** (added 2026-11-11 at Jon's request)
+
+- [x] A guided journey: 24 stages + 6 checkpoints covering all 62 principles, starting with three easy questions and growing in size and difficulty
+- [x] A short card per principle (one rule, ≤4 steps, one worked example, one memory hack; ≤90 words, enforced by the validator), reviewed like questions
+- [x] Real equations and graphs: display math, and figures (coordinate planes, number lines, bar/dot/box plots, labeled shapes) on cards and questions
+- [x] Self-paced exploration at every level: area → skill → principle → card → full lesson → practice
+- [x] Test-week plan: test date, days left, priorities by yield × weakness, daily tasks (check-up, power set, review, full test 2–3 days out, tactics, rest)
+- [x] Tips: test-day tactics, every memory hack, printable formula sheet
 
 **Phase 6: Deploy and go public**
 

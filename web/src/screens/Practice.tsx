@@ -1,30 +1,21 @@
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
-import { useCallback, useEffect, useRef, useState, type FormEvent } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { api, errorMessage, type Scope } from '../api/client'
-import type { AnswerResult } from '../api/types/AnswerResult'
 import type { PracticeQuestion } from '../api/types/PracticeQuestion'
 import type { PrincipleRef } from '../api/types/PrincipleRef'
-import { FlagDialog } from '../components/FlagDialog'
 import { LessonPanel } from '../components/LessonPanel'
-import { MathText } from '../components/MathText'
-
-type State =
-  | { kind: 'loading' }
-  | { kind: 'empty' }
-  | { kind: 'error'; message: string }
-  | { kind: 'asking'; q: PracticeQuestion }
-  | { kind: 'answered'; q: PracticeQuestion; response: string; result: AnswerResult }
-  | { kind: 'summary' }
+import { QuestionView } from '../components/QuestionView'
 
 type Outcome = { principle: PrincipleRef; correct: boolean }
 
 function scopeTitle(scope: Scope): string {
-  return scope.mode === 'mixed' ? 'Mixed practice' : scope.name
+  if (scope.mode === 'mixed') return 'Mixed practice'
+  if (scope.mode === 'review') return 'Review'
+  return scope.name
 }
 
 /**
- * Practice questions from a skill, a principle, or a weighted mix.
- * With `setLength`, the session ends after that many answers with a summary.
+ * Practice from a skill, principle(s), a weighted mix, or due reviews. With
+ * `setLength`, the session ends after that many answers with a summary.
  */
 export function Practice({
   scope,
@@ -37,37 +28,25 @@ export function Practice({
   onExit: () => void
   onStart: (scope: Scope, setLength: number | null) => void
 }) {
-  const [state, setState] = useState<State>({ kind: 'loading' })
-  const [selected, setSelected] = useState<string | null>(null)
-  const [typed, setTyped] = useState('')
-  const [busy, setBusy] = useState(false)
-  const [tally, setTally] = useState({ right: 0, total: 0 })
+  const [q, setQ] = useState<PracticeQuestion | null>(null)
+  const [status, setStatus] = useState<'loading' | 'ready' | 'empty' | 'summary'>('loading')
+  const [error, setError] = useState<string | null>(null)
   const [outcomes, setOutcomes] = useState<Outcome[]>([])
-  const [lessonFor, setLessonFor] = useState<string | null>(null)
-  const [flagging, setFlagging] = useState(false)
+  const [xp, setXp] = useState(0)
   const [notice, setNotice] = useState<string | null>(null)
-  const shownAt = useRef(0)
-  const hintUsed = useRef(false)
-  const reduce = useReducedMotion()
+  const [lessonFor, setLessonFor] = useState<string | null>(null)
   const closeLesson = useCallback(() => setLessonFor(null), [])
-  const cancelFlag = useCallback(() => setFlagging(false), [])
 
   const load = useCallback(
     async (after?: string) => {
-      setState({ kind: 'loading' })
-      setSelected(null)
-      setTyped('')
-      hintUsed.current = false
+      setStatus('loading')
+      setError(null)
       try {
         const { question } = await api.next(scope, after)
-        if (!question) {
-          setState({ kind: 'empty' })
-          return
-        }
-        shownAt.current = performance.now()
-        setState({ kind: 'asking', q: question })
+        setQ(question)
+        setStatus(question ? 'ready' : 'empty')
       } catch (e) {
-        setState({ kind: 'error', message: errorMessage(e) })
+        setError(errorMessage(e))
       }
     },
     [scope],
@@ -77,94 +56,32 @@ export function Practice({
     void load()
   }, [load])
 
-  const submit = useCallback(async () => {
-    if (state.kind !== 'asking' || busy) return
-    const response = state.q.kind === 'fill_in' ? typed.trim() : selected
-    if (!response) return
-    setBusy(true)
-    setNotice(null)
-    try {
-      const time_ms = Math.round(performance.now() - shownAt.current)
-      const result = await api.answer({
-        question_id: state.q.id,
-        response,
-        time_ms,
-        hint_used: hintUsed.current,
-        mode: scope.mode,
-      })
-      setTally((t) => ({ right: t.right + (result.correct ? 1 : 0), total: t.total + 1 }))
-      setOutcomes((o) => [...o, { principle: result.principle, correct: result.correct }])
-      setState({ kind: 'answered', q: state.q, response, result })
-    } catch (e) {
-      setState({ kind: 'error', message: errorMessage(e) })
-    } finally {
-      setBusy(false)
-    }
-  }, [state, typed, selected, busy, scope.mode])
-
-  const setDone = setLength !== null && tally.total >= setLength
-
+  const done = setLength !== null && outcomes.length >= setLength
   const next = useCallback(() => {
-    if (state.kind !== 'answered') return
-    if (setDone) setState({ kind: 'summary' })
-    else void load(state.q.id)
-  }, [state, load, setDone])
+    if (done) setStatus('summary')
+    else void load(q?.id)
+  }, [done, load, q])
 
-  const flagged = useCallback(() => {
-    setFlagging(false)
-    setNotice('Thanks — this question is out of practice until it has been checked.')
-    if (state.kind === 'asking' || state.kind === 'answered') void load(state.q.id)
-  }, [state, load])
-
-  // Keyboard: 1-4 pick a choice, Enter checks or moves on.
-  useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      const inField = e.target instanceof HTMLInputElement
-      if (state.kind === 'asking' && state.q.kind !== 'fill_in' && !inField) {
-        const n = Number(e.key)
-        if (n >= 1 && n <= state.q.choices.length) setSelected(state.q.choices[n - 1])
-        if (e.key === 'Enter' && selected) {
-          e.preventDefault()
-          void submit()
-        }
-      } else if (state.kind === 'answered' && e.key === 'Enter') {
-        e.preventDefault()
-        next()
-      }
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [state, selected, submit, next])
-
-  const enter = reduce ? false : { opacity: 0, y: 12 }
-  const shown = { opacity: 1, y: 0 }
-  const leave = reduce ? { opacity: 1 } : { opacity: 0, y: -8 }
-  const transition = { duration: reduce ? 0 : 0.2 }
-
+  const mode = scope.mode
   return (
     <section className="practice">
       <div className="practice-bar">
         <button className="link" onClick={onExit}>
-          ← Dashboard
+          ← Back
         </button>
         <h2>{scopeTitle(scope)}</h2>
         <span className="muted" aria-live="polite">
-          {setLength !== null && state.kind !== 'summary'
-            ? `Question ${Math.min(tally.total + (state.kind === 'answered' ? 0 : 1), setLength)} of ${setLength}`
-            : tally.total > 0
-              ? `${tally.right} / ${tally.total} this session`
+          {setLength !== null && status !== 'summary'
+            ? `Question ${Math.min(outcomes.length + (status === 'ready' && q && outcomes.length < setLength ? 1 : 0), setLength)} of ${setLength}`
+            : outcomes.length > 0
+              ? `${outcomes.filter((o) => o.correct).length} / ${outcomes.length} · +${xp} XP`
               : ''}
         </span>
       </div>
-
-      {state.kind === 'summary' && (
-        <SetSummary
-          outcomes={outcomes}
-          onLearn={setLessonFor}
-          onPractice={(p) => onStart({ mode: 'principle', id: p.id, name: p.name }, setLength)}
-          onAgain={() => onStart(scope, setLength)}
-          onExit={onExit}
-        />
+      {setLength !== null && status !== 'summary' && (
+        <div className="set-progress" aria-hidden="true">
+          <span style={{ width: `${(outcomes.length / setLength) * 100}%` }} />
+        </div>
       )}
 
       {notice && (
@@ -175,141 +92,52 @@ export function Practice({
           </button>
         </p>
       )}
-      {state.kind === 'loading' && <p className="muted">Loading…</p>}
-      {state.kind === 'error' && (
+      {error && (
         <div className="card">
-          <p className="error">{state.message}</p>
+          <p className="error">{error}</p>
           <button className="primary" onClick={() => void load()}>
             Try again
           </button>
         </div>
       )}
-      {state.kind === 'empty' && <p className="card">There are no questions here yet.</p>}
-
-      <AnimatePresence mode="wait" initial={false}>
-        {(state.kind === 'asking' || state.kind === 'answered') && (
-          <motion.div key={state.q.id} initial={enter} animate={shown} exit={leave} transition={transition}>
-            <article className="card question">
-              <div className="badges">
-                {state.q.draft && <span className="badge draft">Draft – not reviewed</span>}
-                {scope.mode !== 'skill' && <span className="badge">{state.q.skill_name}</span>}
-                <span className="badge">Difficulty {state.q.difficulty}</span>
-              </div>
-              <p className="prompt">
-                <MathText text={state.q.prompt} />
-              </p>
-              {state.kind === 'asking' && (
-                <p className="refresher">
-                  Need a refresher?{' '}
-                  <button
-                    className="link"
-                    onClick={() => {
-                      hintUsed.current = true
-                      setLessonFor(state.q.principle.id)
-                    }}
-                  >
-                    {state.q.principle.name}
-                  </button>
-                </p>
-              )}
-
-              {state.q.kind === 'fill_in' ? (
-                <FillIn
-                  value={state.kind === 'answered' ? state.response : typed}
-                  disabled={state.kind === 'answered'}
-                  onChange={setTyped}
-                  onSubmit={() => void submit()}
-                />
-              ) : (
-                <div className="choices" role="radiogroup" aria-label="Answer choices">
-                  {state.q.choices.map((c, i) => {
-                    const answered = state.kind === 'answered'
-                    const isRight = answered && c === state.result.answer
-                    const isPicked = (answered ? state.response : selected) === c
-                    const cls = [
-                      'choice',
-                      isPicked ? 'picked' : '',
-                      answered && isRight ? 'right' : '',
-                      answered && isPicked && !isRight ? 'wrong' : '',
-                    ].join(' ')
-                    return (
-                      <button
-                        key={c}
-                        className={cls}
-                        role="radio"
-                        aria-checked={isPicked}
-                        disabled={answered}
-                        onClick={() => setSelected(c)}
-                      >
-                        <span className="key" aria-hidden="true">
-                          {i + 1}
-                        </span>
-                        <MathText text={c} />
-                      </button>
-                    )
-                  })}
-                </div>
-              )}
-
-              {state.kind === 'asking' && state.q.kind !== 'fill_in' && (
-                <div className="actions">
-                  <button className="primary" disabled={!selected || busy} onClick={() => void submit()}>
-                    Check
-                  </button>
-                </div>
-              )}
-              <p className="flag-row">
-                <button className="link small-link" onClick={() => setFlagging(true)}>
-                  ⚑ Flag this question
-                </button>
-              </p>
-            </article>
-
-            {state.kind === 'answered' && (
-              <motion.div
-                className={`card feedback ${state.result.correct ? 'right' : 'wrong'}`}
-                initial={enter}
-                animate={shown}
-                transition={transition}
-                role="status"
-              >
-                <h3>{state.result.correct ? 'Correct!' : 'Not quite.'}</h3>
-                {!state.result.correct && (
-                  <p>
-                    The answer is <MathText text={state.result.answer} className="strong" />.
-                  </p>
-                )}
-                <h4>How to solve it</h4>
-                <p className="explanation">
-                  <MathText text={state.result.explanation} />
-                </p>
-                <h4>Common mistake</h4>
-                <p className="explanation">
-                  <MathText text={state.result.common_mistake} />
-                </p>
-                <h4>Principle</h4>
-                <p className="explanation">
-                  This question tests <span className="badge">{state.result.principle.id}</span>{' '}
-                  {state.result.principle.name}.{' '}
-                  <button className="link" onClick={() => setLessonFor(state.result.principle.id)}>
-                    Learn this →
-                  </button>
-                </p>
-                <div className="actions">
-                  <button className="primary" autoFocus onClick={next}>
-                    {setDone ? 'See results' : 'Next question'}
-                  </button>
-                </div>
-              </motion.div>
-            )}
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {lessonFor && <LessonPanel principleId={lessonFor} onClose={closeLesson} />}
-      {flagging && (state.kind === 'asking' || state.kind === 'answered') && (
-        <FlagDialog questionId={state.q.id} onDone={flagged} onCancel={cancelFlag} />
+      {status === 'loading' && !error && <p className="muted">Loading…</p>}
+      {status === 'empty' && (
+        <div className="card">
+          <p>{mode === 'review' ? 'Nothing is due for review right now. Nice work.' : 'There are no questions here yet.'}</p>
+          <button className="primary" onClick={onExit}>
+            Back
+          </button>
+        </div>
       )}
+      {status === 'ready' && q && (
+        <QuestionView
+          key={q.id}
+          q={q}
+          mode={mode === 'review' ? 'review' : mode}
+          showSkill={mode !== 'skill'}
+          nextLabel={setLength !== null && outcomes.length >= setLength ? 'See results' : 'Next question'}
+          onAnswered={(r) => {
+            setOutcomes((o) => [...o, { principle: r.principle, correct: r.correct }])
+            setXp((x) => x + r.xp)
+          }}
+          onNext={next}
+          onFlagged={() => {
+            setNotice('Thanks — this question is out of practice until it has been checked.')
+            void load(q.id)
+          }}
+        />
+      )}
+      {status === 'summary' && (
+        <SetSummary
+          outcomes={outcomes}
+          xp={xp}
+          onLearn={setLessonFor}
+          onPractice={(p) => onStart({ mode: 'principle', id: p.id, name: p.name }, setLength)}
+          onAgain={() => onStart(scope, setLength)}
+          onExit={onExit}
+        />
+      )}
+      {lessonFor && <LessonPanel principleId={lessonFor} onClose={closeLesson} />}
     </section>
   )
 }
@@ -317,12 +145,14 @@ export function Practice({
 /** End-of-set results: score, and the principles missed with ways to fix them. */
 function SetSummary({
   outcomes,
+  xp,
   onLearn,
   onPractice,
   onAgain,
   onExit,
 }: {
   outcomes: Outcome[]
+  xp: number
   onLearn: (principleId: string) => void
   onPractice: (p: PrincipleRef) => void
   onAgain: () => void
@@ -341,6 +171,7 @@ function SetSummary({
       <h3>
         Set complete: {right} of {outcomes.length} correct
       </h3>
+      <p className="muted">+{xp} XP</p>
       {missed.size === 0 ? (
         <p>Nothing missed — nice work.</p>
       ) : (
@@ -368,50 +199,12 @@ function SetSummary({
       )}
       <div className="actions">
         <button className="secondary" onClick={onExit}>
-          Back to dashboard
+          Done
         </button>
         <button className="primary" autoFocus onClick={onAgain}>
           Another set
         </button>
       </div>
     </section>
-  )
-}
-
-function FillIn({
-  value,
-  disabled,
-  onChange,
-  onSubmit,
-}: {
-  value: string
-  disabled: boolean
-  onChange: (v: string) => void
-  onSubmit: () => void
-}) {
-  function submit(e: FormEvent) {
-    e.preventDefault()
-    onSubmit()
-  }
-  return (
-    <form className="fill-in" onSubmit={submit}>
-      <label>
-        Your answer
-        <input
-          autoFocus
-          inputMode="text"
-          autoComplete="off"
-          value={value}
-          disabled={disabled}
-          onChange={(e) => onChange(e.target.value)}
-          placeholder="e.g. 12, 3.5 or 3/4"
-        />
-      </label>
-      {!disabled && (
-        <button type="submit" className="primary" disabled={!value.trim()}>
-          Check
-        </button>
-      )}
-    </form>
   )
 }

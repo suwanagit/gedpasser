@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'motion/react'
 import { useEffect, useRef, useState } from 'react'
 import { api, errorMessage } from '../api/client'
 import type { Lesson } from '../api/types/Lesson'
+import { LessonCard } from './LessonCard'
 import { LessonText } from './LessonText'
 import { MathText } from './MathText'
 
@@ -78,8 +79,7 @@ export function LessonPanel({
       >
         <div className="lesson-head">
           <div>
-            <span className="badge">{principleId}</span>
-            {lesson && <span className="muted lesson-skill"> {lesson.skill_name}</span>}
+            {lesson && <span className="muted lesson-skill">{lesson.skill_name}</span>}
           </div>
           <button ref={closeRef} className="secondary small" onClick={onClose}>
             Close
@@ -90,14 +90,21 @@ export function LessonPanel({
         {lesson && (
           <>
             <h2 id="lesson-title">{lesson.name}</h2>
-            <p className="lesson-summary">
-              <MathText text={lesson.summary} />
-            </p>
-            {lesson.draft && <p className="badge draft">Draft lesson – not reviewed</p>}
-            {lesson.lesson ? (
-              <LessonText text={lesson.lesson} />
+            {lesson.card ? (
+              <LessonCard card={lesson.card} compact />
             ) : (
-              <p className="muted">The full lesson for this principle is coming soon.</p>
+              <p className="lesson-summary">
+                <MathText text={lesson.summary} />
+              </p>
+            )}
+            {lesson.lesson ? (
+              <details className="more-detail" open={!lesson.card}>
+                <summary>More detail</summary>
+                {lesson.draft && <p className="badge draft">Draft lesson – not reviewed</p>}
+                <LessonText text={lesson.lesson} />
+              </details>
+            ) : (
+              !lesson.card && <p className="muted">The full lesson for this principle is coming soon.</p>
             )}
             {onPractice && (
               <div className="actions">
