@@ -215,10 +215,10 @@ Seven phases take the app from an empty repo to a public site; Phases 0 to 3 are
 
 **Phase 1: Core practice loop**
 
-- [ ] Create a profile, log in, and log out
-- [ ] Pick a skill, answer questions, see the explanation after each
-- [ ] Every answer saved to `attempts`; data survives a server restart
-- [ ] KaTeX renders fractions and exponents correctly
+- [x] Create a profile, log in, and log out
+- [x] Pick a skill, answer questions, see the explanation after each
+- [x] Every answer saved to `attempts`; data survives a server restart
+- [x] KaTeX renders fractions and exponents correctly
 
 **Phase 2: Question bank v1**
 

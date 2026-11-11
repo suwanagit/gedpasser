@@ -16,7 +16,7 @@ use crate::AppState;
 use crate::auth::{self, CurrentUser};
 use crate::content::{Bank, grade};
 
-// ── Errors ────────────────────────────────────────────────────────────────
+// â”€â”€ Errors â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 #[derive(Debug, Serialize, TS)]
 #[ts(export)]
@@ -51,7 +51,7 @@ impl From<sqlx::Error> for ApiError {
 
 type ApiResult<T> = Result<T, ApiError>;
 
-// ── Health ────────────────────────────────────────────────────────────────
+// â”€â”€ Health â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 /// Response of `GET /api/health`.
 #[derive(Debug, Clone, Serialize, TS)]
@@ -71,7 +71,7 @@ pub async fn health(State(state): State<Arc<AppState>>) -> Json<Health> {
     })
 }
 
-// ── Profiles and sessions ─────────────────────────────────────────────────
+// â”€â”€ Profiles and sessions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 /// One entry in the profile picker.
 #[derive(Debug, Serialize, TS, sqlx::FromRow)]
@@ -128,13 +128,13 @@ pub async fn create_profile(
     if name.is_empty() || name.chars().count() > auth::MAX_NAME_LEN {
         return Err(ApiError::new(
             StatusCode::BAD_REQUEST,
-            format!("name must be 1 to {} characters", auth::MAX_NAME_LEN),
+            format!("Name must be 1 to {} characters.", auth::MAX_NAME_LEN),
         ));
     }
     if req.secret.chars().count() < auth::MIN_SECRET_LEN {
         return Err(ApiError::new(
             StatusCode::BAD_REQUEST,
-            format!("password or PIN must be at least {} characters", auth::MIN_SECRET_LEN),
+            format!("Password or PIN must be at least {} characters.", auth::MIN_SECRET_LEN),
         ));
     }
     let taken: Option<i64> = sqlx::query_scalar("SELECT id FROM users WHERE display_name = ?")
@@ -142,7 +142,7 @@ pub async fn create_profile(
         .fetch_optional(&state.pool)
         .await?;
     if taken.is_some() {
-        return Err(ApiError::new(StatusCode::CONFLICT, "that name is already taken"));
+        return Err(ApiError::new(StatusCode::CONFLICT, "That name is already taken."));
     }
     let secret = req.secret;
     let hash = tokio::task::spawn_blocking(move || auth::hash_secret(&secret))
@@ -173,7 +173,7 @@ pub async fn login(
         .await
         .unwrap_or(false);
     let Some((name, _)) = row.filter(|_| ok) else {
-        return Err(ApiError::new(StatusCode::UNAUTHORIZED, "wrong password or PIN"));
+        return Err(ApiError::new(StatusCode::UNAUTHORIZED, "Wrong password or PIN."));
     };
     let token = auth::start_session(&state, req.user_id).await?;
     Ok((auth::set_cookie_headers(auth::session_cookie(&token)), Json(me(&state, req.user_id, name))))
@@ -193,7 +193,7 @@ pub async fn get_me(State(state): State<Arc<AppState>>, user: CurrentUser) -> Js
     Json(me(&state, user.id, user.display_name))
 }
 
-// ── Skills and practice ───────────────────────────────────────────────────
+// â”€â”€ Skills and practice â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 /// A skill on the practice menu, with this learner's progress.
 #[derive(Debug, Serialize, TS)]
@@ -397,7 +397,7 @@ pub async fn submit_answer(
         .filter(|q| Bank::servable(q, state.serve_drafts))
         .ok_or_else(|| ApiError::new(StatusCode::NOT_FOUND, "no such question"))?;
     if req.response.trim().is_empty() {
-        return Err(ApiError::new(StatusCode::BAD_REQUEST, "answer is empty"));
+        return Err(ApiError::new(StatusCode::BAD_REQUEST, "Please enter an answer."));
     }
     let response: String = req.response.chars().take(200).collect();
     let correct = grade(q, &response);

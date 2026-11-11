@@ -29,5 +29,27 @@ The exe can be double-clicked: it finds the repo's `content` folder by looking
 in the current folder, then beside the exe and in its parent folders. Keep its
 window open while you use the app; closing it stops the server.
 
-Settings (environment variables): `GED_ADDR` (default `0.0.0.0:8080`),
-`GED_CONTENT` (overrides the content folder search).
+Only `reviewed` questions are served. While questions are still drafts,
+double-click `scripts\run-with-drafts.cmd` instead: it sets
+`GED_SERVE_DRAFTS=1`, and the app shows a "Development mode" banner and a
+"Draft" badge on each unreviewed question.
+
+Learner data lives in `data\ged.db` (beside `content`). Back up that one file.
+
+Settings (environment variables):
+
+| Variable | Default | Meaning |
+| --- | --- | --- |
+| `GED_ADDR` | `0.0.0.0:8080` | Listen address |
+| `GED_CONTENT` | nearest `content` folder | Question bank folder |
+| `GED_DB` | `data\ged.db` beside `content` | SQLite database file |
+| `GED_SERVE_DRAFTS` | off | `1` also serves draft questions (development only) |
+
+## Writing questions
+
+Questions live in `content\math\<skill>.toml`. Put math between `$...$`
+(KaTeX), write a literal dollar sign as `\$`, and use TOML literal strings
+(`'...'` or `'''...'''`) so backslashes need no escaping. For an answer that
+isn't a plain number (like `$2x + 12$`), give `answer_value` and a `check`
+that both evaluate the expression at the same test value. Run `cargo content`
+before committing.

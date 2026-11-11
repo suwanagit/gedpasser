@@ -129,5 +129,5 @@ impl FromRequestParts<Arc<AppState>> for CurrentUser {
 }
 
 fn not_logged_in() -> ApiError {
-    ApiError::new(StatusCode::UNAUTHORIZED, "not logged in")
+    ApiError::new(StatusCode::UNAUTHORIZED, "Not logged in.")
 }
