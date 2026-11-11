@@ -4,6 +4,10 @@ Newest first. One line per decision: date, decision, reason.
 
 | Date | Decision | Reason |
 | --- | --- | --- |
+| 2026-11-11 | Mastery = (Σ w·credit + 1) / (Σ w + 2) over the last 20 answers, w = 0.85^k (newest k = 0); credit 1 correct, 0.5 correct after opening the lesson, 0 wrong. Levels: not started / needs work < 0.5 / getting there < 0.8 / strong. Computed per request in `server/src/mastery.rs`, never stored | Recent answers matter most, one lucky answer can't read as mastered, hints count for less; tunable without a migration |
+| 2026-11-11 | Focus next = 3 lowest-mastery skills with questions (untried counts as 0.5, ties go to fewer answers); mixed practice picks a skill with weight (1 − mastery) + 0.1, then the usual question order | Points practice at weak spots without starving any skill |
+| 2026-11-11 | One practice endpoint `GET /api/practice/next?skill= / principle= / mode=mixed`; sets are 10 questions with an end-of-set summary of missed principles; `attempts.mode` records skill / principle / mixed | One code path for every way of practicing; short sets suit quick sessions |
+| 2026-11-11 | The dashboard (focus next, mixed practice, skill map colored by level with the level also written out) is the home screen | Progress first; color is never the only cue |
 | 2026-11-10 | A flag removes the question from rotation for everyone; it clears automatically when the question's content hash changes, or by `gedpasser-server flags resolve` | One report protects every learner; fixing the file is the normal way to clear it |
 | 2026-11-10 | Learners see an "AI-written, AI-checked" notice (dismissible, remembered per browser) and a footer line pointing to the flag button | Honest about the review model Jon chose |
 | 2026-11-10 | Reviewers solve blind from `cargo content-quiz` (questions without keys) and must record their own answer in `solved` for every passed question | Makes the independent check real rather than a read-through |

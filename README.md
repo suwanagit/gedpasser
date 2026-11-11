@@ -22,6 +22,10 @@ cargo test                          # unit + fixture tests; regenerates TS API t
 .\target\release\gedpasser-server.exe   # serves http://<this-pc>:8080 on the LAN
 ```
 
+After logging in you land on the dashboard: mastery per skill, the three
+skills to focus on next, and mixed practice that leans toward weak spots.
+The Lessons page lets you practice one principle at a time.
+
 For frontend work, run `cargo run -p gedpasser-server` and `npm --prefix web run dev`
 together; Vite forwards `/api` to the server on port 8080.
 

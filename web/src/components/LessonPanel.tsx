@@ -9,7 +9,16 @@ import { MathText } from './MathText'
  * A lesson for one principle, shown as a dialog over the current screen.
  * Esc, the Close button, or clicking outside closes it.
  */
-export function LessonPanel({ principleId, onClose }: { principleId: string; onClose: () => void }) {
+export function LessonPanel({
+  principleId,
+  onClose,
+  onPractice,
+}: {
+  principleId: string
+  onClose: () => void
+  /** When given, shows a "Practice this principle" button. */
+  onPractice?: () => void
+}) {
   const [lesson, setLesson] = useState<Lesson | null>(null)
   const [error, setError] = useState<string | null>(null)
   const closeRef = useRef<HTMLButtonElement>(null)
@@ -89,6 +98,13 @@ export function LessonPanel({ principleId, onClose }: { principleId: string; onC
               <LessonText text={lesson.lesson} />
             ) : (
               <p className="muted">The full lesson for this principle is coming soon.</p>
+            )}
+            {onPractice && (
+              <div className="actions">
+                <button className="primary" onClick={onPractice}>
+                  Practice this principle
+                </button>
+              </div>
             )}
           </>
         )}

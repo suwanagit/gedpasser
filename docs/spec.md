@@ -243,11 +243,11 @@ Seven phases take the app from an empty repo to a public site; Phases 0 to 3 are
 
 **Phase 3: Progress and weak areas (MVP complete)**
 
-- [ ] Mastery shown per skill on a dashboard
-- [ ] "Focus next" lists the three weakest skills and starts a set in one tap
-- [ ] Mixed practice weights toward weak skills
-- [ ] Practice one principle at a time, with progress shown per principle
-- [ ] Jon uses it for a week and the weak areas it shows match his own sense of them
+- [x] Mastery shown per skill on a dashboard
+- [x] "Focus next" lists the three weakest skills and starts a set in one tap
+- [x] Mixed practice weights toward weak skills
+- [x] Practice one principle at a time, with progress shown per principle
+- [ ] Jon uses it for a week and the weak areas it shows match his own sense of them (needs Jon; if they don't match, tune the weights in `server/src/mastery.rs`)
 
 **Phase 4: Mobile and fun**
 

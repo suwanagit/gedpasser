@@ -1,9 +1,9 @@
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { useCallback, useEffect, useRef, useState, type FormEvent } from 'react'
-import { api, errorMessage } from '../api/client'
+import { api, errorMessage, type Scope } from '../api/client'
 import type { AnswerResult } from '../api/types/AnswerResult'
 import type { PracticeQuestion } from '../api/types/PracticeQuestion'
-import type { SkillSummary } from '../api/types/SkillSummary'
+import type { PrincipleRef } from '../api/types/PrincipleRef'
 import { FlagDialog } from '../components/FlagDialog'
 import { LessonPanel } from '../components/LessonPanel'
 import { MathText } from '../components/MathText'
@@ -14,13 +14,35 @@ type State =
   | { kind: 'error'; message: string }
   | { kind: 'asking'; q: PracticeQuestion }
   | { kind: 'answered'; q: PracticeQuestion; response: string; result: AnswerResult }
+  | { kind: 'summary' }
 
-export function Practice({ skill, onExit }: { skill: SkillSummary; onExit: () => void }) {
+type Outcome = { principle: PrincipleRef; correct: boolean }
+
+function scopeTitle(scope: Scope): string {
+  return scope.mode === 'mixed' ? 'Mixed practice' : scope.name
+}
+
+/**
+ * Practice questions from a skill, a principle, or a weighted mix.
+ * With `setLength`, the session ends after that many answers with a summary.
+ */
+export function Practice({
+  scope,
+  setLength,
+  onExit,
+  onStart,
+}: {
+  scope: Scope
+  setLength: number | null
+  onExit: () => void
+  onStart: (scope: Scope, setLength: number | null) => void
+}) {
   const [state, setState] = useState<State>({ kind: 'loading' })
   const [selected, setSelected] = useState<string | null>(null)
   const [typed, setTyped] = useState('')
   const [busy, setBusy] = useState(false)
   const [tally, setTally] = useState({ right: 0, total: 0 })
+  const [outcomes, setOutcomes] = useState<Outcome[]>([])
   const [lessonFor, setLessonFor] = useState<string | null>(null)
   const [flagging, setFlagging] = useState(false)
   const [notice, setNotice] = useState<string | null>(null)
@@ -37,7 +59,7 @@ export function Practice({ skill, onExit }: { skill: SkillSummary; onExit: () =>
       setTyped('')
       hintUsed.current = false
       try {
-        const { question } = await api.next(skill.id, after)
+        const { question } = await api.next(scope, after)
         if (!question) {
           setState({ kind: 'empty' })
           return
@@ -48,7 +70,7 @@ export function Practice({ skill, onExit }: { skill: SkillSummary; onExit: () =>
         setState({ kind: 'error', message: errorMessage(e) })
       }
     },
-    [skill.id],
+    [scope],
   )
 
   useEffect(() => {
@@ -63,19 +85,30 @@ export function Practice({ skill, onExit }: { skill: SkillSummary; onExit: () =>
     setNotice(null)
     try {
       const time_ms = Math.round(performance.now() - shownAt.current)
-      const result = await api.answer({ question_id: state.q.id, response, time_ms, hint_used: hintUsed.current })
+      const result = await api.answer({
+        question_id: state.q.id,
+        response,
+        time_ms,
+        hint_used: hintUsed.current,
+        mode: scope.mode,
+      })
       setTally((t) => ({ right: t.right + (result.correct ? 1 : 0), total: t.total + 1 }))
+      setOutcomes((o) => [...o, { principle: result.principle, correct: result.correct }])
       setState({ kind: 'answered', q: state.q, response, result })
     } catch (e) {
       setState({ kind: 'error', message: errorMessage(e) })
     } finally {
       setBusy(false)
     }
-  }, [state, typed, selected, busy])
+  }, [state, typed, selected, busy, scope.mode])
+
+  const setDone = setLength !== null && tally.total >= setLength
 
   const next = useCallback(() => {
-    if (state.kind === 'answered') void load(state.q.id)
-  }, [state, load])
+    if (state.kind !== 'answered') return
+    if (setDone) setState({ kind: 'summary' })
+    else void load(state.q.id)
+  }, [state, load, setDone])
 
   const flagged = useCallback(() => {
     setFlagging(false)
@@ -112,13 +145,27 @@ export function Practice({ skill, onExit }: { skill: SkillSummary; onExit: () =>
     <section className="practice">
       <div className="practice-bar">
         <button className="link" onClick={onExit}>
-          ← All skills
+          ← Dashboard
         </button>
-        <h2>{skill.name}</h2>
+        <h2>{scopeTitle(scope)}</h2>
         <span className="muted" aria-live="polite">
-          {tally.total > 0 ? `${tally.right} / ${tally.total} this session` : ''}
+          {setLength !== null && state.kind !== 'summary'
+            ? `Question ${Math.min(tally.total + (state.kind === 'answered' ? 0 : 1), setLength)} of ${setLength}`
+            : tally.total > 0
+              ? `${tally.right} / ${tally.total} this session`
+              : ''}
         </span>
       </div>
+
+      {state.kind === 'summary' && (
+        <SetSummary
+          outcomes={outcomes}
+          onLearn={setLessonFor}
+          onPractice={(p) => onStart({ mode: 'principle', id: p.id, name: p.name }, setLength)}
+          onAgain={() => onStart(scope, setLength)}
+          onExit={onExit}
+        />
+      )}
 
       {notice && (
         <p className="flash" role="status">
@@ -137,7 +184,7 @@ export function Practice({ skill, onExit }: { skill: SkillSummary; onExit: () =>
           </button>
         </div>
       )}
-      {state.kind === 'empty' && <p className="card">There are no questions for this skill yet.</p>}
+      {state.kind === 'empty' && <p className="card">There are no questions here yet.</p>}
 
       <AnimatePresence mode="wait" initial={false}>
         {(state.kind === 'asking' || state.kind === 'answered') && (
@@ -145,6 +192,7 @@ export function Practice({ skill, onExit }: { skill: SkillSummary; onExit: () =>
             <article className="card question">
               <div className="badges">
                 {state.q.draft && <span className="badge draft">Draft – not reviewed</span>}
+                {scope.mode !== 'skill' && <span className="badge">{state.q.skill_name}</span>}
                 <span className="badge">Difficulty {state.q.difficulty}</span>
               </div>
               <p className="prompt">
@@ -249,7 +297,7 @@ export function Practice({ skill, onExit }: { skill: SkillSummary; onExit: () =>
                 </p>
                 <div className="actions">
                   <button className="primary" autoFocus onClick={next}>
-                    Next question
+                    {setDone ? 'See results' : 'Next question'}
                   </button>
                 </div>
               </motion.div>
@@ -262,6 +310,70 @@ export function Practice({ skill, onExit }: { skill: SkillSummary; onExit: () =>
       {flagging && (state.kind === 'asking' || state.kind === 'answered') && (
         <FlagDialog questionId={state.q.id} onDone={flagged} onCancel={cancelFlag} />
       )}
+    </section>
+  )
+}
+
+/** End-of-set results: score, and the principles missed with ways to fix them. */
+function SetSummary({
+  outcomes,
+  onLearn,
+  onPractice,
+  onAgain,
+  onExit,
+}: {
+  outcomes: Outcome[]
+  onLearn: (principleId: string) => void
+  onPractice: (p: PrincipleRef) => void
+  onAgain: () => void
+  onExit: () => void
+}) {
+  const right = outcomes.filter((o) => o.correct).length
+  const missed = new Map<string, { p: PrincipleRef; count: number }>()
+  for (const o of outcomes) {
+    if (o.correct) continue
+    const m = missed.get(o.principle.id)
+    if (m) m.count += 1
+    else missed.set(o.principle.id, { p: o.principle, count: 1 })
+  }
+  return (
+    <section className="card summary" role="status">
+      <h3>
+        Set complete: {right} of {outcomes.length} correct
+      </h3>
+      {missed.size === 0 ? (
+        <p>Nothing missed — nice work.</p>
+      ) : (
+        <>
+          <h4>Worth another look</h4>
+          <ul className="missed">
+            {[...missed.values()].map(({ p, count }) => (
+              <li key={p.id}>
+                <span>
+                  <span className="badge">{p.id}</span> {p.name}
+                  {count > 1 ? ` (missed ${count})` : ''}
+                </span>
+                <span className="missed-actions">
+                  <button className="link" onClick={() => onLearn(p.id)}>
+                    Learn this
+                  </button>
+                  <button className="secondary small" onClick={() => onPractice(p)}>
+                    Practice this
+                  </button>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+      <div className="actions">
+        <button className="secondary" onClick={onExit}>
+          Back to dashboard
+        </button>
+        <button className="primary" autoFocus onClick={onAgain}>
+          Another set
+        </button>
+      </div>
     </section>
   )
 }
