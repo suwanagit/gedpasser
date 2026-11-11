@@ -7,7 +7,7 @@ skill = "a-functions"
 principle = "A.7.c"
 difficulty = 1
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = 'If $f(x) = 4x - 9$, what is $f(6)$?'
 answer = "15"
 check = "4 * 6 - 9"
@@ -20,7 +20,7 @@ skill = "a-functions"
 principle = "A.7.c"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = 'If $g(x) = x^2 - 3x + 2$, what is $g(-2)$?'
 choices = ["12", "0", "-8", "4"]
 answer = "12"
@@ -36,7 +36,7 @@ skill = "a-functions"
 principle = "A.7.d"
 difficulty = 3
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = '''
 A linear function $g$ has $g(1) = 7$ and $g(5) = 19$.
 How much greater is the slope of $g$ than the slope of $f(x) = 2x + 1$?
@@ -56,7 +56,7 @@ skill = "a-functions"
 principle = "A.5.e"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = '''
 The height, in meters, of a ball $t$ seconds after it is thrown is $h(t) = -5t^2 + 20t$.
 After how many seconds does the ball reach its highest point?
@@ -76,7 +76,7 @@ skill = "a-functions"
 principle = "A.5.e"
 difficulty = 3
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = '''
 A ball's height in meters after $t$ seconds is $h(t) = -5t^2 + 30t$.
 After how many seconds does the ball land (height 0 again, other than at $t = 0$)?
@@ -95,7 +95,7 @@ skill = "a-functions"
 principle = "A.7.a"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 alaska = true
 prompt = '''
 Musher A's distance in kilometers after $t$ hours is $d = 14t$.
@@ -118,7 +118,7 @@ skill = "a-functions"
 principle = "A.7.a"
 difficulty = 2
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = '''
 Store A's graph of rice cost against weight is a line through the origin with a slope of 2.40 dollars per kilogram.
 Store B sells 5 kg of rice for \$11.50. What is the lower price per kilogram, in dollars?
@@ -137,7 +137,7 @@ skill = "a-functions"
 principle = "A.7.b"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = "Which set of ordered pairs is NOT a function?"
 choices = ['$\{(1, 2), (2, 4), (3, 6)\}$', '$\{(1, 5), (2, 5), (3, 5)\}$', '$\{(2, 1), (2, 3), (4, 5)\}$', '$\{(0, 0), (1, 1), (2, 4)\}$']
 answer = '$\{(2, 1), (2, 3), (4, 5)\}$'
@@ -155,7 +155,7 @@ skill = "a-functions"
 principle = "A.7.c"
 difficulty = 2
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = 'If $f(x) = 3x - 2$, what value of $x$ makes $f(x) = 13$?'
 answer = "5"
 check = "(13 + 2) / 3"
@@ -168,7 +168,7 @@ skill = "a-functions"
 principle = "A.7.c"
 difficulty = 3
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = 'If $g(x) = 2x^2 - x$, what is $g(-3)$?'
 choices = ["21", "15", "-21", "39"]
 answer = "21"
@@ -184,7 +184,7 @@ skill = "a-functions"
 principle = "A.7.d"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = '''
 Function $f$ is $f(x) = 2x + 5$. Function $g$ is linear, with $g(0) = 1$ and $g(3) = 13$.
 How much greater is the $y$-intercept of $f$ than the $y$-intercept of $g$?
@@ -204,7 +204,7 @@ skill = "a-functions"
 principle = "A.7.d"
 difficulty = 3
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = '''
 The quadratic function $f(x) = x^2 - 6x + 10$ has a lowest point. The linear function $g(x) = 4x + 7$ has a $y$-intercept.
 How much less is the minimum value of $f$ than the $y$-intercept of $g$?

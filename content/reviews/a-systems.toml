@@ -1,0 +1,145 @@
+# Independent review of a-systems questions and the A.2.d lesson.
+
+[[review]]
+id = "a-systems-0001"
+kind = "question"
+hash = "b0dfaf69898abd3e"
+verdict = "pass"
+solved = "7"
+note = "Blind answer 7 matches key. Elimination by adding is correct; check (10+4)/2 = 7; common mistake (giving y = 3) is real. Numbers differ from the lesson's elimination example, so the lesson does not give it away."
+date = "2026-11-10"
+
+[[review]]
+id = "a-systems-0002"
+kind = "question"
+hash = "790ceaeb866a130a"
+verdict = "pass"
+solved = "25"
+note = "Blind answer 25 matches key. Subtracting equations gives h = 25, s = 20; distractors 20 (salmon), 35 (70/2), 45 are plausible and wrong. Homer fish market is a realistic Alaska setting; kg units."
+date = "2026-11-10"
+
+[[review]]
+id = "a-systems-0003"
+kind = "question"
+hash = "d5d82cd9f953cc63"
+verdict = "pass"
+solved = "2"
+note = "Blind answer 2 matches key (x = 3, y = 2 checks in both equations). Substitution explanation correct; common mistake (x = y - 1) is a real sign error. Difficulty 3 reasonable."
+date = "2026-11-10"
+
+[[review]]
+id = "a-systems-0004"
+kind = "question"
+hash = "08c4c893fa9313c1"
+verdict = "pass"
+solved = "18"
+note = "Blind answer 18 matches key. Substitution x + 3x = 24 gives x = 6, y = 18. Same shape as the lesson's substitution example (y = 2x, x + y = 9) but different numbers and multiplier, so the answer is not given away."
+date = "2026-11-10"
+
+[[review]]
+id = "a-systems-0005"
+kind = "question"
+hash = "8bc9ba762588aa20"
+verdict = "fix"
+solved = "15"
+note = "Key 15 is correct, but (1) the common_mistake (285/12 rounded = 24) does not match any choice; distractors 12, 18 and 20 have no stated source. Either add 24 as a choice or rewrite common_mistake to describe the error behind an existing distractor. (2) The solution has a = c = 15, so a learner who mixes up adult and child plates still gets it right; the lesson's ticket example also has equal counts (10 and 10). Change the numbers so the counts differ (e.g. 30 plates for $270 gives 12 adult, 18 child, and 18 becomes the swap distractor)."
+date = "2026-11-10"
+
+[[review]]
+id = "a-systems-0006"
+kind = "question"
+hash = "8609b2cc0292ccbc"
+verdict = "pass"
+solved = "4"
+note = "Blind answer 4 matches key (y = 2 checks in both). Adding cancels y; common mistake (subtracting doubles the y terms) is accurate. Fill-in integer answer is natural."
+date = "2026-11-10"
+
+[[review]]
+id = "a-systems-0007"
+kind = "question"
+hash = "7d14a037df10263d"
+verdict = "pass"
+solved = "4"
+note = "Blind answer 4 matches key. Subtracting gives x = 4, y = 3; distractor 3 is the y value, 7 and 11 are the constants. Exactly one correct choice."
+date = "2026-11-10"
+
+[[review]]
+id = "a-systems-0008"
+kind = "question"
+hash = "bdf7792e9511ba4a"
+verdict = "pass"
+solved = "6"
+note = "Blind answer 6 matches key (6 kg nuts, 4 kg raisins, 84 + 24 = 108). Distractors 4 (raisins), 7.7 (108/14), 5 (half) are plausible. Metric units used."
+date = "2026-11-10"
+
+[[review]]
+id = "a-systems-0009"
+kind = "question"
+hash = "0e76ec287163201c"
+verdict = "pass"
+solved = "32"
+note = "Blind answer 32 matches key (32 + 18 = 50, 32 - 18 = 14). Explanation and common mistake are correct; wording is unambiguous."
+date = "2026-11-10"
+
+[[review]]
+id = "a-systems-0010"
+kind = "question"
+hash = "831e00f5aec879f6"
+verdict = "pass"
+solved = "3"
+note = "Blind answer 3 matches key; intersection (2, 3) checks in both lines. Distractor 2 is the x-coordinate; 5 and 1 are intercept magnitudes. Explanation correct."
+date = "2026-11-10"
+
+[[review]]
+id = "a-systems-0011"
+kind = "question"
+hash = "14914f1ae76eb4e3"
+verdict = "fix"
+solved = "25"
+note = "Math is correct (30 km/h down, 20 km/h up, boat 25 km/h, current 5 km/h) and the common mistake (averaging times gives 24) is real. But the question is flagged alaska = true while the prompt has no Alaska setting. Name a real Alaska river and town (e.g. a riverboat on the Yukon River near Galena) or set alaska = false."
+date = "2026-11-10"
+
+[[review]]
+id = "a-systems-0012"
+kind = "question"
+hash = "687a8c1d11b15532"
+verdict = "pass"
+solved = "0"
+note = "Blind answer 0 matches key: same slope 2, different intercepts, so parallel lines and no solution. Choices cover 0, 1, 2 and infinitely many; only 0 is defensible. Note the lesson does not yet teach this case (see A.2.d review)."
+date = "2026-11-10"
+
+[[review]]
+id = "A.2.d"
+kind = "lesson"
+hash = "b8bba88784337536"
+verdict = "fix"
+note = "All worked examples are correct (x = 7, y = 5; x = 3, y = 6; a = 10, c = 10) and none duplicates a question closely enough to give its answer away. Two problems: (1) The lesson never covers systems with no solution or infinitely many solutions, yet a-systems-0012 tests that. Add a line such as: same slope, different intercepts means parallel lines and no solution; the same line twice means infinitely many solutions. (2) The ticket example gives a = c = 10, so it cannot show which value is which; change the numbers so the counts differ (e.g. 20 tickets for $152 gives a = 8, c = 12). Optionally say where graphing fits, since the summary lists it."
+date = "2026-11-10"
+
+# Re-review after fixes (2026-11-10).
+
+[[review]]
+id = "a-systems-0005"
+kind = "question"
+hash = "1b45ade3f5991d1c"
+verdict = "pass"
+solved = "12"
+note = "Re-solved: 12a + 7(30 - a) = 270 gives 5a = 60, a = 12, c = 18 (144 + 126 = 270). Key 12 is correct. Distractors are now principled: 18 (child plates, matches common_mistake), 15 (half of 30), 22.5 (270/12, ignoring child plates). Adult and child counts now differ."
+date = "2026-11-10"
+
+[[review]]
+id = "a-systems-0011"
+kind = "question"
+hash = "b271a964a52aa316"
+verdict = "pass"
+solved = "25"
+note = "Re-solved: 30 km/h down, 20 km/h up, boat 25 km/h, current 5 km/h. Now set on the Yukon River near Galena, a realistic Alaska setting with a plausible current, so alaska = true fits. Explanation and common mistake unchanged and correct."
+date = "2026-11-10"
+
+[[review]]
+id = "A.2.d"
+kind = "lesson"
+hash = "e6cfa0728beeca08"
+verdict = "pass"
+note = "Checked all examples: elimination (7, 5), substitution (3, 6), tickets a = 8, c = 12 (80 + 72 = 152, now unequal and fully worked). New section is correct: y = x + 1 and y = x + 4 are parallel (no solution); 2y = 4x + 2 is the same line as y = 2x + 1 (infinitely many). Its examples differ from a-systems-0012, so they teach the idea without giving that answer away."
+date = "2026-11-10"

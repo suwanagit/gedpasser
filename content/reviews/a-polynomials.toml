@@ -1,0 +1,235 @@
+# Review notes for a-polynomials.
+
+[[review]]
+id = "a-polynomials-0001"
+kind = "question"
+hash = "69da4a91b40863c2"
+verdict = "pass"
+solved = "x^2 + 8x + 15"
+note = "Matches blind answer; FOIL expansion is identical for all x. Distractors are real FOIL errors (first/last only, adding constants, adding instead of multiplying). check/answer_value agree at x = 2."
+date = "2026-11-10"
+
+[[review]]
+id = "a-polynomials-0002"
+kind = "question"
+hash = "43daf176db3e0b77"
+verdict = "pass"
+solved = "7"
+note = "(x - 7)(x + 2) = 0 gives 7 and -2; prompt asks for the positive one, so the answer is unique. check evaluates to 7. Explanation and common mistake are correct."
+date = "2026-11-10"
+
+[[review]]
+id = "a-polynomials-0003"
+kind = "question"
+hash = "0878daab9e13c74f"
+verdict = "fix"
+solved = "(x - 3)(x + 3)"
+note = "Math is correct and only choice 1 equals x^2 - 9 for all x. But the A.1.h lesson in this same skill shows the exact factorization x^2 - 9 = (x - 3)(x + 3), which gives the answer away. Change the expression, e.g. x^2 - 49 with choices (x - 7)(x + 7), (x - 7)^2, (x - 49)(x + 1), (x + 7)^2, and update answer_value/check."
+date = "2026-11-10"
+
+[[review]]
+id = "a-polynomials-0004"
+kind = "question"
+hash = "96ca05ac906c6fc6"
+verdict = "pass"
+solved = "21"
+note = "32 - 12 + 1 = 21 matches key. Common mistake (squaring 2x) is real. Difficulty 1 fits."
+date = "2026-11-10"
+
+[[review]]
+id = "a-polynomials-0005"
+kind = "question"
+hash = "66083fd78e90a46a"
+verdict = "pass"
+solved = "s^2 + s"
+note = "s(s + 1) = s^2 + s for all s; only choice 1 is correct. (s + 1)^2 distractor matches the stated common mistake. Metric units, clear wording."
+date = "2026-11-10"
+
+[[review]]
+id = "a-polynomials-0006"
+kind = "question"
+hash = "7d9ac27ce9254990"
+verdict = "pass"
+solved = "x - 4"
+note = "(x - 4)(x + 4)/(x + 4) = x - 4 for x != -4, stated in the prompt. Other choices are wrong for general x. Lesson A.1.h uses the analogous x^2 - 9 example with different numbers, which is acceptable practice, not a giveaway."
+date = "2026-11-10"
+
+[[review]]
+id = "a-polynomials-0007"
+kind = "question"
+hash = "fdf7fba6c143cadf"
+verdict = "pass"
+solved = "5"
+note = "10 / 2 = 5 matches key; denominator nonzero at x = 4. Common mistake (4 + 6/2 = 7) is a real order-of-operations error."
+date = "2026-11-10"
+
+[[review]]
+id = "a-polynomials-0008"
+kind = "question"
+hash = "8c5fd7388afc9759"
+verdict = "fix"
+solved = "480/n"
+note = "Math is correct and only 480/n fits. But the A.1.j lesson uses the same scenario almost word for word ('a $300 cabin split among n people costs 300/n dollars each'), so the learner just swaps 300 for 480. Change the question context (e.g. n people sharing the cost of a $480 fuel order for a skiff trip, or a time = distance/speed setting) or change the lesson example."
+date = "2026-11-10"
+
+[[review]]
+id = "a-polynomials-0009"
+kind = "question"
+hash = "592c46be20b5407f"
+verdict = "fix"
+solved = "w(w + 2) = 48"
+note = "Keyed equation is correct (width 6 m, length 8 m) and the other choices are wrong. However the A.4.b lesson (pen 3 m longer than wide, area 40, w(w + 3) = 40) and the A.1.g lesson (rectangle 3 m longer than wide, w(w + 3)) are the same template, so the answer is read off by swapping 3 for 2. Make the question structurally different, e.g. length is 2 m less than twice the width (w(2w - 2) = 48), or change the lesson examples."
+date = "2026-11-10"
+
+[[review]]
+id = "a-polynomials-0010"
+kind = "question"
+hash = "964815654c318056"
+verdict = "pass"
+solved = "3x^2 + 4x - 6"
+note = "Distributing the minus gives 3x^2 + 4x - 6 for all x. Distractor 3x^2 + 2x + 2 matches the stated common mistake; others are sign/coefficient slips. check agrees at x = 2."
+date = "2026-11-10"
+
+[[review]]
+id = "a-polynomials-0011"
+kind = "question"
+hash = "a9e44ef9bc84afb8"
+verdict = "pass"
+solved = "(x + 5)(x - 3)"
+note = "(x + 5)(x - 3) = x^2 + 2x - 15 for all x; other choices expand to different trinomials. Explanation and common mistake are correct."
+date = "2026-11-10"
+
+[[review]]
+id = "a-polynomials-0012"
+kind = "question"
+hash = "0706be8771c74a21"
+verdict = "fix"
+solved = "2"
+note = "Answer 2 is correct and -2 is not among the choices, so the key is unique. But the A.1.f lesson factors this exact polynomial, '2x^2 - 8 = 2(x - 2)(x + 2)', which hands over the roots. Use a different equation, e.g. 3x^2 - 27 = 0 with choices 3, 9, 27, 81 (answer 3, check sqrt(27 / 3)), and update the explanation."
+date = "2026-11-10"
+
+[[review]]
+id = "A.1.d"
+kind = "lesson"
+hash = "a96012262b2e1fa0"
+verdict = "pass"
+note = "Checked all three examples: subtraction gives 2x^2 + 7x, FOIL gives x^2 - 3x - 10, division gives x + 3. Correct and clear. (Optional: add 'for x != -2' to the division example, as A.1.h does.)"
+date = "2026-11-10"
+
+[[review]]
+id = "A.1.e"
+kind = "lesson"
+hash = "3d91b3bba0c36f2e"
+verdict = "pass"
+note = "Examples correct (8 and 54); the (-1)^2 vs -1^2 warning is accurate and useful."
+date = "2026-11-10"
+
+[[review]]
+id = "A.1.f"
+kind = "lesson"
+hash = "cfcc28e2b74e8614"
+verdict = "pass"
+note = "Common factor, difference of squares and trinomial examples are all correct; order of attempts is sensible. Its 2x^2 - 8 example duplicates question 0012 (flagged on that question)."
+date = "2026-11-10"
+
+[[review]]
+id = "A.1.g"
+kind = "lesson"
+hash = "607dc0bb4c3a398c"
+verdict = "fix"
+note = "Math is correct (w^2 + 3w; (s + 2)^2 = s^2 + 4s + 4). But 'a 1 m path added all round' is British usage; use US wording: 'a 1 m wide path added all the way around'. ('1 m wide' also makes clear why the side grows by 2.)"
+date = "2026-11-10"
+
+[[review]]
+id = "A.1.h"
+kind = "lesson"
+hash = "1a32504053622f9d"
+verdict = "pass"
+note = "Rules and examples correct (5/x, x/2, x - 3 with restriction). Cancel-factors-not-terms tip is accurate. Its x^2 - 9 example duplicates question 0003 (flagged on that question)."
+date = "2026-11-10"
+
+[[review]]
+id = "A.1.i"
+kind = "lesson"
+hash = "95805c236e48c794"
+verdict = "pass"
+note = "Example value 7/2 = 3.5 correct; undefined-at-zero-denominator point is correct."
+date = "2026-11-10"
+
+[[review]]
+id = "A.1.j"
+kind = "lesson"
+hash = "91b0e649a66ed207"
+verdict = "pass"
+note = "Examples correct (300/n, 120/s, 60/(s - 5)); literal dollar sign escaped. Cabin example mirrors question 0008 (flagged on that question)."
+date = "2026-11-10"
+
+[[review]]
+id = "A.4.a"
+kind = "lesson"
+hash = "e5c82a2b2cd35c87"
+verdict = "pass"
+note = "Factoring, square-root and formula examples verified (2, 3; +/-7; 2, -4). 'Works every time' is acceptable at this level, though a note that a negative number under the root means no real solution would be a nice addition."
+date = "2026-11-10"
+
+[[review]]
+id = "A.4.b"
+kind = "lesson"
+hash = "1212985f43e3dc69"
+verdict = "pass"
+note = "w(w + 3) = 40 -> (w + 8)(w - 5) = 0 -> 5 m by 8 m verified; rejecting the negative root is explained. Template mirrors question 0009 (flagged on that question)."
+date = "2026-11-10"
+
+# ── Re-review after fixes (2026-11-10) ──
+
+[[review]]
+id = "a-polynomials-0003"
+kind = "question"
+hash = "e7cbe37a2deef986"
+verdict = "pass"
+solved = "(x - 7)(x + 7)"
+note = "Re-review: (x - 7)(x + 7) = x^2 - 49 for all x; other choices expand to different polynomials. check/answer_value agree (51 at x = 10). No lesson shows x^2 - 49 (lessons use x^2 - 4 and x^2 - 9), so it is no longer given away."
+date = "2026-11-10"
+
+[[review]]
+id = "a-polynomials-0008"
+kind = "question"
+hash = "c9e07b04928c1c67"
+verdict = "pass"
+solved = "500/t"
+note = "Re-review: rate = liters / minutes = 500/t, only choice 1. Distractor t/500 matches the stated common mistake (minutes per liter). Metric units. The A.1.j lesson no longer has a matching scenario (its examples are cost per person and time = distance/speed), so the question tests the idea without being a number swap."
+date = "2026-11-10"
+
+[[review]]
+id = "a-polynomials-0009"
+kind = "question"
+hash = "dc9c3801280768e8"
+verdict = "pass"
+solved = "w(2w - 2) = 60"
+note = "Re-review: length 2w - 2, so w(2w - 2) = 60 -> w^2 - w - 30 = 0 -> (w - 6)(w + 5) = 0, width 6 m, length 10 m, area 60 checks. check evaluates to 6. Distractors are real errors (dropping 'twice', forgetting to multiply, sign of 2). Now structurally different from the A.1.g/A.4.b 'k m longer than wide' examples."
+date = "2026-11-10"
+
+[[review]]
+id = "a-polynomials-0012"
+kind = "question"
+hash = "aa6f49634f13e836"
+verdict = "pass"
+solved = "3"
+note = "Re-review: 3x^2 = 27, x^2 = 9, x = 3 or -3; only 3 is offered. Distractor 9 matches the common mistake. check sqrt(27/3) = 3. No lesson uses 3x^2 - 27 (A.1.f uses 2x^2 - 8, A.4.a uses x^2 = 49)."
+date = "2026-11-10"
+
+[[review]]
+id = "A.1.g"
+kind = "lesson"
+hash = "85cb8cc8004a5e07"
+verdict = "fix"
+note = "US wording is fixed and the math is correct. But the new reason 'The path adds 1 m on each side, so the new side is s + 2' can be read as 'each side gets 1 m longer', which would mean s + 1, the very mistake this example should prevent. Say where the 2 comes from, e.g. 'Each side of the new square has the old side s plus 1 m of path at each end, so the new side is s + 1 + 1 = s + 2.'"
+date = "2026-11-10"
+
+[[review]]
+id = "A.1.g"
+kind = "lesson"
+hash = "73be9030817e2afa"
+verdict = "pass"
+note = "Re-review: the path sentence now explains s + 1 + 1 = s + 2 without ambiguity, and (s + 2)^2 = s^2 + 4s + 4 is correct. The w(w + 3) example is correct. US wording, metric units, math inside $...$. It does not give away any question (0005 uses s(s + 1); 0009 uses w(2w - 2))."
+date = "2026-11-10"

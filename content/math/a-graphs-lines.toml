@@ -8,7 +8,7 @@ skill = "a-graphs-lines"
 principle = "A.5.b"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = 'What is the slope of the line through $(1, 2)$ and $(4, 11)$?'
 choices = ["3", "1/3", "9", "-3"]
 answer = "3"
@@ -24,7 +24,7 @@ skill = "a-graphs-lines"
 principle = "A.5.d"
 difficulty = 2
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = 'At what value of $x$ does the line $y = -2x + 7$ cross the $x$-axis?'
 answer = "3.5"
 check = "7 / 2"
@@ -40,7 +40,7 @@ skill = "a-graphs-lines"
 principle = "A.6.c"
 difficulty = 3
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = 'Which line is perpendicular to $y = \frac{2}{3}x - 1$ and passes through $(0, 4)$?'
 choices = ['$y = -\frac{3}{2}x + 4$', '$y = \frac{3}{2}x + 4$', '$y = -\frac{2}{3}x + 4$', '$y = \frac{2}{3}x + 4$']
 answer = '$y = -\frac{3}{2}x + 4$'
@@ -58,7 +58,7 @@ skill = "a-graphs-lines"
 principle = "A.5.a"
 difficulty = 1
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = 'Point $A$ is at $(-4, 3)$. Point $B$ is 6 units to the right of $A$. What is the $x$-coordinate of $B$?'
 answer = "2"
 check = "-4 + 6"
@@ -71,7 +71,7 @@ skill = "a-graphs-lines"
 principle = "A.5.a"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = 'The points $(2, -3)$ and $(2, 5)$ lie on a vertical line. How many units apart are they?'
 choices = ["8", "2", "4", "10"]
 answer = "8"
@@ -85,7 +85,7 @@ skill = "a-graphs-lines"
 principle = "A.5.c"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = '''
 A proportional relationship between liters of fuel ($x$) and kilometers driven ($y$) is graphed as a line through $(0, 0)$ and $(5, 40)$.
 How many kilometers can be driven per liter?
@@ -102,7 +102,7 @@ skill = "a-graphs-lines"
 principle = "A.5.c"
 difficulty = 2
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 alaska = true
 prompt = '''
 The cost of salmon is proportional to its weight: 3 kg costs \$54.
@@ -119,7 +119,7 @@ skill = "a-graphs-lines"
 principle = "A.6.a"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = 'Which is the equation of the line with slope $-2$ that passes through $(1, 4)$?'
 choices = ['$y = -2x + 6$', '$y = -2x + 4$', '$y = -2x + 2$', '$y = 2x + 2$']
 answer = '$y = -2x + 6$'
@@ -137,7 +137,7 @@ skill = "a-graphs-lines"
 principle = "A.6.a"
 difficulty = 3
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = 'A line has slope $\frac{1}{2}$ and passes through $(4, 7)$. What is its $y$-intercept?'
 answer = "5"
 check = "7 - 1 / 2 * 4"
@@ -152,7 +152,7 @@ skill = "a-graphs-lines"
 principle = "A.6.b"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = 'Which is the equation of the line through $(0, -1)$ and $(2, 5)$?'
 choices = ['$y = 3x - 1$', '$y = 2x - 1$', '$y = 3x + 5$', '$y = -3x - 1$']
 answer = '$y = 3x - 1$'
@@ -170,7 +170,7 @@ skill = "a-graphs-lines"
 principle = "A.6.b"
 difficulty = 3
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = 'A line passes through $(1, 2)$ and $(3, -4)$. What is its $y$-intercept?'
 answer = "5"
 check = "2 - (-4 - 2) / (3 - 1) * 1"
@@ -186,7 +186,7 @@ skill = "a-graphs-lines"
 principle = "A.5.b"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = '''
 A line passes through the points in this table: when $x = 0$, $y = 1$; when $x = 2$, $y = 7$; when $x = 4$, $y = 13$.
 What is the slope of the line?

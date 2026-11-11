@@ -1,0 +1,193 @@
+# Review notes for a-linear-equations.
+
+[[review]]
+id = "a-linear-equations-0001"
+kind = "question"
+hash = "5bdbfb9f46554b85"
+verdict = "pass"
+solved = "7"
+note = "Blind answer 7 matches key and check. Explanation correct; common mistake (51/5 = 10.2) is a real error. Difficulty 1 fits."
+date = "2026-11-10"
+
+[[review]]
+id = "a-linear-equations-0002"
+kind = "question"
+hash = "14f4658ff19993b5"
+verdict = "pass"
+solved = "9"
+note = "Blind answer 9 matches. Only 9 satisfies 3(x-4) = x+6. Distractor 5 comes from the stated partial-distribution mistake; 3 and -3 are plausible sign/step slips. Explanation correct."
+date = "2026-11-10"
+
+[[review]]
+id = "a-linear-equations-0003"
+kind = "question"
+hash = "e20d47ea5d0a3215"
+verdict = "fix"
+solved = "x >= -5 (boundary -5)"
+note = "Math and key are correct (x >= -5), but the prompt gives away the very skill being tested: it tells the learner the answer has the form 'x >= ...', so the sign flip is done for them. A learner who forgets to flip gets x <= -5 and still types -5, which is graded correct, so the stated common_mistake can never be caught. Fix: make it multiple choice with the full inequality as choices (for example x >= -5, x <= -5, x >= 5, x <= 5), with x <= -5 as the forgot-to-flip distractor and +5 options for sign slips; or keep fill-in but ask 'What is the smallest integer that satisfies it?' (answer -5; an unflipped x <= -5 has no smallest integer, so the error shows). As written, difficulty 3 is also too high for what it actually requires."
+date = "2026-11-10"
+
+[[review]]
+id = "a-linear-equations-0004"
+kind = "question"
+hash = "0d0c6fa1c25acb4e"
+verdict = "pass"
+solved = "32"
+note = "Blind answer 32 matches. Explanation correct; common mistake (8 / 4 = 2) is a real error. Fraction renders in KaTeX."
+date = "2026-11-10"
+
+[[review]]
+id = "a-linear-equations-0005"
+kind = "question"
+hash = "01f8853b5c770ae5"
+verdict = "pass"
+solved = "6"
+note = "Blind answer 6 matches. Distractors: 8.5 (255/30, the stated mistake), 11 ((255+75)/30, adding the fee), 5 plausible. Only 6 is correct. Dollar signs escaped; Valdez skiff rental is a realistic Alaska setting."
+date = "2026-11-10"
+
+[[review]]
+id = "a-linear-equations-0006"
+kind = "question"
+hash = "03148571950dd1e2"
+verdict = "pass"
+solved = "39"
+note = "Blind answer 39 matches (39 + 57 = 96, difference 18). Explanation sets up and solves the equation correctly; half-split mistake (48) is realistic. Prompt asks for dollars so a bare 39 is the natural entry."
+date = "2026-11-10"
+
+[[review]]
+id = "a-linear-equations-0007"
+kind = "question"
+hash = "3657d2235b124da1"
+verdict = "fix"
+solved = "C = 20 + 15m"
+note = "Key C = 20 + 15m is correct and is the only correct choice. However choices 3 ($C = 35m$) and 4 ($C = 20m + 15m$) are algebraically equivalent, so a learner can eliminate both at once (two equivalent options cannot be the single answer), leaving a 50/50. Replace choice 4 with a distinct plausible error, for example $C = 20 - 15m$ or $C = 15m$ (ignoring the joining fee). answer_value 80 (m = 4) matches the check."
+date = "2026-11-10"
+
+[[review]]
+id = "a-linear-equations-0008"
+kind = "question"
+hash = "6c3d1c201de37b6c"
+verdict = "pass"
+solved = "40 - 2.5h = 15"
+note = "Blind answer matches. Only 40 - 2.5h = 15 models the situation; the others give h = -10, 22 and 2.5, so none is equivalent to the key. answer_value 10 is the solution of the correct equation (10 h uses 25 L). Metric units. Difficulty 3 is slightly generous but acceptable."
+date = "2026-11-10"
+
+[[review]]
+id = "a-linear-equations-0009"
+kind = "question"
+hash = "661fd05390ed0a54"
+verdict = "pass"
+solved = "Closed circle at 3, shaded left"
+note = "Blind answer matches. The four choices cover each open/closed and left/right combination exactly once, so exactly one is correct. Explanation and common mistake correct."
+date = "2026-11-10"
+
+[[review]]
+id = "a-linear-equations-0010"
+kind = "question"
+hash = "84cc91824732451a"
+verdict = "pass"
+solved = "4"
+note = "Blind answer 4 matches (11 x 4 = 44 <= 50; 5 tickets = 55 > 50). Distractor 5 is the round-up mistake, 6 comes from ignoring the bus fare and rounding up. Explanation correct."
+date = "2026-11-10"
+
+[[review]]
+id = "a-linear-equations-0011"
+kind = "question"
+hash = "85eb35b00ba9cd69"
+verdict = "pass"
+solved = "8"
+note = "Blind answer 8 matches (85 + 560 = 645 <= 650; 9 drums = 715 > 650). Explanation correct and common mistake (ignoring driver, 9) is realistic. Metric units. Note: the setting closely mirrors the A.3.d lesson example (skiff, at most, crew weight, per-item weight) but with different numbers and a different task, so it does not give the answer away."
+date = "2026-11-10"
+
+[[review]]
+id = "a-linear-equations-0012"
+kind = "question"
+hash = "300c72081b33c9f1"
+verdict = "pass"
+solved = "205 + 15a >= 280"
+note = "Blind answer matches. Only the key models 'at least 280'; no other choice is equivalent (choice 2 reverses the sign, 3 drops the current points, 4 swaps the coefficient). answer_value 5 is the boundary a = 5. Template matches the A.3.d Maria example, which teaches the form but does not hand over this answer."
+date = "2026-11-10"
+
+[[review]]
+id = "A.2.a"
+kind = "lesson"
+hash = "6b7cb5a6ce276be5"
+verdict = "pass"
+note = "Checked the balance idea, steps, and the example 2(x+3) = x+10 giving x = 4 with a correct substitution check. Literal formula x = (c-b)/a is correct (implicitly a is nonzero). Does not duplicate any question."
+date = "2026-11-10"
+
+[[review]]
+id = "A.2.b"
+kind = "lesson"
+hash = "2846c4eec1737787"
+verdict = "pass"
+note = "Plumber example 60 + 45h = 195 gives h = 3, correct. Same fee-plus-rate pattern as question 0005 but different numbers, so it teaches without giving the answer away. Dollar signs escaped."
+date = "2026-11-10"
+
+[[review]]
+id = "A.2.c"
+kind = "lesson"
+hash = "fa02a5901455a428"
+verdict = "pass"
+note = "Truck example C = 25 + 0.30d and ticket example 12a + 7c = 500 are correct; d = 0 test is a good tip. Pattern matches question 0007 but with different numbers; acceptable as instruction. Metric (kilometers)."
+date = "2026-11-10"
+
+[[review]]
+id = "A.3.a"
+kind = "lesson"
+hash = "1187ecf46b160972"
+verdict = "pass"
+note = "Flip rule stated correctly; example -2x + 5 < 11 gives x > -3 and the x = 0 check is valid. Symbol list correct."
+date = "2026-11-10"
+
+[[review]]
+id = "A.3.b"
+kind = "lesson"
+hash = "d388519d1ef0c4e0"
+verdict = "pass"
+note = "Open/closed circle rules and shading direction correct; both examples correct; the tip to put x on the left first covers the case where the shading rule would otherwise mislead."
+date = "2026-11-10"
+
+[[review]]
+id = "A.3.c"
+kind = "lesson"
+hash = "1538eb071b9b186c"
+verdict = "pass"
+note = "Key-phrase mapping correct. Fair example 12 + 4r <= 50 gives r <= 9.5, so at most 9 rides; rounding tip is correct. Similar in form to questions 0010/0011 but different numbers."
+date = "2026-11-10"
+
+[[review]]
+id = "A.3.d"
+kind = "lesson"
+hash = "d9df8daa8e06bb69"
+verdict = "fix"
+note = "Math is correct (300 + 40c <= 900; 18 + 3w >= 60). Two fixes: (1) 'The crew weigh 300 kg together' is British usage; in US English write 'The crew weighs 300 kg in total'. (2) The Maria example never defines w; add 'where w is the number of weeks'. Also consider changing the skiff setting, which nearly mirrors question 0011 (skiff, at most, driver weight, per-drum weight); not a give-away, but varying it would help."
+date = "2026-11-10"
+
+# Re-review after fixes (2026-11-10)
+
+[[review]]
+id = "a-linear-equations-0003"
+kind = "question"
+hash = "96cd1f59757996c2"
+verdict = "pass"
+solved = "x >= -5"
+note = "Re-review: now multiple choice with full inequalities. Only x >= -5 is correct. x <= -5 catches the forgot-to-flip error named in common_mistake; x >= 5 and x <= 5 catch sign slips on the division. Prompt no longer gives away the direction. answer_value -5 is the boundary. Difficulty 2 fits. Explanation correct."
+date = "2026-11-10"
+
+[[review]]
+id = "a-linear-equations-0007"
+kind = "question"
+hash = "f37d80cf8e975925"
+verdict = "pass"
+solved = "C = 20 + 15m"
+note = "Re-review: the duplicate distractor is gone. The four choices are now distinct and none is equivalent to another. Only C = 20 + 15m is correct. Distractors: swapped fees, adding the fees and multiplying by m, ignoring the joining fee. answer_value 80 (m = 4) matches the check."
+date = "2026-11-10"
+
+[[review]]
+id = "A.3.d"
+kind = "lesson"
+hash = "5fcc95c22a894761"
+verdict = "pass"
+note = "Re-review: the data-plan example 8 + 1.5d <= 20 is correct ('at most' gives <=, d is defined) and no longer mirrors question 0011. The Maria example now defines w, and 18 + 3w >= 60 is correct. The British 'crew weigh' wording is gone. Tip is correct."
+date = "2026-11-10"

@@ -1,0 +1,183 @@
+# Independent review of a-graphs-lines questions and lessons.
+
+[[review]]
+id = "a-graphs-lines-0001"
+kind = "question"
+hash = "8cb6dce3ac3e4f99"
+verdict = "pass"
+solved = "3"
+note = "(11 - 2)/(4 - 1) = 9/3 = 3 matches key. Distractors 1/3 (run over rise), 9 (rise only), -3 (sign slip) are real mistakes. Explanation and common_mistake correct."
+date = "2026-11-10"
+
+[[review]]
+id = "a-graphs-lines-0002"
+kind = "question"
+hash = "6dd12e9f84d2b462"
+verdict = "pass"
+solved = "3.5"
+note = "0 = -2x + 7 gives x = 3.5; check 7/2 agrees. Parser accepts 3.5 and 7/2. Explanation correct; common_mistake (giving the y-intercept 7) is realistic. Similar in form to the A.5.d lesson example but different numbers, so not given away."
+date = "2026-11-10"
+
+[[review]]
+id = "a-graphs-lines-0003"
+kind = "question"
+hash = "d81bd4e7c4f839ea"
+verdict = "pass"
+solved = "y = -3/2 x + 4"
+note = "Negative reciprocal of 2/3 is -3/2, intercept 4 from (0, 4). Keyed equation exactly right; check (-3/2)(2) + 4 = 1 = answer_value. All four choices pass through (0, 4) and only choice 1 has slope -3/2, so exactly one is correct; distractors are sign-only and flip-only errors. Note: lesson A.6.c's tip uses the same 2/3 -> -3/2 conversion; flagged as a fix on that lesson."
+date = "2026-11-10"
+
+[[review]]
+id = "a-graphs-lines-0004"
+kind = "question"
+hash = "e0697af2d749a736"
+verdict = "pass"
+solved = "2"
+note = "-4 + 6 = 2 matches key. Clear wording, explanation correct, common_mistake (moving left, -10) is a real error. Difficulty 1 fits."
+date = "2026-11-10"
+
+[[review]]
+id = "a-graphs-lines-0005"
+kind = "question"
+hash = "83c206519436c1b2"
+verdict = "pass"
+solved = "8"
+note = "Same x, so distance = 5 - (-3) = 8 matches key. Distractor 2 matches the common_mistake (5 - 3); 2 is also the shared x-value. Explanation correct."
+date = "2026-11-10"
+
+[[review]]
+id = "a-graphs-lines-0006"
+kind = "question"
+hash = "23518e7e42ecba88"
+verdict = "pass"
+solved = "8"
+note = "Slope 40/5 = 8 km per liter matches key. Graph described fully in words (axes and two points), enough to answer. Distractors 0.125 (inverted rate), 40 and 35 are plausible slips. Metric units. Different context from the A.5.c lesson examples."
+date = "2026-11-10"
+
+[[review]]
+id = "a-graphs-lines-0007"
+kind = "question"
+hash = "8d1a04db8c640cff"
+verdict = "pass"
+solved = "18"
+note = "54/3 = 18 matches key; cost on the vertical axis per 'cost against weight'. Dollar signs escaped correctly in literal strings. Parser accepts 18 and $18. Realistic Alaska salmon price in metric units."
+date = "2026-11-10"
+
+[[review]]
+id = "a-graphs-lines-0008"
+kind = "question"
+hash = "5cfdbc00a8fa63c4"
+verdict = "pass"
+solved = "y = -2x + 6"
+note = "4 = -2(1) + b gives b = 6; keyed equation exactly right. answer_value is the y-intercept (6) rather than a value at a test x, which is consistent with its comment. Only choice 1 has slope -2 and passes through (1, 4): -2x + 4 gives 2, -2x + 2 gives 0, and 2x + 2 passes through (1, 4) but has the wrong slope (a sign error, so a good distractor). Explanation and check line correct."
+date = "2026-11-10"
+
+[[review]]
+id = "a-graphs-lines-0009"
+kind = "question"
+hash = "2f5b55defab8920b"
+verdict = "pass"
+solved = "5"
+note = "7 = (1/2)(4) + b gives b = 5 matches key and check. Explanation correct; common_mistake (7 + 2 = 9) is realistic. Difficulty 3 is a bit high but acceptable."
+date = "2026-11-10"
+
+[[review]]
+id = "a-graphs-lines-0010"
+kind = "question"
+hash = "acb923750f43c831"
+verdict = "pass"
+solved = "y = 3x - 1"
+note = "Slope 6/2 = 3, intercept -1; keyed equation exactly right and check = 5 = answer_value. Only choice 1 passes through both points (2x - 1 gives 3 at x = 2; 3x + 5 and -3x - 1 miss). Note: lesson A.6.b's worked example ends with the same line y = 3x - 1; flagged as a fix on that lesson."
+date = "2026-11-10"
+
+[[review]]
+id = "a-graphs-lines-0011"
+kind = "question"
+hash = "bd4f37dd04cd7a4c"
+verdict = "pass"
+solved = "5"
+note = "Slope (-4 - 2)/(3 - 1) = -3, then 2 = -3 + b gives b = 5; matches key and check. Line y = -3x + 5 verified at (3, -4). common_mistake (+3 slope gives b = -1) is arithmetically right."
+date = "2026-11-10"
+
+[[review]]
+id = "a-graphs-lines-0012"
+kind = "question"
+hash = "9e1461ff8e962b0d"
+verdict = "pass"
+solved = "3"
+note = "Table described clearly in words; rows are collinear, slope 6/2 = 3 matches key. Distractors 6 (change in y), 2 (change in x), 12 (total y change) are real slips. Explanation correct."
+date = "2026-11-10"
+
+[[review]]
+id = "A.5.a"
+kind = "lesson"
+hash = "391e324b87627c1c"
+verdict = "pass"
+note = "Sign directions, (-3, 2) example and quadrant signs (counterclockwise from top right) are correct. The corridor/stairs tip says 'up' even when y is negative, but the bullets above make the direction clear."
+date = "2026-11-10"
+
+[[review]]
+id = "A.5.b"
+kind = "lesson"
+hash = "d7515d459b2fbca8"
+verdict = "pass"
+note = "Slope formula, the (2, 5)/(6, 13) example (= 2), reading slope from y = mx + b, the table method and sign behavior are all correct. Does not duplicate 0001 or 0012."
+date = "2026-11-10"
+
+[[review]]
+id = "A.5.c"
+kind = "lesson"
+hash = "0433487dce57960b"
+verdict = "pass"
+note = "y = kx through the origin, 300/4 = 75 km/h, and C = 2.5g as 2.50 dollars per liter are correct. Metric units; dollar sign escaped. Contexts differ from 0006 and 0007."
+date = "2026-11-10"
+
+[[review]]
+id = "A.5.d"
+kind = "lesson"
+hash = "436f9498ebe910a2"
+verdict = "pass"
+note = "Graphing steps, y = 2x - 3 through (0, -3) and (1, -1), and x-intercept 1.5 are correct. Same method as 0002 but different numbers, so the answer is not given away."
+date = "2026-11-10"
+
+[[review]]
+id = "A.6.a"
+kind = "lesson"
+hash = "57103de9cb6ad97e"
+verdict = "pass"
+note = "Point-slope example (slope 3 through (2, 1) gives y = 3x - 5) and check are correct; tip about the (0, b) shortcut is right. Does not duplicate 0008 or 0009."
+date = "2026-11-10"
+
+[[review]]
+id = "A.6.b"
+kind = "lesson"
+hash = "a8d0f831a2b6c39f"
+verdict = "fix"
+note = "Math is correct, but the worked example ends with y = 3x - 1, which is exactly the keyed answer of question a-graphs-lines-0010 (same line, choice 1). A learner who just read the lesson can pick the familiar equation without working. Change the example to a different line, for example through (1, 2) and (3, 10): slope 4, y = 4x - 2, check 4(3) - 2 = 10."
+date = "2026-11-10"
+
+[[review]]
+id = "A.6.c"
+kind = "lesson"
+hash = "0a8bb13276bed99d"
+verdict = "fix"
+note = "Content is correct, but the tip converts 2/3 to -3/2, which is exactly the step that answers question a-graphs-lines-0003 (perpendicular to y = (2/3)x - 1). Use a different fraction in the tip, for example 3/4 becomes -4/3."
+date = "2026-11-10"
+
+# Re-review after lesson fixes.
+
+[[review]]
+id = "A.6.b"
+kind = "lesson"
+hash = "165e1abe7f1d9c67"
+verdict = "pass"
+note = "Re-review: example through (1, 2) and (3, 10) gives slope 8/2 = 4 and y - 2 = 4(x - 1), so y = 4x - 2; check 4(3) - 2 = 10 is correct. The line no longer matches any question key or choice (0010 is y = 3x - 1, 0011 is y = -3x + 5)."
+date = "2026-11-10"
+
+[[review]]
+id = "A.6.c"
+kind = "lesson"
+hash = "d98a40fabd83bf01"
+verdict = "pass"
+note = "Re-review: tip now shows 3/4 becoming -4/3, which is correct ((3/4)(-4/3) = -1) and no longer gives away question 0003 (2/3 to -3/2). Parallel and perpendicular examples for slope 2 remain correct."
+date = "2026-11-10"

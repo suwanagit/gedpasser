@@ -663,7 +663,7 @@ Example: a phone plan costs \$25 a month plus \$0.10 for each text. For $t$ text
 [[principle]]
 id = "A.2.a"
 skill = "a-linear-equations"
-status = "draft"
+status = "reviewed"
 name = "Solving linear equations"
 summary = "Solve one-variable equations, including ones that need distributing and collecting like terms."
 lesson = '''
@@ -684,7 +684,7 @@ Letters as coefficients work the same way: $ax + b = c$ gives $x = \frac{c - b}{
 [[principle]]
 id = "A.2.b"
 skill = "a-linear-equations"
-status = "draft"
+status = "reviewed"
 name = "Real-world linear equations"
 summary = "Solve everyday problems by writing and solving a linear equation."
 lesson = '''
@@ -701,7 +701,7 @@ Tip: a fixed fee is added once; a rate is multiplied by the variable.
 [[principle]]
 id = "A.2.c"
 skill = "a-linear-equations"
-status = "draft"
+status = "reviewed"
 name = "Writing linear equations for a situation"
 summary = "Write one-variable or multi-variable linear equations that describe a situation."
 lesson = '''
@@ -717,7 +717,7 @@ Tip: test your equation with an easy number. With $d = 0$, the truck should cost
 [[principle]]
 id = "A.3.a"
 skill = "a-linear-equations"
-status = "draft"
+status = "reviewed"
 name = "Solving linear inequalities"
 summary = "Solve one-variable inequalities, flipping the sign when multiplying or dividing by a negative."
 lesson = '''
@@ -736,7 +736,7 @@ Tip: check with a number from your answer. With $x = 0$: $-2(0) + 5 = 5 < 11$. �
 [[principle]]
 id = "A.3.b"
 skill = "a-linear-equations"
-status = "draft"
+status = "reviewed"
 name = "Inequalities on a number line"
 summary = "Show the solution of a one-variable inequality on a number line, or read one from a graph."
 lesson = '''
@@ -755,7 +755,7 @@ Tip: rewrite the inequality with $x$ on the left first. $5 > x$ is the same as $
 [[principle]]
 id = "A.3.c"
 skill = "a-linear-equations"
-status = "draft"
+status = "reviewed"
 name = "Real-world inequalities"
 summary = "Solve everyday problems with limits such as at least, at most, no more than."
 lesson = '''
@@ -775,16 +775,16 @@ Tip: in real problems, decide whether the answer must be a whole number and roun
 [[principle]]
 id = "A.3.d"
 skill = "a-linear-equations"
-status = "draft"
+status = "reviewed"
 name = "Writing linear inequalities"
 summary = "Write a one-variable inequality that describes a situation."
 lesson = '''
 Write it like an equation, then choose the sign from the wording.
 
-Example: a skiff can carry at most 900 kg. The crew weigh 300 kg together, and each crate weighs 40 kg. Write an inequality for the number of crates $c$.
-Total weight: $300 + 40c$. "At most 900" means $\le$: $300 + 40c \le 900$.
+Example: a phone plan allows at most 20 GB of data a month. Rosa has already used 8 GB and streams about 1.5 GB a day. Write an inequality for the number of days $d$ she can keep streaming.
+Total use: $8 + 1.5d$. "At most 20" means $\le$: $8 + 1.5d \le 20$.
 
-Example: Maria needs at least 60 hours of volunteering and has done 18. She volunteers 3 hours a week: $18 + 3w \ge 60$.
+Example: Maria needs at least 60 hours of volunteering and has done 18. She volunteers 3 hours a week. If $w$ is the number of weeks, then $18 + 3w \ge 60$.
 
 Tip: "at most" is a ceiling ($\le$); "at least" is a floor ($\ge$).
 '''
@@ -794,7 +794,7 @@ Tip: "at most" is a ceiling ($\le$); "at least" is a floor ($\ge$).
 [[principle]]
 id = "A.2.d"
 skill = "a-systems"
-status = "draft"
+status = "reviewed"
 name = "Systems of two linear equations"
 summary = "Solve two equations with two unknowns by graphing, substitution or elimination, including word problems."
 lesson = '''
@@ -806,7 +806,11 @@ $x + y = 12$ and $x - y = 2$. Add them: $2x = 14$, so $x = 7$, then $y = 5$.
 Substitution: solve one equation for a variable and put it into the other.
 $y = 2x$ and $x + y = 9$: $x + 2x = 9$, so $x = 3$ and $y = 6$.
 
-Word problems: write one equation for each fact. Adult tickets \$10, child \$6; 20 tickets sold for \$160: $a + c = 20$ and $10a + 6c = 160$, giving $a = 10$ and $c = 10$.
+Word problems: write one equation for each fact. Adult tickets \$10, child \$6; 20 tickets sold for \$152: $a + c = 20$ and $10a + 6c = 152$. Substitute $c = 20 - a$: $10a + 120 - 6a = 152$, so $4a = 32$, giving $a = 8$ adult and $c = 12$ child tickets.
+
+Not every system has exactly one solution:
+- If the lines are parallel (same slope, different $y$-intercepts), they never cross, so there is no solution. Example: $y = x + 1$ and $y = x + 4$.
+- If both equations describe the same line, every point on it works, so there are infinitely many solutions. Example: $y = 2x + 1$ and $2y = 4x + 2$.
 
 Tip: always put both values back into both equations to check.
 '''
@@ -816,7 +820,7 @@ Tip: always put both values back into both equations to check.
 [[principle]]
 id = "A.1.d"
 skill = "a-polynomials"
-status = "draft"
+status = "reviewed"
 name = "Operations with polynomials"
 summary = "Add, subtract and multiply polynomials (including two binomials), and divide factorable ones."
 lesson = '''
@@ -831,7 +835,7 @@ Tip: when subtracting, the minus sign changes the sign of every term in the seco
 [[principle]]
 id = "A.1.e"
 skill = "a-polynomials"
-status = "draft"
+status = "reviewed"
 name = "Evaluating polynomials"
 summary = "Substitute numbers into polynomial expressions and work out the value."
 lesson = '''
@@ -848,7 +852,7 @@ Example: $2x^3$ when $x = 3$ is $2 \times 27 = 54$, not $6^3$.
 [[principle]]
 id = "A.1.f"
 skill = "a-polynomials"
-status = "draft"
+status = "reviewed"
 name = "Factoring polynomials"
 summary = "Write polynomials as products: common factors, trinomials and differences of squares."
 lesson = '''
@@ -866,7 +870,7 @@ Tip: check by multiplying your factors back out.
 [[principle]]
 id = "A.1.g"
 skill = "a-polynomials"
-status = "draft"
+status = "reviewed"
 name = "Writing polynomial expressions from words"
 summary = "Turn a description into a polynomial expression, often for areas and products."
 lesson = '''
@@ -874,7 +878,7 @@ Polynomials appear when you multiply expressions that contain the variable.
 
 Example: a rectangle is 3 m longer than it is wide. If the width is $w$, the length is $w + 3$ and the area is $w(w + 3) = w^2 + 3w$.
 
-Example: a square garden with side $s$ has a 1 m path added all round. The new side is $s + 2$, so the new area is $(s + 2)^2 = s^2 + 4s + 4$.
+Example: a square garden with side $s$ gets a 1 m wide path added all the way around it. Each side of the new square is the old side $s$ plus 1 m of path at each end, so the new side is $s + 1 + 1 = s + 2$ and the new area is $(s + 2)^2 = s^2 + 4s + 4$.
 
 Tip: draw and label a picture before writing anything.
 '''
@@ -882,7 +886,7 @@ Tip: draw and label a picture before writing anything.
 [[principle]]
 id = "A.1.h"
 skill = "a-polynomials"
-status = "draft"
+status = "reviewed"
 name = "Operations with rational expressions"
 summary = "Add, subtract, multiply and divide algebraic fractions."
 lesson = '''
@@ -900,7 +904,7 @@ Tip: you may only cancel factors (things multiplied), never terms that are added
 [[principle]]
 id = "A.1.i"
 skill = "a-polynomials"
-status = "draft"
+status = "reviewed"
 name = "Evaluating rational expressions"
 summary = "Substitute numbers into algebraic fractions and work out the value."
 lesson = '''
@@ -916,7 +920,7 @@ Tip: a fraction bar works like parentheses around the top and around the bottom.
 [[principle]]
 id = "A.1.j"
 skill = "a-polynomials"
-status = "draft"
+status = "reviewed"
 name = "Writing rational expressions from words"
 summary = "Turn a description into an algebraic fraction, such as cost per person or time from distance and speed."
 lesson = '''
@@ -934,7 +938,7 @@ Tip: "per" usually means divide.
 [[principle]]
 id = "A.4.a"
 skill = "a-polynomials"
-status = "draft"
+status = "reviewed"
 name = "Solving quadratic equations"
 summary = "Solve equations with an x² term by factoring, square roots, or the quadratic formula."
 lesson = '''
@@ -953,7 +957,7 @@ Tip: quadratics usually have two answers. In a word problem, throw out one that 
 [[principle]]
 id = "A.4.b"
 skill = "a-polynomials"
-status = "draft"
+status = "reviewed"
 name = "Writing quadratic equations for a situation"
 summary = "Write a one-variable quadratic equation that describes a situation, often an area problem."
 lesson = '''
@@ -972,7 +976,7 @@ The pen is 5 m wide and 8 m long.
 [[principle]]
 id = "A.5.a"
 skill = "a-graphs-lines"
-status = "draft"
+status = "reviewed"
 name = "Points on the coordinate plane"
 summary = "Locate and plot points using (x, y) coordinates."
 lesson = '''
@@ -991,7 +995,7 @@ Tip: always move along $x$ first, then $y$ — "along the corridor, then up the 
 [[principle]]
 id = "A.5.b"
 skill = "a-graphs-lines"
-status = "draft"
+status = "reviewed"
 name = "Finding slope"
 summary = "Find a line's slope from a graph, an equation, or a table."
 lesson = '''
@@ -1009,7 +1013,7 @@ Tip: keep the same order on top and bottom — if you start with $y_2$, start wi
 [[principle]]
 id = "A.5.c"
 skill = "a-graphs-lines"
-status = "draft"
+status = "reviewed"
 name = "Unit rate as slope"
 summary = "In a proportional relationship, the slope of the line is the unit rate."
 lesson = '''
@@ -1026,7 +1030,7 @@ Tip: if the line does not pass through the origin, the relationship is not propo
 [[principle]]
 id = "A.5.d"
 skill = "a-graphs-lines"
-status = "draft"
+status = "reviewed"
 name = "Graphing linear equations"
 summary = "Graph a two-variable linear equation and find where it crosses the axes."
 lesson = '''
@@ -1047,7 +1051,7 @@ Tip: plot a third point as a check. All three should line up.
 [[principle]]
 id = "A.6.a"
 skill = "a-graphs-lines"
-status = "draft"
+status = "reviewed"
 name = "Equation of a line from a slope and a point"
 summary = "Write the equation of a line given its slope and one point on it."
 lesson = '''
@@ -1064,7 +1068,7 @@ Tip: if the point given is the $y$-intercept $(0, b)$, you can write $y = mx + b
 [[principle]]
 id = "A.6.b"
 skill = "a-graphs-lines"
-status = "draft"
+status = "reviewed"
 name = "Equation of a line through two points"
 summary = "Write the equation of a line that passes through two given points."
 lesson = '''
@@ -1072,17 +1076,17 @@ lesson = '''
 - Use either point in point-slope form.
 - Simplify to $y = mx + b$.
 
-Example: through $(1, 2)$ and $(3, 8)$.
-Slope: $m = \frac{8 - 2}{3 - 1} = 3$.
-$y - 2 = 3(x - 1)$, so $y = 3x - 1$.
+Example: through $(1, 2)$ and $(3, 10)$.
+Slope: $m = \frac{10 - 2}{3 - 1} = \frac{8}{2} = 4$.
+$y - 2 = 4(x - 1)$, so $y = 4x - 2$.
 
-Check with the other point: $3(3) - 1 = 8$. ✓
+Check with the other point: $4(3) - 2 = 10$. ✓
 '''
 
 [[principle]]
 id = "A.6.c"
 skill = "a-graphs-lines"
-status = "draft"
+status = "reviewed"
 name = "Parallel and perpendicular lines"
 summary = "Use slopes to recognize parallel and perpendicular lines and solve geometry problems with them."
 lesson = '''
@@ -1093,7 +1097,7 @@ Example: the line $y = 2x + 1$ has slope 2.
 - A parallel line has slope $2$, for example $y = 2x - 4$.
 - A perpendicular line has slope $-\frac{1}{2}$, for example $y = -\frac{1}{2}x + 3$.
 
-Tip: for perpendicular slopes, do both steps — flip and change sign. $\frac{2}{3}$ becomes $-\frac{3}{2}$.
+Tip: for perpendicular slopes, do both steps — flip and change sign. $\frac{3}{4}$ becomes $-\frac{4}{3}$.
 '''
 
 # ── a-functions ──────────────────────────────────────────────────────────
@@ -1101,7 +1105,7 @@ Tip: for perpendicular slopes, do both steps — flip and change sign. $\frac{2}
 [[principle]]
 id = "A.5.e"
 skill = "a-functions"
-status = "draft"
+status = "reviewed"
 name = "Key features of graphs"
 summary = "Read and describe the key features of a graph or table: intercepts, increasing or decreasing, highest and lowest points, symmetry."
 lesson = '''
@@ -1114,13 +1118,19 @@ When you look at the graph of a relationship, describe it in terms of the story.
 - Symmetry: a parabola is a mirror image on either side of its vertex.
 - End behavior: what happens far to the left and right.
 
-Example: the height of a thrown ball over time is a parabola. It increases, reaches a maximum at the vertex (the highest point), then decreases until it hits the ground (an $x$-intercept).
+Example: a ball's height in meters after $t$ seconds is $h(t) = -5t^2 + 40t$.
+- Intercepts: set $h(t) = 0$. Factor: $-5t(t - 8) = 0$, so $t = 0$ (thrown) and $t = 8$ (lands).
+- Symmetry: a parabola's highest point is halfway between its intercepts, at $t = 4$.
+- Maximum: $h(4) = -5(16) + 40(4) = -80 + 160 = 80$ m.
+- Increasing from $t = 0$ to $t = 4$, decreasing from $t = 4$ to $t = 8$.
+
+From a table: the $x$-intercepts are the rows where the output is 0, and the $y$-intercept is the output in the row where the input is 0. A maximum is where the outputs stop going up and start going down; it can fall between two rows (for a parabola, if two rows tie for the top output, the highest point is at the input halfway between them).
 '''
 
 [[principle]]
 id = "A.7.a"
 skill = "a-functions"
-status = "draft"
+status = "reviewed"
 name = "Comparing proportional relationships"
 summary = "Compare two proportional relationships shown in different ways, such as a graph and an equation."
 lesson = '''
@@ -1139,7 +1149,7 @@ Tip: make sure both rates use the same units before comparing.
 [[principle]]
 id = "A.7.b"
 skill = "a-functions"
-status = "draft"
+status = "reviewed"
 name = "What makes a function"
 summary = "Decide whether a table or graph is a function: each input has exactly one output."
 lesson = '''
@@ -1156,7 +1166,7 @@ Example: a circle is not a function; a straight line that isn't vertical is.
 [[principle]]
 id = "A.7.c"
 skill = "a-functions"
-status = "draft"
+status = "reviewed"
 name = "Evaluating functions"
 summary = "Use function notation to find the value of linear and quadratic functions."
 lesson = '''
@@ -1173,7 +1183,7 @@ Tip: always put negative inputs in parentheses so the square applies to the whol
 [[principle]]
 id = "A.7.d"
 skill = "a-functions"
-status = "draft"
+status = "reviewed"
 name = "Comparing functions shown in different ways"
 summary = "Compare rates of change, intercepts and other features of two functions given as equations, tables, graphs or words."
 lesson = '''

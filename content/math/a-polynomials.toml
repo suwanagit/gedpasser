@@ -8,7 +8,7 @@ skill = "a-polynomials"
 principle = "A.1.d"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = 'Multiply: $(x + 3)(x + 5)$.'
 choices = ['$x^2 + 8x + 15$', '$x^2 + 15$', '$x^2 + 8x + 8$', '$2x + 8$']
 answer = '$x^2 + 8x + 15$'
@@ -26,7 +26,7 @@ skill = "a-polynomials"
 principle = "A.4.a"
 difficulty = 2
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = 'What is the positive solution of $x^2 - 5x - 14 = 0$?'
 answer = "7"
 check = "(5 + sqrt(5^2 + 4 * 14)) / 2"
@@ -42,17 +42,17 @@ skill = "a-polynomials"
 principle = "A.1.f"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
-prompt = 'Factor completely: $x^2 - 9$.'
-choices = ['$(x - 3)(x + 3)$', '$(x - 3)^2$', '$(x - 9)(x + 1)$', '$(x + 3)^2$']
-answer = '$(x - 3)(x + 3)$'
-answer_value = 16.0            # (x - 3)(x + 3) at x = 5
-check = "5^2 - 9"              # original expression at x = 5
+status = "reviewed"
+prompt = 'Factor completely: $x^2 - 49$.'
+choices = ['$(x - 7)(x + 7)$', '$(x - 7)^2$', '$(x - 49)(x + 1)$', '$(x + 7)^2$']
+answer = '$(x - 7)(x + 7)$'
+answer_value = 51.0            # (x - 7)(x + 7) at x = 10
+check = "10^2 - 49"            # original expression at x = 10
 explanation = '''
-$x^2 - 9$ is a difference of two squares: $x^2 - 3^2$.
-A difference of squares factors as $a^2 - b^2 = (a - b)(a + b)$, so $x^2 - 9 = (x - 3)(x + 3)$.
+$x^2 - 49$ is a difference of two squares: $x^2 - 7^2$.
+A difference of squares factors as $a^2 - b^2 = (a - b)(a + b)$, so $x^2 - 49 = (x - 7)(x + 7)$.
 '''
-common_mistake = "Writing (x − 3)², which expands to x² − 6x + 9, not x² − 9."
+common_mistake = "Writing (x − 7)², which expands to x² − 14x + 49, not x² − 49."
 
 [[question]]
 id = "a-polynomials-0004"
@@ -60,7 +60,7 @@ skill = "a-polynomials"
 principle = "A.1.e"
 difficulty = 1
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = 'Evaluate $2x^2 - 3x + 1$ when $x = 4$.'
 answer = "21"
 check = "2 * 4^2 - 3 * 4 + 1"
@@ -75,7 +75,7 @@ skill = "a-polynomials"
 principle = "A.1.g"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = '''
 A garden is a square with sides of $s$ meters. It is made 1 meter longer in one direction, so it becomes a rectangle $s$ meters by $s + 1$ meters.
 Which expression gives the new area, in square meters?
@@ -95,7 +95,7 @@ skill = "a-polynomials"
 principle = "A.1.h"
 difficulty = 3
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = 'Simplify $\frac{x^2 - 16}{x + 4}$, where $x \ne -4$.'
 choices = ['$x - 4$', '$x + 4$', '$x - 16$', '$x^2 - 4$']
 answer = '$x - 4$'
@@ -113,7 +113,7 @@ skill = "a-polynomials"
 principle = "A.1.i"
 difficulty = 2
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = 'Evaluate $\frac{x + 6}{x - 2}$ when $x = 4$.'
 answer = "5"
 check = "(4 + 6) / (4 - 2)"
@@ -126,18 +126,17 @@ skill = "a-polynomials"
 principle = "A.1.j"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
-alaska = true
+status = "reviewed"
 prompt = '''
-A group of $n$ friends share the cost of a \$480 public-use cabin equally.
-Which expression gives each person's share, in dollars?
+A pump fills a 500-liter water tank in $t$ minutes.
+Which expression gives the pump's rate, in liters per minute?
 '''
-choices = ['$\frac{480}{n}$', '$480n$', '$\frac{n}{480}$', '$480 - n$']
-answer = '$\frac{480}{n}$'
-answer_value = 80.0              # share when n = 6
-check = "480 / 6"
-explanation = 'Sharing equally means dividing the total by the number of people: $\frac{480}{n}$ dollars each.'
-common_mistake = "Putting the number of people on top (n/480), which gives a tiny fraction of a dollar."
+choices = ['$\frac{500}{t}$', '$500t$', '$\frac{t}{500}$', '$500 - t$']
+answer = '$\frac{500}{t}$'
+answer_value = 20.0              # rate when t = 25
+check = "500 / 25"
+explanation = 'A rate in liters per minute is liters divided by minutes: $\frac{500}{t}$.'
+common_mistake = "Putting the minutes on top (t/500), which gives minutes per liter."
 
 [[question]]
 id = "a-polynomials-0009"
@@ -145,20 +144,21 @@ skill = "a-polynomials"
 principle = "A.4.b"
 difficulty = 3
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = '''
-A rectangular deck is 2 m longer than it is wide, and its area is 48 square meters.
+A rectangular garden's length is 2 m less than twice its width, and its area is 60 square meters.
 Which equation can be solved to find the width $w$, in meters?
 '''
-choices = ['$w(w + 2) = 48$', '$w^2 + 2 = 48$', '$2w + 2 = 48$', '$w(w - 2) = 48$']
-answer = '$w(w + 2) = 48$'
-answer_value = 6.0                      # positive solution of w(w + 2) = 48
-check = "(-2 + sqrt(2^2 + 4 * 48)) / 2"
+choices = ['$w(2w - 2) = 60$', '$w(w - 2) = 60$', '$2w - 2 = 60$', '$w(2w + 2) = 60$']
+answer = '$w(2w - 2) = 60$'
+answer_value = 6.0                      # positive solution of w(2w - 2) = 60
+check = "(1 + sqrt(1 + 4 * 30)) / 2"     # w^2 - w - 30 = 0
 explanation = '''
-The length is $w + 2$, and area $=$ width $\times$ length, so $w(w + 2) = 48$.
-(It becomes $w^2 + 2w - 48 = 0$, which factors as $(w + 8)(w - 6) = 0$, so the width is 6 m.)
+"Twice its width" is $2w$, and "2 m less than" that is $2w - 2$, so the length is $2w - 2$.
+Area $=$ width $\times$ length: $w(2w - 2) = 60$.
+(It simplifies to $w^2 - w - 30 = 0$, which factors as $(w - 6)(w + 5) = 0$, so the width is 6 m and the length is 10 m.)
 '''
-common_mistake = "Adding 2 to the area (w² + 2) instead of to the length before multiplying."
+common_mistake = "Writing the length as w − 2 and leaving out \"twice\"."
 
 [[question]]
 id = "a-polynomials-0010"
@@ -166,7 +166,7 @@ skill = "a-polynomials"
 principle = "A.1.d"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = 'Subtract: $(5x^2 + 3x - 2) - (2x^2 - x + 4)$.'
 choices = ['$3x^2 + 4x - 6$', '$3x^2 + 2x + 2$', '$3x^2 + 4x + 2$', '$7x^2 + 2x + 2$']
 answer = '$3x^2 + 4x - 6$'
@@ -184,7 +184,7 @@ skill = "a-polynomials"
 principle = "A.1.f"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = 'Factor $x^2 + 2x - 15$.'
 choices = ['$(x + 5)(x - 3)$', '$(x - 5)(x + 3)$', '$(x + 15)(x - 1)$', '$(x + 5)(x + 3)$']
 answer = '$(x + 5)(x - 3)$'
@@ -202,13 +202,13 @@ skill = "a-polynomials"
 principle = "A.4.a"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
-prompt = 'Which number is a solution of $2x^2 - 8 = 0$?'
-choices = ["2", "4", "8", "16"]
-answer = "2"
-check = "sqrt(8 / 2)"
+status = "reviewed"
+prompt = 'Which number is a solution of $3x^2 - 27 = 0$?'
+choices = ["3", "9", "27", "81"]
+answer = "3"
+check = "sqrt(27 / 3)"
 explanation = '''
-Add 8 to both sides: $2x^2 = 8$. Divide by 2: $x^2 = 4$.
-So $x = 2$ or $x = -2$. Of the choices, 2 is a solution.
+Add 27 to both sides: $3x^2 = 27$. Divide by 3: $x^2 = 9$.
+So $x = 3$ or $x = -3$. Of the choices, 3 is a solution.
 '''
-common_mistake = "Stopping at x² = 4 and answering 4 without taking the square root."
+common_mistake = "Stopping at x² = 9 and answering 9 without taking the square root."

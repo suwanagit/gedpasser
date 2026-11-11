@@ -141,10 +141,32 @@ async fn practice_requires_login() {
     assert_eq!(status, StatusCode::UNAUTHORIZED);
 }
 
+/// A temp copy of the real content with every question and lesson set back
+/// to draft, for tests about how drafts are handled.
+fn draft_content(name: &str) -> PathBuf {
+    let dir = PathBuf::from(env!("CARGO_TARGET_TMPDIR")).join("server-tests").join(format!("{name}-content"));
+    let _ = std::fs::remove_dir_all(&dir);
+    copy_dir(&content_dir(), &dir);
+    let mut files: Vec<PathBuf> = std::fs::read_dir(dir.join("math")).unwrap().map(|e| e.unwrap().path()).collect();
+    files.push(dir.join("principles.toml"));
+    for f in files {
+        let text = std::fs::read_to_string(&f).unwrap().replace("status = \"reviewed\"", "status = \"draft\"");
+        std::fs::write(&f, text).unwrap();
+    }
+    dir
+}
+
+async fn app_with(content: &Path, db: &Path, serve_drafts: bool) -> App {
+    build_app(&Config { content_dir: content.to_path_buf(), db_path: db.to_path_buf(), serve_drafts })
+        .await
+        .expect("app builds")
+}
+
 #[tokio::test]
 async fn drafts_only_served_with_flag() {
     let db = temp_db("drafts");
-    let app = app(&db, false).await;
+    let content = draft_content("drafts");
+    let app = app_with(&content, &db, false).await;
     let (_, cookie) = create(&app.router, "Cy", "abcd").await;
     let (status, body, _) = call(&app.router, "GET", "/api/practice/q-number-ops/next", Some(&cookie), None).await;
     assert_eq!(status, StatusCode::OK);
@@ -162,7 +184,7 @@ async fn drafts_only_served_with_flag() {
     assert_eq!(status, StatusCode::NOT_FOUND);
     app.pool.close().await;
 
-    let app = self::app(&db, true).await;
+    let app = app_with(&content, &db, true).await;
     let (status, body, _) = call(&app.router, "GET", "/api/practice/q-number-ops/next", Some(&cookie), None).await;
     assert_eq!(status, StatusCode::OK);
     let q = &body["question"];
@@ -177,7 +199,8 @@ async fn drafts_only_served_with_flag() {
 #[tokio::test]
 async fn principles_and_lessons() {
     let db = temp_db("principles");
-    let app = app(&db, false).await;
+    let content = draft_content("principles");
+    let app = app_with(&content, &db, false).await;
     let (_, cookie) = create(&app.router, "Eve", "pw12").await;
 
     // Without drafts: every principle is listed, but draft lessons are withheld.
@@ -198,7 +221,7 @@ async fn principles_and_lessons() {
     app.pool.close().await;
 
     // With drafts: lessons are served and marked as drafts.
-    let app = self::app(&db, true).await;
+    let app = app_with(&content, &db, true).await;
     let (_, lesson, _) = call(&app.router, "GET", "/api/principles/Q.3.d", Some(&cookie), None).await;
     assert!(lesson["lesson"].as_str().unwrap().contains("Percent"));
     assert_eq!(lesson["draft"], true);
@@ -285,9 +308,14 @@ async fn flags_remove_questions_until_resolved() {
     assert_eq!(open[0].note, "I think it's 26.30");
     app.pool.close().await;
 
-    // Editing the question settles the flag on the next start.
+    // Editing the question settles the flag on the next start. An edited
+    // question must go back to draft (the review gate rejects an edited
+    // `reviewed` item), as a real fix would.
     let file = content.join("math").join("q-number-ops.toml");
-    let text = std::fs::read_to_string(&file).unwrap().replace("How many dollars do they spend in all?", "How many dollars do they spend altogether?");
+    let text = std::fs::read_to_string(&file)
+        .unwrap()
+        .replace("How many dollars do they spend in all?", "How many dollars do they spend altogether?")
+        .replacen("status = \"reviewed\"", "status = \"draft\"", 1); // q-number-ops-0001 is the first question
     std::fs::write(&file, text).unwrap();
     let app = build_app(&config).await.unwrap();
     assert!(gedpasser_server::flags::list_open(&app.pool).await.unwrap().is_empty());

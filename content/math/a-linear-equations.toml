@@ -7,7 +7,7 @@ skill = "a-linear-equations"
 principle = "A.2.a"
 difficulty = 1
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = 'Solve for $x$: $5x + 8 = 43$.'
 answer = "7"
 check = "(43 - 8) / 5"
@@ -23,7 +23,7 @@ skill = "a-linear-equations"
 principle = "A.2.a"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = 'Solve for $x$: $3(x - 4) = x + 6$.'
 choices = ["9", "5", "3", "-3"]
 answer = "9"
@@ -39,17 +39,19 @@ common_mistake = "Distributing only to the x: 3x − 4 = x + 6, which gives x = 
 id = "a-linear-equations-0003"
 skill = "a-linear-equations"
 principle = "A.3.a"
-difficulty = 3
-type = "fill_in"
-status = "draft"
-prompt = 'Solve the inequality $-3x + 4 \le 19$. The solution is $x \ge$ what number?'
-answer = "-5"
+difficulty = 2
+type = "multiple_choice"
+status = "reviewed"
+prompt = 'Solve the inequality $-3x + 4 \le 19$.'
+choices = ['$x \ge -5$', '$x \le -5$', '$x \ge 5$', '$x \le 5$']
+answer = '$x \ge -5$'
+answer_value = -5.0              # boundary of the solution
 check = "(19 - 4) / -3"
 explanation = '''
 Subtract 4 from both sides: $-3x \le 15$.
 Divide both sides by $-3$. Dividing by a negative number flips the sign: $x \ge -5$.
 '''
-common_mistake = "Forgetting to flip the inequality sign when dividing by a negative number."
+common_mistake = "Forgetting to flip the inequality sign when dividing by −3, which gives x ≤ −5."
 
 [[question]]
 id = "a-linear-equations-0004"
@@ -57,7 +59,7 @@ skill = "a-linear-equations"
 principle = "A.2.a"
 difficulty = 2
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = 'Solve for $x$: $\frac{x}{4} - 3 = 5$.'
 answer = "32"
 check = "(5 + 3) * 4"
@@ -73,7 +75,7 @@ skill = "a-linear-equations"
 principle = "A.2.b"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 alaska = true
 prompt = '''
 A skiff rental in Valdez costs \$75 plus \$30 per hour. Ken's bill was \$255.
@@ -94,7 +96,7 @@ skill = "a-linear-equations"
 principle = "A.2.b"
 difficulty = 3
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = '''
 Two friends share a \$96 cabin rental. One pays \$18 more than the other.
 How many dollars does the friend who pays less pay?
@@ -113,12 +115,12 @@ skill = "a-linear-equations"
 principle = "A.2.c"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = '''
 A gym charges \$20 to join plus \$15 per month.
 Which equation gives the total cost $C$, in dollars, after $m$ months?
 '''
-choices = ['$C = 20 + 15m$', '$C = 15 + 20m$', '$C = 35m$', '$C = 20m + 15m$']
+choices = ['$C = 20 + 15m$', '$C = 15 + 20m$', '$C = 35m$', '$C = 15m$']
 answer = '$C = 20 + 15m$'
 answer_value = 80.0              # C when m = 4
 check = "20 + 15 * 4"            # 4 months: join fee plus 4 monthly fees
@@ -134,7 +136,7 @@ skill = "a-linear-equations"
 principle = "A.2.c"
 difficulty = 3
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 alaska = true
 prompt = '''
 A village generator starts with 40 liters of fuel and uses 2.5 liters per hour.
@@ -156,7 +158,7 @@ skill = "a-linear-equations"
 principle = "A.3.b"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = 'Which number-line graph shows $x \le 3$?'
 choices = ["A closed circle at 3, shaded to the left", "An open circle at 3, shaded to the left", "A closed circle at 3, shaded to the right", "An open circle at 3, shaded to the right"]
 answer = "A closed circle at 3, shaded to the left"
@@ -174,7 +176,7 @@ skill = "a-linear-equations"
 principle = "A.3.c"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = '''
 Amy has \$60. Movie tickets cost \$11 each, and she must keep \$10 for the bus home.
 What is the greatest number of tickets she can buy?
@@ -194,7 +196,7 @@ skill = "a-linear-equations"
 principle = "A.3.c"
 difficulty = 3
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 alaska = true
 prompt = '''
 A skiff can carry at most 650 kg. The driver weighs 85 kg, and each fuel drum weighs 70 kg.
@@ -215,7 +217,7 @@ skill = "a-linear-equations"
 principle = "A.3.d"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = '''
 A student needs at least 280 points in a course. She has 205 points so far, and each remaining assignment is worth 15 points.
 Which inequality can be solved for the number of assignments $a$ she must complete?

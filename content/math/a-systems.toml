@@ -7,7 +7,7 @@ skill = "a-systems"
 principle = "A.2.d"
 difficulty = 2
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = 'Solve the system $x + y = 10$ and $x - y = 4$. What is the value of $x$?'
 answer = "7"
 check = "(10 + 4) / 2"
@@ -23,7 +23,7 @@ skill = "a-systems"
 principle = "A.2.d"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 alaska = true
 prompt = '''
 At a fish market in Homer, 2 kg of halibut and 1 kg of salmon cost \$70.
@@ -44,7 +44,7 @@ skill = "a-systems"
 principle = "A.2.d"
 difficulty = 3
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = 'Solve the system $2x + 3y = 12$ and $x - y = 1$. What is the value of $y$?'
 answer = "2"
 check = "(12 - 2 * 1) / (2 + 3)"
@@ -61,7 +61,7 @@ skill = "a-systems"
 principle = "A.2.d"
 difficulty = 2
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = 'Solve the system $y = 3x$ and $x + y = 24$. What is the value of $y$?'
 answer = "18"
 check = "3 * (24 / 4)"
@@ -77,20 +77,20 @@ skill = "a-systems"
 principle = "A.2.d"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 alaska = true
 prompt = '''
 At a fish-fry fundraiser in Dillingham, adult plates cost \$12 and child plates cost \$7.
-30 plates were sold for a total of \$285. How many adult plates were sold?
+30 plates were sold for a total of \$270. How many adult plates were sold?
 '''
-choices = ["15", "12", "18", "20"]
-answer = "15"
-check = "(285 - 7 * 30) / (12 - 7)"
+choices = ["12", "18", "15", "22.5"]
+answer = "12"
+check = "(270 - 7 * 30) / (12 - 7)"
 explanation = '''
-Let $a$ be adult plates and $c$ child plates: $a + c = 30$ and $12a + 7c = 285$.
-From the first, $c = 30 - a$. Substitute: $12a + 7(30 - a) = 285$, so $5a + 210 = 285$, $5a = 75$ and $a = 15$.
+Let $a$ be adult plates and $c$ child plates: $a + c = 30$ and $12a + 7c = 270$.
+From the first, $c = 30 - a$. Substitute: $12a + 7(30 - a) = 270$, so $5a + 210 = 270$, $5a = 60$ and $a = 12$. (Then $c = 18$.)
 '''
-common_mistake = "Dividing 285 by 12 and rounding, which ignores the child plates."
+common_mistake = "Giving the number of child plates (18) instead of adult plates."
 
 [[question]]
 id = "a-systems-0006"
@@ -98,7 +98,7 @@ skill = "a-systems"
 principle = "A.2.d"
 difficulty = 3
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = 'Solve the system $3x + 2y = 16$ and $x - 2y = 0$. What is the value of $x$?'
 answer = "4"
 check = "16 / 4"
@@ -114,7 +114,7 @@ skill = "a-systems"
 principle = "A.2.d"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = 'Solve the system $2x + y = 11$ and $x + y = 7$. What is the value of $x$?'
 choices = ["4", "3", "7", "11"]
 answer = "4"
@@ -131,7 +131,7 @@ skill = "a-systems"
 principle = "A.2.d"
 difficulty = 3
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = '''
 A trail mix is made from nuts that cost \$14 per kilogram and raisins that cost \$6 per kilogram.
 10 kg of the mix costs \$108 in all. How many kilograms of nuts are in it?
@@ -151,7 +151,7 @@ skill = "a-systems"
 principle = "A.2.d"
 difficulty = 2
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 prompt = "The sum of two numbers is 50 and their difference is 14. What is the larger number?"
 answer = "32"
 check = "(50 + 14) / 2"
@@ -167,7 +167,7 @@ skill = "a-systems"
 principle = "A.2.d"
 difficulty = 3
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = 'The lines $y = 2x - 1$ and $y = -x + 5$ cross at one point. What is the $y$-coordinate of that point?'
 choices = ["3", "2", "5", "1"]
 answer = "3"
@@ -184,10 +184,10 @@ skill = "a-systems"
 principle = "A.2.d"
 difficulty = 3
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 alaska = true
 prompt = '''
-A riverboat travels 60 km downstream in 2 hours and makes the same 60 km trip back upstream in 3 hours.
+A riverboat on the Yukon River near Galena travels 60 km downstream in 2 hours and makes the same 60 km trip back upstream in 3 hours.
 What is the boat's speed in still water, in kilometers per hour?
 '''
 answer = "25"
@@ -205,7 +205,7 @@ skill = "a-systems"
 principle = "A.2.d"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = 'How many solutions does the system $y = 2x + 3$ and $y = 2x - 1$ have?'
 choices = ["0", "1", "2", "Infinitely many"]
 answer = "0"

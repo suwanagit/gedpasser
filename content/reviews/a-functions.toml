@@ -1,0 +1,173 @@
+# Review notes for a-functions.
+
+[[review]]
+id = "a-functions-0001"
+kind = "question"
+hash = "536569a39a94bafe"
+verdict = "pass"
+solved = "15"
+note = "Blind answer 15 matches the key. Substitution explanation is correct; check expression matches; difficulty 1 is right."
+date = "2026-11-10"
+
+[[review]]
+id = "a-functions-0002"
+kind = "question"
+hash = "53605fa1ad0ae494"
+verdict = "pass"
+solved = "12"
+note = "Blind answer 12 matches. Only one choice is correct. Distractors are real errors: 4 = squaring -2 as -4 (the stated common mistake), 0 = g(2), -8 = sign errors. Explanation correct."
+date = "2026-11-10"
+
+[[review]]
+id = "a-functions-0003"
+kind = "question"
+hash = "fe820b81070581ce"
+verdict = "pass"
+solved = "1"
+note = "Blind answer 1 matches. Slope of g = 12/4 = 3, minus 2. Distractor 3 is the stated mistake (slope of g alone); -1 is the reversed difference. Clear wording, A.7.d fits."
+date = "2026-11-10"
+
+[[review]]
+id = "a-functions-0004"
+kind = "question"
+hash = "881e1cf27105b75e"
+verdict = "pass"
+solved = "2"
+note = "Blind answer 2 matches. Vertex at t = 2; distractor 4 is landing time, 20 is the coefficient. Explanation gives both the -b/(2a) formula and the halfway-between-roots reasoning. Metric units."
+date = "2026-11-10"
+
+[[review]]
+id = "a-functions-0005"
+kind = "question"
+hash = "d7ec666c7e0a6487"
+verdict = "pass"
+solved = "6"
+note = "Blind answer 6 matches. Factoring -5t(t - 6) = 0 is correct; prompt clearly excludes t = 0. Fill-in 6 parses numerically. Common mistake (3, the vertex time) is real."
+date = "2026-11-10"
+
+[[review]]
+id = "a-functions-0006"
+kind = "question"
+hash = "9aa92730dce7c980"
+verdict = "pass"
+solved = "1"
+note = "Blind answer 1 matches. Both table entries give 15 km/h, so B is proportional; A is 14 km/h. Distractors 15 (faster speed), 14, 29 (sum) are plausible. 14-15 km/h is a realistic mushing speed. The A.7.a lesson example (car d = 80t vs 255 km in 3 h) has the same shape but different numbers and asks which is faster, not the difference, so it does not give the answer away."
+date = "2026-11-10"
+
+[[review]]
+id = "a-functions-0007"
+kind = "question"
+hash = "5bce4a6991dcf34b"
+verdict = "pass"
+solved = "2.30"
+note = "Blind answer 2.30 matches. Server grades fill-in numerically, so 2.3 and 2.30 both pass. Dollar signs are escaped correctly (\\$ in the basic-string common_mistake gives a literal \\$). Explanation correct."
+date = "2026-11-10"
+
+[[review]]
+id = "a-functions-0008"
+kind = "question"
+hash = "e59885387c370d3c"
+verdict = "pass"
+solved = '$\{(2, 1), (2, 3), (4, 5)\}$'
+note = "Blind answer is choice 3, matching the key. Judged the sets themselves: choices 1, 2 and 4 each have distinct inputs, so they are functions; only choice 3 repeats input 2 with outputs 1 and 3. Choice 2 (repeated output) is a good distractor tied to the common mistake. answer_value/check = 2 is only the marker described in the comment. The A.7.b lesson example {(1,4),(2,5),(1,6)} teaches the same rule with different pairs, which is appropriate teaching, not a giveaway."
+date = "2026-11-10"
+
+[[review]]
+id = "a-functions-0009"
+kind = "question"
+hash = "f41d49d6a53678e0"
+verdict = "pass"
+solved = "5"
+note = "Blind answer 5 matches. Solving 3x - 2 = 13 is explained step by step; common mistake f(13) = 37 is correct arithmetic and a real confusion of input/output."
+date = "2026-11-10"
+
+[[review]]
+id = "a-functions-0010"
+kind = "question"
+hash = "5dd970ce5ee02e33"
+verdict = "pass"
+solved = "21"
+note = "Blind answer 21 matches. Distractors: 15 (subtracting -3 as -3, the stated mistake), -21, 39 (squaring 2x as (-6)^2 + 3). Explanation correct. Difficulty 3 is a little high for a single substitution but defensible given the double negative."
+date = "2026-11-10"
+
+[[review]]
+id = "a-functions-0011"
+kind = "question"
+hash = "70bd35c2dd9992ef"
+verdict = "pass"
+solved = "4"
+note = "Blind answer 4 matches. y-intercepts 5 and g(0) = 1. Distractor 2 is the slope difference (4 - 2), as the common mistake says; 6 is the sum. A.7.d lesson example uses a similar table format but asks for slopes with different numbers, so no giveaway."
+date = "2026-11-10"
+
+[[review]]
+id = "a-functions-0012"
+kind = "question"
+hash = "e185aaea93dcb607"
+verdict = "pass"
+solved = "6"
+note = "Blind answer 6 matches. Vertex x = 3, f(3) = 1, g(0) = 7, difference 6. Common mistake (f(0) = 10 gives 7 - 10 = -3) is correct. Wording has one reading."
+date = "2026-11-10"
+
+[[review]]
+id = "A.5.e"
+kind = "lesson"
+hash = "f4c842d701c340bc"
+verdict = "fix"
+note = "Statements are correct, but the worked example is only qualitative and gives no method, while this principle's questions (0004, 0005) require finding the highest point and landing time from an equation. Add a short numeric example with numbers different from the questions, e.g. h(t) = -5t^2 + 40t: set h(t) = 0 and factor -5t(t - 8) = 0 to get the x-intercepts t = 0 and t = 8; by symmetry the vertex is halfway, t = 4, and h(4) = 80 m is the maximum. Also, since the summary mentions tables, add one line on reading these features from a table (e.g. the largest y-value is the maximum, a y-value of 0 marks an x-intercept)."
+date = "2026-11-10"
+
+[[review]]
+id = "A.7.a"
+kind = "lesson"
+hash = "f6519018c76f1b27"
+verdict = "pass"
+note = "Unit-rate method is correct; 255 / 3 = 85 checks out; graph-through-origin rule (y at x = 1, or slope) is correct; units tip is useful. Example does not duplicate 0006 or 0007."
+date = "2026-11-10"
+
+[[review]]
+id = "A.7.b"
+kind = "lesson"
+hash = "bb932cf60d5e117c"
+verdict = "pass"
+note = "Definition, repeated-input rule, note that repeated outputs are fine, vertical line test, and circle/non-vertical line examples are all correct. Example set differs from 0008's choices."
+date = "2026-11-10"
+
+[[review]]
+id = "A.7.c"
+kind = "lesson"
+hash = "36340e986cb4be1d"
+verdict = "pass"
+note = "Notation explanation is correct; f(3) = 15 and f(-3) = 3 check out; the parentheses tip addresses the common mistakes in 0002 and 0010 without giving their answers."
+date = "2026-11-10"
+
+[[review]]
+id = "A.7.d"
+kind = "lesson"
+hash = "16e77333d0456849"
+verdict = "pass"
+note = "Feature list is correct; example slopes 3 and (9 - 1)/2 = 4 and intercepts 2 vs 1 check out; conclusion is right. Different numbers and question from 0003 and 0011, so no giveaway."
+date = "2026-11-10"
+
+[[review]]
+id = "A.5.e"
+kind = "lesson"
+hash = "d81c9fd8717b6238"
+verdict = "fix"
+note = "Re-review. The new worked example is correct: -5t(t - 8) = 0 gives t = 0 and 8, the vertex is at t = 4, h(4) = -80 + 160 = 80 m, and the increasing/decreasing intervals are right. It does not give 0004 or 0005 away: those use -5t^2 + 20t and -5t^2 + 30t, which have different answers (2 and 6). The example teaches the method, which is its job. One problem remains in the new table line. It says 'the intercepts are the rows where the output is 0', but those are only the x-intercepts. The bullet list above it defines intercepts as crossings of both axes, so this contradicts it. Change it to: 'the x-intercepts are the rows where the output is 0; the y-intercept is the output in the row where the input is 0.' Also qualify the maximum: the highest value may fall between two rows. For example, if two rows tie for the top value, the maximum of a parabola is halfway between them. Say the turn shows roughly where the maximum is, not always its exact value."
+date = "2026-11-10"
+
+[[review]]
+id = "A.5.e"
+kind = "lesson"
+hash = "22603102d56d3234"
+verdict = "fix"
+note = "Second re-review. The intercept sentence is now correct, and the worked example and giveaway check still pass: 0004 and 0005 use different coefficients and have different answers. One inaccuracy remains. The parenthetical 'if two rows tie for the top output, the maximum is halfway between them' is true only for a symmetric graph such as a parabola, but this lesson covers graphs and tables in general. It also does not say whether it means the input or the output of the maximum. Change it to: '(for a parabola, if two rows tie for the top output, the highest point is at the input halfway between them)'."
+date = "2026-11-10"
+
+[[review]]
+id = "A.5.e"
+kind = "lesson"
+hash = "b87d7f3d1e937c07"
+verdict = "pass"
+note = "Third re-review. The tie rule is now limited to parabolas and names the input, so it is accurate. Rechecked the whole lesson: the feature list is correct; the worked example h(t) = -5t^2 + 40t is correct (intercepts 0 and 8, vertex t = 4, maximum 80 m, increasing then decreasing); the table guidance correctly separates x- and y-intercepts. It does not give 0004 or 0005 away, since those use different coefficients and have different answers (2 and 6). Notation renders and units are metric."
+date = "2026-11-10"
