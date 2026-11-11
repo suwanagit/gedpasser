@@ -75,7 +75,7 @@ skill = "a-polynomials"
 principle = "A.1.g"
 difficulty = 2
 type = "multiple_choice"
-status = "reviewed"
+status = "draft"
 prompt = '''
 A garden is a square with sides of $s$ meters. It is made 1 meter longer in one direction, so it becomes a rectangle $s$ meters by $s + 1$ meters.
 Which expression gives the new area, in square meters?
@@ -88,6 +88,10 @@ explanation = '''
 Area $=$ length $\times$ width $= s(s + 1) = s^2 + s$.
 '''
 common_mistake = "Adding 1 to both sides, (s + 1)² = s² + 2s + 1, when only one side grew."
+
+[question.figure]
+kind = "shape"
+polygons = [{ points = [{ x = 0, y = 0 }, { x = 6, y = 0 }, { x = 6, y = 5 }, { x = 0, y = 5 }], side_labels = ["s + 1", "s", "", ""], right_angles = [0] }]
 
 [[question]]
 id = "a-polynomials-0006"

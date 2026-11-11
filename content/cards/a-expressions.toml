@@ -1,0 +1,54 @@
+# Cards for Linear expressions (a-expressions). Format: content/cards/WRITING.md
+
+[[card]]
+id = "A.1.a"
+status = "reviewed"
+title = "Simplifying expressions"
+key = '$$a(b + c) = ab + ac$$'
+steps = [
+  'Distribute: multiply **every** term inside by the number outside',
+  'A negative outside changes every sign inside: $-2(x - 5) = -2x + 10$',
+  'Combine like terms (same letter): $4x + x = 5x$, but $4x + 4$ stays',
+  'Factor: pull out the greatest common factor: $10x + 15 = 5(2x + 3)$',
+]
+example = '''
+Simplify $2(3x - 5) + 4x$:
+$$6x - 10 + 4x$$
+$$= 10x - 10$$
+**$10x - 10$**
+'''
+hack = 'Pick a number to test choices: put $x = 2$ into the original expression and each choice. The match is right. Here both give $10$. Avoid 0 and 1 — they can make wrong choices match.'
+
+[[card]]
+id = "A.1.b"
+status = "reviewed"
+title = "Evaluating expressions"
+key = '$$\text{letter} \;\to\; (\text{its number})$$'
+steps = [
+  'Write each number in parentheses where its letter was',
+  'Follow PEMDAS: multiply and divide before you add and subtract',
+]
+example = '''
+Find $5a - 2b$ when $a = 3$ and $b = -4$:
+$$5(3) - 2(-4)$$
+$$= 15 + 8$$
+**23**
+'''
+hack = 'Two minus signs side by side make a plus: $-2(-4) = +8$. On the calculator, enter negatives with the (−) key, not the subtract key.'
+
+[[card]]
+id = "A.1.c"
+status = "reviewed"
+title = "Words into expressions"
+key = '$$\text{3 less than } n = n - 3$$'
+steps = [
+  'Pick a letter for the unknown number',
+  'More than, increased by: $+$. Less than, decreased by: $-$.',
+  'Times, twice, of: $\times$. Divided by, split equally: $\div$.',
+]
+example = '''
+“6 less than half of $n$”:
+$$\tfrac{1}{2}n - 6$$
+**$\frac{n}{2} - 6$**
+'''
+hack = '“Less than” flips the order. Test it with real numbers: 3 less than 10 is 7, and that is $10 - 3$, not $3 - 10$.'

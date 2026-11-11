@@ -1,0 +1,69 @@
+# Lesson cards for q-ratios-percent. Format and rules: WRITING.md.
+
+[[card]]
+id = "Q.3.a"
+status = "reviewed"
+title = "Unit rates"
+key = 'A unit rate is the amount for one: divide by the “per” quantity.'
+steps = [
+  'Price per kg: price ÷ kg. Speed: km ÷ hours.',
+  'Better buy: compare the price for one unit',
+  'Multiply the unit rate by any amount',
+]
+example = '''
+4 kg for \$22 or 6 kg for \$30?
+$$22 \div 4 = 5.50 \qquad 30 \div 6 = 5.00$$
+**The 6 kg bag** is cheaper per kg.
+'''
+hack = '“Per” means “divide by.” Kilometers per hour is $\text{km} \div \text{h}$. The word after “per” goes on the bottom.'
+
+[[card]]
+id = "Q.3.b"
+status = "draft"
+title = "Scale drawings"
+key = '$$\text{real} = \text{map length} \times \text{what 1 cm stands for}$$'
+steps = [
+  'Find what 1 cm stands for: $3 \text{ cm} : 12 \text{ km}$ means $1 \text{ cm} = 4 \text{ km}$',
+  'Map to real: multiply. Real to map: divide.',
+]
+example = '''
+Scale 1 cm : 4 km. Map distance 6.5 cm:
+$$6.5 \times 4 = 26$$
+**26 km**
+'''
+hack = 'Scale factor $k$: lengths × $k$, areas × $k^2$, volumes × $k^3$. Double the sides and the area is 4 times as big, not 2.'
+
+[[card]]
+id = "Q.3.c"
+status = "reviewed"
+title = "Proportions and units"
+key = '$$\frac{a}{b} = \frac{c}{d} \;\Rightarrow\; a \times d = b \times c$$'
+steps = [
+  'Put the same units in the same places on both sides',
+  'Cross-multiply, then divide to find $x$',
+  'Metric: 1 km = 1000 m, 1 m = 100 cm, 1 L = 1000 mL',
+]
+example = '''
+2 L of paint covers 18 m². How much for 45 m²?
+$$\frac{2}{18} = \frac{x}{45} \qquad 18x = 90 \qquad x = 5$$
+**5 L**
+'''
+hack = '“King Henry Died By Drinking Chocolate Milk”: kilo, hecto, deka, base, deci, centi, milli. Each step right: multiply the number by 10. $2.6 \text{ km} = 2600 \text{ m}$.'
+
+[[card]]
+id = "Q.3.d"
+status = "reviewed"
+title = "Percent problems"
+key = '$$\text{part} = \text{percent} \times \text{whole}$$'
+steps = [
+  'Percent to decimal: move the point two places left. $8\% = 0.08$',
+  'Discount: subtract the part. Tax or tip: add it.',
+  'Percent change: $\frac{\text{change}}{\text{original}} \times 100\%$',
+  'Simple interest: $I = Prt$ (amount × rate as a decimal × years)',
+]
+example = '''
+20% tip on a \$45 meal:
+$$0.20 \times 45 = 9 \qquad 45 + 9 = 54$$
+**\$54**
+'''
+hack = '10% trick: move the decimal one place left. 10% of \$45 is \$4.50, so 20% is double: \$9.'

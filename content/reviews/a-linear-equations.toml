@@ -191,3 +191,59 @@ hash = "5fcc95c22a894761"
 verdict = "pass"
 note = "Re-review: the data-plan example 8 + 1.5d <= 20 is correct ('at most' gives <=, d is defined) and no longer mirrors question 0011. The Maria example now defines w, and 18 + 3w >= 60 is correct. The British 'crew weigh' wording is gone. Tip is correct."
 date = "2026-11-10"
+
+[[review]]
+id = "A.2.a"
+kind = "card"
+hash = "406ceb982d351c83"
+verdict = "pass"
+note = "Key and steps correct; example 4(x - 2) = x + 7 gives 3x = 15, x = 5 (check: 12 = 12). Balance and reverse-order hack is correct for linear equations. Concise."
+date = "2026-11-10"
+
+[[review]]
+id = "A.2.b"
+kind = "card"
+hash = "52d479b46ec4870e"
+verdict = "pass"
+note = "Example 35 + 20h = 135 gives h = 5, correct; dollar signs escaped; numbers not reused from a question. Backsolve hack is correct and practical."
+date = "2026-11-10"
+
+[[review]]
+id = "A.2.c"
+kind = "card"
+hash = "5e332686663cadcd"
+verdict = "pass"
+note = "y = mx + b with rate/start labels is correct; tank example W = 200 + 15t is correct and metric. Test-with-0 hack is correct and catches swapped rate/start."
+date = "2026-11-10"
+
+[[review]]
+id = "A.3.a"
+kind = "card"
+hash = "51c353d994768a1e"
+verdict = "pass"
+note = "Example 5 - 2x >= 13 gives -2x >= 8, x <= -4, correct. Flip rule and 2 < 5 vs -2 > -5 reason are correct; x = -5 check gives 15 >= 13. Figure: closed dot at -4, ray left, matches."
+date = "2026-11-10"
+
+[[review]]
+id = "A.3.b"
+kind = "card"
+hash = "dbb8d5f9fe3ecc67"
+verdict = "pass"
+note = "Closed/open circle rule and shading direction correct. Example x > -1 and figure (open circle at -1, ray right) match. Hack (extra ink means filled; sign points the way when x is on the left) is correct and the caveat about x on the left covers the edge case."
+date = "2026-11-10"
+
+[[review]]
+id = "A.3.c"
+kind = "card"
+hash = "4583a9938a142cdb"
+verdict = "pass"
+note = "4 + 5r <= 40 gives r <= 7.2, so 7 rides (8 rides cost 44). Word-to-sign list correct. Rounding hack is correct for both at most and at least."
+date = "2026-11-10"
+
+[[review]]
+id = "A.3.d"
+kind = "card"
+hash = "f40f9502c91e7241"
+verdict = "pass"
+note = "120 + 30w >= 500 correctly models the story. Ceiling/floor hack is correct and memorable. Short."
+date = "2026-11-10"

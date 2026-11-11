@@ -1,0 +1,137 @@
+# Cards for Linear equations and inequalities (a-linear-equations). Format: content/cards/WRITING.md
+
+[[card]]
+id = "A.2.a"
+status = "reviewed"
+title = "Solving linear equations"
+key = '$$x + a = b \;\to\; x = b - a \qquad ax = b \;\to\; x = \frac{b}{a}$$'
+steps = [
+  'Simplify each side: distribute, then combine like terms',
+  'Move $x$ terms to one side and numbers to the other',
+  'Divide by the number in front of $x$',
+]
+example = '''
+$$4(x - 2) = x + 7$$
+$$4x - 8 = x + 7$$
+$$3x = 15$$
+**$x = 5$**
+'''
+hack = 'An equation is a balance: do the same to both sides. Undo in reverse PEMDAS order: $+$ and $-$ first, then $\times$ and $\div$.'
+
+[[card]]
+id = "A.2.b"
+status = "reviewed"
+title = "Equations from stories"
+key = '$$\text{total} = \text{fee} + \text{rate} \times \text{number}$$'
+steps = [
+  'Let a letter stand for what the question asks',
+  'Write the equation from the story',
+  'Solve, then check the answer makes sense',
+]
+example = '''
+A kayak tour costs \$35 plus \$20 per hour. The bill is \$135.
+$$35 + 20h = 135$$
+$$20h = 100$$
+**5 hours**
+'''
+hack = 'Backsolve: plug the answer choices back into the story. The one that gives the right total wins: $35 + 20(5) = 135$ ✓'
+
+[[card]]
+id = "A.2.c"
+status = "reviewed"
+title = "Writing linear equations"
+key = '$$y = \underbrace{m}_{\text{rate}}\,x + \underbrace{b}_{\text{start}}$$'
+steps = [
+  'Find the start amount, counted once. That is $b$.',
+  'Find the rate “for each” one. Multiply it by the variable.',
+  'Going down, like fuel being used? Subtract the rate.',
+]
+example = '''
+A tank has 200 L and fills at 15 L per minute. Water $W$ after $t$ minutes:
+$$W = 200 + 15t$$
+**$W = 200 + 15t$**
+'''
+hack = 'Test with 0: at $t = 0$ you should get the start, $W = 200$. Each extra minute should add 15.'
+
+[[card]]
+id = "A.3.a"
+status = "reviewed"
+title = "Solving inequalities"
+key = '$$-x > 4 \;\to\; x < -4$$'
+steps = [
+  'Solve it just like an equation',
+  'Multiply or divide by a negative? Flip the sign: $<$ becomes $>$',
+  'Adding or subtracting never flips it',
+]
+example = '''
+$$5 - 2x \ge 13$$
+$$-2x \ge 8$$
+$$x \le -4 \quad (\div\, {-2}, \text{ flip})$$
+**$x \le -4$**
+'''
+hack = 'Why flip? $2 < 5$, but $-2 > -5$: a negative reverses the order. Check with a number from your answer: $x = -5$ gives $15 \ge 13$ ✓'
+
+[card.figure]
+kind = "number_line"
+min = -8
+max = 2
+points = [{ x = -4, open = false, label = "−4" }]
+ray = { from = -4, dir = "left", open = false }
+
+[[card]]
+id = "A.3.b"
+status = "reviewed"
+title = "Inequalities on a number line"
+key = '$$\le,\ \ge \;\to\; \bullet \qquad <,\ > \;\to\; \circ$$'
+steps = [
+  'Closed (filled) circle: the number is included',
+  'Open circle: the number is not included',
+  'Greater than: shade right. Less than: shade left.',
+]
+example = '''
+$$x > -1$$
+$-1$ is not included: **open circle at $-1$, shade right**
+'''
+hack = 'The line under $\le$ or $\ge$ is extra ink, so fill in the circle. With $x$ on the left, the sign points the way to shade: $x > -1$ points right.'
+
+[card.figure]
+kind = "number_line"
+min = -5
+max = 5
+points = [{ x = -1, open = true, label = "−1" }]
+ray = { from = -1, dir = "right", open = true }
+
+[[card]]
+id = "A.3.c"
+status = "reviewed"
+title = "Inequalities in stories"
+key = '$$\text{at least} \to \ge \qquad \text{at most} \to \le$$'
+steps = [
+  'At least, no less than, minimum: $\ge$',
+  'At most, no more than, maximum: $\le$',
+  'Solve, then pick a whole number that fits the story',
+]
+example = '''
+You have \$40. Parking is \$4, and each ride costs \$5.
+$$4 + 5r \le 40$$
+$$5r \le 36$$
+$$r \le 7.2$$
+**7 rides**
+'''
+hack = 'Round the way the story allows. “At most” rounds down: 8 rides costs too much. “At least” rounds up: if you need at least 7.2, take 8.'
+
+[[card]]
+id = "A.3.d"
+status = "reviewed"
+title = "Writing inequalities"
+key = '$$\text{start} + \text{rate} \times \text{number} \;\;\le \text{ or } \ge\;\; \text{limit}$$'
+steps = [
+  'Write the total like an equation: start plus rate times the variable',
+  'Choose the sign from the words',
+]
+example = '''
+Lee has \$120 and saves \$30 a week. He needs at least \$500.
+$$120 + 30w \ge 500$$
+**$120 + 30w \ge 500$**
+'''
+hack = '“At most” is a ceiling: you can touch it but not go over ($\le$). “At least” is a floor: you stand on it or go higher ($\ge$).'

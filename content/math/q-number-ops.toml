@@ -168,6 +168,12 @@ You can also count: 7 steps from $-7$ to 0, then 5 more to 5, which is 12.
 '''
 common_mistake = "Subtracting 7 from 5 to get −2 instead of finding the distance."
 
+[question.figure]
+kind = "number_line"
+min = -8
+max = 6
+points = [{ x = -7, label = "−7" }, { x = 5, label = "5" }]
+
 [[question]]
 id = "q-number-ops-0010"
 skill = "q-number-ops"

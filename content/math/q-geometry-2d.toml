@@ -17,6 +17,10 @@ or $2 \times (8 + 5) = 26$ m.
 '''
 common_mistake = "Finding the area (8 × 5 = 40) instead of the perimeter."
 
+[question.figure]
+kind = "shape"
+polygons = [{ points = [{ x = 0, y = 0 }, { x = 8, y = 0 }, { x = 8, y = 5 }, { x = 0, y = 5 }], side_labels = ["8 m", "5 m", "", ""], right_angles = [0, 1, 2, 3] }]
+
 [[question]]
 id = "q-geometry-2d-0002"
 skill = "q-geometry-2d"
@@ -36,6 +40,10 @@ Area of a circle: $A = \pi r^2$.
 $A \approx 3.14 \times 0.6^2 = 3.14 \times 0.36 = 1.1304$, which rounds to 1.13 m².
 '''
 common_mistake = "Using the circumference formula 2πr, which gives 3.77."
+
+[question.figure]
+kind = "shape"
+circles = [{ x = 0, y = 0, r = 0.6, radius_label = "r = 0.6 m" }]
 
 [[question]]
 id = "q-geometry-2d-0003"
@@ -58,6 +66,10 @@ $1.2^2 + 3.5^2 = 1.44 + 12.25 = 13.69$, and $c = \sqrt{13.69} = 3.7$ m.
 '''
 common_mistake = "Adding the two sides (1.2 + 3.5 = 4.7) instead of using the Pythagorean theorem."
 
+[question.figure]
+kind = "shape"
+polygons = [{ points = [{ x = 0, y = 0 }, { x = 3.5, y = 0 }, { x = 3.5, y = 1.2 }], side_labels = ["3.5 m", "1.2 m", "ramp = ?"], right_angles = [1] }]
+
 [[question]]
 id = "q-geometry-2d-0004"
 skill = "q-geometry-2d"
@@ -70,6 +82,11 @@ answer = "7.5"
 check = "3 * 5 / 2"
 explanation = 'Area of a triangle: $A = \frac{1}{2}bh = \frac{1}{2} \times 3 \times 5 = 7.5$ m².'
 common_mistake = "Forgetting the ½ and answering 15."
+
+[question.figure]
+kind = "shape"
+polygons = [{ points = [{ x = 0, y = 0 }, { x = 3, y = 0 }, { x = 1, y = 5 }], side_labels = ["b = 3 m", "", ""] }]
+segments = [{ from = [1, 0], to = [1, 5], dashed = true, label = "h = 5 m" }]
 
 [[question]]
 id = "q-geometry-2d-0005"
@@ -91,6 +108,11 @@ Then the perimeter: $2 \times (9 + 6) = 2 \times 15 = 30$ m.
 '''
 common_mistake = "Adding the length and width once (9 + 6 = 15) instead of going all the way around."
 
+[question.figure]
+kind = "shape"
+polygons = [{ points = [{ x = 0, y = 0 }, { x = 9, y = 0 }, { x = 9, y = 6 }, { x = 0, y = 6 }], side_labels = ["l = ?", "6 m", "", ""], right_angles = [0, 1, 2, 3] }]
+labels = [{ x = 4.5, y = 3, label = "A = 54 m²" }]
+
 [[question]]
 id = "q-geometry-2d-0006"
 skill = "q-geometry-2d"
@@ -109,6 +131,11 @@ Circumference: $C = \pi d \approx 3.14 \times 1.2 = 3.768$ m.
 Rounded to the nearest hundredth: 3.77 m.
 '''
 common_mistake = "Using 2πd (doubling the diameter), which gives 7.54."
+
+[question.figure]
+kind = "shape"
+circles = [{ x = 0, y = 0, r = 0.6 }]
+segments = [{ from = [-0.6, 0], to = [0.6, 0], label = "d = 1.2 m" }]
 
 [[question]]
 id = "q-geometry-2d-0007"
@@ -144,6 +171,11 @@ check = "(6 + 10) / 2 * 5"
 explanation = 'Put the numbers into the formula: $A = \frac{1}{2}(6 + 10) \times 5 = \frac{1}{2} \times 16 \times 5 = 40$ m².'
 common_mistake = "Forgetting the ½ and answering 80."
 
+[question.figure]
+kind = "shape"
+polygons = [{ points = [{ x = 0, y = 0 }, { x = 10, y = 0 }, { x = 8, y = 5 }, { x = 2, y = 5 }], side_labels = ["10 m", "", "6 m", ""] }]
+segments = [{ from = [2, 0], to = [2, 5], dashed = true, label = "h = 5 m" }]
+
 [[question]]
 id = "q-geometry-2d-0009"
 skill = "q-geometry-2d"
@@ -156,6 +188,10 @@ answer = "12"
 check = "5 * 2.4"
 explanation = 'A regular pentagon has 5 equal sides: $5 \times 2.4 = 12$ m.'
 common_mistake = "Using 6 sides (a hexagon) instead of 5."
+
+[question.figure]
+kind = "shape"
+polygons = [{ points = [{ x = -1.2, y = -1.6517 }, { x = 1.2, y = -1.6517 }, { x = 1.9417, y = 0.6309 }, { x = 0, y = 2.0416 }, { x = -1.9417, y = 0.6309 }], side_labels = ["2.4 m", "", "", "", ""] }]
 
 [[question]]
 id = "q-geometry-2d-0010"
@@ -177,6 +213,11 @@ Total: $24 + 6 = 30$ m².
 '''
 common_mistake = "Adding all the side lengths (6 + 4 + 3 + 2 = 15) instead of finding areas."
 
+[question.figure]
+kind = "shape"
+polygons = [{ points = [{ x = 0, y = 0 }, { x = 6, y = 0 }, { x = 6, y = 4 }, { x = 3, y = 4 }, { x = 3, y = 6 }, { x = 0, y = 6 }], side_labels = ["6 m", "4 m", "", "2 m", "3 m", ""], right_angles = [0, 1, 2, 4, 5] }]
+segments = [{ from = [0, 4], to = [3, 4], dashed = true }]
+
 [[question]]
 id = "q-geometry-2d-0011"
 skill = "q-geometry-2d"
@@ -195,6 +236,11 @@ Yard: $10 \times 10 = 100$ m². Pond: $\pi r^2 \approx 3.14 \times 2^2 = 12.56$ 
 Not covered: $100 - 12.56 = 87.44$ m².
 '''
 common_mistake = "Using the diameter (4 m) as the radius, which makes the pond 50.24 m²."
+
+[question.figure]
+kind = "shape"
+polygons = [{ points = [{ x = 0, y = 0 }, { x = 10, y = 0 }, { x = 10, y = 10 }, { x = 0, y = 10 }], side_labels = ["10 m", "10 m", "", ""], right_angles = [0, 1, 2, 3] }]
+circles = [{ x = 5, y = 5, r = 2, radius_label = "r = 2 m" }]
 
 [[question]]
 id = "q-geometry-2d-0012"
@@ -216,3 +262,8 @@ The ladder is the hypotenuse: $3^2 + h^2 = 5^2$.
 So $h^2 = 25 - 9 = 16$ and $h = 4$ m.
 '''
 common_mistake = "Adding the squares (√34 ≈ 5.83) as if the ladder were a leg instead of the hypotenuse."
+
+[question.figure]
+kind = "shape"
+polygons = [{ points = [{ x = 0, y = 0 }, { x = 3, y = 0 }, { x = 0, y = 4 }], side_labels = ["3 m", "ladder 5 m", "h = ?"], right_angles = [0] }]
+labels = [{ x = -0.6, y = 2, label = "wall" }]

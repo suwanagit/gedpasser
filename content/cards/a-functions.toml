@@ -1,0 +1,120 @@
+# Cards for a-functions (A.5.e, A.7.a–d). See WRITING.md.
+
+[[card]]
+id = "A.5.e"
+status = "draft"
+title = "Reading a graph"
+key = 'Top or bottom of a parabola: $$x = \frac{-b}{2a}$$'
+steps = [
+  '$y$-intercept: the value at $x = 0$, often the starting value',
+  '$x$-intercepts: set it equal to 0 and solve',
+  'Going up left to right: increasing. Going down: decreasing.',
+]
+example = '''
+$y = -x^2 + 6x - 5$:
+$$-(x - 1)(x - 5) = 0 \;\Rightarrow\; x = 1, 5$$
+$$x = 3: \; -9 + 18 - 5 = 4$$
+Highest point: **$(3, 4)$**
+'''
+hack = 'A parabola is a mirror: the vertex is halfway between the $x$-intercepts. $a < 0$ frowns (has a top); $a > 0$ smiles (has a bottom).'
+
+[card.figure]
+kind = "plane"
+x_min = -1
+x_max = 7
+y_min = -6
+y_max = 6
+curves = ["-x^2 + 6*x - 5"]
+points = [
+  { x = 1, y = 0, label = "(1, 0)" },
+  { x = 5, y = 0, label = "(5, 0)" },
+  { x = 3, y = 4, label = "vertex (3, 4)" },
+  { x = 0, y = -5, label = "(0, −5)" },
+]
+
+[[card]]
+id = "A.7.a"
+status = "draft"
+title = "Compare unit rates"
+key = '$$\text{unit rate} = \frac{y}{x}$$'
+steps = [
+  'Equation $y = kx$: the rate is $k$',
+  'Table or point: divide $y$ by $x$',
+  'Graph: read $y$ at $x = 1$',
+  'Use the same units, then compare',
+]
+example = '''
+Plan A: $c = 12h$. Plan B: \$50 for 4 hours.
+$$\text{A: } 12 \qquad \text{B: } \frac{50}{4} = 12.5$$
+**Plan A** costs less per hour.
+'''
+hack = 'Turn everything into "per 1" first. Then the bigger number is faster (or pricier).'
+
+[[card]]
+id = "A.7.b"
+status = "draft"
+title = "Is it a function?"
+key = '$$\text{each input } x \to \text{exactly one output } y$$'
+steps = [
+  'Table: an $x$ that repeats with a different $y$ means not a function',
+  'The same $y$ twice is fine',
+  'Graph: use the vertical line test',
+]
+example = '''
+$$\{(1, 2), (3, 2), (1, 5)\}: \quad x = 1 \to 2 \text{ and } 5$$
+**Not a function**
+'''
+hack = 'Vertical line test: slide a vertical line across. If it ever hits the graph twice, it is not a function.'
+
+[card.figure]
+kind = "plane"
+x_min = -1
+x_max = 6
+y_min = -3
+y_max = 3
+curves = ["sqrt(x)", "-sqrt(x)"]
+points = [{ x = 4, y = 2, label = "(4, 2)" }, { x = 4, y = -2, label = "(4, −2)" }]
+segments = [{ from = [4, -3], to = [4, 3], dashed = true, label = "x = 4" }]
+
+[[card]]
+id = "A.7.c"
+status = "draft"
+title = "Function notation"
+key = '$$f(\text{input}) \;\to\; \text{replace every } x \text{ with } (\text{input})$$'
+steps = [
+  'Replace every $x$ with the input, in parentheses',
+  'Work it out with the order of operations',
+  'Given the output instead? Set $f(x)$ equal to it and solve',
+]
+example = '''
+$f(x) = x^2 - 4x$:
+$$f(-1) = (-1)^2 - 4(-1) = 1 + 4$$
+Answer: **5**
+'''
+hack = '$f(3)$ means "put 3 in for $x$." It is not $f$ times 3.'
+
+[[card]]
+id = "A.7.d"
+status = "draft"
+title = "Compare two functions"
+key = '$$\text{slope} = \frac{\text{change in } y}{\text{change in } x} \qquad \text{start} = f(0)$$'
+steps = [
+  'Find the same feature for each function',
+  'Slope: the number in front of $x$, or rise over run',
+  'Quadratic: find its highest or lowest point',
+]
+example = '''
+$f(x) = 3x + 6$. $g(0) = 2$ and $g(2) = 10$.
+$$\text{slope of } g = \frac{10 - 2}{2 - 0} = 4 > 3$$
+**$g$ grows faster**, but $f$ starts higher (6 vs. 2).
+'''
+hack = 'Write each one as $y = mx + b$. Compare $m$ with $m$ (speed) and $b$ with $b$ (start).'
+
+[card.figure]
+kind = "plane"
+x_min = 0
+x_max = 6
+y_min = 0
+y_max = 30
+curves = ["3*x + 6", "4*x + 2"]
+points = [{ x = 0, y = 6, label = "f: (0, 6)" }, { x = 0, y = 2, label = "g: (0, 2)" }]

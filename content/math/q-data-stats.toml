@@ -93,6 +93,11 @@ check = "1630 - 980"
 explanation = 'Subtract the two bar heights: $1630 - 980 = 650$ salmon.'
 common_mistake = "Comparing Wednesday with Monday (380) instead of Tuesday."
 
+[question.figure]
+kind = "bars"
+bars = [{ label = "Mon", value = 1250 }, { label = "Tue", value = 980 }, { label = "Wed", value = 1630 }]
+y_label = "salmon"
+
 [[question]]
 id = "q-data-stats-0006"
 skill = "q-data-stats"
@@ -109,6 +114,17 @@ answer = "16"
 check = "80 - 64"
 explanation = 'The interquartile range is the third quartile minus the first quartile: $80 - 64 = 16$.'
 common_mistake = "Finding the full range (95 − 52 = 43) instead of the interquartile range."
+
+[question.figure]
+kind = "box"
+min = 52
+q1 = 64
+median = 71
+q3 = 80
+max = 95
+axis_min = 50
+axis_max = 100
+label = "test score"
 
 [[question]]
 id = "q-data-stats-0007"
@@ -128,6 +144,11 @@ Each dot is one person. Multiply each number of fish by its number of dots and a
 $0 \times 1 + 1 \times 3 + 2 \times 4 + 3 \times 2 = 0 + 3 + 8 + 6 = 17$ fish.
 '''
 common_mistake = "Counting the dots (10 people) instead of the fish they caught."
+
+[question.figure]
+kind = "dots"
+counts = [{ x = 0, count = 1 }, { x = 1, count = 3 }, { x = 2, count = 4 }, { x = 3, count = 2 }]
+label = "fish caught"
 
 [[question]]
 id = "q-data-stats-0008"
@@ -165,6 +186,17 @@ answer = "1.4"
 check = "2.6 - 1.2"
 explanation = 'Subtract the starting depth from the ending depth: $2.6 - 1.2 = 1.4$ m.'
 common_mistake = "Using the May 15 reading (2.0 − 1.2 = 0.8) instead of the June 1 reading."
+
+[question.figure]
+kind = "plane"
+x_min = 0
+x_max = 35
+y_min = 0
+y_max = 3
+points = [{ x = 0, y = 1.2, label = "May 1: 1.2 m" }, { x = 14, y = 2.0, label = "May 15: 2.0 m" }, { x = 31, y = 2.6, label = "Jun 1: 2.6 m" }]
+segments = [{ from = [0, 1.2], to = [14, 2.0] }, { from = [14, 2.0], to = [31, 2.6] }]
+x_label = "days after May 1"
+y_label = "depth (m)"
 
 [[question]]
 id = "q-data-stats-0010"

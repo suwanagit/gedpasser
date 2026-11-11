@@ -164,3 +164,60 @@ verdict = "pass"
 solved = "7.85"
 note = "Re-review: the common_mistake now describes doubling the radius instead of squaring it (3.14 x 2 x 1 x 2.5 = 15.7), which matches distractor 15.7. Key 7.85 is correct and is the only correct choice; prompt, explanation and other distractors unchanged and fine."
 date = "2026-11-10"
+# Card review, 2026-11-10
+
+[[review]]
+id = "Q.5.a"
+kind = "card"
+hash = "80900e4d03b9bd84"
+verdict = "pass"
+note = "V = 30 and SA = 2(6 + 10 + 15) = 62 correct. Fill/wrap hack, face-twin doubling and 1 m³ = 1000 L are correct. Short; numbers differ from the box questions."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.5.b"
+kind = "card"
+hash = "5157137e5fec0d88"
+verdict = "fix"
+note = "Math correct (3.14 x 9 x 4 = 113.04; SA formula right) and coin-stack hack is good. Fix the figure: a flat circle labeled r = 3 m does not show a cylinder or the 4 m height, so it only half matches the example; add the height (e.g., a side-view rectangle 6 wide x 4 tall with r = 3 m and h = 4 m) or drop the figure. Optional: the 113.04 result is identical to the Q.5.e sphere example; pick another height (e.g., 5 m -> 141.3) so the cards do not look like the same answer."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.5.c"
+kind = "card"
+hash = "01a3b32544eaaccf"
+verdict = "pass"
+note = "B = 1/2 x 5 x 4 = 10, V = 60 correct; figure triangle base 5 m with dashed 4 m height matches. Loaf-of-bread hack correct. Prism SA formula 2B + perimeter x h correct."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.5.d"
+kind = "card"
+hash = "f81b8074c23a3712"
+verdict = "pass"
+note = "1/3 x 36 x 5 = 60 correct. Slant-height warning is right. Pointy-shape 1/3 hack is correct for same base and height."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.5.e"
+kind = "card"
+hash = "56c88562b1fdb7c8"
+verdict = "pass"
+note = "4/3 x 3.14 x 27 = 113.04 correct; SA = 4 pi r^2 correct. Power-matches-units hack is correct and memorable. Short."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.5.f"
+kind = "card"
+hash = "bdf6c1727978fdaa"
+verdict = "pass"
+note = "Cylinder 9.42 + cone 9.42/3 = 3.14 -> 12.56 correct. Skip-touching-faces rule and half-sphere/cone hacks correct. Numbers differ from the propane and step questions."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.5.b"
+kind = "card"
+hash = "bbfa573cbd6e2f42"
+verdict = "pass"
+note = "Re-review: the mismatched circle figure is gone. New example 3.14 x 9 x 5 = 141.3 m³ checked, and it no longer matches the sphere card's answer. SA formula and coin-stack hack are correct."
+date = "2026-11-10"

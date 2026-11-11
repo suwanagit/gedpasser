@@ -208,3 +208,7 @@ explanation = '''
 The length is $w + 4$. Perimeter $= 2(\text{width}) + 2(\text{length}) = 2w + 2(w + 4) = 2w + 2w + 8 = 4w + 8$.
 '''
 common_mistake = "Writing the area, w(w + 4) = w² + 4w, instead of the perimeter."
+
+[question.figure]
+kind = "shape"
+polygons = [{ points = [{ x = 0, y = 0 }, { x = 8, y = 0 }, { x = 8, y = 4 }, { x = 0, y = 4 }], side_labels = ["w + 4", "w", "", ""], right_angles = [0] }]

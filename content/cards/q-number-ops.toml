@@ -1,0 +1,117 @@
+# Lesson cards for q-number-ops. Format and rules: WRITING.md.
+
+[[card]]
+id = "Q.1.a"
+status = "reviewed"
+title = "Ordering fractions and decimals"
+key = 'Write every number as a decimal, then compare.'
+steps = [
+  'Fraction to decimal: divide top by bottom. $\frac{3}{4} = 3 \div 4 = 0.75$',
+  'Add zeros so all decimals have the same length',
+  'Compare digits from the left. Smaller numbers sit further left on a number line.',
+]
+example = '''
+Order $0.7$, $\frac{3}{4}$, $0.68$:
+$$0.680 < 0.700 < 0.750$$
+**$0.68 < 0.7 < \frac{3}{4}$**
+'''
+hack = 'Longer is not bigger: $0.7 = 0.70$, which beats $0.68$. Even out the lengths before you compare.'
+
+[card.figure]
+kind = "number_line"
+min = 0.6
+max = 0.8
+points = [{ x = 0.68, label = "0.68" }, { x = 0.7, label = "0.7" }, { x = 0.75, label = "3/4" }]
+
+[[card]]
+id = "Q.1.b"
+status = "reviewed"
+title = "Factors, multiples, distributing"
+key = '$$a(b + c) = ab + ac$$'
+steps = [
+  'GCF: the biggest number that divides both. GCF of 18 and 30 is 6.',
+  'LCM: the smallest number both divide into. LCM of 4 and 10 is 20.',
+  'Split a hard number to multiply in your head',
+  'Factor out the GCF: $18 + 30 = 6(3 + 5)$',
+]
+example = '''
+$7 \times 38$:
+$$7 \times 40 - 7 \times 2 = 280 - 14 = 266$$
+**266**
+'''
+hack = 'Factor means Fewer, Multiple means More. The GCF is never bigger than the smaller number; the LCM is never smaller than the bigger one.'
+
+[[card]]
+id = "Q.1.d"
+status = "reviewed"
+title = "Absolute value and distance"
+key = '$$\text{distance} = |a - b|$$'
+steps = [
+  'Absolute value is distance from 0, so it is never negative: $|-5| = 5$',
+  'Subtract the two numbers, then drop the sign',
+]
+example = '''
+From $-6$ °C to $3$ °C:
+$$|3 - (-6)| = |3 + 6| = 9$$
+**9 degrees**
+'''
+hack = 'On opposite sides of 0? Add the sizes: $6 + 3 = 9$. Same side? Subtract them. And minus a minus is a plus.'
+
+[card.figure]
+kind = "number_line"
+min = -8
+max = 5
+points = [{ x = -6, label = "−6" }, { x = 3, label = "3" }]
+
+[[card]]
+id = "Q.2.a"
+status = "reviewed"
+title = "Order of operations"
+key = 'Parentheses → Exponents → Multiply/Divide → Add/Subtract'
+steps = [
+  'Do multiply and divide together, left to right',
+  'Do add and subtract together, left to right',
+  'Multiply or divide: same signs give positive, different signs negative. $(-3)(-5) = 15$',
+  'Fractions: add with a common denominator; never add the bottoms',
+]
+example = '''
+$$2 + 6^2 \div (5 - 2) = 2 + 36 \div 3 = 2 + 12$$
+**14**
+'''
+hack = 'PEMDAS: “Please Excuse My Dear Aunt Sally.” To divide fractions, Keep–Change–Flip: $\frac{2}{3} \div \frac{1}{4} = \frac{2}{3} \times \frac{4}{1} = \frac{8}{3}$.'
+
+[[card]]
+id = "Q.2.d"
+status = "reviewed"
+title = "Undefined expressions"
+key = 'You can never divide by 0.'
+steps = [
+  'Set the bottom of the fraction equal to 0 and solve',
+  'That value makes it undefined',
+  'Zero on top is fine: $\frac{0}{5} = 0$',
+  'A square root of a negative, like $\sqrt{-4}$, is not a real number',
+]
+example = '''
+When is $\frac{5}{x + 6}$ undefined?
+$$x + 6 = 0 \quad x = -6$$
+**$x = -6$**
+'''
+hack = 'Zero on top is OK; zero on the bottom is a no-go. You can share 0 pizzas, but not with 0 people.'
+
+[[card]]
+id = "Q.2.e"
+status = "reviewed"
+title = "Multi-step word problems"
+key = 'Estimate, solve one step at a time, then check.'
+steps = [
+  'Underline what the question asks for',
+  'List the numbers with their units',
+  'Round to estimate first',
+  'Solve step by step and compare with your estimate',
+]
+example = '''
+5 bags at \$18.90 each, paid with \$100. Change?
+$$5 \times 18.90 = 94.50 \qquad 100 - 94.50 = 5.50$$
+Estimate: $5 \times 19 = 95$, so about \$5. **\$5.50**
+'''
+hack = 'Reread the last sentence before you answer. Tests love choices that are right for a middle step but not the final question.'

@@ -167,3 +167,44 @@ hash = "afccc1b095f99c5f"
 verdict = "pass"
 note = "Re-checked: phone plan example (25 dollars plus 0.10 per text gives 25 + 0.10t) is correct, dollar signs escaped, and no longer duplicates question 0003. Translation rules and the less-than order warning are correct."
 date = "2026-11-10"
+
+[[review]]
+id = "a-expressions-0012"
+kind = "question"
+hash = "55b8afc457ddd250"
+verdict = "pass"
+solved = "4w + 8"
+note = "Blind solve 2w + 2(w + 4) = 4w + 8 matches key; check 2*3 + 2*7 = 20 = 4(3) + 8. Figure labels bottom side w + 4 (drawn 8) and right side w (drawn 4), consistent with the prompt and reveals nothing beyond it. Distractors are real errors (two sides only, forgot to double the 4, area)."
+date = "2026-11-10"
+
+[[review]]
+id = "A.1.a"
+kind = "card"
+hash = "b08d6df3bde86de5"
+verdict = "fix"
+note = "Rule, steps and example (2(3x - 5) + 4x = 10x - 10) are correct, but the hack uses x = 1, which is a weak test value: here it makes both sides 0, and a sign-error distractor like 10 - 10x also gives 0 at x = 1, so the hack would accept a wrong choice. Change it to x = 2 (or 3) and say 'avoid 0 and 1': at x = 2 both give 10. Also say 'into the original expression' instead of 'into the question'."
+date = "2026-11-10"
+
+[[review]]
+id = "A.1.b"
+kind = "card"
+hash = "db479a5abb13aa30"
+verdict = "pass"
+note = "Example 5(3) - 2(-4) = 15 + 8 = 23 is correct. Parentheses-first substitution and the (-) key tip are correct and useful. Short and clear."
+date = "2026-11-10"
+
+[[review]]
+id = "A.1.c"
+kind = "card"
+hash = "46920d603a4e4045"
+verdict = "pass"
+note = "Key, word-to-operation list and example (6 less than half of n = n/2 - 6) are correct. Hack tests 'less than' order with real numbers, which is correct and memorable. Short."
+date = "2026-11-10"
+
+[[review]]
+id = "A.1.a"
+kind = "card"
+hash = "8d1ee97c7399490c"
+verdict = "pass"
+note = "Re-check: hack now uses x = 2; 2(3(2) - 5) + 4(2) = 2 + 8 = 10 and 10(2) - 10 = 10, so 'both give 10' is correct. 'Original expression' wording and the avoid-0-and-1 warning fix the earlier problem. Rest of card unchanged and correct."
+date = "2026-11-10"

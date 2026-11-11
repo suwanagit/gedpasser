@@ -5,7 +5,7 @@
 use std::collections::HashMap;
 use std::path::Path;
 
-use ged_content::{Principle, Question, QuestionType, Skill, Status, check_content};
+use ged_content::{Card, Principle, Question, QuestionType, Skill, Stage, Status, StrategyFile, check_content};
 use sqlx::SqlitePool;
 
 pub struct Bank {
@@ -16,6 +16,11 @@ pub struct Bank {
     /// Question ids per skill, in file order.
     pub by_skill: HashMap<String, Vec<String>>,
     pub hashes: HashMap<String, String>,
+    /// Short lesson cards by principle id.
+    pub cards: HashMap<String, Card>,
+    /// The guided path, in order.
+    pub journey: Vec<Stage>,
+    pub strategy: Option<StrategyFile>,
 }
 
 impl Bank {
@@ -48,7 +53,27 @@ impl Bank {
             report.skills.iter().enumerate().map(|(i, s)| (s.id.as_str(), i)).collect();
         let mut principles = report.principles.clone();
         principles.sort_by_key(|p| skill_order.get(p.skill.as_str()).copied().unwrap_or(usize::MAX));
-        Ok(Bank { skills: report.skills, principles, questions, by_skill, hashes })
+        let cards = report.cards.into_iter().map(|(_, c)| (c.id.clone(), c)).collect();
+        Ok(Bank {
+            skills: report.skills,
+            principles,
+            questions,
+            by_skill,
+            hashes,
+            cards,
+            journey: report.journey,
+            strategy: report.strategy,
+        })
+    }
+
+    /// A principle's card, if learners may see it.
+    pub fn card(&self, principle: &str, serve_drafts: bool) -> Option<&Card> {
+        self.cards.get(principle).filter(|c| status_servable(c.status, serve_drafts))
+    }
+
+    /// The strategy file, if learners may see it.
+    pub fn strategy(&self, serve_drafts: bool) -> Option<&StrategyFile> {
+        self.strategy.as_ref().filter(|s| status_servable(s.status, serve_drafts))
     }
 
     pub fn principle(&self, id: &str) -> Option<&Principle> {

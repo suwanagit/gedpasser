@@ -1,0 +1,230 @@
+# The journey: a guided path through all 62 principles, easy first.
+#
+# Each stage teaches its principles with short cards, then a short quiz of
+# `size` questions, preferring difficulty ≤ max_difficulty. Pass (about two
+# thirds right) to unlock the next stage. A checkpoint mixes every principle
+# since the previous checkpoint (or everything so far if cumulative).
+# Early stages are small and easy on purpose: quick wins first.
+
+# ── Part 1: everyday numbers ─────────────────────────────────────────────
+
+[[stage]]
+id = "s01"
+title = "Everyday numbers"
+principles = ["Q.2.e", "Q.1.a", "Q.1.d"]
+size = 3
+max_difficulty = 1
+
+[[stage]]
+id = "s02"
+title = "Factors and the order of operations"
+principles = ["Q.1.b", "Q.2.a"]
+size = 3
+max_difficulty = 1
+
+[[stage]]
+id = "s03"
+title = "Rates and scale"
+principles = ["Q.3.a", "Q.3.b", "Q.3.c"]
+size = 3
+max_difficulty = 1
+
+[[stage]]
+id = "s04"
+title = "Area and perimeter"
+principles = ["Q.4.a", "Q.4.c"]
+size = 3
+max_difficulty = 1
+
+[[stage]]
+id = "c1"
+title = "Checkpoint 1"
+checkpoint = true
+size = 5
+max_difficulty = 1
+
+# ── Part 2: data and first algebra ───────────────────────────────────────
+
+[[stage]]
+id = "s05"
+title = "Reading data"
+principles = ["Q.6.a", "Q.6.c", "Q.7.a"]
+size = 3
+max_difficulty = 1
+
+[[stage]]
+id = "s06"
+title = "Chances"
+principles = ["Q.8.b"]
+size = 3
+max_difficulty = 1
+
+[[stage]]
+id = "s07"
+title = "Plugging in numbers"
+principles = ["A.1.b", "A.1.e", "A.7.b"]
+size = 3
+max_difficulty = 1
+
+[[stage]]
+id = "s08"
+title = "Simplify and translate"
+principles = ["A.1.a", "A.1.c"]
+size = 3
+max_difficulty = 2
+
+[[stage]]
+id = "c2"
+title = "Checkpoint 2"
+checkpoint = true
+size = 6
+max_difficulty = 2
+
+# ── Part 3: powers, percents, equations ──────────────────────────────────
+
+[[stage]]
+id = "s09"
+title = "Powers and roots"
+principles = ["Q.2.b", "Q.2.c", "Q.1.c"]
+size = 4
+max_difficulty = 2
+
+[[stage]]
+id = "s10"
+title = "Percents"
+principles = ["Q.3.d", "Q.2.d"]
+size = 4
+max_difficulty = 2
+
+[[stage]]
+id = "s11"
+title = "Solving equations"
+principles = ["A.2.a", "A.2.c"]
+size = 4
+max_difficulty = 2
+
+[[stage]]
+id = "s12"
+title = "Points, slope, number lines"
+principles = ["A.5.a", "A.5.b", "A.3.b"]
+size = 4
+max_difficulty = 2
+
+[[stage]]
+id = "c3"
+title = "Checkpoint 3"
+checkpoint = true
+size = 6
+max_difficulty = 2
+
+# ── Part 4: geometry and word problems ───────────────────────────────────
+
+[[stage]]
+id = "s13"
+title = "Circles and right triangles"
+principles = ["Q.4.b", "Q.4.e"]
+size = 4
+max_difficulty = 2
+
+[[stage]]
+id = "s14"
+title = "Boxes and cylinders"
+principles = ["Q.5.a", "Q.5.b", "Q.5.c"]
+size = 4
+max_difficulty = 2
+
+[[stage]]
+id = "s15"
+title = "Counting and data spread"
+principles = ["Q.6.b", "Q.8.a"]
+size = 4
+max_difficulty = 2
+
+[[stage]]
+id = "s16"
+title = "Equations and inequalities in words"
+principles = ["A.2.b", "A.3.a", "A.3.c", "A.3.d"]
+size = 5
+max_difficulty = 2
+
+[[stage]]
+id = "c4"
+title = "Checkpoint 4"
+checkpoint = true
+size = 7
+max_difficulty = 3
+
+# ── Part 5: lines and systems ────────────────────────────────────────────
+
+[[stage]]
+id = "s17"
+title = "Graphing lines"
+principles = ["A.5.c", "A.5.d", "A.6.a"]
+size = 4
+max_difficulty = 3
+
+[[stage]]
+id = "s18"
+title = "Lines through points"
+principles = ["A.6.b", "A.6.c", "A.7.a"]
+size = 4
+max_difficulty = 3
+
+[[stage]]
+id = "s19"
+title = "Two equations at once"
+principles = ["A.2.d"]
+size = 5
+max_difficulty = 3
+
+[[stage]]
+id = "s20"
+title = "Polynomials"
+principles = ["A.1.d", "A.1.f", "A.1.g"]
+size = 4
+max_difficulty = 3
+
+[[stage]]
+id = "c5"
+title = "Checkpoint 5"
+checkpoint = true
+size = 8
+max_difficulty = 3
+
+# ── Part 6: the hardest topics ───────────────────────────────────────────
+
+[[stage]]
+id = "s21"
+title = "Quadratics and their graphs"
+principles = ["A.4.a", "A.4.b", "A.5.e"]
+size = 4
+max_difficulty = 3
+
+[[stage]]
+id = "s22"
+title = "Algebraic fractions"
+principles = ["A.1.h", "A.1.i", "A.1.j"]
+size = 3
+max_difficulty = 3
+
+[[stage]]
+id = "s23"
+title = "Functions"
+principles = ["A.7.c", "A.7.d"]
+size = 5
+max_difficulty = 3
+
+[[stage]]
+id = "s24"
+title = "Cones, spheres, combined shapes"
+principles = ["Q.5.d", "Q.5.e", "Q.5.f", "Q.4.d"]
+size = 5
+max_difficulty = 3
+
+[[stage]]
+id = "c6"
+title = "Final checkpoint"
+checkpoint = true
+cumulative = true
+size = 10
+max_difficulty = 3

@@ -147,3 +147,152 @@ hash = "87a8b8a4f141dc52"
 verdict = "pass"
 note = "Legs/hypotenuse defined correctly; 6-8-10 and 5-12-13 examples correct; tip about hypotenuse being longest is accurate."
 date = "2026-11-10"
+
+# Figure and card review, 2026-11-10
+
+[[review]]
+id = "q-geometry-2d-0001"
+kind = "question"
+hash = "337960664d2a64bd"
+verdict = "pass"
+solved = "26"
+note = "2(8 + 5) = 26 matches key. Figure 8 m by 5 m rectangle matches prompt; no answer shown."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-2d-0002"
+kind = "question"
+hash = "22416590322ee55c"
+verdict = "pass"
+solved = "1.13"
+note = "3.14 x 0.36 = 1.1304 -> 1.13. Figure circle labeled r = 0.6 m matches prompt; area not shown."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-2d-0003"
+kind = "question"
+hash = "7943822ba6b51396"
+verdict = "pass"
+solved = "3.7"
+note = "sqrt(1.44 + 12.25) = sqrt(13.69) = 3.7. Figure: legs 3.5 m and 1.2 m, right angle at the foot of the rise, hypotenuse labeled ramp = ?. Matches prompt."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-2d-0004"
+kind = "question"
+hash = "d6be5ff9d5248374"
+verdict = "pass"
+solved = "7.5"
+note = "1/2 x 3 x 5 = 7.5. Figure base 3 m with dashed perpendicular height 5 m matches prompt; area not shown."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-2d-0005"
+kind = "question"
+hash = "ebaef9b57ee1ca20"
+verdict = "pass"
+solved = "30"
+note = "l = 54/6 = 9, P = 2(9 + 6) = 30. Figure labels l = ?, 6 m and A = 54 m², matching prompt; length shown only as ?, perimeter not shown."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-2d-0006"
+kind = "question"
+hash = "1720471140237be8"
+verdict = "pass"
+solved = "3.77"
+note = "3.14 x 1.2 = 3.768 -> 3.77. Figure circle r 0.6 with diameter segment labeled d = 1.2 m matches prompt."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-2d-0008"
+kind = "question"
+hash = "9ab9a5a3e63331b0"
+verdict = "pass"
+solved = "40"
+note = "1/2(6 + 10) x 5 = 40. Figure: bottom 10 m, top 6 m (8 - 2 = 6, correct), dashed height 5 m. Matches prompt; area not shown."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-2d-0009"
+kind = "question"
+hash = "5ae387e887588ceb"
+verdict = "pass"
+solved = "12"
+note = "5 x 2.4 = 12. Figure is a regular pentagon with the labeled side exactly 2.4 long; matches prompt."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-2d-0010"
+kind = "question"
+hash = "e2bf8420f7bba3db"
+verdict = "pass"
+solved = "30"
+note = "24 + 6 = 30. Figure: 6 m x 4 m bottom rectangle plus 3 m x 2 m top rectangle split by a dashed line; coordinates agree with labels, right-angle marks omit only the reflex corner. Total area not shown."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-2d-0011"
+kind = "question"
+hash = "f03aefaa48f2dc7e"
+verdict = "pass"
+solved = "87.44"
+note = "100 - 3.14 x 4 = 87.44. Figure: 10 m square with r = 2 m circle inside; matches prompt and fits inside the yard."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-2d-0012"
+kind = "question"
+hash = "148aab090f56667b"
+verdict = "pass"
+solved = "4"
+note = "sqrt(25 - 9) = 4. Figure: ground 3 m, ladder 5 m as hypotenuse, wall height h = ?, right angle at wall base. Matches prompt; height only shown as ?."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.4.a"
+kind = "card"
+hash = "af2fa3b912ae5810"
+verdict = "pass"
+note = "1/2 x 10 x 6 = 30 correct; figure (base 10, dashed height 6) matches. Half-a-box and fence/carpet hacks are correct and memorable. Short; numbers differ from questions."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.4.b"
+kind = "card"
+hash = "4046d76cf6160e5f"
+verdict = "pass"
+note = "3.14 x 16 = 50.24 correct; figure r = 4 cm matches. C = 2 pi r and C = pi d both correct; pie mnemonics are standard and accurate. Short."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.4.c"
+kind = "card"
+hash = "fe56785133150f92"
+verdict = "fix"
+note = "Example 1/2(8 + 4) x 3 = 18 and figure are correct, hack is good. Fix step 4: 'The height goes straight across' is wrong/misleading (it suggests horizontal); say 'The height meets the base at a right angle, not along a slanted side.' Also step 2 should say 'Regular shape perimeter: side length x number of sides' so it is not read as an area rule."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.4.d"
+kind = "card"
+hash = "b25647602e942cee"
+verdict = "pass"
+note = "8 x 3 + 1/2 x 8 x 2 = 32 correct; figure (8 m x 3 m box, roof peak 2 m above dashed split) matches. Cookie-cutter hack correct. Short and clear."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.4.e"
+kind = "card"
+hash = "afeba3a3bc54a092"
+verdict = "pass"
+note = "81 + 144 = 225, sqrt = 15 correct; figure legs 12 and 9, c = ? opposite the right angle. Triples 3-4-5, 5-12-13, 8-15-17 and multiples are correct. Does not reuse the 3-4-5 ladder question."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.4.c"
+kind = "card"
+hash = "268e91e03ff3e6d1"
+verdict = "pass"
+note = "Re-review: step 2 now limits side x count to perimeter, and step 4 correctly says the height meets the base at a right angle. Example 1/2(8 + 4) x 3 = 18, figure and hack still correct."
+date = "2026-11-10"

@@ -166,3 +166,71 @@ hash = "18f55628252a2338"
 verdict = "pass"
 note = "Re-checked: weighted example 0.7*80 + 0.3*60 = 56 + 18 = 74 is correct and no longer duplicates q-data-stats-0003. Missing-value example 320 - 247 = 73 still correct."
 date = "2026-11-10"
+
+[[review]]
+id = "q-data-stats-0005"
+kind = "question"
+hash = "a15e03e58c953ffa"
+verdict = "pass"
+solved = "650"
+note = "Blind 1630 - 980 = 650 matches key. Figure bars Mon 1250, Tue 980, Wed 1630 match the prompt exactly; the asked-for difference is not shown on the figure. Common mistake (Wed vs Mon = 380) realistic."
+date = "2026-11-10"
+
+[[review]]
+id = "q-data-stats-0006"
+kind = "question"
+hash = "d7940ea295f647ee"
+verdict = "pass"
+solved = "16"
+note = "Blind 80 - 64 = 16 matches key. Box figure (52, 64, 71, 80, 95 on a 50-100 axis) matches the prompt; IQR itself is not displayed. Distractors trace to real errors: 43 full range, 9 = Q3 - median, 7 = median - Q1."
+date = "2026-11-10"
+
+[[review]]
+id = "q-data-stats-0007"
+kind = "question"
+hash = "5585a5aacb84c651"
+verdict = "pass"
+solved = "17"
+note = "Blind 0*1 + 1*3 + 2*4 + 3*2 = 17 matches key. Dot figure counts (0:1, 1:3, 2:4, 3:2; 10 dots total) match the prompt; the total is not shown. Common mistake (counting 10 dots) is the real trap."
+date = "2026-11-10"
+
+[[review]]
+id = "q-data-stats-0009"
+kind = "question"
+hash = "596e9546955875d0"
+verdict = "pass"
+solved = "1.4"
+note = "Blind 2.6 - 1.2 = 1.4 matches key. Figure points (day 0: 1.2 m, day 14: 2.0 m, day 31: 2.6 m) match the prompt and the day offsets are right (May has 31 days); the rise itself is not labeled. Metric units."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.6.a"
+kind = "card"
+hash = "454502d4cc26bad1"
+verdict = "fix"
+note = 'Example, figure (Jun 40, Jul 65, Aug 50) and hack are correct; 65 - 40 = 25. But the key formula (percent x total) is the only circle-graph content and is never shown in use, so a learner may multiply by 30 instead of 0.30. Make the key show the conversion in one line, e.g. $$25\% \times 80 = 0.25 \times 80 = 20$$ (do not use 30% of 600, which is question 0004).'
+date = "2026-11-10"
+
+[[review]]
+id = "Q.6.b"
+kind = "card"
+hash = "1f3f43a6f9637b71"
+verdict = "pass"
+note = "IQR = Q3 - Q1; example 35 - 20 = 15 matches the box figure (10, 20, 25, 35, 50). Hack (box = middle half, median line, each quarter about 1/4) is correct and memorable. Short and clear; numbers do not overlap question 0006."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.6.c"
+kind = "card"
+hash = "8fe53cf48fdff40e"
+verdict = "pass"
+note = "Example correct: 42/3 = 70/5 = 14 per hour, 14 x 8 = 112; does not reuse question 0008 numbers. Scatter figure shows a clear uphill trend that illustrates the hack; hack (uphill/downhill/cloud, trend is not cause) is correct. Concise."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.7.a"
+kind = "card"
+hash = "2027173715d242fc"
+verdict = "pass"
+note = "Checked 3, 5, 6, 8, 8: sum 30, mean 6, median 6, mode 8, range 5 all correct; dot figure (3:1, 5:1, 6:1, 8:2) matches. Steps cover the missing-value method without reusing question 0010 numbers. Hacks (highway median, mo = most) correct and memorable."
+date = "2026-11-10"

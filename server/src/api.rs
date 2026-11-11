@@ -15,6 +15,7 @@ use ts_rs::TS;
 use crate::AppState;
 use crate::auth::{self, CurrentUser};
 use crate::content::{Bank, grade};
+use crate::figures::FigureView;
 use crate::mastery::{Answer, Level, level, mastery};
 
 // ── Errors ────────────────────────────────────────────────────────────────
@@ -252,23 +253,23 @@ impl LearnerStats {
         (answers.len() as u32, correct as u32, shown, level(answers.len(), m))
     }
 
-    fn skill(&self, id: &str) -> (u32, u32, Option<f64>, Level) {
+    pub(crate) fn skill(&self, id: &str) -> (u32, u32, Option<f64>, Level) {
         Self::summarize(self.by_skill.get(id))
     }
 
-    fn principle(&self, id: &str) -> (u32, u32, Option<f64>, Level) {
+    pub(crate) fn principle(&self, id: &str) -> (u32, u32, Option<f64>, Level) {
         Self::summarize(self.by_principle.get(id))
     }
 }
 
 /// Question ids from `ids` that can be served now (servable status, no open flag).
-fn servable<'a>(state: &AppState, flagged: &HashSet<String>, ids: impl Iterator<Item = &'a String>) -> Vec<&'a String> {
+pub(crate) fn servable<'a>(state: &AppState, flagged: &HashSet<String>, ids: impl Iterator<Item = &'a String>) -> Vec<&'a String> {
     ids.filter(|id| !flagged.contains(*id))
         .filter(|id| state.bank.questions.get(*id).is_some_and(|q| Bank::servable(q, state.serve_drafts)))
         .collect()
 }
 
-fn principle_question_ids<'a>(state: &'a AppState, principle: &'a str) -> impl Iterator<Item = &'a String> + 'a {
+pub(crate) fn principle_question_ids<'a>(state: &'a AppState, principle: &'a str) -> impl Iterator<Item = &'a String> + 'a {
     state.bank.questions.values().filter(move |q| q.principle == principle).map(|q| &q.id)
 }
 
@@ -350,7 +351,7 @@ pub struct PrincipleRef {
     pub name: String,
 }
 
-fn principle_ref(state: &AppState, id: &str) -> PrincipleRef {
+pub(crate) fn principle_ref(state: &AppState, id: &str) -> PrincipleRef {
     let name = state.bank.principle(id).map(|p| p.name.clone()).unwrap_or_default();
     PrincipleRef { id: id.to_string(), name }
 }
@@ -369,6 +370,8 @@ pub struct PracticeQuestion {
     pub prompt: String,
     /// Empty for fill-in questions.
     pub choices: Vec<String>,
+    /// Graph, number line, chart or shape to show with the prompt.
+    pub figure: Option<FigureView>,
     pub alaska: bool,
     /// True if the question has not been reviewed yet (dev mode only).
     pub draft: bool,
@@ -415,7 +418,7 @@ pub struct NextParams {
     pub after: Option<String>,
 }
 
-fn random_u32() -> u32 {
+pub(crate) fn random_u32() -> u32 {
     let mut b = [0u8; 4];
     let _ = getrandom::fill(&mut b);
     u32::from_le_bytes(b)
@@ -519,27 +522,30 @@ pub async fn next_question(
         tier[0]
     };
 
-    let q = &state.bank.questions[chosen];
+    Ok(Json(NextQuestion { question: Some(practice_question(&state, &state.bank.questions[chosen])?) }))
+}
+
+/// A question as the learner sees it (no answer key).
+pub(crate) fn practice_question(state: &AppState, q: &ged_content::Question) -> Result<PracticeQuestion, ApiError> {
     let kind = match q.kind {
         QuestionType::MultipleChoice => QuestionKind::MultipleChoice,
         QuestionType::FillIn => QuestionKind::FillIn,
         QuestionType::Dropdown => QuestionKind::Dropdown,
         QuestionType::DragDrop => return Err(ApiError::new(StatusCode::INTERNAL_SERVER_ERROR, "unsupported question type")),
     };
-    Ok(Json(NextQuestion {
-        question: Some(PracticeQuestion {
-            id: q.id.clone(),
-            skill: q.skill.clone(),
-            skill_name: state.bank.skill(&q.skill).map(|s| s.name.clone()).unwrap_or_default(),
-            principle: principle_ref(&state, &q.principle),
-            difficulty: q.difficulty,
-            kind,
-            prompt: q.prompt.trim().to_string(),
-            choices: q.choices.clone(),
-            alaska: q.alaska,
-            draft: q.status == ged_content::Status::Draft,
-        }),
-    }))
+    Ok(PracticeQuestion {
+        id: q.id.clone(),
+        skill: q.skill.clone(),
+        skill_name: state.bank.skill(&q.skill).map(|s| s.name.clone()).unwrap_or_default(),
+        principle: principle_ref(state, &q.principle),
+        difficulty: q.difficulty,
+        kind,
+        prompt: q.prompt.trim().to_string(),
+        choices: q.choices.clone(),
+        figure: q.figure.as_ref().map(FigureView::new),
+        alaska: q.alaska,
+        draft: q.status == ged_content::Status::Draft,
+    })
 }
 
 #[derive(Debug, Deserialize, TS)]

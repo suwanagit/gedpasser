@@ -1,0 +1,182 @@
+# Cards for a-graphs-lines (A.5.a–d, A.6.a–c). See WRITING.md.
+
+[[card]]
+id = "A.5.a"
+status = "draft"
+title = "Plotting points"
+key = '$$(x, y) = (\text{across}, \text{up or down})$$'
+steps = [
+  'Start at the origin $(0, 0)$',
+  'Move $x$: right if positive, left if negative',
+  'Then move $y$: up if positive, down if negative',
+]
+example = '''
+$$(-3, 2): \quad \text{3 left, then 2 up}$$
+It lands in **Quadrant II** (top left).
+'''
+hack = 'Walk before you climb: go along $x$ first, then up or down $y$. Same as the alphabet: $x$ comes before $y$.'
+
+[card.figure]
+kind = "plane"
+x_min = -5
+x_max = 5
+y_min = -5
+y_max = 5
+points = [{ x = -3, y = 2, label = "(−3, 2)" }]
+segments = [
+  { from = [0, 0], to = [-3, 0], dashed = true, label = "3 left" },
+  { from = [-3, 0], to = [-3, 2], dashed = true, label = "2 up" },
+]
+
+[[card]]
+id = "A.5.b"
+status = "draft"
+title = "Slope"
+key = '$$m = \frac{\text{rise}}{\text{run}} = \frac{y_2 - y_1}{x_2 - x_1}$$'
+steps = [
+  'Pick two points on the line',
+  'Subtract the $y$ values on top, the $x$ values on the bottom, same order',
+  'In $y = mx + b$, the slope is $m$',
+]
+example = '''
+$(1, -1)$ and $(3, 3)$:
+$$m = \frac{3 - (-1)}{3 - 1} = \frac{4}{2}$$
+Slope: **2**
+'''
+hack = 'Rise over run: you rise out of bed before you run. Uphill left to right is positive, downhill is negative, flat is 0.'
+
+[card.figure]
+kind = "plane"
+x_min = -2
+x_max = 5
+y_min = -4
+y_max = 5
+curves = ["2*x - 3"]
+points = [{ x = 1, y = -1, label = "(1, −1)" }, { x = 3, y = 3, label = "(3, 3)" }]
+segments = [
+  { from = [1, -1], to = [3, -1], dashed = true, label = "run 2" },
+  { from = [3, -1], to = [3, 3], dashed = true, label = "rise 4" },
+]
+
+[[card]]
+id = "A.5.c"
+status = "draft"
+title = "Unit rate is slope"
+key = '$$y = kx \qquad k = \frac{y}{x} = \text{unit rate}$$'
+steps = [
+  'Proportional means a straight line through $(0, 0)$',
+  'Take any point on it and divide $y$ by $x$',
+  'Read the answer as "$y$ per one $x$"',
+]
+example = '''
+Distance against time, through $(4, 280)$:
+$$k = \frac{280}{4} = 70$$
+Speed: **70 km per hour**
+'''
+hack = 'The unit rate is the $y$ value at $x = 1$. Line misses $(0, 0)$? Then it is not proportional.'
+
+[card.figure]
+kind = "plane"
+x_min = 0
+x_max = 5
+y_min = 0
+y_max = 350
+curves = ["70*x"]
+points = [{ x = 1, y = 70, label = "(1, 70)" }, { x = 4, y = 280, label = "(4, 280)" }]
+x_label = "hours"
+y_label = "km"
+
+[[card]]
+id = "A.5.d"
+status = "draft"
+title = "Graph a line"
+key = '$$y = mx + b \qquad m = \text{slope}, \; b = y\text{-intercept}$$'
+steps = [
+  'Plot the $y$-intercept $(0, b)$',
+  'From there, rise and run to a second point',
+  'Draw the line through both',
+  'To find the $x$-intercept, set $y = 0$ and solve',
+]
+example = '''
+$y = \frac{1}{2}x - 2$: start at $(0, -2)$, up 1, right 2.
+$$0 = \tfrac{1}{2}x - 2 \;\Rightarrow\; x = 4$$
+$x$-intercept: **$(4, 0)$**
+'''
+hack = 'In $y = mx + b$, **b** is where you **begin** on the $y$-axis and **m** is how you **move**.'
+
+[card.figure]
+kind = "plane"
+x_min = -2
+x_max = 6
+y_min = -4
+y_max = 3
+curves = ["x/2 - 2"]
+points = [{ x = 0, y = -2, label = "(0, −2)" }, { x = 2, y = -1 }, { x = 4, y = 0, label = "(4, 0)" }]
+segments = [
+  { from = [0, -2], to = [2, -2], dashed = true, label = "run 2" },
+  { from = [2, -2], to = [2, -1], dashed = true, label = "rise 1" },
+]
+
+[[card]]
+id = "A.6.a"
+status = "draft"
+title = "Line from slope and point"
+key = '$$y - y_1 = m(x - x_1)$$'
+steps = [
+  'Put the slope and the point into the form',
+  'Distribute, then get $y$ alone',
+  'Check: the point should make it true',
+]
+example = '''
+Slope 3 through $(2, 1)$:
+$$y - 1 = 3(x - 2) \;\Rightarrow\; y = 3x - 6 + 1$$
+Answer: **$y = 3x - 5$**
+'''
+hack = 'Shortcut: $b = y - mx$. For slope 3 through $(2, 1)$: $b = 1 - 3(2) = -5$.'
+
+[[card]]
+id = "A.6.b"
+status = "draft"
+title = "Line through two points"
+key = '$$m = \frac{y_2 - y_1}{x_2 - x_1} \qquad b = y - mx$$'
+steps = [
+  'Find the slope from the two points',
+  'Put one point in to find $b$',
+  'Check with the other point',
+]
+example = '''
+$(2, 1)$ and $(4, 9)$:
+$$m = \frac{9 - 1}{4 - 2} = 4 \qquad b = 1 - 4(2) = -7$$
+Answer: **$y = 4x - 7$**
+'''
+hack = 'Multiple choice? Plug in the answer choices: the right line works for **both** points.'
+
+[[card]]
+id = "A.6.c"
+status = "draft"
+title = "Parallel and perpendicular"
+key = '$$\text{parallel: } m_2 = m_1 \qquad \text{perpendicular: } m_2 = -\frac{1}{m_1}$$'
+steps = [
+  'Find the slope of the given line',
+  'Parallel: keep the same slope',
+  'Perpendicular: flip the fraction and change the sign',
+]
+example = '''
+$y = 2x + 1$ has slope 2.
+$$\text{parallel: } y = 2x - 3 \qquad \text{perpendicular: } y = -\tfrac{1}{2}x + 1$$
+Perpendicular slope: **$-\frac{1}{2}$**
+'''
+hack = 'Perpendicular: flip it and flip the sign. $\frac{3}{4} \to -\frac{4}{3}$. Check: the two slopes multiply to $-1$.'
+
+[card.figure]
+kind = "plane"
+x_min = -5
+x_max = 5
+y_min = -5
+y_max = 5
+curves = ["2*x + 1", "2*x - 3", "-x/2 + 1"]
+points = [
+  { x = 1.5, y = 4, label = "y = 2x + 1" },
+  { x = 3.5, y = 4, label = "y = 2x − 3" },
+  { x = -4, y = 3, label = "y = −½x + 1" },
+]

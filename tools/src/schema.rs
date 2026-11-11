@@ -326,6 +326,10 @@ pub struct Stage {
     pub principles: Vec<String>,
     #[serde(default)]
     pub checkpoint: bool,
+    /// For a checkpoint: mix every principle taught so far, not just those
+    /// since the previous checkpoint.
+    #[serde(default)]
+    pub cumulative: bool,
     /// Number of quiz questions.
     pub size: u32,
     /// Prefer questions up to this difficulty (1–3).

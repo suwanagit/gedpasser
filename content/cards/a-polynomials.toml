@@ -1,0 +1,162 @@
+# Cards for a-polynomials (A.1.d–j, A.4.a–b). See WRITING.md.
+
+[[card]]
+id = "A.1.d"
+status = "draft"
+title = "Add and multiply polynomials"
+key = '$$(a + b)(c + d) = ac + ad + bc + bd$$'
+steps = [
+  'Add or subtract: combine like terms ($x^2$ with $x^2$, $x$ with $x$)',
+  'Subtracting? Change the sign of every term in the second part',
+  'Multiply: every term times every term, then combine',
+]
+example = '''
+$$(x + 4)(x - 2) = x^2 - 2x + 4x - 8$$
+Answer: **$x^2 + 2x - 8$**
+'''
+hack = 'FOIL: **F**irst, **O**uter, **I**nner, **L**ast. Two binomials always give four products.'
+
+[[card]]
+id = "A.1.e"
+status = "draft"
+title = "Evaluate a polynomial"
+key = '$$\text{every } x \;\to\; (\text{number})$$'
+steps = [
+  'Swap each $x$ for the number, in parentheses',
+  'Do exponents first, then multiply, then add and subtract',
+]
+example = '''
+$x^2 - 4x + 3$ when $x = -2$:
+$$(-2)^2 - 4(-2) + 3 = 4 + 8 + 3$$
+Answer: **15**
+'''
+hack = 'Parentheses protect the sign: $(-3)^2 = 9$, but $-3^2 = -9$.'
+
+[[card]]
+id = "A.1.f"
+status = "draft"
+title = "Factoring"
+key = '$$x^2 + bx + c = (x + p)(x + q) \quad \text{where } p \cdot q = c,\; p + q = b$$'
+steps = [
+  'Pull out any common factor first: $3x^2 - 12 = 3(x^2 - 4)$',
+  'Trinomial: find two numbers that multiply to $c$ and add to $b$',
+  'Check by multiplying back out',
+]
+example = '''
+$x^2 - x - 12$: $\;(-4)(3) = -12$ and $-4 + 3 = -1$
+Answer: **$(x - 4)(x + 3)$**
+'''
+hack = 'Difference of squares: $a^2 - b^2 = (a - b)(a + b)$. Spot two perfect squares with a minus between, like $x^2 - 81 = (x - 9)(x + 9)$.'
+
+[[card]]
+id = "A.1.g"
+status = "draft"
+title = "Polynomials from words"
+key = '$$\text{Area} = \text{length} \times \text{width}$$'
+steps = [
+  'Draw it and label each side',
+  'Write each side using the variable, like $w + 4$',
+  'Multiply out',
+]
+example = '''
+A rectangle is 4 m longer than its width $w$:
+$$w(w + 4) = w^2 + 4w$$
+Area: **$w^2 + 4w$**
+'''
+hack = 'A border all the way around adds to both ends: a 1 m path makes each side $s + 2$, not $s + 1$.'
+
+[card.figure]
+kind = "shape"
+polygons = [{ points = [{ x = 0, y = 0 }, { x = 7, y = 0 }, { x = 7, y = 3 }, { x = 0, y = 3 }], side_labels = ["w + 4", "w", "", ""], right_angles = [0] }]
+
+[[card]]
+id = "A.1.h"
+status = "draft"
+title = "Algebraic fractions"
+key = '$$\frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd} \qquad \frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \cdot \frac{d}{c}$$'
+steps = [
+  'Add or subtract: get a common bottom, then combine the tops',
+  'Multiply: tops times tops, bottoms times bottoms',
+  'Simplify: factor, then cancel matching factors',
+]
+example = '''
+$$\frac{x^2 - 25}{x - 5} = \frac{(x - 5)(x + 5)}{x - 5}$$
+Answer: **$x + 5$** (for $x \ne 5$)
+'''
+hack = 'Divide: keep, change, flip. Cancel only factors (multiplied), never terms (added): $\frac{x + 5}{5} \ne x$.'
+
+[[card]]
+id = "A.1.i"
+status = "draft"
+title = "Evaluate a fraction"
+key = 'The bar works like parentheses: $$\frac{a + b}{c - d} = (a + b) \div (c - d)$$'
+steps = [
+  'Put the number in for every $x$',
+  'Work out the top, then the bottom, then divide',
+]
+example = '''
+$\frac{x + 1}{x - 3}$ when $x = 5$:
+$$\frac{5 + 1}{5 - 3} = \frac{6}{2}$$
+Answer: **3**
+'''
+hack = 'Zero on the bottom means undefined. $\frac{x + 1}{x - 3}$ is undefined at $x = 3$: set the bottom to 0 to find it.'
+
+[[card]]
+id = "A.1.j"
+status = "draft"
+title = "Fractions from words"
+key = '$$\text{rate} = \frac{\text{amount}}{\text{time}} \qquad \text{time} = \frac{\text{distance}}{\text{speed}}$$'
+steps = [
+  'Shared or split: total over the number of shares',
+  'Per: the thing after "per" goes on the bottom',
+]
+example = '''
+Drive 180 km at $s$ km/h:
+$$\text{time} = \frac{180}{s}$$
+Answer: **$\frac{180}{s}$ hours**
+'''
+hack = '"Per" means divide: km **per** hour $= \frac{\text{km}}{\text{h}}$. Test with an easy number, like $s = 60$.'
+
+[[card]]
+id = "A.4.a"
+status = "draft"
+title = "Solve a quadratic"
+key = '$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$'
+steps = [
+  'Move everything to one side: $ax^2 + bx + c = 0$',
+  'Factor, then set each factor to 0',
+  'No $x$ term? Take the square root: $x^2 = 36$ gives $x = \pm 6$',
+  'Will not factor? Use the formula',
+]
+example = '''
+$$x^2 - 2x - 15 = 0 \;\Rightarrow\; (x - 5)(x + 3) = 0$$
+Answer: **$x = 5$ or $x = -3$**
+'''
+hack = 'Plug in the answer choices: the right one makes the equation equal 0. On a graph, the answers are where the curve crosses the $x$-axis.'
+
+[card.figure]
+kind = "plane"
+x_min = -5
+x_max = 7
+y_min = -18
+y_max = 6
+curves = ["x^2 - 2*x - 15"]
+points = [{ x = -3, y = 0, label = "(−3, 0)" }, { x = 5, y = 0, label = "(5, 0)" }]
+
+[[card]]
+id = "A.4.b"
+status = "draft"
+title = "Quadratics from words"
+key = '$$\text{length} \times \text{width} = \text{area}$$'
+steps = [
+  'Call the width $w$ and write the length using $w$',
+  'Set length times width equal to the area',
+  'Move all to one side, factor and solve',
+  'Throw out answers that make no sense, like a negative length',
+]
+example = '''
+Length is 2 m more than the width; area is 48 m²:
+$$w(w + 2) = 48 \;\Rightarrow\; (w + 8)(w - 6) = 0$$
+Width: **6 m**
+'''
+hack = '"Less than" flips the order: "5 less than three times $w$" is $3w - 5$, not $5 - 3w$.'

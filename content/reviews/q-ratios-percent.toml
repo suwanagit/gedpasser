@@ -148,3 +148,67 @@ verdict = "pass"
 solved = "12.5%"
 note = "Re-review: the 25% choice is now 112.5% (2700/2400 x 100, forgetting to subtract 100%), a real error. Key 12.5% = 300/2400 is the only correct choice; 11.1% and 300% are still good distractors. Explanation and common_mistake correct; Q.3.d fits."
 date = "2026-11-10"
+
+[[review]]
+id = "Q.3.a"
+kind = "card"
+hash = "bc0d7e5f8278b9a9"
+verdict = "pass"
+note = "Checked: 22 / 4 = 5.50, 30 / 6 = 5.00, so the 6 kg bag is cheaper per kg. Hack (per means divide by; the word after per goes on the bottom) is correct and memorable. Short; no question numbers reused."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.3.b"
+kind = "card"
+hash = "7a8d374b4cf6b432"
+verdict = "fix"
+note = "Math correct: 3 cm : 12 km gives 1 cm = 4 km; 6.5 x 4 = 26 km; lengths x k, areas x k^2, volumes x k^3. Too wordy: step 3 (lengths grow k times, areas k^2 times) says the same thing as the hack. Fix: delete step 3 and keep the hack, which also covers volume and has the doubling example."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.3.c"
+kind = "card"
+hash = "d3516dba5ee1f71f"
+verdict = "fix"
+note = 'Key, steps and example correct (2/18 = x/45, 18x = 90, x = 5 L). Hack is unclear: "Each step right is x 10" can be read as the unit getting 10 times bigger, which is backwards. Fix: "Each step right, multiply the number by 10: 2.6 km = 2600 m (3 steps)." Hecto and deka never appear on the GED; consider "kilo ... base ... centi, milli" with only the three steps learners need, or keep the full mnemonic but make the direction explicit.'
+date = "2026-11-10"
+
+[[review]]
+id = "Q.3.d"
+kind = "card"
+hash = "4b05f88e77d08ee8"
+verdict = "fix"
+note = 'Example correct (0.20 x 45 = 9, total 54) and 10% trick correct. Two problems: (1) step 4 "$I = Prt$" uses P, r, t with no definition; fix to "Simple interest: $I = Prt$ (amount x rate as a decimal x years)". (2) The hack ends with "Two percent changes in a row never just add," which is unrelated to the 10% trick and unexplained; either move it to a step with a 4-word reason ("apply one, then the other") or cut it.'
+date = "2026-11-10"
+
+[[review]]
+id = "Q.3.b"
+kind = "card"
+hash = "4f9282802ff0447b"
+verdict = "fix"
+note = "Re-review: the duplicate step is gone, but it was the only place $k$ was defined, so the hack 'Lengths x $k$, areas x $k^2$...' now uses an undefined letter. Fix: start the hack with 'Scale factor $k$: lengths x $k$, areas x $k^2$, volumes x $k^3$.' Math otherwise correct (1 cm = 4 km, 6.5 x 4 = 26 km)."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.3.c"
+kind = "card"
+hash = "90102e06612d97ff"
+verdict = "pass"
+note = "Re-review: hack now gives the direction explicitly (multiply the number by 10 per step right); 2.6 km = 2600 m is correct (3 steps) and differs from the 3.2 km question. Rest unchanged and correct."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.3.d"
+kind = "card"
+hash = "6f524b27846d706e"
+verdict = "pass"
+note = "Re-review: I = Prt now defines P, r, t (amount x rate as a decimal x years). Hack is just the 10% trick: 10% of 45 = 4.50, 20% = 9, matching the example. Short and correct."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.3.b"
+kind = "card"
+hash = "83862a19165436de"
+verdict = "pass"
+note = "Re-review: hack now defines k (scale factor) before using it; lengths x k, areas x k^2, volumes x k^3 and the doubling example (area x 4) are correct. Steps and example unchanged and correct (1 cm = 4 km, 6.5 x 4 = 26 km). Short, no duplication."
+date = "2026-11-10"

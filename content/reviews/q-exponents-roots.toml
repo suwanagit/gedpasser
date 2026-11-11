@@ -140,3 +140,35 @@ verdict = "pass"
 solved = "7/8"
 note = "Re-review: prompt, choices, key and explanation unchanged and correct (sqrt(49/64) = 7/8, the only correct choice). common_mistake now clearly names both distractor errors (49/8 and 7/32); difficulty 2 is reasonable."
 date = "2026-11-10"
+
+[[review]]
+id = "Q.1.c"
+kind = "card"
+hash = "e4bec8ea1594acff"
+verdict = "fix"
+note = 'All rules and numbers correct (15 x 10^4 = 1.5 x 10^5; 3^(5+2-4) = 27). Too wordy: the hack repeats the key and steps 1-2 almost word for word, so it adds nothing. Fix: keep "Same base only." and replace the rest with the common scientific-notation trap, e.g. "Multiply the front numbers, add the exponents: $(2 \times 10^3)(4 \times 10^2) = 8 \times 10^5$."'
+date = "2026-11-10"
+
+[[review]]
+id = "Q.2.b"
+kind = "card"
+hash = "ef3c6c05f78d298f"
+verdict = "pass"
+note = "Checked: 9^2 = 81; 36 < 40 < 49 and sqrt(40) = 6.32, nearer 6; sqrt(9 + 16) = 5 not 7. Hack targets a real error. Short and clear; example differs from the sqrt(60) question."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.2.c"
+kind = "card"
+hash = "6e3b992224bb8899"
+verdict = "pass"
+note = "Checked: 4^3 = 64; cubes 1 to 1000 list correct; (-6)^3 = -216 so cube root of -216 is -6. Hack (exponent counts copies, not 4 x 3; cube keeps the sign) is correct and memorable. No question numbers reused."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.1.c"
+kind = "card"
+hash = "7880f147b3a688a4"
+verdict = "pass"
+note = "Re-review: hack no longer repeats the key; it adds the scientific-notation trap. (2 x 10^3)(4 x 10^2) = 8 x 10^5 is correct. Rest unchanged and correct."
+date = "2026-11-10"

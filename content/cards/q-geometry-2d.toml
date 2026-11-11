@@ -1,0 +1,111 @@
+# Cards for q-geometry-2d (Q.4.a–e). See WRITING.md.
+
+[[card]]
+id = "Q.4.a"
+status = "reviewed"
+title = "Rectangles and triangles"
+key = '$$A_{\text{rectangle}} = lw \qquad A_{\text{triangle}} = \tfrac{1}{2}bh$$'
+steps = [
+  'Perimeter: add all the sides.',
+  'Area: multiply. For a triangle, take half.',
+  'Use the height that meets the base at a right angle.',
+]
+example = '''
+Triangle, base 10 m, height 6 m:
+$$\tfrac{1}{2} \times 10 \times 6 = 30$$
+Area: **30 m²**
+'''
+hack = 'A triangle is half a box: find $b \times h$, then cut it in half. Perimeter is the fence; area is the carpet.'
+
+[card.figure]
+kind = "shape"
+polygons = [{ points = [{ x = 0, y = 0 }, { x = 10, y = 0 }, { x = 4, y = 6 }], side_labels = ["b = 10 m", "", ""] }]
+segments = [{ from = [4, 0], to = [4, 6], dashed = true, label = "h = 6 m" }]
+
+[[card]]
+id = "Q.4.b"
+status = "reviewed"
+title = "Circles"
+key = '$$C = 2\pi r \qquad A = \pi r^2$$'
+steps = [
+  'Given the diameter? Halve it to get $r$.',
+  'Use $\pi \approx 3.14$.',
+  'Distance around: $C$. Space inside: $A$.',
+]
+example = '''
+Radius 4 cm:
+$$A \approx 3.14 \times 4^2 = 3.14 \times 16 = 50.24$$
+Area: **50.24 cm²**
+'''
+hack = '“Pie are squared”: $A = \pi r^2$. “Cherry pie is delicious”: $C = \pi d$. Area gets the square, like m².'
+
+[card.figure]
+kind = "shape"
+circles = [{ x = 0, y = 0, r = 4, radius_label = "r = 4 cm" }]
+
+[[card]]
+id = "Q.4.c"
+status = "draft"
+title = "Other polygons"
+key = '$$A_{\text{trapezoid}} = \tfrac{1}{2}(b_1 + b_2)h$$'
+steps = [
+  'Perimeter: add every side.',
+  'Regular shape perimeter: side length × number of sides.',
+  'Area: take the formula from the sheet and plug in.',
+  'The height meets the base at a right angle, not along a slanted side.',
+]
+example = '''
+Parallel sides 8 m and 4 m, height 3 m:
+$$\tfrac{1}{2}(8 + 4) \times 3 = 6 \times 3 = 18$$
+Area: **18 m²**
+'''
+hack = 'Trapezoid: average the two bases, then treat it like a rectangle. Sides: pentagon 5, hexagon 6, octagon 8 (like an octopus).'
+
+[card.figure]
+kind = "shape"
+polygons = [{ points = [{ x = 0, y = 0 }, { x = 8, y = 0 }, { x = 6, y = 3 }, { x = 2, y = 3 }], side_labels = ["8 m", "", "4 m", ""] }]
+segments = [{ from = [2, 0], to = [2, 3], dashed = true, label = "h = 3 m" }]
+
+[[card]]
+id = "Q.4.d"
+status = "reviewed"
+title = "Combined shapes"
+key = '$$A = \text{pieces added} - \text{holes}$$'
+steps = [
+  'Split the shape into rectangles, triangles and circles.',
+  'Find each area.',
+  'Add the pieces. Subtract any hole.',
+  'Perimeter: trace only the outside edge.',
+]
+example = '''
+Box 8 m by 3 m with a triangle roof 2 m tall:
+$$8 \times 3 + \tfrac{1}{2} \times 8 \times 2 = 24 + 8 = 32$$
+Area: **32 m²**
+'''
+hack = 'Cookie cutter: dough left = dough − cookie. Draw the split lines before you calculate.'
+
+[card.figure]
+kind = "shape"
+polygons = [{ points = [{ x = 0, y = 0 }, { x = 8, y = 0 }, { x = 8, y = 3 }, { x = 4, y = 5 }, { x = 0, y = 3 }], side_labels = ["8 m", "3 m", "", "", ""], right_angles = [0, 1] }]
+segments = [{ from = [0, 3], to = [8, 3], dashed = true }, { from = [4, 3], to = [4, 5], dashed = true, label = "2 m" }]
+
+[[card]]
+id = "Q.4.e"
+status = "reviewed"
+title = "The Pythagorean theorem"
+key = '$$a^2 + b^2 = c^2$$'
+steps = [
+  '$c$ is the longest side, across from the right angle.',
+  'Missing $c$: square both legs, add, take the square root.',
+  'Missing leg: square, subtract, take the square root.',
+]
+example = '''
+Legs 9 m and 12 m:
+$$9^2 + 12^2 = 81 + 144 = 225 \qquad \sqrt{225} = 15$$
+Hypotenuse: **15 m**
+'''
+hack = 'Know the famous triangles: 3-4-5, 5-12-13, 8-15-17, and their multiples like 6-8-10. Check: $c$ must be the biggest side.'
+
+[card.figure]
+kind = "shape"
+polygons = [{ points = [{ x = 0, y = 0 }, { x = 12, y = 0 }, { x = 0, y = 9 }], side_labels = ["b = 12 m", "c = ?", "a = 9 m"], right_angles = [0] }]

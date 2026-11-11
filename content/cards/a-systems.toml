@@ -1,0 +1,29 @@
+# Cards for Systems of linear equations (a-systems). Format: content/cards/WRITING.md
+
+[[card]]
+id = "A.2.d"
+status = "reviewed"
+title = "Systems of equations"
+key = 'The solution is the point where the lines cross: $$(x, y) \text{ true in both equations}$$'
+steps = [
+  'Elimination: add or subtract the equations so one letter cancels',
+  'Substitution: solve one equation for a letter, then plug it into the other',
+  'Find one letter, then put it back in to get the other',
+  'Same slope, different intercept: no solution. Same equation: infinitely many.',
+]
+example = '''
+$$x + y = 8 \qquad x - y = 2$$
+$$\text{Add: } 2x = 10 \;\Rightarrow\; x = 5$$
+$$5 + y = 8 \;\Rightarrow\; y = 3$$
+**$(5, 3)$**
+'''
+hack = 'Check it in **both** equations: $5 + 3 = 8$ ✓ and $5 - 3 = 2$ ✓. Then give the letter the question asks for.'
+
+[card.figure]
+kind = "plane"
+x_min = -1
+x_max = 9
+y_min = -3
+y_max = 9
+curves = ["8 - x", "x - 2"]
+points = [{ x = 5, y = 3, label = "(5, 3)" }]

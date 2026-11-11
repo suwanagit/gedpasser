@@ -174,3 +174,76 @@ hash = "403a1a0e4cdfe0a1"
 verdict = "pass"
 note = "Re-review: the steps now estimate before solving and compare after, and the example follows that order. Estimate (24-27 L, roughly 50 dollars) is reasonable; 27.2 L and 48.96 dollars correct. The scientific-notation rule and example (3 x 10^4)(2 x 10^3) = 6 x 10^7 = 60,000,000 are correct, so the summary is now covered."
 date = "2026-11-10"
+
+[[review]]
+id = "q-number-ops-0009"
+kind = "question"
+hash = "f052e7d5bc7d5bc8"
+verdict = "pass"
+solved = "12"
+note = "Figure added: number line from -8 to 6 with points -7 and 5 matches the prompt exactly. It does not print the distance; counting units is a legitimate method the explanation already teaches. Key 12 = |5 - (-7)| correct; explanation and common_mistake (-2) fine."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.1.a"
+kind = "card"
+hash = "01e129124e0d49b6"
+verdict = "pass"
+note = "Checked: 3/4 = 0.75; 0.680 < 0.700 < 0.750 so 0.68 < 0.7 < 3/4. Hack (pad with zeros, longer is not bigger) is correct and targets the real trap. Figure (0.6 to 0.8, points 0.68, 0.7, 3/4) matches the example. Short; no question numbers reused."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.1.b"
+kind = "card"
+hash = "6c80e9a9a5c646da"
+verdict = "fix"
+note = 'All numbers correct (GCF(18,30) = 6, LCM(4,10) = 20, 7 x 38 = 280 - 14 = 266) and the hack is correct. But the card only shows distributing forward, while the principle (and GED items) also ask you to factor OUT the GCF, the reverse direction that links GCF to the key. Fix: change the key to "$a(b + c) = ab + ac$, and back again" or add a step like "Factor out the GCF: $18 + 30 = 6(3 + 5)$", reusing the GCF example so no extra numbers are needed.'
+date = "2026-11-10"
+
+[[review]]
+id = "Q.1.d"
+kind = "card"
+hash = "2158581a0936c7ae"
+verdict = "pass"
+note = "Checked: |3 - (-6)| = 9; hack (opposite sides add, same side subtract) is correct, including same-side negatives like -28 and -9. Figure (-8 to 5, points -6 and 3) matches the example. Short and clear; does not reuse question numbers."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.2.a"
+kind = "card"
+hash = "bc8710e905922684"
+verdict = "fix"
+note = 'Example 2 + 36 / 3 = 14 and Keep-Change-Flip 2/3 x 4/1 = 8/3 are correct. Problem: step 3 "Same signs give positive, different signs give negative" does not say it is only for multiplying and dividing; on a card about all operations, learners will apply it to adding (-3 + -5 is not positive). Fix: "Multiply or divide: same signs give positive, different signs give negative: $(-3)(-5) = 15$".'
+date = "2026-11-10"
+
+[[review]]
+id = "Q.2.d"
+kind = "card"
+hash = "585e50feb5c2fffe"
+verdict = "pass"
+note = "Checked: x + 6 = 0 gives x = -6; 0/5 = 0; sqrt(-4) not real. Steps are in order and short; the pizza hack is correct and memorable. Example differs from the 2x - 8 question."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.2.e"
+kind = "card"
+hash = "437ad815fa48ff61"
+verdict = "pass"
+note = "Checked: 5 x 18.90 = 94.50, 100 - 94.50 = 5.50; estimate 5 x 19 = 95 gives about 5 dollars, consistent. Dollar signs escaped. Hack (reread the last sentence; middle-step distractors) is correct and useful. Numbers do not match any question."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.1.b"
+kind = "card"
+hash = "c0750a5c835e6d85"
+verdict = "pass"
+note = "Re-review: new step 'Factor out the GCF: 18 + 30 = 6(3 + 5)' is correct (48 = 6 x 8), reuses the GCF example and covers the reverse direction. Rest unchanged and correct."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.2.a"
+kind = "card"
+hash = "3eb6bb92ab807bdd"
+verdict = "pass"
+note = "Re-review: sign rule now limited to multiply or divide, so it no longer suggests -3 + -5 is positive. Example (14) and Keep-Change-Flip (8/3) still correct."
+date = "2026-11-10"

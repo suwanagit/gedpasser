@@ -1,0 +1,52 @@
+# Lesson cards for q-exponents-roots. Format and rules: WRITING.md.
+
+[[card]]
+id = "Q.1.c"
+status = "reviewed"
+title = "Rules of exponents"
+key = '$$a^m \cdot a^n = a^{m+n} \qquad \frac{a^m}{a^n} = a^{m-n}$$'
+steps = [
+  'Power of a power: multiply. $(a^m)^n = a^{mn}$',
+  'Zero power is 1; a negative power flips: $a^0 = 1$, $a^{-n} = \frac{1}{a^n}$',
+  'A power of one half is a square root: $a^{1/2} = \sqrt{a}$',
+  'Scientific notation: front number at least 1, under 10. $15 \times 10^4 = 1.5 \times 10^5$',
+]
+example = '''
+$$\frac{3^5 \times 3^2}{3^4} = 3^{5 + 2 - 4} = 3^3$$
+**27**
+'''
+hack = 'Same base only. Scientific notation: multiply the front numbers, add the exponents: $(2 \times 10^3)(4 \times 10^2) = 8 \times 10^5$.'
+
+[[card]]
+id = "Q.2.b"
+status = "reviewed"
+title = "Squares and square roots"
+key = '$$\sqrt{81} = 9 \quad \text{because} \quad 9^2 = 81$$'
+steps = [
+  'Learn the perfect squares: 1, 4, 9, 16, 25, … 225',
+  'To estimate, find the perfect squares just below and above',
+  'Fractions: root of the top over root of the bottom',
+  'Work out what is under the root sign first',
+]
+example = '''
+Estimate $\sqrt{40}$:
+$$36 < 40 < 49 \;\Rightarrow\; 6 < \sqrt{40} < 7$$
+40 is nearer 36, so **about 6** (6.3).
+'''
+hack = 'Roots don’t split over plus: $\sqrt{9 + 16} = \sqrt{25} = 5$, not $3 + 4 = 7$.'
+
+[[card]]
+id = "Q.2.c"
+status = "reviewed"
+title = "Cubes and cube roots"
+key = '$$4^3 = 4 \times 4 \times 4 = 64 \qquad \sqrt[3]{64} = 4$$'
+steps = [
+  'Cubes to know: 1, 8, 27, 64, 125, 216, 343, 512, 729, 1000',
+  'Negative numbers have cube roots: $(-4)^3 = -64$, so $\sqrt[3]{-64} = -4$',
+  'A cube’s side is the cube root of its volume',
+]
+example = '''
+$$(-6)^3 = -216 \;\Rightarrow\; \sqrt[3]{-216} = -6$$
+**−6**
+'''
+hack = 'The exponent counts copies: $4^3$ is $4 \cdot 4 \cdot 4$, not $4 \times 3$. A cube keeps the sign; a square makes it positive.'

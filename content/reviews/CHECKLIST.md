@@ -56,6 +56,32 @@ Work from the repo root (`C:\dev\gedpasser`). Do not edit any file except
 - The worked example actually demonstrates the principle.
 - Same notation rules as questions.
 
+## Cards (`content/cards/<skill>.toml`, kind = "card")
+
+Cards are the short lesson learners see first. The owner's rule: learners
+don't read much, so a card must be as short as possible while staying clear
+at a high-school reading level.
+
+- The key rule, every step, the worked example and every number are correct.
+- The hack (memory device or test shortcut) is correct, memorable, and won't
+  mislead in edge cases a GED question could hit.
+- Nothing can be cut without losing meaning; no jargon without a few-word
+  definition. Too wordy is a `fix`.
+- The example doesn't reuse a question's numbers (it mustn't give a question
+  away).
+- A figure, if any, matches the text exactly and helps.
+
+## Figures on questions
+
+- The figure's numbers match the prompt exactly.
+- The figure does not reveal the answer (for example, a graph where you can
+  read off the asked-for value). If it does, `fix` and say so.
+
+## Strategy (`content/strategy.toml`, kind = "strategy", id = "strategy")
+
+- Tactics are correct, practical and short. Formulas are correct.
+- The yield lists are a reasonable judgment of what comes up most.
+
 ## Verdicts
 
 - `pass`: correct and clear; ready for learners.

@@ -142,3 +142,18 @@ hash = "c7e705644227c4da"
 verdict = "pass"
 note = "Re-checked: the formula is now limited to equally likely outcomes, and the without-replacement bullet explains that the favorable count also drops, with the correct 4/10 x 3/9 example. All other statements and numbers (1/2, 1/4, 1/3, complement rule) correct."
 date = "2026-11-10"
+[[review]]
+id = "Q.8.a"
+kind = "card"
+hash = "07f20b2d8c2bfb5e"
+verdict = "pass"
+note = "Example correct: 6 x 5 = 30 ordered, 30 / 2 = 15 pairs. Steps (multiply slots, one fewer with no repeats, divide by arrangements when order does not matter) are correct. Podium/committee hack is correct and memorable. Numbers do not overlap any question."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.8.b"
+kind = "card"
+hash = "b904ef4fc6a5f48e"
+verdict = "fix"
+note = "Example 3/5 x 3/5 = 9/25 is correct. Two problems: (1) step 4 'No replacement: one fewer in the total' is incomplete; when the first pick was a favorable one, the favorable count drops too (4/10 x 3/9, question 0010 style). Change to 'No replacement: one fewer in the total, and one fewer favorable if you took one.' (2) The hack 'OR -> add' drops the caveat from step 3 and misleads for overlapping events (e.g. even OR greater than 4 on a cube). Change to 'AND -> multiply, OR (no overlap) -> add.'"
+date = "2026-11-10"

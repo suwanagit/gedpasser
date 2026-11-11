@@ -1,0 +1,102 @@
+# Cards for q-data-stats (Q.6.a–c, Q.7.a). See WRITING.md.
+
+[[card]]
+id = "Q.6.a"
+status = "draft"
+title = "Bar and circle graphs"
+key = 'Circle graph: $$\text{amount} = \text{percent} \times \text{total}$$'
+steps = [
+  'Read the title, labels and scale first.',
+  'Bar graph: read each bar’s height on the scale.',
+  'Circle graph: whole circle = 100%. 25% of 80 is $0.25 \times 80 = 20$.',
+  '“How many more”: find both amounts, then subtract.',
+]
+example = '''
+How many more rentals in July than June?
+$$65 - 40 = 25$$
+**25 more**
+'''
+hack = 'Check the scale! One grid line may mean 10, not 1. Circle graph percents always add to 100%.'
+
+[card.figure]
+kind = "bars"
+bars = [{ label = "Jun", value = 40 }, { label = "Jul", value = 65 }, { label = "Aug", value = 50 }]
+y_label = "kayak rentals"
+
+[[card]]
+id = "Q.6.b"
+status = "reviewed"
+title = "Dot and box plots"
+key = '$$\text{IQR} = Q_3 - Q_1$$'
+steps = [
+  'Dot plot: each dot is one value. Count the dots.',
+  'Histogram: bar height = how many values fall in that range.',
+  'Box plot: min, $Q_1$, median, $Q_3$, max.',
+]
+example = '''
+$Q_1 = 20$ and $Q_3 = 35$:
+$$35 - 20 = 15$$
+IQR: **15 minutes**
+'''
+hack = 'The box holds the middle half of the data. The line inside is the median. Each whisker and each half-box holds about ¼.'
+
+[card.figure]
+kind = "box"
+min = 10
+q1 = 20
+median = 25
+q3 = 35
+max = 50
+axis_min = 0
+axis_max = 60
+label = "minutes"
+
+[[card]]
+id = "Q.6.c"
+status = "reviewed"
+title = "Tables and scatter plots"
+key = '$$\text{rate} = \frac{\text{change in } y}{\text{change in } x}$$'
+steps = [
+  'Table: find the row and column you need.',
+  'Scatter plot: each dot is one pair of numbers.',
+  'Line graph: steeper means faster change.',
+]
+example = '''
+3 hours earns \$42 and 5 hours earns \$70. What do 8 hours earn?
+$$42 \div 3 = 14 \qquad 14 \times 8 = 112$$
+**\$112**
+'''
+hack = 'Read a trend like a hill: uphill is positive, downhill is negative, a cloud is no trend. A trend doesn’t prove cause.'
+
+[card.figure]
+kind = "plane"
+x_min = 0
+x_max = 30
+y_min = 0
+y_max = 60
+points = [{ x = 10, y = 18 }, { x = 13, y = 25 }, { x = 16, y = 24 }, { x = 18, y = 33 }, { x = 21, y = 36 }, { x = 23, y = 44 }, { x = 26, y = 47 }, { x = 28, y = 54 }]
+x_label = "temperature (°C)"
+y_label = "ice creams sold"
+
+[[card]]
+id = "Q.7.a"
+status = "reviewed"
+title = "Mean, median, mode, range"
+key = '$$\text{mean} = \frac{\text{sum}}{\text{count}}$$'
+steps = [
+  'Sort the list first.',
+  'Median: the middle value. Two middles? Average them.',
+  'Mode: the most common value. Range: biggest − smallest.',
+  'Missing value: total = mean × count. Subtract the known values.',
+]
+example = '''
+3, 8, 5, 8, 6 sorted is 3, 5, 6, 8, 8:
+$$\text{mean} = 30 \div 5 = 6 \qquad \text{range} = 8 - 3 = 5$$
+Median **6**, mode **8**
+'''
+hack = 'Median is in the middle, like a highway median. Mode is the most (both start with “mo”).'
+
+[card.figure]
+kind = "dots"
+counts = [{ x = 3, count = 1 }, { x = 4, count = 0 }, { x = 5, count = 1 }, { x = 6, count = 1 }, { x = 7, count = 0 }, { x = 8, count = 2 }]
+label = "value"

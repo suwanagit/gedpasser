@@ -143,3 +143,37 @@ hash = "e6cfa0728beeca08"
 verdict = "pass"
 note = "Checked all examples: elimination (7, 5), substitution (3, 6), tickets a = 8, c = 12 (80 + 72 = 152, now unequal and fully worked). New section is correct: y = x + 1 and y = x + 4 are parallel (no solution); 2y = 4x + 2 is the same line as y = 2x + 1 (infinitely many). Its examples differ from a-systems-0012, so they teach the idea without giving that answer away."
 date = "2026-11-10"
+
+[[review]]
+id = "a-systems-0012"
+kind = "question"
+hash = "90fca8ce9f628b05"
+verdict = "fix"
+solved = "0"
+note = "Blind answer 0 matches key; math and explanation are correct. But the added figure draws the two lines, and they are visibly parallel, so the learner can read the answer off the picture instead of comparing slopes and intercepts (the skill this item tests). Remove the figure, or move it to the explanation."
+date = "2026-11-10"
+
+[[review]]
+id = "A.2.d"
+kind = "card"
+hash = "54267710f21736d1"
+verdict = "fix"
+note = "Example x + y = 8, x - y = 2 gives (5, 3), correct, and the figure crosses at (5, 3). But step 4 'Parallel lines (same slope) never cross: no solution' is wrong in an edge case GED asks about: same slope AND same intercept is the same line, with infinitely many solutions. Change to 'Same slope, different intercept: parallel, no solution. Same equation: infinitely many.' Also trim the hack: 'The lines cross at the solution' repeats the key; start at 'Check it in both equations'."
+date = "2026-11-10"
+
+[[review]]
+id = "a-systems-0012"
+kind = "question"
+hash = "687a8c1d11b15532"
+verdict = "pass"
+solved = "0"
+note = "Re-check: figure removed, so the answer can no longer be read off a graph. Slopes both 2, intercepts 3 and -1, so parallel, 0 solutions; matches key. Explanation and common_mistake correct; distractors plausible."
+date = "2026-11-10"
+
+[[review]]
+id = "A.2.d"
+kind = "card"
+hash = "1a7352717bc983ae"
+verdict = "pass"
+note = "Re-check: step 4 now covers both cases (same slope with different intercept: none; same equation, meaning the same line once both are written as y = mx + b: infinitely many). Hack now starts at the check: 5 + 3 = 8 and 5 - 3 = 2, both correct. Example and figure crossing at (5, 3) still correct."
+date = "2026-11-10"
