@@ -1,0 +1,20 @@
+# Rust
+/target/
+server/target/
+
+# Node / Vite
+node_modules/
+web/dist/
+
+# Local data
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+.env
+
+# OS / editor
+Thumbs.db
+.DS_Store
+.vscode/
+*.log
