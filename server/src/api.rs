@@ -1,7 +1,7 @@
 //! JSON API under `/api`. Every request/response type derives `TS`, so the
 //! frontend's types in `web/src/api/types/` are generated, not hand-written.
 
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 use std::sync::Arc;
 
 use axum::Json;
@@ -15,8 +15,9 @@ use ts_rs::TS;
 use crate::AppState;
 use crate::auth::{self, CurrentUser};
 use crate::content::{Bank, grade};
+use crate::mastery::{Answer, Level, level, mastery};
 
-// â”€â”€ Errors â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Errors ────────────────────────────────────────────────────────────────
 
 #[derive(Debug, Serialize, TS)]
 #[ts(export)]
@@ -51,7 +52,7 @@ impl From<sqlx::Error> for ApiError {
 
 type ApiResult<T> = Result<T, ApiError>;
 
-// â”€â”€ Health â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Health ────────────────────────────────────────────────────────────────
 
 /// Response of `GET /api/health`.
 #[derive(Debug, Clone, Serialize, TS)]
@@ -71,7 +72,7 @@ pub async fn health(State(state): State<Arc<AppState>>) -> Json<Health> {
     })
 }
 
-// â”€â”€ Profiles and sessions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Profiles and sessions ─────────────────────────────────────────────────
 
 /// One entry in the profile picker.
 #[derive(Debug, Serialize, TS, sqlx::FromRow)]
@@ -193,7 +194,7 @@ pub async fn get_me(State(state): State<Arc<AppState>>, user: CurrentUser) -> Js
     Json(me(&state, user.id, user.display_name))
 }
 
-// â”€â”€ Skills and practice â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Skills and practice ───────────────────────────────────────────────────
 
 /// A skill on the practice menu, with this learner's progress.
 #[derive(Debug, Serialize, TS)]
@@ -209,36 +210,79 @@ pub struct SkillSummary {
     /// This learner's answers in this skill, all time.
     pub answered: u32,
     pub correct: u32,
+    /// 0–1, weighted toward recent answers; `null` until the first answer.
+    pub mastery: Option<f64>,
+    pub level: Level,
 }
 
-pub async fn list_skills(State(state): State<Arc<AppState>>, user: CurrentUser) -> ApiResult<Json<Vec<SkillSummary>>> {
-    let rows: Vec<(String, i64, i64)> = sqlx::query_as(
-        "SELECT q.skill_id, COUNT(*), COALESCE(SUM(a.correct), 0)
-         FROM attempts a JOIN questions q ON q.id = a.question_id
-         WHERE a.user_id = ? GROUP BY q.skill_id",
-    )
-    .bind(user.id)
-    .fetch_all(&state.pool)
-    .await?;
-    let stats: HashMap<String, (i64, i64)> = rows.into_iter().map(|(s, n, c)| (s, (n, c))).collect();
+/// A learner's answers grouped by skill and by principle, newest first.
+pub(crate) struct LearnerStats {
+    by_skill: HashMap<String, Vec<Answer>>,
+    by_principle: HashMap<String, Vec<Answer>>,
+}
+
+impl LearnerStats {
+    pub(crate) async fn load(state: &AppState, user_id: i64) -> Result<Self, ApiError> {
+        let rows: Vec<(String, Option<String>, i64, i64)> = sqlx::query_as(
+            "SELECT q.skill_id, a.principle_id, a.correct, a.hint_used
+             FROM attempts a JOIN questions q ON q.id = a.question_id
+             WHERE a.user_id = ? ORDER BY a.id DESC",
+        )
+        .bind(user_id)
+        .fetch_all(&state.pool)
+        .await?;
+        let mut by_skill: HashMap<String, Vec<Answer>> = HashMap::new();
+        let mut by_principle: HashMap<String, Vec<Answer>> = HashMap::new();
+        for (skill, principle, correct, hint) in rows {
+            let a = Answer { correct: correct != 0, hint_used: hint != 0 };
+            by_skill.entry(skill).or_default().push(a);
+            if let Some(p) = principle {
+                by_principle.entry(p).or_default().push(a);
+            }
+        }
+        Ok(LearnerStats { by_skill, by_principle })
+    }
+
+    /// (answered, correct, mastery or None, level) for a list of answers.
+    fn summarize(answers: Option<&Vec<Answer>>) -> (u32, u32, Option<f64>, Level) {
+        let answers = answers.map(Vec::as_slice).unwrap_or(&[]);
+        let correct = answers.iter().filter(|a| a.correct).count();
+        let m = mastery(answers);
+        let shown = (!answers.is_empty()).then_some((m * 1000.0).round() / 1000.0);
+        (answers.len() as u32, correct as u32, shown, level(answers.len(), m))
+    }
+
+    fn skill(&self, id: &str) -> (u32, u32, Option<f64>, Level) {
+        Self::summarize(self.by_skill.get(id))
+    }
+
+    fn principle(&self, id: &str) -> (u32, u32, Option<f64>, Level) {
+        Self::summarize(self.by_principle.get(id))
+    }
+}
+
+/// Question ids from `ids` that can be served now (servable status, no open flag).
+fn servable<'a>(state: &AppState, flagged: &HashSet<String>, ids: impl Iterator<Item = &'a String>) -> Vec<&'a String> {
+    ids.filter(|id| !flagged.contains(*id))
+        .filter(|id| state.bank.questions.get(*id).is_some_and(|q| Bank::servable(q, state.serve_drafts)))
+        .collect()
+}
+
+fn principle_question_ids<'a>(state: &'a AppState, principle: &'a str) -> impl Iterator<Item = &'a String> + 'a {
+    state.bank.questions.values().filter(move |q| q.principle == principle).map(|q| &q.id)
+}
+
+async fn skill_summaries(state: &AppState, user_id: i64) -> Result<Vec<SkillSummary>, ApiError> {
+    let stats = LearnerStats::load(state, user_id).await?;
     let flagged = crate::flags::flagged_ids(&state.pool).await?;
-    let out = state
+    Ok(state
         .bank
         .skills
         .iter()
         .map(|s| {
-            let available = state
-                .bank
-                .by_skill
-                .get(&s.id)
-                .map(|ids| {
-                    ids.iter()
-                        .filter(|id| !flagged.contains(*id))
-                        .filter(|id| Bank::servable(&state.bank.questions[*id], state.serve_drafts))
-                        .count()
-                })
-                .unwrap_or(0);
-            let (answered, correct) = stats.get(&s.id).copied().unwrap_or((0, 0));
+            let ids = state.bank.by_skill.get(&s.id).map(Vec::as_slice).unwrap_or(&[]);
+            let available = servable(state, &flagged, ids.iter()).len();
+            let (answered, correct, mastery, level) = stats.skill(&s.id);
             SkillSummary {
                 id: s.id.clone(),
                 area: match s.area {
@@ -248,12 +292,44 @@ pub async fn list_skills(State(state): State<Arc<AppState>>, user: CurrentUser) 
                 name: s.name.clone(),
                 description: s.description.trim().to_string(),
                 available: available as u32,
-                answered: answered as u32,
-                correct: correct as u32,
+                answered,
+                correct,
+                mastery,
+                level,
             }
         })
-        .collect();
-    Ok(Json(out))
+        .collect())
+}
+
+pub async fn list_skills(State(state): State<Arc<AppState>>, user: CurrentUser) -> ApiResult<Json<Vec<SkillSummary>>> {
+    Ok(Json(skill_summaries(&state, user.id).await?))
+}
+
+/// The dashboard: every skill with mastery, plus the three to focus on next.
+#[derive(Debug, Serialize, TS)]
+#[ts(export)]
+pub struct Progress {
+    pub skills: Vec<SkillSummary>,
+    /// Up to three skill ids, weakest first.
+    pub focus: Vec<String>,
+}
+
+/// The weakest skills that have questions: lowest mastery first (an untried
+/// skill counts as 0.5), ties broken by fewer answers.
+pub fn focus_skills(skills: &[SkillSummary], n: usize) -> Vec<String> {
+    let mut candidates: Vec<&SkillSummary> = skills.iter().filter(|s| s.available > 0).collect();
+    candidates.sort_by(|a, b| {
+        let ma = a.mastery.unwrap_or(0.5);
+        let mb = b.mastery.unwrap_or(0.5);
+        ma.partial_cmp(&mb).unwrap_or(std::cmp::Ordering::Equal).then(a.answered.cmp(&b.answered))
+    });
+    candidates.into_iter().take(n).map(|s| s.id.clone()).collect()
+}
+
+pub async fn progress(State(state): State<Arc<AppState>>, user: CurrentUser) -> ApiResult<Json<Progress>> {
+    let skills = skill_summaries(&state, user.id).await?;
+    let focus = focus_skills(&skills, 3);
+    Ok(Json(Progress { skills, focus }))
 }
 
 #[derive(Debug, Clone, Copy, Serialize, TS)]
@@ -285,6 +361,7 @@ fn principle_ref(state: &AppState, id: &str) -> PrincipleRef {
 pub struct PracticeQuestion {
     pub id: String,
     pub skill: String,
+    pub skill_name: String,
     pub principle: PrincipleRef,
     pub difficulty: u8,
     pub kind: QuestionKind,
@@ -304,30 +381,107 @@ pub struct NextQuestion {
     pub question: Option<PracticeQuestion>,
 }
 
+/// What a practice session draws from.
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Deserialize, Serialize, TS)]
+#[ts(export)]
+#[serde(rename_all = "snake_case")]
+pub enum PracticeMode {
+    /// One skill.
+    #[default]
+    Skill,
+    /// One principle (official indicator).
+    Principle,
+    /// Any skill, weighted toward the learner's weak ones.
+    Mixed,
+}
+
+impl PracticeMode {
+    fn as_str(self) -> &'static str {
+        match self {
+            PracticeMode::Skill => "skill",
+            PracticeMode::Principle => "principle",
+            PracticeMode::Mixed => "mixed",
+        }
+    }
+}
+
+/// `GET /api/practice/next?skill=ID` | `?principle=ID` | `?mode=mixed`, each
+/// with an optional `&after=ID` (the question just shown).
 #[derive(Debug, Deserialize)]
 pub struct NextParams {
-    /// The question just shown, so it is not repeated straight away.
+    pub skill: Option<String>,
+    pub principle: Option<String>,
+    pub mode: Option<PracticeMode>,
     pub after: Option<String>,
 }
 
-/// Pick the next question for a skill: never-answered first, then ones the
-/// learner got wrong last time, then the rest, least recently seen first.
+fn random_u32() -> u32 {
+    let mut b = [0u8; 4];
+    let _ = getrandom::fill(&mut b);
+    u32::from_le_bytes(b)
+}
+
+/// Pick a skill for mixed practice: weight (1 − mastery) + 0.1 over skills
+/// that have questions, so weak skills come up most but none disappear.
+pub fn pick_weighted(weights: &[(String, f64)], roll: f64) -> Option<String> {
+    let total: f64 = weights.iter().map(|(_, w)| w).sum();
+    if weights.is_empty() || total <= 0.0 {
+        return None;
+    }
+    let mut target = roll.clamp(0.0, 0.999_999) * total;
+    for (id, w) in weights {
+        if target < *w {
+            return Some(id.clone());
+        }
+        target -= w;
+    }
+    weights.last().map(|(id, _)| id.clone())
+}
+
+/// Pick the next question: never-answered first, then ones the learner got
+/// wrong last time, then the rest, least recently seen first.
 pub async fn next_question(
     State(state): State<Arc<AppState>>,
     user: CurrentUser,
-    Path(skill): Path<String>,
     Query(params): Query<NextParams>,
 ) -> ApiResult<Json<NextQuestion>> {
-    if !state.bank.skills.iter().any(|s| s.id == skill) {
-        return Err(ApiError::new(StatusCode::NOT_FOUND, "no such skill"));
-    }
-    let ids = state.bank.by_skill.get(&skill).map(Vec::as_slice).unwrap_or(&[]);
     let flagged = crate::flags::flagged_ids(&state.pool).await?;
-    let mut pool: Vec<&String> = ids
-        .iter()
-        .filter(|id| !flagged.contains(*id))
-        .filter(|id| Bank::servable(&state.bank.questions[*id], state.serve_drafts))
-        .collect();
+    let mut pool: Vec<&String> = if let Some(skill) = &params.skill {
+        if state.bank.skill(skill).is_none() {
+            return Err(ApiError::new(StatusCode::NOT_FOUND, "No such skill."));
+        }
+        let ids = state.bank.by_skill.get(skill).map(Vec::as_slice).unwrap_or(&[]);
+        servable(&state, &flagged, ids.iter())
+    } else if let Some(principle) = &params.principle {
+        if state.bank.principle(principle).is_none() {
+            return Err(ApiError::new(StatusCode::NOT_FOUND, "No such principle."));
+        }
+        servable(&state, &flagged, principle_question_ids(&state, principle))
+    } else if params.mode == Some(PracticeMode::Mixed) {
+        let stats = LearnerStats::load(&state, user.id).await?;
+        let weights: Vec<(String, f64)> = state
+            .bank
+            .skills
+            .iter()
+            .filter(|s| {
+                let ids = state.bank.by_skill.get(&s.id).map(Vec::as_slice).unwrap_or(&[]);
+                !servable(&state, &flagged, ids.iter()).is_empty()
+            })
+            .map(|s| {
+                let m = stats.skill(&s.id).2.unwrap_or(0.5);
+                (s.id.clone(), (1.0 - m) + 0.1)
+            })
+            .collect();
+        match pick_weighted(&weights, random_u32() as f64 / u32::MAX as f64) {
+            Some(skill) => {
+                let ids = state.bank.by_skill.get(&skill).map(Vec::as_slice).unwrap_or(&[]);
+                servable(&state, &flagged, ids.iter())
+            }
+            None => Vec::new(),
+        }
+    } else {
+        return Err(ApiError::new(StatusCode::BAD_REQUEST, "Say which skill, principle or mode=mixed."));
+    };
     if pool.is_empty() {
         return Ok(Json(NextQuestion { question: None }));
     }
@@ -335,15 +489,14 @@ pub async fn next_question(
     // Per question: latest attempt id and whether that attempt was correct.
     let rows: Vec<(String, i64, i64)> = sqlx::query_as(
         "SELECT a.question_id, a.id, a.correct FROM attempts a
-         JOIN questions q ON q.id = a.question_id
-         WHERE a.user_id = ? AND q.skill_id = ?
+         WHERE a.user_id = ?
            AND a.id = (SELECT MAX(id) FROM attempts b WHERE b.user_id = a.user_id AND b.question_id = a.question_id)",
     )
     .bind(user.id)
-    .bind(&skill)
     .fetch_all(&state.pool)
     .await?;
     let last: HashMap<String, (i64, bool)> = rows.into_iter().map(|(q, id, c)| (q, (id, c != 0))).collect();
+    pool.sort(); // deterministic order before ranking
 
     if pool.len() > 1 {
         if let Some(after) = &params.after {
@@ -360,9 +513,7 @@ pub async fn next_question(
     let mut tier: Vec<&String> = pool.into_iter().filter(|id| rank(id).0 == best).collect();
     let chosen = if best == 0 {
         // Shuffle among unseen questions for variety.
-        let mut b = [0u8; 4];
-        let _ = getrandom::fill(&mut b);
-        tier[u32::from_le_bytes(b) as usize % tier.len()]
+        tier[random_u32() as usize % tier.len()]
     } else {
         tier.sort_by_key(|id| rank(id).1); // least recently answered first
         tier[0]
@@ -379,6 +530,7 @@ pub async fn next_question(
         question: Some(PracticeQuestion {
             id: q.id.clone(),
             skill: q.skill.clone(),
+            skill_name: state.bank.skill(&q.skill).map(|s| s.name.clone()).unwrap_or_default(),
             principle: principle_ref(&state, &q.principle),
             difficulty: q.difficulty,
             kind,
@@ -400,6 +552,9 @@ pub struct AnswerRequest {
     /// True if the learner opened the principle's lesson before answering.
     #[serde(default)]
     pub hint_used: bool,
+    /// How the question was reached; stored with the attempt.
+    #[serde(default)]
+    pub mode: PracticeMode,
 }
 
 #[derive(Debug, Serialize, TS)]
@@ -432,7 +587,7 @@ pub async fn submit_answer(
     sqlx::query(
         "INSERT INTO attempts
              (user_id, question_id, principle_id, response, correct, time_ms, mode, content_hash, hint_used)
-         VALUES (?, ?, ?, ?, ?, ?, 'practice', ?, ?)",
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
     )
     .bind(user.id)
     .bind(&q.id)
@@ -440,6 +595,7 @@ pub async fn submit_answer(
     .bind(&response)
     .bind(correct as i64)
     .bind(req.time_ms.min(24 * 60 * 60 * 1000) as i64)
+    .bind(req.mode.as_str())
     .bind(&state.bank.hashes[&q.id])
     .bind(req.hint_used as i64)
     .execute(&state.pool)
@@ -466,8 +622,13 @@ pub struct PrincipleSummary {
     pub summary: String,
     /// False when the lesson exists but isn't reviewed yet (and drafts are off).
     pub has_lesson: bool,
+    /// Questions for this principle that can be served right now.
+    pub available: u32,
     pub answered: u32,
     pub correct: u32,
+    /// 0–1, weighted toward recent answers; `null` until the first answer.
+    pub mastery: Option<f64>,
+    pub level: Level,
 }
 
 /// A principle's full lesson, from `GET /api/principles/{id}`.
@@ -491,28 +652,25 @@ pub async fn list_principles(
     State(state): State<Arc<AppState>>,
     user: CurrentUser,
 ) -> ApiResult<Json<Vec<PrincipleSummary>>> {
-    let rows: Vec<(String, i64, i64)> = sqlx::query_as(
-        "SELECT principle_id, COUNT(*), COALESCE(SUM(correct), 0) FROM attempts
-         WHERE user_id = ? AND principle_id IS NOT NULL GROUP BY principle_id",
-    )
-    .bind(user.id)
-    .fetch_all(&state.pool)
-    .await?;
-    let stats: HashMap<String, (i64, i64)> = rows.into_iter().map(|(p, n, c)| (p, (n, c))).collect();
+    let stats = LearnerStats::load(&state, user.id).await?;
+    let flagged = crate::flags::flagged_ids(&state.pool).await?;
     let out = state
         .bank
         .principles
         .iter()
         .map(|p| {
-            let (answered, correct) = stats.get(&p.id).copied().unwrap_or((0, 0));
+            let (answered, correct, mastery, level) = stats.principle(&p.id);
             PrincipleSummary {
                 id: p.id.clone(),
                 skill: p.skill.clone(),
                 name: p.name.clone(),
                 summary: p.summary.trim().to_string(),
                 has_lesson: Bank::lesson_servable(p, state.serve_drafts),
-                answered: answered as u32,
-                correct: correct as u32,
+                available: servable(&state, &flagged, principle_question_ids(&state, &p.id)).len() as u32,
+                answered,
+                correct,
+                mastery,
+                level,
             }
         })
         .collect();

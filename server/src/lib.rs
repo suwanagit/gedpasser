@@ -5,6 +5,7 @@ pub mod api;
 pub mod auth;
 pub mod content;
 pub mod flags;
+pub mod mastery;
 
 use std::path::{Path, PathBuf};
 use std::str::FromStr;
@@ -80,7 +81,8 @@ pub async fn build_app(config: &Config) -> Result<App, String> {
         .route("/api/logout", post(api::logout))
         .route("/api/me", get(api::get_me))
         .route("/api/skills", get(api::list_skills))
-        .route("/api/practice/{skill}/next", get(api::next_question))
+        .route("/api/practice/next", get(api::next_question))
+        .route("/api/progress", get(api::progress))
         .route("/api/answer", post(api::submit_answer))
         .route("/api/principles", get(api::list_principles))
         .route("/api/principles/{id}", get(api::get_principle))

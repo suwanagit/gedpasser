@@ -5,7 +5,7 @@ import type { QuestionKind } from "./QuestionKind";
 /**
  * A question as shown to the learner: no answer, check or explanation.
  */
-export type PracticeQuestion = { id: string, skill: string, principle: PrincipleRef, difficulty: number, kind: QuestionKind, 
+export type PracticeQuestion = { id: string, skill: string, skill_name: string, principle: PrincipleRef, difficulty: number, kind: QuestionKind, 
 /**
  * Text with math between `$...$`; a literal dollar sign is `\$`.
  */

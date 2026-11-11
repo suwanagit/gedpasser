@@ -126,7 +126,7 @@ async fn profile_login_logout() {
 async fn practice_requires_login() {
     let db = temp_db("nologin");
     let app = app(&db, true).await;
-    for (method, uri) in [("GET", "/api/skills"), ("GET", "/api/practice/q-number-ops/next"), ("GET", "/api/me")] {
+    for (method, uri) in [("GET", "/api/skills"), ("GET", "/api/practice/next?skill=q-number-ops"), ("GET", "/api/me")] {
         let (status, _, _) = call(&app.router, method, uri, None, None).await;
         assert_eq!(status, StatusCode::UNAUTHORIZED, "{uri}");
     }
@@ -168,7 +168,7 @@ async fn drafts_only_served_with_flag() {
     let content = draft_content("drafts");
     let app = app_with(&content, &db, false).await;
     let (_, cookie) = create(&app.router, "Cy", "abcd").await;
-    let (status, body, _) = call(&app.router, "GET", "/api/practice/q-number-ops/next", Some(&cookie), None).await;
+    let (status, body, _) = call(&app.router, "GET", "/api/practice/next?skill=q-number-ops", Some(&cookie), None).await;
     assert_eq!(status, StatusCode::OK);
     assert_eq!(body["question"], Value::Null, "drafts must not be served without the flag");
     let (_, skills, _) = call(&app.router, "GET", "/api/skills", Some(&cookie), None).await;
@@ -185,14 +185,14 @@ async fn drafts_only_served_with_flag() {
     app.pool.close().await;
 
     let app = app_with(&content, &db, true).await;
-    let (status, body, _) = call(&app.router, "GET", "/api/practice/q-number-ops/next", Some(&cookie), None).await;
+    let (status, body, _) = call(&app.router, "GET", "/api/practice/next?skill=q-number-ops", Some(&cookie), None).await;
     assert_eq!(status, StatusCode::OK);
     let q = &body["question"];
     assert_eq!(q["draft"], true);
     for hidden in ["answer", "check", "explanation", "common_mistake", "answer_value"] {
         assert!(q.get(hidden).is_none(), "question leaks {hidden}");
     }
-    let (status, _, _) = call(&app.router, "GET", "/api/practice/not-a-skill/next", Some(&cookie), None).await;
+    let (status, _, _) = call(&app.router, "GET", "/api/practice/next?skill=not-a-skill", Some(&cookie), None).await;
     assert_eq!(status, StatusCode::NOT_FOUND);
 }
 
@@ -227,7 +227,7 @@ async fn principles_and_lessons() {
     assert_eq!(lesson["draft"], true);
 
     // Questions and results carry their principle; hint use and principle are saved.
-    let (_, next, _) = call(&app.router, "GET", "/api/practice/q-ratios-percent/next", Some(&cookie), None).await;
+    let (_, next, _) = call(&app.router, "GET", "/api/practice/next?skill=q-ratios-percent", Some(&cookie), None).await;
     let q = &next["question"];
     assert!(q["principle"]["id"].as_str().unwrap().starts_with("Q.3."));
     assert!(!q["principle"]["name"].as_str().unwrap().is_empty());
@@ -299,7 +299,7 @@ async fn flags_remove_questions_until_resolved() {
     let total = std::fs::read_to_string(content.join("math").join("q-number-ops.toml")).unwrap().matches("[[question]]").count() as u64;
     assert_eq!(ops, total - 1);
     for _ in 0..30 {
-        let (_, next, _) = call(&app.router, "GET", "/api/practice/q-number-ops/next", Some(&cookie), None).await;
+        let (_, next, _) = call(&app.router, "GET", "/api/practice/next?skill=q-number-ops", Some(&cookie), None).await;
         assert_ne!(next["question"]["id"], "q-number-ops-0001");
     }
 
@@ -366,7 +366,7 @@ async fn answers_graded_saved_and_survive_restart() {
     assert!(!res["common_mistake"].as_str().unwrap().is_empty());
 
     // The next question prefers one never answered.
-    let (_, next, _) = call(&app.router, "GET", "/api/practice/q-number-ops/next", Some(&cookie), None).await;
+    let (_, next, _) = call(&app.router, "GET", "/api/practice/next?skill=q-number-ops", Some(&cookie), None).await;
     let next_id = next["question"]["id"].as_str().unwrap();
     assert!(next_id != "q-number-ops-0001" && next_id != "q-number-ops-0002", "{next_id}");
 
@@ -410,6 +410,109 @@ async fn answers_graded_saved_and_survive_restart() {
         last = q.id.clone();
     }
     let (_, next, _) =
-        call(&app.router, "GET", &format!("/api/practice/q-number-ops/next?after={last}"), Some(&cookie), None).await;
+        call(&app.router, "GET", &format!("/api/practice/next?skill=q-number-ops&after={last}"), Some(&cookie), None).await;
     assert_eq!(next["question"]["id"], "q-number-ops-0002");
+}
+
+
+/// Answer `n` questions of a skill, right or wrong, using the bank's keys.
+async fn answer_skill(router: &Router, cookie: &str, skill: &str, n: usize, right: bool) {
+    let bank = ged_content::check_content(&content_dir());
+    let qs: Vec<&ged_content::Question> = bank.questions.iter().map(|(_, q)| q).filter(|q| q.skill == skill).take(n).collect();
+    for q in qs {
+        let response = if right { q.answer.clone() } else { "999999".to_string() };
+        let (status, res, _) = call(
+            router,
+            "POST",
+            "/api/answer",
+            Some(cookie),
+            Some(json!({"question_id": q.id, "response": response, "time_ms": 1000, "mode": "skill"})),
+        )
+        .await;
+        assert_eq!(status, StatusCode::OK, "{res}");
+        assert_eq!(res["correct"], right, "{}", q.id);
+    }
+}
+
+#[tokio::test]
+async fn mastery_focus_and_practice_modes() {
+    let db = temp_db("phase3");
+    let app = app(&db, false).await;
+    let r = &app.router;
+    let (_, cookie) = create(r, "Gus", "math").await;
+
+    // Before any answers: every skill is not started; focus still suggests three.
+    let (status, prog, _) = call(r, "GET", "/api/progress", Some(&cookie), None).await;
+    assert_eq!(status, StatusCode::OK);
+    let skills = prog["skills"].as_array().unwrap();
+    assert!(skills.iter().all(|s| s["level"] == "not_started" && s["mastery"].is_null()));
+    assert_eq!(prog["focus"].as_array().unwrap().len(), 3);
+
+    // Strong in number ops, weak in probability.
+    answer_skill(r, &cookie, "q-number-ops", 6, true).await;
+    answer_skill(r, &cookie, "q-probability", 6, false).await;
+    let (_, prog, _) = call(r, "GET", "/api/progress", Some(&cookie), None).await;
+    let by_id = |id: &str| prog["skills"].as_array().unwrap().iter().find(|s| s["id"] == id).unwrap().clone();
+    let ops = by_id("q-number-ops");
+    let prob = by_id("q-probability");
+    assert!(ops["mastery"].as_f64().unwrap() > 0.8, "{ops}");
+    assert_eq!(ops["level"], "strong");
+    assert!(prob["mastery"].as_f64().unwrap() < 0.2, "{prob}");
+    assert_eq!(prob["level"], "needs_work");
+    let focus: Vec<&str> = prog["focus"].as_array().unwrap().iter().map(|v| v.as_str().unwrap()).collect();
+    assert_eq!(focus[0], "q-probability", "weakest first: {focus:?}");
+    assert!(!focus.contains(&"q-number-ops"));
+
+    // Principle mastery shows up too.
+    let (_, principles, _) = call(r, "GET", "/api/principles", Some(&cookie), None).await;
+    let q8b = principles.as_array().unwrap().iter().find(|p| p["id"] == "Q.8.b").unwrap();
+    assert_eq!(q8b["level"], "needs_work");
+    assert!(q8b["available"].as_u64().unwrap() > 0);
+
+    // Principle practice serves only that principle.
+    for _ in 0..15 {
+        let (status, next, _) = call(r, "GET", "/api/practice/next?principle=Q.3.d", Some(&cookie), None).await;
+        assert_eq!(status, StatusCode::OK);
+        assert_eq!(next["question"]["principle"]["id"], "Q.3.d");
+    }
+
+    // Mixed practice leans toward the weak skill: probability (mastery < 0.2)
+    // should come up far more often than number ops (> 0.8).
+    let (mut prob_n, mut ops_n) = (0, 0);
+    for _ in 0..300 {
+        let (_, next, _) = call(r, "GET", "/api/practice/next?mode=mixed", Some(&cookie), None).await;
+        match next["question"]["skill"].as_str().unwrap() {
+            "q-probability" => prob_n += 1,
+            "q-number-ops" => ops_n += 1,
+            _ => {}
+        }
+        assert!(!next["question"]["skill_name"].as_str().unwrap().is_empty());
+    }
+    assert!(prob_n > 2 * ops_n, "probability {prob_n} vs number ops {ops_n}");
+
+    // Mode is stored with the attempt.
+    let (_, next, _) = call(r, "GET", "/api/practice/next?principle=Q.4.e", Some(&cookie), None).await;
+    let qid = next["question"]["id"].as_str().unwrap().to_string();
+    call(r, "POST", "/api/answer", Some(&cookie), Some(json!({"question_id": qid, "response": "1", "time_ms": 5, "mode": "principle"}))).await;
+    let mode: String = sqlx::query_scalar("SELECT mode FROM attempts ORDER BY id DESC LIMIT 1").fetch_one(&app.pool).await.unwrap();
+    assert_eq!(mode, "principle");
+
+    // Bad scopes.
+    for uri in ["/api/practice/next?principle=Q.9.z", "/api/practice/next?skill=nope"] {
+        let (status, _, _) = call(r, "GET", uri, Some(&cookie), None).await;
+        assert_eq!(status, StatusCode::NOT_FOUND, "{uri}");
+    }
+    let (status, _, _) = call(r, "GET", "/api/practice/next", Some(&cookie), None).await;
+    assert_eq!(status, StatusCode::BAD_REQUEST);
+}
+
+#[test]
+fn weighted_pick_and_focus_order() {
+    use gedpasser_server::api::pick_weighted;
+    let w = vec![("a".to_string(), 1.0), ("b".to_string(), 3.0)];
+    assert_eq!(pick_weighted(&w, 0.0).as_deref(), Some("a"));
+    assert_eq!(pick_weighted(&w, 0.24).as_deref(), Some("a"));
+    assert_eq!(pick_weighted(&w, 0.26).as_deref(), Some("b"));
+    assert_eq!(pick_weighted(&w, 1.0).as_deref(), Some("b"));
+    assert_eq!(pick_weighted(&[], 0.5), None);
 }
