@@ -7,7 +7,7 @@ skill = "q-geometry-3d"
 principle = "Q.5.a"
 difficulty = 1
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 alaska = true
 prompt = '''
 A fish tote is a box 1.2 m long, 1 m wide and 0.8 m high.
@@ -33,7 +33,7 @@ choices = ["7.85", "15.7", "2.5", "24.65"]
 answer = "7.85"
 check = "3.14 * 1^2 * 2.5"
 explanation = '$V = \pi r^2 h \approx 3.14 \times 1^2 \times 2.5 = 3.14 \times 2.5 = 7.85$ m³.'
-common_mistake = "Using the diameter (2 m) as the radius, which gives four times the right volume."
+common_mistake = "Doubling the radius instead of squaring it (3.14 × 2 × 1 × 2.5 = 15.7)."
 
 [[question]]
 id = "q-geometry-3d-0003"
@@ -41,7 +41,7 @@ skill = "q-geometry-3d"
 principle = "Q.5.d"
 difficulty = 3
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = '''
 A cone-shaped pile of gravel is 3 m across at the base and 2 m high.
 Using $V = \frac{1}{3}\pi r^2 h$ and $\pi \approx 3.14$, what is its volume to the nearest tenth of a cubic meter?
@@ -55,3 +55,179 @@ $V = \frac{1}{3} \times 3.14 \times 1.5^2 \times 2 = \frac{1}{3} \times 3.14 \ti
 which rounds to 4.7 m³.
 '''
 common_mistake = "Using 3 m (the diameter) as the radius, which gives 18.8."
+
+[[question]]
+id = "q-geometry-3d-0004"
+skill = "q-geometry-3d"
+principle = "Q.5.a"
+difficulty = 2
+type = "multiple_choice"
+status = "reviewed"
+prompt = '''
+A box is 0.5 m long, 0.4 m wide and 0.3 m high.
+Using $SA = 2lw + 2lh + 2wh$, what is its surface area, in square meters?
+'''
+choices = ["0.94", "0.06", "0.47", "1.2"]
+answer = "0.94"
+check = "2 * (0.5 * 0.4 + 0.5 * 0.3 + 0.4 * 0.3)"
+explanation = '''
+The three different faces have areas $0.5 \times 0.4 = 0.2$, $0.5 \times 0.3 = 0.15$ and $0.4 \times 0.3 = 0.12$ m².
+Each face appears twice: $SA = 2(0.2 + 0.15 + 0.12) = 2 \times 0.47 = 0.94$ m².
+'''
+common_mistake = "Adding the three face areas once (0.47) and forgetting that each face has a matching opposite face."
+
+[[question]]
+id = "q-geometry-3d-0005"
+skill = "q-geometry-3d"
+principle = "Q.5.b"
+difficulty = 3
+type = "fill_in"
+status = "reviewed"
+prompt = '''
+A cylindrical tank holds 94.2 cubic meters of water and has a radius of 2 m.
+Using $V = \pi r^2 h$ and $\pi \approx 3.14$, how tall is the tank, in meters?
+'''
+answer = "7.5"
+check = "94.2 / (3.14 * 2^2)"
+explanation = '''
+Put the known values into the formula: $94.2 = 3.14 \times 2^2 \times h = 12.56h$.
+Divide: $h = 94.2 \div 12.56 = 7.5$ m.
+'''
+common_mistake = "Dividing by 3.14 × 2 (using r instead of r²), which gives 15."
+
+[[question]]
+id = "q-geometry-3d-0006"
+skill = "q-geometry-3d"
+principle = "Q.5.c"
+difficulty = 2
+type = "multiple_choice"
+status = "reviewed"
+prompt = '''
+A prism has a right-triangle base with legs of 6 cm and 8 cm. The prism is 20 cm long.
+Using $V = Bh$, what is its volume, in cubic centimeters?
+'''
+choices = ["480", "960", "280", "48"]
+answer = "480"
+check = "6 * 8 / 2 * 20"
+explanation = '''
+The base is a triangle: $B = \frac{1}{2} \times 6 \times 8 = 24$ cm².
+Volume: $V = Bh = 24 \times 20 = 480$ cm³.
+'''
+common_mistake = "Forgetting the ½ in the triangle's area, which gives 960."
+
+[[question]]
+id = "q-geometry-3d-0007"
+skill = "q-geometry-3d"
+principle = "Q.5.c"
+difficulty = 2
+type = "fill_in"
+status = "reviewed"
+prompt = '''
+A tent is shaped like a triangular prism. Each end is a triangle with a base of 2 m and a height of 1.5 m, and the tent is 3 m long.
+How many cubic meters of space are inside the tent?
+'''
+answer = "4.5"
+check = "2 * 1.5 / 2 * 3"
+explanation = '''
+Area of the triangular end: $\frac{1}{2} \times 2 \times 1.5 = 1.5$ m².
+Volume: $1.5 \times 3 = 4.5$ m³.
+'''
+common_mistake = "Multiplying all three measurements (2 × 1.5 × 3 = 9) without halving for the triangle."
+
+[[question]]
+id = "q-geometry-3d-0008"
+skill = "q-geometry-3d"
+principle = "Q.5.d"
+difficulty = 2
+type = "fill_in"
+status = "reviewed"
+prompt = '''
+A square pyramid has a base 9 m on each side and a height of 10 m.
+Using $V = \frac{1}{3}Bh$, what is its volume, in cubic meters?
+'''
+answer = "270"
+check = "9^2 * 10 / 3"
+explanation = '''
+Base area: $B = 9 \times 9 = 81$ m².
+Volume: $V = \frac{1}{3} \times 81 \times 10 = 270$ m³.
+'''
+common_mistake = "Forgetting the ⅓ and answering 810."
+
+[[question]]
+id = "q-geometry-3d-0009"
+skill = "q-geometry-3d"
+principle = "Q.5.e"
+difficulty = 2
+type = "multiple_choice"
+status = "reviewed"
+prompt = '''
+A round buoy is a sphere with a radius of 0.5 m.
+Using $V = \frac{4}{3}\pi r^3$ and $\pi \approx 3.14$, what is its volume to the nearest hundredth of a cubic meter?
+'''
+choices = ["0.52", "1.57", "0.13", "3.14"]
+answer = "0.52"
+check = "round(4 / 3 * 3.14 * 0.5^3, 2)"
+explanation = '''
+$r^3 = 0.5 \times 0.5 \times 0.5 = 0.125$.
+$V \approx \frac{4}{3} \times 3.14 \times 0.125 = 0.5233\ldots$, which rounds to 0.52 m³.
+'''
+common_mistake = "Using the surface-area formula 4πr², which gives 3.14."
+
+[[question]]
+id = "q-geometry-3d-0010"
+skill = "q-geometry-3d"
+principle = "Q.5.e"
+difficulty = 3
+type = "fill_in"
+status = "reviewed"
+prompt = '''
+A ball has a surface area of 314 square centimeters.
+Using $SA = 4\pi r^2$ and $\pi \approx 3.14$, what is its radius, in centimeters?
+'''
+answer = "5"
+check = "sqrt(314 / (4 * 3.14))"
+explanation = '''
+$314 = 4 \times 3.14 \times r^2 = 12.56 r^2$, so $r^2 = 314 \div 12.56 = 25$.
+Then $r = \sqrt{25} = 5$ cm.
+'''
+common_mistake = "Stopping at r² = 25 and forgetting to take the square root."
+
+[[question]]
+id = "q-geometry-3d-0011"
+skill = "q-geometry-3d"
+principle = "Q.5.f"
+difficulty = 3
+type = "multiple_choice"
+status = "reviewed"
+prompt = '''
+A propane tank is a cylinder 2 m long with a radius of 0.5 m, with a half-sphere of radius 0.5 m on each end.
+Using $\pi \approx 3.14$, what is the tank's total volume to the nearest hundredth of a cubic meter?
+'''
+choices = ["2.09", "1.57", "2.62", "1.83"]
+answer = "2.09"
+check = "round(3.14 * 0.5^2 * 2 + 4 / 3 * 3.14 * 0.5^3, 2)"
+explanation = '''
+Cylinder: $\pi r^2 h \approx 3.14 \times 0.25 \times 2 = 1.57$ m³.
+The two half-spheres make one whole sphere: $\frac{4}{3}\pi r^3 \approx \frac{4}{3} \times 3.14 \times 0.125 \approx 0.523$ m³.
+Total: $1.57 + 0.523 = 2.093$, which rounds to 2.09 m³.
+'''
+common_mistake = "Counting each end as a whole sphere, which gives 2.62."
+
+[[question]]
+id = "q-geometry-3d-0012"
+skill = "q-geometry-3d"
+principle = "Q.5.f"
+difficulty = 2
+type = "fill_in"
+status = "reviewed"
+prompt = '''
+A concrete step is made of two boxes stacked together. The bottom box is 1 m by 0.6 m by 0.2 m, and the top box is 1 m by 0.3 m by 0.2 m.
+How many cubic meters of concrete are in the step?
+'''
+answer = "0.18"
+check = "1 * 0.6 * 0.2 + 1 * 0.3 * 0.2"
+explanation = '''
+Bottom: $1 \times 0.6 \times 0.2 = 0.12$ m³. Top: $1 \times 0.3 \times 0.2 = 0.06$ m³.
+Total: $0.12 + 0.06 = 0.18$ m³.
+'''
+common_mistake = "Finding only the bottom box (0.12) and forgetting the top one."

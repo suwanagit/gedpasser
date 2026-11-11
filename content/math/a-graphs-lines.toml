@@ -51,3 +51,151 @@ Perpendicular slopes are negative reciprocals. The reciprocal of $\frac{2}{3}$ i
 The line passes through $(0, 4)$, so the $y$-intercept is 4: $y = -\frac{3}{2}x + 4$.
 '''
 common_mistake = "Changing only the sign (−2/3) or only flipping the fraction (3/2)."
+
+[[question]]
+id = "a-graphs-lines-0004"
+skill = "a-graphs-lines"
+principle = "A.5.a"
+difficulty = 1
+type = "fill_in"
+status = "draft"
+prompt = 'Point $A$ is at $(-4, 3)$. Point $B$ is 6 units to the right of $A$. What is the $x$-coordinate of $B$?'
+answer = "2"
+check = "-4 + 6"
+explanation = 'Moving right adds to the $x$-coordinate: $-4 + 6 = 2$. Point $B$ is at $(2, 3)$.'
+common_mistake = "Moving left instead of right (−4 − 6 = −10)."
+
+[[question]]
+id = "a-graphs-lines-0005"
+skill = "a-graphs-lines"
+principle = "A.5.a"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = 'The points $(2, -3)$ and $(2, 5)$ lie on a vertical line. How many units apart are they?'
+choices = ["8", "2", "4", "10"]
+answer = "8"
+check = "5 - (-3)"
+explanation = 'They have the same $x$-coordinate, so the distance is the difference in $y$: $5 - (-3) = 8$ units.'
+common_mistake = "Subtracting 3 from 5 (2) and ignoring that −3 is below zero."
+
+[[question]]
+id = "a-graphs-lines-0006"
+skill = "a-graphs-lines"
+principle = "A.5.c"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = '''
+A proportional relationship between liters of fuel ($x$) and kilometers driven ($y$) is graphed as a line through $(0, 0)$ and $(5, 40)$.
+How many kilometers can be driven per liter?
+'''
+choices = ["8", "40", "0.125", "35"]
+answer = "8"
+check = "40 / 5"
+explanation = 'The unit rate is the slope: $\frac{40 - 0}{5 - 0} = 8$ km per liter.'
+common_mistake = "Dividing x by y (5 ÷ 40 = 0.125), which gives liters per kilometer."
+
+[[question]]
+id = "a-graphs-lines-0007"
+skill = "a-graphs-lines"
+principle = "A.5.c"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+alaska = true
+prompt = '''
+The cost of salmon is proportional to its weight: 3 kg costs \$54.
+On a graph of cost (dollars) against weight (kg), what is the slope of the line?
+'''
+answer = "18"
+check = "54 / 3"
+explanation = 'The line passes through $(0, 0)$ and $(3, 54)$. Slope $= \frac{54}{3} = 18$, which is \$18 per kilogram.'
+common_mistake = "Dividing weight by cost (3 ÷ 54) instead of cost by weight."
+
+[[question]]
+id = "a-graphs-lines-0008"
+skill = "a-graphs-lines"
+principle = "A.6.a"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = 'Which is the equation of the line with slope $-2$ that passes through $(1, 4)$?'
+choices = ['$y = -2x + 6$', '$y = -2x + 4$', '$y = -2x + 2$', '$y = 2x + 2$']
+answer = '$y = -2x + 6$'
+answer_value = 6.0               # y-intercept of the answer
+check = "4 - (-2) * 1"           # b = y1 - m*x1
+explanation = '''
+Use point-slope form: $y - 4 = -2(x - 1)$, so $y - 4 = -2x + 2$ and $y = -2x + 6$.
+Check: at $x = 1$, $y = -2 + 6 = 4$. ✓
+'''
+common_mistake = "Using the point's y-value (4) as the y-intercept, which only works when x = 0."
+
+[[question]]
+id = "a-graphs-lines-0009"
+skill = "a-graphs-lines"
+principle = "A.6.a"
+difficulty = 3
+type = "fill_in"
+status = "draft"
+prompt = 'A line has slope $\frac{1}{2}$ and passes through $(4, 7)$. What is its $y$-intercept?'
+answer = "5"
+check = "7 - 1 / 2 * 4"
+explanation = '''
+In $y = mx + b$, put in the point and slope: $7 = \frac{1}{2}(4) + b = 2 + b$, so $b = 5$.
+'''
+common_mistake = "Adding instead of subtracting (7 + 2 = 9)."
+
+[[question]]
+id = "a-graphs-lines-0010"
+skill = "a-graphs-lines"
+principle = "A.6.b"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = 'Which is the equation of the line through $(0, -1)$ and $(2, 5)$?'
+choices = ['$y = 3x - 1$', '$y = 2x - 1$', '$y = 3x + 5$', '$y = -3x - 1$']
+answer = '$y = 3x - 1$'
+answer_value = 5.0                            # the answer line at x = 2
+check = "(5 - (-1)) / (2 - 0) * 2 + (-1)"     # slope from the points, through (0, -1), at x = 2
+explanation = '''
+Slope: $\frac{5 - (-1)}{2 - 0} = \frac{6}{2} = 3$. The point $(0, -1)$ gives the $y$-intercept $-1$.
+So $y = 3x - 1$. Check: at $x = 2$, $y = 6 - 1 = 5$. ✓
+'''
+common_mistake = "Using the second point's x-value (2) as the slope, which gives y = 2x − 1."
+
+[[question]]
+id = "a-graphs-lines-0011"
+skill = "a-graphs-lines"
+principle = "A.6.b"
+difficulty = 3
+type = "fill_in"
+status = "draft"
+prompt = 'A line passes through $(1, 2)$ and $(3, -4)$. What is its $y$-intercept?'
+answer = "5"
+check = "2 - (-4 - 2) / (3 - 1) * 1"
+explanation = '''
+Slope: $\frac{-4 - 2}{3 - 1} = \frac{-6}{2} = -3$.
+Use $(1, 2)$: $2 = -3(1) + b$, so $b = 5$. The line is $y = -3x + 5$.
+'''
+common_mistake = "Getting the slope's sign wrong (+3), which gives a y-intercept of −1."
+
+[[question]]
+id = "a-graphs-lines-0012"
+skill = "a-graphs-lines"
+principle = "A.5.b"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = '''
+A line passes through the points in this table: when $x = 0$, $y = 1$; when $x = 2$, $y = 7$; when $x = 4$, $y = 13$.
+What is the slope of the line?
+'''
+choices = ["3", "6", "2", "12"]
+answer = "3"
+check = "(13 - 1) / (4 - 0)"
+explanation = '''
+Each time $x$ goes up by 2, $y$ goes up by 6. Slope $= \frac{6}{2} = 3$.
+(Using the first and last rows: $\frac{13 - 1}{4 - 0} = 3$.)
+'''
+common_mistake = "Using only the change in y (6) and forgetting to divide by the change in x."

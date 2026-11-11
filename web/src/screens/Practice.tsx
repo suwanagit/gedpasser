@@ -4,6 +4,7 @@ import { api, errorMessage } from '../api/client'
 import type { AnswerResult } from '../api/types/AnswerResult'
 import type { PracticeQuestion } from '../api/types/PracticeQuestion'
 import type { SkillSummary } from '../api/types/SkillSummary'
+import { FlagDialog } from '../components/FlagDialog'
 import { LessonPanel } from '../components/LessonPanel'
 import { MathText } from '../components/MathText'
 
@@ -21,10 +22,13 @@ export function Practice({ skill, onExit }: { skill: SkillSummary; onExit: () =>
   const [busy, setBusy] = useState(false)
   const [tally, setTally] = useState({ right: 0, total: 0 })
   const [lessonFor, setLessonFor] = useState<string | null>(null)
+  const [flagging, setFlagging] = useState(false)
+  const [notice, setNotice] = useState<string | null>(null)
   const shownAt = useRef(0)
   const hintUsed = useRef(false)
   const reduce = useReducedMotion()
   const closeLesson = useCallback(() => setLessonFor(null), [])
+  const cancelFlag = useCallback(() => setFlagging(false), [])
 
   const load = useCallback(
     async (after?: string) => {
@@ -56,6 +60,7 @@ export function Practice({ skill, onExit }: { skill: SkillSummary; onExit: () =>
     const response = state.q.kind === 'fill_in' ? typed.trim() : selected
     if (!response) return
     setBusy(true)
+    setNotice(null)
     try {
       const time_ms = Math.round(performance.now() - shownAt.current)
       const result = await api.answer({ question_id: state.q.id, response, time_ms, hint_used: hintUsed.current })
@@ -70,6 +75,12 @@ export function Practice({ skill, onExit }: { skill: SkillSummary; onExit: () =>
 
   const next = useCallback(() => {
     if (state.kind === 'answered') void load(state.q.id)
+  }, [state, load])
+
+  const flagged = useCallback(() => {
+    setFlagging(false)
+    setNotice('Thanks — this question is out of practice until it has been checked.')
+    if (state.kind === 'asking' || state.kind === 'answered') void load(state.q.id)
   }, [state, load])
 
   // Keyboard: 1-4 pick a choice, Enter checks or moves on.
@@ -109,6 +120,14 @@ export function Practice({ skill, onExit }: { skill: SkillSummary; onExit: () =>
         </span>
       </div>
 
+      {notice && (
+        <p className="flash" role="status">
+          {notice}{' '}
+          <button className="link" onClick={() => setNotice(null)} aria-label="Dismiss">
+            ×
+          </button>
+        </p>
+      )}
       {state.kind === 'loading' && <p className="muted">Loading…</p>}
       {state.kind === 'error' && (
         <div className="card">
@@ -191,6 +210,11 @@ export function Practice({ skill, onExit }: { skill: SkillSummary; onExit: () =>
                   </button>
                 </div>
               )}
+              <p className="flag-row">
+                <button className="link small-link" onClick={() => setFlagging(true)}>
+                  ⚑ Flag this question
+                </button>
+              </p>
             </article>
 
             {state.kind === 'answered' && (
@@ -235,6 +259,9 @@ export function Practice({ skill, onExit }: { skill: SkillSummary; onExit: () =>
       </AnimatePresence>
 
       {lessonFor && <LessonPanel principleId={lessonFor} onClose={closeLesson} />}
+      {flagging && (state.kind === 'asking' || state.kind === 'answered') && (
+        <FlagDialog questionId={state.q.id} onDone={flagged} onCancel={cancelFlag} />
+      )}
     </section>
   )
 }

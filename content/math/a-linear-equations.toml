@@ -50,3 +50,182 @@ Subtract 4 from both sides: $-3x \le 15$.
 Divide both sides by $-3$. Dividing by a negative number flips the sign: $x \ge -5$.
 '''
 common_mistake = "Forgetting to flip the inequality sign when dividing by a negative number."
+
+[[question]]
+id = "a-linear-equations-0004"
+skill = "a-linear-equations"
+principle = "A.2.a"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+prompt = 'Solve for $x$: $\frac{x}{4} - 3 = 5$.'
+answer = "32"
+check = "(5 + 3) * 4"
+explanation = '''
+Add 3 to both sides: $\frac{x}{4} = 8$.
+Multiply both sides by 4: $x = 32$.
+'''
+common_mistake = "Dividing by 4 instead of multiplying (8 ÷ 4 = 2)."
+
+[[question]]
+id = "a-linear-equations-0005"
+skill = "a-linear-equations"
+principle = "A.2.b"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+alaska = true
+prompt = '''
+A skiff rental in Valdez costs \$75 plus \$30 per hour. Ken's bill was \$255.
+For how many hours did he rent the skiff?
+'''
+choices = ["6", "8.5", "11", "5"]
+answer = "6"
+check = "(255 - 75) / 30"
+explanation = '''
+Let $h$ be the hours: $75 + 30h = 255$.
+Subtract 75: $30h = 180$. Divide by 30: $h = 6$ hours.
+'''
+common_mistake = "Dividing the whole bill by 30 (8.5) without taking off the \\$75 fee first."
+
+[[question]]
+id = "a-linear-equations-0006"
+skill = "a-linear-equations"
+principle = "A.2.b"
+difficulty = 3
+type = "fill_in"
+status = "draft"
+prompt = '''
+Two friends share a \$96 cabin rental. One pays \$18 more than the other.
+How many dollars does the friend who pays less pay?
+'''
+answer = "39"
+check = "(96 - 18) / 2"
+explanation = '''
+Let $x$ be the smaller share. The other share is $x + 18$.
+$x + (x + 18) = 96$, so $2x + 18 = 96$, $2x = 78$ and $x = 39$ dollars. (The other pays \$57.)
+'''
+common_mistake = "Splitting the bill in half (48) and ignoring the \\$18 difference."
+
+[[question]]
+id = "a-linear-equations-0007"
+skill = "a-linear-equations"
+principle = "A.2.c"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+prompt = '''
+A gym charges \$20 to join plus \$15 per month.
+Which equation gives the total cost $C$, in dollars, after $m$ months?
+'''
+choices = ['$C = 20 + 15m$', '$C = 15 + 20m$', '$C = 35m$', '$C = 20m + 15m$']
+answer = '$C = 20 + 15m$'
+answer_value = 80.0              # C when m = 4
+check = "20 + 15 * 4"            # 4 months: join fee plus 4 monthly fees
+explanation = '''
+The \$20 joining fee is paid once. The \$15 is paid every month, which is $15m$.
+So $C = 20 + 15m$.
+'''
+common_mistake = "Swapping the one-time fee and the monthly fee (C = 15 + 20m)."
+
+[[question]]
+id = "a-linear-equations-0008"
+skill = "a-linear-equations"
+principle = "A.2.c"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+alaska = true
+prompt = '''
+A village generator starts with 40 liters of fuel and uses 2.5 liters per hour.
+Which equation can be solved to find the number of hours $h$ until 15 liters are left?
+'''
+choices = ['$40 - 2.5h = 15$', '$40 + 2.5h = 15$', '$2.5h - 40 = 15$', '$40 - 15h = 2.5$']
+answer = '$40 - 2.5h = 15$'
+answer_value = 10.0              # solution h of the correct equation
+check = "(40 - 15) / 2.5"        # hours to use 25 liters
+explanation = '''
+Fuel left $=$ starting fuel $-$ fuel used $= 40 - 2.5h$. We want that to equal 15: $40 - 2.5h = 15$.
+(Solving gives $h = 10$ hours.)
+'''
+common_mistake = "Adding the fuel used instead of subtracting it (40 + 2.5h = 15)."
+
+[[question]]
+id = "a-linear-equations-0009"
+skill = "a-linear-equations"
+principle = "A.3.b"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+prompt = 'Which number-line graph shows $x \le 3$?'
+choices = ["A closed circle at 3, shaded to the left", "An open circle at 3, shaded to the left", "A closed circle at 3, shaded to the right", "An open circle at 3, shaded to the right"]
+answer = "A closed circle at 3, shaded to the left"
+answer_value = 3.0               # the boundary point
+check = "3"
+explanation = '''
+"Less than or equal to" includes 3 itself, so the circle at 3 is closed (filled in).
+The solutions are 3 and everything smaller, so the shading goes to the left.
+'''
+common_mistake = "Using an open circle, which leaves out x = 3 even though ≤ includes it."
+
+[[question]]
+id = "a-linear-equations-0010"
+skill = "a-linear-equations"
+principle = "A.3.c"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = '''
+Amy has \$60. Movie tickets cost \$11 each, and she must keep \$10 for the bus home.
+What is the greatest number of tickets she can buy?
+'''
+choices = ["4", "5", "6", "3"]
+answer = "4"
+check = "floor((60 - 10) / 11)"
+explanation = '''
+She can spend at most $60 - 10 = 50$ dollars: $11t \le 50$, so $t \le 4.54\ldots$
+She can't buy part of a ticket, so the greatest number is 4.
+'''
+common_mistake = "Rounding 4.54 up to 5, which would cost \\$55 and leave only \\$5 for the bus."
+
+[[question]]
+id = "a-linear-equations-0011"
+skill = "a-linear-equations"
+principle = "A.3.c"
+difficulty = 3
+type = "fill_in"
+status = "draft"
+alaska = true
+prompt = '''
+A skiff can carry at most 650 kg. The driver weighs 85 kg, and each fuel drum weighs 70 kg.
+What is the greatest number of drums the skiff can carry along with the driver?
+'''
+answer = "8"
+check = "floor((650 - 85) / 70)"
+explanation = '''
+Write the inequality: $85 + 70d \le 650$.
+Subtract 85: $70d \le 565$. Divide by 70: $d \le 8.07\ldots$
+The greatest whole number of drums is 8.
+'''
+common_mistake = "Forgetting the driver's weight: 650 ÷ 70 ≈ 9.3, which gives 9 drums."
+
+[[question]]
+id = "a-linear-equations-0012"
+skill = "a-linear-equations"
+principle = "A.3.d"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = '''
+A student needs at least 280 points in a course. She has 205 points so far, and each remaining assignment is worth 15 points.
+Which inequality can be solved for the number of assignments $a$ she must complete?
+'''
+choices = ['$205 + 15a \ge 280$', '$205 + 15a \le 280$', '$15a \ge 280$', '$205a + 15 \ge 280$']
+answer = '$205 + 15a \ge 280$'
+answer_value = 5.0               # boundary: 205 + 15a = 280
+check = "(280 - 205) / 15"
+explanation = '''
+Her total will be $205 + 15a$. "At least 280" means greater than or equal to: $205 + 15a \ge 280$.
+(Solving gives $a \ge 5$.)
+'''
+common_mistake = "Using ≤ for \"at least\"; at least means the total must reach 280 or more."

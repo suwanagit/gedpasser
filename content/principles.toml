@@ -107,7 +107,7 @@ Tip: always look at the bottom of a fraction first. Set it equal to zero and sol
 [[principle]]
 id = "Q.2.e"
 skill = "q-number-ops"
-status = "draft"
+status = "reviewed"
 name = "Multi-step word problems with numbers"
 summary = "Plan and carry out several arithmetic steps to solve an everyday problem, including ones with scientific notation."
 lesson = '''
@@ -370,7 +370,7 @@ Tip: the hypotenuse is always the longest side. If your "hypotenuse" comes out s
 [[principle]]
 id = "Q.5.a"
 skill = "q-geometry-3d"
-status = "draft"
+status = "reviewed"
 name = "Boxes (rectangular prisms)"
 summary = "Find the volume and surface area of a box, or work back to a missing length."
 lesson = '''
@@ -390,7 +390,7 @@ Tip: 1 m³ holds 1000 liters.
 [[principle]]
 id = "Q.5.b"
 skill = "q-geometry-3d"
-status = "draft"
+status = "reviewed"
 name = "Cylinders"
 summary = "Find the volume and surface area of a cylinder, or work back to its height or radius."
 lesson = '''
@@ -409,7 +409,7 @@ Working backwards: a cylinder holds 157 m³ and has radius 5 m. Its height is $1
 [[principle]]
 id = "Q.5.c"
 skill = "q-geometry-3d"
-status = "draft"
+status = "reviewed"
 name = "Right prisms"
 summary = "Find the volume and surface area of any right prism using its base area and height."
 lesson = '''
@@ -427,7 +427,7 @@ Example: a tent-shaped prism has a right-triangle end with sides 3 m, 4 m and 5 
 [[principle]]
 id = "Q.5.d"
 skill = "q-geometry-3d"
-status = "draft"
+status = "reviewed"
 name = "Pyramids and cones"
 summary = "Find the volume and surface area of pyramids and cones, or work back to a missing measurement."
 lesson = '''
@@ -446,7 +446,7 @@ Tip: the height goes straight up through the middle; the slant height runs along
 [[principle]]
 id = "Q.5.e"
 skill = "q-geometry-3d"
-status = "draft"
+status = "reviewed"
 name = "Spheres"
 summary = "Find the volume and surface area of a sphere, or work back to its radius."
 lesson = '''
@@ -467,7 +467,7 @@ Tip: if you are given the diameter, halve it first.
 [[principle]]
 id = "Q.5.f"
 skill = "q-geometry-3d"
-status = "draft"
+status = "reviewed"
 name = "Combined solids"
 summary = "Find the volume and surface area of solids made from simpler solids."
 lesson = '''
@@ -486,7 +486,7 @@ For surface area, count only the outside. Where two pieces join (the circle betw
 [[principle]]
 id = "Q.6.a"
 skill = "q-data-stats"
-status = "draft"
+status = "reviewed"
 name = "Bar graphs and circle graphs"
 summary = "Read, make and interpret bar graphs and circle graphs of data in categories."
 lesson = '''
@@ -508,7 +508,7 @@ Tip: questions often ask "how many more" — find both amounts, then subtract.
 [[principle]]
 id = "Q.6.b"
 skill = "q-data-stats"
-status = "draft"
+status = "reviewed"
 name = "Dot plots, histograms and box plots"
 summary = "Read, make and interpret displays of one set of numbers on a number line."
 lesson = '''
@@ -536,7 +536,9 @@ Two-variable data pairs each $x$ with a $y$, such as hours worked and pay, or mo
 - Scatter plots: each dot is one pair. If dots rise to the right, the trend is positive; falling to the right is negative; no pattern means no clear relationship.
 - Line graphs: show change over time. Steeper means faster change.
 
-Example: a scatter plot of daylight hours and month in Utqiaġvik would rise steeply in spring and fall in autumn.
+Table example: a table shows 3 hours of work earns \$45 and 7 hours earns \$105. Each row gives $45 \div 3 = 15$ and $105 \div 7 = 15$, so the pay is \$15 per hour, and 10 hours would earn $15 \times 10 = 150$ dollars.
+
+Scatter plot example: dots for each day's high temperature ($x$) and the number of ice-cream cones sold ($y$) rise from left to right: warmer days, more cones. That is a positive trend.
 
 Tip: a trend in a scatter plot does not prove one thing causes the other.
 '''
@@ -555,7 +557,7 @@ lesson = '''
 
 Finding a missing value: the mean of 4 test scores must be 80, so they must total $4 \times 80 = 320$. If three scores are 75, 82 and 90, the fourth is $320 - 247 = 73$.
 
-Weighted average: multiply each value by its weight and add. If tests count 60% and homework 40%, scores of 70 and 90 give $0.6 \times 70 + 0.4 \times 90 = 78$.
+Weighted average: multiply each value by its weight and add. If a final exam counts 70% and a project 30%, scores of 80 and 60 give $0.7 \times 80 + 0.3 \times 60 = 56 + 18 = 74$.
 
 Tip: always sort the list before finding the median.
 '''
@@ -565,7 +567,7 @@ Tip: always sort the list before finding the median.
 [[principle]]
 id = "Q.8.a"
 skill = "q-probability"
-status = "draft"
+status = "reviewed"
 name = "Counting: combinations and permutations"
 summary = "Count the possible outcomes, using multiplication, permutations (order matters) and combinations (order doesn't)."
 lesson = '''
@@ -585,14 +587,14 @@ status = "draft"
 name = "Probability of simple and compound events"
 summary = "Find the probability of one event, and of two events happening together."
 lesson = '''
-Probability $= \frac{\text{favorable outcomes}}{\text{total outcomes}}$. It is always between 0 (impossible) and 1 (certain).
+When every outcome is equally likely, probability $= \frac{\text{favorable outcomes}}{\text{total outcomes}}$. A probability is always between 0 (impossible) and 1 (certain).
 
 Example: rolling an even number on a six-sided number cube: 3 favorable outcomes (2, 4, 6) out of 6, so $\frac{3}{6} = \frac{1}{2}$.
 
 Compound events:
 - "A and B" for independent events: multiply. Two coins both landing heads: $\frac{1}{2} \times \frac{1}{2} = \frac{1}{4}$.
 - "A or B" when they can't both happen: add. Rolling a 1 or a 6: $\frac{1}{6} + \frac{1}{6} = \frac{1}{3}$.
-- Without replacement, the total goes down after each pick.
+- Without replacement, the first pick changes what is left: the total goes down, and so does the favorable count if the first pick was favorable. With 4 red marbles out of 10, two reds in a row is $\frac{4}{10} \times \frac{3}{9}$.
 
 Tip: the probability something does not happen is 1 minus the probability it does.
 '''
@@ -608,9 +610,9 @@ summary = "Add, subtract, expand and factor expressions like 3(2x − 4) + 5x."
 lesson = '''
 Like terms have the same variable part: $3x$ and $5x$ are like terms; $3x$ and $3$ are not.
 
-- Distribute: multiply everything inside the parentheses. $3(2x - 4) = 6x - 12$.
+- Distribute: multiply each term inside the parentheses by the number outside. $3(2x - 4) = 6x - 12$.
 - Combine like terms: $6x - 12 + 5x = 11x - 12$.
-- Factor: pull out a common factor. $6x + 9 = 3(2x + 3)$.
+- Factor completely: pull out the greatest common factor. $8x + 12 = 4(2x + 3)$. Writing $2(4x + 6)$ is equal but not complete, because 4x and 6 still share a factor of 2.
 
 Watch the signs: $-2(x - 5) = -2x + 10$, because a negative times a negative is positive.
 
@@ -620,7 +622,7 @@ Tip: check a simplification by putting in a number, such as $x = 1$, before and 
 [[principle]]
 id = "A.1.b"
 skill = "a-expressions"
-status = "draft"
+status = "reviewed"
 name = "Evaluating linear expressions"
 summary = "Substitute numbers for variables and work out the value."
 lesson = '''
@@ -653,7 +655,7 @@ Watch the order with "less than": "3 less than $n$" is $n - 3$, not $3 - n$.
 
 Example: "five more than twice a number" is $2n + 5$.
 
-Example: a taxi charges \$3.50 plus \$2.25 per kilometer. For $k$ kilometers the cost is $3.50 + 2.25k$.
+Example: a phone plan costs \$25 a month plus \$0.10 for each text. For $t$ texts the monthly cost is $25 + 0.10t$.
 '''
 
 # ── a-linear-equations ───────────────────────────────────────────────────

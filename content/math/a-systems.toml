@@ -54,3 +54,164 @@ Substitute into the first: $2(y + 1) + 3y = 12$, so $5y + 2 = 12$, $5y = 10$ and
 (Then $x = 3$.)
 '''
 common_mistake = "Substituting x = y − 1 instead of x = y + 1."
+
+[[question]]
+id = "a-systems-0004"
+skill = "a-systems"
+principle = "A.2.d"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+prompt = 'Solve the system $y = 3x$ and $x + y = 24$. What is the value of $y$?'
+answer = "18"
+check = "3 * (24 / 4)"
+explanation = '''
+Substitute $y = 3x$ into the second equation: $x + 3x = 24$, so $4x = 24$ and $x = 6$.
+Then $y = 3(6) = 18$.
+'''
+common_mistake = "Giving the value of x (6) instead of y."
+
+[[question]]
+id = "a-systems-0005"
+skill = "a-systems"
+principle = "A.2.d"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+alaska = true
+prompt = '''
+At a fish-fry fundraiser in Dillingham, adult plates cost \$12 and child plates cost \$7.
+30 plates were sold for a total of \$285. How many adult plates were sold?
+'''
+choices = ["15", "12", "18", "20"]
+answer = "15"
+check = "(285 - 7 * 30) / (12 - 7)"
+explanation = '''
+Let $a$ be adult plates and $c$ child plates: $a + c = 30$ and $12a + 7c = 285$.
+From the first, $c = 30 - a$. Substitute: $12a + 7(30 - a) = 285$, so $5a + 210 = 285$, $5a = 75$ and $a = 15$.
+'''
+common_mistake = "Dividing 285 by 12 and rounding, which ignores the child plates."
+
+[[question]]
+id = "a-systems-0006"
+skill = "a-systems"
+principle = "A.2.d"
+difficulty = 3
+type = "fill_in"
+status = "draft"
+prompt = 'Solve the system $3x + 2y = 16$ and $x - 2y = 0$. What is the value of $x$?'
+answer = "4"
+check = "16 / 4"
+explanation = '''
+Add the two equations so the $y$ terms cancel: $(3x + 2y) + (x - 2y) = 16 + 0$, so $4x = 16$ and $x = 4$.
+(Then $y = 2$.)
+'''
+common_mistake = "Subtracting the equations, which doubles the y terms instead of removing them."
+
+[[question]]
+id = "a-systems-0007"
+skill = "a-systems"
+principle = "A.2.d"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = 'Solve the system $2x + y = 11$ and $x + y = 7$. What is the value of $x$?'
+choices = ["4", "3", "7", "11"]
+answer = "4"
+check = "11 - 7"
+explanation = '''
+Subtract the second equation from the first: $(2x + y) - (x + y) = 11 - 7$, so $x = 4$.
+(Then $y = 3$.)
+'''
+common_mistake = "Giving the value of y (3) instead of x."
+
+[[question]]
+id = "a-systems-0008"
+skill = "a-systems"
+principle = "A.2.d"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+prompt = '''
+A trail mix is made from nuts that cost \$14 per kilogram and raisins that cost \$6 per kilogram.
+10 kg of the mix costs \$108 in all. How many kilograms of nuts are in it?
+'''
+choices = ["6", "4", "7.7", "5"]
+answer = "6"
+check = "(108 - 6 * 10) / (14 - 6)"
+explanation = '''
+Let $n$ be kilograms of nuts and $r$ kilograms of raisins: $n + r = 10$ and $14n + 6r = 108$.
+Substitute $r = 10 - n$: $14n + 60 - 6n = 108$, so $8n = 48$ and $n = 6$ kg.
+'''
+common_mistake = "Giving the kilograms of raisins (4) instead of nuts."
+
+[[question]]
+id = "a-systems-0009"
+skill = "a-systems"
+principle = "A.2.d"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+prompt = "The sum of two numbers is 50 and their difference is 14. What is the larger number?"
+answer = "32"
+check = "(50 + 14) / 2"
+explanation = '''
+Let the numbers be $x$ and $y$: $x + y = 50$ and $x - y = 14$.
+Add the equations: $2x = 64$, so $x = 32$. (The smaller number is 18.)
+'''
+common_mistake = "Giving the smaller number (18) instead of the larger."
+
+[[question]]
+id = "a-systems-0010"
+skill = "a-systems"
+principle = "A.2.d"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+prompt = 'The lines $y = 2x - 1$ and $y = -x + 5$ cross at one point. What is the $y$-coordinate of that point?'
+choices = ["3", "2", "5", "1"]
+answer = "3"
+check = "2 * ((5 + 1) / 3) - 1"
+explanation = '''
+Set the two expressions for $y$ equal: $2x - 1 = -x + 5$, so $3x = 6$ and $x = 2$.
+Then $y = 2(2) - 1 = 3$. The lines cross at $(2, 3)$.
+'''
+common_mistake = "Giving the x-coordinate (2) instead of the y-coordinate."
+
+[[question]]
+id = "a-systems-0011"
+skill = "a-systems"
+principle = "A.2.d"
+difficulty = 3
+type = "fill_in"
+status = "draft"
+alaska = true
+prompt = '''
+A riverboat travels 60 km downstream in 2 hours and makes the same 60 km trip back upstream in 3 hours.
+What is the boat's speed in still water, in kilometers per hour?
+'''
+answer = "25"
+check = "(60 / 2 + 60 / 3) / 2"
+explanation = '''
+Let $b$ be the boat's speed and $c$ the current's speed.
+Downstream: $b + c = 60 \div 2 = 30$. Upstream: $b - c = 60 \div 3 = 20$.
+Add the equations: $2b = 50$, so $b = 25$ km/h. (The current is 5 km/h.)
+'''
+common_mistake = "Averaging the two trip times instead of the two speeds."
+
+[[question]]
+id = "a-systems-0012"
+skill = "a-systems"
+principle = "A.2.d"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = 'How many solutions does the system $y = 2x + 3$ and $y = 2x - 1$ have?'
+choices = ["0", "1", "2", "Infinitely many"]
+answer = "0"
+check = "abs(2 - 2)"
+explanation = '''
+Both lines have slope 2 but different $y$-intercepts (3 and $-1$), so they are parallel and never cross.
+The system has no solution.
+'''
+common_mistake = "Assuming every pair of lines crosses once; parallel lines never meet."

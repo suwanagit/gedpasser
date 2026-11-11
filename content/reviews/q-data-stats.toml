@@ -1,0 +1,141 @@
+# Review notes for q-data-stats.
+
+[[review]]
+id = "q-data-stats-0001"
+kind = "question"
+hash = "cfebac88ac0e4818"
+verdict = "pass"
+solved = "0"
+note = "Sum -2+1+4+0-3 = 0, mean 0. Key, check and explanation agree; common mistake (dropping signs gives 2) is realistic. Nome temperatures plausible, metric."
+date = "2026-11-10"
+
+[[review]]
+id = "q-data-stats-0002"
+kind = "question"
+hash = "11856cfbbd12110f"
+verdict = "fix"
+solved = "26"
+note = "Key 26 is correct (sorted 18,22,25,27,31,40; (25+27)/2). But the stated common mistake (middle of the unsorted list) gives (31+22)/2 = 26.5, which is not a choice, and distractor 28 matches no identifiable error (the mean is 27.17). Replace 28 with 26.5 (unsorted middle pair) or 27.2 (mean, rounded) so each distractor traces to a real mistake; 25 (one middle value only) and 31 (third value of unsorted list) are fine."
+date = "2026-11-10"
+
+[[review]]
+id = "q-data-stats-0003"
+kind = "question"
+hash = "418ca47a405a4744"
+verdict = "pass"
+solved = "78"
+note = "0.6*70 + 0.4*90 = 42 + 36 = 78. Distractors: 80 plain average, 82 swapped weights, 76 plausible. Note: the Q.7.a lesson uses these exact numbers as its worked example; see the fix on lesson Q.7.a."
+date = "2026-11-10"
+
+[[review]]
+id = "q-data-stats-0004"
+kind = "question"
+hash = "f92ce94dd67e160d"
+verdict = "pass"
+solved = "180"
+note = "30% of 600 = 180. Percents sum to 100. Distractors: 30 (the percent), 270 (oil share), 200 (one third). Clear description of the circle graph."
+date = "2026-11-10"
+
+[[review]]
+id = "q-data-stats-0005"
+kind = "question"
+hash = "4f1c4f4b4d63a02c"
+verdict = "pass"
+solved = "650"
+note = "1630 - 980 = 650. Bar values stated clearly; common mistake (Wed - Mon = 380) is realistic."
+date = "2026-11-10"
+
+[[review]]
+id = "q-data-stats-0006"
+kind = "question"
+hash = "36db51f42562ae78"
+verdict = "pass"
+solved = "16"
+note = "IQR = Q3 - Q1 = 80 - 64 = 16. Distractors: 43 full range, 9 (Q3 - median), 7 (median - Q1); all plausible and wrong."
+date = "2026-11-10"
+
+[[review]]
+id = "q-data-stats-0007"
+kind = "question"
+hash = "eff5ccdbdef8b1e6"
+verdict = "pass"
+solved = "17"
+note = "0*1 + 1*3 + 2*4 + 3*2 = 17; dot counts total 10 as stated. Description of the dot plot is unambiguous; common mistake (answering 10) is realistic."
+date = "2026-11-10"
+
+[[review]]
+id = "q-data-stats-0008"
+kind = "question"
+hash = "4e58747a58909a9f"
+verdict = "pass"
+solved = "108"
+note = "Rate 18 per hour in every row; 6 h gives 108. Distractors 90 (5 h row), 126 (7 h), 117 (midpoint of 5 h and 8 h rows) are plausible. Dollar signs escaped correctly."
+date = "2026-11-10"
+
+[[review]]
+id = "q-data-stats-0009"
+kind = "question"
+hash = "4fcd108012e6177a"
+verdict = "pass"
+solved = "1.4"
+note = "2.6 - 1.2 = 1.4 m. Line graph readings stated clearly; metric; common mistake (using May 15) is realistic."
+date = "2026-11-10"
+
+[[review]]
+id = "q-data-stats-0010"
+kind = "question"
+hash = "d479aa847f30d179"
+verdict = "pass"
+solved = "22"
+note = "Total 5*18 = 90; known sum 68; fifth = 22. Explanation complete; common mistake (mean of four = 17) is correct arithmetic for that error."
+date = "2026-11-10"
+
+[[review]]
+id = "q-data-stats-0011"
+kind = "question"
+hash = "0f4e9bad0e7da0ec"
+verdict = "pass"
+solved = "21"
+note = "Range 30 - 9 = 21. Distractors: 9 (min/mode), 16.8 (mean 101/6 rounded), 30 (max). One correct choice."
+date = "2026-11-10"
+
+[[review]]
+id = "q-data-stats-0012"
+kind = "question"
+hash = "721179ef15e35611"
+verdict = "pass"
+solved = "7"
+note = "7 appears three times, 4 twice, others once; mode 7. Mean 41/8 = 5.125 checked; 8 (count of values) and 4 (second most common) are plausible distractors."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.6.a"
+kind = "lesson"
+hash = "20f8636150cc2e55"
+verdict = "pass"
+note = "Statements correct; example 0.25*400 = 100 correct; scale and how-many-more tips are useful and match the questions."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.6.b"
+kind = "lesson"
+hash = "a868cc3c5714aa5b"
+verdict = "pass"
+note = "Definitions of dot plot, histogram and five-number box plot are correct; IQR example 30 - 12 = 18 correct; histogram tip accurate."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.6.c"
+kind = "lesson"
+hash = "def8cd65c0cb16c5"
+verdict = "fix"
+note = "The worked example is weak and slightly confusing: daylight hours by month is time-series data best shown as a line graph, and a rise-then-fall pattern does not illustrate the positive/negative/no-trend rule just given for scatter plots. It also has no numbers, so it does not demonstrate reading a table or graph. Replace it with a concrete example, e.g. a table of hours and pay (2 h earns 30, 4 h earns 60) where the learner finds the rate 15 per hour and predicts 6 h, plus a one-line scatter-plot example with a clearly positive trend."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.7.a"
+kind = "lesson"
+hash = "5298e1b5e88cd84e"
+verdict = "fix"
+note = "All statements and arithmetic are correct (320 - 247 = 73; 78). But the weighted-average example (tests 60%, homework 40%, scores 70 and 90, answer 78) is word for word the same problem as q-data-stats-0003, which gives that question away. Change the example numbers, e.g. tests 70% and homework 30% with scores 80 and 60: 0.7*80 + 0.3*60 = 56 + 18 = 74."
+date = "2026-11-10"

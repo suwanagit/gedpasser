@@ -1,0 +1,157 @@
+# Review notes for q-geometry-3d.
+
+[[review]]
+id = "q-geometry-3d-0001"
+kind = "question"
+hash = "50b3338cbda9001c"
+verdict = "pass"
+solved = "0.96"
+note = "1.2 x 1 x 0.8 = 0.96 m^3 matches key; clear prompt, realistic Alaska setting, explanation and common mistake fine."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-3d-0002"
+kind = "question"
+hash = "e74898be203585fd"
+verdict = "fix"
+solved = "7.85"
+note = "Key 7.85 is correct and only one choice is right, but the common_mistake (diameter as radius, four times the volume = 31.4) matches no choice. The distractor 15.7 comes from 3.14 x 2 x 2.5 (doubling r instead of squaring it, or computing the side area 2*pi*r*h). Either change the common_mistake to describe that error, or replace a distractor with 31.4 so the stated mistake is offered."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-3d-0003"
+kind = "question"
+hash = "8c8b307c6d3ac431"
+verdict = "pass"
+solved = "4.7"
+note = "r = 1.5, (1/3)(3.14)(2.25)(2) = 4.71 -> 4.7 matches key. Distractors: 14.1 (no 1/3), 18.8 (diameter as radius, matches common_mistake), 9.4 (r not squared); all wrong. Rounding instruction present."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-3d-0004"
+kind = "question"
+hash = "bf62018bf2b82045"
+verdict = "pass"
+solved = "0.94"
+note = "2(0.2 + 0.15 + 0.12) = 0.94 m^2 matches key. Distractors 0.06 (volume), 0.47 (faces once, matches common_mistake), 1.2 (sum of lengths) are plausible and wrong."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-3d-0005"
+kind = "question"
+hash = "174c92390dc7fc67"
+verdict = "pass"
+solved = "7.5"
+note = "94.2 / 12.56 = 7.5 m matches key; exact, no rounding needed. Common mistake (r instead of r^2 gives 15) checks out."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-3d-0006"
+kind = "question"
+hash = "dcd096f1f506d325"
+verdict = "pass"
+solved = "480"
+note = "B = 24 cm^2, V = 480 cm^3 matches key. Distractors 960 (no 1/2), 280 ((6+8)x20), 48 (6x8) are plausible and wrong."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-3d-0007"
+kind = "question"
+hash = "425a4c97ca88646c"
+verdict = "pass"
+solved = "4.5"
+note = "End area 1.5 m^2 x 3 m = 4.5 m^3 matches key; explanation and common mistake (9) correct."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-3d-0008"
+kind = "question"
+hash = "557f8b0ca4ce2454"
+verdict = "pass"
+solved = "270"
+note = "(1/3)(81)(10) = 270 m^3 matches key; common mistake 810 correct."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-3d-0009"
+kind = "question"
+hash = "ecb6aa00d598c743"
+verdict = "pass"
+solved = "0.52"
+note = "(4/3)(3.14)(0.125) = 0.523 -> 0.52 matches key. Distractors 1.57 (no division by 3), 0.13 (r^3 only), 3.14 (surface area, matches common_mistake) all wrong."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-3d-0010"
+kind = "question"
+hash = "7da68f0d161a2074"
+verdict = "pass"
+solved = "5"
+note = "r^2 = 314 / 12.56 = 25, r = 5 cm matches key; explanation and common mistake correct."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-3d-0011"
+kind = "question"
+hash = "68db56ab53c272ff"
+verdict = "pass"
+solved = "2.09"
+note = "Cylinder 1.57 + one sphere 0.523 = 2.093 -> 2.09 matches key. Prompt clearly says the cylinder part is 2 m long. Distractors 1.57 (cylinder only), 1.83 (one half-sphere), 2.62 (two whole spheres, matches common_mistake) all wrong."
+date = "2026-11-10"
+
+[[review]]
+id = "q-geometry-3d-0012"
+kind = "question"
+hash = "848f97907db421ef"
+verdict = "pass"
+solved = "0.18"
+note = "0.12 + 0.06 = 0.18 m^3 matches key; clear combined-solid setup, explanation and common mistake correct."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.5.a"
+kind = "lesson"
+hash = "9a3d937ba08ad599"
+verdict = "pass"
+note = "Checked formulas, example (V = 24, SA = 52), working-back example (5 m) and 1 m^3 = 1000 L; all correct and clearly ordered."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.5.b"
+kind = "lesson"
+hash = "223b0a8b69940355"
+verdict = "pass"
+note = "Checked formulas, V = 62.8, SA = 25.12 + 62.8 = 87.92, and working back 157 / 78.5 = 2; all correct."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.5.c"
+kind = "lesson"
+hash = "047c9a1b8386516e"
+verdict = "pass"
+note = "V = Bh and SA = 2B + Ph are correct for right prisms; example B = 6, V = 60, SA = 132 all correct."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.5.d"
+kind = "lesson"
+hash = "2dd43da468ac30d8"
+verdict = "pass"
+note = "Pyramid and cone volume and surface-area formulas correct; example V = 48, and slant height 5 is consistent with height 4 and half-base 3, SA = 36 + 60 = 96. Height vs slant height tip is helpful."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.5.e"
+kind = "lesson"
+hash = "06c76c5c7e65dfa3"
+verdict = "pass"
+note = "Formulas correct; SA = 452.16, V = 904.32 and working back r = 10 all check out."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.5.f"
+kind = "lesson"
+hash = "b5ac84f693706b6a"
+verdict = "pass"
+note = "Cylinder 62.8 + cone 6.28 = 69.08 m^3 correct; hidden-face rule for surface area is correct and clearly stated."
+date = "2026-11-10"

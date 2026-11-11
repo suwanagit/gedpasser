@@ -7,9 +7,29 @@ const AREAS: { id: string; title: string }[] = [
   { id: 'algebraic', title: 'Algebraic problem solving' },
 ]
 
+const AI_NOTICE_KEY = 'ged.aiNoticeDismissed'
+
+function readDismissed(): boolean {
+  try {
+    return localStorage.getItem(AI_NOTICE_KEY) === '1'
+  } catch {
+    return false
+  }
+}
+
 export function SkillList({ onPick }: { onPick: (skill: SkillSummary) => void }) {
   const [skills, setSkills] = useState<SkillSummary[] | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [aiNoticeHidden, setAiNoticeHidden] = useState(readDismissed)
+
+  function hideAiNotice() {
+    setAiNoticeHidden(true)
+    try {
+      localStorage.setItem(AI_NOTICE_KEY, '1')
+    } catch {
+      // storage unavailable; the notice just comes back next visit
+    }
+  }
 
   useEffect(() => {
     api
@@ -26,6 +46,18 @@ export function SkillList({ onPick }: { onPick: (skill: SkillSummary) => void })
   return (
     <>
       <h2 className="screen-title">Pick a skill to practice</h2>
+      {!aiNoticeHidden && (
+        <div className="card ai-notice">
+          <span>
+            Every question and lesson here was written by AI and checked by a separate AI reviewer and by code — not by a
+            teacher. Mistakes are possible. If something looks wrong, use <strong>Flag this question</strong> and it
+            will be pulled until it’s checked.
+          </span>
+          <button className="secondary small" onClick={hideAiNotice}>
+            Got it
+          </button>
+        </div>
+      )}
       {nothingReviewed && (
         <div className="card notice">
           <strong>No reviewed questions yet.</strong> Only reviewed questions are shown to learners. To try the

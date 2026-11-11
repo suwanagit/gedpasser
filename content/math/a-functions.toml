@@ -49,3 +49,170 @@ Slope of $g$: $\frac{19 - 7}{5 - 1} = \frac{12}{4} = 3$. The slope of $f$ is 2.
 The difference is $3 - 2 = 1$.
 '''
 common_mistake = "Giving the slope of g (3) instead of the difference."
+
+[[question]]
+id = "a-functions-0004"
+skill = "a-functions"
+principle = "A.5.e"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = '''
+The height, in meters, of a ball $t$ seconds after it is thrown is $h(t) = -5t^2 + 20t$.
+After how many seconds does the ball reach its highest point?
+'''
+choices = ["2", "4", "20", "1"]
+answer = "2"
+check = "20 / (2 * 5)"
+explanation = '''
+The graph is a parabola that opens down, so its highest point is the vertex, at $t = \frac{-b}{2a} = \frac{-20}{2(-5)} = 2$ seconds.
+(The ball is in the air from $t = 0$ to $t = 4$, and the top is halfway between.)
+'''
+common_mistake = "Giving the time it lands (4) instead of the time it is highest."
+
+[[question]]
+id = "a-functions-0005"
+skill = "a-functions"
+principle = "A.5.e"
+difficulty = 3
+type = "fill_in"
+status = "draft"
+prompt = '''
+A ball's height in meters after $t$ seconds is $h(t) = -5t^2 + 30t$.
+After how many seconds does the ball land (height 0 again, other than at $t = 0$)?
+'''
+answer = "6"
+check = "30 / 5"
+explanation = '''
+Set $h(t) = 0$: $-5t^2 + 30t = 0$, so $-5t(t - 6) = 0$.
+The solutions are $t = 0$ (when it is thrown) and $t = 6$ (when it lands).
+'''
+common_mistake = "Finding the time of the highest point (3) instead of when it lands."
+
+[[question]]
+id = "a-functions-0006"
+skill = "a-functions"
+principle = "A.7.a"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+alaska = true
+prompt = '''
+Musher A's distance in kilometers after $t$ hours is $d = 14t$.
+A table for Musher B shows 45 km after 3 hours and 75 km after 5 hours.
+How many kilometers per hour faster is the faster musher?
+'''
+choices = ["1", "15", "14", "29"]
+answer = "1"
+check = "45 / 3 - 14"
+explanation = '''
+Musher A: 14 km per hour (the number in front of $t$).
+Musher B: $45 \div 3 = 15$ km per hour (and $75 \div 5 = 15$).
+Musher B is faster by $15 - 14 = 1$ km per hour.
+'''
+common_mistake = "Giving the faster speed (15) instead of the difference."
+
+[[question]]
+id = "a-functions-0007"
+skill = "a-functions"
+principle = "A.7.a"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+prompt = '''
+Store A's graph of rice cost against weight is a line through the origin with a slope of 2.40 dollars per kilogram.
+Store B sells 5 kg of rice for \$11.50. What is the lower price per kilogram, in dollars?
+'''
+answer = "2.30"
+check = "min(2.40, 11.50 / 5)"
+explanation = '''
+Store A: \$2.40 per kg. Store B: $11.50 \div 5 = 2.30$ dollars per kg.
+The lower price is \$2.30 per kg, at Store B.
+'''
+common_mistake = "Comparing \\$11.50 with \\$2.40 directly without finding Store B's price for one kilogram."
+
+[[question]]
+id = "a-functions-0008"
+skill = "a-functions"
+principle = "A.7.b"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+prompt = "Which set of ordered pairs is NOT a function?"
+choices = ['$\{(1, 2), (2, 4), (3, 6)\}$', '$\{(1, 5), (2, 5), (3, 5)\}$', '$\{(2, 1), (2, 3), (4, 5)\}$', '$\{(0, 0), (1, 1), (2, 4)\}$']
+answer = '$\{(2, 1), (2, 3), (4, 5)\}$'
+answer_value = 2.0               # the input that has two outputs
+check = "2"
+explanation = '''
+In a function, each input has exactly one output. In $\{(2, 1), (2, 3), (4, 5)\}$ the input 2 has two outputs, 1 and 3, so it is not a function.
+The set $\{(1, 5), (2, 5), (3, 5)\}$ is still a function: different inputs may share an output.
+'''
+common_mistake = "Thinking a repeated output (5, 5, 5) breaks the rule; only a repeated input with different outputs does."
+
+[[question]]
+id = "a-functions-0009"
+skill = "a-functions"
+principle = "A.7.c"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+prompt = 'If $f(x) = 3x - 2$, what value of $x$ makes $f(x) = 13$?'
+answer = "5"
+check = "(13 + 2) / 3"
+explanation = 'Set $3x - 2 = 13$. Add 2: $3x = 15$. Divide by 3: $x = 5$.'
+common_mistake = "Finding f(13) = 37 instead of the input that gives an output of 13."
+
+[[question]]
+id = "a-functions-0010"
+skill = "a-functions"
+principle = "A.7.c"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+prompt = 'If $g(x) = 2x^2 - x$, what is $g(-3)$?'
+choices = ["21", "15", "-21", "39"]
+answer = "21"
+check = "2 * (-3)^2 - (-3)"
+explanation = '''
+Replace $x$ with $-3$: $g(-3) = 2(-3)^2 - (-3) = 2(9) + 3 = 21$.
+'''
+common_mistake = "Forgetting that subtracting −3 adds 3, which gives 18 − 3 = 15."
+
+[[question]]
+id = "a-functions-0011"
+skill = "a-functions"
+principle = "A.7.d"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = '''
+Function $f$ is $f(x) = 2x + 5$. Function $g$ is linear, with $g(0) = 1$ and $g(3) = 13$.
+How much greater is the $y$-intercept of $f$ than the $y$-intercept of $g$?
+'''
+choices = ["4", "2", "6", "12"]
+answer = "4"
+check = "5 - 1"
+explanation = '''
+The $y$-intercept is the value at $x = 0$. For $f$ it is 5; for $g$ it is $g(0) = 1$.
+The difference is $5 - 1 = 4$.
+'''
+common_mistake = "Comparing slopes (4 − 2 = 2) instead of y-intercepts."
+
+[[question]]
+id = "a-functions-0012"
+skill = "a-functions"
+principle = "A.7.d"
+difficulty = 3
+type = "fill_in"
+status = "draft"
+prompt = '''
+The quadratic function $f(x) = x^2 - 6x + 10$ has a lowest point. The linear function $g(x) = 4x + 7$ has a $y$-intercept.
+How much less is the minimum value of $f$ than the $y$-intercept of $g$?
+'''
+answer = "6"
+check = "7 - (3^2 - 6 * 3 + 10)"
+explanation = '''
+The vertex of $f$ is at $x = \frac{6}{2} = 3$, and $f(3) = 9 - 18 + 10 = 1$, so the minimum value is 1.
+The $y$-intercept of $g$ is $g(0) = 7$. The difference is $7 - 1 = 6$.
+'''
+common_mistake = "Using f(0) = 10 instead of the minimum, which gives −3."

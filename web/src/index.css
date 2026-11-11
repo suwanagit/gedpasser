@@ -582,6 +582,82 @@ input {
   color: var(--accent);
 }
 
+/* ── Flags and notices ────────────────────────────────────────────────── */
+
+.flag-row {
+  margin: 1rem 0 0;
+  text-align: right;
+}
+
+.small-link {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.flash {
+  margin: 0 0 1rem;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background: var(--ok-bg);
+  color: var(--text);
+}
+
+.flag-panel .reasons {
+  border: none;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.flag-panel legend {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.flag-panel .reason {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0;
+  cursor: pointer;
+}
+
+.flag-panel .note {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-weight: 600;
+}
+
+.flag-panel .note .muted {
+  font-weight: 400;
+}
+
+textarea {
+  font: inherit;
+  color: inherit;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  resize: vertical;
+}
+
+.ai-notice {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.92rem;
+  border-color: var(--accent);
+}
+
+.ai-notice button {
+  flex: none;
+}
+
+.fine p {
+  margin: 0.25rem 0;
+}
+
 /* Belt and braces: Motion animations already check reduced motion. */
 @media (prefers-reduced-motion: reduce) {
   *,

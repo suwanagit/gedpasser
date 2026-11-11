@@ -78,7 +78,7 @@ skill = "q-number-ops"
 principle = "Q.1.a"
 difficulty = 2
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 alaska = true
 prompt = '''
 Three dog teams finished a sled race in 9.45 hours, 9.405 hours and 9.5 hours.

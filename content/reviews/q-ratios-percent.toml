@@ -139,3 +139,12 @@ hash = "8db067603bf5189e"
 verdict = "pass"
 note = "Checked 15% of 60 = 9, discount 51, percent change 10/40 = 25%, simple interest 500 x 0.04 x 3 = 60, and the tip that successive percents do not add. All correct; percent signs escaped inside math."
 date = "2026-11-10"
+
+[[review]]
+id = "q-ratios-percent-0011"
+kind = "question"
+hash = "f7da79a58a0e3c98"
+verdict = "pass"
+solved = "12.5%"
+note = "Re-review: the 25% choice is now 112.5% (2700/2400 x 100, forgetting to subtract 100%), a real error. Key 12.5% = 300/2400 is the only correct choice; 11.1% and 300% are still good distractors. Explanation and common_mistake correct; Q.3.d fits."
+date = "2026-11-10"

@@ -8,7 +8,7 @@ skill = "a-expressions"
 principle = "A.1.b"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = 'Evaluate $3x - 7$ when $x = 5$.'
 choices = ["8", "22", "-2", "15"]
 answer = "8"
@@ -22,7 +22,7 @@ skill = "a-expressions"
 principle = "A.1.a"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 prompt = 'Simplify $4(x + 3) - 2x$.'
 choices = ['$2x + 12$', '$2x + 3$', '$6x + 12$', '$2x + 7$']
 answer = '$2x + 12$'
@@ -46,7 +46,7 @@ prompt = '''
 A taxi in Anchorage charges \$3.50 to start plus \$2.25 for each kilometer.
 Which expression gives the cost, in dollars, of a ride of $k$ kilometers?
 '''
-choices = ['$3.50 + 2.25k$', '$2.25 + 3.50k$', '$5.75k$', '$3.50k + 2.25k$']
+choices = ['$3.50 + 2.25k$', '$2.25 + 3.50k$', '$3.50k + 2.25$', '$3.50k + 2.25k$']
 answer = '$3.50 + 2.25k$'
 answer_value = 12.5          # 3.50 + 2.25k at k = 4
 check = "3.50 + 2.25 * 4"    # cost of a 4 km ride
@@ -55,3 +55,156 @@ The \$3.50 is charged once. The \$2.25 is charged for each of the $k$ kilometers
 Total: $3.50 + 2.25k$.
 '''
 common_mistake = "Swapping the fixed fee and the per-kilometer rate."
+
+[[question]]
+id = "a-expressions-0004"
+skill = "a-expressions"
+principle = "A.1.a"
+difficulty = 1
+type = "multiple_choice"
+status = "reviewed"
+prompt = 'Simplify $5x + 3 - 2x + 7$.'
+choices = ['$3x + 10$', '$7x + 10$', '$3x + 4$', '$13x$']
+answer = '$3x + 10$'
+answer_value = 16.0              # 3x + 10 at x = 2
+check = "5 * 2 + 3 - 2 * 2 + 7"  # original expression at x = 2
+explanation = '''
+Combine the $x$ terms: $5x - 2x = 3x$. Combine the numbers: $3 + 7 = 10$.
+The result is $3x + 10$.
+'''
+common_mistake = "Adding 5x and 2x (7x) and ignoring the minus sign in front of 2x."
+
+[[question]]
+id = "a-expressions-0005"
+skill = "a-expressions"
+principle = "A.1.a"
+difficulty = 2
+type = "multiple_choice"
+status = "reviewed"
+prompt = 'Expand $-3(2x - 5)$.'
+choices = ['$-6x + 15$', '$-6x - 15$', '$-6x - 5$', '$6x + 15$']
+answer = '$-6x + 15$'
+answer_value = 3.0               # -6x + 15 at x = 2
+check = "-3 * (2 * 2 - 5)"       # original expression at x = 2
+explanation = '''
+Multiply each term inside by $-3$: $-3 \times 2x = -6x$ and $-3 \times (-5) = +15$.
+The result is $-6x + 15$.
+'''
+common_mistake = "Forgetting that −3 × (−5) is positive, which gives −6x − 15."
+
+[[question]]
+id = "a-expressions-0006"
+skill = "a-expressions"
+principle = "A.1.a"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+prompt = 'Factor $12x - 18$ completely.'
+choices = ['$6(2x - 3)$', '$3(4x - 6)$', '$2(6x - 9)$', '$6(2x - 18)$']
+answer = '$6(2x - 3)$'
+answer_value = 6.0               # 6(2x - 3) at x = 2
+check = "12 * 2 - 18"            # original expression at x = 2
+explanation = '''
+The greatest common factor of 12 and 18 is 6. Divide each term by 6: $12x \div 6 = 2x$ and $18 \div 6 = 3$.
+So $12x - 18 = 6(2x - 3)$. The forms $3(4x - 6)$ and $2(6x - 9)$ are equal to it but not completely factored, because the terms inside still share a factor. The form $6(2x - 18)$ is simply wrong: it multiplies out to $12x - 108$.
+'''
+common_mistake = "Pulling out a smaller common factor such as 3 or 2, which leaves the expression not completely factored."
+
+[[question]]
+id = "a-expressions-0007"
+skill = "a-expressions"
+principle = "A.1.b"
+difficulty = 1
+type = "fill_in"
+status = "reviewed"
+prompt = 'Evaluate $7 - 2y$ when $y = -4$.'
+answer = "15"
+check = "7 - 2 * (-4)"
+explanation = 'Replace $y$ with $-4$: $7 - 2(-4) = 7 + 8 = 15$.'
+common_mistake = "Treating −2 × −4 as −8, which gives −1."
+
+[[question]]
+id = "a-expressions-0008"
+skill = "a-expressions"
+principle = "A.1.b"
+difficulty = 2
+type = "multiple_choice"
+status = "reviewed"
+prompt = 'Evaluate $\frac{3a + b}{2}$ when $a = 4$ and $b = -2$.'
+choices = ["5", "7", "4", "-5"]
+answer = "5"
+check = "(3 * 4 + (-2)) / 2"
+explanation = '''
+Work out the top first: $3(4) + (-2) = 12 - 2 = 10$.
+Then divide: $10 \div 2 = 5$.
+'''
+common_mistake = "Adding 2 instead of subtracting it (12 + 2 = 14, then 7)."
+
+[[question]]
+id = "a-expressions-0009"
+skill = "a-expressions"
+principle = "A.1.b"
+difficulty = 2
+type = "fill_in"
+status = "reviewed"
+alaska = true
+prompt = 'Renting a snowmachine costs $40 + 15h$ dollars for $h$ hours. How many dollars does a 6-hour rental cost?'
+answer = "130"
+check = "40 + 15 * 6"
+explanation = 'Replace $h$ with 6: $40 + 15(6) = 40 + 90 = 130$ dollars.'
+common_mistake = "Adding first: (40 + 15) × 6 = 330, which ignores the order of operations."
+
+[[question]]
+id = "a-expressions-0010"
+skill = "a-expressions"
+principle = "A.1.c"
+difficulty = 1
+type = "multiple_choice"
+status = "reviewed"
+prompt = 'Which expression means "8 less than three times a number $n$"?'
+choices = ['$3n - 8$', '$8 - 3n$', '$3(n - 8)$', '$3n + 8$']
+answer = '$3n - 8$'
+answer_value = 7.0               # 3n - 8 at n = 5
+check = "3 * 5 - 8"              # 8 less than 3 times 5
+explanation = '''
+"Three times a number" is $3n$. "8 less than" that means subtract 8 from it: $3n - 8$.
+'''
+common_mistake = "Writing 8 − 3n; \"8 less than\" means take 8 away from the other amount."
+
+[[question]]
+id = "a-expressions-0011"
+skill = "a-expressions"
+principle = "A.1.c"
+difficulty = 2
+type = "multiple_choice"
+status = "reviewed"
+prompt = '''
+Sam has $d$ dollars. Ana has \$12 more than twice as much as Sam.
+Which expression shows how many dollars Ana has?
+'''
+choices = ['$2d + 12$', '$2(d + 12)$', '$12d + 2$', '$d + 12$']
+answer = '$2d + 12$'
+answer_value = 22.0              # 2d + 12 at d = 5
+check = "2 * 5 + 12"             # twice 5, plus 12
+explanation = '"Twice as much as Sam" is $2d$. "\$12 more than" that adds 12: $2d + 12$.'
+common_mistake = "Doubling the 12 as well, as in 2(d + 12)."
+
+[[question]]
+id = "a-expressions-0012"
+skill = "a-expressions"
+principle = "A.1.c"
+difficulty = 3
+type = "multiple_choice"
+status = "reviewed"
+prompt = '''
+A rectangle's length is 4 cm more than its width $w$.
+Which expression gives the rectangle's perimeter, in centimeters?
+'''
+choices = ['$4w + 8$', '$2w + 4$', '$4w + 4$', '$w^2 + 4w$']
+answer = '$4w + 8$'
+answer_value = 20.0              # 4w + 8 at w = 3
+check = "2 * 3 + 2 * (3 + 4)"    # perimeter when w = 3
+explanation = '''
+The length is $w + 4$. Perimeter $= 2(\text{width}) + 2(\text{length}) = 2w + 2(w + 4) = 2w + 2w + 8 = 4w + 8$.
+'''
+common_mistake = "Writing the area, w(w + 4) = w² + 4w, instead of the perimeter."

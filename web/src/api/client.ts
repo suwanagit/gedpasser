@@ -4,6 +4,7 @@ import type { AnswerRequest } from './types/AnswerRequest'
 import type { AnswerResult } from './types/AnswerResult'
 import type { ApiErrorBody } from './types/ApiErrorBody'
 import type { CreateProfile } from './types/CreateProfile'
+import type { FlagRequest } from './types/FlagRequest'
 import type { Lesson } from './types/Lesson'
 import type { LoginRequest } from './types/LoginRequest'
 import type { Me } from './types/Me'
@@ -55,6 +56,7 @@ export const api = {
   answer: (body: AnswerRequest) => request<AnswerResult>('POST', '/api/answer', body),
   principles: () => request<PrincipleSummary[]>('GET', '/api/principles'),
   lesson: (id: string) => request<Lesson>('GET', `/api/principles/${encodeURIComponent(id)}`),
+  flag: (body: FlagRequest) => request<void>('POST', '/api/flags', body),
 }
 
 export function errorMessage(e: unknown): string {

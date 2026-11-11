@@ -131,3 +131,12 @@ hash = "5dcfb3a4ecbcb4d8"
 verdict = "pass"
 note = "Cubes 1 to 1000 listed correctly; cbrt(27) = 3, (-2)^3 = -8, cbrt(64) = 4 m tank example and the 5^3 tip are correct. Metric units used."
 date = "2026-11-10"
+
+[[review]]
+id = "q-exponents-roots-0009"
+kind = "question"
+hash = "d4ef11303a8da98d"
+verdict = "pass"
+solved = "7/8"
+note = "Re-review: prompt, choices, key and explanation unchanged and correct (sqrt(49/64) = 7/8, the only correct choice). common_mistake now clearly names both distractor errors (49/8 and 7/32); difficulty 2 is reasonable."
+date = "2026-11-10"

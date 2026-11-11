@@ -155,3 +155,22 @@ hash = "795cdfc097d3438b"
 verdict = "fix"
 note = "Arithmetic checked and correct (27.2 L, 48.96 dollars, estimate about 54 dollars). But the summary promises problems 'including ones with scientific notation' and the lesson never mentions scientific notation. Add a short bullet or example (for example, multiplying (3 x 10^4)(2 x 10^3) = 6 x 10^7), or drop that phrase from the summary. Minor: the checklist says 'estimate first' while the example estimates after; make them consistent."
 date = "2026-11-10"
+
+# Re-review after fixes.
+
+[[review]]
+id = "q-number-ops-0005"
+kind = "question"
+hash = "fa28a31c28f03891"
+verdict = "pass"
+solved = "9.405"
+note = "Re-review: the new common_mistake (thinking 9.45 < 9.405 because 45 < 405) now hangs together and leads to the wrong pick 9.45. Answer, check and explanation still correct."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.2.e"
+kind = "lesson"
+hash = "403a1a0e4cdfe0a1"
+verdict = "pass"
+note = "Re-review: the steps now estimate before solving and compare after, and the example follows that order. Estimate (24-27 L, roughly 50 dollars) is reasonable; 27.2 L and 48.96 dollars correct. The scientific-notation rule and example (3 x 10^4)(2 x 10^3) = 6 x 10^7 = 60,000,000 are correct, so the summary is now covered."
+date = "2026-11-10"

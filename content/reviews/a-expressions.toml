@@ -1,0 +1,133 @@
+# Independent review of a-expressions questions and lessons.
+
+[[review]]
+id = "a-expressions-0001"
+kind = "question"
+hash = "6b888158041ea8da"
+verdict = "pass"
+solved = "8"
+note = "3(5) - 7 = 8 matches key. Distractors 22 (added 7) and 15 (stopped after 3x) are real slips. Explanation and common_mistake correct."
+date = "2026-11-10"
+
+[[review]]
+id = "a-expressions-0002"
+kind = "question"
+hash = "3205f1f308472e37"
+verdict = "pass"
+solved = "2x + 12"
+note = "4x + 12 - 2x = 2x + 12 for all x (identical coefficients), not just at x = 2. Only one choice equivalent; 2x + 3 matches the stated partial-distribution mistake."
+date = "2026-11-10"
+
+[[review]]
+id = "a-expressions-0003"
+kind = "question"
+hash = "481d346a301d0343"
+verdict = "fix"
+solved = "3.50 + 2.25k"
+note = "Key is correct, but distractors 3 ($5.75k$) and 4 ($3.50k + 2.25k$) are the same expression, so the question effectively has only three distinct options. Replace $3.50k + 2.25k$ with a distinct plausible error, such as $3.50 + 2.25$ (forgot the k) or $3.50k + 2.25$. Also, lesson A.1.c uses this exact taxi example (same numbers, same answer), which gives the answer away; change the numbers or context here or in the lesson."
+date = "2026-11-10"
+
+[[review]]
+id = "a-expressions-0004"
+kind = "question"
+hash = "bc04aba90462b1ab"
+verdict = "pass"
+solved = "3x + 10"
+note = "3x + 10 equals the original for all x. Distractors (7x + 10 sign error, 3x + 4, 13x lumping all terms) are plausible and wrong. Explanation correct."
+date = "2026-11-10"
+
+[[review]]
+id = "a-expressions-0005"
+kind = "question"
+hash = "446e6098be102003"
+verdict = "pass"
+solved = "-6x + 15"
+note = "-3(2x) = -6x and -3(-5) = +15, identical to key for all x. Distractors are real sign/distribution slips. Explanation correct."
+date = "2026-11-10"
+
+[[review]]
+id = "a-expressions-0006"
+kind = "question"
+hash = "b202e469837d39bd"
+verdict = "fix"
+solved = "6(2x - 3)"
+note = "Key correct: 6(2x - 3) = 12x - 18 for all x, and 6 is the GCF. The explanation's last sentence, 'The other correct-looking forms still have a common factor left inside the parentheses', is inaccurate for $6(2x - 18)$, which is not equal at all (it expands to 12x - 108). Rewrite: '$3(4x - 6)$ and $2(6x - 9)$ are equal to $12x - 18$ but not completely factored, since $4x - 6$ and $6x - 9$ still share a factor. $6(2x - 18)$ is wrong: it expands to $12x - 108$.' Also consider difficulty 2; single-step GCF factoring is not a hard item. Lesson A.1.a should also mention the greatest common factor (see that review)."
+date = "2026-11-10"
+
+[[review]]
+id = "a-expressions-0007"
+kind = "question"
+hash = "0958ae1fd7f8995d"
+verdict = "pass"
+solved = "15"
+note = "7 - 2(-4) = 7 + 8 = 15 matches key; fill-in '15' is the natural form. common_mistake (-2 x -4 = -8, giving -1) is a real error."
+date = "2026-11-10"
+
+[[review]]
+id = "a-expressions-0008"
+kind = "question"
+hash = "c6bd6c928d759c86"
+verdict = "pass"
+solved = "5"
+note = "(12 - 2)/2 = 5 matches key; only one choice correct. Distractor 7 matches common_mistake. Optional: 11 (dividing only b by 2) would be a stronger distractor than 4."
+date = "2026-11-10"
+
+[[review]]
+id = "a-expressions-0009"
+kind = "question"
+hash = "737ccd41b7f8f311"
+verdict = "pass"
+solved = "130"
+note = "40 + 15(6) = 130 matches key; fill-in '130' is natural. Order-of-operations mistake (330) is real. Snowmachine is a realistic Alaska setting."
+date = "2026-11-10"
+
+[[review]]
+id = "a-expressions-0010"
+kind = "question"
+hash = "6607d74bfa488603"
+verdict = "pass"
+solved = "3n - 8"
+note = "Translation correct; only 3n - 8 fits. Distractors 8 - 3n (order reversal) and 3(n - 8) are classic errors. Explanation and common_mistake correct."
+date = "2026-11-10"
+
+[[review]]
+id = "a-expressions-0011"
+kind = "question"
+hash = "530869abae503ead"
+verdict = "pass"
+solved = "2d + 12"
+note = "2d + 12 matches key for all d; 2(d + 12) = 2d + 24 is distinct and matches common_mistake. Wording clear, dollar signs escaped correctly."
+date = "2026-11-10"
+
+[[review]]
+id = "a-expressions-0012"
+kind = "question"
+hash = "2bb1412b31ee6bf1"
+verdict = "pass"
+solved = "4w + 8"
+note = "2w + 2(w + 4) = 4w + 8 for all w. Distractors: half-perimeter 2w + 4, 4w + 4 (did not double the 4), area w^2 + 4w. Metric units, explanation correct."
+date = "2026-11-10"
+
+[[review]]
+id = "A.1.a"
+kind = "lesson"
+hash = "e1b1bd6eebc84e02"
+verdict = "fix"
+note = "All examples are correct (3(2x-4) = 6x-12, 6x-12+5x = 11x-12, 6x+9 = 3(2x+3), -2(x-5) = -2x+10). But 'Factor: pull out a common factor' would accept 3(4x - 6) for 12x - 18, which question 0006 marks wrong. Change to 'pull out the greatest common factor (GCF), so nothing common is left inside', and optionally add a short example like $12x - 18 = 6(2x - 3)$, not $3(4x - 6)$. Also 'multiply everything inside the parentheses' should read 'multiply each term inside the parentheses by the number outside'."
+date = "2026-11-10"
+
+[[review]]
+id = "A.1.b"
+kind = "lesson"
+hash = "63b6cc38a51359bf"
+verdict = "pass"
+note = "Both examples correct (4(-2) - 7 = -15; 3(5) + 2(4) = 23). Advice to substitute in parentheses and the 4x-is-not-45 tip are accurate and useful. Notation renders."
+date = "2026-11-10"
+
+[[review]]
+id = "A.1.c"
+kind = "lesson"
+hash = "100abbf30799cd18"
+verdict = "fix"
+note = "Rules and examples are correct ('3 less than n' is n - 3; 'five more than twice a number' is 2n + 5). However the taxi example (3.50 dollars plus 2.25 dollars per kilometer, answer 3.50 + 2.25k) is identical to question a-expressions-0003, so a learner who reads the lesson just copies the answer. Change the lesson example to a different context or numbers (for example a 5-dollar delivery fee plus 1.50 dollars per kilometer: 5 + 1.50k)."
+date = "2026-11-10"

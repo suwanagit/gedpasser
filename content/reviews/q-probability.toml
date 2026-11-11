@@ -1,0 +1,125 @@
+# Review notes for q-probability.
+
+[[review]]
+id = "q-probability-0001"
+kind = "question"
+hash = "5f9d37710aa5a1f3"
+verdict = "pass"
+solved = "1/2"
+note = "Blind answer 5/10 = 1/2 matches key. Distractors map to green/total (1/5), blue/red (5/3) and red/total (3/10); all clearly wrong. Explanation and common_mistake correct."
+date = "2026-11-10"
+
+[[review]]
+id = "q-probability-0002"
+kind = "question"
+hash = "d0cf4dde1ce2059a"
+verdict = "pass"
+solved = "12"
+note = "Blind answer 4 x 3 = 12 matches key. Clear wording, realistic Sitka setting, fill-in parses as a number. Common mistake (adding to get 7) is realistic."
+date = "2026-11-10"
+
+[[review]]
+id = "q-probability-0003"
+kind = "question"
+hash = "59155ff0514befed"
+verdict = "pass"
+solved = "1/6"
+note = "Blind answer 1/2 x 2/6 = 1/6 matches key. Distractors: 1/3 (cube only), 5/6 (adding 1/2 + 1/3), 2/3; all wrong. Explanation correct. Difficulty 3 is slightly generous but acceptable given the extra 'greater than 4' step."
+date = "2026-11-10"
+
+[[review]]
+id = "q-probability-0004"
+kind = "question"
+hash = "d26496be474daa3a"
+verdict = "pass"
+solved = "24"
+note = "Blind answer 4! = 24 matches key. Distractors 16 (4x4), 4, 10 (4+3+2+1) are plausible errors. Explanation and common_mistake correct."
+date = "2026-11-10"
+
+[[review]]
+id = "q-probability-0005"
+kind = "question"
+hash = "6f843d0e8f06cb8b"
+verdict = "pass"
+solved = "35"
+note = "Blind answer C(7,3) = 210/6 = 35 matches key. Explanation builds the combination from ordered choices, consistent with the lesson. Common mistake (210) is the real error."
+date = "2026-11-10"
+
+[[review]]
+id = "q-probability-0006"
+kind = "question"
+hash = "a4340c056f10d138"
+verdict = "pass"
+solved = "1000"
+note = "Blind answer 10^3 = 1000 matches key. Repeats explicitly allowed, so 720 is definitely wrong; 30 and 27 are plausible mistakes. Explanation correct."
+date = "2026-11-10"
+
+[[review]]
+id = "q-probability-0007"
+kind = "question"
+hash = "be25512027a26e36"
+verdict = "pass"
+solved = "336"
+note = "Blind answer 8 x 7 x 6 = 336 matches key. Order matters because medals differ; common mistake C(8,3) = 56 is correct and realistic."
+date = "2026-11-10"
+
+[[review]]
+id = "q-probability-0008"
+kind = "question"
+hash = "310c2ecbf098a681"
+verdict = "pass"
+solved = "3/8"
+note = "Blind answer 3/8 (6, 7, 8) matches key. Distractors 5/8 (not greater than 5), 1/2 (including 5), 3/5 (wrong denominator) are plausible and wrong. Explanation correct."
+date = "2026-11-10"
+
+[[review]]
+id = "q-probability-0009"
+kind = "question"
+hash = "95dc1442e06ce1c8"
+verdict = "fix"
+solved = "0.65"
+note = "Answer 0.65 is correct and '.65' / '0.650' grade correctly. But the common_mistake ('subtracting from 100, getting 99.65') is not a realistic learner error. Replace it with a real one, e.g. 'Answering 65 (the percent) when a decimal is asked for, or giving 0.35, the chance that it does rain.'"
+date = "2026-11-10"
+
+[[review]]
+id = "q-probability-0010"
+kind = "question"
+hash = "a2909f4e48080494"
+verdict = "pass"
+solved = "2/15"
+note = "Blind answer 4/10 x 3/9 = 12/90 = 2/15 matches key. Distractor 4/25 is the with-replacement error named in common_mistake; 2/5 is a single draw. Explanation correct."
+date = "2026-11-10"
+
+[[review]]
+id = "q-probability-0011"
+kind = "question"
+hash = "84c552a1e45e4dd8"
+verdict = "pass"
+solved = "1/36"
+note = "Blind answer 1/36 matches key. Distractors 1/6, 1/3 (adding), 1/12 are plausible and wrong. Explanation correct."
+date = "2026-11-10"
+
+[[review]]
+id = "q-probability-0012"
+kind = "question"
+hash = "a0622db4634937b8"
+verdict = "pass"
+solved = "1/400"
+note = "Blind answer 1/20 x 1/20 = 1/400 matches key. Grader accepts 1/400, 0.0025 and unreduced forms like 12/4800 numerically. Separate drawings make independence clear; Alaska derby setting is realistic."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.8.a"
+kind = "lesson"
+hash = "bc2f6ebe556fb8b2"
+verdict = "pass"
+note = "Checked counting principle (3 x 4 = 12), permutation (5 x 4 = 20), combination (20 / 2 = 10) and the swap test; all correct, clear and in a sensible order."
+date = "2026-11-10"
+
+[[review]]
+id = "Q.8.b"
+kind = "lesson"
+hash = "520f39ee40359623"
+verdict = "fix"
+note = "Numbers and examples are correct, but two statements are oversimplified. (1) 'Probability = favorable / total outcomes' is only true when all outcomes are equally likely; add 'when every outcome is equally likely'. (2) 'Without replacement, the total goes down after each pick' omits that the favorable count can also drop (e.g. 4 red of 10, then 3 red of 9); say 'the total, and often the favorable count, go down after each pick' and ideally give that example."
+date = "2026-11-10"

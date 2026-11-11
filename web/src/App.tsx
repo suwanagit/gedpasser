@@ -77,8 +77,14 @@ export default function App() {
       </main>
 
       <footer className="fine">
-        Free GED test practice. Not affiliated with or endorsed by GED Testing Service. GED® is a registered
-        trademark of the American Council on Education.
+        <p>
+          Questions and lessons are written and checked by AI and may contain mistakes. If something looks wrong, use
+          “Flag this question”.
+        </p>
+        <p>
+          Free GED test practice. Not affiliated with or endorsed by GED Testing Service. GED® is a registered
+          trademark of the American Council on Education.
+        </p>
       </footer>
     </div>
   )
