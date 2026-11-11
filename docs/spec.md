@@ -16,7 +16,7 @@ A free, self-hosted web app that helps Alaskans study for and pass the GED, star
 **Non-goals (for now)**
 
 - No money, ads, or paid tiers. It is a free side project.
-- No subjects beyond Math until Math is solid.
+- No subjects beyond Math until Math is solid. The goal is all four GED tests (Phase 7); Math comes first.
 - No official GED content. Questions are original and aligned to the published test specifications. GED and GED Ready are trademarks of GED Testing Service, so the app avoids implying endorsement.
 - No strong security model on the LAN. Login is for personalization; real auth arrives with public hosting.
 - No human educator sign-off. Questions and lessons are written by AI and checked by a separate AI reviewer and by code; the app says so plainly and lets learners flag mistakes.
@@ -276,6 +276,23 @@ Seven phases take the app from an empty repo to a public site; Phases 0 to 3 are
 - [ ] Cloudflare Tunnel publishes it on gatherd.org behind Cloudflare Access
 - [ ] Login hardened: rate limiting, no cross-user data access
 
+**Phase 7: The other three GED tests** (Jon, 2026-11-11: prepare learners for all four tests)
+
+Start once Phase 3's last box (Jon's week of use) is ticked. Each subject is its own sub-phase, planned and approved separately. The order is decided in 7a.
+
+- [ ] 7a. Research and design. Fetch the official GED assessment guides for Reasoning Through Language Arts, Science and Social Studies (as was done for Math). Record each test's structure, timing, content-area weights, assessment targets and item types in `docs/subjects/<subject>.md`, and verify every claim against the source. Decide the subject order and the new item formats: passage-based question sets, drop-down cloze, drag-and-drop, hot spots on maps and diagrams, and RLA's extended response (essay).
+- [ ] 7b. Make the app subject-aware. Add a subject level above skills in content, schema, API and UI. Math keeps working unchanged. Passages (shared by several questions) become first-class content.
+- [ ] 7c. Content pipeline for subjects without a code check (there is no `check` expression for reading or science):
+  - Every factual claim cites a source.
+  - Passages are original, or public domain (for example founding documents, which the real Social Studies test leans on), never copyrighted text.
+  - Two independent reviewer subagents per batch, both solving blind. Both must pass an item.
+  - A third reviewer re-checks facts against the cited sources.
+  - Readability is checked against the target grade level.
+  - Distractors are analyzed for being "defensibly wrong".
+  - Cards, journey stages, hacks and a test-week plan follow the Math pattern, and the timed practice tests match each test's real length.
+- [ ] 7d. Build the first new subject end to end, then the remaining two, each with its own journey and practice tests.
+- [ ] 7e. Decide how to give feedback on RLA's extended response (a rubric checklist the learner self-scores, or AI scoring through the Claude API). That needs Jon's decision on cost and privacy.
+
 ## Risks and open questions
 
 The biggest risk is a wrong answer key reaching a learner; the pipeline exists to stop that, and the flag button catches what slips through.
@@ -294,4 +311,4 @@ The biggest risk is a wrong answer key reaching a learner; the pipeline exists t
 - Who gets access once it's public: invited people only, or anyone?
 - Will any learners be under 18? If so, what consent is needed before public use?
 - Should Alaska Adult Education programs ever be told about it, as a free extra for their students?
-- Which subject comes second: Reasoning Through Language Arts, Science, or Social Studies?
+- Which subject comes second: Reasoning Through Language Arts, Science, or Social Studies? (Decided in Phase 7a, after the research.)
