@@ -41,7 +41,7 @@ export function ProfilePicker({ onLoggedIn }: { onLoggedIn: (me: Me) => void }) 
 
   return (
     <section className="card">
-      <h2>Who is practising?</h2>
+      <h2>Who is practicing?</h2>
       {error && <p className="error">{error}</p>}
       {profiles === null && !error && <p className="muted">Loading…</p>}
       <div className="profile-grid">

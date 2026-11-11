@@ -35,7 +35,8 @@ Repo: https://github.com/suwanagit/gedpasser.git
   Lessons follow the same draft -> reviewed rule as questions.
 - Never use real GED test items or claim official GED status.
 - Hash passwords with Argon2. Never log passwords or session tokens.
-- Use metric units in all questions and UI.
+- Use metric units in all questions and UI, with US spelling (meters,
+  liters, practice, center).
 - Respect `prefers-reduced-motion` in every animation.
 - Generate TypeScript types from Rust structs (ts-rs); don't hand-write API types.
 - Keep `docs/decisions.md` updated when a design decision changes.

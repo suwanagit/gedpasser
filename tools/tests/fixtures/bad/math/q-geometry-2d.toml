@@ -7,10 +7,10 @@ principle = "Q.4.a"
 difficulty = 3
 type = "fill_in"
 status = "draft"
-prompt = "A rectangle is 4 m by 7 m. What is its area in square metres?"
+prompt = "A rectangle is 4 m by 7 m. What is its area in square meters?"
 answer = "28"
 check = "4 * 7"
-explanation = "Area = length x width = 4 x 7 = 28 square metres."
+explanation = "Area = length x width = 4 x 7 = 28 square meters."
 common_mistake = "Adding the sides to get 11."
 
 [[question]]
@@ -33,10 +33,10 @@ principle = "Q.9.z"                  # unknown principle
 difficulty = 1
 type = "fill_in"
 status = "draft"
-prompt = "A square has sides of 3 m. What is its area in square metres?"
+prompt = "A square has sides of 3 m. What is its area in square meters?"
 answer = "9"
 check = "3 * 3"
-explanation = "Area = 3 x 3 = 9 square metres."
+explanation = "Area = 3 x 3 = 9 square meters."
 common_mistake = "Finding the perimeter (12) instead."
 
 [[question]]
@@ -46,8 +46,8 @@ principle = "Q.3.a"                  # principle from another skill
 difficulty = 1
 type = "fill_in"
 status = "draft"
-prompt = "A triangle has base 10 m and height 3 m. What is its area in square metres?"
+prompt = "A triangle has base 10 m and height 3 m. What is its area in square meters?"
 answer = "15"
 check = "10 * 3 / 2"
-explanation = "Area = 1/2 x 10 x 3 = 15 square metres."
+explanation = "Area = 1/2 x 10 x 3 = 15 square meters."
 common_mistake = "Forgetting to halve: 30."

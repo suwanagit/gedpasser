@@ -110,7 +110,7 @@ The GED Math test splits into quantitative problem solving and algebraic problem
 
 Each skill entry also holds a short plain-language description and a difficulty range, so the app can explain what a weak area means.
 
-**Principles.** Under the skills sit 62 principles, one for each official assessment indicator (Q.1.a to Q.8.b and A.1.a to A.7.d). They live in `content/principles.toml`. Each principle has the official code as its id, a plain-language name, a one-line summary and a short lesson with a worked example, all written in our own words. Every question names exactly one principle within its skill. Learners can open the lesson while answering (recorded as a hint), after answering, or from the Lessons page. Practising one principle at a time comes in Phase 3. Lessons go through the same draft → reviewed process as questions.
+**Principles.** Under the skills sit 62 principles, one for each official assessment indicator (Q.1.a to Q.8.b and A.1.a to A.7.d). They live in `content/principles.toml`. Each principle has the official code as its id, a plain-language name, a one-line summary and a short lesson with a worked example, all written in our own words. Every question names exactly one principle within its skill. Learners can open the lesson while answering (recorded as a hint), after answering, or from the Lessons page. Practicing one principle at a time comes in Phase 3. Lessons go through the same draft → reviewed process as questions.
 
 ## Question bank and accuracy pipeline
 
@@ -171,7 +171,7 @@ The MVP is a practice loop with progress tracking; game elements, mobile review,
 
 - Mastery per skill: accuracy over recent answers, with newer answers counting more.
 - A "focus next" card with the three weakest skills and a one-tap practice set for each.
-- Skill map view coloured by mastery, so gaps show at a glance.
+- Skill map view colored by mastery, so gaps show at a glance.
 
 **Mobile review**
 
@@ -245,7 +245,7 @@ Seven phases take the app from an empty repo to a public site; Phases 0 to 3 are
 - [ ] Mastery shown per skill on a dashboard
 - [ ] "Focus next" lists the three weakest skills and starts a set in one tap
 - [ ] Mixed practice weights toward weak skills
-- [ ] Practise one principle at a time, with progress shown per principle
+- [ ] Practice one principle at a time, with progress shown per principle
 - [ ] Jon uses it for a week and the weak areas it shows match his own sense of them
 
 **Phase 4: Mobile and fun**

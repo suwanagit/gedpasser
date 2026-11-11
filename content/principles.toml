@@ -91,7 +91,7 @@ id = "Q.2.d"
 skill = "q-number-ops"
 status = "draft"
 name = "When an expression is undefined"
-summary = "Recognise expressions that have no value, such as division by zero."
+summary = "Recognize expressions that have no value, such as division by zero."
 lesson = '''
 You can never divide by zero, so any expression that asks you to is undefined.
 
@@ -118,11 +118,11 @@ Word problems are easier when you slow down and plan.
 - Decide the steps, do them one at a time, and label each result.
 - Check that the answer is sensible: estimate first.
 
-Example: a family drives 340 km on the Parks Highway. Their truck uses 8 litres of fuel per 100 km, and fuel costs \$1.80 per litre. What does the 340 km cost?
-- Fuel used: $340 \div 100 \times 8 = 27.2$ litres.
+Example: a family drives 340 km on the Parks Highway. Their truck uses 8 liters of fuel per 100 km, and fuel costs \$1.80 per liter. What does the 340 km cost?
+- Fuel used: $340 \div 100 \times 8 = 27.2$ liters.
 - Cost: $27.2 \times 1.80 = 48.96$, so \$48.96.
 
-Estimate check: about 3.4 hundreds of km times 8 is about 27 litres; 27 times about \$2 is about \$54. Close enough.
+Estimate check: about 3.4 hundreds of km times 8 is about 27 liters; 27 times about \$2 is about \$54. Close enough.
 '''
 
 # ── q-ratios-percent ─────────────────────────────────────────────────────
@@ -132,13 +132,13 @@ id = "Q.3.a"
 skill = "q-ratios-percent"
 status = "draft"
 name = "Unit rates"
-summary = "Find how much of one quantity goes with exactly one unit of another, such as price per kilogram or kilometres per hour."
+summary = "Find how much of one quantity goes with exactly one unit of another, such as price per kilogram or kilometers per hour."
 lesson = '''
 A unit rate tells you "how much for one". Divide the first quantity by the second.
 
 - Price per kilogram $=$ price $\div$ kilograms.
 - Speed $=$ distance $\div$ time.
-- People per square kilometre $=$ people $\div$ area.
+- People per square kilometer $=$ people $\div$ area.
 
 Example: a 2 kg pack of salmon costs \$31.00 and a 3 kg pack costs \$45.00. Which is the better buy?
 - 2 kg: $31.00 \div 2 = 15.50$ dollars per kg.
@@ -155,7 +155,7 @@ status = "draft"
 name = "Scale drawings and scale factors"
 summary = "Use a scale or scale factor to move between a drawing or map and real size."
 lesson = '''
-A scale compares a drawing to the real thing. A map scale of 1 cm : 5 km means every centimetre on the map stands for 5 km.
+A scale compares a drawing to the real thing. A map scale of 1 cm : 5 km means every centimeter on the map stands for 5 km.
 
 - Map to real: multiply by the scale. 7 cm on that map is $7 \times 5 = 35$ km.
 - Real to map: divide by the scale. 20 km is $20 \div 5 = 4$ cm.
@@ -175,8 +175,8 @@ summary = "Set up and solve proportions in multi-step problems, including ones t
 lesson = '''
 A proportion says two ratios are equal: $\frac{a}{b} = \frac{c}{d}$. To solve one, cross-multiply: $a \times d = b \times c$.
 
-Example: 3 litres of paint covers 24 m². How much paint is needed for 40 m²?
-$\frac{3}{24} = \frac{x}{40}$, so $24x = 120$ and $x = 5$ litres.
+Example: 3 liters of paint covers 24 m². How much paint is needed for 40 m²?
+$\frac{3}{24} = \frac{x}{40}$, so $24x = 120$ and $x = 5$ liters.
 
 Metric conversions move the decimal point:
 - 1 km $=$ 1000 m, 1 m $=$ 100 cm, 1 cm $=$ 10 mm
@@ -184,7 +184,7 @@ Metric conversions move the decimal point:
 
 Example: 2.5 km $= 2.5 \times 1000 = 2500$ m.
 
-Tip: keep the units in the same places on both sides of a proportion (litres on top, square metres on the bottom on both sides).
+Tip: keep the units in the same places on both sides of a proportion (liters on top, square meters on the bottom on both sides).
 '''
 
 [[principle]]
@@ -289,7 +289,7 @@ status = "draft"
 name = "Circles: circumference and area"
 summary = "Find a circle's circumference and area, and work back to its radius or diameter."
 lesson = '''
-The radius $r$ goes from the centre to the edge. The diameter $d$ goes all the way across, so $d = 2r$.
+The radius $r$ goes from the center to the edge. The diameter $d$ goes all the way across, so $d = 2r$.
 
 - Circumference (distance around): $C = 2\pi r = \pi d$.
 - Area: $A = \pi r^2$.
@@ -381,7 +381,7 @@ $V = 2 \times 3 \times 4 = 24$ m³ and $SA = 2(6) + 2(8) + 2(12) = 12 + 16 + 24 
 
 Working backwards: a tank holds 60 m³ and its base is 3 m by 4 m. Its height is $60 \div (3 \times 4) = 5$ m.
 
-Tip: 1 m³ holds 1000 litres.
+Tip: 1 m³ holds 1000 liters.
 '''
 
 [[principle]]
@@ -543,7 +543,7 @@ id = "Q.7.a"
 skill = "q-data-stats"
 status = "draft"
 name = "Mean, median, mode, range and weighted average"
-summary = "Calculate the centre and spread of data, a missing value from an average, and weighted averages."
+summary = "Calculate the center and spread of data, a missing value from an average, and weighted averages."
 lesson = '''
 - Mean (average): add the values and divide by how many there are.
 - Median: the middle value after sorting. With an even count, average the two middle values.
@@ -566,7 +566,7 @@ status = "draft"
 name = "Counting: combinations and permutations"
 summary = "Count the possible outcomes, using multiplication, permutations (order matters) and combinations (order doesn't)."
 lesson = '''
-Counting principle: if one choice has $m$ options and another has $n$, together there are $m \times n$ options. 3 shirts and 4 pairs of trousers make $3 \times 4 = 12$ outfits.
+Counting principle: if one choice has $m$ options and another has $n$, together there are $m \times n$ options. 3 shirts and 4 pairs of pants make $3 \times 4 = 12$ outfits.
 
 Permutations (order matters): choosing a president, then a treasurer from 5 people gives $5 \times 4 = 20$ ways.
 
@@ -582,9 +582,9 @@ status = "draft"
 name = "Probability of simple and compound events"
 summary = "Find the probability of one event, and of two events happening together."
 lesson = '''
-Probability $= \frac{\text{favourable outcomes}}{\text{total outcomes}}$. It is always between 0 (impossible) and 1 (certain).
+Probability $= \frac{\text{favorable outcomes}}{\text{total outcomes}}$. It is always between 0 (impossible) and 1 (certain).
 
-Example: rolling an even number on a six-sided number cube: 3 favourable outcomes (2, 4, 6) out of 6, so $\frac{3}{6} = \frac{1}{2}$.
+Example: rolling an even number on a six-sided number cube: 3 favorable outcomes (2, 4, 6) out of 6, so $\frac{3}{6} = \frac{1}{2}$.
 
 Compound events:
 - "A and B" for independent events: multiply. Two coins both landing heads: $\frac{1}{2} \times \frac{1}{2} = \frac{1}{4}$.
@@ -650,7 +650,7 @@ Watch the order with "less than": "3 less than $n$" is $n - 3$, not $3 - n$.
 
 Example: "five more than twice a number" is $2n + 5$.
 
-Example: a taxi charges \$3.50 plus \$2.25 per kilometre. For $k$ kilometres the cost is $3.50 + 2.25k$.
+Example: a taxi charges \$3.50 plus \$2.25 per kilometer. For $k$ kilometers the cost is $3.50 + 2.25k$.
 '''
 
 # ── a-linear-equations ───────────────────────────────────────────────────
@@ -702,7 +702,7 @@ summary = "Write one-variable or multi-variable linear equations that describe a
 lesson = '''
 Many situations have a starting amount plus a steady rate. They give equations like $y = mx + b$.
 
-Example: renting a truck costs \$25 plus \$0.30 per kilometre. The total cost $C$ for $d$ kilometres is $C = 25 + 0.30d$.
+Example: renting a truck costs \$25 plus \$0.30 per kilometer. The total cost $C$ for $d$ kilometers is $C = 25 + 0.30d$.
 
 Example: adult tickets cost \$12 and child tickets \$7. Total sales of \$500 give $12a + 7c = 500$, where $a$ and $c$ are the numbers of tickets.
 
@@ -887,7 +887,7 @@ Algebraic fractions follow the same rules as number fractions.
 - Different denominators: find a common one first.
 - Multiply: tops times tops, bottoms times bottoms, then cancel. $\frac{1}{x} \times \frac{x^2}{2} = \frac{x^2}{2x} = \frac{x}{2}$.
 - Divide: flip the second fraction and multiply.
-- Simplify by factoring and cancelling common factors: $\frac{x^2 - 9}{x + 3} = \frac{(x - 3)(x + 3)}{x + 3} = x - 3$ (for $x \ne -3$).
+- Simplify by factoring and canceling common factors: $\frac{x^2 - 9}{x + 3} = \frac{(x - 3)(x + 3)}{x + 3} = x - 3$ (for $x \ne -3$).
 
 Tip: you may only cancel factors (things multiplied), never terms that are added.
 '''
@@ -918,7 +918,7 @@ lesson = '''
 Fractions appear when something is shared or divided by an unknown.
 
 - Cost per person: a \$300 cabin split among $n$ people costs $\frac{300}{n}$ dollars each.
-- Time from distance and speed: travelling 120 km at $s$ km per hour takes $\frac{120}{s}$ hours.
+- Time from distance and speed: traveling 120 km at $s$ km per hour takes $\frac{120}{s}$ hours.
 - Average: total divided by count.
 
 Example: a boat goes 60 km upstream at $(s - 5)$ km/h. The trip takes $\frac{60}{s - 5}$ hours.
@@ -977,7 +977,7 @@ A point $(x, y)$ tells you how far to move from the origin $(0, 0)$:
 
 Example: $(-3, 2)$ means 3 left and 2 up.
 
-The axes split the plane into four quadrants, numbered anticlockwise from the top right:
+The axes split the plane into four quadrants, numbered counterclockwise from the top right:
 - I: $(+, +)$, II: $(-, +)$, III: $(-, -)$, IV: $(+, -)$.
 
 Tip: always move along $x$ first, then $y$ — "along the corridor, then up the stairs".
@@ -1013,7 +1013,7 @@ A proportional relationship is a straight line through the origin: $y = kx$. The
 Example: a graph of distance against time passes through $(0, 0)$ and $(4, 300)$, with time in hours and distance in km.
 Slope $= \frac{300}{4} = 75$, so the speed is 75 km per hour.
 
-Example: $C = 2.5g$ for fuel cost $C$ and litres $g$ means fuel costs \$2.50 per litre.
+Example: $C = 2.5g$ for fuel cost $C$ and liters $g$ means fuel costs \$2.50 per liter.
 
 Tip: if the line does not pass through the origin, the relationship is not proportional.
 '''
@@ -1079,7 +1079,7 @@ id = "A.6.c"
 skill = "a-graphs-lines"
 status = "draft"
 name = "Parallel and perpendicular lines"
-summary = "Use slopes to recognise parallel and perpendicular lines and solve geometry problems with them."
+summary = "Use slopes to recognize parallel and perpendicular lines and solve geometry problems with them."
 lesson = '''
 - Parallel lines never meet: they have the same slope.
 - Perpendicular lines meet at a right angle: their slopes are negative reciprocals (flip the fraction and change the sign). The two slopes multiply to $-1$.
@@ -1107,7 +1107,7 @@ When you look at the graph of a relationship, describe it in terms of the story.
 - Positive or negative: is the graph above or below the $x$-axis?
 - Maximum or minimum: the highest or lowest point.
 - Symmetry: a parabola is a mirror image on either side of its vertex.
-- End behaviour: what happens far to the left and right.
+- End behavior: what happens far to the left and right.
 
 Example: the height of a thrown ball over time is a parabola. It increases, reaches a maximum at the vertex (the highest point), then decreases until it hits the ground (an $x$-intercept).
 '''

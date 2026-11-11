@@ -43,15 +43,15 @@ type = "multiple_choice"
 status = "draft"
 alaska = true
 prompt = '''
-A taxi in Anchorage charges \$3.50 to start plus \$2.25 for each kilometre.
-Which expression gives the cost, in dollars, of a ride of $k$ kilometres?
+A taxi in Anchorage charges \$3.50 to start plus \$2.25 for each kilometer.
+Which expression gives the cost, in dollars, of a ride of $k$ kilometers?
 '''
 choices = ['$3.50 + 2.25k$', '$2.25 + 3.50k$', '$5.75k$', '$3.50k + 2.25k$']
 answer = '$3.50 + 2.25k$'
 answer_value = 12.5          # 3.50 + 2.25k at k = 4
 check = "3.50 + 2.25 * 4"    # cost of a 4 km ride
 explanation = '''
-The \$3.50 is charged once. The \$2.25 is charged for each of the $k$ kilometres, which is $2.25k$.
+The \$3.50 is charged once. The \$2.25 is charged for each of the $k$ kilometers, which is $2.25k$.
 Total: $3.50 + 2.25k$.
 '''
-common_mistake = "Swapping the fixed fee and the per-kilometre rate."
+common_mistake = "Swapping the fixed fee and the per-kilometer rate."

@@ -8,7 +8,7 @@ principle = "Q.4.a"
 difficulty = 1
 type = "fill_in"
 status = "draft"
-prompt = "A rectangular garden is 8 m long and 5 m wide. What is its perimeter in metres?"
+prompt = "A rectangular garden is 8 m long and 5 m wide. What is its perimeter in meters?"
 answer = "26"
 check = "2 * (8 + 5)"
 explanation = '''
@@ -26,7 +26,7 @@ type = "multiple_choice"
 status = "draft"
 prompt = '''
 A round hatch on a boat deck has a radius of 0.6 m.
-What is its area, to the nearest hundredth of a square metre? Use $\pi \approx 3.14$.
+What is its area, to the nearest hundredth of a square meter? Use $\pi \approx 3.14$.
 '''
 choices = ["1.13", "3.77", "0.36", "1.88"]
 answer = "1.13"
@@ -46,8 +46,8 @@ type = "multiple_choice"
 status = "draft"
 alaska = true
 prompt = '''
-At a Seward harbour, the ramp down to a floating dock rises 1.2 m over a horizontal distance of 3.5 m.
-How long is the ramp, in metres?
+At a Seward harbor, the ramp down to a floating dock rises 1.2 m over a horizontal distance of 3.5 m.
+How long is the ramp, in meters?
 '''
 choices = ["3.7", "4.7", "3.5", "13.69"]
 answer = "3.7"

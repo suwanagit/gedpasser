@@ -25,7 +25,7 @@ export function SkillList({ onPick }: { onPick: (skill: SkillSummary) => void })
 
   return (
     <>
-      <h2 className="screen-title">Pick a skill to practise</h2>
+      <h2 className="screen-title">Pick a skill to practice</h2>
       {nothingReviewed && (
         <div className="card notice">
           <strong>No reviewed questions yet.</strong> Only reviewed questions are shown to learners. To try the

@@ -40,8 +40,8 @@ difficulty = 2
 type = "multiple_choice"
 status = "draft"
 prompt = '''
-A water sample has $3 \times 10^{5}$ bacteria in each millilitre.
-How many bacteria are in $4 \times 10^{2}$ millilitres of the water?
+A water sample has $3 \times 10^{5}$ bacteria in each milliliter.
+How many bacteria are in $4 \times 10^{2}$ milliliters of the water?
 '''
 choices = ['$1.2 \times 10^{8}$', '$7 \times 10^{7}$', '$1.2 \times 10^{10}$', '$12 \times 10^{10}$']
 answer = '$1.2 \times 10^{8}$'
