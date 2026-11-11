@@ -6,13 +6,29 @@ version.workspace = true
 license.workspace = true
 publish.workspace = true
 
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "gedpasser-server"
+path = "src/main.rs"
+
 [dependencies]
+argon2 = { version = "0.6.0", features = ["getrandom"] }
+getrandom = "0.4.3"
 axum = "0.8.9"
 ged-content = { path = "../tools" }
 mime_guess = "2.0.5"
 rust-embed = "8.13.0"
 serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+sha2 = "0.11.1"
+sqlx = { version = "0.9.0", default-features = false, features = ["runtime-tokio", "sqlite", "migrate", "macros"] }
 tokio = { version = "1.54.1", features = ["rt-multi-thread", "macros", "net", "signal"] }
 tracing = "0.1.44"
 tracing-subscriber = "0.3.23"
 ts-rs = "12.0.1"
+
+[dev-dependencies]
+http-body-util = "0.1.5"
+tower = { version = "0.5.3", features = ["util"] }

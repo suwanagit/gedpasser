@@ -2,59 +2,41 @@
 //! the built React app (embedded from `web/dist`) for every other path.
 //!
 //! Environment:
-//!   GED_ADDR     listen address (default 0.0.0.0:8080, reachable on the LAN)
-//!   GED_CONTENT  question bank directory (default: the nearest `content`
-//!                folder, see `find_content_dir`)
+//!   GED_ADDR          listen address (default 0.0.0.0:8080, reachable on the LAN)
+//!   GED_CONTENT       question bank directory (default: the nearest `content`
+//!                     folder, see `find_content_dir`)
+//!   GED_DB            SQLite file (default: `data/ged.db` beside `content`)
+//!   GED_SERVE_DRAFTS  set to 1 to also serve draft questions (development only)
 
 use std::io::IsTerminal;
 use std::net::SocketAddr;
 use std::path::{Path, PathBuf};
-use std::sync::Arc;
 
-use axum::Router;
-use axum::extract::State;
-use axum::http::{StatusCode, Uri, header};
-use axum::response::{IntoResponse, Json, Response};
-use axum::routing::get;
-use rust_embed::RustEmbed;
-use serde::Serialize;
-use ts_rs::TS;
-
-#[derive(RustEmbed)]
-#[folder = "../web/dist"]
-struct Assets;
-
-/// Response of `GET /api/health`.
-#[derive(Debug, Clone, Serialize, TS)]
-#[ts(export)]
-pub struct Health {
-    pub status: String,
-    pub version: String,
-    /// Number of skills loaded from `content/skills.toml`.
-    pub skills: u32,
-}
-
-struct AppState {
-    skills: u32,
-}
+use gedpasser_server::{Config, build_app};
 
 #[tokio::main]
 async fn main() {
     tracing_subscriber::fmt().with_target(false).init();
 
-    let content = find_content_dir();
-    let skills = match ged_content::load_skills(&content) {
-        Ok(s) => s,
-        Err(e) => fatal(&format!("cannot load skill map from {}:\n{e}", content.display())),
-    };
-    tracing::info!("loaded {} skills from {}", skills.len(), content.display());
+    let content_dir = find_content_dir();
+    let db_path = std::env::var("GED_DB").map(PathBuf::from).unwrap_or_else(|_| {
+        let base = content_dir.parent().filter(|p| !p.as_os_str().is_empty()).unwrap_or(Path::new("."));
+        base.join("data").join("ged.db")
+    });
+    let serve_drafts = matches!(std::env::var("GED_SERVE_DRAFTS").as_deref(), Ok("1" | "true" | "yes"));
+    let config = Config { content_dir, db_path, serve_drafts };
 
-    let state = Arc::new(AppState { skills: skills.len() as u32 });
-    let app = Router::new()
-        .route("/api/health", get(health))
-        .route("/api/{*rest}", get(api_not_found))
-        .fallback(static_file)
-        .with_state(state);
+    let app = build_app(&config).await.unwrap_or_else(|e| fatal(&e));
+    tracing::info!(
+        "loaded {} skills and {} questions from {}",
+        app.skills,
+        app.questions,
+        config.content_dir.display()
+    );
+    tracing::info!("database: {}", config.db_path.display());
+    if serve_drafts {
+        tracing::warn!("GED_SERVE_DRAFTS is on: unreviewed draft questions will be served");
+    }
 
     let addr_text = std::env::var("GED_ADDR").unwrap_or_else(|_| "0.0.0.0:8080".into());
     let addr: SocketAddr = addr_text
@@ -67,12 +49,14 @@ async fn main() {
     println!("\nGED Passer is running. Open http://localhost:{} in a browser.", addr.port());
     println!("Other devices on your network: http://<this PC's IP address>:{}", addr.port());
     println!("Press Ctrl+C or close this window to stop.\n");
-    axum::serve(listener, app)
+
+    axum::serve(listener, app.router)
         .with_graceful_shutdown(async {
             let _ = tokio::signal::ctrl_c().await;
         })
         .await
         .expect("server error");
+    app.pool.close().await;
 }
 
 /// Find the question bank: `GED_CONTENT` if set, else a `content` folder
@@ -105,38 +89,4 @@ fn fatal(msg: &str) -> ! {
         let _ = std::io::stdin().read_line(&mut String::new());
     }
     std::process::exit(1);
-}
-
-async fn health(State(state): State<Arc<AppState>>) -> Json<Health> {
-    Json(Health {
-        status: "ok".into(),
-        version: env!("CARGO_PKG_VERSION").into(),
-        skills: state.skills,
-    })
-}
-
-async fn api_not_found() -> Response {
-    (StatusCode::NOT_FOUND, "no such API route").into_response()
-}
-
-/// Serve a file from the embedded frontend. Unknown paths get `index.html`
-/// so client-side routes work on reload.
-async fn static_file(uri: Uri) -> Response {
-    let path = uri.path().trim_start_matches('/');
-    let path = if path.is_empty() { "index.html" } else { path };
-    match Assets::get(path) {
-        Some(file) => {
-            let mime = mime_guess::from_path(path).first_or_octet_stream();
-            // Vite puts content-hashed files under assets/, so they never change.
-            let cache = if path.starts_with("assets/") { "public, max-age=31536000, immutable" } else { "no-cache" };
-            ([(header::CONTENT_TYPE, mime.as_ref()), (header::CACHE_CONTROL, cache)], file.data).into_response()
-        }
-        None => match Assets::get("index.html") {
-            Some(index) => {
-                ([(header::CONTENT_TYPE, "text/html; charset=utf-8"), (header::CACHE_CONTROL, "no-cache")], index.data)
-                    .into_response()
-            }
-            None => (StatusCode::NOT_FOUND, "frontend not built: run scripts/build.ps1").into_response(),
-        },
-    }
 }

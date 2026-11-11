@@ -1,0 +1,247 @@
+//! End-to-end API tests against the real question bank and a temp-file
+//! SQLite database, driving the router directly (no network).
+
+use std::path::{Path, PathBuf};
+
+use axum::Router;
+use axum::body::Body;
+use axum::http::{Request, StatusCode, header};
+use gedpasser_server::{App, Config, build_app};
+use http_body_util::BodyExt;
+use serde_json::{Value, json};
+use tower::ServiceExt;
+
+fn content_dir() -> PathBuf {
+    Path::new(env!("CARGO_MANIFEST_DIR")).join("..").join("content")
+}
+
+fn temp_db(name: &str) -> PathBuf {
+    let dir = PathBuf::from(env!("CARGO_TARGET_TMPDIR")).join("server-tests");
+    std::fs::create_dir_all(&dir).unwrap();
+    let db = dir.join(format!("{name}.db"));
+    for ext in ["", "-wal", "-shm"] {
+        let _ = std::fs::remove_file(format!("{}{ext}", db.display()));
+    }
+    db
+}
+
+async fn app(db: &Path, serve_drafts: bool) -> App {
+    build_app(&Config { content_dir: content_dir(), db_path: db.to_path_buf(), serve_drafts })
+        .await
+        .expect("app builds")
+}
+
+/// Send a request; returns status, JSON body (or Null) and any session cookie set.
+async fn call(router: &Router, method: &str, uri: &str, cookie: Option<&str>, body: Option<Value>) -> (StatusCode, Value, Option<String>) {
+    let mut req = Request::builder().method(method).uri(uri);
+    if let Some(c) = cookie {
+        req = req.header(header::COOKIE, c);
+    }
+    let req = match body {
+        Some(b) => req.header(header::CONTENT_TYPE, "application/json").body(Body::from(b.to_string())),
+        None => req.body(Body::empty()),
+    }
+    .unwrap();
+    let res = router.clone().oneshot(req).await.unwrap();
+    let status = res.status();
+    let set_cookie = res
+        .headers()
+        .get(header::SET_COOKIE)
+        .map(|v| v.to_str().unwrap().split(';').next().unwrap().to_string());
+    let bytes = res.into_body().collect().await.unwrap().to_bytes();
+    let json = serde_json::from_slice(&bytes).unwrap_or(Value::Null);
+    (status, json, set_cookie)
+}
+
+async fn create(router: &Router, name: &str, secret: &str) -> (Value, String) {
+    let (status, body, cookie) =
+        call(router, "POST", "/api/profiles", None, Some(json!({"display_name": name, "secret": secret}))).await;
+    assert_eq!(status, StatusCode::OK, "{body}");
+    (body, cookie.expect("session cookie"))
+}
+
+#[tokio::test]
+async fn profile_login_logout() {
+    let db = temp_db("auth");
+    let app = app(&db, false).await;
+    let r = &app.router;
+
+    let (me, cookie) = create(r, "Ada", "1234").await;
+    assert_eq!(me["display_name"], "Ada");
+    let id = me["id"].as_i64().unwrap();
+
+    let (status, body, _) = call(r, "GET", "/api/me", Some(&cookie), None).await;
+    assert_eq!(status, StatusCode::OK);
+    assert_eq!(body["display_name"], "Ada");
+
+    // Duplicate names (any case) and short secrets are refused.
+    let (status, _, _) = call(r, "POST", "/api/profiles", None, Some(json!({"display_name": "ada", "secret": "9999"}))).await;
+    assert_eq!(status, StatusCode::CONFLICT);
+    let (status, _, _) = call(r, "POST", "/api/profiles", None, Some(json!({"display_name": "Bo", "secret": "12"}))).await;
+    assert_eq!(status, StatusCode::BAD_REQUEST);
+
+    // Profile picker lists names only.
+    let (_, list, _) = call(r, "GET", "/api/profiles", None, None).await;
+    assert_eq!(list, json!([{"id": id, "display_name": "Ada"}]));
+
+    // Wrong secret and unknown profile both give 401.
+    let (status, _, c) = call(r, "POST", "/api/login", None, Some(json!({"user_id": id, "secret": "0000"}))).await;
+    assert_eq!(status, StatusCode::UNAUTHORIZED);
+    assert!(c.is_none());
+    let (status, _, _) = call(r, "POST", "/api/login", None, Some(json!({"user_id": 999, "secret": "1234"}))).await;
+    assert_eq!(status, StatusCode::UNAUTHORIZED);
+
+    // Logout ends the session.
+    let (status, _, cleared) = call(r, "POST", "/api/logout", Some(&cookie), None).await;
+    assert_eq!(status, StatusCode::NO_CONTENT);
+    assert_eq!(cleared.as_deref(), Some("ged_session="));
+    let (status, _, _) = call(r, "GET", "/api/me", Some(&cookie), None).await;
+    assert_eq!(status, StatusCode::UNAUTHORIZED);
+
+    // Correct secret logs back in with a new session.
+    let (status, _, c) = call(r, "POST", "/api/login", None, Some(json!({"user_id": id, "secret": "1234"}))).await;
+    assert_eq!(status, StatusCode::OK);
+    let (status, _, _) = call(r, "GET", "/api/me", Some(&c.unwrap()), None).await;
+    assert_eq!(status, StatusCode::OK);
+
+    // Stored hash is Argon2id; the raw secret is nowhere in the row.
+    let hash: String = sqlx::query_scalar("SELECT password_hash FROM users WHERE id = ?")
+        .bind(id)
+        .fetch_one(&app.pool)
+        .await
+        .unwrap();
+    assert!(hash.starts_with("$argon2id$"), "{hash}");
+    assert!(!hash.contains("1234"));
+    // Only token hashes are stored, never the cookie value.
+    let token = cookie.trim_start_matches("ged_session=");
+    let stored: i64 = sqlx::query_scalar("SELECT COUNT(*) FROM sessions WHERE token_hash = ?")
+        .bind(token)
+        .fetch_one(&app.pool)
+        .await
+        .unwrap();
+    assert_eq!(stored, 0);
+}
+
+#[tokio::test]
+async fn practice_requires_login() {
+    let db = temp_db("nologin");
+    let app = app(&db, true).await;
+    for (method, uri) in [("GET", "/api/skills"), ("GET", "/api/practice/q-number-ops/next"), ("GET", "/api/me")] {
+        let (status, _, _) = call(&app.router, method, uri, None, None).await;
+        assert_eq!(status, StatusCode::UNAUTHORIZED, "{uri}");
+    }
+    let (status, _, _) = call(
+        &app.router,
+        "POST",
+        "/api/answer",
+        Some("ged_session=bogus"),
+        Some(json!({"question_id": "q-number-ops-0001", "response": "1", "time_ms": 5})),
+    )
+    .await;
+    assert_eq!(status, StatusCode::UNAUTHORIZED);
+}
+
+#[tokio::test]
+async fn drafts_only_served_with_flag() {
+    let db = temp_db("drafts");
+    let app = app(&db, false).await;
+    let (_, cookie) = create(&app.router, "Cy", "abcd").await;
+    let (status, body, _) = call(&app.router, "GET", "/api/practice/q-number-ops/next", Some(&cookie), None).await;
+    assert_eq!(status, StatusCode::OK);
+    assert_eq!(body["question"], Value::Null, "drafts must not be served without the flag");
+    let (_, skills, _) = call(&app.router, "GET", "/api/skills", Some(&cookie), None).await;
+    assert!(skills.as_array().unwrap().iter().all(|s| s["available"] == 0));
+    let (status, _, _) = call(
+        &app.router,
+        "POST",
+        "/api/answer",
+        Some(&cookie),
+        Some(json!({"question_id": "q-number-ops-0001", "response": "26.35", "time_ms": 5})),
+    )
+    .await;
+    assert_eq!(status, StatusCode::NOT_FOUND);
+    app.pool.close().await;
+
+    let app = self::app(&db, true).await;
+    let (status, body, _) = call(&app.router, "GET", "/api/practice/q-number-ops/next", Some(&cookie), None).await;
+    assert_eq!(status, StatusCode::OK);
+    let q = &body["question"];
+    assert_eq!(q["draft"], true);
+    for hidden in ["answer", "check", "explanation", "common_mistake", "answer_value"] {
+        assert!(q.get(hidden).is_none(), "question leaks {hidden}");
+    }
+    let (status, _, _) = call(&app.router, "GET", "/api/practice/not-a-skill/next", Some(&cookie), None).await;
+    assert_eq!(status, StatusCode::NOT_FOUND);
+}
+
+#[tokio::test]
+async fn answers_graded_saved_and_survive_restart() {
+    let db = temp_db("restart");
+    let app = app(&db, true).await;
+    let (me, cookie) = create(&app.router, "Dee", "pass1").await;
+    let id = me["id"].as_i64().unwrap();
+
+    // Fill-in: "26.350" matches the stored "26.35" numerically.
+    let (status, res, _) = call(
+        &app.router,
+        "POST",
+        "/api/answer",
+        Some(&cookie),
+        Some(json!({"question_id": "q-number-ops-0001", "response": "26.350", "time_ms": 4200})),
+    )
+    .await;
+    assert_eq!(status, StatusCode::OK, "{res}");
+    assert_eq!(res["correct"], true);
+    assert_eq!(res["answer"], "26.35");
+    assert!(res["explanation"].as_str().unwrap().contains("26.35"));
+
+    // Multiple choice, wrong.
+    let (_, res, _) = call(
+        &app.router,
+        "POST",
+        "/api/answer",
+        Some(&cookie),
+        Some(json!({"question_id": "q-number-ops-0002", "response": "60", "time_ms": 3000})),
+    )
+    .await;
+    assert_eq!(res["correct"], false);
+    assert_eq!(res["answer"], "6");
+    assert!(!res["common_mistake"].as_str().unwrap().is_empty());
+
+    // The next question prefers the one never answered (0003).
+    let (_, next, _) = call(&app.router, "GET", "/api/practice/q-number-ops/next", Some(&cookie), None).await;
+    assert_eq!(next["question"]["id"], "q-number-ops-0003");
+
+    let rows: Vec<(String, i64, i64)> =
+        sqlx::query_as("SELECT question_id, correct, time_ms FROM attempts WHERE user_id = ? ORDER BY id")
+            .bind(id)
+            .fetch_all(&app.pool)
+            .await
+            .unwrap();
+    assert_eq!(rows, vec![("q-number-ops-0001".into(), 1, 4200), ("q-number-ops-0002".into(), 0, 3000)]);
+
+    // "Restart": drop everything and reopen the same database file.
+    app.pool.close().await;
+    drop(app);
+    let app = self::app(&db, true).await;
+
+    let (status, _, _) = call(&app.router, "GET", "/api/me", Some(&cookie), None).await;
+    assert_eq!(status, StatusCode::OK, "session survives restart");
+    let (_, skills, _) = call(&app.router, "GET", "/api/skills", Some(&cookie), None).await;
+    let ops = skills.as_array().unwrap().iter().find(|s| s["id"] == "q-number-ops").unwrap();
+    assert_eq!(ops["answered"], 2);
+    assert_eq!(ops["correct"], 1);
+    assert_eq!(ops["available"], 3);
+
+    // After answering 0003, a missed question (0002) comes before a correct one.
+    call(
+        &app.router,
+        "POST",
+        "/api/answer",
+        Some(&cookie),
+        Some(json!({"question_id": "q-number-ops-0003", "response": "$\\frac{17}{12}$", "time_ms": 100})),
+    )
+    .await;
+    let (_, next, _) = call(&app.router, "GET", "/api/practice/q-number-ops/next?after=q-number-ops-0003", Some(&cookie), None).await;
+    assert_eq!(next["question"]["id"], "q-number-ops-0002");
+}
