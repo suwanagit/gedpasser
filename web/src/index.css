@@ -253,6 +253,17 @@ input {
 
 /* ── Skills ───────────────────────────────────────────────────────────── */
 
+.notice {
+  background: var(--warn-bg);
+  color: var(--warn-text);
+  border-color: transparent;
+}
+
+.notice code {
+  font-size: 0.95em;
+  word-break: break-all;
+}
+
 .screen-title {
   margin-bottom: 1.25rem;
 }

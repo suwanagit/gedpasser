@@ -21,9 +21,18 @@ export function SkillList({ onPick }: { onPick: (skill: SkillSummary) => void })
   if (error) return <p className="error">{error}</p>
   if (!skills) return <p className="muted">Loading skills…</p>
 
+  const nothingReviewed = skills.every((s) => s.available === 0)
+
   return (
     <>
       <h2 className="screen-title">Pick a skill to practise</h2>
+      {nothingReviewed && (
+        <div className="card notice">
+          <strong>No reviewed questions yet.</strong> Only reviewed questions are shown to learners. To try the
+          unreviewed drafts on this PC, close the server window and double-click{' '}
+          <code>scripts\run-with-drafts.cmd</code> instead.
+        </div>
+      )}
       {AREAS.map((area) => (
         <section key={area.id} className="area">
           <h3>{area.title}</h3>
