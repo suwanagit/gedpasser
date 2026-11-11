@@ -1,0 +1,18 @@
+# Like the shared fixture skill map, plus target Q.4.b that has no principle.
+[[skill]]
+id = "q-ratios-percent"
+area = "quantitative"
+name = "Ratios"
+description = "Ratios and percents."
+difficulty_min = 1
+difficulty_max = 3
+targets = ["Q.3.a"]
+
+[[skill]]
+id = "q-geometry-2d"
+area = "quantitative"
+name = "Area"
+description = "Perimeter and area."
+difficulty_min = 1
+difficulty_max = 2
+targets = ["Q.4.a", "Q.4.b"]

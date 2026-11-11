@@ -5,6 +5,7 @@
 [[question]]
 id = "a-graphs-lines-0001"
 skill = "a-graphs-lines"
+principle = "A.5.b"
 difficulty = 1
 type = "multiple_choice"
 status = "draft"
@@ -20,6 +21,7 @@ common_mistake = "Putting the x change on top (run over rise), which gives 1/3."
 [[question]]
 id = "a-graphs-lines-0002"
 skill = "a-graphs-lines"
+principle = "A.5.d"
 difficulty = 2
 type = "fill_in"
 status = "draft"
@@ -35,6 +37,7 @@ common_mistake = "Giving the y-intercept (7) instead of the x-intercept."
 [[question]]
 id = "a-graphs-lines-0003"
 skill = "a-graphs-lines"
+principle = "A.6.c"
 difficulty = 3
 type = "multiple_choice"
 status = "draft"

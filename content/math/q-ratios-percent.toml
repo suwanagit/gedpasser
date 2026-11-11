@@ -4,6 +4,7 @@
 [[question]]
 id = "q-ratios-percent-0001"
 skill = "q-ratios-percent"
+principle = "Q.3.a"
 difficulty = 2
 type = "multiple_choice"
 status = "draft"
@@ -24,6 +25,7 @@ common_mistake = "Multiplying 45 by 7 without first finding the hourly rate (315
 [[question]]
 id = "q-ratios-percent-0002"
 skill = "q-ratios-percent"
+principle = "Q.3.d"
 difficulty = 2
 type = "fill_in"
 status = "draft"
@@ -42,6 +44,7 @@ common_mistake = "Combining the percents into one 25% discount, which gives \\$9
 [[question]]
 id = "q-ratios-percent-0003"
 skill = "q-ratios-percent"
+principle = "Q.3.b"
 difficulty = 1
 type = "multiple_choice"
 status = "draft"

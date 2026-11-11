@@ -4,6 +4,7 @@
 [[question]]
 id = "q-geometry-3d-0001"
 skill = "q-geometry-3d"
+principle = "Q.5.a"
 difficulty = 1
 type = "fill_in"
 status = "draft"
@@ -20,6 +21,7 @@ common_mistake = "Adding the three measurements (3.0) instead of multiplying the
 [[question]]
 id = "q-geometry-3d-0002"
 skill = "q-geometry-3d"
+principle = "Q.5.b"
 difficulty = 2
 type = "multiple_choice"
 status = "draft"
@@ -36,6 +38,7 @@ common_mistake = "Using the diameter (2 m) as the radius, which gives four times
 [[question]]
 id = "q-geometry-3d-0003"
 skill = "q-geometry-3d"
+principle = "Q.5.d"
 difficulty = 3
 type = "multiple_choice"
 status = "draft"

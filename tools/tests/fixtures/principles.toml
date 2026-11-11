@@ -1,0 +1,17 @@
+# Principles for the fixture skill map (copied into each fixture tree unless
+# the tree has its own principles.toml).
+[[principle]]
+id = "Q.3.a"
+skill = "q-ratios-percent"
+status = "draft"
+name = "Unit rates"
+summary = "How much for one."
+lesson = "Divide to find the amount for one unit."
+
+[[principle]]
+id = "Q.4.a"
+skill = "q-geometry-2d"
+status = "draft"
+name = "Rectangles and triangles"
+summary = "Area and perimeter."
+lesson = "Area of a rectangle is length times width."

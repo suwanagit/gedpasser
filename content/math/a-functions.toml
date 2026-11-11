@@ -4,6 +4,7 @@
 [[question]]
 id = "a-functions-0001"
 skill = "a-functions"
+principle = "A.7.c"
 difficulty = 1
 type = "fill_in"
 status = "draft"
@@ -16,6 +17,7 @@ common_mistake = "Treating f(6) as f times 6."
 [[question]]
 id = "a-functions-0002"
 skill = "a-functions"
+principle = "A.7.c"
 difficulty = 2
 type = "multiple_choice"
 status = "draft"
@@ -31,6 +33,7 @@ common_mistake = "Squaring −2 as −4, which gives −4 + 6 + 2 = 4."
 [[question]]
 id = "a-functions-0003"
 skill = "a-functions"
+principle = "A.7.d"
 difficulty = 3
 type = "multiple_choice"
 status = "draft"

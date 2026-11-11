@@ -4,6 +4,7 @@
 [[question]]
 id = "q-data-stats-0001"
 skill = "q-data-stats"
+principle = "Q.7.a"
 difficulty = 1
 type = "fill_in"
 status = "draft"
@@ -23,6 +24,7 @@ common_mistake = "Ignoring the minus signs and adding 2 + 1 + 4 + 0 + 3 = 10, gi
 [[question]]
 id = "q-data-stats-0002"
 skill = "q-data-stats"
+principle = "Q.7.a"
 difficulty = 2
 type = "multiple_choice"
 status = "draft"
@@ -39,6 +41,7 @@ common_mistake = "Taking the middle of the list without sorting it first."
 [[question]]
 id = "q-data-stats-0003"
 skill = "q-data-stats"
+principle = "Q.7.a"
 difficulty = 3
 type = "multiple_choice"
 status = "draft"

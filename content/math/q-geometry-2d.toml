@@ -4,6 +4,7 @@
 [[question]]
 id = "q-geometry-2d-0001"
 skill = "q-geometry-2d"
+principle = "Q.4.a"
 difficulty = 1
 type = "fill_in"
 status = "draft"
@@ -19,6 +20,7 @@ common_mistake = "Finding the area (8 × 5 = 40) instead of the perimeter."
 [[question]]
 id = "q-geometry-2d-0002"
 skill = "q-geometry-2d"
+principle = "Q.4.b"
 difficulty = 2
 type = "multiple_choice"
 status = "draft"
@@ -38,6 +40,7 @@ common_mistake = "Using the circumference formula 2πr, which gives 3.77."
 [[question]]
 id = "q-geometry-2d-0003"
 skill = "q-geometry-2d"
+principle = "Q.4.e"
 difficulty = 2
 type = "multiple_choice"
 status = "draft"

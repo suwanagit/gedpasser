@@ -1,0 +1,1185 @@
+# Principles: one per official GED Mathematical Reasoning assessment
+# indicator (the `id` is the official code). Names, summaries and lessons are
+# OUR OWN wording — never copy text from the GED guide.
+#
+# Every question has exactly one `principle`, which must belong to the
+# question's skill. Each skill's `targets` in skills.toml lists its principles.
+#
+# Lesson text: paragraphs separated by blank lines; lines starting with "- "
+# are bullets; math goes in $...$ (KaTeX); a literal dollar sign is \$.
+# Lessons follow the same review rule as questions: draft -> reviewed.
+
+# ── q-number-ops ─────────────────────────────────────────────────────────
+
+[[principle]]
+id = "Q.1.a"
+skill = "q-number-ops"
+status = "draft"
+name = "Putting fractions and decimals in order"
+summary = "Compare and order fractions and decimals, including placing them on a number line."
+lesson = '''
+To compare numbers written in different ways, write them all the same way first. Decimals are usually easiest.
+
+- Turn each fraction into a decimal by dividing the top by the bottom.
+- Line up the decimal points and compare digit by digit from the left.
+- On a number line, smaller numbers sit further left.
+
+Example: put $0.6$, $\frac{5}{8}$ and $0.58$ in order from least to greatest.
+$\frac{5}{8} = 5 \div 8 = 0.625$. Compare $0.580$, $0.600$ and $0.625$: the order is $0.58 < 0.6 < \frac{5}{8}$.
+
+Tip: adding zeros to the end of a decimal ($0.6 = 0.600$) does not change it, and it makes the numbers easier to compare.
+'''
+
+[[principle]]
+id = "Q.1.b"
+skill = "q-number-ops"
+status = "draft"
+name = "Factors, multiples and the distributive property"
+summary = "Use greatest common factors, least common multiples and the distributive property to rewrite numbers and expressions."
+lesson = '''
+A factor divides a number evenly; a multiple is what you get when you multiply a number by 1, 2, 3, and so on.
+
+- Greatest common factor (GCF): the largest number that divides both. The GCF of 24 and 36 is 12.
+- Least common multiple (LCM): the smallest number both divide into. The LCM of 4 and 6 is 12. You use it as a common denominator.
+- Distributive property: $a(b + c) = ab + ac$. It works in reverse too: $ab + ac = a(b + c)$.
+
+Example: work out $6 \times 47$ in your head. Write $47 = 40 + 7$, so $6 \times 47 = 6 \times 40 + 6 \times 7 = 240 + 42 = 282$.
+
+Example: rewrite $24 + 36$ using the GCF: $24 + 36 = 12(2 + 3)$.
+'''
+
+[[principle]]
+id = "Q.1.d"
+skill = "q-number-ops"
+status = "draft"
+name = "Absolute value and distance on a number line"
+summary = "Absolute value is a number's distance from zero; the distance between two numbers is the absolute value of their difference."
+lesson = '''
+Absolute value tells you how far a number is from 0, ignoring direction. It is never negative: $|-7| = 7$ and $|7| = 7$.
+
+To find the distance between two numbers on a number line, subtract them and take the absolute value: distance $= |a - b|$.
+
+Example: one winter morning in Fairbanks it was $-12$ °C, and by afternoon it was $4$ °C. How many degrees did it rise?
+$|4 - (-12)| = |4 + 12| = 16$ degrees.
+
+Tip: subtracting a negative is the same as adding: $4 - (-12) = 4 + 12$.
+'''
+
+[[principle]]
+id = "Q.2.a"
+skill = "q-number-ops"
+status = "draft"
+name = "Arithmetic with fractions, decimals and negatives"
+summary = "Add, subtract, multiply and divide fractions, decimals and signed numbers, following the order of operations."
+lesson = '''
+Order of operations: parentheses, then exponents, then multiplication and division from left to right, then addition and subtraction from left to right.
+
+Fractions:
+- To add or subtract, use a common denominator: $\frac{1}{3} + \frac{1}{4} = \frac{4}{12} + \frac{3}{12} = \frac{7}{12}$.
+- To multiply, multiply tops and bottoms: $\frac{2}{3} \times \frac{3}{5} = \frac{6}{15} = \frac{2}{5}$.
+- To divide, flip the second fraction and multiply: $\frac{3}{4} \div \frac{1}{2} = \frac{3}{4} \times 2 = \frac{3}{2}$.
+
+Signs:
+- Same signs multiply or divide to a positive: $(-6)(-4) = 24$.
+- Different signs give a negative: $(-6)(4) = -24$.
+
+Tip: never add the denominators. $\frac{1}{2} + \frac{1}{2}$ is $1$, not $\frac{2}{4}$.
+'''
+
+[[principle]]
+id = "Q.2.d"
+skill = "q-number-ops"
+status = "draft"
+name = "When an expression is undefined"
+summary = "Recognise expressions that have no value, such as division by zero."
+lesson = '''
+You can never divide by zero, so any expression that asks you to is undefined.
+
+- $\frac{5}{4 - 4} = \frac{5}{0}$ is undefined.
+- $\frac{0}{5} = 0$ is fine: zero divided by a number is zero.
+- With a variable, find the value that makes the bottom zero: $\frac{6}{x - 3}$ is undefined when $x = 3$.
+
+The square root of a negative number, such as $\sqrt{-9}$, is not a real number either.
+
+Tip: always look at the bottom of a fraction first. Set it equal to zero and solve; that value is not allowed.
+'''
+
+[[principle]]
+id = "Q.2.e"
+skill = "q-number-ops"
+status = "draft"
+name = "Multi-step word problems with numbers"
+summary = "Plan and carry out several arithmetic steps to solve an everyday problem, including ones with scientific notation."
+lesson = '''
+Word problems are easier when you slow down and plan.
+
+- Read the question twice and underline what it asks for.
+- List the numbers you are given, with their units.
+- Decide the steps, do them one at a time, and label each result.
+- Check that the answer is sensible: estimate first.
+
+Example: a family drives 340 km on the Parks Highway. Their truck uses 8 litres of fuel per 100 km, and fuel costs \$1.80 per litre. What does the 340 km cost?
+- Fuel used: $340 \div 100 \times 8 = 27.2$ litres.
+- Cost: $27.2 \times 1.80 = 48.96$, so \$48.96.
+
+Estimate check: about 3.4 hundreds of km times 8 is about 27 litres; 27 times about \$2 is about \$54. Close enough.
+'''
+
+# ── q-ratios-percent ─────────────────────────────────────────────────────
+
+[[principle]]
+id = "Q.3.a"
+skill = "q-ratios-percent"
+status = "draft"
+name = "Unit rates"
+summary = "Find how much of one quantity goes with exactly one unit of another, such as price per kilogram or kilometres per hour."
+lesson = '''
+A unit rate tells you "how much for one". Divide the first quantity by the second.
+
+- Price per kilogram $=$ price $\div$ kilograms.
+- Speed $=$ distance $\div$ time.
+- People per square kilometre $=$ people $\div$ area.
+
+Example: a 2 kg pack of salmon costs \$31.00 and a 3 kg pack costs \$45.00. Which is the better buy?
+- 2 kg: $31.00 \div 2 = 15.50$ dollars per kg.
+- 3 kg: $45.00 \div 3 = 15.00$ dollars per kg.
+The 3 kg pack is cheaper per kilogram.
+
+Tip: once you know the unit rate, multiply it by any amount: at 15 km per hour, 4 hours is $15 \times 4 = 60$ km.
+'''
+
+[[principle]]
+id = "Q.3.b"
+skill = "q-ratios-percent"
+status = "draft"
+name = "Scale drawings and scale factors"
+summary = "Use a scale or scale factor to move between a drawing or map and real size."
+lesson = '''
+A scale compares a drawing to the real thing. A map scale of 1 cm : 5 km means every centimetre on the map stands for 5 km.
+
+- Map to real: multiply by the scale. 7 cm on that map is $7 \times 5 = 35$ km.
+- Real to map: divide by the scale. 20 km is $20 \div 5 = 4$ cm.
+- A scale factor of 3 makes every length 3 times longer. Areas grow by $3^2 = 9$ times.
+
+Example: on a house plan drawn at 1 : 50, a wall is 4 cm long. The real wall is $4 \times 50 = 200$ cm, which is 2 m.
+
+Tip: if the scale is given for more than 1 unit (2 cm : 15 km), first find what 1 cm stands for: $15 \div 2 = 7.5$ km.
+'''
+
+[[principle]]
+id = "Q.3.c"
+skill = "q-ratios-percent"
+status = "draft"
+name = "Proportions and converting units"
+summary = "Set up and solve proportions in multi-step problems, including ones that change units."
+lesson = '''
+A proportion says two ratios are equal: $\frac{a}{b} = \frac{c}{d}$. To solve one, cross-multiply: $a \times d = b \times c$.
+
+Example: 3 litres of paint covers 24 m². How much paint is needed for 40 m²?
+$\frac{3}{24} = \frac{x}{40}$, so $24x = 120$ and $x = 5$ litres.
+
+Metric conversions move the decimal point:
+- 1 km $=$ 1000 m, 1 m $=$ 100 cm, 1 cm $=$ 10 mm
+- 1 kg $=$ 1000 g, 1 L $=$ 1000 mL
+
+Example: 2.5 km $= 2.5 \times 1000 = 2500$ m.
+
+Tip: keep the units in the same places on both sides of a proportion (litres on top, square metres on the bottom on both sides).
+'''
+
+[[principle]]
+id = "Q.3.d"
+skill = "q-ratios-percent"
+status = "draft"
+name = "Percent problems in everyday life"
+summary = "Find a percent of an amount and use it for tax, tips, discounts, interest and percent change."
+lesson = '''
+"Percent" means "out of 100". To use a percent, change it to a decimal: $15\% = 0.15$.
+
+- Part $=$ percent $\times$ whole: 15% of \$60 is $0.15 \times 60 = 9$.
+- Discount: subtract the part. \$60 with 15% off costs $60 - 9 = 51$ dollars.
+- Tax or tip: add the part.
+- Percent change $= \frac{\text{change}}{\text{original}} \times 100\%$. From 40 to 50 is $\frac{10}{40} = 25\%$ more.
+- Simple interest: $I = Prt$. \$500 at 4% a year for 3 years earns $500 \times 0.04 \times 3 = 60$ dollars.
+
+Tip: two percent changes in a row do not simply add. Apply them one after the other.
+'''
+
+# ── q-exponents-roots ────────────────────────────────────────────────────
+
+[[principle]]
+id = "Q.1.c"
+skill = "q-exponents-roots"
+status = "draft"
+name = "Rules of exponents"
+summary = "Use the exponent rules to simplify and rewrite numerical expressions, including fractional and negative exponents."
+lesson = '''
+An exponent tells you how many times to multiply the base by itself: $2^4 = 2 \times 2 \times 2 \times 2 = 16$.
+
+- Multiply, same base: add exponents. $2^3 \times 2^4 = 2^7 = 128$.
+- Divide, same base: subtract exponents. $5^6 \div 5^4 = 5^2 = 25$.
+- Power of a power: multiply exponents. $(3^2)^3 = 3^6$.
+- Anything (except 0) to the power 0 is 1: $7^0 = 1$.
+- Negative exponent means "one over": $2^{-3} = \frac{1}{2^3} = \frac{1}{8}$.
+- A power of $\frac{1}{2}$ is a square root: $9^{1/2} = \sqrt{9} = 3$.
+
+These rules also handle scientific notation: $(3 \times 10^5)(4 \times 10^2) = 12 \times 10^7 = 1.2 \times 10^8$.
+'''
+
+[[principle]]
+id = "Q.2.b"
+skill = "q-exponents-roots"
+status = "draft"
+name = "Squares and square roots"
+summary = "Compute and write expressions with squares and square roots of positive numbers."
+lesson = '''
+Squaring a number multiplies it by itself: $7^2 = 49$. A square root undoes that: $\sqrt{49} = 7$.
+
+Learn the perfect squares from $1^2$ to $15^2$: 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225.
+
+- Fractions: $\sqrt{\frac{1}{4}} = \frac{1}{2}$ and $(\frac{2}{3})^2 = \frac{4}{9}$.
+- Estimating: $\sqrt{50}$ is a bit more than 7, because $7^2 = 49$. (It is about 7.07.)
+- Square roots of products: $\sqrt{4 \times 9} = \sqrt{4} \times \sqrt{9} = 2 \times 3 = 6$.
+
+Tip: $\sqrt{9 + 16}$ is $\sqrt{25} = 5$, not $3 + 4$. Do what is under the root sign first.
+'''
+
+[[principle]]
+id = "Q.2.c"
+skill = "q-exponents-roots"
+status = "draft"
+name = "Cubes and cube roots"
+summary = "Compute and write expressions with cubes and cube roots, including of negative numbers."
+lesson = '''
+Cubing a number multiplies it by itself three times: $3^3 = 3 \times 3 \times 3 = 27$. A cube root undoes that: $\sqrt[3]{27} = 3$.
+
+Learn the first few cubes: $1, 8, 27, 64, 125, 216, 343, 512, 729, 1000$.
+
+- Negative numbers have cube roots: $(-2)^3 = -8$, so $\sqrt[3]{-8} = -2$.
+- A cube's volume is side cubed. A box-shaped tank that holds 64 m³ and has equal sides has sides $\sqrt[3]{64} = 4$ m long.
+
+Tip: $5^3$ means $5 \times 5 \times 5 = 125$, not $5 \times 3 = 15$.
+'''
+
+# ── q-geometry-2d ────────────────────────────────────────────────────────
+
+[[principle]]
+id = "Q.4.a"
+skill = "q-geometry-2d"
+status = "draft"
+name = "Area and perimeter of rectangles and triangles"
+summary = "Find the area and perimeter of rectangles and triangles, and work backwards to a missing side."
+lesson = '''
+Perimeter is the distance around a shape (add the sides). Area is the space inside (measured in square units such as m²).
+
+- Rectangle: $P = 2l + 2w$ and $A = l \times w$.
+- Triangle: $P = a + b + c$ and $A = \frac{1}{2} b h$, where $h$ is the height straight up from the base.
+
+Example: a triangular garden bed has a base of 6 m and a height of 4 m. Its area is $\frac{1}{2} \times 6 \times 4 = 12$ m².
+
+Working backwards: a rectangle has area 48 m² and width 6 m. Its length is $48 \div 6 = 8$ m.
+
+Tip: the height of a triangle must meet the base at a right angle; it is not always one of the sides.
+'''
+
+[[principle]]
+id = "Q.4.b"
+skill = "q-geometry-2d"
+status = "draft"
+name = "Circles: circumference and area"
+summary = "Find a circle's circumference and area, and work back to its radius or diameter."
+lesson = '''
+The radius $r$ goes from the centre to the edge. The diameter $d$ goes all the way across, so $d = 2r$.
+
+- Circumference (distance around): $C = 2\pi r = \pi d$.
+- Area: $A = \pi r^2$.
+- Use $\pi \approx 3.14$ unless told otherwise.
+
+Example: a jar lid has a radius of 3 cm.
+$C \approx 2 \times 3.14 \times 3 = 18.84$ cm and $A \approx 3.14 \times 3^2 = 28.26$ cm².
+
+Working backwards: a circle has circumference 31.4 m. Its diameter is $31.4 \div 3.14 = 10$ m, so its radius is 5 m.
+
+Tip: if you are given the diameter, halve it before using $A = \pi r^2$.
+'''
+
+[[principle]]
+id = "Q.4.c"
+skill = "q-geometry-2d"
+status = "draft"
+name = "Perimeter and area of other polygons"
+summary = "Find the perimeter of any polygon and use a given formula for its area, or work back to a missing side."
+lesson = '''
+Perimeter of any polygon: add up all its sides. A regular hexagon with 3 m sides has perimeter $6 \times 3 = 18$ m.
+
+For area, the test gives you the formula. Your job is to put the right numbers in the right places.
+
+- Parallelogram: $A = bh$.
+- Trapezoid: $A = \frac{1}{2}(b_1 + b_2)h$, where $b_1$ and $b_2$ are the two parallel sides.
+
+Example: a trapezoid has parallel sides of 5 m and 9 m and a height of 4 m.
+$A = \frac{1}{2}(5 + 9) \times 4 = \frac{1}{2} \times 14 \times 4 = 28$ m².
+
+Working backwards: a square has perimeter 36 m, so each side is $36 \div 4 = 9$ m.
+'''
+
+[[principle]]
+id = "Q.4.d"
+skill = "q-geometry-2d"
+status = "draft"
+name = "Combined (composite) shapes"
+summary = "Find the perimeter and area of shapes made from rectangles, triangles and circles."
+lesson = '''
+Break a complicated shape into simple pieces you know how to handle.
+
+- Area: add the areas of the pieces (or subtract a piece that is cut out).
+- Perimeter: trace only the outside edge. Inside edges where pieces join do not count.
+
+Example: a deck is a 10 m by 6 m rectangle with a half-circle on one 6 m side.
+- Rectangle: $10 \times 6 = 60$ m².
+- Half-circle: radius $= 3$ m, area $= \frac{1}{2} \times 3.14 \times 3^2 = 14.13$ m².
+- Total: $60 + 14.13 = 74.13$ m².
+
+Tip: sketch the shape and label each piece before calculating.
+'''
+
+[[principle]]
+id = "Q.4.e"
+skill = "q-geometry-2d"
+status = "draft"
+name = "The Pythagorean theorem"
+summary = "In a right triangle, use a² + b² = c² to find a missing side."
+lesson = '''
+In a right triangle, the two short sides are the legs ($a$ and $b$) and the longest side, opposite the right angle, is the hypotenuse ($c$).
+
+The rule: $a^2 + b^2 = c^2$.
+
+- Missing hypotenuse: legs 6 and 8 give $6^2 + 8^2 = 36 + 64 = 100$, so $c = \sqrt{100} = 10$.
+- Missing leg: if $c = 13$ and $a = 5$, then $b^2 = 13^2 - 5^2 = 169 - 25 = 144$, so $b = 12$.
+
+Common uses: ladders against walls, ramps, the diagonal of a rectangle, the straight-line distance between two places.
+
+Tip: the hypotenuse is always the longest side. If your "hypotenuse" comes out shorter than a leg, you subtracted when you should have added.
+'''
+
+# ── q-geometry-3d ────────────────────────────────────────────────────────
+
+[[principle]]
+id = "Q.5.a"
+skill = "q-geometry-3d"
+status = "draft"
+name = "Boxes (rectangular prisms)"
+summary = "Find the volume and surface area of a box, or work back to a missing length."
+lesson = '''
+Volume is the space inside (cubic units, such as m³). Surface area is the total area of all the faces (square units).
+
+- Volume: $V = l \times w \times h$.
+- Surface area: $SA = 2lw + 2lh + 2wh$ (three pairs of matching faces).
+
+Example: a box 2 m by 3 m by 4 m has
+$V = 2 \times 3 \times 4 = 24$ m³ and $SA = 2(6) + 2(8) + 2(12) = 12 + 16 + 24 = 52$ m².
+
+Working backwards: a tank holds 60 m³ and its base is 3 m by 4 m. Its height is $60 \div (3 \times 4) = 5$ m.
+
+Tip: 1 m³ holds 1000 litres.
+'''
+
+[[principle]]
+id = "Q.5.b"
+skill = "q-geometry-3d"
+status = "draft"
+name = "Cylinders"
+summary = "Find the volume and surface area of a cylinder, or work back to its height or radius."
+lesson = '''
+A cylinder is a circle stretched straight up, like a can or a water tank.
+
+- Volume: $V = \pi r^2 h$ (the area of the circle times the height).
+- Surface area: $SA = 2\pi r^2 + 2\pi r h$ (two circles plus the wrapped side).
+
+Example: a tank with radius 2 m and height 5 m.
+$V \approx 3.14 \times 2^2 \times 5 = 62.8$ m³.
+$SA \approx 2 \times 3.14 \times 4 + 2 \times 3.14 \times 2 \times 5 = 25.12 + 62.8 = 87.92$ m².
+
+Working backwards: a cylinder holds 157 m³ and has radius 5 m. Its height is $157 \div (3.14 \times 25) = 2$ m.
+'''
+
+[[principle]]
+id = "Q.5.c"
+skill = "q-geometry-3d"
+status = "draft"
+name = "Right prisms"
+summary = "Find the volume and surface area of any right prism using its base area and height."
+lesson = '''
+A prism has the same shape all the way through, like a tent or a shoebox. The base can be any polygon.
+
+- Volume: $V = Bh$, where $B$ is the area of the base and $h$ is the length of the prism.
+- Surface area: $SA = 2B + (\text{perimeter of base}) \times h$.
+
+Example: a tent-shaped prism has a right-triangle end with sides 3 m, 4 m and 5 m, and is 10 m long.
+- Base area: $B = \frac{1}{2} \times 3 \times 4 = 6$ m².
+- Volume: $6 \times 10 = 60$ m³.
+- Surface area: $2 \times 6 + (3 + 4 + 5) \times 10 = 12 + 120 = 132$ m².
+'''
+
+[[principle]]
+id = "Q.5.d"
+skill = "q-geometry-3d"
+status = "draft"
+name = "Pyramids and cones"
+summary = "Find the volume and surface area of pyramids and cones, or work back to a missing measurement."
+lesson = '''
+A pyramid or cone holds exactly one third of the prism or cylinder with the same base and height.
+
+- Pyramid: $V = \frac{1}{3}Bh$.
+- Cone: $V = \frac{1}{3}\pi r^2 h$.
+- Surface area of a pyramid: $SA = B + \frac{1}{2} p s$, where $p$ is the base perimeter and $s$ is the slant height.
+- Surface area of a cone: $SA = \pi r^2 + \pi r s$.
+
+Example: a square pyramid with a 6 m base and a height of 4 m has $V = \frac{1}{3} \times 36 \times 4 = 48$ m³. With a slant height of 5 m, $SA = 36 + \frac{1}{2} \times 24 \times 5 = 96$ m².
+
+Tip: the height goes straight up through the middle; the slant height runs along a face. Don't mix them up.
+'''
+
+[[principle]]
+id = "Q.5.e"
+skill = "q-geometry-3d"
+status = "draft"
+name = "Spheres"
+summary = "Find the volume and surface area of a sphere, or work back to its radius."
+lesson = '''
+A sphere is a ball. Everything depends on its radius.
+
+- Volume: $V = \frac{4}{3}\pi r^3$.
+- Surface area: $SA = 4\pi r^2$.
+
+Example: a buoy is a sphere with radius 6 cm.
+$SA \approx 4 \times 3.14 \times 36 = 452.16$ cm².
+$V \approx \frac{4}{3} \times 3.14 \times 216 = 904.32$ cm³.
+
+Working backwards: a sphere has surface area 1256 cm². Then $r^2 = 1256 \div (4 \times 3.14) = 100$, so $r = 10$ cm.
+
+Tip: if you are given the diameter, halve it first.
+'''
+
+[[principle]]
+id = "Q.5.f"
+skill = "q-geometry-3d"
+status = "draft"
+name = "Combined solids"
+summary = "Find the volume and surface area of solids made from simpler solids."
+lesson = '''
+Split the solid into shapes you know, find each one, then add (or subtract a hollow part).
+
+Example: a grain bin is a cylinder 5 m tall with radius 2 m, topped by a cone 1.5 m tall.
+- Cylinder: $3.14 \times 2^2 \times 5 = 62.8$ m³.
+- Cone: $\frac{1}{3} \times 3.14 \times 2^2 \times 1.5 = 6.28$ m³.
+- Total: $62.8 + 6.28 = 69.08$ m³.
+
+For surface area, count only the outside. Where two pieces join (the circle between the cylinder and the cone) is hidden, so leave it out.
+'''
+
+# ── q-data-stats ─────────────────────────────────────────────────────────
+
+[[principle]]
+id = "Q.6.a"
+skill = "q-data-stats"
+status = "draft"
+name = "Bar graphs and circle graphs"
+summary = "Read, make and interpret bar graphs and circle graphs of data in categories."
+lesson = '''
+Bar graphs compare amounts in categories. Circle (pie) graphs show parts of one whole.
+
+Bar graphs:
+- Read the title and both axis labels first.
+- Check the scale: one grid line might mean 5 or 100, not 1.
+
+Circle graphs:
+- The whole circle is 100%.
+- To find an amount, multiply the percent by the total.
+
+Example: a survey of 400 households in a village shows 25% heat with wood. That is $0.25 \times 400 = 100$ households.
+
+Tip: questions often ask "how many more" — find both amounts, then subtract.
+'''
+
+[[principle]]
+id = "Q.6.b"
+skill = "q-data-stats"
+status = "draft"
+name = "Dot plots, histograms and box plots"
+summary = "Read, make and interpret displays of one set of numbers on a number line."
+lesson = '''
+These displays show how a single list of numbers is spread out.
+
+- Dot plot: one dot per value above a number line. Count dots to find how many.
+- Histogram: bars over ranges (bins) such as 10–19, 20–29. The bar height is how many values fall in that range.
+- Box plot: shows five numbers — minimum, first quartile (Q1), median, third quartile (Q3), maximum. The box holds the middle half of the data.
+
+Example: a box plot of daily fish counts has Q1 = 12 and Q3 = 30. The middle half of the days had between 12 and 30 fish; the interquartile range is $30 - 12 = 18$.
+
+Tip: in a histogram you cannot read exact values, only how many fall in each range.
+'''
+
+[[principle]]
+id = "Q.6.c"
+skill = "q-data-stats"
+status = "draft"
+name = "Tables, scatter plots and two-variable graphs"
+summary = "Read and interpret data that pairs two quantities in tables, scatter plots and line graphs."
+lesson = '''
+Two-variable data pairs each $x$ with a $y$, such as hours worked and pay, or month and rainfall.
+
+- Tables: find the row and column you need; look for patterns as $x$ grows.
+- Scatter plots: each dot is one pair. If dots rise to the right, the trend is positive; falling to the right is negative; no pattern means no clear relationship.
+- Line graphs: show change over time. Steeper means faster change.
+
+Example: a scatter plot of daylight hours and month in Utqiaġvik would rise steeply in spring and fall in autumn.
+
+Tip: a trend in a scatter plot does not prove one thing causes the other.
+'''
+
+[[principle]]
+id = "Q.7.a"
+skill = "q-data-stats"
+status = "draft"
+name = "Mean, median, mode, range and weighted average"
+summary = "Calculate the centre and spread of data, a missing value from an average, and weighted averages."
+lesson = '''
+- Mean (average): add the values and divide by how many there are.
+- Median: the middle value after sorting. With an even count, average the two middle values.
+- Mode: the value that appears most often.
+- Range: largest minus smallest.
+
+Finding a missing value: the mean of 4 test scores must be 80, so they must total $4 \times 80 = 320$. If three scores are 75, 82 and 90, the fourth is $320 - 247 = 73$.
+
+Weighted average: multiply each value by its weight and add. If tests count 60% and homework 40%, scores of 70 and 90 give $0.6 \times 70 + 0.4 \times 90 = 78$.
+
+Tip: always sort the list before finding the median.
+'''
+
+# ── q-probability ────────────────────────────────────────────────────────
+
+[[principle]]
+id = "Q.8.a"
+skill = "q-probability"
+status = "draft"
+name = "Counting: combinations and permutations"
+summary = "Count the possible outcomes, using multiplication, permutations (order matters) and combinations (order doesn't)."
+lesson = '''
+Counting principle: if one choice has $m$ options and another has $n$, together there are $m \times n$ options. 3 shirts and 4 pairs of trousers make $3 \times 4 = 12$ outfits.
+
+Permutations (order matters): choosing a president, then a treasurer from 5 people gives $5 \times 4 = 20$ ways.
+
+Combinations (order doesn't matter): choosing 2 people from 5 for a team. Count the ordered ways ($20$), then divide by the ways to arrange 2 people ($2$): $20 \div 2 = 10$ teams.
+
+Ask yourself: if I swap two of the chosen items, is it a different result? If yes, order matters.
+'''
+
+[[principle]]
+id = "Q.8.b"
+skill = "q-probability"
+status = "draft"
+name = "Probability of simple and compound events"
+summary = "Find the probability of one event, and of two events happening together."
+lesson = '''
+Probability $= \frac{\text{favourable outcomes}}{\text{total outcomes}}$. It is always between 0 (impossible) and 1 (certain).
+
+Example: rolling an even number on a six-sided number cube: 3 favourable outcomes (2, 4, 6) out of 6, so $\frac{3}{6} = \frac{1}{2}$.
+
+Compound events:
+- "A and B" for independent events: multiply. Two coins both landing heads: $\frac{1}{2} \times \frac{1}{2} = \frac{1}{4}$.
+- "A or B" when they can't both happen: add. Rolling a 1 or a 6: $\frac{1}{6} + \frac{1}{6} = \frac{1}{3}$.
+- Without replacement, the total goes down after each pick.
+
+Tip: the probability something does not happen is 1 minus the probability it does.
+'''
+
+# ── a-expressions ────────────────────────────────────────────────────────
+
+[[principle]]
+id = "A.1.a"
+skill = "a-expressions"
+status = "draft"
+name = "Simplifying linear expressions"
+summary = "Add, subtract, expand and factor expressions like 3(2x − 4) + 5x."
+lesson = '''
+Like terms have the same variable part: $3x$ and $5x$ are like terms; $3x$ and $3$ are not.
+
+- Distribute: multiply everything inside the parentheses. $3(2x - 4) = 6x - 12$.
+- Combine like terms: $6x - 12 + 5x = 11x - 12$.
+- Factor: pull out a common factor. $6x + 9 = 3(2x + 3)$.
+
+Watch the signs: $-2(x - 5) = -2x + 10$, because a negative times a negative is positive.
+
+Tip: check a simplification by putting in a number, such as $x = 1$, before and after. Both should give the same value.
+'''
+
+[[principle]]
+id = "A.1.b"
+skill = "a-expressions"
+status = "draft"
+name = "Evaluating linear expressions"
+summary = "Substitute numbers for variables and work out the value."
+lesson = '''
+To evaluate, replace each variable with its value in parentheses, then follow the order of operations.
+
+Example: find $4x - 7$ when $x = -2$.
+$4(-2) - 7 = -8 - 7 = -15$.
+
+Example: find $3a + 2b$ when $a = 5$ and $b = 4$.
+$3(5) + 2(4) = 15 + 8 = 23$.
+
+Tip: $4x$ means $4 \times x$. With $x = 5$, $4x$ is 20, not 45.
+'''
+
+[[principle]]
+id = "A.1.c"
+skill = "a-expressions"
+status = "draft"
+name = "Writing linear expressions from words"
+summary = "Turn a description in words into an algebraic expression."
+lesson = '''
+Choose a letter for the unknown, then translate piece by piece.
+
+- "more than", "increased by", "plus" → $+$
+- "less than", "decreased by", "minus" → $-$
+- "times", "of", "per" (for each) → $\times$
+- "divided by", "split equally" → $\div$
+
+Watch the order with "less than": "3 less than $n$" is $n - 3$, not $3 - n$.
+
+Example: "five more than twice a number" is $2n + 5$.
+
+Example: a taxi charges \$3.50 plus \$2.25 per kilometre. For $k$ kilometres the cost is $3.50 + 2.25k$.
+'''
+
+# ── a-linear-equations ───────────────────────────────────────────────────
+
+[[principle]]
+id = "A.2.a"
+skill = "a-linear-equations"
+status = "draft"
+name = "Solving linear equations"
+summary = "Solve one-variable equations, including ones that need distributing and collecting like terms."
+lesson = '''
+An equation is a balance: whatever you do to one side, do to the other. The goal is $x$ alone on one side.
+
+- Simplify each side first (distribute, combine like terms).
+- Move the $x$ terms to one side and the numbers to the other.
+- Divide by the number in front of $x$.
+
+Example: $2(x + 3) = x + 10$.
+$2x + 6 = x + 10$, then $x + 6 = 10$, so $x = 4$.
+
+Check by substituting: $2(4 + 3) = 14$ and $4 + 10 = 14$. ✓
+
+Letters as coefficients work the same way: $ax + b = c$ gives $x = \frac{c - b}{a}$.
+'''
+
+[[principle]]
+id = "A.2.b"
+skill = "a-linear-equations"
+status = "draft"
+name = "Real-world linear equations"
+summary = "Solve everyday problems by writing and solving a linear equation."
+lesson = '''
+- Say what the variable stands for, with units.
+- Write an equation from the story.
+- Solve it, then check the answer makes sense in the story.
+
+Example: a plumber charges a \$60 call-out fee plus \$45 per hour. The bill was \$195. How many hours did the job take?
+Let $h$ be hours: $60 + 45h = 195$. Then $45h = 135$, so $h = 3$ hours.
+
+Tip: a fixed fee is added once; a rate is multiplied by the variable.
+'''
+
+[[principle]]
+id = "A.2.c"
+skill = "a-linear-equations"
+status = "draft"
+name = "Writing linear equations for a situation"
+summary = "Write one-variable or multi-variable linear equations that describe a situation."
+lesson = '''
+Many situations have a starting amount plus a steady rate. They give equations like $y = mx + b$.
+
+Example: renting a truck costs \$25 plus \$0.30 per kilometre. The total cost $C$ for $d$ kilometres is $C = 25 + 0.30d$.
+
+Example: adult tickets cost \$12 and child tickets \$7. Total sales of \$500 give $12a + 7c = 500$, where $a$ and $c$ are the numbers of tickets.
+
+Tip: test your equation with an easy number. With $d = 0$, the truck should cost just the \$25 fee.
+'''
+
+[[principle]]
+id = "A.3.a"
+skill = "a-linear-equations"
+status = "draft"
+name = "Solving linear inequalities"
+summary = "Solve one-variable inequalities, flipping the sign when multiplying or dividing by a negative."
+lesson = '''
+Solve an inequality just like an equation, with one extra rule: if you multiply or divide both sides by a negative number, flip the inequality sign.
+
+Example: $-2x + 5 < 11$.
+Subtract 5: $-2x < 6$. Divide by $-2$ and flip: $x > -3$.
+
+Symbols:
+- $<$ less than, $>$ greater than
+- $\le$ less than or equal to, $\ge$ greater than or equal to
+
+Tip: check with a number from your answer. With $x = 0$: $-2(0) + 5 = 5 < 11$. ✓
+'''
+
+[[principle]]
+id = "A.3.b"
+skill = "a-linear-equations"
+status = "draft"
+name = "Inequalities on a number line"
+summary = "Show the solution of a one-variable inequality on a number line, or read one from a graph."
+lesson = '''
+An inequality has many solutions, so we show them as a shaded part of the number line.
+
+- Open circle: the number itself is not included ($<$ or $>$).
+- Closed (filled) circle: the number is included ($\le$ or $\ge$).
+- Shade right for "greater than", left for "less than".
+
+Example: $x \ge 2$ is a closed circle at 2 with shading to the right.
+Example: $x < -1$ is an open circle at $-1$ with shading to the left.
+
+Tip: rewrite the inequality with $x$ on the left first. $5 > x$ is the same as $x < 5$.
+'''
+
+[[principle]]
+id = "A.3.c"
+skill = "a-linear-equations"
+status = "draft"
+name = "Real-world inequalities"
+summary = "Solve everyday problems with limits such as at least, at most, no more than."
+lesson = '''
+Key phrases:
+- "at least", "no less than", "minimum" → $\ge$
+- "at most", "no more than", "maximum" → $\le$
+- "more than" → $>$ and "fewer than" → $<$
+
+Example: you have \$50. A fair charges \$12 to enter and \$4 per ride. How many rides can you take?
+$12 + 4r \le 50$, so $4r \le 38$ and $r \le 9.5$.
+
+You can't take half a ride, so the answer is at most 9 rides.
+
+Tip: in real problems, decide whether the answer must be a whole number and round in the direction that keeps you within the limit.
+'''
+
+[[principle]]
+id = "A.3.d"
+skill = "a-linear-equations"
+status = "draft"
+name = "Writing linear inequalities"
+summary = "Write a one-variable inequality that describes a situation."
+lesson = '''
+Write it like an equation, then choose the sign from the wording.
+
+Example: a skiff can carry at most 900 kg. The crew weigh 300 kg together, and each crate weighs 40 kg. Write an inequality for the number of crates $c$.
+Total weight: $300 + 40c$. "At most 900" means $\le$: $300 + 40c \le 900$.
+
+Example: Maria needs at least 60 hours of volunteering and has done 18. She volunteers 3 hours a week: $18 + 3w \ge 60$.
+
+Tip: "at most" is a ceiling ($\le$); "at least" is a floor ($\ge$).
+'''
+
+# ── a-systems ────────────────────────────────────────────────────────────
+
+[[principle]]
+id = "A.2.d"
+skill = "a-systems"
+status = "draft"
+name = "Systems of two linear equations"
+summary = "Solve two equations with two unknowns by graphing, substitution or elimination, including word problems."
+lesson = '''
+A system is two equations that are both true at once. The solution is the pair $(x, y)$ that works in both — where their lines cross.
+
+Elimination: add or subtract the equations to remove a variable.
+$x + y = 12$ and $x - y = 2$. Add them: $2x = 14$, so $x = 7$, then $y = 5$.
+
+Substitution: solve one equation for a variable and put it into the other.
+$y = 2x$ and $x + y = 9$: $x + 2x = 9$, so $x = 3$ and $y = 6$.
+
+Word problems: write one equation for each fact. Adult tickets \$10, child \$6; 20 tickets sold for \$160: $a + c = 20$ and $10a + 6c = 160$, giving $a = 10$ and $c = 10$.
+
+Tip: always put both values back into both equations to check.
+'''
+
+# ── a-polynomials ────────────────────────────────────────────────────────
+
+[[principle]]
+id = "A.1.d"
+skill = "a-polynomials"
+status = "draft"
+name = "Operations with polynomials"
+summary = "Add, subtract and multiply polynomials (including two binomials), and divide factorable ones."
+lesson = '''
+- Add or subtract: combine like terms ($x^2$ with $x^2$, $x$ with $x$). $(3x^2 + 2x) - (x^2 - 5x) = 2x^2 + 7x$.
+- Multiply two binomials: multiply every term by every term (First, Outer, Inner, Last).
+$(x + 2)(x - 5) = x^2 - 5x + 2x - 10 = x^2 - 3x - 10$.
+- Divide when it factors: $\frac{x^2 + 5x + 6}{x + 2} = \frac{(x + 2)(x + 3)}{x + 2} = x + 3$.
+
+Tip: when subtracting, the minus sign changes the sign of every term in the second polynomial.
+'''
+
+[[principle]]
+id = "A.1.e"
+skill = "a-polynomials"
+status = "draft"
+name = "Evaluating polynomials"
+summary = "Substitute numbers into polynomial expressions and work out the value."
+lesson = '''
+Put each value in parentheses, then do exponents before multiplying.
+
+Example: $x^2 - 3x + 4$ when $x = -1$.
+$(-1)^2 - 3(-1) + 4 = 1 + 3 + 4 = 8$.
+
+Watch out: $(-1)^2 = 1$, but $-1^2$ without parentheses means $-(1^2) = -1$. Using parentheses avoids this mistake.
+
+Example: $2x^3$ when $x = 3$ is $2 \times 27 = 54$, not $6^3$.
+'''
+
+[[principle]]
+id = "A.1.f"
+skill = "a-polynomials"
+status = "draft"
+name = "Factoring polynomials"
+summary = "Write polynomials as products: common factors, trinomials and differences of squares."
+lesson = '''
+Factoring undoes multiplying. Always try these in order:
+
+- Common factor: $2x^2 - 8 = 2(x^2 - 4)$.
+- Difference of squares: $a^2 - b^2 = (a - b)(a + b)$. So $x^2 - 4 = (x - 2)(x + 2)$.
+- Trinomial $x^2 + bx + c$: find two numbers that multiply to $c$ and add to $b$. For $x^2 + 7x + 12$: 3 and 4, so $(x + 3)(x + 4)$.
+
+Putting it together: $2x^2 - 8 = 2(x - 2)(x + 2)$.
+
+Tip: check by multiplying your factors back out.
+'''
+
+[[principle]]
+id = "A.1.g"
+skill = "a-polynomials"
+status = "draft"
+name = "Writing polynomial expressions from words"
+summary = "Turn a description into a polynomial expression, often for areas and products."
+lesson = '''
+Polynomials appear when you multiply expressions that contain the variable.
+
+Example: a rectangle is 3 m longer than it is wide. If the width is $w$, the length is $w + 3$ and the area is $w(w + 3) = w^2 + 3w$.
+
+Example: a square garden with side $s$ has a 1 m path added all round. The new side is $s + 2$, so the new area is $(s + 2)^2 = s^2 + 4s + 4$.
+
+Tip: draw and label a picture before writing anything.
+'''
+
+[[principle]]
+id = "A.1.h"
+skill = "a-polynomials"
+status = "draft"
+name = "Operations with rational expressions"
+summary = "Add, subtract, multiply and divide algebraic fractions."
+lesson = '''
+Algebraic fractions follow the same rules as number fractions.
+
+- Same denominator: add the tops. $\frac{2}{x} + \frac{3}{x} = \frac{5}{x}$.
+- Different denominators: find a common one first.
+- Multiply: tops times tops, bottoms times bottoms, then cancel. $\frac{1}{x} \times \frac{x^2}{2} = \frac{x^2}{2x} = \frac{x}{2}$.
+- Divide: flip the second fraction and multiply.
+- Simplify by factoring and cancelling common factors: $\frac{x^2 - 9}{x + 3} = \frac{(x - 3)(x + 3)}{x + 3} = x - 3$ (for $x \ne -3$).
+
+Tip: you may only cancel factors (things multiplied), never terms that are added.
+'''
+
+[[principle]]
+id = "A.1.i"
+skill = "a-polynomials"
+status = "draft"
+name = "Evaluating rational expressions"
+summary = "Substitute numbers into algebraic fractions and work out the value."
+lesson = '''
+Work out the top and the bottom separately, then divide.
+
+Example: $\frac{x + 4}{x - 1}$ when $x = 3$: top $= 7$, bottom $= 2$, value $= \frac{7}{2} = 3.5$.
+
+If the bottom works out to zero, the expression is undefined for that value. $\frac{x + 4}{x - 1}$ is undefined at $x = 1$.
+
+Tip: a fraction bar works like parentheses around the top and around the bottom.
+'''
+
+[[principle]]
+id = "A.1.j"
+skill = "a-polynomials"
+status = "draft"
+name = "Writing rational expressions from words"
+summary = "Turn a description into an algebraic fraction, such as cost per person or time from distance and speed."
+lesson = '''
+Fractions appear when something is shared or divided by an unknown.
+
+- Cost per person: a \$300 cabin split among $n$ people costs $\frac{300}{n}$ dollars each.
+- Time from distance and speed: travelling 120 km at $s$ km per hour takes $\frac{120}{s}$ hours.
+- Average: total divided by count.
+
+Example: a boat goes 60 km upstream at $(s - 5)$ km/h. The trip takes $\frac{60}{s - 5}$ hours.
+
+Tip: "per" usually means divide.
+'''
+
+[[principle]]
+id = "A.4.a"
+skill = "a-polynomials"
+status = "draft"
+name = "Solving quadratic equations"
+summary = "Solve equations with an x² term by factoring, square roots, or the quadratic formula."
+lesson = '''
+Get everything on one side so the equation equals zero: $ax^2 + bx + c = 0$.
+
+- Factoring: $x^2 - 5x + 6 = 0$ becomes $(x - 2)(x - 3) = 0$. If a product is zero, one factor is zero, so $x = 2$ or $x = 3$.
+- Square roots: $x^2 = 49$ gives $x = 7$ or $x = -7$.
+- Quadratic formula (works every time): $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$.
+
+Example with the formula: $x^2 + 2x - 8 = 0$ has $a = 1$, $b = 2$, $c = -8$.
+$x = \frac{-2 \pm \sqrt{4 + 32}}{2} = \frac{-2 \pm 6}{2}$, so $x = 2$ or $x = -4$.
+
+Tip: quadratics usually have two answers. In a word problem, throw out one that makes no sense (such as a negative length).
+'''
+
+[[principle]]
+id = "A.4.b"
+skill = "a-polynomials"
+status = "draft"
+name = "Writing quadratic equations for a situation"
+summary = "Write a one-variable quadratic equation that describes a situation, often an area problem."
+lesson = '''
+Quadratics come up when an unknown is multiplied by itself, for example in areas.
+
+Example: a rectangular pen is 3 m longer than it is wide and has an area of 40 m². Find the width.
+- Width $w$, length $w + 3$.
+- Area: $w(w + 3) = 40$, so $w^2 + 3w - 40 = 0$.
+- Factor: $(w + 8)(w - 5) = 0$, so $w = 5$ (a width can't be $-8$).
+
+The pen is 5 m wide and 8 m long.
+'''
+
+# ── a-graphs-lines ───────────────────────────────────────────────────────
+
+[[principle]]
+id = "A.5.a"
+skill = "a-graphs-lines"
+status = "draft"
+name = "Points on the coordinate plane"
+summary = "Locate and plot points using (x, y) coordinates."
+lesson = '''
+A point $(x, y)$ tells you how far to move from the origin $(0, 0)$:
+- $x$: right if positive, left if negative.
+- $y$: up if positive, down if negative.
+
+Example: $(-3, 2)$ means 3 left and 2 up.
+
+The axes split the plane into four quadrants, numbered anticlockwise from the top right:
+- I: $(+, +)$, II: $(-, +)$, III: $(-, -)$, IV: $(+, -)$.
+
+Tip: always move along $x$ first, then $y$ — "along the corridor, then up the stairs".
+'''
+
+[[principle]]
+id = "A.5.b"
+skill = "a-graphs-lines"
+status = "draft"
+name = "Finding slope"
+summary = "Find a line's slope from a graph, an equation, or a table."
+lesson = '''
+Slope measures steepness: how much $y$ changes when $x$ goes up by 1.
+
+- From two points: $m = \frac{y_2 - y_1}{x_2 - x_1}$. For $(2, 5)$ and $(6, 13)$: $m = \frac{13 - 5}{6 - 2} = \frac{8}{4} = 2$.
+- From an equation $y = mx + b$: the slope is the number in front of $x$. $y = -3x + 4$ has slope $-3$.
+- From a table: change in $y$ divided by change in $x$ between any two rows.
+
+Positive slope rises to the right; negative slope falls; a horizontal line has slope 0.
+
+Tip: keep the same order on top and bottom — if you start with $y_2$, start with $x_2$.
+'''
+
+[[principle]]
+id = "A.5.c"
+skill = "a-graphs-lines"
+status = "draft"
+name = "Unit rate as slope"
+summary = "In a proportional relationship, the slope of the line is the unit rate."
+lesson = '''
+A proportional relationship is a straight line through the origin: $y = kx$. The slope $k$ is the unit rate — the amount of $y$ for each 1 of $x$.
+
+Example: a graph of distance against time passes through $(0, 0)$ and $(4, 300)$, with time in hours and distance in km.
+Slope $= \frac{300}{4} = 75$, so the speed is 75 km per hour.
+
+Example: $C = 2.5g$ for fuel cost $C$ and litres $g$ means fuel costs \$2.50 per litre.
+
+Tip: if the line does not pass through the origin, the relationship is not proportional.
+'''
+
+[[principle]]
+id = "A.5.d"
+skill = "a-graphs-lines"
+status = "draft"
+name = "Graphing linear equations"
+summary = "Graph a two-variable linear equation and find where it crosses the axes."
+lesson = '''
+For $y = mx + b$:
+- Plot the $y$-intercept $(0, b)$.
+- Use the slope as rise over run to find another point.
+- Draw the line through them.
+
+Example: $y = 2x - 3$. Start at $(0, -3)$, go up 2 and right 1 to $(1, -1)$, and draw the line.
+
+Intercepts:
+- $y$-intercept: set $x = 0$.
+- $x$-intercept: set $y = 0$ and solve. For $y = 2x - 3$: $0 = 2x - 3$, so $x = 1.5$.
+
+Tip: plot a third point as a check. All three should line up.
+'''
+
+[[principle]]
+id = "A.6.a"
+skill = "a-graphs-lines"
+status = "draft"
+name = "Equation of a line from a slope and a point"
+summary = "Write the equation of a line given its slope and one point on it."
+lesson = '''
+Use point-slope form: $y - y_1 = m(x - x_1)$.
+
+Example: slope 3, through $(2, 1)$.
+$y - 1 = 3(x - 2)$, so $y - 1 = 3x - 6$ and $y = 3x - 5$.
+
+Check: put in $x = 2$: $3(2) - 5 = 1$. ✓
+
+Tip: if the point given is the $y$-intercept $(0, b)$, you can write $y = mx + b$ straight away.
+'''
+
+[[principle]]
+id = "A.6.b"
+skill = "a-graphs-lines"
+status = "draft"
+name = "Equation of a line through two points"
+summary = "Write the equation of a line that passes through two given points."
+lesson = '''
+- Find the slope from the two points.
+- Use either point in point-slope form.
+- Simplify to $y = mx + b$.
+
+Example: through $(1, 2)$ and $(3, 8)$.
+Slope: $m = \frac{8 - 2}{3 - 1} = 3$.
+$y - 2 = 3(x - 1)$, so $y = 3x - 1$.
+
+Check with the other point: $3(3) - 1 = 8$. ✓
+'''
+
+[[principle]]
+id = "A.6.c"
+skill = "a-graphs-lines"
+status = "draft"
+name = "Parallel and perpendicular lines"
+summary = "Use slopes to recognise parallel and perpendicular lines and solve geometry problems with them."
+lesson = '''
+- Parallel lines never meet: they have the same slope.
+- Perpendicular lines meet at a right angle: their slopes are negative reciprocals (flip the fraction and change the sign). The two slopes multiply to $-1$.
+
+Example: the line $y = 2x + 1$ has slope 2.
+- A parallel line has slope $2$, for example $y = 2x - 4$.
+- A perpendicular line has slope $-\frac{1}{2}$, for example $y = -\frac{1}{2}x + 3$.
+
+Tip: for perpendicular slopes, do both steps — flip and change sign. $\frac{2}{3}$ becomes $-\frac{3}{2}$.
+'''
+
+# ── a-functions ──────────────────────────────────────────────────────────
+
+[[principle]]
+id = "A.5.e"
+skill = "a-functions"
+status = "draft"
+name = "Key features of graphs"
+summary = "Read and describe the key features of a graph or table: intercepts, increasing or decreasing, highest and lowest points, symmetry."
+lesson = '''
+When you look at the graph of a relationship, describe it in terms of the story.
+
+- Intercepts: where the graph crosses the axes. The $y$-intercept is often the starting value.
+- Increasing or decreasing: does the graph go up or down as you move right?
+- Positive or negative: is the graph above or below the $x$-axis?
+- Maximum or minimum: the highest or lowest point.
+- Symmetry: a parabola is a mirror image on either side of its vertex.
+- End behaviour: what happens far to the left and right.
+
+Example: the height of a thrown ball over time is a parabola. It increases, reaches a maximum at the vertex (the highest point), then decreases until it hits the ground (an $x$-intercept).
+'''
+
+[[principle]]
+id = "A.7.a"
+skill = "a-functions"
+status = "draft"
+name = "Comparing proportional relationships"
+summary = "Compare two proportional relationships shown in different ways, such as a graph and an equation."
+lesson = '''
+To compare, turn each one into a unit rate.
+
+Example: car A's distance is $d = 80t$ (km and hours). Car B's table shows 255 km in 3 hours. Which is faster?
+- Car A: 80 km per hour (the number in front of $t$).
+- Car B: $255 \div 3 = 85$ km per hour.
+Car B is faster.
+
+From a graph through the origin, the unit rate is the $y$-value when $x = 1$, or the slope.
+
+Tip: make sure both rates use the same units before comparing.
+'''
+
+[[principle]]
+id = "A.7.b"
+skill = "a-functions"
+status = "draft"
+name = "What makes a function"
+summary = "Decide whether a table or graph is a function: each input has exactly one output."
+lesson = '''
+A function gives exactly one output for each input.
+
+- Table: if the same $x$ appears twice with different $y$-values, it is not a function. (The same $y$ twice is fine.)
+- Graph: use the vertical line test. If any vertical line crosses the graph more than once, it is not a function.
+
+Example: $\{(1, 4), (2, 5), (1, 6)\}$ is not a function, because $x = 1$ gives both 4 and 6.
+
+Example: a circle is not a function; a straight line that isn't vertical is.
+'''
+
+[[principle]]
+id = "A.7.c"
+skill = "a-functions"
+status = "draft"
+name = "Evaluating functions"
+summary = "Use function notation to find the value of linear and quadratic functions."
+lesson = '''
+$f(x)$ is read "f of x". It names the output of function $f$ for input $x$. It does not mean $f$ times $x$.
+
+To find $f(3)$, replace every $x$ with 3 (in parentheses):
+$f(x) = x^2 + 2x$ gives $f(3) = 3^2 + 2(3) = 9 + 6 = 15$.
+
+With a negative input: $f(-3) = (-3)^2 + 2(-3) = 9 - 6 = 3$.
+
+Tip: always put negative inputs in parentheses so the square applies to the whole number.
+'''
+
+[[principle]]
+id = "A.7.d"
+skill = "a-functions"
+status = "draft"
+name = "Comparing functions shown in different ways"
+summary = "Compare rates of change, intercepts and other features of two functions given as equations, tables, graphs or words."
+lesson = '''
+Find the same feature for each function, then compare.
+
+- Rate of change (slope): from an equation, the number in front of $x$; from a table or graph, change in $y$ over change in $x$.
+- Starting value ($y$-intercept): the value when $x = 0$.
+- For quadratics: the highest or lowest point.
+
+Example: $f(x) = 3x + 2$. Function $g$ has the table $g(0) = 1$, $g(2) = 9$.
+- $f$ has slope 3.
+- $g$ has slope $\frac{9 - 1}{2 - 0} = 4$.
+So $g$ grows faster, even though $f$ starts higher (2 compared with 1).
+'''

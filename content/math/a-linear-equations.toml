@@ -4,6 +4,7 @@
 [[question]]
 id = "a-linear-equations-0001"
 skill = "a-linear-equations"
+principle = "A.2.a"
 difficulty = 1
 type = "fill_in"
 status = "draft"
@@ -19,6 +20,7 @@ common_mistake = "Adding 8 to 43 instead of subtracting, which gives 51 ÷ 5 = 1
 [[question]]
 id = "a-linear-equations-0002"
 skill = "a-linear-equations"
+principle = "A.2.a"
 difficulty = 2
 type = "multiple_choice"
 status = "draft"
@@ -36,6 +38,7 @@ common_mistake = "Distributing only to the x: 3x − 4 = x + 6, which gives x = 
 [[question]]
 id = "a-linear-equations-0003"
 skill = "a-linear-equations"
+principle = "A.3.a"
 difficulty = 3
 type = "fill_in"
 status = "draft"

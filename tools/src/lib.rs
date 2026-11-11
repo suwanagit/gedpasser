@@ -1,8 +1,9 @@
 //! Question bank schema, validator and answer checker.
 //!
-//! `check_content(root)` loads `root/skills.toml` and every
-//! `root/math/<skill>.toml`, validates them, evaluates each question's
-//! `check` expression against its stored answer, and returns a [`Report`].
+//! `check_content(root)` loads `root/skills.toml`, `root/principles.toml`
+//! and every `root/math/<skill>.toml`, validates them, evaluates each
+//! question's `check` expression against its stored answer, and returns a
+//! [`Report`].
 
 pub mod expr;
 pub mod schema;
@@ -11,7 +12,7 @@ use std::collections::{BTreeSet, HashMap, HashSet};
 use std::fmt;
 use std::path::{Path, PathBuf};
 
-pub use schema::{Area, Question, QuestionFile, QuestionType, Skill, SkillFile, Status};
+pub use schema::{Area, Principle, PrincipleFile, Question, QuestionFile, QuestionType, Skill, SkillFile, Status};
 
 /// Prompts whose word sets overlap at least this much are flagged.
 pub const NEAR_DUPLICATE_THRESHOLD: f64 = 0.85;
@@ -49,6 +50,7 @@ impl fmt::Display for Diagnostic {
 #[derive(Debug, Default)]
 pub struct Report {
     pub skills: Vec<Skill>,
+    pub principles: Vec<Principle>,
     pub questions: Vec<(PathBuf, Question)>,
     pub diagnostics: Vec<Diagnostic>,
 }
@@ -90,6 +92,7 @@ pub fn load_skills(root: &Path) -> Result<Vec<Skill>, String> {
 pub fn check_content(root: &Path) -> Report {
     let mut report = Report::default();
     check_skills(root, &mut report);
+    check_principles(root, &mut report);
     load_questions(root, &mut report);
     validate_questions(&mut report);
     check_answers(&mut report);
@@ -171,6 +174,49 @@ fn check_skills(root: &Path, report: &mut Report) {
     report.skills = file.skill;
 }
 
+fn check_principles(root: &Path, report: &mut Report) {
+    let path = root.join("principles.toml");
+    let Some(file) = read_toml::<PrincipleFile>(&path, report) else { return };
+    // Which skill lists each official target.
+    let owner: HashMap<&str, &str> = report
+        .skills
+        .iter()
+        .flat_map(|s| s.targets.iter().map(move |t| (t.as_str(), s.id.as_str())))
+        .collect();
+    let mut seen = HashSet::new();
+    let mut diags = Vec::new();
+    for p in &file.principle {
+        let mut err = |m: String| diags.push((p.id.clone(), m));
+        if !is_target_code(&p.id) {
+            err("principle id must be an indicator code like \"Q.3.d\"".into());
+        }
+        if !seen.insert(p.id.clone()) {
+            err("duplicate principle id".into());
+        }
+        match owner.get(p.id.as_str()) {
+            None => err("principle is not listed in any skill's targets in skills.toml".into()),
+            Some(&skill) if skill != p.skill => {
+                err(format!("principle has skill {:?} but skills.toml lists it under {skill:?}", p.skill))
+            }
+            _ => {}
+        }
+        for (name, value) in [("name", &p.name), ("summary", &p.summary), ("lesson", &p.lesson)] {
+            if value.trim().is_empty() {
+                err(format!("{name} must not be empty"));
+            }
+        }
+    }
+    let mut missing: Vec<&&str> = owner.keys().filter(|t| !seen.contains(**t)).collect();
+    missing.sort();
+    for t in missing {
+        diags.push((t.to_string(), "skills.toml lists this target but principles.toml has no principle for it".into()));
+    }
+    for (id, m) in diags {
+        report.push(Level::Error, &path, Some(&id), m);
+    }
+    report.principles = file.principle;
+}
+
 fn load_questions(root: &Path, report: &mut Report) {
     let dir = root.join("math");
     let entries = match std::fs::read_dir(&dir) {
@@ -219,8 +265,12 @@ fn validate_questions(report: &mut Report) {
         .iter()
         .map(|s| (s.id.clone(), (s.difficulty_min, s.difficulty_max)))
         .collect();
+    // principle id -> (skill, lesson status)
+    let principles: HashMap<String, (String, Status)> =
+        report.principles.iter().map(|p| (p.id.clone(), (p.skill.clone(), p.status))).collect();
     let mut seen_ids = HashSet::new();
     let mut diags = Vec::new();
+    let mut warnings = Vec::new();
     for (path, q) in &report.questions {
         let mut err = |m: String| diags.push((Level::Error, path.clone(), q.id.clone(), m));
 
@@ -237,6 +287,22 @@ fn validate_questions(report: &mut Report) {
             Some(&(lo, hi)) => {
                 if !(lo..=hi).contains(&q.difficulty) {
                     err(format!("difficulty {} is outside this skill's range {lo}-{hi}", q.difficulty));
+                }
+            }
+        }
+        match principles.get(q.principle.as_str()) {
+            None => err(format!("unknown principle {:?} (see principles.toml)", q.principle)),
+            Some((skill, _)) if *skill != q.skill => err(format!(
+                "principle {} belongs to skill {skill:?}, not {:?}",
+                q.principle, q.skill
+            )),
+            Some((_, lesson_status)) => {
+                if q.status == Status::Reviewed && *lesson_status != Status::Reviewed {
+                    warnings.push((
+                        path.clone(),
+                        q.id.clone(),
+                        format!("reviewed question links to principle {} whose lesson is not reviewed yet", q.principle),
+                    ));
                 }
             }
         }
@@ -276,6 +342,9 @@ fn validate_questions(report: &mut Report) {
     }
     for (level, path, id, m) in diags {
         report.push(level, &path, Some(&id), m);
+    }
+    for (path, id, m) in warnings {
+        report.push(Level::Warning, &path, Some(&id), m);
     }
 }
 

@@ -5,6 +5,7 @@
 [[question]]
 id = "a-expressions-0001"
 skill = "a-expressions"
+principle = "A.1.b"
 difficulty = 1
 type = "multiple_choice"
 status = "draft"
@@ -18,6 +19,7 @@ common_mistake = "Adding 7 instead of subtracting it: 15 + 7 = 22."
 [[question]]
 id = "a-expressions-0002"
 skill = "a-expressions"
+principle = "A.1.a"
 difficulty = 2
 type = "multiple_choice"
 status = "draft"
@@ -35,6 +37,7 @@ common_mistake = "Multiplying only the x by 4 and leaving the 3 alone, which giv
 [[question]]
 id = "a-expressions-0003"
 skill = "a-expressions"
+principle = "A.1.c"
 difficulty = 2
 type = "multiple_choice"
 status = "draft"

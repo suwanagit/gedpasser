@@ -1,0 +1,33 @@
+# Broken principles: Q.4.b has no principle, Q.3.a appears twice, Q.4.a is
+# in the wrong skill and has an empty lesson, and Q.9.z is not a target.
+[[principle]]
+id = "Q.3.a"
+skill = "q-ratios-percent"
+status = "draft"
+name = "Unit rates"
+summary = "How much for one."
+lesson = "Divide to find the amount for one unit."
+
+[[principle]]
+id = "Q.3.a"
+skill = "q-ratios-percent"
+status = "draft"
+name = "Unit rates again"
+summary = "Duplicate."
+lesson = "Duplicate."
+
+[[principle]]
+id = "Q.9.z"
+skill = "q-ratios-percent"
+status = "draft"
+name = "Not a target"
+summary = "Not listed in skills.toml."
+lesson = "Nothing."
+
+[[principle]]
+id = "Q.4.a"
+skill = "q-ratios-percent"
+status = "draft"
+name = "Wrong skill"
+summary = "Listed under geometry in skills.toml."
+lesson = "   "

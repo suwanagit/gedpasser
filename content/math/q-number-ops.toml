@@ -4,6 +4,7 @@
 [[question]]
 id = "q-number-ops-0001"
 skill = "q-number-ops"
+principle = "Q.2.e"
 difficulty = 1
 type = "fill_in"
 status = "draft"
@@ -23,6 +24,7 @@ common_mistake = "Adding one price of each item (4.25 + 6.80) without multiplyin
 [[question]]
 id = "q-number-ops-0002"
 skill = "q-number-ops"
+principle = "Q.2.a"
 difficulty = 2
 type = "multiple_choice"
 status = "draft"
@@ -39,6 +41,7 @@ common_mistake = "Working left to right: 18 − 3 = 15 and then 15 × 4 = 60."
 [[question]]
 id = "q-number-ops-0003"
 skill = "q-number-ops"
+principle = "Q.2.a"
 difficulty = 2
 type = "multiple_choice"
 status = "draft"

@@ -1,6 +1,7 @@
 [[question]]
 id = "q-ratios-percent-0001"
 skill = "q-ratios-percent"
+principle = "Q.3.a"
 difficulty = 2
 type = "multiple_choice"
 status = "draft"
@@ -18,6 +19,7 @@ common_mistake = "Adding 3 hours' worth to 240 without finding the hourly rate f
 [[question]]
 id = "q-ratios-percent-0002"
 skill = "q-ratios-percent"
+principle = "Q.3.a"
 difficulty = 1
 type = "fill_in"
 status = "draft"
@@ -30,6 +32,7 @@ common_mistake = "Giving the discount (20) instead of the sale price."
 [[question]]
 id = "q-ratios-percent-0003"
 skill = "q-ratios-percent"
+principle = "Q.3.a"
 difficulty = 1
 type = "multiple_choice"
 status = "draft"

@@ -4,6 +4,7 @@
 [[question]]
 id = "q-probability-0001"
 skill = "q-probability"
+principle = "Q.8.b"
 difficulty = 1
 type = "multiple_choice"
 status = "draft"
@@ -23,6 +24,7 @@ common_mistake = "Comparing blue to red (5/3) instead of blue to all the beads."
 [[question]]
 id = "q-probability-0002"
 skill = "q-probability"
+principle = "Q.8.a"
 difficulty = 2
 type = "fill_in"
 status = "draft"
@@ -39,6 +41,7 @@ common_mistake = "Adding the choices (4 + 3 = 7) instead of multiplying."
 [[question]]
 id = "q-probability-0003"
 skill = "q-probability"
+principle = "Q.8.b"
 difficulty = 3
 type = "multiple_choice"
 status = "draft"

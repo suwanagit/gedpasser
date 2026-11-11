@@ -4,6 +4,7 @@
 [[question]]
 id = "q-exponents-roots-0001"
 skill = "q-exponents-roots"
+principle = "Q.2.c"
 difficulty = 1
 type = "multiple_choice"
 status = "draft"
@@ -17,6 +18,7 @@ common_mistake = "Multiplying the base by the exponent: 5 × 3 = 15."
 [[question]]
 id = "q-exponents-roots-0002"
 skill = "q-exponents-roots"
+principle = "Q.2.b"
 difficulty = 2
 type = "fill_in"
 status = "draft"
@@ -33,6 +35,7 @@ common_mistake = "Treating the cube root like a square root and looking for a nu
 [[question]]
 id = "q-exponents-roots-0003"
 skill = "q-exponents-roots"
+principle = "Q.1.c"
 difficulty = 2
 type = "multiple_choice"
 status = "draft"

@@ -4,6 +4,7 @@
 [[question]]
 id = "a-systems-0001"
 skill = "a-systems"
+principle = "A.2.d"
 difficulty = 2
 type = "fill_in"
 status = "draft"
@@ -19,6 +20,7 @@ common_mistake = "Giving the value of y (3) instead of x."
 [[question]]
 id = "a-systems-0002"
 skill = "a-systems"
+principle = "A.2.d"
 difficulty = 2
 type = "multiple_choice"
 status = "draft"
@@ -39,6 +41,7 @@ common_mistake = "Giving the price of salmon (20) instead of halibut."
 [[question]]
 id = "a-systems-0003"
 skill = "a-systems"
+principle = "A.2.d"
 difficulty = 3
 type = "fill_in"
 status = "draft"

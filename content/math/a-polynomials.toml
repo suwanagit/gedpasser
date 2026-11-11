@@ -5,6 +5,7 @@
 [[question]]
 id = "a-polynomials-0001"
 skill = "a-polynomials"
+principle = "A.1.d"
 difficulty = 1
 type = "multiple_choice"
 status = "draft"
@@ -22,6 +23,7 @@ common_mistake = "Multiplying only the first terms and the last terms, which giv
 [[question]]
 id = "a-polynomials-0002"
 skill = "a-polynomials"
+principle = "A.4.a"
 difficulty = 2
 type = "fill_in"
 status = "draft"
@@ -37,6 +39,7 @@ common_mistake = "Getting the signs backwards and answering 2 from (x + 7)(x −
 [[question]]
 id = "a-polynomials-0003"
 skill = "a-polynomials"
+principle = "A.1.f"
 difficulty = 2
 type = "multiple_choice"
 status = "draft"

@@ -28,6 +28,29 @@ pub enum Area {
     Algebraic,
 }
 
+/// `content/principles.toml`: one principle per official assessment
+/// indicator. Names and lessons are our own wording.
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct PrincipleFile {
+    pub principle: Vec<Principle>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct Principle {
+    /// Official indicator code, e.g. "Q.3.d".
+    pub id: String,
+    pub skill: String,
+    /// Status of the lesson text: draft | reviewed | retired.
+    pub status: Status,
+    pub name: String,
+    /// One sentence shown in lists.
+    pub summary: String,
+    /// Paragraphs separated by blank lines; "- " lines are bullets; math in $...$.
+    pub lesson: String,
+}
+
 #[derive(Debug, Clone, Default, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct QuestionFile {
@@ -40,6 +63,9 @@ pub struct QuestionFile {
 pub struct Question {
     pub id: String,
     pub skill: String,
+    /// The principle (official indicator code) this question tests; must
+    /// belong to `skill`.
+    pub principle: String,
     /// 1 easy to 3 hard.
     pub difficulty: u8,
     #[serde(rename = "type")]
