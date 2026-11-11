@@ -289,20 +289,26 @@ Seven phases take the app from an empty repo to a public site; Phases 0 to 3 are
 
 **Phase 7: The other three GED tests** (Jon, 2026-11-11: prepare learners for all four tests)
 
-Start once Phase 3's last box (Jon's week of use) is ticked. Each subject is its own sub-phase, planned and approved separately. The order is decided in 7a.
+Each sub-phase is planned and approved separately. Research notes with sources are in `docs/subjects/`.
 
-- [ ] 7a. Research and design. Fetch the official GED assessment guides for Reasoning Through Language Arts, Science and Social Studies (as was done for Math). Record each test's structure, timing, content-area weights, assessment targets and item types in `docs/subjects/<subject>.md`, and verify every claim against the source. Decide the subject order and the new item formats: passage-based question sets, drop-down cloze, drag-and-drop, hot spots on maps and diagrams, and RLA's extended response (essay).
-- [ ] 7b. Make the app subject-aware. Add a subject level above skills in content, schema, API and UI. Math keeps working unchanged. Passages (shared by several questions) become first-class content.
-- [ ] 7c. Content pipeline for subjects without a code check (there is no `check` expression for reading or science):
+- [x] 7a. Research and design (2026-11-11). The official assessment guides, learner study guides and educator handbook were read for Reasoning Through Language Arts, Science and Social Studies. Each test's structure, timing, weights, targets and question types are recorded in `docs/subjects/<subject>.md` with a source and page for every fact, and checked by an independent reviewer. Format decisions and the subject order are in `docs/subjects/item-formats.md`.
+- [ ] 7b. Make the app subject-aware. Add a subject level above skills in content, schema, API and UI (the UI already shows four subjects; `web/src/subjects.ts` holds the placeholders). Math keeps working unchanged. New content and question formats, in this order:
+  - a shared stimulus (text, table, figure, or a mix) that several questions point to;
+  - a content-topic tag on each question, beside its skill and principle, so practice tests can match each test's content weights;
+  - fill-in answers that accept a list of words or phrases;
+  - drop-down questions inside a text;
+  - tap-to-place questions (put in order, sort into groups);
+  - hot spot questions are left for later; a labeled figure with multiple choice stands in.
+- [ ] 7c. Content pipeline for subjects without a code check (Science keeps a `check` expression for its numeric questions):
   - Every factual claim cites a source.
-  - Passages are original, or public domain (for example founding documents, which the real Social Studies test leans on), never copyrighted text.
+  - Passages are original, or public domain (for example founding documents, which the real Social Studies and RLA tests lean on), never copyrighted text.
   - Two independent reviewer subagents per batch, both solving blind. Both must pass an item.
   - A third reviewer re-checks facts against the cited sources.
   - Readability is checked against the target grade level.
-  - Distractors are analyzed for being "defensibly wrong".
-  - Cards, journey stages, hacks and a test-week plan follow the Math pattern, and the timed practice tests match each test's real length.
-- [ ] 7d. Build the first new subject end to end, then the remaining two, each with its own journey and practice tests.
-- [ ] 7e. Decide how to give feedback on RLA's extended response (a rubric checklist the learner self-scores, or AI scoring through the Claude API). That needs Jon's decision on cost and privacy.
+  - Distractors are analyzed for being "defensibly wrong"; drop-down and tap-to-place questions must have exactly one defensible answer.
+  - Cards, journey stages, hacks and a test-week plan follow the Math pattern. Timed practice tests use each test's real time limit (Science 90 minutes, Social Studies 70, RLA 150 with a break and a 45-minute essay).
+- [ ] 7d. Build the subjects end to end, each with its own journey and practice tests, in this order: Science, then Social Studies, then RLA.
+- [ ] 7e. Decide how to give feedback on RLA's extended response (a checklist the learner self-scores against the three rubric traits, or AI scoring through the Claude API). That needs Jon's decision on cost and privacy.
 
 ## Risks and open questions
 
@@ -322,4 +328,5 @@ The biggest risk is a wrong answer key reaching a learner; the pipeline exists t
 - Who gets access once it's public: invited people only, or anyone?
 - Will any learners be under 18? If so, what consent is needed before public use?
 - Should Alaska Adult Education programs ever be told about it, as a free extra for their students?
-- Which subject comes second: Reasoning Through Language Arts, Science, or Social Studies? (Decided in Phase 7a, after the research.)
+- How should the RLA essay be scored: a self-scored checklist, or AI scoring? (Phase 7e.)
+- GED Testing Service does not publish how many questions each test has. The practice tests use the real time limits and commonly reported counts; revisit if an official number turns up.
