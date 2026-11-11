@@ -278,7 +278,7 @@ Seven phases take the app from an empty repo to a public site; Phases 0 to 3 are
 - [x] Own look: Alaska palette in light and dark, bundled rounded font, one SVG icon set, moose mascot, pressable buttons, optional sounds
 - [x] Practice test kept plain; report with a score ring, a bar per skill, and missed questions that open on tap
 - [x] Subject layer: each tab opens on the four GED subjects; Math opens its path, tests, skills and lessons one layer down; the other three are placeholders marked "Soon"
-- [ ] Jon checks the look on a phone and a PC, in light and dark mode
+- [x] Jon checks the look on a phone and a PC, in light and dark mode (approved 2026-11-11)
 
 **Phase 6: Deploy and go public**
 
