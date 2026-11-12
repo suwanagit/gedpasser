@@ -1,0 +1,49 @@
+# Quick review cards for s-reading (SP.1.a, SP.1.b, SP.6.c). See WRITING.md.
+
+[[card]]
+id = "SP.1.a"
+status = "draft"
+title = "Main idea"
+key = "The main idea covers the whole passage, not one detail."
+steps = [
+  'Read the first and last sentences.',
+  'Ask: what is the whole passage about?',
+  'Drop answers that are true of only one part, or not in the passage.',
+]
+example = '''
+A passage about three kinds of clouds.
+**Main idea:** clouds come in different kinds. Not "rain clouds are dark".
+'''
+hack = 'If an answer adds something the passage never said, cross it out.'
+
+[[card]]
+id = "SP.1.b"
+status = "draft"
+title = "Terms and symbols"
+key = "The passage usually defines a new word right where it uses it."
+steps = [
+  'Find the word in the passage.',
+  'Look for "is called", "means", or a comma or colon after it.',
+  'Put your answer in place of the word and reread.',
+]
+example = '''
+"Plants lose water through transpiration, the escape of water vapor from leaves."
+**Transpiration** means water vapor escaping from leaves.
+'''
+hack = '(s) solid, (l) liquid, (g) gas, (aq) dissolved in water.'
+
+[[card]]
+id = "SP.6.c"
+status = "draft"
+title = "Tables into words"
+key = "Find the pattern first, then check the numbers."
+steps = [
+  'Read the headings and units.',
+  'Look at what goes up, goes down, or is biggest.',
+  'Divide to check any "half", "one-tenth" or "1 in 10".',
+]
+example = '''
+Day 1: 40 seeds sprouted. Day 2: 20. Day 3: 10.
+**In words:** each day, half as many sprouted as the day before.
+'''
+hack = 'Headings first, numbers second.'

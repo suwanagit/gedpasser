@@ -1,0 +1,439 @@
+# Science: reading science texts (SP.1.a, SP.1.b, SP.6.c)
+# Every question cites its sources (docs/CONTENT_RULES.md). Explanations
+# follow docs/EXPLANATION_STYLE.md: one line per step, answer in bold.
+
+# ── Keeping body temperature steady (science-body-temperature) ─────────
+
+[[question]]
+id = "s-reading-0001"
+skill = "s-reading"
+principle = "SP.1.a"
+topic = "L.a.2"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-body-temperature"
+sources = ["Original passage science-body-temperature", "OpenStax Anatomy and Physiology 2e 1.5 Homeostasis: https://openstax.org/books/anatomy-and-physiology-2e/pages/1-5-homeostasis", "OpenStax Concepts of Biology 16.1 Homeostasis and Osmoregulation: https://openstax.org/books/concepts-biology/pages/16-1-homeostasis-and-osmoregulation"]
+prompt = "What is the main idea of the passage?"
+choices = ["The body uses automatic responses to keep its temperature near a set point", "Sweating is the only way the body cools down", "Shivering happens when the muscles are tired", "Body temperature changes a lot during a normal day"]
+answer = "The body uses automatic responses to keep its temperature near a set point"
+explanation = '''
+The passage explains how the body cools down when hot and warms up when cold.
+Both ways push the temperature back toward the set point.
+So the main idea is that **the body uses automatic responses to keep its temperature near a set point**.
+'''
+common_mistake = "Picking a detail, like sweating, that is only one part of the passage."
+
+[[question]]
+id = "s-reading-0002"
+skill = "s-reading"
+principle = "SP.1.b"
+topic = "L.a.2"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-body-temperature"
+sources = ["Original passage science-body-temperature", "OpenStax Anatomy and Physiology 2e 1.5 Homeostasis: https://openstax.org/books/anatomy-and-physiology-2e/pages/1-5-homeostasis"]
+prompt = "In the passage, what does homeostasis mean?"
+choices = ["Keeping conditions inside the body steady", "Making heat by shivering", "The part of the brain that senses temperature", "Losing heat through sweat"]
+answer = "Keeping conditions inside the body steady"
+explanation = '''
+The passage says: "Keeping conditions inside the body steady like this is called homeostasis."
+So homeostasis means **keeping conditions inside the body steady**.
+'''
+common_mistake = "Picking the hypothalamus, which is the brain part that controls homeostasis, not homeostasis itself."
+
+[[question]]
+id = "s-reading-0003"
+skill = "s-reading"
+principle = "SP.1.a"
+topic = "L.a.2"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-body-temperature"
+sources = ["Original passage science-body-temperature", "OpenStax Anatomy and Physiology 2e 1.5 Homeostasis: https://openstax.org/books/anatomy-and-physiology-2e/pages/1-5-homeostasis", "OpenStax Concepts of Biology 16.1 Homeostasis and Osmoregulation: https://openstax.org/books/concepts-biology/pages/16-1-homeostasis-and-osmoregulation"]
+prompt = "According to the passage, how is the body's response to cold different from its response to heat?"
+choices = ["Blood vessels near the skin narrow instead of widening", "The sweat glands make more sweat", "The hypothalamus stops working", "The body stops using negative feedback"]
+answer = "Blood vessels near the skin narrow instead of widening"
+explanation = '''
+When you are too hot, blood vessels near the skin widen so heat escapes.
+When you are too cold, they narrow to keep warm blood deeper in the body.
+So the difference is that **blood vessels near the skin narrow instead of widening**.
+'''
+common_mistake = "Picking more sweat, which is part of the response to heat, not cold."
+
+[[question]]
+id = "s-reading-0004"
+skill = "s-reading"
+principle = "SP.1.b"
+topic = "L.a.2"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-body-temperature"
+sources = ["Original passage science-body-temperature", "OpenStax Anatomy and Physiology 2e 1.5 Homeostasis: https://openstax.org/books/anatomy-and-physiology-2e/pages/1-5-homeostasis", "OpenStax Concepts of Biology 16.1 Homeostasis and Osmoregulation: https://openstax.org/books/concepts-biology/pages/16-1-homeostasis-and-osmoregulation"]
+prompt = "As the passage uses the term, what is negative feedback?"
+choices = ["A response that pushes a change back toward the set point", "A response that makes a change even bigger", "A sign that the body is sick", "A drop in body temperature"]
+answer = "A response that pushes a change back toward the set point"
+explanation = '''
+The passage says the body's response "pushes the temperature back toward the set point".
+It calls this kind of control negative feedback.
+So negative feedback is **a response that pushes a change back toward the set point**.
+'''
+common_mistake = "Reading negative to mean bad or going down. Here it means the response undoes the change."
+
+# ── How plants make food (science-photosynthesis) ─────────────────────
+
+[[question]]
+id = "s-reading-0005"
+skill = "s-reading"
+principle = "SP.1.b"
+topic = "L.b.1"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-photosynthesis"
+sources = ["Original passage science-photosynthesis", "OpenStax Concepts of Biology 5.1 Overview of Photosynthesis: https://openstax.org/books/concepts-biology/pages/5-1-overview-of-photosynthesis"]
+prompt = "In the passage, what are the products of photosynthesis?"
+choices = ["Glucose and oxygen", "Carbon dioxide and water", "Sunlight and water", "Carbon dioxide and oxygen"]
+answer = "Glucose and oxygen"
+explanation = '''
+The passage says products are "the materials it makes".
+Photosynthesis makes glucose and gives off oxygen.
+So the products are **glucose and oxygen**.
+'''
+common_mistake = "Picking carbon dioxide and water, which are the reactants: what goes in, not what comes out."
+
+[[question]]
+id = "s-reading-0006"
+skill = "s-reading"
+principle = "SP.1.a"
+topic = "L.b.1"
+difficulty = 2
+type = "dropdown"
+status = "draft"
+stimulus = "science-photosynthesis"
+sources = ["Original passage science-photosynthesis", "OpenStax Concepts of Biology 5.1 Overview of Photosynthesis: https://openstax.org/books/concepts-biology/pages/5-1-overview-of-photosynthesis"]
+prompt = "Complete the summary of the passage: plants use energy from {{1}} to turn carbon dioxide and water into {{2}} and oxygen."
+blanks = [
+  { choices = ["sunlight", "the soil", "oxygen"], answer = "sunlight" },
+  { choices = ["glucose", "water vapor", "stomata"], answer = "glucose" },
+]
+explanation = '''
+The passage says the plant uses "energy from sunlight".
+It turns carbon dioxide and water into "a sugar called glucose" and gives off oxygen.
+So: energy from **sunlight** turns them into **glucose** and oxygen.
+'''
+common_mistake = "Picking the soil. The passage says the energy comes from sunlight."
+
+[[question]]
+id = "s-reading-0007"
+skill = "s-reading"
+principle = "SP.1.a"
+topic = "L.b.1"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-photosynthesis"
+sources = ["Original passage science-photosynthesis", "OpenStax Concepts of Biology 5.1 Overview of Photosynthesis: https://openstax.org/books/concepts-biology/pages/5-1-overview-of-photosynthesis"]
+prompt = "According to the passage, how does photosynthesis help animals that eat plants?"
+choices = ["They get some of the energy stored in the plant's glucose", "They get the sunlight the plant took in", "They take in carbon dioxide from the leaves", "They use the stomata to breathe"]
+answer = "They get some of the energy stored in the plant's glucose"
+explanation = '''
+The passage says glucose "stores energy" for the plant.
+Then it says: "Animals that eat plants get some of this stored energy too."
+So they **get some of the energy stored in the plant's glucose**.
+'''
+common_mistake = "Picking sunlight. The energy reaches animals stored in glucose, not as light."
+
+# ── Three ways heat moves (science-heat-transfer) ─────────────────────
+
+[[question]]
+id = "s-reading-0008"
+skill = "s-reading"
+principle = "SP.1.b"
+topic = "P.a.1"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-heat-transfer"
+sources = ["Original passage science-heat-transfer", "OpenStax College Physics 2e 14.4 Heat Transfer Methods: https://openstax.org/books/college-physics-2e/pages/14-4-heat-transfer-methods"]
+prompt = "In the passage, what does conduction mean?"
+choices = ["Heat moving through matter that is touching", "Heat carried by a moving liquid or gas", "Heat carried by light and other waves", "Heat moving from cooler things to warmer things"]
+answer = "Heat moving through matter that is touching"
+explanation = '''
+The passage says: "Conduction is heat moving through matter that is touching."
+Its example is a burner heating the pan that sits on it.
+So conduction means **heat moving through matter that is touching**.
+'''
+common_mistake = "Mixing it up with convection, which needs a moving liquid or gas."
+
+[[question]]
+id = "s-reading-0009"
+skill = "s-reading"
+principle = "SP.1.a"
+topic = "P.a.1"
+difficulty = 2
+type = "sort"
+status = "draft"
+stimulus = "science-heat-transfer"
+sources = ["Original passage science-heat-transfer", "OpenStax College Physics 2e 14.4 Heat Transfer Methods: https://openstax.org/books/college-physics-2e/pages/14-4-heat-transfer-methods", "OpenStax College Physics 2e 14.6 Convection: https://openstax.org/books/college-physics-2e/pages/14-6-convection", "OpenStax College Physics 2e 14.7 Radiation: https://openstax.org/books/college-physics-2e/pages/14-7-radiation"]
+prompt = "Sort each example from the passage by the way heat moves."
+groups = [
+  { name = "Conduction", items = ["Burner heating the bottom of a pan", "Heat spreading to the pan's handle"] },
+  { name = "Convection", items = ["Warm water rising in a pot"] },
+  { name = "Radiation", items = ["Sunlight warming Earth", "Campfire warming your face"] },
+]
+explanation = '''
+Conduction: the passage's examples are the **burner heating the pan** and **heat spreading to the handle**.
+Convection: its example is **warm water rising in a pot**.
+Radiation: its examples are **sunlight warming Earth** and **a campfire warming your face**.
+'''
+common_mistake = "Putting the campfire under conduction. Your face is not touching the fire; the heat comes by radiation."
+
+[[question]]
+id = "s-reading-0010"
+skill = "s-reading"
+principle = "SP.1.a"
+topic = "P.a.1"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-heat-transfer"
+sources = ["Original passage science-heat-transfer", "OpenStax College Physics 2e 14.1 Heat: https://openstax.org/books/college-physics-2e/pages/14-1-heat", "OpenStax College Physics 2e 14.4 Heat Transfer Methods: https://openstax.org/books/college-physics-2e/pages/14-4-heat-transfer-methods", "OpenStax College Physics 2e 14.7 Radiation: https://openstax.org/books/college-physics-2e/pages/14-7-radiation"]
+prompt = "According to the passage, how is radiation different from conduction and convection?"
+choices = ["It can move heat through empty space", "It moves heat from cooler things to warmer things", "It works only in liquids", "It needs matter that is touching"]
+answer = "It can move heat through empty space"
+explanation = '''
+Conduction needs matter that is touching. Convection needs a moving liquid or gas.
+The passage says radiation "does not need any matter", which is how the Sun's heat crosses space.
+So radiation **can move heat through empty space**.
+'''
+common_mistake = "Picking \"matter that is touching\", which describes conduction."
+
+# ── Energy in a food chain (science-food-chain) ───────────────────────
+
+[[question]]
+id = "s-reading-0011"
+skill = "s-reading"
+principle = "SP.6.c"
+topic = "L.c.1"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-food-chain"
+sources = ["Original passage science-food-chain", "OpenStax Concepts of Biology 20.1 Energy Flow through Ecosystems: https://openstax.org/books/concepts-biology/pages/20-1-energy-flow-through-ecosystems"]
+prompt = "Which statement describes the table?"
+choices = ["Each level holds less energy than the level below it", "Each level holds more energy than the level below it", "Every level holds the same amount of energy", "The snakes hold the most energy"]
+answer = "Each level holds less energy than the level below it"
+explanation = '''
+The energy goes 20,000, then 2,000, then 200, then 20.
+Each number is smaller than the one before it.
+So **each level holds less energy than the level below it**.
+'''
+common_mistake = "Thinking the top animal holds the most because it eats the others."
+
+[[question]]
+id = "s-reading-0012"
+skill = "s-reading"
+principle = "SP.6.c"
+topic = "L.c.1"
+difficulty = 2
+type = "dropdown"
+status = "draft"
+stimulus = "science-food-chain"
+sources = ["Original passage science-food-chain", "OpenStax Concepts of Biology 20.1 Energy Flow through Ecosystems: https://openstax.org/books/concepts-biology/pages/20-1-energy-flow-through-ecosystems"]
+prompt = "Complete the sentence about the table: each trophic level holds about {{1}} of the energy of the level below it, so the {{2}} hold the least energy."
+blanks = [
+  { choices = ["one-tenth", "one-half", "ten times"], answer = "one-tenth" },
+  { choices = ["snakes", "grasshoppers", "grass"], answer = "snakes" },
+]
+explanation = '''
+2,000 ÷ 20,000 = 0.1, and 200 ÷ 2,000 = 0.1. That is **one-tenth** each time.
+The smallest number, 20, belongs to the **snakes**.
+'''
+common_mistake = "Picking \"ten times\". The energy shrinks going up the chain; it does not grow."
+
+[[question]]
+id = "s-reading-0013"
+skill = "s-reading"
+principle = "SP.1.b"
+topic = "L.c.1"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-food-chain"
+sources = ["Original passage science-food-chain", "OpenStax Concepts of Biology 20.1 Energy Flow through Ecosystems: https://openstax.org/books/concepts-biology/pages/20-1-energy-flow-through-ecosystems"]
+prompt = "In the passage, what is a producer?"
+choices = ["A living thing that makes its own food using energy from sunlight", "An animal that eats other animals", "The top level of a food chain", "Any living thing that eats grass"]
+answer = "A living thing that makes its own food using energy from sunlight"
+explanation = '''
+The passage says: "Grass is a producer: it makes its own food using energy from sunlight."
+So a producer is **a living thing that makes its own food using energy from sunlight**.
+'''
+common_mistake = "Picking an animal. The passage calls the animals consumers."
+
+[[question]]
+id = "s-reading-0014"
+skill = "s-reading"
+principle = "SP.6.c"
+topic = "L.c.1"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-food-chain"
+sources = ["Original passage science-food-chain", "OpenStax Concepts of Biology 20.1 Energy Flow through Ecosystems: https://openstax.org/books/concepts-biology/pages/20-1-energy-flow-through-ecosystems"]
+prompt = "Which statement about the grasshoppers does the table support?"
+choices = ["They hold less energy than the grass but more than the mice", "They hold more energy than the grass", "They hold less energy than the snakes", "They hold the same energy as the mice"]
+answer = "They hold less energy than the grass but more than the mice"
+explanation = '''
+The grasshoppers hold 2,000. The grass holds 20,000 and the mice hold 200.
+2,000 is less than 20,000 but more than 200.
+So the grasshoppers **hold less energy than the grass but more than the mice**.
+'''
+common_mistake = "Thinking the grasshoppers hold more than the grass because they eat it."
+
+[[question]]
+id = "s-reading-0015"
+skill = "s-reading"
+principle = "SP.6.c"
+topic = "L.c.1"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-food-chain"
+sources = ["Original passage science-food-chain", "OpenStax Concepts of Biology 20.1 Energy Flow through Ecosystems: https://openstax.org/books/concepts-biology/pages/20-1-energy-flow-through-ecosystems"]
+prompt = "Which statement compares the snakes' energy with the grass's energy correctly?"
+choices = ["The snakes hold one-thousandth of the energy the grass holds", "The snakes hold one-hundredth of the energy the grass holds", "The snakes hold one-tenth of the energy the grass holds", "The snakes hold one-fourth of the energy the grass holds"]
+answer = "The snakes hold one-thousandth of the energy the grass holds"
+explanation = '''
+The grass holds 20,000 and the snakes hold 20.
+20 ÷ 20,000 = 0.001, which is one-thousandth.
+So the snakes hold **one-thousandth of the energy the grass holds**.
+'''
+common_mistake = "Picking one-fourth because snakes are the fourth level. The energy shrinks to one-tenth at each of the three steps up."
+
+# ── The water cycle (science-water-cycle) ─────────────────────────────
+
+[[question]]
+id = "s-reading-0016"
+skill = "s-reading"
+principle = "SP.1.b"
+topic = "ES.a.1"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-water-cycle"
+sources = ["Original passage science-water-cycle", "OpenStax Concepts of Biology 20.2 Biogeochemical Cycles: https://openstax.org/books/concepts-biology/pages/20-2-biogeochemical-cycles"]
+prompt = "In the passage, what does evaporates mean?"
+choices = ["Changes from a liquid into a gas", "Changes from a gas into tiny droplets", "Falls as rain or snow", "Soaks into the ground"]
+answer = "Changes from a liquid into a gas"
+explanation = '''
+The passage says the water "evaporates, which means it changes from a liquid into a gas".
+So evaporates means **changes from a liquid into a gas**.
+'''
+common_mistake = "Picking \"changes from a gas into tiny droplets\", which the passage calls condensing."
+
+[[question]]
+id = "s-reading-0017"
+skill = "s-reading"
+principle = "SP.1.a"
+topic = "ES.a.1"
+difficulty = 2
+type = "order"
+status = "draft"
+stimulus = "science-water-cycle"
+sources = ["Original passage science-water-cycle", "OpenStax Concepts of Biology 20.2 Biogeochemical Cycles: https://openstax.org/books/concepts-biology/pages/20-2-biogeochemical-cycles"]
+prompt = "Put these steps of the water cycle in the order the passage describes them."
+items = [
+  "The Sun warms water in the ocean",
+  "Water evaporates and rises as water vapor",
+  "Water vapor cools and forms clouds",
+  "Water falls as rain or snow",
+]
+explanation = '''
+First the Sun warms the water. Then some of it evaporates and rises as water vapor.
+The vapor cools and condenses into clouds.
+Last, **the water falls as rain or snow**.
+'''
+common_mistake = "Putting clouds before evaporation. Clouds form from water vapor, so the water has to evaporate first."
+
+[[question]]
+id = "s-reading-0018"
+skill = "s-reading"
+principle = "SP.6.c"
+topic = "ES.a.1"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-water-cycle"
+sources = ["Original passage science-water-cycle", "OpenStax Concepts of Biology 20.2 Biogeochemical Cycles: https://openstax.org/books/concepts-biology/pages/20-2-biogeochemical-cycles"]
+prompt = "Which statement describes the table?"
+choices = ["Almost all of Earth's water is salt water", "Most of Earth's water is fresh water", "Earth has about the same amount of salt water as fresh water", "Fresh water makes up about a quarter of Earth's water"]
+answer = "Almost all of Earth's water is salt water"
+explanation = '''
+Salt water is 97.5% of all water on Earth. Fresh water is only 2.5%.
+So **almost all of Earth's water is salt water**.
+'''
+common_mistake = "Reading 2.5% as a quarter. A quarter is 25%, ten times as much."
+
+[[question]]
+id = "s-reading-0019"
+skill = "s-reading"
+principle = "SP.6.c"
+topic = "ES.a.1"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-water-cycle"
+sources = ["Original passage science-water-cycle", "OpenStax Concepts of Biology 20.2 Biogeochemical Cycles: https://openstax.org/books/concepts-biology/pages/20-2-biogeochemical-cycles"]
+prompt = "Which sentence matches the table?"
+choices = ["About 1 out of every 40 liters of Earth's water is fresh water", "About 1 out of every 4 liters of Earth's water is fresh water", "About 1 out of every 25 liters of Earth's water is fresh water", "About 1 out of every 400 liters of Earth's water is fresh water"]
+answer = "About 1 out of every 40 liters of Earth's water is fresh water"
+explanation = '''
+Fresh water is 2.5%, which means 2.5 out of every 100 liters.
+100 ÷ 2.5 = 40.
+So **about 1 out of every 40 liters** is fresh water.
+'''
+common_mistake = "Picking 1 out of 25 by mixing up 2.5% with 1/25. 1/25 is 4%."
+
+# ── Stand-alone ───────────────────────────────────────────────────────
+
+[[question]]
+id = "s-reading-0020"
+skill = "s-reading"
+principle = "SP.1.b"
+topic = "P.c.3"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+sources = ["OpenStax Chemistry 2e 4.1 Writing and Balancing Chemical Equations: https://openstax.org/books/chemistry-2e/pages/4-1-writing-and-balancing-chemical-equations"]
+prompt = "A science book shows this equation for burning methane: CH₄ + 2O₂ → CO₂ + 2H₂O. What does the arrow (→) mean?"
+choices = ["The substances on the left react to make the substances on the right", "The two sides are the same substance", "The substances on the right break down into the substances on the left", "The reaction gives off heat"]
+answer = "The substances on the left react to make the substances on the right"
+explanation = '''
+In a chemical equation, the reactants go on the left and the products go on the right.
+The arrow points from what reacts to what is made.
+So the arrow means **the substances on the left react to make the substances on the right**.
+'''
+common_mistake = "Treating the arrow like an equals sign. The two sides hold the same atoms, but they are different substances."
+
+[[question]]
+id = "s-reading-0021"
+skill = "s-reading"
+principle = "SP.1.b"
+topic = "P.c.3"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+sources = ["OpenStax Chemistry 2e 4.1 Writing and Balancing Chemical Equations: https://openstax.org/books/chemistry-2e/pages/4-1-writing-and-balancing-chemical-equations"]
+prompt = "In the equation Zn(s) + 2HCl(aq) → ZnCl₂(aq) + H₂(g), which product is a gas?"
+choices = ["H₂", "ZnCl₂", "Zn", "HCl"]
+answer = "H₂"
+explanation = '''
+The products are on the right of the arrow: ZnCl₂ and H₂.
+The letter in parentheses shows the state: (s) solid, (l) liquid, (g) gas, (aq) dissolved in water.
+H₂ has (g), so **H₂** is the gas.
+'''
+common_mistake = "Picking HCl or Zn. They are on the left of the arrow, so they are reactants, not products."

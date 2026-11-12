@@ -9,7 +9,7 @@
 # Reviewed as a whole: `cargo content-template study`, then
 # `cargo content-approve study` after an independent review.
 
-status = "reviewed"
+status = "draft"
 
 [[topic]]
 principle = "Q.1.a"
@@ -532,4 +532,26 @@ links = [
   { title = "OpenStax Concepts of Biology, 1.2 The process of science", url = "https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science" },
   { title = "OpenStax Biology 2e, 1.1 The science of biology", url = "https://openstax.org/books/biology-2e/pages/1-1-the-science-of-biology" },
   { title = "OpenStax Psychology 2e, 2.3 Analyzing findings", url = "https://openstax.org/books/psychology-2e/pages/2-3-analyzing-findings" },
+]
+
+[[topic]]
+principle = "SP.1.a"
+search = "finding the main idea of a passage"
+links = [
+  { title = "OpenStax College Success, 5.2 Effective reading strategies", url = "https://openstax.org/books/college-success/pages/5-2-effective-reading-strategies" },
+]
+
+[[topic]]
+principle = "SP.1.b"
+search = "using context clues to find word meaning"
+links = [
+  { title = "OpenStax College Success, 5.2 Effective reading strategies", url = "https://openstax.org/books/college-success/pages/5-2-effective-reading-strategies" },
+  { title = "OpenStax Chemistry 2e, 4.1 Writing and balancing chemical equations", url = "https://openstax.org/books/chemistry-2e/pages/4-1-writing-and-balancing-chemical-equations" },
+]
+
+[[topic]]
+principle = "SP.6.c"
+search = "how to describe a data table in words"
+links = [
+  { title = "Math is Fun, Data graphs", url = "https://www.mathsisfun.com/data/data-graph.html" },
 ]

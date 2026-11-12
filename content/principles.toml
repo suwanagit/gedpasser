@@ -1272,3 +1272,45 @@ lesson = '''
 
 Example: testing whether study time affects quiz scores, study time is independent, the quiz score is dependent, and using the same quiz for everyone keeps it controlled.
 '''
+
+[[principle]]
+id = "SP.1.a"
+skill = "s-reading"
+status = "draft"
+name = "Main idea and details"
+summary = "Find what a science passage is mostly about, and pick out what it says."
+lesson = '''
+The main idea is what the whole passage is about. Details are the facts that back it up.
+
+- The main idea often shows up in the first or last sentence.
+- A main-idea answer covers the whole passage, not just one part.
+- For "according to the passage", the answer is something the passage says, maybe in other words. Don't add what it doesn't say.
+'''
+
+[[principle]]
+id = "SP.1.b"
+skill = "s-reading"
+status = "draft"
+name = "Terms and symbols"
+summary = "Work out what a science word or symbol means from how the passage uses it."
+lesson = '''
+Science passages often explain a new word right where they use it.
+
+- Look for "is called", "means", or a definition after a comma or colon.
+- Symbols have fixed meanings: in a chemical equation, the arrow means "react to make", and (s), (l), (g) and (aq) mean solid, liquid, gas, and dissolved in water.
+- Check your answer by putting it in place of the word. The sentence should still make sense.
+'''
+
+[[principle]]
+id = "SP.6.c"
+skill = "s-reading"
+status = "draft"
+name = "Tables and graphs in words"
+summary = "Pick the sentence that says correctly what a table, graph or set of numbers shows."
+lesson = '''
+To put a table into words, look for the pattern first, then check the numbers.
+
+- Read the column headings and units before the numbers.
+- Ask: what goes up, what goes down, and what is biggest or smallest?
+- A comparison like "one-tenth" or "1 out of 40" must match the numbers. Divide to check.
+'''

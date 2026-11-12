@@ -54,3 +54,72 @@ A student builds two identical trays of soil and tilts them at the same angle. O
 '''
 table = { headers = ["Tray", "Soil washed off (g)"], rows = [["Grass", "40"], ["Bare soil", "310"]] }
 source = "Original (made-up results for practice)"
+
+[[stimulus]]
+id = "science-body-temperature"
+status = "draft"
+title = "Keeping body temperature steady"
+text = '''
+Your body works best when its inside temperature stays close to 37 °C. Keeping conditions inside the body steady like this is called homeostasis. The steady value the body aims for is called the set point.
+
+A part of the brain called the hypothalamus works like a thermostat. When you get too hot, it signals your sweat glands. Sweat spreads over your skin, and as it evaporates, it carries heat away. Blood vessels near the skin also widen, so more heat escapes. When you get too cold, the blood vessels near the skin narrow, which keeps warm blood deeper in the body. Your muscles may also start shivering. Shivering is a fast, automatic tightening of the muscles that makes heat.
+
+Either way, the body's response pushes the temperature back toward the set point. This kind of control is called negative feedback.
+'''
+source = "Original (facts from OpenStax Anatomy and Physiology 2e 1.5 Homeostasis and Concepts of Biology 16.1 Homeostasis and Osmoregulation)"
+
+[[stimulus]]
+id = "science-photosynthesis"
+status = "draft"
+title = "How plants make food"
+text = '''
+Plants make their own food by photosynthesis. Their leaves take in carbon dioxide from the air, and the plant takes in water. Using energy from sunlight, the plant turns these starting materials into a sugar called glucose. It gives off oxygen as well.
+
+Scientists call the starting materials of a process its reactants, and the materials it makes its products. For photosynthesis:
+
+carbon dioxide + water → glucose + oxygen (using energy from sunlight)
+
+The glucose stores energy that the plant can use later to live and grow. Animals that eat plants get some of this stored energy too. Gases move in and out of the leaf through tiny openings called stomata.
+'''
+source = "Original (facts from OpenStax Concepts of Biology 5.1 Overview of Photosynthesis)"
+
+[[stimulus]]
+id = "science-heat-transfer"
+status = "draft"
+title = "Three ways heat moves"
+text = '''
+Heat moves from warmer things to cooler things. It can move in three ways.
+
+Conduction is heat moving through matter that is touching. When a metal pan sits on a hot stove burner, heat passes from the burner into the pan, and then along the pan to its handle.
+
+Convection is heat carried by a moving liquid or gas. In a pot of water on the stove, the water at the bottom warms up and rises. Cooler water sinks to take its place, and the water keeps circling.
+
+Radiation is heat carried by light and other waves, such as infrared waves. It does not need any matter. This is how heat from the Sun reaches Earth through empty space, and how you feel warmth on your face from a campfire.
+'''
+source = "Original (facts from OpenStax College Physics 2e 14.1 Heat, 14.4 Heat Transfer Methods, 14.6 Convection and 14.7 Radiation)"
+
+[[stimulus]]
+id = "science-food-chain"
+status = "draft"
+title = "Energy in a food chain"
+text = '''
+In a meadow, grasshoppers eat grass, mice eat grasshoppers, and snakes eat mice. Each step in a food chain is called a trophic level. Grass is a producer: it makes its own food using energy from sunlight. The animals are consumers: they get energy by eating other living things.
+
+A student made a model of how much energy each level of this food chain holds in one year. The numbers are made up, but they show a pattern scientists see in real food chains.
+'''
+table = { headers = ["Trophic level", "Living thing", "Energy (kJ per square meter per year)"], rows = [["1", "Grass", "20,000"], ["2", "Grasshoppers", "2,000"], ["3", "Mice", "200"], ["4", "Snakes", "20"]] }
+source = "Original (made-up numbers for practice; facts from OpenStax Concepts of Biology 20.1 Energy Flow through Ecosystems)"
+
+[[stimulus]]
+id = "science-water-cycle"
+status = "draft"
+title = "The water cycle"
+text = '''
+Earth's water is always on the move. This movement is called the water cycle, and energy from the Sun drives it.
+
+The Sun warms oceans, lakes and rivers. Some of the water evaporates, which means it changes from a liquid into a gas called water vapor. The water vapor rises into the air. As it cools, it condenses into tiny droplets that form clouds. When the droplets grow heavy enough, they fall as precipitation: rain or snow. Some of this water flows over the ground into streams and rivers. This is called runoff. Some soaks into the ground and becomes groundwater.
+
+As the table shows, very little of Earth's water is fresh water. Almost all fresh water is frozen in ice or held underground. Less than 1 percent of fresh water is in lakes and rivers.
+'''
+table = { headers = ["Kind of water", "Share of all water on Earth (%)"], rows = [["Salt water", "97.5"], ["Fresh water", "2.5"]] }
+source = "Original (facts and numbers from OpenStax Concepts of Biology 20.2 Biogeochemical Cycles)"

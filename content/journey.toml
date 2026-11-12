@@ -157,3 +157,21 @@ title = "Planning a fair test"
 principles = ["SP.2.d", "SP.2.c", "SP.2.a"]
 size = 5
 max_difficulty = 2
+
+[[stage]]
+id = "sci-d2a"
+subject = "science"
+day = 2
+title = "Reading for meaning"
+principles = ["SP.1.a", "SP.1.b"]
+size = 5
+max_difficulty = 1
+
+[[stage]]
+id = "sci-d2b"
+subject = "science"
+day = 2
+title = "Tables into words"
+principles = ["SP.6.c"]
+size = 5
+max_difficulty = 2

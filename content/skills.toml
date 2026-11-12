@@ -200,3 +200,15 @@ spotting errors, and judging whether a design is fair and reliable.\
 difficulty_min = 1
 difficulty_max = 3
 targets = ["SP.2.a", "SP.2.b", "SP.2.c", "SP.2.d", "SP.2.e"]
+
+[[skill]]
+id = "s-reading"
+subject = "science"
+name = "Reading science texts"
+description = """
+Reading short science passages: the main idea, what a term or symbol \
+means where it is used, and putting a table or diagram into words.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["SP.1.a", "SP.1.b", "SP.6.c"]
