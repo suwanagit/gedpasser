@@ -73,7 +73,7 @@ principle = "SP.3.b"
 topic = "P.c.4"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-road-salt"
 sources = ["Original passage science-road-salt", "OpenStax Chemistry 2e 11.4 Colligative Properties: https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties"]
 prompt = "Which conclusion do the student's results support?"
@@ -93,7 +93,7 @@ principle = "SP.4.a"
 topic = "P.c.4"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-road-salt"
 sources = ["Original passage science-road-salt", "OpenStax Chemistry 2e 11.4 Colligative Properties: https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties"]
 prompt = "Do the results support or weaken the claim that salt makes ice melt faster?"
@@ -113,7 +113,7 @@ principle = "SP.3.a"
 topic = "P.c.4"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-road-salt"
 sources = ["Original passage science-road-salt", "OpenStax Chemistry 2e 11.4 Colligative Properties: https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties"]
 prompt = "The student concludes, \"The more salt I used, the faster the ice melted.\" Which evidence best supports this conclusion?"
@@ -135,13 +135,14 @@ difficulty = 3
 type = "multiple_choice"
 status = "draft"
 stimulus = "science-road-salt"
-sources = ["Original passage science-road-salt", "OpenStax Chemistry 2e 11.4 Colligative Properties: https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties"]
+sources = ["Original passage science-road-salt", "OpenStax Chemistry 2e 11.4 Colligative Properties: https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties", "OpenStax Chemistry 2e 10.3 Phase Transitions: https://openstax.org/books/chemistry-2e/pages/10-3-phase-transitions"]
 prompt = "A chemistry book says that salt water freezes at a lower temperature than pure water. How does this fact relate to the claim that salt makes ice melt faster?"
 choices = ["It supports the claim, because salty water stays liquid at temperatures where pure water would freeze", "It weakens the claim, because salt water is harder to freeze", "It weakens the claim, because the ice cubes were made of pure water", "It neither supports nor weakens the claim, because it is about freezing, not melting"]
 answer = "It supports the claim, because salty water stays liquid at temperatures where pure water would freeze"
 explanation = '''
-Salt dissolves into the thin layer of water on the ice, making salt water.
+Salt dissolves in water from the melting ice and makes salt water.
 Salt water freezes at a lower temperature, so it stays liquid where pure water would freeze.
+That lets ice touching salt water keep melting at temperatures where plain ice would stay solid.
 So the fact **supports the claim, because salty water stays liquid at temperatures where pure water would freeze**.
 '''
 common_mistake = "Thinking freezing and melting are unrelated. The freezing point and the melting point of water are the same temperature."
@@ -164,7 +165,7 @@ answer = "Water boils at a lower temperature where the air pressure is lower"
 explanation = '''
 Both thermometers read correctly, so both results are real.
 The passage says the air pressure at the camp is much lower.
-Both can be right because **water boils at a lower temperature where the air pressure is lower**.
+So both can be right: **water boils at a lower temperature where the air pressure is lower**.
 '''
 common_mistake = "Deciding one result must be wrong. The passage says both thermometers read correctly."
 
@@ -179,34 +180,34 @@ status = "draft"
 stimulus = "science-boiling"
 sources = ["Original passage science-boiling", "OpenStax Chemistry 2e 10.3 Phase Transitions: https://openstax.org/books/chemistry-2e/pages/10-3-phase-transitions"]
 prompt = "Which difference between the two students best explains their different results?"
-choices = ["They were at very different heights above sea level", "They used different pots", "One was a boy and one was a girl", "They did the test on different days"]
+choices = ["They were at very different heights above sea level", "They used different pots", "They heated different amounts of water", "They did the test on different days"]
 answer = "They were at very different heights above sea level"
 explanation = '''
 One student was near sea level; the other was about 3,100 meters up.
 The passage says that height brings much lower air pressure.
 So the key difference is that **they were at very different heights above sea level**.
 '''
-common_mistake = "Picking the pots. The pot does not change the temperature at which pure water boils."
+common_mistake = "Picking the pots or the amount of water. Neither changes the temperature at which pure water boils."
 
 [[question]]
 id = "s-evidence-0010"
 skill = "s-evidence"
 principle = "SP.3.b"
 topic = "P.c.2"
-difficulty = 3
+difficulty = 2
 type = "multiple_choice"
 status = "draft"
 stimulus = "science-boiling"
 sources = ["Original passage science-boiling", "OpenStax Chemistry 2e 10.3 Phase Transitions: https://openstax.org/books/chemistry-2e/pages/10-3-phase-transitions"]
-prompt = "A third student heats pure water at a place about 1,500 meters above sea level. Based on the passage, which result is most likely?"
-choices = ["It boils at a temperature between 90 °C and 100 °C", "It boils at exactly 100 °C", "It boils at a temperature below 90 °C", "It boils at a temperature above 100 °C"]
-answer = "It boils at a temperature between 90 °C and 100 °C"
+prompt = "Which conclusion do the two students' results support?"
+choices = ["Pure water boiled at a lower temperature at the mountain camp than near sea level", "Water boils at 90 °C everywhere in the mountains", "Thermometers read lower in the mountains", "Water takes longer to boil in the mountains"]
+answer = "Pure water boiled at a lower temperature at the mountain camp than near sea level"
 explanation = '''
-Higher places have lower air pressure, and lower pressure means a lower boiling point.
-1,500 meters is between sea level (100 °C) and 3,100 meters (about 90 °C).
-So the water most likely **boils at a temperature between 90 °C and 100 °C**.
+Near sea level the water boiled at 100 °C. At the camp it boiled at about 90 °C.
+Both thermometers read correctly, so the difference is real.
+So the results support: **pure water boiled at a lower temperature at the mountain camp than near sea level**.
 '''
-common_mistake = "Picking below 90 °C. That would fit a place higher than the mountain camp, not lower."
+common_mistake = "Picking \"90 °C everywhere in the mountains\". The students measured at one camp; other heights could give other boiling points."
 
 # ── Beetles on an island (science-beetles) ────────────────────────────
 
@@ -263,14 +264,14 @@ status = "draft"
 stimulus = "science-beetles"
 sources = ["Original passage science-beetles", "OpenStax Concepts of Biology 11.1 Discovering How Populations Change: https://openstax.org/books/concepts-biology/pages/11-1-discovering-how-populations-change"]
 prompt = "Which detail from the passage is needed for natural selection to explain the change in beetle color?"
-choices = ["Color is passed from parents to their young", "Scientists counted beetles every four years", "The island is small", "The beetles come in two shades of brown"]
+choices = ["Color is passed from parents to their young", "Scientists counted beetles every four years", "The island is small", "In 2022, 85% of the beetles were dark"]
 answer = "Color is passed from parents to their young"
 explanation = '''
 Natural selection works on traits that are passed on.
 Dark beetles that survived had more dark young, so the share of dark beetles grew.
 So the needed detail is that **color is passed from parents to their young**.
 '''
-common_mistake = "Picking the two shades. Variation matters too, but without passing color on, survivors could not raise the share in the next generation."
+common_mistake = "Picking the 85% figure. It shows that the change happened, not what lets natural selection cause it."
 
 [[question]]
 id = "s-evidence-0014"
@@ -301,7 +302,7 @@ principle = "SP.3.b"
 topic = "L.a.1"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-heart-rate"
 sources = ["Original passage science-heart-rate", "OpenStax Anatomy and Physiology 2e 19.4 Cardiac Physiology: https://openstax.org/books/anatomy-and-physiology-2e/pages/19-4-cardiac-physiology"]
 prompt = "Which conclusion do the data support?"
@@ -321,7 +322,7 @@ principle = "SP.4.a"
 topic = "L.a.1"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-heart-rate"
 sources = ["Original passage science-heart-rate", "OpenStax Anatomy and Physiology 2e 19.4 Cardiac Physiology: https://openstax.org/books/anatomy-and-physiology-2e/pages/19-4-cardiac-physiology"]
 prompt = "A friend says, \"Exercise slows your heart down.\" How do the data affect this claim?"
@@ -341,7 +342,7 @@ principle = "SP.3.a"
 topic = "L.a.1"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-heart-rate"
 sources = ["Original passage science-heart-rate", "OpenStax Anatomy and Physiology 2e 19.4 Cardiac Physiology: https://openstax.org/books/anatomy-and-physiology-2e/pages/19-4-cardiac-physiology"]
 prompt = "The coach concludes that running raises heart rate more than walking. Which numbers back this up?"
@@ -363,7 +364,7 @@ principle = "SP.5.a"
 topic = "L.a.3"
 difficulty = 3
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 sources = ["OpenStax Psychology 2e 2.2 Approaches to Research: https://openstax.org/books/psychology-2e/pages/2-2-approaches-to-research", "OpenStax Psychology 2e 2.3 Analyzing Findings: https://openstax.org/books/psychology-2e/pages/2-3-analyzing-findings", "OpenStax Concepts of Biology 1.2 The Process of Science: https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science"]
 prompt = "Study A gave a vitamin to 12 people and found they had fewer colds. Study B gave the same vitamin or a fake pill to 2,000 people and found no difference in colds. Which statement is best?"
 choices = ["Study B is stronger evidence, because it tested far more people and compared them with a group taking a fake pill", "Study A is stronger evidence, because it found an effect", "The two studies agree, because both used the same vitamin", "Neither study tells us anything, because they disagree"]
@@ -390,6 +391,7 @@ answer = "Air slows the feather on Earth, but the Moon has no air to slow it"
 explanation = '''
 The difference between the two places is air.
 On Earth, air pushes against the light, wide feather and slows it.
-With no air on the Moon, **nothing slows the feather, so both fall together**.
+With no air on the Moon, nothing slows the feather, so both fall together.
+So both can be right: **air slows the feather on Earth, but the Moon has no air to slow it**.
 '''
 common_mistake = "Thinking the Moon has no gravity. If it had none, the feather and hammer would not have fallen at all."

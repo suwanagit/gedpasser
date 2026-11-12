@@ -155,3 +155,11 @@ hash = "fab3a32985e28d5c"
 verdict = "pass"
 note = "factcheck-c: curl-checked all 92 unique URLs: every one returned HTTP 200, and each page title matches its link title. A test showed both OpenStax and Math is Fun return 404 for missing pages, so these are real pages, not soft 404s. New topics: SP.1.a College Success 5.2 Effective Reading Strategies (previewing, questioning for main ideas, skimming), which fits. SP.1.b College Success 5.2 (the Learning Vocabulary section, context clues and discipline-specific terms) plus Chemistry 2e 4.1 (chemical-equation symbols, state labels), which fits terms and symbols. SP.6.c Math is Fun Bar Graphs plus Introductory Statistics 2e 2.1 (reading bar and line graphs), which is adequate for putting a table or graph into words. The search phrases fit. Earlier topics: link check only, as instructed."
 date = "2026-11-12"
+
+[[review]]
+id = "study"
+kind = "study"
+hash = "2d0cdd35b1406b25"
+verdict = "pass"
+note = """factcheck-f: fetched all 93 unique URLs in study.toml with curl -L: every one returned HTTP 200 (a made-up OpenStax slug returns 404, so 200 is meaningful). Compared every link title with the page <title>: all match (Math is Fun Cone/Cylinder pages are titled 'Spinning Cone/Cylinder' but are the cone and cylinder pages). New topics: SP.3.a and SP.4.a -> Concepts of Biology 1.2 (conclusions from evidence; hypotheses supported or rejected by results; falsifiable); SP.3.b -> Psychology 2e 2.3 (interpreting findings, correlation is not causation); SP.5.a -> Psychology 2e 2.2 (small samples limit generalizing) and 2.3 (control groups, placebo, chance). All fit their principles at an adult level; search words fit."""
+date = "2026-11-12"

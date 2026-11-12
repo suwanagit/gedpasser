@@ -2,7 +2,7 @@
 
 [[card]]
 id = "SP.3.a"
-status = "draft"
+status = "reviewed"
 title = "Pointing to evidence"
 key = "Evidence is the exact data the conclusion talks about."
 steps = [
@@ -27,14 +27,14 @@ steps = [
   'Cross out things the study never measured.',
 ]
 example = '''
-Data: 3 of 4 plants in the sun grew taller.
+Data: 3 of 4 plants in the sun grew taller than the plants in the shade.
 **Supported:** most sunny plants grew taller. Not: "sun always makes plants taller".
 '''
-hack = 'The safest true answer usually wins.'
+hack = 'Pick the answer that fits every number and claims no more.'
 
 [[card]]
 id = "SP.4.a"
-status = "draft"
+status = "reviewed"
 title = "Support or weaken"
 key = "Evidence supports a claim if it is what the claim predicts."
 steps = [
@@ -59,7 +59,7 @@ steps = [
   'If they truly clash, trust the bigger, fairer study.',
 ]
 example = '''
-One thermometer reads 20 °C, another 27 °C, at the same time.
-**Both right:** one is in the shade, one is in the sun.
+Bread in a kitchen molded in 4 days. Bread in a fridge took 12 days.
+**Both right:** the fridge is colder, and mold grows slower in the cold.
 '''
 hack = 'Bigger and fairer beats newer or louder.'

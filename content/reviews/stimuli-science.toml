@@ -456,3 +456,105 @@ role = "factcheck"
 verdict = "pass"
 note = "Opened OpenStax Concepts of Biology 20.2, NASA GPM Water Cycle and USGS Evaporation and the Water Cycle. OpenStax: cycle driven by the Sun's energy warming oceans and surface waters; evaporation is water to water vapor; vapor condenses into clouds and leads to precipitation (rain or snow); surface runoff; percolation into ground; 97.5 percent salt water (so 2.5 fresh), 99 percent of the rest underground or ice, less than 1 percent of fresh water in lakes and rivers. NASA: evaporates, rises, cools and condenses, falls as precipitation; runoff and groundwater. USGS: evaporation changes liquid water to water vapor. Table 97.5/2.5 matches OpenStax. Source starts with Original; wording is paraphrased, no long verbatim runs."
 date = "2026-11-12"
+
+[[review]]
+id = "science-co2"
+kind = "stimulus"
+hash = "c162106b7ee3d298"
+reviewer = "solver-k"
+role = "solver"
+verdict = "pass"
+note = "Clear, short, ppm defined in plain words, about grade 10. Values look consistent with NOAA annual means (fact-checker to confirm 2025). Data: source format correct."
+date = "2026-11-12"
+
+[[review]]
+id = "science-road-salt"
+kind = "stimulus"
+hash = "4d0e7f2d07b9a699"
+reviewer = "solver-k"
+role = "solver"
+verdict = "pass"
+note = "Clear controlled design (same mass, identical dishes, same room, three repeats, averaged). Made-up results labeled. Plausible times. Reading level fine."
+date = "2026-11-12"
+
+[[review]]
+id = "science-boiling"
+kind = "stimulus"
+hash = "c7e5437494674839"
+reviewer = "solver-k"
+role = "solver"
+verdict = "pass"
+note = "Clear and accurate (about 90 °C at 3,100 m is right). States thermometers are correct and pressure is lower, so 0008 and 0009 are answerable. Grade-10 level."
+date = "2026-11-12"
+
+[[review]]
+id = "science-beetles"
+kind = "stimulus"
+hash = "a092ca022a5b8143"
+reviewer = "solver-k"
+role = "solver"
+verdict = "fix"
+note = '''Timing is ambiguous: the ash fell "that year" (2010) and the first count is 2010, so a reader can't tell whether the 20% is before or after the ash. 0011 says "after the ash fell ... from 20% in 2010", which needs the 2010 count to be the starting (pre-ash) value. Rewrite the last two sentences: "In 2010, the island's soil was light brown. Scientists counted the beetles that spring. Later that year, a nearby volcano covered the island in dark ash. Scientists counted again every four years." Otherwise clear and accurate.'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-heart-rate"
+kind = "stimulus"
+hash = "e22d5e43957ca276"
+reviewer = "solver-k"
+role = "solver"
+verdict = "pass"
+note = "Clear, realistic values for healthy adults, made-up results labeled, says the table shows group averages (needed for 0015). Grade-10 level."
+date = "2026-11-12"
+
+[[review]]
+id = "science-co2"
+kind = "stimulus"
+hash = "c162106b7ee3d298"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Source line starts with Data:. Table matches NOAA GML co2_annmean_mlo.txt rounded to 0.1 ppm (316.91, 338.76, 369.71, 414.21, 427.35). gml.noaa.gov/ccgg/trends confirms Mauna Loa Observatory, Hawaii, and ppm as the number of CO2 molecules per million molecules of air (NOAA: dry air, after water vapor removed; leaving out 'dry' is an acceptable simplification). 1958-1974 values are Scripps measurements at the same site, and 2023 partly Maunakea, neither affects the years shown. Suggest adding the file URL to the source line for convenience (questions already cite it)."""
+date = "2026-11-12"
+
+[[review]]
+id = "science-road-salt"
+kind = "stimulus"
+hash = "4d0e7f2d07b9a699"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Source line starts with Original, results labelled made-up. Only outside fact (cities salt icy roads; salt melts ice) is in OpenStax Chemistry 2e 11.4 (de-icing with rock salt, freezing point depression). No copied text."""
+date = "2026-11-12"
+
+[[review]]
+id = "science-boiling"
+kind = "stimulus"
+hash = "c7e5437494674839"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Source line starts with Original. OpenStax Chemistry 2e 10.3 Example 10.6: Leadville, 10,200 ft (3,109 m), typical pressure 68 kPa vs 101.3 kPa at sea level, water boils at about 90 C. Matches 'about 3,100 meters', 'about 90 C', 'much lower' pressure, 100 C at sea level. No copied text."""
+date = "2026-11-12"
+
+[[review]]
+id = "science-beetles"
+kind = "stimulus"
+hash = "a092ca022a5b8143"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Source line starts with Original, results labelled made-up. Island, ash and predation premises are part of the fictional scenario; the natural selection ideas used (inherited traits, variation, differential survival) are in OpenStax Concepts of Biology 11.1/11.2. No copied text."""
+date = "2026-11-12"
+
+[[review]]
+id = "science-heart-rate"
+kind = "stimulus"
+hash = "e22d5e43957ca276"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Source line starts with Original, results labelled made-up. OpenStax A&P 2e 19.4: adult resting HR 60-100 bpm, HR rises with exercise (about 150 bpm in healthy young adults), so 70/96/142 are realistic. No copied text."""
+date = "2026-11-12"
+
+# ── study links (append to content/reviews/study.toml) ──

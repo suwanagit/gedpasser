@@ -1318,7 +1318,7 @@ To put a table into words, look for the pattern first, then check the numbers.
 [[principle]]
 id = "SP.3.a"
 skill = "s-evidence"
-status = "draft"
+status = "reviewed"
 name = "Pointing to the evidence"
 summary = "Pick the numbers or words that back up a conclusion."
 lesson = '''
@@ -1332,7 +1332,7 @@ Evidence is the data or facts a conclusion rests on.
 [[principle]]
 id = "SP.3.b"
 skill = "s-evidence"
-status = "draft"
+status = "reviewed"
 name = "Supported conclusions"
 summary = "Decide which conclusion the data actually support."
 lesson = '''
@@ -1346,7 +1346,7 @@ A supported conclusion says no more than the data show.
 [[principle]]
 id = "SP.4.a"
 skill = "s-evidence"
-status = "draft"
+status = "reviewed"
 name = "Support or weaken"
 summary = "Decide whether new evidence makes a claim more or less believable."
 lesson = '''
@@ -1364,7 +1364,7 @@ status = "draft"
 name = "Two findings"
 summary = "Explain how two findings can both be right, or why one is stronger."
 lesson = '''
-Two findings can seem to disagree but both be right, because the conditions were different.
+Two findings can seem to disagree but both be right when the conditions were different.
 
 - Look for what was different: the place, the amount, the people, the tools.
 - One finding is stronger when it comes from a bigger sample, more trials, or a fairer test.

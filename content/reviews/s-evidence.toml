@@ -1,0 +1,677 @@
+# Review notes for s-evidence. See content/reviews/CHECKLIST.md.
+
+[[review]]
+id = "SP.3.a"
+kind = "lesson"
+hash = "36e1fb0b7e865f5b"
+verdict = "pass"
+note = "Accurate and short. Definition, matching rule and the off-topic-fact warning are all correct. General method only; no example that mirrors 0002, 0006, 0013 or 0017."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.3.b"
+kind = "lesson"
+hash = "6a67b280de6b9963"
+verdict = "pass"
+note = "Correct: says no more than the data, contradicted choices, overreach words, untested causes, unmeasured things. General strategy, no give-away of 0001, 0004, 0010, 0011 or 0015."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.4.a"
+kind = "lesson"
+hash = "a6e7e34b006ca17f"
+verdict = "pass"
+note = "Correct prediction-based rule for support/weaken/neither. Short, clear, no worked example that mirrors any question."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.5.a"
+kind = "lesson"
+hash = "0acb63cbca136b1a"
+verdict = "pass"
+note = "Accurate: differing conditions; bigger sample, more trials, fairer test; newer or surprising is not stronger. Lists the rule behind 0018 but only as a general principle, not a mirrored example. Optional polish: 'can seem to disagree but both be right when the conditions were different' (\"because\" reads as always)."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.3.a"
+kind = "card"
+hash = "9328bd68b9ba8bba"
+verdict = "pass"
+note = "Correct and short. Pond example uses different numbers and topic from every question. Hack is correct though narrow (only change-over-time claims); acceptable."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.3.b"
+kind = "card"
+hash = "374d28c02a5bd120"
+verdict = "fix"
+note = '''Example data is incomplete: "3 of 4 plants in the sun grew taller" - taller than what? A conclusion about sun needs a comparison. Rewrite: "Data: 3 of 4 sunny plants grew taller than the shady ones." / "**Supported:** most sunny plants outgrew the shady ones. Not: "sun always makes plants taller"." Also the hack "The safest true answer usually wins" can push learners toward hedged "neither" or "stayed about the same" choices (wrong in 0001, 0003, 0005). Suggest: "Pick the answer that fits every number and claims no more."'''
+date = "2026-11-12"
+
+[[review]]
+id = "SP.4.a"
+kind = "card"
+hash = "cf7a61d643bc22c2"
+verdict = "pass"
+note = "Correct, short, good hack (same as the lesson's prediction test). Fabric example does not mirror any question."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.5.a"
+kind = "card"
+hash = "32304e2e9bbb581e"
+verdict = "fix"
+note = '''Example is scientifically misleading and mirrors 0008. A thermometer in direct sun does not read the true air temperature (sunlight heats the thermometer; weather stations shade them), so calling both "right" teaches a wrong idea. It also copies 0008's setup (two thermometer readings, both correct, conditions differ). Replace with a different domain, e.g. "Bread A grew mold in 3 days, bread B in 10. / **Both right:** bread B was kept in the fridge." Hack is fine.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0001"
+kind = "question"
+hash = "521efcf176c378ee"
+reviewer = "solver-k"
+role = "solver"
+verdict = "pass"
+solved = "The amount of carbon dioxide in the air went up from 1960 to 2025"
+note = "Key matches. Distractors are clearly wrong from the table (each reading is higher than the last). SP.3.b and ES.b.1 fit. Explanation and common mistake fine."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0002"
+kind = "question"
+hash = "6cd8b0ecfaa4d485"
+reviewer = "solver-k"
+role = "solver"
+verdict = "pass"
+solved = "It rose 44.5 ppm from 2000 to 2020, but only 21.9 ppm from 1960 to 1980"
+note = "Key matches; arithmetic checked (414.2-369.7=44.5, 338.8-316.9=21.9, 427.4-414.2=13.2). Equal 20-year spans make total rise a valid rate comparison. Distractors tempting (single readings). SP.3.a fits."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0003"
+kind = "question"
+hash = "2c15e0057a9f8cb6"
+reviewer = "solver-k"
+role = "solver"
+verdict = "pass"
+solved = "They weaken it, because the readings went up after 2000"
+note = "Key matches. Distractors defensibly wrong (option 4 is weak since the table plainly shows 2000, but still wrong). SP.4.a fits. Explanation uses the prediction test."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0004"
+kind = "question"
+hash = "b9538a0431f58c34"
+reviewer = "solver-k"
+role = "solver"
+verdict = "pass"
+solved = "More salt made the ice cubes melt faster"
+note = "Key matches. 'At any temperature' is a good overreach distractor. SP.3.b and P.c.4 fit. Explanation fine."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0005"
+kind = "question"
+hash = "539ab83b2a036ccd"
+reviewer = "solver-k"
+role = "solver"
+verdict = "pass"
+solved = "They support it, because the salted cubes melted in less time"
+note = "Key matches; distractors wrong from the table. SP.4.a fits. Note it overlaps closely with 0004 and 0006 (same pattern, three questions), acceptable for practice since a set takes at most 3."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0006"
+kind = "question"
+hash = "c6be0999c7c781de"
+reviewer = "solver-k"
+role = "solver"
+verdict = "pass"
+solved = "The melting time dropped from 62 to 48 to 39 minutes as the salt went from 0 to 2 to 4 grams"
+note = "Key matches. 'Repeated three times' is a tempting reliability-not-pattern distractor. SP.3.a fits. Explanation and common mistake good."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0007"
+kind = "question"
+hash = "ca652919c08e0c3d"
+reviewer = "solver-k"
+role = "solver"
+verdict = "fix"
+solved = "It supports the claim, because salty water stays liquid at temperatures where pure water would freeze"
+note = '''Key matches and distractors are sound, but the explanation never links the fact to the claim about MELTING: it stops at "stays liquid where pure water would freeze", which is the key restated. Add a step before the "So" line, e.g. "So ice with salt on it can turn to liquid even a little below 0 °C, where plain ice would stay solid." The common mistake (freezing point = melting point) is good and should be echoed in that line.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0008"
+kind = "question"
+hash = "fb9f4870abc4f108"
+reviewer = "solver-k"
+role = "solver"
+verdict = "pass"
+solved = "Water boils at a lower temperature where the air pressure is lower"
+note = "Key matches. Pressure-boiling link is general knowledge the GED expects (P.c.2). Distractors contradict the passage. SP.5.a fits (how both can hold)."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0009"
+kind = "question"
+hash = "a015f2a39f36bce3"
+reviewer = "solver-k"
+role = "solver"
+verdict = "fix"
+solved = "They were at very different heights above sea level"
+note = '''Distractor "One was a boy and one was a girl" is not a real mistake anyone would make; it only exists because the passage says Her/His. Replace with a tempting, defensibly wrong option, e.g. "They heated different amounts of water" (amount does not change the boiling point of pure water). Rest is fine: key matches, explanation good.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0010"
+kind = "question"
+hash = "5110a50bde3fc0b7"
+reviewer = "solver-k"
+role = "solver"
+verdict = "fix"
+solved = "It boils at a temperature between 90 °C and 100 °C"
+note = '''Key is correct, but the principle is wrong: predicting the result at a new height from two data points is SP.3.c (predict from data, extend a trend), which belongs to s-models, not SP.3.b. Either move it to s-models with principle = "SP.3.c", or rewrite it as a conclusion question (e.g. "Which conclusion do the two results support?" with key "Water boils at a lower temperature at greater heights" and an overreach distractor like "Water boils 10 °C lower for every 3,100 meters at any height").'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0011"
+kind = "question"
+hash = "516570a35ced6759"
+reviewer = "solver-k"
+role = "solver"
+verdict = "pass"
+solved = "became more common; 85%"
+note = "Both blanks match. 70% (2018) and 15% (light share) are good distractors. SP.3.b and L.f.2 fit. Depends on the beetles passage fix (2010 count before or after the ash)."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0012"
+kind = "question"
+hash = "ce742b6fcf9ddd71"
+reviewer = "solver-k"
+role = "solver"
+verdict = "pass"
+solved = "On the dark ash, birds caught light beetles more often than dark beetles"
+note = "Key matches; only option that tests the mechanism. Distractors irrelevant to predation (options 3 and 4 a bit weak but clearly wrong). SP.4.a fits."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0013"
+kind = "question"
+hash = "39659ea824163848"
+reviewer = "solver-k"
+role = "solver"
+verdict = "fix"
+solved = "Color is passed from parents to their young"
+note = '''Two defensible answers. Natural selection needs variation AND inheritance, so "The beetles come in two shades of brown" (the variation) is also a needed detail; the common mistake even admits "Variation matters too". Replace option 4 with a tempting detail that is not a requirement, e.g. "In 2022, 85% of the beetles were dark" (the result being explained, not a condition for the explanation), and change common_mistake to "Picking the 85%. That is the change to explain, not something the explanation needs."'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0014"
+kind = "question"
+hash = "38dcb4962194014f"
+reviewer = "solver-k"
+role = "solver"
+verdict = "pass"
+solved = "It would weaken the claim, because birds would not be favoring dark beetles"
+note = "Key matches. 'Dark beetles still became more common' is a strong, defensibly wrong distractor. SP.4.a fits. Explanation and common mistake good."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0015"
+kind = "question"
+hash = "efe6cd4456c215bb"
+reviewer = "solver-k"
+role = "solver"
+verdict = "pass"
+solved = "Average heart rate went up as the activity got harder"
+note = "Key matches. 'Every person had 142' is a good average-vs-individual distractor. SP.3.b and L.a.1 fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0016"
+kind = "question"
+hash = "1910e12519418c89"
+reviewer = "solver-k"
+role = "solver"
+verdict = "pass"
+solved = "They weaken it, because heart rates were higher after walking and running"
+note = "Key matches. Distractors wrong; option 2 tempting. SP.4.a fits. Explanation uses the prediction test."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0017"
+kind = "question"
+hash = "024c48ae344034ff"
+reviewer = "solver-k"
+role = "solver"
+verdict = "pass"
+solved = "142 bpm after running compared with 96 bpm after walking"
+note = "Key matches. Only option comparing the two named activities. SP.3.a fits. Easy, labeled difficulty 1 correctly."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0018"
+kind = "question"
+hash = "94547b56efc19040"
+reviewer = "solver-k"
+role = "solver"
+verdict = "pass"
+solved = "Study B is stronger evidence, because it tested far more people and compared them with a group taking a fake pill"
+note = "Key matches. Sample size and control group are the right reasons. Distractors are real misconceptions. SP.5.a (why one is stronger) fits; L.a.3/L.a.4 both reasonable."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0019"
+kind = "question"
+hash = "c1fef938c862f4c4"
+reviewer = "solver-k"
+role = "solver"
+verdict = "fix"
+solved = "Air slows the feather on Earth, but the Moon has no air to slow it"
+note = '''Key matches and distractors are good, but the explanation breaks the style guide: it has no closing "So ..." sentence that restates the question with the answer in bold. Replace the last line with: "With no air on the Moon, nothing slows the feather." / "So both results are correct: **air slows the feather on Earth, but the Moon has no air to slow it**."'''
+date = "2026-11-12"
+
+# ---- stimuli (content/reviews/stimuli-science.toml) ----
+
+[[review]]
+id = "s-evidence-0001"
+kind = "question"
+hash = "521efcf176c378ee"
+reviewer = "solver-l"
+role = "solver"
+verdict = "pass"
+solved = 'The amount of carbon dioxide in the air went up from 1960 to 2025'
+note = 'Blind match. Five readings rise every time; distractors (down, flat, up-and-down) are clearly wrong from the table. SP.3.b and ES.b.1 fit. Explanation ends with a So sentence and bold answer.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0002"
+kind = "question"
+hash = "6cd8b0ecfaa4d485"
+reviewer = "solver-l"
+role = "solver"
+verdict = "pass"
+solved = 'It rose 44.5 ppm from 2000 to 2020, but only 21.9 ppm from 1960 to 1980'
+note = 'Blind match. Checked 414.2-369.7=44.5 and 338.8-316.9=21.9; equal 20-year spans so total rise is a fair rate comparison. Single-value distractors tempt but do not address rate. SP.3.a fits.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0003"
+kind = "question"
+hash = "2c15e0057a9f8cb6"
+reviewer = "solver-l"
+role = "solver"
+verdict = "pass"
+solved = 'They weaken it, because the readings went up after 2000'
+note = 'Blind match. 2020 and 2025 readings exceed 369.7. Distractor 4 (table does not show 2000) is false on a careful read; distractor 3 plays on the smaller recent rise and matches the common mistake. SP.4.a fits.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0004"
+kind = "question"
+hash = "b9538a0431f58c34"
+reviewer = "solver-l"
+role = "solver"
+verdict = "pass"
+solved = 'More salt made the ice cubes melt faster'
+note = 'Blind match. 62, 48, 39 minutes as salt rises. Over-generalization distractor (any temperature) is a good, defensibly wrong temptation and is the common mistake. SP.3.b, P.c.4 fit.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0005"
+kind = "question"
+hash = "539ab83b2a036ccd"
+reviewer = "solver-l"
+role = "solver"
+verdict = "pass"
+solved = 'They support it, because the salted cubes melted in less time'
+note = 'Blind match. Distractor 3 states a false fact (no-salt cube melted last), distractor 4 is a plausible over-skeptical choice. Explanation states the prediction first, then the data. SP.4.a fits.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0006"
+kind = "question"
+hash = "c6be0999c7c781de"
+reviewer = "solver-l"
+role = "solver"
+verdict = "pass"
+solved = 'The melting time dropped from 62 to 48 to 39 minutes as the salt went from 0 to 2 to 4 grams'
+note = 'Blind match. Only the first choice links amount of salt to time; repeated trials and equal cube mass are controls, not the pattern. SP.3.a fits.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0007"
+kind = "question"
+hash = "ca652919c08e0c3d"
+reviewer = "solver-l"
+role = "solver"
+verdict = "fix"
+solved = 'It supports the claim, because salty water stays liquid at temperatures where pure water would freeze'
+note = 'Blind match and key is right, but the explanation never makes the link from "stays liquid" to "melts faster", which is the whole point at difficulty 3. Add a line before the So sentence, e.g.: "So ice touching salt water keeps turning to liquid at temperatures where plain ice would stay solid." (then keep the bold So sentence). Choices and SP.4.a are fine.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0008"
+kind = "question"
+hash = "fb9f4870abc4f108"
+reviewer = "solver-l"
+role = "solver"
+verdict = "fix"
+solved = 'Water boils at a lower temperature where the air pressure is lower'
+note = 'Blind match, choices good, SP.5.a fits. Style only: the closing line does not start with "So". Change the last line to: "So both can be right: **water boils at a lower temperature where the air pressure is lower**."'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0009"
+kind = "question"
+hash = "a015f2a39f36bce3"
+reviewer = "solver-l"
+role = "solver"
+verdict = "pass"
+solved = 'They were at very different heights above sea level'
+note = 'Blind match. Height (with its lower pressure) is the only difference the passage ties to the result; pots, sex and day are tempting but not explanatory for a 10 C gap. SP.5.a acceptable.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0010"
+kind = "question"
+hash = "5110a50bde3fc0b7"
+reviewer = "solver-l"
+role = "solver"
+verdict = "fix"
+solved = 'It boils at a temperature between 90 °C and 100 °C'
+note = 'Blind match and key correct (about 95 C at 1,500 m). But this is a prediction by interpolation, which is SP.3.c (predict from data, extend a trend, skill s-models), not SP.3.b. Either move it to s-models with principle SP.3.c, or reword to a conclusion item, e.g. prompt "Which conclusion about water at 1,500 meters does the passage support?" keeping the same choices.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0011"
+kind = "question"
+hash = "516570a35ced6759"
+reviewer = "solver-l"
+role = "solver"
+verdict = "pass"
+solved = 'became more common | 85%'
+note = 'Blind match on both blanks. 70% (2018) and 15% (light share) are realistic misreads, the latter named in the common mistake. SP.3.b, L.f.2 fit.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0012"
+kind = "question"
+hash = "ce742b6fcf9ddd71"
+reviewer = "solver-l"
+role = "solver"
+verdict = "pass"
+solved = 'On the dark ash, birds caught light beetles more often than dark beetles'
+note = 'Blind match. Only choice 1 bears on predation by color; others are irrelevant but surface-plausible. SP.4.a fits.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0013"
+kind = "question"
+hash = "39659ea824163848"
+reviewer = "solver-l"
+role = "solver"
+verdict = "fix"
+solved = 'Color is passed from parents to their young'
+note = 'Blind answer matches key, but choice 4 ("The beetles come in two shades of brown") is variation, which is ALSO a required condition for natural selection; the common_mistake itself admits "Variation matters too". Two defensible answers. Replace choice 4 with a passage detail that is not needed, such as "The volcano is nearby" or "The scientists started counting in 2010", and rewrite common_mistake to target that distractor (e.g. counting every four years only records the change, it does not cause it).'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0014"
+kind = "question"
+hash = "38dcb4962194014f"
+reviewer = "solver-l"
+role = "solver"
+verdict = "pass"
+solved = 'It would weaken the claim, because birds would not be favoring dark beetles'
+note = 'Blind match. Distractor 3 (dark beetles still became more common) is the realistic trap and is the common mistake. SP.4.a fits.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0015"
+kind = "question"
+hash = "efe6cd4456c215bb"
+reviewer = "solver-l"
+role = "solver"
+verdict = "pass"
+solved = 'Average heart rate went up as the activity got harder'
+note = 'Blind match. Average-vs-every-person distractor is a good trap. SP.3.b, L.a.1 fit.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0016"
+kind = "question"
+hash = "1910e12519418c89"
+reviewer = "solver-l"
+role = "solver"
+verdict = "pass"
+solved = 'They weaken it, because heart rates were higher after walking and running'
+note = 'Blind match. Distractor 2 (lowest after sitting) is the tempting misread and is the common mistake. SP.4.a fits.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0017"
+kind = "question"
+hash = "024c48ae344034ff"
+reviewer = "solver-l"
+role = "solver"
+verdict = "pass"
+solved = '142 bpm after running compared with 96 bpm after walking'
+note = 'Blind match. Easy SP.3.a item; sitting-vs-walking pair is a reasonable trap. Fine.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0018"
+kind = "question"
+hash = "94547b56efc19040"
+reviewer = "solver-l"
+role = "solver"
+verdict = "pass"
+solved = 'Study B is stronger evidence, because it tested far more people and compared them with a group taking a fake pill'
+note = 'Blind match. Sample size and control group make B stronger; distractors are common reasoning errors. SP.5.a fits; L.a.3 (nutrition) acceptable.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0019"
+kind = "question"
+hash = "c1fef938c862f4c4"
+reviewer = "solver-l"
+role = "solver"
+verdict = "fix"
+solved = 'Air slows the feather on Earth, but the Moon has no air to slow it'
+note = 'Blind match, choices good (no gravity, heavier, falls faster on the Moon are all wrong), SP.5.a and P.b.2 fit. Style: the last line has no "So" and the bold text is not the answer. Change it to: "So both can be right: **air slows the feather on Earth, but the Moon has no air to slow it**."'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0001"
+kind = "question"
+hash = "521efcf176c378ee"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Checked against NOAA GML co2_annmean_mlo.txt (fetched 2026-11-12): 1960 316.91, 1980 338.76, 2000 369.71, 2020 414.21, 2025 427.35 ppm, all match the table at 0.1 ppm. Each later reading is higher; conclusion and all choices checked."""
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0002"
+kind = "question"
+hash = "6cd8b0ecfaa4d485"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Checked against NOAA GML co2_annmean_mlo.txt (fetched 2026-11-12): 1960 316.91, 1980 338.76, 2000 369.71, 2020 414.21, 2025 427.35 ppm, all match the table at 0.1 ppm. 414.2-369.7=44.5 and 338.8-316.9=21.9 from the table (21.85 raw, still 21.9); 427.4-414.2=13.2. All figures correct."""
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0003"
+kind = "question"
+hash = "2c15e0057a9f8cb6"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Checked against NOAA GML co2_annmean_mlo.txt (fetched 2026-11-12): 1960 316.91, 1980 338.76, 2000 369.71, 2020 414.21, 2025 427.35 ppm, all match the table at 0.1 ppm. 2020 and 2025 readings are above 2000; table does show 2000, so the last choice is false as stated. Claims correct."""
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0004"
+kind = "question"
+hash = "b9538a0431f58c34"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Opened OpenStax Chemistry 2e 11.4: solutions freeze below pure water; salt is used to melt ice on roads (de-icing). Results are made-up and labelled so. Pattern 62/48/39 min checked; 'at any temperature' is an overreach (and salt does not work at very low temperatures)."""
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0005"
+kind = "question"
+hash = "539ab83b2a036ccd"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Opened OpenStax Chemistry 2e 11.4: solutions freeze below pure water; salt is used to melt ice on roads (de-icing). Results are made-up and labelled so. Numbers and reasoning checked against the passage."""
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0006"
+kind = "question"
+hash = "c6be0999c7c781de"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Opened OpenStax Chemistry 2e 11.4: solutions freeze below pure water; salt is used to melt ice on roads (de-icing). Results are made-up and labelled so. Numbers in the key match the table; other choices are true passage details that do not show the pattern."""
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0007"
+kind = "question"
+hash = "ca652919c08e0c3d"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "fix"
+note = """Opened OpenStax Chemistry 2e 11.4: solutions freeze below pure water; salt is used to melt ice on roads (de-icing). Results are made-up and labelled so. Key fact (salt water freezes lower, used to melt ice) is supported. FIX 1: common_mistake says the freezing point and melting point of water are the same temperature; 11.4 does not say this. Add OpenStax Chemistry 2e 10.3 Phase Transitions (https://openstax.org/books/chemistry-2e/pages/10-3-phase-transitions), which states the solid-liquid equilibrium temperature is called both the melting point and the freezing point. FIX 2: explanation line 'Salt dissolves into the thin layer of water on the ice' is not in any cited source; reword to something the passage and 11.4 support (e.g. 'Salt dissolves in water from the melting ice and makes salt water') or cite a source for the surface water layer."""
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0008"
+kind = "question"
+hash = "fb9f4870abc4f108"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Opened OpenStax Chemistry 2e 10.3: boiling point is where vapor pressure equals surrounding pressure; Example 10.6 gives Leadville, 10,200 ft (about 3,100 m), 68 kPa, water boils at about 90 C; normal boiling point at 101.3 kPa. Key and passage both supported; 'always boils at 100 C' is false per 10.3."""
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0009"
+kind = "question"
+hash = "a015f2a39f36bce3"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Opened OpenStax Chemistry 2e 10.3: boiling point is where vapor pressure equals surrounding pressure; Example 10.6 gives Leadville, 10,200 ft (about 3,100 m), 68 kPa, water boils at about 90 C; normal boiling point at 101.3 kPa. Height above sea level brings lower pressure (Leadville example); pot claim follows from boiling point depending on substance and pressure."""
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0010"
+kind = "question"
+hash = "5110a50bde3fc0b7"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Opened OpenStax Chemistry 2e 10.3: boiling point is where vapor pressure equals surrounding pressure; Example 10.6 gives Leadville, 10,200 ft (about 3,100 m), 68 kPa, water boils at about 90 C; normal boiling point at 101.3 kPa. 1,500 m lies between sea level and about 3,100 m, so pressure and boiling point lie between; reasoning sound and consistent with 10.3 vapor-pressure curve."""
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0011"
+kind = "question"
+hash = "516570a35ced6759"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Opened OpenStax Concepts of Biology 11.1 (natural selection: traits inherited, more offspring than survive, inherited variation, better-suited survive and reproduce more) and 11.2. Scenario data are made-up and labelled so. 20 to 85% matches table; 100-85=15% light beetles, as common_mistake says."""
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0012"
+kind = "question"
+hash = "ce742b6fcf9ddd71"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Opened OpenStax Concepts of Biology 11.1 (natural selection: traits inherited, more offspring than survive, inherited variation, better-suited survive and reproduce more) and 11.2. Scenario data are made-up and labelled so. Key matches selection by predation on conspicuous individuals; distractors irrelevant to selection."""
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0013"
+kind = "question"
+hash = "39659ea824163848"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Opened OpenStax Concepts of Biology 11.1 (natural selection: traits inherited, more offspring than survive, inherited variation, better-suited survive and reproduce more) and 11.2. Scenario data are made-up and labelled so. 11.1 states characteristics must be inherited (passed parent to offspring); key and common_mistake (variation also needed) supported."""
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0014"
+kind = "question"
+hash = "38dcb4962194014f"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Opened OpenStax Concepts of Biology 11.1 (natural selection: traits inherited, more offspring than survive, inherited variation, better-suited survive and reproduce more) and 11.2. Scenario data are made-up and labelled so. Equal predation removes the proposed selective cause; explanation and common_mistake sound."""
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0015"
+kind = "question"
+hash = "efe6cd4456c215bb"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Opened OpenStax A&P 2e 19.4: heart rate rises with exercise (to about 150 bpm in healthy young people); normal adult resting rate 60-100 bpm, so 70/96/142 are plausible made-up averages. 70<96<142 checked; group average does not mean every person had 142."""
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0016"
+kind = "question"
+hash = "1910e12519418c89"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Opened OpenStax A&P 2e 19.4: heart rate rises with exercise (to about 150 bpm in healthy young people); normal adult resting rate 60-100 bpm, so 70/96/142 are plausible made-up averages. Data and source both contradict 'exercise slows your heart'."""
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0017"
+kind = "question"
+hash = "024c48ae344034ff"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Opened OpenStax A&P 2e 19.4: heart rate rises with exercise (to about 150 bpm in healthy young people); normal adult resting rate 60-100 bpm, so 70/96/142 are plausible made-up averages. 142 vs 96 from table; other choices are true passage details that do not compare running with walking."""
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0018"
+kind = "question"
+hash = "94547b56efc19040"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Opened OpenStax Psychology 2e 2.2 (small samples limit generalizing; larger samples) and 2.3 (experimental vs control group, differences due to manipulation rather than chance; placebo/sugar pill for the control group), and Concepts of Biology 1.2 (controls, hypothesis testing). Explanation claims all supported."""
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0019"
+kind = "question"
+hash = "c1fef938c862f4c4"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Opened OpenStax College Physics 2e 2.7 (with negligible air resistance all objects fall with the same acceleration; air resistance slows light objects; Moon gravity is lower, so 'faster on the Moon' is false) and NASA NSSDCA Apollo 15 page (Scott dropped hammer and feather 'essentially in a vacuum', they landed together). All claims supported."""
+date = "2026-11-12"
+
+# ── science stimuli (append to content/reviews/stimuli-science.toml) ──
