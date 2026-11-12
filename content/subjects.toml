@@ -14,6 +14,8 @@
 #   passage_grade  target reading grade for passages; above it, a warning
 #               the reviewer must answer (the real tests use high-school
 #               texts, RLA up to career- and college-ready)
+#   set_max     most questions a practice test takes from one passage
+#               (default 3; a passage may carry more for practice)
 #
 # Sources for shares and time limits: docs/subjects/*.md. GED Testing
 # Service does not publish question counts; the full-test counts are the
@@ -36,6 +38,7 @@ test = [
 id = "language"
 name = "Language Arts"
 passage_grade = 12.0
+set_max = 8
 domain = [
   { id = "informational", name = "Informational texts", share = 0.75 },
   { id = "literary", name = "Literary texts", share = 0.25 },

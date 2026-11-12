@@ -1272,3 +1272,244 @@ lesson = '''
 
 Example: testing whether study time affects quiz scores, study time is independent, the quiz score is dependent, and using the same quiz for everyone keeps it controlled.
 '''
+
+[[principle]]
+id = "SP.1.a"
+skill = "s-reading"
+status = "reviewed"
+name = "Main idea and details"
+summary = "Find what a science passage is mostly about, and pick out what it says."
+lesson = '''
+The main idea is what the whole passage is about. Details are the facts that back it up.
+
+- The main idea often shows up in the first or last sentence.
+- A main-idea answer covers the whole passage, not just one part.
+- For "according to the passage", the answer is something the passage says, maybe in other words. Don't add what it doesn't say.
+'''
+
+[[principle]]
+id = "SP.1.b"
+skill = "s-reading"
+status = "reviewed"
+name = "Terms and symbols"
+summary = "Work out what a science word or symbol means from how the passage uses it."
+lesson = '''
+Science passages often explain a new word right where they use it.
+
+- Look for "is called", "means", or a definition after a comma or colon.
+- Symbols work the same way: a passage or a key often says what a symbol stands for the first time it appears. Some, like °C for degrees Celsius, are worth knowing by heart.
+- Check your answer by putting it in place of the word. The sentence should still make sense.
+'''
+
+[[principle]]
+id = "SP.6.c"
+skill = "s-reading"
+status = "reviewed"
+name = "Tables and graphs in words"
+summary = "Pick the sentence that says correctly what a table, graph or set of numbers shows."
+lesson = '''
+To put a table into words, look for the pattern first, then check the numbers.
+
+- Read the column headings and units before the numbers.
+- Ask: what goes up, what goes down, and what is biggest or smallest?
+- A comparison like "half" or "1 out of 20" must match the numbers. Divide to check.
+'''
+
+[[principle]]
+id = "SP.3.a"
+skill = "s-evidence"
+status = "reviewed"
+name = "Pointing to the evidence"
+summary = "Pick the numbers or words that back up a conclusion."
+lesson = '''
+Evidence is the data or facts a conclusion rests on.
+
+- Find the exact rows, numbers or sentences the conclusion talks about.
+- Good evidence matches the conclusion: a claim about change over time needs data from more than one time.
+- A true fact is not evidence if it is about something else.
+'''
+
+[[principle]]
+id = "SP.3.b"
+skill = "s-evidence"
+status = "reviewed"
+name = "Supported conclusions"
+summary = "Decide which conclusion the data actually support."
+lesson = '''
+A supported conclusion says no more than the data show.
+
+- Check each choice against the numbers. Throw out any the data contradict.
+- Watch for choices that go too far: "always", "all", or a cause the study didn't test.
+- Watch for choices about things the study never measured.
+'''
+
+[[principle]]
+id = "SP.4.a"
+skill = "s-evidence"
+status = "reviewed"
+name = "Support or weaken"
+summary = "Decide whether new evidence makes a claim more or less believable."
+lesson = '''
+Evidence supports a claim when it is what you'd expect if the claim were true. It weakens a claim when it goes against what the claim predicts.
+
+- First say what the claim predicts.
+- Then compare the evidence with that prediction.
+- Evidence about something else neither supports nor weakens the claim.
+'''
+
+[[principle]]
+id = "SP.5.a"
+skill = "s-evidence"
+status = "reviewed"
+name = "Two findings"
+summary = "Explain how two findings can both be right, or why one is stronger."
+lesson = '''
+Two findings can seem to disagree but both be right when the conditions were different.
+
+- Look for what was different: the place, the amount, the people, the tools.
+- One finding is stronger when it comes from a bigger sample, more trials, or a fairer test.
+- A finding is not stronger just because it is newer or sounds surprising.
+'''
+
+[[principle]]
+id = "SP.3.c"
+skill = "s-models"
+status = "reviewed"
+name = "Predicting from data"
+summary = "Use a pattern in data to predict a value beyond it or between two values."
+lesson = '''
+A prediction follows the pattern the data already show.
+
+- First find the pattern: going up, going down, speeding up, slowing down, or repeating.
+- A value between two measured points usually falls between their results.
+- Be careful far beyond the data: many patterns level off or change.
+'''
+
+[[principle]]
+id = "SP.7.a"
+skill = "s-models"
+status = "reviewed"
+name = "Using a model"
+summary = "Apply a known model or process to a new situation."
+lesson = '''
+A model is a simple rule or picture that explains how something works. You use it by matching the new case to the model.
+
+- Say the model's rule in one sentence.
+- Match each part of the new case to a part of the model.
+- Follow the rule to see what should happen.
+'''
+
+[[principle]]
+id = "SP.1.c"
+skill = "s-displays"
+status = "reviewed"
+name = "Reading graphs and tables"
+summary = "Read values, patterns and changes from a science graph, table or diagram."
+lesson = '''
+Graphs and tables answer questions only if you read their labels first.
+
+- Read the title, the axis labels and the units before any numbers.
+- To read a value on a line graph, go up from the x-axis to the line, then across to the y-axis.
+- A flat part of a line graph means the y-value is not changing.
+'''
+
+[[principle]]
+id = "SP.6.a"
+skill = "s-displays"
+status = "reviewed"
+name = "Choosing a graph"
+summary = "Pick the kind of graph and the axes that best show a set of data."
+lesson = '''
+Different graphs show different things.
+
+- A line graph shows how something changes, often over time.
+- A bar graph compares amounts in separate groups or categories.
+- The thing that was changed or chosen (often time) goes on the x-axis, along the bottom. The thing that was measured goes on the y-axis.
+'''
+
+[[principle]]
+id = "SP.6.b"
+skill = "s-displays"
+status = "reviewed"
+name = "Words and pictures into numbers"
+summary = "Turn a graph, a description or a diagram into a number or a symbol."
+lesson = '''
+Many questions ask you to pull one number out of a picture, or to write words as symbols.
+
+- For a change, read both values and subtract.
+- For a rate, divide the change by the time or distance it took.
+- In a chemical formula, each element gets its symbol, and a small number after a symbol says how many of those atoms there are. No number means one.
+'''
+
+[[principle]]
+id = "SP.3.d"
+skill = "s-probability"
+status = "reviewed"
+name = "Samples"
+summary = "Judge how a sample was chosen, and use a sample to estimate a whole group."
+lesson = '''
+A sample is a small part of a group that scientists study to learn about the whole group.
+
+- A good sample is chosen at random from the whole group, so every member has a fair chance to be picked.
+- A sample taken from only one part of the group can give a wrong picture.
+- Bigger random samples usually give better estimates.
+- To estimate the whole group, use the sample's fraction: if 1 in 4 of the sample has a trait, about 1 in 4 of the group does too.
+'''
+
+[[principle]]
+id = "SP.8.b"
+skill = "s-probability"
+status = "reviewed"
+name = "Counting possibilities"
+summary = "Count how many combinations or arrangements are possible."
+lesson = '''
+Counting rules let you find how many possibilities there are without listing them all.
+
+- Choosing one thing from each of several groups: multiply the number of choices in each group.
+- Putting a set of things in order: multiply down, for example 3 × 2 × 1 = 6 orders for three things.
+- Choosing a group where order doesn't matter: count the ordered ways, then divide by the number of ways to order the group.
+'''
+
+[[principle]]
+id = "SP.8.c"
+skill = "s-probability"
+status = "reviewed"
+name = "Probability and Punnett squares"
+summary = "Find the chance of an event, including traits from a Punnett square."
+lesson = '''
+Probability is the number of ways an event can happen divided by the number of equally likely outcomes.
+
+- In a Punnett square, each of the four boxes is equally likely, so each box is a 1 in 4 chance.
+- A dominant allele (capital letter) shows its trait whenever it is present. A recessive trait shows only with two lowercase letters.
+- For two independent events both happening, multiply their probabilities.
+'''
+
+[[principle]]
+id = "SP.7.b"
+skill = "s-formulas-stats"
+status = "reviewed"
+name = "Using a formula"
+summary = "Put numbers into a given science formula and solve for the unknown."
+lesson = '''
+The test gives you the science formulas you need. Your job is to use them.
+
+- Write the formula, then put each number in place of its letter.
+- Check the units: they tell you which number goes where.
+- If the unknown is not alone, undo the operations: for pressure = force ÷ area, force = pressure × area.
+'''
+
+[[principle]]
+id = "SP.8.a"
+skill = "s-formulas-stats"
+status = "reviewed"
+name = "Mean, median, mode and range"
+summary = "Describe a set of data with its mean, median, mode and range."
+lesson = '''
+Each measure describes data in a different way.
+
+- Mean: add all the values, then divide by how many there are.
+- Median: put the values in order and take the middle one. With two middle values, take their mean.
+- Mode: the value that appears most often.
+- Range: the largest value minus the smallest.
+- One very large or very small value pulls the mean toward it much more than it moves the median.
+'''

@@ -200,3 +200,79 @@ spotting errors, and judging whether a design is fair and reliable.\
 difficulty_min = 1
 difficulty_max = 3
 targets = ["SP.2.a", "SP.2.b", "SP.2.c", "SP.2.d", "SP.2.e"]
+
+[[skill]]
+id = "s-reading"
+subject = "science"
+name = "Reading science texts"
+description = """
+Reading short science passages: the main idea, what a term or symbol \
+means where it is used, and putting a table or diagram into words.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["SP.1.a", "SP.1.b", "SP.6.c"]
+
+[[skill]]
+id = "s-evidence"
+subject = "science"
+name = "Claims and evidence"
+description = """
+Deciding what the evidence shows: which conclusion it supports, which \
+data back a claim, whether new evidence supports or weakens it, and how \
+two findings can both hold.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["SP.3.a", "SP.3.b", "SP.4.a", "SP.5.a"]
+
+[[skill]]
+id = "s-models"
+subject = "science"
+name = "Predictions and models"
+description = """
+Using data to predict what comes next or what lies in between, and \
+applying a well-known model or process, like predator and prey or the \
+seasons, to a new case.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["SP.3.c", "SP.7.a"]
+
+[[skill]]
+id = "s-displays"
+subject = "science"
+name = "Graphs, tables and diagrams"
+description = """
+Reading values and patterns from science graphs and tables, choosing \
+the right kind of graph for data, and turning words or pictures into \
+numbers and symbols.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["SP.1.c", "SP.6.a", "SP.6.b"]
+
+[[skill]]
+id = "s-probability"
+subject = "science"
+name = "Probability and sampling"
+description = """
+Chance in science: Punnett squares and simple probability, counting \
+possible setups and arrangements, and judging samples and what they \
+can tell us.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["SP.3.d", "SP.8.b", "SP.8.c"]
+
+[[skill]]
+id = "s-formulas-stats"
+subject = "science"
+name = "Formulas and statistics"
+description = """
+Using a science formula you are given to find an unknown, and \
+describing data with the mean, median, mode and range.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["SP.7.b", "SP.8.a"]

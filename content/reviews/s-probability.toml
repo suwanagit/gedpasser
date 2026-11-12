@@ -1,0 +1,809 @@
+# Review notes for s-probability. See content/reviews/CHECKLIST.md.
+
+[[review]]
+id = "SP.3.d"
+kind = "lesson"
+hash = "6fb731a6603648de"
+verdict = "pass"
+note = "Accurate and short: random from the whole group, one-part samples mislead, bigger random samples estimate better, scale by the sample fraction. Its 1-in-4 illustration does not mirror any question's numbers (0005 uses 30/100 of 5,000)."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.8.b"
+kind = "lesson"
+hash = "155010787bf4927d"
+verdict = "fix"
+note = "Gives away s-probability-0011: the order rule's example is '4 × 3 × 2 × 1 for four things', which is exactly 0011's 4 samples in a row (answer 24). Rewrite that bullet: 'Putting a set of things in order: multiply down, for example 3 × 2 × 1 = 6 orders for three things.' Rest is correct."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.8.c"
+kind = "lesson"
+hash = "ecd3ac59b17c25d6"
+verdict = "pass"
+note = "Correct definition (favorable / equally likely outcomes), Punnett box = 1 in 4, dominant/recessive rule, multiply for independent events. No worked numbers that mirror a question."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.3.d"
+kind = "card"
+hash = "59121db3b2685207"
+verdict = "pass"
+note = "Short and correct. Example (12 of 60 trees, 3,000 trees -> 600) is right and uses numbers no question uses. Hack 'bigger and more random' is correct and memorable."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.8.b"
+kind = "card"
+hash = "253279bd0c8135e7"
+verdict = "fix"
+note = "Step 3 'For putting things in order: 4 × 3 × 2 × 1.' is exactly s-probability-0011 (4 samples in a row). Also the card has no step for choices where order does not matter, which 0012 tests. Rewrite steps: ['Count the choices in each group.', 'Multiply them together.', 'Putting things in order: multiply down, like $3 \\times 2 \\times 1$.', 'Order does not matter? Divide by the ways to order each group (pairs: divide by 2).'] Keep example (3 shirts x 2 pants = 6) and hack."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.8.c"
+kind = "card"
+hash = "38f8d5d22606c3d5"
+verdict = "pass"
+note = "Correct and short. Marble example 3/10 does not mirror 0014 (6/10 seeds). Hack 'each Punnett box is a 1 in 4 chance' is right for the 2x2 squares used here."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0001"
+kind = "question"
+hash = "4271b8082c8d782c"
+reviewer = "solver-cc"
+role = "solver"
+verdict = "pass"
+solved = "1 out of 4"
+note = "Matches key. Only pp box is white. Distractors are real errors (1/2 two colors, 3/4 purple, 0/4 two purple parents). Explanation in style, closes with bold So line. SP.8.c / L.e.2 fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0002"
+kind = "question"
+hash = "b4ef1a3a0a026dfb"
+reviewer = "solver-cc"
+role = "solver"
+verdict = "pass"
+solved = "3/4 ; 1/2"
+note = "Both blanks match key. Menu options 1/4, 1/2, 3/4 each tempting (counting only PP, counting one Pp box). Explanation shows where 3 of 4 and 2/4 come from."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0003"
+kind = "question"
+hash = "6fe301d2fea47873"
+reviewer = "solver-cc"
+role = "solver"
+verdict = "pass"
+solved = "50"
+note = "Matches key; check 200 / 4 = 50. Numeric grading accepts 50 and 50.0. Common mistake (150) is real. Difficulty 3 is a little high for one step but acceptable on a passage."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0004"
+kind = "question"
+hash = "eb0eb71238f8805c"
+reviewer = "solver-cc"
+role = "solver"
+verdict = "pass"
+solved = "It could be PP or Pp"
+note = "Matches key; passage states the at-least-one-P rule. 'Must be PP' and 'must be Pp' are tempting; 'must be pp' targets mixing up dominant and recessive. Explanation fine."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0005"
+kind = "question"
+hash = "f9b0da4549cb893d"
+reviewer = "solver-cc"
+role = "solver"
+verdict = "pass"
+solved = "1500"
+note = "Matches key; check 30/100*5000 = 1500. Grader strips commas, so 1,500 is accepted too. Explanation gives the why (random sample has same fraction) before multiplying. SP.3.d fits."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0006"
+kind = "question"
+hash = "8625d3c452dd95f8"
+reviewer = "solver-cc"
+role = "solver"
+verdict = "pass"
+solved = "So the sample would fairly represent all the fish in the lake"
+note = "Matches key. 'Catch every fish' is contradicted by the passage; 'more trout' tempts because trout lead the table; 'biggest fish' is weakest but clearly wrong. Explanation fine."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0007"
+kind = "question"
+hash = "501ebe858c7e60ef"
+reviewer = "solver-cc"
+role = "solver"
+verdict = "fix"
+solved = "Fish in one shallow area may not be like the fish in the rest of the lake"
+note = "Key is right, but two distractors are throwaways nobody would pick: 'The total number of fish caught would have to be exactly 100' and 'Fish in shallow water cannot be identified'. Replace them with tempting, defensibly wrong ones based on real mistakes, e.g. 'Twenty nets would be too few for a lake this large' (wrong: the real survey also used 20 nets; only where they were set changed) and 'Fish near a beach are easy to catch, so they would catch too many fish' (wrong: the estimate uses fractions, not how many are caught). Then drop 'Twenty nets is too many for any lake' or keep it as the fourth choice; update common_mistake to the size-confusion distractor ('Thinking 20 nets is too few. The survey used 20 nets either way; the problem is where they are.')."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0008"
+kind = "question"
+hash = "530cbc72c91629eb"
+reviewer = "solver-cc"
+role = "solver"
+verdict = "pass"
+solved = "300 adults picked at random from the whole town"
+note = "Matches key. Runners, hospital visitors and a 3-person convenience sample are each a real sampling mistake and clearly biased. L.a.1 (body systems) fits a heart-rate study."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0009"
+kind = "question"
+hash = "9ce40c889efb8b29"
+reviewer = "solver-cc"
+role = "solver"
+verdict = "fix"
+solved = "Student B's, because a bigger random sample usually gives a better estimate"
+note = "Key right and explanation good, but 'Neither, because a sample can never tell you anything' is a throwaway. Replace with a tempting, defensibly wrong choice: 'Neither, because only testing every well in the county gives a useful estimate' (a real misconception about sampling). Other two distractors are good."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0010"
+kind = "question"
+hash = "732580d3cd08ecd3"
+reviewer = "solver-cc"
+role = "solver"
+verdict = "fix"
+solved = "12"
+note = "Math, key (check 3 * 4) and explanation are right, but topic L.d.1 (functions of life) does not fit: no living thing is in the prompt. Add the organism: 'A student grows bean plants in 3 kinds of soil with 4 different amounts of water. She wants to try every soil with every amount of water once. How many different setups does she need?' (keeps L.d.1), or retag ES.a.3."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0011"
+kind = "question"
+hash = "18d169dc5797cf39"
+reviewer = "solver-cc"
+role = "solver"
+verdict = "fix"
+solved = "24"
+note = "Math, key (check 4*3*2*1 = 24) and explanation are right, but topic P.c.4 (solutions) does not fit '4 different samples'. Rewrite: 'A lab worker has 4 different salt solutions in test tubes to place in a row on a rack. In how many different orders can she place them?' Also the SP.8.b lesson and card both show 4 × 3 × 2 × 1 for four things, which gives this answer away (see those fixes)."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0012"
+kind = "question"
+hash = "c86742c68d974e53"
+reviewer = "solver-cc"
+role = "solver"
+verdict = "pass"
+solved = "10"
+note = "Matches key; check 5*4/2 = 10. Prompt states order does not matter. Explanation shows ordered count then divide by 2; common mistake 20 is the real error. Plants in an experiment is a loose but acceptable life-science (L.d.1) setting."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0013"
+kind = "question"
+hash = "8daa3fd25455d24c"
+reviewer = "solver-cc"
+role = "solver"
+verdict = "fix"
+solved = "30"
+note = "Math, key (check 3 * 10) and explanation are right, but topic L.e.1 (DNA and chromosomes) does not fit generic 'sample' labels. Rewrite: 'A lab labels each DNA sample with one letter (A, B or C) followed by one digit (0 to 9). How many different labels are possible?'"
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0014"
+kind = "question"
+hash = "5f14233a683bc1c8"
+reviewer = "solver-cc"
+role = "solver"
+verdict = "pass"
+solved = "6/10"
+note = "Matches key. 4/10 (wrong color), 6/4 (part to part) and 1/6 (one of the red) are real errors and clearly wrong. Explanation states equally likely before dividing."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0015"
+kind = "question"
+hash = "b91678426149b2fc"
+reviewer = "solver-cc"
+role = "solver"
+verdict = "pass"
+solved = "1/16"
+note = "Matches key; independence is stated, 1/4 x 1/4 = 1/16. Distractors 1/2 (adding), 1/4 (one child only), 1/8 (halving) are tempting. Explanation in style."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0001"
+kind = "question"
+hash = "4271b8082c8d782c"
+reviewer = "solver-dd"
+role = "solver"
+verdict = "pass"
+solved = "1 out of 4"
+note = "Blind answer matches key. Only pp is white; 1 of 4 equally likely boxes. 1/2 (two colors) and 3/4 (purple) are tempting and clearly wrong. Explanation correct, closes with So line and bold answer. Topic L.e.2 and SP.8.c fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0002"
+kind = "question"
+hash = "b4ef1a3a0a026dfb"
+reviewer = "solver-dd"
+role = "solver"
+verdict = "pass"
+solved = "3/4 ; 1/2"
+note = "Blind answers match both blanks. Menu 1: 1/4 (only PP) and 1/2 (only Pp) are real miscounts; menu 2: 1/4 (one Pp box) and 3/4 (all purple) are tempting and wrong. Explanation counts boxes correctly and ends with a bold So line."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0003"
+kind = "question"
+hash = "6fe301d2fea47873"
+reviewer = "solver-dd"
+role = "solver"
+verdict = "pass"
+solved = "50"
+note = "Blind answer matches; check 200 / 4 = 50. Prompt says about, so the expected-value reading is clear. Common mistake (150 = purple) is realistic. Explanation correct and in style."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0004"
+kind = "question"
+hash = "eb0eb71238f8805c"
+reviewer = "solver-dd"
+role = "solver"
+verdict = "pass"
+solved = "It could be PP or Pp"
+note = "Blind answer matches. Passage states at least one P gives purple, so PP or Pp; must be PP / must be Pp are tempting half-truths, must be pp contradicts the passage. Explanation correct, bold So line."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0005"
+kind = "question"
+hash = "f9b0da4549cb893d"
+reviewer = "solver-dd"
+role = "solver"
+verdict = "pass"
+solved = "1500"
+note = "Blind answer matches; check 30/100*5000 = 1500, and the checker strips commas so 1,500 is accepted. Random whole-lake sample justifies scaling. Explanation shows each step, bold So line. SP.3.d and L.c.3 fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0006"
+kind = "question"
+hash = "8625d3c452dd95f8"
+reviewer = "solver-dd"
+role = "solver"
+verdict = "pass"
+solved = "So the sample would fairly represent all the fish in the lake"
+note = "Blind answer matches. Catch every fish contradicts the passage; biggest fish and more trout are clearly wrong. Explanation gives the reason, bold So line. Minor: the So line reads a little stiffly (So they did it so...) but is clear."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0007"
+kind = "question"
+hash = "501ebe858c7e60ef"
+reviewer = "solver-dd"
+role = "solver"
+verdict = "pass"
+solved = "Fish in one shallow area may not be like the fish in the rest of the lake"
+note = "Blind answer matches. Biased-location sampling is the only defensible reason; other choices are false or irrelevant. Explanation names deep-water fish being missed, bold So line."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0008"
+kind = "question"
+hash = "530cbc72c91629eb"
+reviewer = "solver-dd"
+role = "solver"
+verdict = "pass"
+solved = "300 adults picked at random from the whole town"
+note = "Blind answer matches. Runners (lower resting rates), hospital visitors (less healthy) and 3 people are each a real sampling flaw, all addressed in the explanation. L.a.1 is a loose but acceptable health tag."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0009"
+kind = "question"
+hash = "9ce40c889efb8b29"
+reviewer = "solver-dd"
+role = "solver"
+verdict = "pass"
+solved = "Student B's, because a bigger random sample usually gives a better estimate"
+note = "Blind answer matches. Equally reliable because both random is the tempting wrong idea and is named in the common mistake. Explanation clear, bold So line. ES.a.3 (water as a resource) fits."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0010"
+kind = "question"
+hash = "732580d3cd08ecd3"
+reviewer = "solver-dd"
+role = "solver"
+verdict = "fix"
+solved = "12"
+note = "Math, key (check 3*4 = 12), explanation and common mistake are all correct. Fix the topic tag: L.d.1 (functions of life) does not match testing soils with water; nothing about living things is in the prompt. Either retag (e.g. ES.a.3 natural resources: soil and water) or add the life context, e.g. growing bean plants in 3 kinds of soil with 4 amounts of water."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0011"
+kind = "question"
+hash = "18d169dc5797cf39"
+reviewer = "solver-dd"
+role = "solver"
+verdict = "fix"
+solved = "24"
+note = "Math, key (check 4*3*2*1 = 24) and explanation are correct. Fix the topic tag: P.c.4 (solutions) does not match placing 4 unnamed samples on a shelf. Make the prompt fit, e.g. 4 different salt-water solutions in a row, or retag to a topic the context actually supports."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0012"
+kind = "question"
+hash = "c86742c68d974e53"
+reviewer = "solver-dd"
+role = "solver"
+verdict = "fix"
+solved = "10"
+note = "Math, key (check 5*4/2 = 10) and explanation are correct; 20 is a realistic common mistake. Fix the topic tag: L.d.1 (functions of life, cells) is not what choosing 2 of 5 plants touches. Either give the experiment a life-science purpose that fits a code (e.g. comparing how 2 plants respond to light, L.b.1) or retag."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0013"
+kind = "question"
+hash = "8daa3fd25455d24c"
+reviewer = "solver-dd"
+role = "solver"
+verdict = "fix"
+solved = "30"
+note = "Math, key (check 3*10 = 30) and explanation are correct. Fix the topic tag: L.e.1 (DNA and chromosomes) has nothing to do with labeling generic samples with a letter and digit. Make the prompt fit (e.g. labels for DNA samples) or retag."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0014"
+kind = "question"
+hash = "5f14233a683bc1c8"
+reviewer = "solver-dd"
+role = "solver"
+verdict = "pass"
+solved = "6/10"
+note = "Blind answer matches. 4/10 (wrong color) and 6/4 (part to part) are real mistakes; 1/6 is weak but clearly wrong. Explanation correct and short with bold answer. L.e.2 (traits) tag is loose but acceptable."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0015"
+kind = "question"
+hash = "b91678426149b2fc"
+reviewer = "solver-dd"
+role = "solver"
+verdict = "pass"
+solved = "1/16"
+note = "Blind answer matches. Independence is stated, so multiply 1/4 x 1/4 = 1/16. 1/2 (adding) and 1/4 (ignoring the second child) are realistic; 1/8 (doubling the denominator) is plausible. Explanation correct, bold So line. SP.8.c and L.e.2 fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0001"
+kind = "question"
+hash = "4271b8082c8d782c"
+reviewer = "factcheck-o"
+role = "factcheck"
+verdict = "pass"
+note = 'Opened OpenStax Concepts of Biology 8.2 (HTTP 200): recessive trait shows only in homozygous recessive; Punnett square outcomes equally likely; monohybrid F2 gives 1 in 4 (25 percent) recessive. pp = white = 1 of 4 boxes is correct.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0002"
+kind = "question"
+hash = "b4ef1a3a0a026dfb"
+reviewer = "factcheck-o"
+role = "factcheck"
+verdict = "pass"
+note = 'OpenStax CoB 8.2: homozygous dominant and heterozygous look identical; 3:1 phenotype ratio; heterozygotes arise two ways (2 of 4 boxes). 3/4 purple and 1/2 Pp confirmed.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0003"
+kind = "question"
+hash = "6fe301d2fea47873"
+reviewer = "factcheck-o"
+role = "factcheck"
+verdict = "pass"
+note = 'OpenStax CoB 8.2 gives 25 percent recessive phenotype for a heterozygous cross; 200 x 1/4 = 50 expected, 150 purple in the mistake also correct.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0004"
+kind = "question"
+hash = "eb0eb71238f8805c"
+reviewer = "factcheck-o"
+role = "factcheck"
+verdict = "pass"
+note = 'OpenStax CoB 8.2: homozygous dominant and heterozygous plants have the same phenotype, so a purple offspring could be PP or Pp. Correct.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0005"
+kind = "question"
+hash = "f9b0da4549cb893d"
+reviewer = "factcheck-o"
+role = "factcheck"
+verdict = "pass"
+note = 'Numbers are made up and labelled so. OpenStax Intro Stats 2e 1.2 (HTTP 200) supports using a representative random sample to describe the population; 30/100 x 5000 = 1500.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0006"
+kind = "question"
+hash = "8625d3c452dd95f8"
+reviewer = "factcheck-o"
+role = "factcheck"
+verdict = "pass"
+note = 'OpenStax Intro Stats 2e 1.2: a sample must be representative; each member should have an equal chance of being chosen (sampling bias). Habitat point is hedged (may) and is reasoning, not a stated fact. Passage does say catching all is impossible.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0007"
+kind = "question"
+hash = "501ebe858c7e60ef"
+reviewer = "factcheck-o"
+role = "factcheck"
+verdict = "pass"
+note = 'OpenStax Intro Stats 2e 1.2: samples not representative of the population are biased; convenience samples can be highly biased. Deep-water point is hedged (may). Correct.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0008"
+kind = "question"
+hash = "530cbc72c91629eb"
+reviewer = "factcheck-o"
+role = "factcheck"
+verdict = "fix"
+note = 'The common_mistake states a physiology fact (runners often have lower resting heart rates) that the cited source (OpenStax Intro Stats 1.2, which supports the sampling and bias points) does not cover. Add a source, e.g. MedlinePlus Pulse: https://medlineplus.gov/ency/article/003399.htm (checked, HTTP 200: adults 60 to 100 beats per minute at rest; well-trained athletes 40 to 60). Everything else checks out.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0009"
+kind = "question"
+hash = "9ce40c889efb8b29"
+reviewer = "factcheck-o"
+role = "factcheck"
+verdict = "pass"
+note = 'OpenStax Intro Stats 2e 1.2: Samples that are too small may be unreliable. Larger samples are better. Key and wrong choices consistent with source.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0010"
+kind = "question"
+hash = "732580d3cd08ecd3"
+reviewer = "factcheck-o"
+role = "factcheck"
+verdict = "pass"
+note = 'OpenStax Contemporary Mathematics 7.1 (HTTP 200) states the Multiplication Rule for Counting; 3 x 4 = 12.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0011"
+kind = "question"
+hash = "18d169dc5797cf39"
+reviewer = "factcheck-o"
+role = "factcheck"
+verdict = "pass"
+note = 'OpenStax Contemporary Mathematics 7.2 (HTTP 200): permutations via the multiplication rule and factorials (e.g. 8 x 7 x 6); 4! = 24.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0012"
+kind = "question"
+hash = "c86742c68d974e53"
+reviewer = "factcheck-o"
+role = "factcheck"
+verdict = "pass"
+note = 'OpenStax Contemporary Mathematics 7.3 (HTTP 200): nPr = nCr x r!, so combinations = ordered count / r!; 5 x 4 / 2 = 10.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0013"
+kind = "question"
+hash = "8daa3fd25455d24c"
+reviewer = "factcheck-o"
+role = "factcheck"
+verdict = "pass"
+note = 'OpenStax Contemporary Mathematics 7.1 multiplication rule; 3 letters x 10 digits (0 to 9) = 30.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0014"
+kind = "question"
+hash = "5f14233a683bc1c8"
+reviewer = "factcheck-o"
+role = "factcheck"
+verdict = "pass"
+note = 'OpenStax Intro Stats 2e 3.1 (HTTP 200): with equally likely outcomes, probability = outcomes in event / total outcomes; 6/10. Seed numbers are a hypothetical.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0015"
+kind = "question"
+hash = "b91678426149b2fc"
+reviewer = "factcheck-o"
+role = "factcheck"
+verdict = "pass"
+note = 'OpenStax CoB 8.2: Aa x Aa gives 1 in 4 recessive; OpenStax Intro Stats 2e 3.2 (HTTP 200): for independent events P(A AND B) = P(A)P(B). Independence between children is stated in the prompt. 1/16 correct.'
+date = "2026-11-12"
+
+[[review]]
+id = "SP.8.b"
+kind = "lesson"
+hash = "0ee65411c90ee614"
+verdict = "pass"
+note = "All three rules are correct (multiplication rule, n! for orders, divide ordered count by orderings for combinations). Short, plain words. The only example (3 x 2 x 1 = 6 for three things) does not match any question's numbers (0011 uses 4 things); gives away none of the 15 answers."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.8.b"
+kind = "card"
+hash = "193d3a81466716e2"
+verdict = "fix"
+note = "Content correct, under 90 words, example (3 shirts x 2 pants = 6) reuses no question numbers and gives away no answer; hack is correct. Fix one clarity problem: steps 1-2 use 'group' for a category of choices, but step 4 uses 'each group' for the items picked, so 'divide by the ways to order each group' can read as dividing by something about the categories. Reword step 4 to e.g. 'Order does not matter? Divide by the ways to order the picks (pairs: divide by 2).'"
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0007"
+kind = "question"
+hash = "7e206a72920da37c"
+reviewer = "solver-ee"
+role = "solver"
+verdict = "pass"
+solved = "Fish in one shallow area may not be like the fish in the rest of the lake"
+note = "Blind answer matches key. Answerable from the passage (original plan used shallow and deep water around the whole lake). Distractors defensibly wrong yet tempting: 'too few nets' is wrong since the count is unchanged, 'too many nets' and 'catch too many fish' confuse sample size with sampling bias. SP.3.d fits; L.c.3 is an acceptable ecosystem/population tag. Explanation correct, closes with So + bold answer."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0008"
+kind = "question"
+hash = "69df0d314a43d850"
+reviewer = "solver-ee"
+role = "solver"
+verdict = "pass"
+solved = "300 adults picked at random from the whole town"
+note = "Blind answer matches key. Runners and hospital visitors are biased samples (tempting because same size 300); 3 people too few. Exactly one defensible answer. SP.3.d and L.a.1 fit. Explanation covers why each wrong choice fails and ends with So + bold answer."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0009"
+kind = "question"
+hash = "fafc105184cae3f1"
+reviewer = "solver-ee"
+role = "solver"
+verdict = "pass"
+solved = "Student B's, because a bigger random sample usually gives a better estimate"
+note = "Blind answer matches key. 'Equally reliable because both random' is the tempting misconception and is clearly wrong; 'fewer tests fewer mistakes' and 'only a census is useful' are defensibly wrong. SP.3.d fits; ES.a.3 (natural resources, well water) fits. Explanation correct and in style."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0010"
+kind = "question"
+hash = "33fc0662fad14b9d"
+reviewer = "solver-ee"
+role = "solver"
+verdict = "pass"
+solved = "12"
+note = "Blind answer matches key; check 3 * 4 = 12. Wording clear (every soil with every water amount once). SP.8.b fits; L.d.1 is a loose but acceptable tag for plant growth. Explanation says why to multiply, ends with So + bold answer. Common mistake (adding to 7) is the real error."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0011"
+kind = "question"
+hash = "ffe6ae308c05289d"
+reviewer = "solver-ee"
+role = "solver"
+verdict = "fix"
+solved = "24"
+note = "Blind answer matches key; check 4 * 3 * 2 * 1 = 24. SP.8.b and P.c.4 (solutions) fit. Fix: the explanation says 'Any of the 4 samples can go first' but the prompt talks about 4 test tubes; change 'samples' to 'test tubes' so the explanation matches the question. Rest of explanation and common mistake (4 or 16) are fine."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0012"
+kind = "question"
+hash = "3988f0327d547035"
+reviewer = "solver-ee"
+role = "solver"
+verdict = "pass"
+solved = "10"
+note = "Blind answer matches key; check 5 * 4 / 2 = 10. Prompt states order does not matter and plants are different, so one reading. SP.8.b fits; L.b.1 is acceptable (light and plant growth). Explanation shows ordered count then divides by 2 with the reason; common mistake (20) is the real error. Difficulty 3 reasonable."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0013"
+kind = "question"
+hash = "d96e8cd45df830d4"
+reviewer = "solver-ee"
+role = "solver"
+verdict = "pass"
+solved = "30"
+note = "Blind answer matches key; check 3 * 10 = 30. Digit range 0 to 9 stated, so 10 choices is unambiguous. SP.8.b fits; L.e.1 (DNA) is context-only but acceptable. Explanation in style, common mistake (13 by adding) real."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0007"
+kind = "question"
+hash = "7e206a72920da37c"
+reviewer = "solver-ff"
+role = "solver"
+verdict = "pass"
+solved = "Fish in one shallow area may not be like the fish in the rest of the lake"
+note = "Blind answer matches key. Answerable from the passage (it stresses shallow and deep water around the whole lake). Distractors are about net count or catch size, tempting but clearly not the sampling-bias issue. Common mistake matches a choice. Topic L.c.3 and SP.3.d fit; explanation ends with a bold So line."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0008"
+kind = "question"
+hash = "69df0d314a43d850"
+reviewer = "solver-ff"
+role = "solver"
+verdict = "pass"
+solved = "300 adults picked at random from the whole town"
+note = "Blind answer matches key. Exactly one defensible choice; runners, hospital visitors and a tiny sample are each realistic biased or too-small samples, and the explanation names why each is wrong. Common mistake matches the runners choice. SP.3.d and L.a.1 fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0009"
+kind = "question"
+hash = "fafc105184cae3f1"
+reviewer = "solver-ff"
+role = "solver"
+verdict = "pass"
+solved = "Student B's, because a bigger random sample usually gives a better estimate"
+note = "Blind answer matches key. Both samples random, so only size differs; 'usually' keeps the key accurate. 'Equally reliable' distractor is the tempting one and the common mistake targets it. SP.3.d and ES.a.3 (water resource) fit; explanation in style."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0010"
+kind = "question"
+hash = "33fc0662fad14b9d"
+reviewer = "solver-ff"
+role = "solver"
+verdict = "pass"
+solved = "12"
+note = "Blind answer 12 matches key; check 3 * 4 = 12. Multiplication rule clearly stated in explanation; common mistake (adding to 7) is realistic. SP.8.b fits; topic L.d.1 is a loose but acceptable plant-growth context. Difficulty 1 is right."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0011"
+kind = "question"
+hash = "ffe6ae308c05289d"
+reviewer = "solver-ff"
+role = "solver"
+verdict = "fix"
+solved = "24"
+note = "Blind answer 24 matches key; check 4 * 3 * 2 * 1 = 24. Fix wording only: the explanation says 'Any of the 4 samples can go first' but the prompt talks about test tubes; change 'samples' to 'test tubes' (or 'tubes') so the explanation uses the prompt's words. Otherwise correct, SP.8.b and P.c.4 fit, common mistake realistic."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0012"
+kind = "question"
+hash = "3988f0327d547035"
+reviewer = "solver-ff"
+role = "solver"
+verdict = "pass"
+solved = "10"
+note = "Blind answer 10 matches key; check 5 * 4 / 2 = 10. Prompt states order does not matter, so one reading. Explanation shows why divide by 2; common mistake 20 is the classic error. SP.8.b and L.b.1 (light and growth) fit; difficulty 3 reasonable."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0013"
+kind = "question"
+hash = "d96e8cd45df830d4"
+reviewer = "solver-ff"
+role = "solver"
+verdict = "pass"
+solved = "30"
+note = "Blind answer 30 matches key; check 3 * 10 = 30. Prompt gives the digit range 0 to 9 explicitly (10 digits). Common mistake 13 (adding) realistic; possible slip of 27 (using 9 digits) is not a concern given the explicit range. SP.8.b and L.e.1 fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0007"
+kind = "question"
+hash = "7e206a72920da37c"
+reviewer = "factcheck-p"
+role = "factcheck"
+verdict = "pass"
+note = "Opened OpenStax Intro Stats 2e 1.2: a sample should have the same characteristics as the population; convenience samples can be highly biased. Supports key (sampling one shallow spot may not represent the lake). Passage (reviewed) says 20 random sites in shallow and deep water, matching the hypothetical. 'Some kinds of fish may stay in deep water' is hedged general reasoning, not a stated fact. Distractors are clearly wrong. No unsupported claims."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0008"
+kind = "question"
+hash = "69df0d314a43d850"
+reviewer = "factcheck-p"
+role = "factcheck"
+verdict = "pass"
+note = "OpenStax 1.2 supports random sampling for a representative sample and warns convenience samples can be biased. MedlinePlus Pulse (003399) lists adult resting heart rate 60-100 bpm vs well-trained athletes 40-60 bpm, supporting 'runners often have lower resting heart rates'; it also says a fast pulse may signal infection or dehydration, supporting the hedged 'hospital patients may have heart rates unlike most adults'. Key correct."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0009"
+kind = "question"
+hash = "fafc105184cae3f1"
+reviewer = "factcheck-p"
+role = "factcheck"
+verdict = "pass"
+note = "OpenStax 1.2 'Variation in Samples' / 'Size of a Sample': larger random samples give results that may be closer to the population average; random samples still vary. Supports key ('usually' is suitably hedged) and the common mistake. Explanation's point about one unusual value pulling a small-sample average is standard and consistent with the source."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0010"
+kind = "question"
+hash = "33fc0662fad14b9d"
+reviewer = "factcheck-p"
+role = "factcheck"
+verdict = "pass"
+note = "OpenStax Contemporary Math 7.1 Multiplication Rule for Counting: multiply the number of ways for each task. 3 x 4 = 12; check expression matches answer. No other factual claims."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0011"
+kind = "question"
+hash = "ffe6ae308c05289d"
+reviewer = "factcheck-p"
+role = "factcheck"
+verdict = "pass"
+note = "OpenStax Contemporary Math 7.2 Permutations: ordering n distinct items is n!, with worked example 4! = 4 x 3 x 2 x 1 = 24. Answer and check correct. Minor wording only (not a fact issue): prompt says 'test tubes' but explanation says 'samples'; a solver may want them to match."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0012"
+kind = "question"
+hash = "3988f0327d547035"
+reviewer = "factcheck-p"
+role = "factcheck"
+verdict = "pass"
+note = "OpenStax Contemporary Math 7.3 Combinations: when order doesn't matter, count combinations; C(5,2) = 5 x 4 / 2 = 10. Answer, check and the 'counted twice' explanation are correct; common mistake (20 = ordered count) is accurate."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0013"
+kind = "question"
+hash = "d96e8cd45df830d4"
+reviewer = "factcheck-p"
+role = "factcheck"
+verdict = "pass"
+note = "OpenStax Contemporary Math 7.1 Multiplication Rule for Counting supports multiplying choices: 3 letters x 10 digits (0-9) = 30. Answer and check correct. Labeling scenario is hypothetical; no real-world claim made."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.8.b"
+kind = "card"
+hash = "d41a0d8528027001"
+verdict = "pass"
+note = "Rule, steps and example are correct (3 shirts x 2 pants = 6 outfits; ordering = multiply down; unordered pairs = divide by 2). Short, plain words, well under 90 words, hack is memorable and correct. Checked all 15 s-probability items: the example's 6 and the 3 x 2 x 1 hint match no answer key (0010=12, 0011=24, 0012=10, 0013=30, rest are fractions or MC); the method steps teach the idea without giving any question's numbers."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0011"
+kind = "question"
+hash = "2aec285325f02276"
+reviewer = "solver-gg"
+role = "solver"
+verdict = "pass"
+solved = "24"
+note = "Blind answer 24 (4! = 4 x 3 x 2 x 1) matches the key; check 4*3*2*1 computes 24. Prompt is clear (4 different tubes, all placed in a row). SP.8.b (count arrangements) fits; topic P.c.4 (solutions) fits the salt-solution setting. Explanation is correct, short, shows where each factor comes from, ends with a bold answer sentence. Common mistake (4 or 16) names real errors. Difficulty 2 reasonable."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0011"
+kind = "question"
+hash = "2aec285325f02276"
+reviewer = "solver-hh"
+role = "solver"
+verdict = "pass"
+solved = "24"
+note = "Blind answer 24 (4! arrangements) matches key; check 4*3*2*1 = 24. SP.8.b (arrangements) fits; topic P.c.4 (solutions) fits the salt-solution context. Explanation is short, one step per line, shows where each factor comes from, ends with bold answer. Common mistake (4 or 16) is realistic."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0011"
+kind = "question"
+hash = "2aec285325f02276"
+reviewer = "factcheck-q"
+role = "factcheck"
+verdict = "pass"
+note = "Opened the cited OpenStax Contemporary Mathematics 7.2 Permutations page. It explains that ordering n distinct objects uses the multiplication rule n x (n-1) x ... x 1 = n! (factorial). The question's only factual claims are this counting method and the arithmetic 4 x 3 x 2 x 1 = 24, both correct and consistent with the source; check expression matches answer 24. The common mistakes (4 or 16) are plausible errors and the correction is accurate. The lab scenario is generic and makes no scientific claims needing a source."
+date = "2026-11-12"

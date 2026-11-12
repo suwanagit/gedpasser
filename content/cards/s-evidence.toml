@@ -1,0 +1,65 @@
+# Quick review cards for s-evidence (SP.3.a, SP.3.b, SP.4.a, SP.5.a). See WRITING.md.
+
+[[card]]
+id = "SP.3.a"
+status = "reviewed"
+title = "Pointing to evidence"
+key = "Evidence is the exact data the conclusion talks about."
+steps = [
+  'Find what the conclusion is about.',
+  'Find the rows or sentences about that same thing.',
+  'A true fact about something else is not evidence.',
+]
+example = '''
+Conclusion: "The pond got warmer over the summer."
+**Evidence:** June 18 °C, August 24 °C. Not "the pond has frogs".
+'''
+hack = 'Change over time needs at least two times.'
+
+[[card]]
+id = "SP.3.b"
+status = "reviewed"
+title = "Supported conclusions"
+key = "A supported conclusion says no more than the data show."
+steps = [
+  'Cross out choices the numbers contradict.',
+  'Cross out "always", "all", or causes nobody tested.',
+  'Cross out things the study never measured.',
+]
+example = '''
+Data: 3 of 4 plants in the sun grew taller than the plants in the shade.
+**Supported:** most plants in the sun grew taller than those in the shade. Not: "sun always makes plants taller".
+'''
+hack = 'Pick the answer that fits every number and claims no more.'
+
+[[card]]
+id = "SP.4.a"
+status = "reviewed"
+title = "Support or weaken"
+key = "Evidence supports a claim if it is what the claim predicts."
+steps = [
+  'Say what the claim predicts.',
+  'Compare the evidence with that prediction.',
+  'Matches: supports. Goes against: weakens. Off-topic: neither.',
+]
+example = '''
+Claim: "This fabric is waterproof."
+Evidence: water soaked through in 1 minute. **Weakens** the claim.
+'''
+hack = 'Ask: "If the claim were true, what would I see?"'
+
+[[card]]
+id = "SP.5.a"
+status = "reviewed"
+title = "Two findings"
+key = "Two findings can both be right if the conditions differed."
+steps = [
+  'List what was different between the two studies.',
+  'Ask if that difference explains the results.',
+  'If they truly clash, trust the bigger, fairer study.',
+]
+example = '''
+Bread in a kitchen molded in 4 days. Bread in a fridge took 12 days.
+**Both right:** the fridge is colder, and mold grows slower in the cold.
+'''
+hack = 'Bigger and fairer beats newer or louder.'

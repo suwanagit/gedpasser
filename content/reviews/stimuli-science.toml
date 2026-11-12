@@ -240,3 +240,661 @@ referred to as yeasts"; 4.4: fermentation works in the absence of oxygen and rel
 Every claim in the text is now covered; results plausible; no copied text.
 '''
 date = "2026-11-12"
+
+[[review]]
+id = "science-body-temperature"
+kind = "stimulus"
+hash = "fbcdef9d9cb8ac6a"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+note = "Clear, accurate, short; terms defined in context; no reading-level warning. Note for the author: 4 questions use it, above the 2-3 per passage in CONTENT_RULES (fine if the app draws a subset)."
+date = "2026-11-12"
+
+[[review]]
+id = "science-photosynthesis"
+kind = "stimulus"
+hash = "f444cdc11cdc0695"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+note = "Clear and correct; reactants and products defined; word equation matches the text. Realistic length, about grade 9-10."
+date = "2026-11-12"
+
+[[review]]
+id = "science-heat-transfer"
+kind = "stimulus"
+hash = "df153d55ad94fa1f"
+reviewer = "solver-c"
+role = "solver"
+verdict = "fix"
+note = '''
+Clear and well organized, but "Radiation is heat carried by light and other waves" is loose: "other waves" includes sound and water waves, which do not carry heat by radiation. Suggested rewrite: "Radiation is heat carried by light and waves like it, such as infrared waves." (or "by electromagnetic waves, such as light and infrared"). The three questions still work after this change.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-food-chain"
+kind = "stimulus"
+hash = "782e618f0b8344b8"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+note = "Clear; producer, consumer and trophic level defined; table clearly labeled made-up and shows the real 10% pattern. Note for the author: 5 questions use it, above the 2-3 per passage in CONTENT_RULES."
+date = "2026-11-12"
+
+[[review]]
+id = "science-water-cycle"
+kind = "stimulus"
+hash = "fe1c6aad9af7d6da"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+note = "Clear, correct sequence, terms defined; table 97.5 + 2.5 = 100 and matches the text. Note: 4 questions use it (CONTENT_RULES suggests 2-3)."
+date = "2026-11-12"
+
+[[review]]
+id = "science-body-temperature"
+kind = "stimulus"
+hash = "fbcdef9d9cb8ac6a"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Source line starts with Original. Checked every claim: 37 C set point and normal range (A&P 2e 1.5); homeostasis and set point definitions (A&P 1.5, CoB 16.1); hypothalamus maintains the set point / "thermostat" (CoB 16.1); sweat evaporating carries heat away (A&P 1.5); vessels widen when hot, narrow when cold keeping blood toward the core (CoB 16.1, A&P 1.5); shivering as involuntary muscle activity that makes heat (CoB 16.1, A&P 1.5); negative feedback reverses deviation (A&P 1.5). 7-word shingle comparison with both pages found no copied runs.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-photosynthesis"
+kind = "stimulus"
+hash = "f444cdc11cdc0695"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Source line starts with Original. CoB 5.1 supports: CO2 + water -> glucose (most commonly) + oxygen using sunlight energy; reactants and products terms; sugars store energy the organism uses; animals that eat plants get that energy (deer example, Figure 5.3); gas exchange through stomata. Saying "a sugar called glucose" is a fair simplification of "carbohydrate molecules, most commonly glucose". No copied runs found.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-heat-transfer"
+kind = "stimulus"
+hash = "df153d55ad94fa1f"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Source line starts with Original. Warmer to cooler (14.1); exactly three methods with burner-to-pan conduction example (14.4); pot of water convection with warm water rising and cooler water sinking (14.6 Figure 14.18); radiation by electromagnetic waves incl. infrared, no medium needed, Sun across largely empty space, heat felt from a fire (14.4, 14.7). "Light and other waves, such as infrared waves" is a fair simplification of electromagnetic radiation. No copied runs found.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-food-chain"
+kind = "stimulus"
+hash = "782e618f0b8344b8"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "fix"
+note = '''
+Source line is fine (Original, made-up numbers labelled). Trophic level, producer and consumer definitions match CoB 20.1. Problem: the passage says the made-up numbers "show a pattern scientists see in real food chains", and the table's pattern is an exact one-tenth drop at every level (which Q12 and Q15 build on). CoB 20.1 only supports "each trophic level has less energy available" (Figure 20.5); it gives no size for the drop. Fix one of two ways: (a) add OpenStax Biology 2e 46.2 Energy Flow through Ecosystems (https://openstax.org/books/biology-2e/pages/46-2-energy-flow-through-ecosystems), which defines trophic level transfer efficiency, calls it low, and gives about 14.5 percent for Silver Springs, and say "roughly one-tenth" is a typical rule of thumb; or (b) narrow the sentence to "they show the pattern scientists see in real food chains: each level holds much less energy than the one below it."
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-water-cycle"
+kind = "stimulus"
+hash = "fe1c6aad9af7d6da"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "fix"
+note = '''
+Source line is fine (Original). CoB 20.2 supports: Sun drives the cycle by warming oceans and surface water; evaporation is water to water vapor; vapor condenses into clouds of droplets; precipitation as rain or snow; surface runoff; percolation into groundwater; 97.5% salt / 2.5% fresh; 99% of fresh water locked as ice or underground; less than 1% of fresh water in lakes and rivers (table matches exactly). One claim is not in the cited source: "When the droplets grow heavy enough, they fall as precipitation." CoB 20.2 only says the vapor condenses into clouds "and eventually leads to precipitation". Either reword to "Eventually the droplets fall as precipitation: rain or snow." or add a source that states the droplet-growth mechanism (e.g. a NOAA or NASA water-cycle page). Overlap check: only the short phrase "less than 1 percent of fresh water" matches the source, which is a fact statement and fine.
+'''
+date = "2026-11-12"
+
+# ── Study links (content/study.toml) ──────────────────────────────────
+
+[[review]]
+id = "science-heat-transfer"
+kind = "stimulus"
+hash = "e574cdd67c04adba"
+reviewer = "solver-e"
+role = "solver"
+verdict = "pass"
+note = "Clear and short, about grade 8-10. Each way has one definition and concrete examples; radiation as heat carried by light and similar waves (infrared) that needs no matter is a fair simplification. Supports 0008-0010 without ambiguity."
+date = "2026-11-12"
+
+[[review]]
+id = "science-food-chain"
+kind = "stimulus"
+hash = "645292fdeee28a0f"
+reviewer = "solver-e"
+role = "solver"
+verdict = "pass"
+note = "Clear; defines trophic level, producer and consumer. The table is labeled as a made-up model following the real pattern (about 10% passed up) and has units. Supports 0011-0015. Small non-blocking nit: holds with a per-year unit is loose wording for energy flow."
+date = "2026-11-12"
+
+[[review]]
+id = "science-water-cycle"
+kind = "stimulus"
+hash = "aa09c9825d29d765"
+reviewer = "solver-e"
+role = "solver"
+verdict = "pass"
+note = "Clear sequence (warm, evaporate, rise, cool and condense, fall, runoff and groundwater) with in-text definitions; the 97.5/2.5 table matches the text. About grade 9-10. Supports 0016-0019 with one order for 0017."
+date = "2026-11-12"
+
+[[review]]
+id = "science-heat-transfer"
+kind = "stimulus"
+hash = "e574cdd67c04adba"
+reviewer = "factcheck-c"
+role = "factcheck"
+verdict = "pass"
+note = "Source starts with 'Original' and the wording is our own. I found no long verbatim runs from OpenStax. Opened 14.1, 14.4, 14.6 and 14.7 (all 200). Warmer to cooler: 14.1. Conduction through touching matter, with the burner-pan example: 14.4. The pan handle is covered by 14.4's 'through stationary matter' and 'through a cooking pan'. Convection by a moving fluid: 14.4. Pot water rising, colder water sinking, repeating: 14.6 Fig. 14.18. Radiation as light and other EM waves, including infrared: 14.4 and 14.7. No medium needed, and Sun through space: 14.7. Feeling a fire's heat: 14.7. Optional: 14.5 Conduction would also back the handle example."
+date = "2026-11-12"
+
+[[review]]
+id = "science-food-chain"
+kind = "stimulus"
+hash = "645292fdeee28a0f"
+reviewer = "factcheck-c"
+role = "factcheck"
+verdict = "pass"
+note = "Source starts with 'Original' and the numbers are labeled made-up. Opened Concepts of Biology 20.1 (200). Trophic level as a position in the food chain: confirmed. Producers are photosynthetic and use sunlight: confirmed. Consumers or heterotrophs get energy by eating other organisms: confirmed. Each level has less energy, with energy lost at each level: confirmed in the text and in Fig. 20.5 (Silver Springs, about tenfold drops), which backs 'much less'. A meadow grazing food web is mentioned, and Fig. 20.6 includes a mouse and a snake. No verbatim copying."
+date = "2026-11-12"
+
+[[review]]
+id = "science-water-cycle"
+kind = "stimulus"
+hash = "aa09c9825d29d765"
+reviewer = "factcheck-c"
+role = "factcheck"
+verdict = "fix"
+note = "Source starts with 'Original' and the wording is our own. Opened Concepts of Biology 20.2 (200). Confirmed there: Sun drives the cycle by warming oceans and surface water; evaporation means liquid to vapor; vapor condenses into clouds as droplets; precipitation as rain or snow; surface runoff into streams; water percolating into the ground to form groundwater; 97.5% salt and 2.5% fresh (Fig. 20.9); 99% of fresh water in ice or underground; less than 1% of fresh water in lakes and rivers. Not confirmed: 'The water vapor rises into the air. As it cools, it condenses'. 20.2 says only that water moves 'into the atmosphere' and 'condenses'; it never says cooling causes condensation. Fix: add a source, e.g. NASA GPM 'The Water Cycle' https://gpm.nasa.gov/education/water-cycle (200; says water 'rises into the atmosphere, cools and condenses'). Write it as 'Original (facts from ... 20.2 Biogeochemical Cycles and NASA GPM The Water Cycle)'."
+date = "2026-11-12"
+
+# ── study links ─────────────────────────────────────────────────────
+
+[[review]]
+id = "science-water-cycle"
+kind = "stimulus"
+hash = "5daaf62436c55184"
+reviewer = "solver-g"
+role = "solver"
+verdict = "fix"
+note = "Clear, short, about grade 10 (no reading-level warning), and the table matches the text. One inaccurate sentence: 'In time, the droplets fall as precipitation: rain or snow.' Tiny cloud droplets do not fall as snow (snow forms from ice crystals, and rain drops form when droplets grow). Change to: 'In time, water falls from the clouds as precipitation: rain or snow.' This does not change any question's answer (0017's item already says 'Water falls as rain or snow')."
+date = "2026-11-12"
+
+[[review]]
+id = "science-water-cycle"
+kind = "stimulus"
+hash = "5daaf62436c55184"
+reviewer = "factcheck-d"
+role = "factcheck"
+verdict = "fix"
+note = "Source starts with 'Original'; wording is our own paraphrase with no long verbatim run (closest: 'less than 1 percent of fresh water is in lakes and rivers', a short fact phrase). Checked against OpenStax Concepts of Biology 20.2 and NASA GPM The Water Cycle (https://gpm.nasa.gov/education/water-cycle): Sun drives the cycle by warming oceans and surface waters; vapor rises, cools and condenses into clouds of droplets; precipitation as rain or snow; runoff over the surface into streams; water percolates into the ground to form groundwater; 97.5% salt / 2.5% fresh; 99% of fresh water is underground or ice; less than 1% of fresh water in lakes and rivers: all supported. NOT supported by either cited source: 'changes from a liquid into a gas called water vapor' (OpenStax says only 'water to water vapor'; NASA does not say gas). Fix: add USGS Water Science School, Evaporation and the Water Cycle (https://www.usgs.gov/water-science-school/science/evaporation-and-water-cycle), which states evaporation 'changes liquid water to gaseous water (water vapor)'. Also suggest giving the NASA source its URL in `source` so it can be opened directly."
+date = "2026-11-12"
+
+[[review]]
+id = "science-water-cycle"
+kind = "stimulus"
+hash = "1b387c81d4193454"
+reviewer = "solver-i"
+role = "solver"
+verdict = "pass"
+note = "Clear, short (about 150 words plus a 2-row table), roughly grade 8 to 10, which suits Science. Science is accurate as a simplification: Sun drives evaporation (liquid to vapor), vapor rises and cools, condenses into droplets that form clouds, precipitation, then runoff and infiltration to groundwater. 97.5/2.5 split, 'almost all fresh water is ice or underground' and 'less than 1 percent of fresh water is in lakes and rivers' agree with the OpenStax 20.2 and USGS figures (lakes plus rivers are about 0.3% of fresh water). Leaving out transpiration, sublimation and ice crystals in clouds is an acceptable omission, not misleading, since the passage never says these are the only paths. Table title and units are clear and the text points to it."
+date = "2026-11-12"
+
+[[review]]
+id = "science-water-cycle"
+kind = "stimulus"
+hash = "1b387c81d4193454"
+reviewer = "factcheck-e"
+role = "factcheck"
+verdict = "pass"
+note = "Opened OpenStax Concepts of Biology 20.2, NASA GPM Water Cycle and USGS Evaporation and the Water Cycle. OpenStax: cycle driven by the Sun's energy warming oceans and surface waters; evaporation is water to water vapor; vapor condenses into clouds and leads to precipitation (rain or snow); surface runoff; percolation into ground; 97.5 percent salt water (so 2.5 fresh), 99 percent of the rest underground or ice, less than 1 percent of fresh water in lakes and rivers. NASA: evaporates, rises, cools and condenses, falls as precipitation; runoff and groundwater. USGS: evaporation changes liquid water to water vapor. Table 97.5/2.5 matches OpenStax. Source starts with Original; wording is paraphrased, no long verbatim runs."
+date = "2026-11-12"
+
+[[review]]
+id = "science-co2"
+kind = "stimulus"
+hash = "c162106b7ee3d298"
+reviewer = "solver-k"
+role = "solver"
+verdict = "pass"
+note = "Clear, short, ppm defined in plain words, about grade 10. Values look consistent with NOAA annual means (fact-checker to confirm 2025). Data: source format correct."
+date = "2026-11-12"
+
+[[review]]
+id = "science-road-salt"
+kind = "stimulus"
+hash = "4d0e7f2d07b9a699"
+reviewer = "solver-k"
+role = "solver"
+verdict = "pass"
+note = "Clear controlled design (same mass, identical dishes, same room, three repeats, averaged). Made-up results labeled. Plausible times. Reading level fine."
+date = "2026-11-12"
+
+[[review]]
+id = "science-boiling"
+kind = "stimulus"
+hash = "c7e5437494674839"
+reviewer = "solver-k"
+role = "solver"
+verdict = "pass"
+note = "Clear and accurate (about 90 °C at 3,100 m is right). States thermometers are correct and pressure is lower, so 0008 and 0009 are answerable. Grade-10 level."
+date = "2026-11-12"
+
+[[review]]
+id = "science-beetles"
+kind = "stimulus"
+hash = "a092ca022a5b8143"
+reviewer = "solver-k"
+role = "solver"
+verdict = "fix"
+note = '''Timing is ambiguous: the ash fell "that year" (2010) and the first count is 2010, so a reader can't tell whether the 20% is before or after the ash. 0011 says "after the ash fell ... from 20% in 2010", which needs the 2010 count to be the starting (pre-ash) value. Rewrite the last two sentences: "In 2010, the island's soil was light brown. Scientists counted the beetles that spring. Later that year, a nearby volcano covered the island in dark ash. Scientists counted again every four years." Otherwise clear and accurate.'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-heart-rate"
+kind = "stimulus"
+hash = "e22d5e43957ca276"
+reviewer = "solver-k"
+role = "solver"
+verdict = "pass"
+note = "Clear, realistic values for healthy adults, made-up results labeled, says the table shows group averages (needed for 0015). Grade-10 level."
+date = "2026-11-12"
+
+[[review]]
+id = "science-co2"
+kind = "stimulus"
+hash = "c162106b7ee3d298"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Source line starts with Data:. Table matches NOAA GML co2_annmean_mlo.txt rounded to 0.1 ppm (316.91, 338.76, 369.71, 414.21, 427.35). gml.noaa.gov/ccgg/trends confirms Mauna Loa Observatory, Hawaii, and ppm as the number of CO2 molecules per million molecules of air (NOAA: dry air, after water vapor removed; leaving out 'dry' is an acceptable simplification). 1958-1974 values are Scripps measurements at the same site, and 2023 partly Maunakea, neither affects the years shown. Suggest adding the file URL to the source line for convenience (questions already cite it)."""
+date = "2026-11-12"
+
+[[review]]
+id = "science-road-salt"
+kind = "stimulus"
+hash = "4d0e7f2d07b9a699"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Source line starts with Original, results labelled made-up. Only outside fact (cities salt icy roads; salt melts ice) is in OpenStax Chemistry 2e 11.4 (de-icing with rock salt, freezing point depression). No copied text."""
+date = "2026-11-12"
+
+[[review]]
+id = "science-boiling"
+kind = "stimulus"
+hash = "c7e5437494674839"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Source line starts with Original. OpenStax Chemistry 2e 10.3 Example 10.6: Leadville, 10,200 ft (3,109 m), typical pressure 68 kPa vs 101.3 kPa at sea level, water boils at about 90 C. Matches 'about 3,100 meters', 'about 90 C', 'much lower' pressure, 100 C at sea level. No copied text."""
+date = "2026-11-12"
+
+[[review]]
+id = "science-beetles"
+kind = "stimulus"
+hash = "a092ca022a5b8143"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Source line starts with Original, results labelled made-up. Island, ash and predation premises are part of the fictional scenario; the natural selection ideas used (inherited traits, variation, differential survival) are in OpenStax Concepts of Biology 11.1/11.2. No copied text."""
+date = "2026-11-12"
+
+[[review]]
+id = "science-heart-rate"
+kind = "stimulus"
+hash = "e22d5e43957ca276"
+reviewer = "factcheck-f"
+role = "factcheck"
+verdict = "pass"
+note = """Source line starts with Original, results labelled made-up. OpenStax A&P 2e 19.4: adult resting HR 60-100 bpm, HR rises with exercise (about 150 bpm in healthy young adults), so 70/96/142 are realistic. No copied text."""
+date = "2026-11-12"
+
+# ── study links (append to content/reviews/study.toml) ──
+
+[[review]]
+id = "science-co2"
+kind = "stimulus"
+hash = "17ce755f8413bb3d"
+reviewer = "solver-m"
+role = "solver"
+verdict = "pass"
+note = "Clear, short, about grade 9-10: defines ppm in plain words, says each row is a yearly average, Data: source with rounding stated. Values look consistent with the NOAA Mauna Loa annual means as I know them (fact-checker to confirm 2025). Supports 0001-0003 without ambiguity."
+date = "2026-11-12"
+
+[[review]]
+id = "science-beetles"
+kind = "stimulus"
+hash = "5294a283a5ac5949"
+reviewer = "solver-m"
+role = "solver"
+verdict = "pass"
+note = "Clear and realistic length at about grade 8-10. Gives every piece needed (two colors, heritable, birds find stand-out beetles, light soil then dark ash, counts every four years); clearly labeled made-up data. Does not name the natural-selection claim itself, which is why 0014 must restate it (see 0014 note)."
+date = "2026-11-12"
+
+[[review]]
+id = "science-co2"
+kind = "stimulus"
+hash = "17ce755f8413bb3d"
+reviewer = "factcheck-g"
+role = "factcheck"
+verdict = "pass"
+note = 'Source line starts with Data: and names NOAA GML. All five values match co2_annmean_mlo.txt at 0.1 ppm (316.91, 338.76, 369.71, 414.21, 427.35). Mauna Loa Observatory in Hawaii confirmed; 2025 is after measurements resumed there (July 2023). ppm definition is a fair simplification of the NOAA mole fraction in dry air. Original wording.'
+date = "2026-11-12"
+
+[[review]]
+id = "science-beetles"
+kind = "stimulus"
+hash = "5294a283a5ac5949"
+reviewer = "factcheck-g"
+role = "factcheck"
+verdict = "pass"
+note = 'Source line starts with Original and labels results made-up. Scenario facts (heritable color, predators finding conspicuous prey) are consistent with OpenStax Concepts of Biology 11.1 (inherited variation, differential survival) and 11.2. Original wording, no verbatim runs.'
+date = "2026-11-12"
+
+[[review]]
+id = "science-planets"
+kind = "stimulus"
+hash = "c9104cb69687a6ae"
+reviewer = "solver-s"
+role = "solver"
+verdict = "pass"
+note = "Clear, short, grade-appropriate. Values match the NSSDCA fact sheet as I know it (57.9/88.0, 108.2/224.7, 149.6/365.2, 228.0/687.0, 778.5/4,331). Supports 0001 and 0002 on its own."
+date = "2026-11-12"
+
+[[review]]
+id = "science-hare-lynx"
+kind = "stimulus"
+hash = "9d9fb454d79ef96d"
+reviewer = "solver-s"
+role = "solver"
+verdict = "pass"
+note = "Clear and about grade 10; Alaska setting appropriate. Made-up table is consistent with the text (hares peak year 3, lynx year 4; lynx low a year or so after hares). The predation-only cause is a simplification of the real cycle (hare food also matters), but it is labeled a simple model, so acceptable. Each of 0003-0005 is answerable from it alone."
+date = "2026-11-12"
+
+[[review]]
+id = "science-cooling"
+kind = "stimulus"
+hash = "f383bdc45fae9770"
+reviewer = "solver-s"
+role = "solver"
+verdict = "pass"
+note = "Clear, short; room temperature is stated, which 0007 and 0008 need. Numbers follow Newton's law of cooling closely (excess temp ratio ~0.72 per 5 min), so the predicted 34 °C is consistent."
+date = "2026-11-12"
+
+[[review]]
+id = "science-seasons"
+kind = "stimulus"
+hash = "0fb0ceebe07023ac"
+reviewer = "solver-s"
+role = "solver"
+verdict = "fix"
+note = "'tilted about 23.5° compared with its path around the Sun' reads as the axis being 23.5° from the orbital plane; it is 23.5° from perpendicular to that plane (66.5° from the plane). Rewrite: 'Earth's axis, the line it spins around, is tilted about 23.5° from straight up and down, compared with its path around the Sun.' Also the Arctic Circle is at about 66.5° N (90 − 23.5), not 67°; suggest 'at about 66.5° north' (0010 uses 70° so still works). Otherwise clear, grade-appropriate and supports 0009-0011."
+date = "2026-11-12"
+
+[[review]]
+id = "science-planets"
+kind = "stimulus"
+hash = "c9104cb69687a6ae"
+reviewer = "factcheck-j"
+role = "factcheck"
+verdict = "pass"
+note = "Checked every cell against the NASA NSSDCA Planetary Fact Sheet (opened 2026-11-12): distances 57.9, 108.2, 149.6, 228.0, 778.5 (10^6 km) and orbital periods 88.0, 224.7, 365.2, 687.0, 4331 days all match exactly. These are the five planets closest to the Sun. Source line starts with 'Data:'."
+date = "2026-11-12"
+
+[[review]]
+id = "science-hare-lynx"
+kind = "stimulus"
+hash = "9d9fb454d79ef96d"
+reviewer = "factcheck-j"
+role = "factcheck"
+verdict = "pass"
+note = "NPS Gates of the Arctic Lynx: only cat native to Alaska; boreal forests of Alaska and Canada; snowshoe hare is its favorite food; lynx peak a couple of years after hares. OpenStax Biology 19.4: about ten-year cycle, predator lags one to two years, lynx kill so many hares that hares decline, then lynx decline from scarce food. Table labelled made-up and follows the pattern. Source starts 'Original'; wording is our own, no long verbatim runs."
+date = "2026-11-12"
+
+[[review]]
+id = "science-cooling"
+kind = "stimulus"
+hash = "f383bdc45fae9770"
+reviewer = "factcheck-j"
+role = "factcheck"
+verdict = "pass"
+note = "Made-up results labelled as such; numbers are physically realistic (excess over 20 C decays by a near-constant factor of about 0.72 per 5 min, as in Newton cooling, consistent with OpenStax 14.5 heat flux depending on temperature difference). Source starts 'Original'; no copied text."
+date = "2026-11-12"
+
+[[review]]
+id = "science-seasons"
+kind = "stimulus"
+hash = "0fb0ceebe07023ac"
+reviewer = "factcheck-j"
+role = "factcheck"
+verdict = "pass"
+note = "OpenStax Astronomy 2e 4.2: tilt 23.5 degrees; axis points the same direction all year; in June the north leans into the Sun, more direct light and longer days; south has winter; reversed in December; North Pole lit continuously at the June solstice; 67 N is the southernmost latitude with a 24-hour day (the Arctic Circle). All claims match. Source starts 'Original'; wording is our own."
+date = "2026-11-12"
+
+[[review]]
+id = "science-seasons"
+kind = "stimulus"
+hash = "212d59467049c55b"
+reviewer = "solver-u"
+role = "solver"
+verdict = "pass"
+note = "The passage is clear and scientifically accurate. The axis is tilted about 23.5° from perpendicular to the orbit and keeps a fixed direction. Seasons come from more direct sunlight plus longer days. June and December are correctly reversed between the hemispheres, and north of about 66.5° N there is at least one day of midnight sun around the June solstice. It is short, as suits a Science passage, and reads at about grade 9 to 10. It gives everything 0009, 0010 and 0011 need without stating their answers, and it does not mention distance from the Sun, so the distance distractors in 0011 are fairly tested."
+date = "2026-11-12"
+
+[[review]]
+id = "science-seasons"
+kind = "stimulus"
+hash = "212d59467049c55b"
+reviewer = "factcheck-k"
+role = "factcheck"
+verdict = "pass"
+note = "Source starts with 'Original'; text is our own wording, no long verbatim runs from OpenStax or NSIDC. Checked each claim: tilt about 23.5 deg and axis points the same direction all year (OpenStax 4.2); June north leans into the Sun, more direct light, longer days, south opposite, reversed in December (OpenStax 4.2); area around the North Pole has 24-hour sunlight in June and Arctic Circle at about 66.5 N (NSIDC: 66 deg 33' N) has the Sun not setting around the June solstice (NSIDC, OpenStax). All supported."
+date = "2026-11-12"
+
+[[review]]
+id = "science-quakes"
+kind = "stimulus"
+hash = "326ffbdaf392b524"
+reviewer = "solver-w"
+role = "solver"
+verdict = "pass"
+note = '''Clear, short, about grade 9-10; defines seismometer and magnitude. Bars 80/40/20/10 read exactly on a gridded axis. Marked as made-up numbers (real counts fall about tenfold per magnitude, so the label matters and is present).'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-balloon"
+kind = "stimulus"
+hash = "52b76f236ecc35b1"
+reviewer = "solver-w"
+role = "solver"
+verdict = "fix"
+note = '''Figure is good: all points on tidy gridlines (x every 2 km, y every 10 °C), so 0004 and 0005 read exactly. But the last sentence of the first paragraph, "In this layer, air usually gets colder as you go higher.", states the answer to s-displays-0006 in words, so that graph-reading question needs no graph. Cut that sentence (the explanation of 0006 or its common_mistake can carry the fact), or keep it only if 0006 is replaced.'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-heating-curve"
+kind = "stimulus"
+hash = "bd8ed918a5651730"
+reviewer = "solver-w"
+role = "solver"
+verdict = "fix"
+note = '''The curve teaches wrong physics. At a steady heating rate, ice (specific heat about 2.1 J/g°C) warms about twice as fast as liquid water (4.18 J/g°C), and melting (334 J/g) takes about 8 times as long as warming ice by 20 °C (42 J/g) and about 0.8 times as long as warming water 0 to 100 °C (418 J/g). Here ice warms at 4 °C/min but water at 10 °C/min (backwards), and melting takes the same 5 minutes as warming the ice. Also the text, unlike the other two passages, does not say the results are made up or simplified. Fix: x_max = 100 (or 110), segments (0,-20)->(5,0), (5,0)->(45,0), (45,0)->(95,100), (95,100)->(100,100); points A (5,0), B (45,0), C (95,100). That gives ice 4 °C/min, water 2 °C/min, melt 40 min vs water 50 min, all on 5-minute ticks. Add "The results are simplified for practice." Then update s-displays-0009 to 40 (filed there). 0007, 0008, 0010 stay valid.'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-quakes"
+kind = "stimulus"
+hash = "326ffbdaf392b524"
+reviewer = "factcheck-l"
+role = "factcheck"
+verdict = "fix"
+note = '''Source line starts with Original; no copied text. Fact check: USGS "Earthquake Magnitude, Energy Release, and Shaking Intensity" (https://www.usgs.gov/programs/earthquake-hazards/earthquake-magnitude-energy-release-and-shaking-intensity) confirms seismometers record earthquake vibrations and that magnitude is the size of an earthquake, higher = larger. FIX 1: the passage states these outside facts but its source cites nothing; add that USGS page, e.g. "Original (made-up numbers for practice; facts from USGS, Earthquake Magnitude, Energy Release, and Shaking Intensity)". FIX 2: the made-up counts halve with each magnitude step (80, 40, 20, 10). Real counts fall roughly tenfold per whole magnitude (USGS "Lists, Maps, and Statistics", https://www.usgs.gov/programs/earthquake-hazards/lists-maps-and-statistics: about 1,200-2,300 M5 vs 100-185 M6 per year worldwide, 2000-2021). The direction of the pattern is right, but the size of the drop is physically misleading. Suggest counts near tenfold, e.g. 1000, 100, 10, 1 (or 900, 100, 12, 1), and update s-displays-0002/0003 to match (0003 would become 100 - 10 = 90).'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-balloon"
+kind = "stimulus"
+hash = "52b76f236ecc35b1"
+reviewer = "factcheck-l"
+role = "factcheck"
+verdict = "pass"
+note = '''Source line starts with Original, says made-up, and cites OpenStax Astronomy 2e 8.3 (opened, HTTP 200). OpenStax: the troposphere is the lowest ~10 km and temperature decreases rapidly with elevation to about -50 C at its top. The passage claim (air usually gets colder with height in the lowest layer) is supported. Made-up data: 20 C at the ground to -20 C at 8 km = 5 C per km, within the real range (OpenStax implies roughly 6.5 C/km on average); 8 km is inside the troposphere. Not misleading. No copied text.'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-heating-curve"
+kind = "stimulus"
+hash = "bd8ed918a5651730"
+reviewer = "factcheck-l"
+role = "factcheck"
+verdict = "fix"
+note = '''Source line starts with Original and cites OpenStax Chemistry 2e 10.3 (opened, HTTP 200). Confirmed there: temperature stays constant during a change of state; ice melts at 0 C (enthalpy of fusion given at 0 C); a stove burner supplies heat at a roughly constant rate. FIX 1 (physically misleading data): with steady heating, each stage's time is proportional to the heat it needs. OpenStax Example 10.10 values: ice c = 2.09 J/g C, fusion 6.01 kJ/mol (334 J/g), water c = 4.18 J/g C. Per gram: warm ice -20 to 0 C = 42 J, melt = 334 J, warm water 0 to 100 C = 418 J, a ratio of about 1 : 8 : 10. The graph shows 5 : 5 : 10 minutes, so melting looks as quick as warming the ice, and liquid water (10 C/min) heats faster than ice (4 C/min), the reverse of what the specific heats give. Suggest A at 1 min, B at 9 min, C at 19 min (x_max 25): segments (0,-20)-(1,0), (1,0)-(9,0), (9,0)-(19,100), (19,100)-(25,100); s-displays-0009 then becomes 8 (check 9 - 1). FIX 2: the text does not say the results are made up (only the source line does); add "The numbers are made up for practice." like the other two passages. FIX 3: 100 C is the boiling point at 1 atm (sea level); OpenStax 10.3 Example 10.6 shows water boiling near 90 C at Leadville. Say the pot is at sea level, since some Alaska learners live at altitude.'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-quakes"
+kind = "stimulus"
+hash = "e584a57539d0335f"
+reviewer = "solver-y"
+role = "solver"
+verdict = "fix"
+note = '''Clear, short, made-up numbers flagged, realistic 10x-per-magnitude pattern. But the sentence "each step up in magnitude, there are about ten times fewer earthquakes" states in words the exact pattern that s-displays-0002 asks the learner to find in the table (stronger -> fewer), so 0002 can be answered without reading the table. Fix: shorten to "The numbers are made up for practice, but they follow the real pattern." (or drop the pattern clause entirely) so the learner has to read the trend from the table. Table values read exactly.'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-balloon"
+kind = "stimulus"
+hash = "a66fe3ce4aeac84d"
+reviewer = "solver-y"
+role = "solver"
+verdict = "pass"
+note = '''Clear and short; does not state the trend in words. Every point (0,20) (2,10) (4,0) (6,-10) (8,-20) sits on whole km and on 10-degree gridlines of a -30..30 axis, so all values read exactly. Physically realistic: 5 °C per km is a plausible lapse rate (average about 6.5), 20 °C at the ground, 8 km is still inside the troposphere ("lowest layer").'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-heating-curve"
+kind = "stimulus"
+hash = "43fb4904781cd3db"
+reviewer = "solver-y"
+role = "solver"
+verdict = "pass"
+note = '''Clear, short, "simplified" flagged. A (10,0), B (50,0), C (100,100) and the start (0,-40) all sit on 10-minute and 20-degree gridlines, so every needed value reads exactly. Physically consistent at a steady heat rate: ice 40 °C x 2.1 J/g°C = 84 J/g in 10 min, melting 334 J/g in 40 min, water 100 °C x 4.18 = 418 J/g in 50 min, all about 8.4 J/g per minute. Boiling at 100 °C fits "near sea level". Ice at -40 °C is unusual but realistic in an Alaska winter.'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-quakes"
+kind = "stimulus"
+hash = "e584a57539d0335f"
+reviewer = "factcheck-m"
+role = "factcheck"
+verdict = "pass"
+note = "Source line starts with Original and labels numbers made-up; no verbatim text. USGS Earthquake Magnitude, Energy Release, and Shaking Intensity: magnitude is the size of the earthquake (passage says how strong, fine at this level). USGS Lists, Maps, and Statistics yearly world counts (2010: M5 2209, M6 150, M7 23, M8+ 1) confirm about ten times fewer per magnitude step; the 1,000/100/10/1 table follows it. Optional: the magnitude page itself has no frequency data, so the tenfold claim rests on the Lists page only; the archived USGS Frequency of Occurrence table (M4 about 13,000, M5 1,319, M6 134 per year) would extend support to small magnitudes."
+date = "2026-11-12"
+
+[[review]]
+id = "science-balloon"
+kind = "stimulus"
+hash = "a66fe3ce4aeac84d"
+reviewer = "factcheck-m"
+role = "factcheck"
+verdict = "pass"
+note = "Source starts with Original, readings labelled made-up. OpenStax Astronomy 2e 8.3: troposphere is the lowest layer, about the bottom 10 km, temperature decreasing with elevation to near -50 C at its top. Graph (20 C at ground, 5 C/km fall, -20 C at 8 km) is realistic and stays within the layer, so not misleading."
+date = "2026-11-12"
+
+[[review]]
+id = "science-heating-curve"
+kind = "stimulus"
+hash = "43fb4904781cd3db"
+reviewer = "factcheck-m"
+role = "factcheck"
+verdict = "pass"
+note = "Source starts with Original, results labelled made-up and simplified. Steady-heating check with OpenStax Chemistry 2e 10.3 Example 10.10 values (c_ice 2.09, c_water 4.18 J/g C, fusion 6.0 kJ/mol = 333 J/g): -40 to 0 C ice 83.6 J/g, melting 333 J/g, 0 to 100 C water 418 J/g, ratio 1 : 3.98 : 5.0 vs graph 10 : 40 : 50 minutes, a near-exact match. Flat at 0 C, boiling at 100 C near sea level, constant temperature during change of state all confirmed."
+date = "2026-11-12"
+
+[[review]]
+id = "science-quakes"
+kind = "stimulus"
+hash = "f481917eb4e822af"
+reviewer = "solver-aa"
+role = "solver"
+verdict = "pass"
+note = "Clear and short, about grade 8-10; defines seismometer and magnitude in a few words. Accurately says the numbers are made up but follow the real pattern (roughly ten times fewer quakes per step up in magnitude). Does not state the trend or any count difference, so it gives away none of 0001-0003. Table is easy to read."
+date = "2026-11-12"
+
+[[review]]
+id = "science-quakes"
+kind = "stimulus"
+hash = "f481917eb4e822af"
+reviewer = "factcheck-n"
+role = "factcheck"
+verdict = "pass"
+note = '''Source starts with Original, labels numbers made-up, and cites both USGS pages; text is our own wording, no verbatim runs. USGS Earthquake Magnitude, Energy Release, and Shaking Intensity (opened): "Seismometers record the vibrations from earthquakes"; "Magnitude is the size of the earthquake", higher = larger (each whole step = 10x amplitude, about 32x energy); "how strong" is a fair plain-language rendering. USGS Lists, Maps, and Statistics (opened): world counts 2017-2021 about 1,300-2,050 M5, 104-140 M6, 6-16 M7, 0-3 M8+ per year, roughly tenfold fewer per whole magnitude, so the 1,000/100/10/1 table "follows the real pattern" and is not misleading.'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-pea-cross"
+kind = "stimulus"
+hash = "6f32879f7370a0ea"
+reviewer = "solver-cc"
+role = "solver"
+verdict = "pass"
+note = "Clear, accurate (Pp x Pp, P dominant, four equally likely boxes), short, about grade 10. States the rules a learner needs without stating any probability, so 0001-0004 still need work; any 3 of them stand alone."
+date = "2026-11-12"
+
+[[review]]
+id = "science-fish-survey"
+kind = "stimulus"
+hash = "4657a638e36ee10d"
+reviewer = "solver-cc"
+role = "solver"
+verdict = "pass"
+note = "Clear, short, about grade 10; table sums to 100 and is labeled made-up. Gives the 5,000 total needed for 0005 and the random, shallow-and-deep placement needed for 0006 and 0007 without stating why it matters. Alaska-realistic species."
+date = "2026-11-12"
+
+[[review]]
+id = "science-pea-cross"
+kind = "stimulus"
+hash = "6f32879f7370a0ea"
+reviewer = "factcheck-o"
+role = "factcheck"
+verdict = "pass"
+note = 'Source line starts with Original; no verbatim runs from OpenStax. OpenStax CoB 8.2 confirms: purple/violet flower color dominant over white in peas, recessive trait only in homozygous recessive plants, Punnett square combinations equally likely. Table PP/Pp/Pp/pp correct for Pp x Pp.'
+date = "2026-11-12"
+
+[[review]]
+id = "science-fish-survey"
+kind = "stimulus"
+hash = "4657a638e36ee10d"
+reviewer = "factcheck-o"
+role = "factcheck"
+verdict = "pass"
+note = 'Source line starts with Original and says numbers are made up; text also says so. Table sums correctly (60+30+10 = 100). Sampling description (random sites, shallow and deep water) matches OpenStax Intro Stats 2e 1.2 on random, representative samples. No verbatim copying.'
+date = "2026-11-12"
+
+[[review]]
+id = "science-rainfall"
+kind = "stimulus"
+hash = "be3b50636391dd48"
+reviewer = "solver-ii"
+role = "solver"
+verdict = "pass"
+note = "Clear, short, realistic: 63 mm in a week fits a rainy Southeast Alaska town; labeled as made-up numbers; source 'Original'. Data supports a distinct mean (9), median (6), mode (14) and range (20), with a 0 mm day that tests common mistakes. Reading level is easy, below grade 10. Carries 5 questions; practice tests pick at most set_max of them."
+date = "2026-11-12"
+
+[[review]]
+id = "science-rainfall"
+kind = "stimulus"
+hash = "be3b50636391dd48"
+reviewer = "factcheck-r"
+role = "factcheck"
+verdict = "pass"
+note = "Source is 'Original (made-up numbers for practice)', starts with Original, and the text itself says the numbers are made up; no verbatim runs (one original sentence). Realism: daily totals 0-20 mm and 63 mm for the week are ordinary for a rainy coastal town (e.g. Southeast Alaska towns average well over 5 mm per day); a rain gauge measures in mm. Table values used by questions 0001-0005 verified (mode 14, mean 9, median 6, range 20)."
+date = "2026-11-12"

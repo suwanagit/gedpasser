@@ -1,0 +1,1501 @@
+# Review notes for s-reading. See content/reviews/CHECKLIST.md.
+
+[[review]]
+id = "SP.1.a"
+kind = "lesson"
+hash = "36d230622b32cf19"
+verdict = "pass"
+note = "Accurate and short: main idea vs details, first/last sentence tip, 'according to the passage' means restated, nothing added. Gives away no question's answer."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.1.b"
+kind = "lesson"
+hash = "d5b885657d0030f0"
+verdict = "fix"
+note = '''
+Facts are correct, but the second bullet gives away two questions word for word: "the arrow means 'react to make'" is the key of s-reading-0020, and "(g) means gas" is all s-reading-0021 needs. Suggested rewrite of that bullet, using symbols no question tests: "Symbols have fixed meanings. For example, °C means degrees Celsius, and Δ (delta) means 'change in'." (If the author wants the arrow and state letters taught here, then 0020 and 0021 need different targets instead.)
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "SP.6.c"
+kind = "lesson"
+hash = "4aed8d7c5612ac15"
+verdict = "fix"
+note = '''
+Method is correct and plain, but the third bullet's example "1 out of 40" is the exact key of s-reading-0019 (2.5% = 1 in 40). Use a number no question uses, e.g. 'A comparison like "half" or "1 out of 20" must match the numbers. Divide to check.' (Avoid "one-tenth" alone too, the key of 0012.)
+'''
+date = "2026-11-12"
+
+# ── Cards ─────────────────────────────────────────────────────────────
+
+[[review]]
+id = "SP.1.a"
+kind = "card"
+hash = "fb1212c26f9e0349"
+verdict = "pass"
+note = "Short and correct. The clouds example is off every question's topic and shows main idea vs detail. Hack (cross out answers that add what the passage never said) is a real elimination trick."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.1.b"
+kind = "card"
+hash = "b2a051459f569596"
+verdict = "fix"
+note = '''
+Key, steps and the transpiration example are good. The hack is a problem: "(s) solid, (l) liquid, (g) gas, (aq) dissolved in water" is not a memory device or shortcut tied to the card's rule, and it hands over exactly what s-reading-0021 tests. Suggested hack: "The definition is usually within one sentence of the word: read the sentence before and after."
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "SP.6.c"
+kind = "card"
+hash = "41b041521fbbd36a"
+verdict = "pass"
+note = "Correct and short; example (40, 20, 10 = half each day) uses numbers no question uses. Step 3 lists 'half' and 'one-tenth' together, so it does not single out 0012's key. Minor, optional: the hack 'Headings first, numbers second' repeats step 1; could become 'Check the units before you compare.'"
+date = "2026-11-12"
+
+# ── Questions (solver) ────────────────────────────────────────────────
+
+[[review]]
+id = "s-reading-0001"
+kind = "question"
+hash = "b0bb0b97ade0b92b"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+solved = "The body uses automatic responses to keep its temperature near a set point"
+note = "Matches key. Distractors are a too-narrow detail (sweating only), a misread of shivering, and an unsupported claim. SP.1.a and L.a.2 fit. Explanation clear."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0002"
+kind = "question"
+hash = "b66d18eef7cc8062"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+solved = "Keeping conditions inside the body steady"
+note = "Matches key; definition stated in the passage. Distractors are other terms from the passage (shivering, hypothalamus, sweat). SP.1.b fits."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0003"
+kind = "question"
+hash = "4bd8c60f395bacb8"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+solved = "Blood vessels near the skin narrow instead of widening"
+note = "Matches key. Only choice the passage supports; 'more sweat' is the heat response, the other two contradict the passage. SP.1.a (comparison) fits."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0004"
+kind = "question"
+hash = "2d374a248e2a8882"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+solved = "A response that pushes a change back toward the set point"
+note = "Matches key. 'Makes a change bigger' (positive feedback), 'sign of sickness' and 'drop in temperature' tempt a reader who takes 'negative' literally; common_mistake names that. SP.1.b fits."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0005"
+kind = "question"
+hash = "cd2a95b4221936d3"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+solved = "Glucose and oxygen"
+note = "Matches key. Reactants-as-products is the natural mistake; the other mixes are clearly wrong. SP.1.b (term 'products') and L.b.1 fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0006"
+kind = "question"
+hash = "78f8652fedbcac9d"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+solved = "{{1}} sunlight; {{2}} glucose"
+note = "Matches key. Every wrong menu option is a word from the passage and clearly wrong (soil or oxygen as the energy source; water vapor or stomata as the product). Summary item fits SP.1.a."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0007"
+kind = "question"
+hash = "506db6cc71e3513f"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+solved = "They get some of the energy stored in the plant's glucose"
+note = "Matches key; passage states it directly. Distractors reuse passage words (sunlight, carbon dioxide, stomata) and are clearly wrong. SP.1.a fits."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0008"
+kind = "question"
+hash = "3983a3b0c54ba70c"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+solved = "Heat moving through matter that is touching"
+note = "Matches key. Distractors are the convection and radiation definitions plus a reversed direction. SP.1.b and P.a.1 fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0009"
+kind = "question"
+hash = "18eb6f85499b96dc"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+solved = "Conduction: Burner heating the bottom of a pan, Heat spreading to the pan's handle; Convection: Warm water rising in a pot; Radiation: Sunlight warming Earth, Campfire warming your face"
+note = "Matches key. Each item is the passage's own example for exactly one method, so only one sort is defensible. Campfire vs conduction is the realistic trap, named in common_mistake."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0010"
+kind = "question"
+hash = "b749171f477197c1"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+solved = "It can move heat through empty space"
+note = "Matches key. Distractors: reversed direction, 'only in liquids' (convection confusion), 'needs touching matter' (conduction). Explanation correct."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0011"
+kind = "question"
+hash = "43506559f51a1ec3"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+solved = "Each level holds less energy than the level below it"
+note = "Matches key. Clear table-to-words item (SP.6.c, L.c.1). 'Top animal has the most' is a real misconception."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0012"
+kind = "question"
+hash = "82449c8934539708"
+reviewer = "solver-c"
+role = "solver"
+verdict = "fix"
+solved = "{{1}} one-tenth; {{2}} snakes"
+note = '''
+Key and menus are right. The explanation breaks EXPLANATION_STYLE: it checks only two of the three steps (leaves out 20 ÷ 200) and does not end with a full sentence restating the answer. Suggested explanation:
+Divide each level by the one below it: 2,000 ÷ 20,000 = 0.1, 200 ÷ 2,000 = 0.1, and 20 ÷ 200 = 0.1.
+0.1 is **one-tenth** each time.
+The smallest number, 20, belongs to the snakes.
+So each level holds about one-tenth of the energy of the level below it, and the **snakes** hold the least.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0013"
+kind = "question"
+hash = "5dc684ada036c81a"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+solved = "A living thing that makes its own food using energy from sunlight"
+note = "Matches key; definition is in the passage. Distractors (eats animals, top level, eats grass) mix producer with consumer ideas. SP.1.b fits."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0014"
+kind = "question"
+hash = "1d6366f0959adbdb"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+solved = "They hold less energy than the grass but more than the mice"
+note = "Matches key. Each distractor is contradicted by the table. Easy, fine at difficulty 1."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0015"
+kind = "question"
+hash = "070f9511da6255e0"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+solved = "The snakes hold one-thousandth of the energy the grass holds"
+note = "Matches key: 20 / 20,000 = 1/1000. One-tenth (one step) and one-hundredth (two steps) are good miscount traps; one-fourth matches the common_mistake. Explanation correct."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0016"
+kind = "question"
+hash = "72514f86eb51ab60"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+solved = "Changes from a liquid into a gas"
+note = "Matches key; passage defines it. Distractors are condensing, precipitation and groundwater from the same paragraph. SP.1.b and ES.a.1 fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0017"
+kind = "question"
+hash = "a0d2acdf77e4bc41"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+solved = "The Sun warms water in the ocean; Water evaporates and rises as water vapor; Water vapor cools and forms clouds; Water falls as rain or snow"
+note = "Matches key. 'In the order the passage describes them' plus cause and effect makes only one order defensible even though the cycle repeats."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0018"
+kind = "question"
+hash = "a6b710b82649b171"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+solved = "Almost all of Earth's water is salt water"
+note = "Matches key. 'A quarter' is a good 2.5%-vs-25% trap. SP.6.c fits."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0019"
+kind = "question"
+hash = "310b15c7e2ded98f"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+solved = "About 1 out of every 40 liters of Earth's water is fresh water"
+note = "Matches key: 100 / 2.5 = 40. Distractors 4, 25 and 400 come from decimal slips and the 2.5 -> 1/25 confusion. Difficulty 3 reasonable. Note: the SP.6.c lesson currently uses '1 out of 40' as its example (see lesson review)."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0020"
+kind = "question"
+hash = "f3d904c2a90e150f"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+solved = "The substances on the left react to make the substances on the right"
+note = "Matches key. 'Gives off heat' is tempting because burning methane does release heat, but that is not what the arrow means, so it is defensibly wrong. Reverse-direction and equals-sign readings are real mistakes. SP.1.b and P.c.3 fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0021"
+kind = "question"
+hash = "47ee0d19426435eb"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+solved = "H₂"
+note = "Matches key. Needs (g) = gas, standard general knowledge for P.c.3; even without it, Zn and HCl are reactants. ZnCl₂ (the other product) is the real trap. Difficulty 3 is generous but acceptable."
+date = "2026-11-12"
+
+# ── Passages (solver) ─────────────────────────────────────────────────
+
+[[review]]
+id = "s-reading-0001"
+kind = "question"
+hash = "b0bb0b97ade0b92b"
+reviewer = "solver-d"
+role = "solver"
+verdict = "pass"
+solved = "The body uses automatic responses to keep its temperature near a set point"
+note = "Key matches. Distractors are details or contradictions of the passage (sweating is one of two cooling ways; shivering makes heat, not tiredness; the passage stresses staying near 37 C). SP.1.a main idea and L.a.2 homeostasis fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0002"
+kind = "question"
+hash = "b66d18eef7cc8062"
+reviewer = "solver-d"
+role = "solver"
+verdict = "pass"
+solved = "Keeping conditions inside the body steady"
+note = "Key matches; the passage defines the term directly. The hypothalamus and shivering/sweat distractors are realistic confusions with nearby terms. SP.1.b fits."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0003"
+kind = "question"
+hash = "4bd8c60f395bacb8"
+reviewer = "solver-d"
+role = "solver"
+verdict = "pass"
+solved = "Blood vessels near the skin narrow instead of widening"
+note = "Key matches. More sweat is a heat response; the hypothalamus and negative feedback keep working in both cases per the passage. SP.1.a comparison fits."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0004"
+kind = "question"
+hash = "2d374a248e2a8882"
+reviewer = "solver-d"
+role = "solver"
+verdict = "pass"
+solved = "A response that pushes a change back toward the set point"
+note = "Key matches. 'Makes a change bigger' (positive feedback) and 'a drop in temperature' (reading negative as down) are realistic traps. Common mistake is realistic."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0005"
+kind = "question"
+hash = "cd2a95b4221936d3"
+reviewer = "solver-d"
+role = "solver"
+verdict = "pass"
+solved = "Glucose and oxygen"
+note = "Key matches. The reactants (carbon dioxide and water) are the natural trap; the other two mix inputs with outputs. SP.1.b fits since the passage defines products."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0006"
+kind = "question"
+hash = "78f8652fedbcac9d"
+reviewer = "solver-d"
+role = "solver"
+verdict = "pass"
+solved = "1 = sunlight; 2 = glucose"
+note = "Both blanks match. Soil is a realistic trap (water comes from soil); water vapor and stomata are terms from or near the passage. SP.1.a restated summary fits."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0007"
+kind = "question"
+hash = "506db6cc71e3513f"
+reviewer = "solver-d"
+role = "solver"
+verdict = "pass"
+solved = "They get some of the energy stored in the plant's glucose"
+note = "Key matches a near-direct restatement. Distractors reuse passage words (sunlight, carbon dioxide, stomata) but are unsupported. Fine."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0008"
+kind = "question"
+hash = "3983a3b0c54ba70c"
+reviewer = "solver-d"
+role = "solver"
+verdict = "pass"
+solved = "Heat moving through matter that is touching"
+note = "Key matches. The other three are convection, radiation, and a reversal of the first sentence; all defensibly wrong. SP.1.b and P.a.1 fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0009"
+kind = "question"
+hash = "18eb6f85499b96dc"
+reviewer = "solver-d"
+role = "solver"
+verdict = "pass"
+solved = "Conduction: Burner heating the bottom of a pan, Heat spreading to the pan's handle; Convection: Warm water rising in a pot; Radiation: Sunlight warming Earth, Campfire warming your face"
+note = "Grouping matches. Each item is classified explicitly by the passage, so there is one defensible sort (a real burner also radiates, but the prompt says 'from the passage' and the passage names it conduction)."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0010"
+kind = "question"
+hash = "b749171f477197c1"
+reviewer = "solver-d"
+role = "solver"
+verdict = "pass"
+solved = "It can move heat through empty space"
+note = "Key matches; the passage says radiation needs no matter. 'Needs matter that is touching' describes conduction and 'only in liquids' twists convection: good traps. SP.1.a comparison fits."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0011"
+kind = "question"
+hash = "43506559f51a1ec3"
+reviewer = "solver-d"
+role = "solver"
+verdict = "fix"
+solved = "Each level holds less energy than the level below it"
+note = "Key is right in ecology terms, but 'the level below it' is ambiguous against this table: level 1 (Grass) is printed at the TOP and level 4 (Snakes) at the bottom, so the row below each level holds LESS energy. A reader who takes 'below' as 'the next row down' would find choice 2 ('more energy than the level below it') true. Suggested rewrite: choices = ['Each level holds less energy than the level it eats', 'Each level holds more energy than the level it eats', 'Every level holds the same amount of energy', 'The snakes hold the most energy'] (or 'than the level before it'). Update the answer and explanation wording to match."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0012"
+kind = "question"
+hash = "82449c8934539708"
+reviewer = "solver-d"
+role = "solver"
+verdict = "fix"
+solved = "1 = one-tenth; 2 = snakes"
+note = "Keys are right, but two problems. (a) Same 'level below it' ambiguity as 0011: in the table the row below each level holds less, so 'one-tenth of the energy of the level below it' reads wrong visually. Say 'of the level it eats' or 'of the level before it'. (b) Menu 1 option 'ten times' is ungrammatical in the slot ('about ten times of the energy'), so it gives itself away. Suggested menu 1: 'one-tenth | one-half | one-hundredth' (one-hundredth is a real trap: grass 20,000 to mice 200). Then rewrite the common mistake, e.g. 'Picking one-hundredth by comparing levels two steps apart, like grass and mice.'"
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0013"
+kind = "question"
+hash = "5dc684ada036c81a"
+reviewer = "solver-d"
+role = "solver"
+verdict = "pass"
+solved = "A living thing that makes its own food using energy from sunlight"
+note = "Key matches the passage definition. Distractors describe consumers or the top level. Fine."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0014"
+kind = "question"
+hash = "1d6366f0959adbdb"
+reviewer = "solver-d"
+role = "solver"
+verdict = "pass"
+solved = "They hold less energy than the grass but more than the mice"
+note = "Key matches: 2,000 is between 20,000 and 200. Distractors are clearly false from the table; 'more than the grass because they eat it' is a realistic misconception. SP.6.c fits."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0015"
+kind = "question"
+hash = "070f9511da6255e0"
+reviewer = "solver-d"
+role = "solver"
+verdict = "pass"
+solved = "The snakes hold one-thousandth of the energy the grass holds"
+note = "Key matches: 20 / 20,000 = 1/1000. One-hundredth and one-tenth are realistic miscounts of steps; one-fourth plays on level 4. Explanation shows the division. Minor: one-hundredth (miscounting zeros) is probably a more common mistake than one-fourth, but the stated one is plausible."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0016"
+kind = "question"
+hash = "72514f86eb51ab60"
+reviewer = "solver-d"
+role = "solver"
+verdict = "pass"
+solved = "Changes from a liquid into a gas"
+note = "Key matches the in-passage definition. Distractors are condensation, precipitation and soaking in, all named in the passage. Fine."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0017"
+kind = "question"
+hash = "a0d2acdf77e4bc41"
+reviewer = "solver-d"
+role = "solver"
+verdict = "pass"
+solved = "The Sun warms water in the ocean; Water evaporates and rises as water vapor; Water vapor cools and forms clouds; Water falls as rain or snow"
+note = "Order matches and is the only defensible one (passage order is also causal order). Minor style note: the explanation bolds only the last step; bolding the full order would read better, but not required."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0018"
+kind = "question"
+hash = "a6b710b82649b171"
+reviewer = "solver-d"
+role = "solver"
+verdict = "pass"
+solved = "Almost all of Earth's water is salt water"
+note = "Key matches (97.5%). 'About a quarter' traps a 2.5 vs 25 misread; the common mistake names it. Fine."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0019"
+kind = "question"
+hash = "310b15c7e2ded98f"
+reviewer = "solver-d"
+role = "solver"
+verdict = "pass"
+solved = "About 1 out of every 40 liters of Earth's water is fresh water"
+note = "Key matches: 100 / 2.5 = 40. 1 in 25 (4%), 1 in 4 (25%) and 1 in 400 (0.25%) are each a realistic place-value or reciprocal slip. Metric units used. Difficulty 3 is fair."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0020"
+kind = "question"
+hash = "f3d904c2a90e150f"
+reviewer = "solver-d"
+role = "solver"
+verdict = "pass"
+solved = "The substances on the left react to make the substances on the right"
+note = "Key matches. 'Gives off heat' is true of burning methane but is not what the arrow means, so it is a fair, tempting distractor; the reverse-direction and equals-sign options are realistic misreadings. SP.1.b symbol meaning and P.c.3 fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0021"
+kind = "question"
+hash = "47ee0d19426435eb"
+reviewer = "solver-d"
+role = "solver"
+verdict = "pass"
+solved = "H2"
+note = "Key matches: only H2 carries (g). Zn and HCl are reactants; ZnCl2 is (aq). The explanation lists all state symbols, which is general knowledge the GED expects for equations. P.c.3 fits (P.c.2 would also be defensible)."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0001"
+kind = "question"
+hash = "b0bb0b97ade0b92b"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Key matches the passage. OpenStax A&P 2e 1.5 (set point about 37 C, negative feedback reverses deviations, heat-loss/heat-gain responses) and Concepts of Biology 16.1 (hypothalamus keeps the set point via vasodilation/vasoconstriction, shivering, sweating) support the main idea. Wrong choices are contradicted by the passage (sweating is one of two cooling responses; shivering makes heat; temperature stays near the set point).
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0002"
+kind = "question"
+hash = "b66d18eef7cc8062"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Quoted sentence is in the passage word for word. Definition fits A&P 2e 1.5 and Concepts of Biology 16.1 (maintenance of equilibrium around a set point). Common mistake is correct: Concepts of Biology 16.1 says temperature control is centered in the hypothalamus.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0003"
+kind = "question"
+hash = "4bd8c60f395bacb8"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Concepts of Biology 16.1: vasodilation brings blood and heat to the surface; vasoconstriction narrows vessels to the skin and forces blood toward the core, conserving heat. A&P 2e 1.5 says cold reduces blood flow to the skin and traps heat near the core. Explanation and key are supported; wrong choices are defensibly wrong.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0004"
+kind = "question"
+hash = "2d374a248e2a8882"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+A&P 2e 1.5: "Negative feedback is a mechanism that reverses a deviation from the set point." Distractor "makes a change even bigger" matches A&P's definition of positive feedback, so it is clearly wrong here. Explanation quote is in the passage.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0005"
+kind = "question"
+hash = "cd2a95b4221936d3"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Concepts of Biology 5.1: reactants are sunlight, carbon dioxide and water; photosynthesis releases oxygen and produces carbohydrate, most commonly glucose. Key, explanation and the reactant/product common mistake are all supported.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0006"
+kind = "question"
+hash = "78f8652fedbcac9d"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Concepts of Biology 5.1 Figure 5.6: carbon dioxide and water produce sugar and oxygen using energy from sunlight. Both blanks and the quoted passage phrases check out.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0007"
+kind = "question"
+hash = "506db6cc71e3513f"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Concepts of Biology 5.1: "A deer obtains energy by eating plants"; energy stored in carbohydrate from photosynthesis passes through the food chain (Figure 5.3). Key and explanation supported; stomata are for gas exchange of the leaf (5.1), so the stomata distractor is wrong.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0008"
+kind = "question"
+hash = "3983a3b0c54ba70c"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+College Physics 2e 14.4: conduction is heat transfer through stationary matter by physical contact; burner to pan bottom is its example. Convection (moving fluid) and radiation (electromagnetic waves) distractors match 14.4's other two methods; cooler-to-warmer is contradicted by 14.1.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0009"
+kind = "question"
+hash = "18eb6f85499b96dc"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Each item's group matches the sources: burner to pan by conduction (14.4); heat along a pan by conduction (14.4 "through a cooking pan"); hot water rising in a pot is convection (14.6 Figure 14.18); Sun warming Earth is radiation (14.4, 14.7); heat from a fire to people is mostly infrared radiation (14.7 Figure 14.23). Common mistake is accurate.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0010"
+kind = "question"
+hash = "b749171f477197c1"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+College Physics 2e 14.7: the space between Earth and Sun is largely empty; no medium is required for electromagnetic waves. 14.1: energy moves hotter to colder, so the cooler-to-warmer distractor is wrong. Conduction/convection descriptions match 14.4.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0011"
+kind = "question"
+hash = "43506559f51a1ec3"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Table-reading item on labelled made-up numbers (20,000 / 2,000 / 200 / 20); arithmetic and key correct. Concepts of Biology 20.1 (Figure 20.5: each trophic level has less energy available) supports the real-world pattern, so the common mistake is a real misconception.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0012"
+kind = "question"
+hash = "82449c8934539708"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Prompt says "about the table", and the ratios 2,000/20,000 = 200/2,000 = 20/200 = 0.1 are right; snakes have the least. No outside fact is claimed. (See the science-food-chain passage note: the passage's claim that the pattern matches real food chains needs a source for the size of the drop.)
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0013"
+kind = "question"
+hash = "5dc684ada036c81a"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Concepts of Biology 20.1: producers are photosynthetic organisms at the base of the food chain; primary consumers are herbivores. The key restates the passage's definition (asked "in the passage"), consistent with the source. Distractors are consumer roles.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0014"
+kind = "question"
+hash = "1d6366f0959adbdb"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Table values 20,000 > 2,000 > 200 checked; key correct, each distractor contradicted by the table. No outside facts beyond 20.1's decreasing energy per level.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0015"
+kind = "question"
+hash = "070f9511da6255e0"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+20 / 20,000 = 0.001 = one-thousandth; three steps of one-tenth each. Arithmetic, key and common mistake correct; only table data used.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0016"
+kind = "question"
+hash = "72514f86eb51ab60"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Concepts of Biology 20.2: evaporation is "water to water vapor" of liquid surface water; vapor condenses into droplets (clouds); precipitation is rain or snow; percolation forms groundwater. Key and every distractor match the source's terms.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0017"
+kind = "question"
+hash = "a0d2acdf77e4bc41"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Concepts of Biology 20.2: the Sun warms oceans and surface water, leading to evaporation; vapor condenses into clouds; this leads to precipitation (rain or snow). The order is the one in the source and the passage; only one order is defensible.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0018"
+kind = "question"
+hash = "a6b710b82649b171"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Concepts of Biology 20.2: "Of the stores of water on Earth, 97.5 percent is salt water"; Figure 20.9: only 2.5 percent is fresh water. Key and the 2.5% vs 25% common mistake correct.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0019"
+kind = "question"
+hash = "310b15c7e2ded98f"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+2.5% fresh water from Concepts of Biology 20.2; 100 / 2.5 = 40, so 1 in 40 is right; 1/25 = 4%, 1/4 = 25%, 1/400 = 0.25% are all wrong. Common mistake is accurate.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0020"
+kind = "question"
+hash = "f3d904c2a90e150f"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+OpenStax Chemistry 2e 4.1 uses this exact methane equation (CH4 + 2O2 -> CO2 + 2H2O, balanced) and says reactants go on the left, products on the right, and an arrow separates the two sides. Same-atoms claim in the common mistake matches 4.1's conservation-of-matter check. "Gives off heat" is true of burning methane but is not what the arrow means (4.1: conditions such as heating are written above the arrow), so the distractor is defensibly wrong.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0021"
+kind = "question"
+hash = "47ee0d19426435eb"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Chemistry 2e 4.1: "s for solids, l for liquids, g for gases, and aq for substances dissolved in water". Equation Zn(s) + 2HCl(aq) -> ZnCl2(aq) + H2(g) is balanced (Zn 1/1, H 2/2, Cl 2/2) and a real reaction. Key H2 correct; reactant distractors explained correctly.
+'''
+date = "2026-11-12"
+
+# ── Passages (stimuli-science) ────────────────────────────────────────
+
+[[review]]
+id = "SP.1.b"
+kind = "lesson"
+hash = "0afa751c0d0f511c"
+verdict = "pass"
+note = "Accurate and short: definition signals (is called, means, comma or colon), symbols via a key or first use, the degrees Celsius example, and a substitute-and-reread check. Gives away none of the 21 s-reading answers."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.6.c"
+kind = "lesson"
+hash = "b7dc8381c5ac579f"
+verdict = "pass"
+note = "Accurate: headings and units first, then the pattern (up, down, biggest), then divide to check comparisons. Its example ratio (1 out of 20) matches no question, so nothing is given away."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.1.b"
+kind = "card"
+hash = "a6999755e2e64860"
+verdict = "fix"
+note = '''The card is titled "Terms and symbols" but says nothing about symbols, and two SP.1.b questions (0020 the arrow, 0021 state symbols) are about symbols. The hack also only repeats the key. Suggested fix: replace the hack with 'For a symbol, look for a key, a legend or the first place it appears.' Do not use (g) = gas as an example, because that is the answer to 0021. Everything else is correct and short, and the transpiration example gives away no question.'''
+date = "2026-11-12"
+
+[[review]]
+id = "SP.6.c"
+kind = "card"
+hash = "8ada2a3be90732cf"
+verdict = "pass"
+note = "Correct and short. The example (40, 20, 10 seeds, half each day) uses different numbers and a different ratio from 0011-0019. Step 3 lists one-tenth only as a generic comparison to check by division; that does not answer 0012. Hack is sound."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0008"
+kind = "question"
+hash = "e307f1d9cd69263b"
+reviewer = "solver-e"
+role = "solver"
+verdict = "pass"
+solved = "Heat moving through matter that is touching"
+note = "Blind answer matches key. Distractors are the passage's convection and radiation definitions plus a reversed heat direction: all clearly wrong, all tempting. SP.1.b and P.a.1 fit. Explanation quotes the definition and ends in bold."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0009"
+kind = "question"
+hash = "75b5e305a4ab44d0"
+reviewer = "solver-e"
+role = "solver"
+verdict = "pass"
+solved = "Conduction: Burner heating the bottom of a pan, Heat spreading to the pan's handle; Convection: Warm water rising in a pot; Radiation: Sunlight warming Earth, Campfire warming your face"
+note = "Blind grouping matches key. Every item is an example the passage itself assigns, so each fits exactly one group. SP.1.a (restating details) and P.a.1 fit. The common mistake (campfire as conduction) is a real one."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0010"
+kind = "question"
+hash = "32272df49eb19f6a"
+reviewer = "solver-e"
+role = "solver"
+verdict = "pass"
+solved = "It can move heat through empty space"
+note = "Blind answer matches key. Wrong choices: reversed direction, liquids only (garbled convection), touching matter (conduction); all defensibly wrong. A comparison question fits SP.1.a. Explanation contrasts all three ways."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0011"
+kind = "question"
+hash = "368fbf41a7cf7fad"
+reviewer = "solver-e"
+role = "solver"
+verdict = "pass"
+solved = "Each level holds less energy than the level before it"
+note = "Blind answer matches key. Distractors (more, same, snakes hold most) are clearly wrong from the table; snakes-hold-most is a real misconception. SP.6.c and L.c.1 fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0012"
+kind = "question"
+hash = "4792751235b633df"
+reviewer = "solver-e"
+role = "solver"
+verdict = "pass"
+solved = "blank 1: one-tenth; blank 2: snakes"
+note = "Blind answers match key. 20,000 to 2,000 to 200 to 20 is one-tenth at each step; one-half is wrong, and one-hundredth is the two-step trap the common mistake names. Menu 2 is unambiguous. Explanation shows each division."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0013"
+kind = "question"
+hash = "08bb8b1638cde230"
+reviewer = "solver-e"
+role = "solver"
+verdict = "pass"
+solved = "A living thing that makes its own food using energy from sunlight"
+note = "Blind answer matches key; it restates the passage definition. Distractors (eats animals, top level, eats grass) describe consumers and are clearly wrong. SP.1.b fits."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0014"
+kind = "question"
+hash = "b704f17e0499d39a"
+reviewer = "solver-e"
+role = "solver"
+verdict = "pass"
+solved = "They hold less energy than the grass but more than the mice"
+note = "Blind answer matches key. 20,000 > 2,000 > 200 > 20; the other three choices contradict the table. Explanation states each number it compares."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0015"
+kind = "question"
+hash = "085d6622b7ca5b30"
+reviewer = "solver-e"
+role = "solver"
+verdict = "pass"
+solved = "The snakes hold one-thousandth of the energy the grass holds"
+note = "Blind answer matches key: 20 / 20,000 = 1/1000. One-hundredth (stopping at the mice) and one-tenth (one step) are tempting real errors; one-fourth (four levels) is also plausible. Explanation correct."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0016"
+kind = "question"
+hash = "ff356db2dc78497d"
+reviewer = "solver-e"
+role = "solver"
+verdict = "pass"
+solved = "Changes from a liquid into a gas"
+note = "Blind answer matches key. Distractors are the passage's other steps (condensing, precipitation, groundwater): clearly wrong and tempting. SP.1.b and ES.a.1 fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0017"
+kind = "question"
+hash = "0ab4fdfdf189dae6"
+reviewer = "solver-e"
+role = "solver"
+verdict = "pass"
+solved = "The Sun warms water in the ocean; Water evaporates and rises as water vapor; Water vapor cools and forms clouds; Water falls as rain or snow"
+note = "Blind order matches key. The prompt anchors to the order the passage describes, so the cycle has one start and one defensible order. Explanation and common mistake are correct."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0018"
+kind = "question"
+hash = "29e485273aaabd04"
+reviewer = "solver-e"
+role = "solver"
+verdict = "pass"
+solved = "Almost all of Earth's water is salt water"
+note = "Blind answer matches key. 97.5% vs 2.5%; about-a-quarter is a good 2.5-vs-25 trap. SP.6.c fits."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0019"
+kind = "question"
+hash = "8fc2808e7c65a946"
+reviewer = "solver-e"
+role = "solver"
+verdict = "pass"
+solved = "About 1 out of every 40 liters of Earth's water is fresh water"
+note = "Blind answer matches key: 2.5/100 = 1/40. 1 in 4 (25%), 1 in 25 (4%) and 1 in 400 (0.25%) are each a real decimal slip and definitely wrong. Difficulty 3 is reasonable. Metric units. Explanation shows 100 / 2.5 = 40."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0008"
+kind = "question"
+hash = "e307f1d9cd69263b"
+reviewer = "solver-f"
+role = "solver"
+verdict = "pass"
+solved = "Heat moving through matter that is touching"
+note = "Blind answer matches key; it is the passage's own definition. Distractors are the convection and radiation definitions plus a reversed heat direction: each clearly wrong, each tempting to a skimmer. SP.1.b (term from context) and P.a.1 (heat transfer) fit. Explanation quotes the line, gives the example, ends in bold sentence; common mistake (convection mix-up) is real."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0009"
+kind = "question"
+hash = "75b5e305a4ab44d0"
+reviewer = "solver-f"
+role = "solver"
+verdict = "fix"
+solved = "Conduction: Burner heating the bottom of a pan, Heat spreading to the pan's handle; Convection: Warm water rising in a pot; Radiation: Sunlight warming Earth, Campfire warming your face"
+note = "Blind grouping matches key and each item fits exactly one group as the passage frames it; P.a.1 and SP.1.a fit. Problem: the explanation only lists the key back. It never says WHY each item goes where (no why before how) and has no closing 'So ...' sentence, so a learner who put the campfire under conduction is not unstuck. Rewrite: 'Conduction needs things that touch: the **burner touches the pan**, and the heat moves **along the pan to the handle**.' / 'Convection needs a moving liquid or gas: **warm water rising in the pot** carries the heat.' / 'Radiation needs no matter: **sunlight** crosses empty space, and **campfire** heat reaches your face through the air without touching it.' / 'So the burner and handle are **conduction**, the rising water is **convection**, and the Sun and campfire are **radiation**.'"
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0010"
+kind = "question"
+hash = "32272df49eb19f6a"
+reviewer = "solver-f"
+role = "solver"
+verdict = "pass"
+solved = "It can move heat through empty space"
+note = "Blind answer matches key, supported by 'does not need any matter' and the Sun example. Distractors: reversed heat direction, 'only in liquids' (convection confusion), 'matter that is touching' (conduction): all defensibly wrong and tempting. SP.1.a comparison and P.a.1 fit. Explanation contrasts all three and ends in a bold sentence."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0011"
+kind = "question"
+hash = "368fbf41a7cf7fad"
+reviewer = "solver-f"
+role = "solver"
+verdict = "pass"
+solved = "Each level holds less energy than the level before it"
+note = "Blind answer matches key; table falls 20,000 > 2,000 > 200 > 20. Wrong choices (more, same, snakes most) are clearly wrong and the 'top predator holds most' idea is a real misconception, used as the common mistake. SP.6.c and L.c.1 fit. Note for author: this passage now carries five questions (0011-0015) and 0014 overlaps 0011; CONTENT_RULES suggests two or three per passage."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0012"
+kind = "question"
+hash = "4792751235b633df"
+reviewer = "solver-f"
+role = "solver"
+verdict = "pass"
+solved = "1: one-tenth; 2: snakes"
+note = "Blind answers match both blanks; each ratio is exactly 0.1 and 20 (snakes) is smallest. One-half and one-hundredth are wrong but tempting (two-step comparison); grass is the inverted-reading trap. SP.6.c and L.c.1 fit. Explanation shows each division. Minor optional polish: add the why first, e.g. 'Divide each level by the one before it:'."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0013"
+kind = "question"
+hash = "08bb8b1638cde230"
+reviewer = "solver-f"
+role = "solver"
+verdict = "pass"
+solved = "A living thing that makes its own food using energy from sunlight"
+note = "Blind answer matches key; it is the passage's definition of producer. Distractors (eats animals, top level, eats grass) are consumer ideas, wrong per the passage and tempting. SP.1.b and L.c.1 fit. Explanation quotes the line and ends in bold; common mistake fits the distractors."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0014"
+kind = "question"
+hash = "b704f17e0499d39a"
+reviewer = "solver-f"
+role = "solver"
+verdict = "pass"
+solved = "They hold less energy than the grass but more than the mice"
+note = "Blind answer matches key (20,000 > 2,000 > 200). Other choices contradict the table; 'more than the grass because they eat it' is a real misconception. SP.6.c and L.c.1 fit; explanation gives all three numbers. Correct as written, but it largely repeats 0011 on the same table; author may consider dropping one to keep the passage at two or three questions."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0015"
+kind = "question"
+hash = "085d6622b7ca5b30"
+reviewer = "solver-f"
+role = "solver"
+verdict = "pass"
+solved = "The snakes hold one-thousandth of the energy the grass holds"
+note = "Blind answer matches key: 20 / 20,000 = 0.001. Distractors map to real errors: one-tenth (one step), one-hundredth (stopping at the mice, the stated common mistake), one-fourth (four levels). SP.6.c and L.c.1 fit; difficulty 2 reasonable. Explanation shows the division and ends in bold."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0016"
+kind = "question"
+hash = "ff356db2dc78497d"
+reviewer = "solver-f"
+role = "solver"
+verdict = "pass"
+solved = "Changes from a liquid into a gas"
+note = "Blind answer matches key; the passage defines it inline. Distractors are condensing, precipitation and groundwater from the same paragraph: wrong and tempting. SP.1.b and ES.a.1 fit. Explanation quotes and ends in bold; common mistake (condensing) is the main trap."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0017"
+kind = "question"
+hash = "0ab4fdfdf189dae6"
+reviewer = "solver-f"
+role = "solver"
+verdict = "pass"
+solved = "The Sun warms water in the ocean; Water evaporates and rises as water vapor; Water vapor cools and forms clouds; Water falls as rain or snow"
+note = "Blind order matches key. Although the water cycle loops, the prompt asks for the order the passage describes, which makes one order defensible; each step depends on the one before. SP.1.a and ES.a.1 fit. Explanation walks the steps and ends with the bold order; common mistake (clouds before evaporation) is realistic."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0018"
+kind = "question"
+hash = "29e485273aaabd04"
+reviewer = "solver-f"
+role = "solver"
+verdict = "pass"
+solved = "Almost all of Earth's water is salt water"
+note = "Blind answer matches key (97.5% salt). Distractors: most is fresh, about equal, and 'a quarter' (the 2.5 vs 25 misread named in the common mistake): all clearly wrong, all tempting. SP.6.c and ES.a.1 fit. Explanation states both numbers and ends in bold."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0019"
+kind = "question"
+hash = "8fc2808e7c65a946"
+reviewer = "solver-f"
+role = "solver"
+verdict = "fix"
+solved = "About 1 out of every 40 liters of Earth's water is fresh water"
+note = "Blind answer matches key (2.5% = 2.5/100 = 1/40). Distractors 1/4 (25%), 1/25 (4%), 1/400 (0.25%) are each clearly wrong and tempting; SP.6.c, ES.a.1 and difficulty 3 fit. Problem: on the hardest question in the set, the key step '100 / 2.5 = 40.' is given with no reason (style: why before how), and there is no check. Rewrite: 'Fresh water is 2.5%, which means 2.5 liters out of every 100 liters.' / 'To get 1 liter of fresh water, divide both numbers by 2.5: 2.5 / 2.5 = 1 and 100 / 2.5 = 40.' / 'So **about 1 out of every 40 liters** of Earth's water is fresh water.' / 'Check: 1 / 40 = 0.025, which is 2.5%.'"
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0008"
+kind = "question"
+hash = "e307f1d9cd69263b"
+reviewer = "factcheck-c"
+role = "factcheck"
+verdict = "pass"
+note = "Opened OpenStax College Physics 2e 14.4 (HTTP 200). Its definition 'heat transfer through stationary matter by physical contact' and its burner-to-pan-bottom example support the key and the passage quote. Wrong choices match 14.4's convection (macroscopic movement of a fluid) and radiation (EM waves) and 14.1 (hotter to colder), so each is defensibly wrong."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0009"
+kind = "question"
+hash = "75b5e305a4ab44d0"
+reviewer = "factcheck-c"
+role = "factcheck"
+verdict = "pass"
+note = "Opened 14.4, 14.6 and 14.7 (all 200). Burner to pan bottom is conduction (14.4 says so word for word). Heat going through the pan to its handle is conduction through stationary matter (14.4 definition, and 'through a cooking pan'). Warm water rising in a pot is convection (14.6, Fig. 14.18: hotter water rises, colder water sinks). Sun warming Earth (14.4, 14.7) and feeling the heat of a fire (14.7: 'You can feel the heat transfer from a fire and from the Sun') are radiation. The common mistake's claim that a campfire warms your face by radiation matches 14.7."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0010"
+kind = "question"
+hash = "32272df49eb19f6a"
+reviewer = "factcheck-c"
+role = "factcheck"
+verdict = "pass"
+note = "Opened 14.1, 14.4 and 14.7 (all 200). 14.7: the space between Earth and the Sun rules out conduction and convection, and 'no medium is required for electromagnetic waves'. That supports the key. Wrong choices: cooler-to-warmer goes against 14.1 (hotter to colder); 'only in liquids' is false; 'matter that is touching' is conduction (14.4)."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0011"
+kind = "question"
+hash = "368fbf41a7cf7fad"
+reviewer = "factcheck-c"
+role = "factcheck"
+verdict = "pass"
+note = "Table arithmetic checked (20,000 > 2,000 > 200 > 20). Opened OpenStax Concepts of Biology 20.1 (200): 'Energy is lost at each trophic level' and Fig. 20.5 'Each trophic level has less energy available' back the pattern. The numbers are labeled made-up."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0012"
+kind = "question"
+hash = "4792751235b633df"
+reviewer = "factcheck-c"
+role = "factcheck"
+verdict = "pass"
+note = "The ratios 2,000/20,000, 200/2,000 and 20/200 each equal 0.1, and the snakes (20) are the lowest, so both blanks are right. The claim is about the made-up table only, so no outside 10% figure is needed. 20.1 supports energy dropping level by level. The common mistake is right: 200/20,000 = 1/100."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0013"
+kind = "question"
+hash = "08bb8b1638cde230"
+reviewer = "factcheck-c"
+role = "factcheck"
+verdict = "pass"
+note = "20.1: producers are photosynthetic organisms at the base of the food chain, and photoautotrophs use sunlight as their energy source. That supports the key 'in the passage'. 20.1 also says heterotrophs get energy by eating other organisms, so the passage's 'consumers' line is supported. Wrong choices describe consumers or the top level."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0014"
+kind = "question"
+hash = "b704f17e0499d39a"
+reviewer = "factcheck-c"
+role = "factcheck"
+verdict = "pass"
+note = "Checked against the table: 200 < 2,000 < 20,000, and snakes = 20. Only the key fits. No outside facts beyond 20.1's 'less energy at each level', which I confirmed."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0015"
+kind = "question"
+hash = "085d6622b7ca5b30"
+reviewer = "factcheck-c"
+role = "factcheck"
+verdict = "pass"
+note = "20/20,000 = 0.001 = one-thousandth. The common mistake is right too: 200/20,000 = 1/100, the mice. Table-only claim, made-up numbers labeled as such, and the pattern is supported by 20.1."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0016"
+kind = "question"
+hash = "ff356db2dc78497d"
+reviewer = "factcheck-c"
+role = "factcheck"
+verdict = "pass"
+note = "Opened OpenStax Concepts of Biology 20.2 (200): 'evaporation (water to water vapor) of liquid surface water' supports the key. 'Condenses into clouds as liquid or frozen droplets', 'precipitation (rain or snow)' and 'percolate into the ground' make the three wrong choices defensibly other processes."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0017"
+kind = "question"
+hash = "0ab4fdfdf189dae6"
+reviewer = "factcheck-c"
+role = "factcheck"
+verdict = "fix"
+note = "Order checked against 20.2: Sun warms oceans, then evaporation, then vapor condenses into clouds, then precipitation. The order is right. But the item 'Water vapor cools and forms clouds' states that cooling causes condensation, and no cited source says that. 20.2 only says the vapor 'condenses into clouds'. Fix: add a source that says it, e.g. NASA GPM 'The Water Cycle' https://gpm.nasa.gov/education/water-cycle (HTTP 200: 'rises into the atmosphere, cools and condenses into rain or snow in clouds'), or drop 'cools' from the item. Make the same change in passage science-water-cycle."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0018"
+kind = "question"
+hash = "29e485273aaabd04"
+reviewer = "factcheck-c"
+role = "factcheck"
+verdict = "pass"
+note = "20.2: 'Of the stores of water on Earth, 97.5 percent is salt water', and Fig. 20.9 says 'Only 2.5 percent of water on Earth is fresh water'. That supports the table and the key. A quarter is 25%, so the common mistake is right."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0019"
+kind = "question"
+hash = "8fc2808e7c65a946"
+reviewer = "factcheck-c"
+role = "factcheck"
+verdict = "pass"
+note = "2.5% is confirmed in 20.2 (Fig. 20.9). 100/2.5 = 40, so 1 in 40 is right. Distractors: 1 in 4 = 25%, 1 in 25 = 4%, 1 in 400 = 0.25%, each clearly wrong. The common mistake's '1/25 is 4%' is right."
+date = "2026-11-12"
+
+# ── science stimuli (role = factcheck) ──────────────────────────────
+
+[[review]]
+id = "SP.1.b"
+kind = "card"
+hash = "9a914293f80a5e71"
+verdict = "pass"
+note = "Accurate (transpiration = water vapor escaping from leaves). Key, 3 short steps, one-line example with bolded answer, hack covers symbols; well under 90 words, plain language. Checked all 21 s-reading questions: no question uses transpiration; the cue 'means / is called / comma' is a strategy, not an answer, and the symbol hack does not give away 0020's arrow or 0021's (g)."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0009"
+kind = "question"
+hash = "21a73ff0e65a9710"
+reviewer = "solver-g"
+role = "solver"
+verdict = "pass"
+solved = "Conduction: burner heating bottom of pan, heat spreading to handle; Convection: warm water rising in a pot; Radiation: sunlight warming Earth, campfire warming your face"
+note = "Blind grouping matches key. Each item maps to exactly one passage example, so only one defensible grouping; campfire (tempting as conduction) is clearly radiation per the passage. Topic P.a.1 (heat transfer) and SP.1.a (details stated in the text) fit. Explanation one line per method, why before how, bold answer; common mistake matches the main trap."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0016"
+kind = "question"
+hash = "5c552b9e24c264f3"
+reviewer = "solver-g"
+role = "solver"
+verdict = "pass"
+solved = "Changes from a liquid into a gas"
+note = "Matches key. Distractors are the passage's other stages (condensing, precipitation, groundwater), so each is tempting and clearly wrong. SP.1.b and ES.a.1 fit; difficulty 1 right since the passage defines the word with 'which means'. Explanation quotes the passage accurately and ends with a bold answer."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0017"
+kind = "question"
+hash = "90fc497e22906259"
+reviewer = "solver-g"
+role = "solver"
+verdict = "pass"
+solved = "The Sun warms water in the ocean; Water evaporates and rises as water vapor; Water vapor cools and forms clouds; Water falls as rain or snow"
+note = "Matches key. 'In the order the passage describes them' anchors the start of the cycle, so exactly one order is defensible. ES.a.1 (cycles of matter) and SP.1.a fit. Explanation is short, in order, bold answer; common mistake (clouds before evaporation) is a real error."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0018"
+kind = "question"
+hash = "cab19cf4d5fb3fd2"
+reviewer = "solver-g"
+role = "solver"
+verdict = "pass"
+solved = "Almost all of Earth's water is salt water"
+note = "Matches key (97.5%). Distractors: reversal, 'about the same', and 2.5% misread as a quarter; all clearly wrong from the table and tempting. SP.6.c and ES.a.1 fit, difficulty 1 fair. Explanation cites both numbers and ends in bold; common mistake explains the quarter distractor."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0019"
+kind = "question"
+hash = "90317fe7f106acd7"
+reviewer = "solver-g"
+role = "solver"
+verdict = "pass"
+solved = "About 1 out of every 40 liters of Earth's water is fresh water"
+note = "Matches key: 2.5/100 = 1/40. Distractors 1/4 (25%), 1/25 (4%), 1/400 (0.25%) are each a real decimal/percent slip and definitely wrong. Metric liters. SP.6.c fits; difficulty 3 reasonable. Explanation says why (2.5 per 100), divides both by 2.5, bold answer, check line; common mistake gives 1/25 = 4%."
+date = "2026-11-12"
+
+# ---- content/reviews/stimuli-science.toml ----
+
+[[review]]
+id = "s-reading-0009"
+kind = "question"
+hash = "21a73ff0e65a9710"
+reviewer = "solver-h"
+role = "solver"
+verdict = "pass"
+solved = "Conduction: burner heating the bottom of a pan, heat spreading to the pan's handle. Convection: warm water rising in a pot. Radiation: sunlight warming Earth, campfire warming your face."
+note = "Blind grouping matches the key. Every item is an example the passage itself assigns to one method (burner and handle under conduction, rising water under convection, Sun and campfire under radiation), so there is one defensible sort; real-world mixing (gas flame convection, campfire convection) is ruled out by 'from the passage'. Campfire-as-conduction is a realistic trap and matches the common mistake. SP.1.a and P.a.1 fit. Explanation is three short why-lines plus a bold answer sentence, in style."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0016"
+kind = "question"
+hash = "5c552b9e24c264f3"
+reviewer = "solver-h"
+role = "solver"
+verdict = "pass"
+solved = "Changes from a liquid into a gas"
+note = "Blind answer matches the key; the passage defines the word in place. Distractors are the passage's other steps (condensing, precipitation, soaking in as groundwater), each clearly wrong but tempting to a skimmer. SP.1.b (term in context) and ES.a.1 (water cycle) fit; difficulty 1 is right. Explanation quotes the passage and ends with a bold answer; common mistake (condensing) is realistic."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0017"
+kind = "question"
+hash = "90fc497e22906259"
+reviewer = "solver-h"
+role = "solver"
+verdict = "pass"
+solved = "The Sun warms water in the ocean; Water evaporates and rises as water vapor; Water vapor cools and forms clouds; Water falls as rain or snow"
+note = "Blind order matches the key. Although the water cycle is a loop, the prompt asks for the order the passage describes, which fixes the Sun-warming step first and gives exactly one defensible order; each step also physically depends on the one before. SP.1.a and ES.a.1 fit. Explanation follows the passage step by step with a bold summary; clouds-before-evaporation is a realistic mistake."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0018"
+kind = "question"
+hash = "cab19cf4d5fb3fd2"
+reviewer = "solver-h"
+role = "solver"
+verdict = "pass"
+solved = "Almost all of Earth's water is salt water"
+note = "Blind answer matches the key (97.5% salt vs 2.5% fresh). Distractors are clearly wrong: most-fresh reverses the table, about-equal ignores the numbers, and a quarter is the 2.5-vs-25 misread named in the common mistake. SP.6.c and ES.a.1 fit; difficulty 1 is right. Explanation states both numbers and a bold answer sentence."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0019"
+kind = "question"
+hash = "90317fe7f106acd7"
+reviewer = "solver-h"
+role = "solver"
+verdict = "pass"
+solved = "About 1 out of every 40 liters of Earth's water is fresh water"
+note = "Blind answer matches the key: 2.5% = 2.5/100 = 1/40. Distractors are definitely wrong and tied to real slips: 1/4 = 25% (decimal-place misread), 1/25 = 4% (digit confusion, the stated common mistake), 1/400 = 0.25%. SP.6.c (numbers into words) fits; difficulty 3 is reasonable for the proportional step. Explanation says why each step is done (divide both by 2.5), shows every number, ends in bold and adds a check."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0009"
+kind = "question"
+hash = "21a73ff0e65a9710"
+reviewer = "factcheck-d"
+role = "factcheck"
+verdict = "pass"
+note = "Opened OpenStax College Physics 2e 14.4, 14.6, 14.7. 14.4: conduction is transfer through stationary matter by physical contact, and burner-to-pan-bottom is conduction; heat moving along the stationary pan to its handle follows from that definition. 14.6: hotter water in a pot on the stove rises, colder sinks (convection, fluid movement). 14.7: Sun warms Earth through largely empty space, no medium required; heat from a fire reaches observers mostly as infrared radiation. Explanation claims (touching / moving fluid / no matter needed) all supported. Groups match the passage."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0016"
+kind = "question"
+hash = "5c552b9e24c264f3"
+reviewer = "factcheck-d"
+role = "factcheck"
+verdict = "fix"
+note = "The keyed answer rests on 'evaporation changes a liquid into a gas'. The only cited outside source, OpenStax Concepts of Biology 20.2, says only 'evaporation (water to water vapor) of liquid surface water' and never says water vapor is a gas. Add a source that states it, e.g. USGS Water Science School, Evaporation and the Water Cycle: https://www.usgs.gov/water-science-school/science/evaporation-and-water-cycle ('Evaporation is the process that changes liquid water to gaseous water (water vapor)'), checked and confirmed. Distractor 'gas into tiny droplets' = condensing matches OpenStax ('water vapor condenses into clouds as liquid or frozen droplets'). Otherwise accurate."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0017"
+kind = "question"
+hash = "90fc497e22906259"
+reviewer = "factcheck-d"
+role = "factcheck"
+verdict = "pass"
+note = "Opened OpenStax Concepts of Biology 20.2 (water cycle driven by the Sun warming oceans and other surface waters; evaporation to water vapor; vapor condenses into clouds; precipitation as rain or snow) and NASA GPM The Water Cycle (water evaporates, rises into the atmosphere, cools and condenses in clouds, falls as precipitation). Order Sun warms -> evaporates and rises -> cools/forms clouds -> falls is supported by both and matches the passage. Explanation and common mistake are accurate."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0018"
+kind = "question"
+hash = "cab19cf4d5fb3fd2"
+reviewer = "factcheck-d"
+role = "factcheck"
+verdict = "pass"
+note = "OpenStax Concepts of Biology 20.2: '97.5 percent is salt water' and 'Only 2.5 percent of water on Earth is fresh water'. Table values and the keyed statement match. 25% = a quarter, ten times 2.5%: correct."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0019"
+kind = "question"
+hash = "90317fe7f106acd7"
+reviewer = "factcheck-d"
+role = "factcheck"
+verdict = "pass"
+note = "2.5% fresh water confirmed in OpenStax Concepts of Biology 20.2. Arithmetic checked: 100 / 2.5 = 40, 1/40 = 0.025 = 2.5%; 1/25 = 4%; 1/4 = 25%; 1/400 = 0.25%. Metric units used. No other factual claims."
+date = "2026-11-12"
+
+# Entry for the stimuli-science review file
+
+[[review]]
+id = "s-reading-0016"
+kind = "question"
+hash = "0a9f711c0dabc523"
+reviewer = "solver-i"
+role = "solver"
+verdict = "pass"
+solved = "Changes from a liquid into a gas"
+note = "Blind answer matches key; the passage defines the term in the same sentence (SP.1.b fits). Distractors are the passage's neighboring terms (condense, precipitation, groundwater), each clearly wrong to a careful reader and tempting to a skimmer. Explanation quotes the definition and ends with a bold answer; common_mistake names the condensing mix-up. Topic ES.a.1 (cycles of matter) fits."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0017"
+kind = "question"
+hash = "1bbc6cbb2d8fd54f"
+reviewer = "solver-i"
+role = "solver"
+verdict = "pass"
+solved = "The Sun warms water in the ocean; Water evaporates and rises as water vapor; Water vapor cools and forms clouds; Water falls as rain or snow"
+note = "Blind order matches key. The four items are a causal chain that the passage gives in sequence, and each step needs the one before it, so only one order is defensible (no runoff/groundwater branch is included, which avoids a tie). SP.1.a and ES.a.1 fit. Explanation is correct and short; small nit only: it says vapor 'condenses into clouds' where the passage says it condenses into droplets that form clouds, which is fine as a summary."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0018"
+kind = "question"
+hash = "7cb8338e8326c1a2"
+reviewer = "solver-i"
+role = "solver"
+verdict = "pass"
+solved = "Almost all of Earth's water is salt water"
+note = "Blind answer matches key (97.5% salt). 'Most is fresh' (reversal), 'about the same' and 'about a quarter' (reading 2.5 as 25) are definitely wrong and based on real misreadings; the quarter trap is named in common_mistake. Turning table numbers into words is SP.6.c. Explanation states both numbers and ends with a bold sentence answer."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0019"
+kind = "question"
+hash = "59f9128f2ade8a45"
+reviewer = "solver-i"
+role = "solver"
+verdict = "pass"
+solved = "About 1 out of every 40 liters of Earth's water is fresh water"
+note = "Blind answer matches key: 2.5% = 2.5/100 = 1/40. Distractors match real errors: 1/4 (reading 25%), 1/25 (flipping 2.5 into 25), 1/400 (0.25%); all clearly wrong. Explanation says why before how, shows where 40 comes from, and checks 1/40 = 0.025. Metric units. SP.6.c fits; difficulty 3 is reasonable for a percent-to-ratio step in a reading item."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0016"
+kind = "question"
+hash = "0a9f711c0dabc523"
+reviewer = "solver-j"
+role = "solver"
+verdict = "pass"
+solved = "Changes from a liquid into a gas"
+note = "Blind answer matches key; the passage defines the term directly. Distractors are the passage's other stages (condensing, precipitation, groundwater), clearly wrong but tempting to a skimmer. SP.1.b (term meaning in context) and ES.a.1 (water cycle) fit. Explanation quotes the definition and ends in bold; common mistake matches the condensing distractor."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0017"
+kind = "question"
+hash = "1bbc6cbb2d8fd54f"
+reviewer = "solver-j"
+role = "solver"
+verdict = "pass"
+solved = "The Sun warms water in the ocean; Water evaporates and rises as water vapor; Water vapor cools and forms clouds; Water falls as rain or snow"
+note = "Blind order matches key. The passage states these four steps in one clear causal sequence (warm, evaporate and rise, cool and condense into clouds, precipitate), so only one order is defensible; runoff/groundwater are left out, which avoids a tie. 'Ocean' is one of the passage's listed water bodies, fine. SP.1.a and ES.a.1 fit. Explanation is short and correct; common mistake (clouds before evaporation) is realistic."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0018"
+kind = "question"
+hash = "7cb8338e8326c1a2"
+reviewer = "solver-j"
+role = "solver"
+verdict = "pass"
+solved = "Almost all of Earth's water is salt water"
+note = "Blind answer matches key: table shows 97.5% salt vs 2.5% fresh. Distractors are clearly wrong (reversed, equal, 2.5% misread as a quarter) and each maps to a real misreading. SP.6.c (numbers into words) and ES.a.1 fit; difficulty 1 reasonable. Explanation gives both numbers and a bold answer; common mistake matches the quarter distractor."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0019"
+kind = "question"
+hash = "59f9128f2ade8a45"
+reviewer = "solver-j"
+role = "solver"
+verdict = "pass"
+solved = "About 1 out of every 40 liters of Earth's water is fresh water"
+note = "Blind answer matches key: 2.5% = 2.5/100 = 1/40. Distractors 1/4 (25%), 1/25 (4%) and 1/400 (0.25%) are each a plausible decimal or reciprocal slip and definitely wrong. Metric liters used. SP.6.c and ES.a.1 fit; difficulty 3 is reasonable for a percent-to-ratio conversion in a reading item. Explanation shows where 40 comes from, ends in bold, and includes a check; common mistake is correct (1/25 = 4%)."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0016"
+kind = "question"
+hash = "0a9f711c0dabc523"
+reviewer = "factcheck-e"
+role = "factcheck"
+verdict = "pass"
+note = "Definition of evaporate (liquid to gas, water vapor) confirmed by USGS ('changes liquid water to gaseous water (water vapor)') and OpenStax 20.2. Distractors (condensing to droplets, precipitation, soaking into ground) correctly describe other passage steps. Explanation quote matches passage text exactly."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0017"
+kind = "question"
+hash = "1bbc6cbb2d8fd54f"
+reviewer = "factcheck-e"
+role = "factcheck"
+verdict = "pass"
+note = "Order Sun warms ocean -> evaporates and rises as vapor -> cools and forms clouds -> falls as rain or snow matches the passage and is confirmed by OpenStax 20.2 (Sun's energy warms oceans, evaporation, condenses into clouds, precipitation) and NASA GPM (evaporates, rises, cools and condenses, falls as precipitation). Common mistake reasoning (clouds form from vapor) is correct."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0018"
+kind = "question"
+hash = "7cb8338e8326c1a2"
+reviewer = "factcheck-e"
+role = "factcheck"
+verdict = "pass"
+note = "OpenStax 20.2: 97.5 percent of Earth's water is salt water, so fresh is 2.5 percent; matches table and key. Distractors are false per the same source. 25 percent is ten times 2.5 percent: correct."
+date = "2026-11-12"
+
+[[review]]
+id = "s-reading-0019"
+kind = "question"
+hash = "59f9128f2ade8a45"
+reviewer = "factcheck-e"
+role = "factcheck"
+verdict = "pass"
+note = "2.5 percent fresh water from OpenStax 20.2. Math checked: 1/40 = 0.025 = 2.5 percent; 1/4 = 25 percent, 1/25 = 4 percent, 1/400 = 0.25 percent, so only the key matches. Liters is metric."
+date = "2026-11-12"

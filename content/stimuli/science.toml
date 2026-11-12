@@ -54,3 +54,242 @@ A student builds two identical trays of soil and tilts them at the same angle. O
 '''
 table = { headers = ["Tray", "Soil washed off (g)"], rows = [["Grass", "40"], ["Bare soil", "310"]] }
 source = "Original (made-up results for practice)"
+
+[[stimulus]]
+id = "science-body-temperature"
+status = "reviewed"
+title = "Keeping body temperature steady"
+text = '''
+Your body works best when its inside temperature stays close to 37 °C. Keeping conditions inside the body steady like this is called homeostasis. The steady value the body aims for is called the set point.
+
+A part of the brain called the hypothalamus works like a thermostat. When you get too hot, it signals your sweat glands. Sweat spreads over your skin, and as it evaporates, it carries heat away. Blood vessels near the skin also widen, so more heat escapes. When you get too cold, the blood vessels near the skin narrow, which keeps warm blood deeper in the body. Your muscles may also start shivering. Shivering is a fast, automatic tightening of the muscles that makes heat.
+
+Either way, the body's response pushes the temperature back toward the set point. This kind of control is called negative feedback.
+'''
+source = "Original (facts from OpenStax Anatomy and Physiology 2e 1.5 Homeostasis and Concepts of Biology 16.1 Homeostasis and Osmoregulation)"
+
+[[stimulus]]
+id = "science-photosynthesis"
+status = "reviewed"
+title = "How plants make food"
+text = '''
+Plants make their own food by photosynthesis. Their leaves take in carbon dioxide from the air, and the plant takes in water. Using energy from sunlight, the plant turns these starting materials into a sugar called glucose. It gives off oxygen as well.
+
+Scientists call the starting materials of a process its reactants, and the materials it makes its products. For photosynthesis:
+
+carbon dioxide + water → glucose + oxygen (using energy from sunlight)
+
+The glucose stores energy that the plant can use later to live and grow. Animals that eat plants get some of this stored energy too. Gases move in and out of the leaf through tiny openings called stomata.
+'''
+source = "Original (facts from OpenStax Concepts of Biology 5.1 Overview of Photosynthesis)"
+
+[[stimulus]]
+id = "science-heat-transfer"
+status = "reviewed"
+title = "Three ways heat moves"
+text = '''
+Heat moves from warmer things to cooler things. It can move in three ways.
+
+Conduction is heat moving through matter that is touching. When a metal pan sits on a hot stove burner, heat passes from the burner into the pan, and then along the pan to its handle.
+
+Convection is heat carried by a moving liquid or gas. In a pot of water on the stove, the water at the bottom warms up and rises. Cooler water sinks to take its place, and the water keeps circling.
+
+Radiation is heat carried by light and waves like it, such as infrared waves. It does not need any matter. This is how heat from the Sun reaches Earth through empty space, and how you feel warmth on your face from a campfire.
+'''
+source = "Original (facts from OpenStax College Physics 2e 14.1 Heat, 14.4 Heat Transfer Methods, 14.6 Convection and 14.7 Radiation)"
+
+[[stimulus]]
+id = "science-food-chain"
+status = "reviewed"
+title = "Energy in a food chain"
+text = '''
+In a meadow, grasshoppers eat grass, mice eat grasshoppers, and snakes eat mice. Each step in a food chain is called a trophic level. Grass is a producer: it makes its own food using energy from sunlight. The animals are consumers: they get energy by eating other living things.
+
+A student made a model of how much energy each level of this food chain holds in one year. The numbers are made up, but real food chains follow the same pattern: each level up the chain holds much less energy than the level it feeds on.
+'''
+table = { headers = ["Trophic level", "Living thing", "Energy (kJ per square meter per year)"], rows = [["1", "Grass", "20,000"], ["2", "Grasshoppers", "2,000"], ["3", "Mice", "200"], ["4", "Snakes", "20"]] }
+source = "Original (made-up numbers for practice; facts from OpenStax Concepts of Biology 20.1 Energy Flow through Ecosystems)"
+
+[[stimulus]]
+id = "science-water-cycle"
+status = "reviewed"
+title = "The water cycle"
+text = '''
+Earth's water is always on the move. This movement is called the water cycle, and energy from the Sun drives it.
+
+The Sun warms oceans, lakes and rivers. Some of the water evaporates, which means it changes from a liquid into a gas called water vapor. The water vapor rises into the air. As it cools, it condenses into tiny droplets that form clouds. In time, water falls from the clouds as precipitation: rain or snow. Some of this water flows over the ground into streams and rivers. This is called runoff. Some soaks into the ground and becomes groundwater.
+
+As the table shows, very little of Earth's water is fresh water. Almost all fresh water is frozen in ice or held underground. Less than 1 percent of fresh water is in lakes and rivers.
+'''
+table = { headers = ["Kind of water", "Share of all water on Earth (%)"], rows = [["Salt water", "97.5"], ["Fresh water", "2.5"]] }
+source = "Original (facts and numbers from OpenStax Concepts of Biology 20.2 Biogeochemical Cycles; NASA Global Precipitation Measurement, The Water Cycle, https://gpm.nasa.gov/education/water-cycle; USGS Water Science School, Evaporation and the Water Cycle)"
+
+[[stimulus]]
+id = "science-co2"
+status = "reviewed"
+title = "Carbon dioxide in the air"
+text = '''
+Scientists at Mauna Loa Observatory in Hawaii measure the amount of carbon dioxide in the air. The amount is given in parts per million (ppm): the number of carbon dioxide molecules in every million molecules of air. The table shows the average for each of five years.
+'''
+table = { headers = ["Year", "Carbon dioxide (ppm)"], rows = [["1960", "316.9"], ["1980", "338.8"], ["2000", "369.7"], ["2020", "414.2"], ["2025", "427.4"]] }
+source = "Data: NOAA Global Monitoring Laboratory, Mauna Loa annual mean carbon dioxide, https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.txt (rounded to 0.1 ppm)"
+
+[[stimulus]]
+id = "science-road-salt"
+status = "reviewed"
+title = "Salt on ice"
+text = '''
+A city uses salt on icy roads in winter. A student wants to test the claim that salt makes ice melt faster. He puts one 30-gram ice cube in each of three identical dishes in the same room. He sprinkles 0 grams of salt on the first cube, 2 grams on the second, and 4 grams on the third. He records how long each cube takes to melt completely. He repeats the test three times and finds the average.
+'''
+table = { headers = ["Salt (g)", "Average time to melt (minutes)"], rows = [["0", "62"], ["2", "48"], ["4", "39"]] }
+source = "Original (made-up results for practice; facts from OpenStax Chemistry 2e 11.4 Colligative Properties)"
+
+[[stimulus]]
+id = "science-boiling"
+status = "reviewed"
+title = "Two boiling points"
+text = '''
+Two students each heat a pot of pure water and measure its temperature when it boils.
+
+Student 1 is in a kitchen near sea level. Her water boils at 100 °C.
+
+Student 2 is at a camp in the mountains, about 3,100 meters above sea level. His water boils at about 90 °C.
+
+Both used thermometers that read correctly. The air pressure at the mountain camp is much lower than the air pressure at sea level.
+'''
+source = "Original (facts from OpenStax Chemistry 2e 10.3 Phase Transitions)"
+
+[[stimulus]]
+id = "science-beetles"
+status = "reviewed"
+title = "Beetles on an island"
+text = '''
+On a small island, a kind of beetle comes in two colors: light brown and dark brown. Color is passed from parents to their young. Birds on the island eat the beetles. Birds find a beetle more easily when its color stands out against the ground.
+
+In 2010, the island's soil was light brown, and scientists counted the beetles. Later that year, a volcano nearby covered the island in dark ash. The scientists counted the beetles again every four years.
+'''
+table = { headers = ["Year", "Dark beetles (% of all beetles)"], rows = [["2010", "20"], ["2014", "45"], ["2018", "70"], ["2022", "85"]] }
+source = "Original (made-up results for practice; facts from OpenStax Concepts of Biology 11.1 and 11.2)"
+
+[[stimulus]]
+id = "science-heart-rate"
+status = "reviewed"
+title = "Heart rate and exercise"
+text = '''
+A coach measured the heart rate of 10 healthy adults in beats per minute (bpm). She measured each person after sitting still for 5 minutes, after walking for 5 minutes, and after running for 5 minutes. The table shows the average for the group.
+'''
+table = { headers = ["Activity", "Average heart rate (bpm)"], rows = [["Sitting", "70"], ["Walking", "96"], ["Running", "142"]] }
+source = "Original (made-up results for practice; facts from OpenStax Anatomy and Physiology 2e 19.4 Cardiac Physiology)"
+
+[[stimulus]]
+id = "science-planets"
+status = "reviewed"
+title = "Distance and the length of a year"
+text = '''
+A planet's year is the time it takes to go once around the Sun. The table shows how far the five planets closest to the Sun are from the Sun, and how long each one's year is in Earth days.
+'''
+table = { headers = ["Planet", "Distance from the Sun (million km)", "Length of year (Earth days)"], rows = [["Mercury", "57.9", "88.0"], ["Venus", "108.2", "224.7"], ["Earth", "149.6", "365.2"], ["Mars", "228.0", "687.0"], ["Jupiter", "778.5", "4,331"]] }
+source = "Data: NASA NSSDCA Planetary Fact Sheet, https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
+
+[[stimulus]]
+id = "science-hare-lynx"
+status = "reviewed"
+title = "Hares and lynx"
+text = '''
+In the northern forests of North America, including Alaska, the lynx is a wild cat that hunts snowshoe hares. Hares are its main food. Scientists have found that the two populations rise and fall in cycles of about ten years. When there are many hares, there is more food for lynx, and the lynx population grows. When lynx become common, they eat so many hares that the hare population falls. Then the lynx have less food, and their numbers fall too, about a year or two after the hares.
+
+The table shows a simple model of one forest, with made-up numbers that follow this pattern.
+'''
+table = { headers = ["Year", "Hares (thousands)", "Lynx (hundreds)"], rows = [["1", "20", "3"], ["2", "50", "4"], ["3", "80", "8"], ["4", "60", "12"], ["5", "25", "10"], ["6", "10", "5"], ["7", "15", "3"], ["8", "35", "3"]] }
+source = "Original (made-up numbers for practice; facts from OpenStax Concepts of Biology 19.4 Community Ecology and the National Park Service, Gates of the Arctic National Park and Preserve, Lynx)"
+
+[[stimulus]]
+id = "science-cooling"
+status = "reviewed"
+title = "A cooling cup of tea"
+text = '''
+A student pours hot tea into a mug and leaves it on a table in a room that stays at 20 °C. Every 5 minutes, she measures the temperature of the tea.
+'''
+table = { headers = ["Time (minutes)", "Tea temperature (°C)"], rows = [["0", "90"], ["5", "70"], ["10", "56"], ["15", "46"], ["20", "39"]] }
+source = "Original (made-up results for practice; facts from OpenStax College Physics 2e 14.1 Heat and 14.5 Conduction)"
+
+[[stimulus]]
+id = "science-seasons"
+status = "reviewed"
+title = "Why we have seasons"
+text = '''
+Earth's axis, the line it spins around, is tilted about 23.5° from straight up and down, compared with its path around the Sun. The tilt stays pointed the same way in space all year.
+
+In June, the northern half of Earth leans toward the Sun. Sunlight hits it more directly and days are longer, so it is summer there. At the same time, the southern half leans away from the Sun, so it is winter there. In December, it is the other way around.
+
+In June, the area around the North Pole gets sunlight all day and all night. Every place north of the Arctic Circle, at about 66.5° north, has at least one day around then when the Sun never sets.
+'''
+source = "Original (facts from OpenStax Astronomy 2e 4.2 The Seasons and the National Snow and Ice Data Center, Arctic Weather and Climate)"
+
+[[stimulus]]
+id = "science-quakes"
+status = "reviewed"
+title = "Earthquakes at one station"
+text = '''
+A seismometer is an instrument that records earthquakes. The table shows how many earthquakes one station recorded in a year, grouped by magnitude. Magnitude is a number that describes how strong an earthquake is: the higher the magnitude, the stronger the earthquake.
+
+The numbers are made up for practice, but they follow the real pattern.
+'''
+table = { headers = ["Magnitude", "Earthquakes in one year"], rows = [["2", "1,000"], ["3", "100"], ["4", "10"], ["5", "1"]] }
+source = "Original (made-up numbers for practice; facts from USGS Earthquake Hazards Program, Earthquake Magnitude, Energy Release, and Shaking Intensity, and Lists, Maps, and Statistics)"
+
+[[stimulus]]
+id = "science-balloon"
+status = "reviewed"
+title = "Temperature and height"
+text = '''
+A weather balloon carries a thermometer up through the lowest layer of the atmosphere. The graph shows the air temperature the balloon measured at different heights above the ground.
+
+The readings are made up for practice.
+'''
+figure = { kind = "plane", free_scale = true, x_min = 0, x_max = 8, y_min = -30, y_max = 30, x_label = "height (km)", y_label = "temperature (°C)", points = [{ x = 0, y = 20 }, { x = 2, y = 10 }, { x = 4, y = 0 }, { x = 6, y = -10 }, { x = 8, y = -20 }], segments = [{ from = [0, 20], to = [2, 10] }, { from = [2, 10], to = [4, 0] }, { from = [4, 0], to = [6, -10] }, { from = [6, -10], to = [8, -20] }] }
+source = "Original (made-up readings for practice; facts from OpenStax Astronomy 2e 8.3 Earth's Atmosphere)"
+
+[[stimulus]]
+id = "science-heating-curve"
+status = "reviewed"
+title = "Heating ice"
+text = '''
+A student near sea level puts ice at −40 °C in a pot and heats it at a steady rate. She measures the temperature every minute until the water starts to boil, at point C. The graph shows her results, simplified for practice.
+'''
+figure = { kind = "plane", free_scale = true, x_min = 0, x_max = 100, y_min = -40, y_max = 120, x_label = "time (minutes)", y_label = "temperature (°C)", segments = [{ from = [0, -40], to = [10, 0] }, { from = [10, 0], to = [50, 0] }, { from = [50, 0], to = [100, 100] }], points = [{ x = 10, y = 0, label = "A" }, { x = 50, y = 0, label = "B" }, { x = 100, y = 100, label = "C" }] }
+source = "Original (made-up results for practice; facts from OpenStax Chemistry 2e 10.3 Phase Transitions)"
+
+[[stimulus]]
+id = "science-pea-cross"
+status = "reviewed"
+title = "A pea plant cross"
+text = '''
+In pea plants, the allele for purple flowers (P) is dominant, and the allele for white flowers (p) is recessive. A plant with at least one P allele has purple flowers. Only a plant with two p alleles (pp) has white flowers.
+
+A scientist crosses two purple-flowered plants that are both Pp. The Punnett square shows the four equally likely allele combinations for each offspring. One parent's alleles are along the top, and the other parent's alleles are down the side.
+'''
+table = { headers = ["", "P", "p"], rows = [["P", "PP", "Pp"], ["p", "Pp", "pp"]] }
+source = "Original (facts from OpenStax Concepts of Biology 8.2 Laws of Inheritance)"
+
+[[stimulus]]
+id = "science-fish-survey"
+status = "reviewed"
+title = "Counting fish in a lake"
+text = '''
+Biologists want to know what kinds of fish live in a large lake. The lake holds about 5,000 fish. Catching them all is impossible, so the biologists take a sample. They set nets at 20 places chosen at random around the whole lake, in both shallow and deep water. They identify each fish they catch and then let it go.
+
+The table shows their sample. The numbers are made up for practice.
+'''
+table = { headers = ["Kind of fish", "Number caught"], rows = [["Trout", "60"], ["Grayling", "30"], ["Pike", "10"], ["Total", "100"]] }
+source = "Original (made-up numbers for practice; facts from OpenStax Introductory Statistics 2e 1.2)"
+
+[[stimulus]]
+id = "science-rainfall"
+status = "reviewed"
+title = "A week of rain"
+text = '''
+A student in a rainy coastal town measures the rainfall each day for one week with a rain gauge. The numbers are made up for practice.
+'''
+table = { headers = ["Day", "Rainfall (mm)"], rows = [["Monday", "14"], ["Tuesday", "0"], ["Wednesday", "6"], ["Thursday", "14"], ["Friday", "20"], ["Saturday", "4"], ["Sunday", "5"]] }
+source = "Original (made-up numbers for practice)"

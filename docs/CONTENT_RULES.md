@@ -48,7 +48,9 @@ match each test's weights (`content/subjects.toml`).
 - Use realistic lengths for the test: short texts and graphics for Science
   and Social Studies, 400 to 900 words for Language Arts reading passages.
 - Two or three questions per Science or Social Studies passage, like the
-  real test; six to eight for a Language Arts passage.
+  real test; six to eight for a Language Arts passage. A passage may carry
+  a few more for practice: a practice test takes at most `set_max` of them
+  (`subjects.toml`; default 3, Language Arts 8), picked at random.
 
 ## Questions with one right answer
 

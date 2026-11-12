@@ -1,0 +1,50 @@
+# Quick review cards for s-probability (SP.3.d, SP.8.b, SP.8.c). See WRITING.md.
+
+[[card]]
+id = "SP.3.d"
+status = "reviewed"
+title = "Samples"
+key = "A fair sample is random and spread across the whole group."
+steps = [
+  'Check: could every member have been picked?',
+  'Watch for samples from one place or one kind only.',
+  'To estimate the group, use the sample fraction.',
+]
+example = '''
+12 of 60 trees sampled at random are sick. The forest has 3,000 trees.
+**Estimate:** 12/60 = 1/5, and 1/5 of 3,000 = 600 sick trees.
+'''
+hack = 'Bigger and more random means more trustworthy.'
+
+[[card]]
+id = "SP.8.b"
+status = "reviewed"
+title = "Counting possibilities"
+key = "One choice from each group: multiply the choices."
+steps = [
+  'Count the choices in each group.',
+  'Multiply them together.',
+  'Putting things in order: multiply down, like 3 × 2 × 1.',
+  'Order does not matter? Divide by the ways to order the picks (pairs: divide by 2).',
+]
+example = '''
+3 shirts and 2 pairs of pants.
+**Outfits:** 3 × 2 = 6.
+'''
+hack = '"And" between choices means multiply.'
+
+[[card]]
+id = "SP.8.c"
+status = "reviewed"
+title = "Probability"
+key = "Probability = ways it can happen ÷ all equally likely outcomes."
+steps = [
+  'Count all the equally likely outcomes.',
+  'Count the ones you want.',
+  'Divide. Two independent events: multiply.',
+]
+example = '''
+A bag has 3 green and 7 yellow marbles.
+**P(green):** 3 ÷ 10 = 3/10.
+'''
+hack = 'Each Punnett square box is a 1 in 4 chance.'

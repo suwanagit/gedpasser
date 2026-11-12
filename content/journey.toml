@@ -157,3 +157,112 @@ title = "Planning a fair test"
 principles = ["SP.2.d", "SP.2.c", "SP.2.a"]
 size = 5
 max_difficulty = 2
+
+[[stage]]
+id = "sci-d2a"
+subject = "science"
+day = 2
+title = "Reading for meaning"
+principles = ["SP.1.a", "SP.1.b"]
+size = 5
+max_difficulty = 1
+
+[[stage]]
+id = "sci-d2b"
+subject = "science"
+day = 2
+title = "Tables into words"
+principles = ["SP.6.c"]
+size = 5
+max_difficulty = 2
+
+[[stage]]
+id = "sci-d3a"
+subject = "science"
+day = 3
+title = "What the data show"
+principles = ["SP.3.b", "SP.3.a"]
+size = 5
+max_difficulty = 2
+
+[[stage]]
+id = "sci-d3b"
+subject = "science"
+day = 3
+title = "Claims and two findings"
+principles = ["SP.4.a", "SP.5.a"]
+size = 5
+max_difficulty = 2
+
+[[stage]]
+id = "sci-d4a"
+subject = "science"
+day = 4
+title = "Predicting from data"
+principles = ["SP.3.c"]
+size = 5
+max_difficulty = 2
+
+[[stage]]
+id = "sci-d4b"
+subject = "science"
+day = 4
+title = "Using models"
+principles = ["SP.7.a"]
+size = 5
+max_difficulty = 2
+
+[[stage]]
+id = "sci-d5a"
+subject = "science"
+day = 5
+title = "Reading graphs"
+principles = ["SP.1.c"]
+size = 5
+max_difficulty = 2
+
+[[stage]]
+id = "sci-d5b"
+subject = "science"
+day = 5
+title = "Graphs and formulas"
+principles = ["SP.6.a", "SP.6.b"]
+size = 5
+max_difficulty = 3
+
+[[stage]]
+id = "sci-d6a"
+subject = "science"
+day = 6
+title = "Samples"
+principles = ["SP.3.d"]
+size = 5
+max_difficulty = 2
+
+[[stage]]
+id = "sci-d6b"
+subject = "science"
+day = 6
+title = "Chance and counting"
+principles = ["SP.8.c", "SP.8.b"]
+size = 5
+max_difficulty = 3
+
+[[stage]]
+id = "sci-d7a"
+subject = "science"
+day = 7
+title = "Formulas and averages"
+principles = ["SP.7.b", "SP.8.a"]
+size = 5
+max_difficulty = 3
+
+[[stage]]
+id = "sci-d7b"
+subject = "science"
+day = 7
+title = "Final check"
+checkpoint = true
+cumulative = true
+size = 10
+max_difficulty = 3

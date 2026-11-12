@@ -533,3 +533,133 @@ links = [
   { title = "OpenStax Biology 2e, 1.1 The science of biology", url = "https://openstax.org/books/biology-2e/pages/1-1-the-science-of-biology" },
   { title = "OpenStax Psychology 2e, 2.3 Analyzing findings", url = "https://openstax.org/books/psychology-2e/pages/2-3-analyzing-findings" },
 ]
+
+[[topic]]
+principle = "SP.1.a"
+search = "finding the main idea of a passage"
+links = [
+  { title = "OpenStax College Success, 5.2 Effective reading strategies", url = "https://openstax.org/books/college-success/pages/5-2-effective-reading-strategies" },
+]
+
+[[topic]]
+principle = "SP.1.b"
+search = "using context clues to find word meaning"
+links = [
+  { title = "OpenStax College Success, 5.2 Effective reading strategies", url = "https://openstax.org/books/college-success/pages/5-2-effective-reading-strategies" },
+  { title = "OpenStax Chemistry 2e, 4.1 Writing and balancing chemical equations", url = "https://openstax.org/books/chemistry-2e/pages/4-1-writing-and-balancing-chemical-equations" },
+]
+
+[[topic]]
+principle = "SP.6.c"
+search = "how to describe a data table in words"
+links = [
+  { title = "Math is Fun: Bar Graphs", url = "https://www.mathsisfun.com/data/bar-graphs.html" },
+  { title = "OpenStax Introductory Statistics 2e, 2.1 Stem and leaf graphs stemplots line graphs and bar graphs", url = "https://openstax.org/books/introductory-statistics-2e/pages/2-1-stem-and-leaf-graphs-stemplots-line-graphs-and-bar-graphs" },
+]
+
+[[topic]]
+principle = "SP.3.a"
+search = "using evidence to support a scientific claim"
+links = [
+  { title = "OpenStax Concepts of Biology, 1.2 The process of science", url = "https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science" },
+]
+
+[[topic]]
+principle = "SP.3.b"
+search = "drawing conclusions from data"
+links = [
+  { title = "OpenStax Psychology 2e, 2.3 Analyzing findings", url = "https://openstax.org/books/psychology-2e/pages/2-3-analyzing-findings" },
+]
+
+[[topic]]
+principle = "SP.4.a"
+search = "evidence that supports or weakens a claim"
+links = [
+  { title = "OpenStax Concepts of Biology, 1.2 The process of science", url = "https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science" },
+]
+
+[[topic]]
+principle = "SP.5.a"
+search = "why sample size and control groups matter"
+links = [
+  { title = "OpenStax Psychology 2e, 2.2 Approaches to research", url = "https://openstax.org/books/psychology-2e/pages/2-2-approaches-to-research" },
+  { title = "OpenStax Psychology 2e, 2.3 Analyzing findings", url = "https://openstax.org/books/psychology-2e/pages/2-3-analyzing-findings" },
+]
+
+[[topic]]
+principle = "SP.3.c"
+search = "making predictions from data trends"
+links = [
+  { title = "OpenStax Introductory Statistics 2e, 2.2 Histograms frequency polygons and time series graphs", url = "https://openstax.org/books/introductory-statistics-2e/pages/2-2-histograms-frequency-polygons-and-time-series-graphs" },
+  { title = "OpenStax Introductory Statistics 2e, 12.5 Prediction", url = "https://openstax.org/books/introductory-statistics-2e/pages/12-5-prediction" },
+]
+
+[[topic]]
+principle = "SP.7.a"
+search = "scientific models and how they are used"
+links = [
+  { title = "OpenStax Concepts of Biology, 1.2 The process of science", url = "https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science" },
+  { title = "OpenStax Concepts of Biology, 19.4 Community ecology", url = "https://openstax.org/books/concepts-biology/pages/19-4-community-ecology" },
+]
+
+[[topic]]
+principle = "SP.1.c"
+search = "how to read a line graph"
+links = [
+  { title = "Math is Fun: Line Graphs", url = "https://www.mathsisfun.com/data/line-graphs.html" },
+  { title = "Math is Fun: Bar Graphs", url = "https://www.mathsisfun.com/data/bar-graphs.html" },
+]
+
+[[topic]]
+principle = "SP.6.a"
+search = "choosing the right type of graph"
+links = [
+  { title = "NCES Kids' Zone: How Do I Choose Which Type of Graph to Use?", url = "https://nces.ed.gov/nceskids/help/user_guide/graph/whentouse.asp" },
+  { title = "OpenStax Introductory Statistics 2e, 2.1 Stem and leaf graphs stemplots line graphs and bar graphs", url = "https://openstax.org/books/introductory-statistics-2e/pages/2-1-stem-and-leaf-graphs-stemplots-line-graphs-and-bar-graphs" },
+]
+
+[[topic]]
+principle = "SP.6.b"
+search = "reading chemical formulas and subscripts"
+links = [
+  { title = "OpenStax Chemistry 2e, 2.4 Chemical formulas", url = "https://openstax.org/books/chemistry-2e/pages/2-4-chemical-formulas" },
+]
+
+[[topic]]
+principle = "SP.3.d"
+search = "random sampling and sample size"
+links = [
+  { title = "OpenStax Introductory Statistics 2e, 1.2 Data sampling and variation in data and sampling", url = "https://openstax.org/books/introductory-statistics-2e/pages/1-2-data-sampling-and-variation-in-data-and-sampling" },
+]
+
+[[topic]]
+principle = "SP.8.b"
+search = "counting principle permutations and combinations"
+links = [
+  { title = "OpenStax Contemporary Mathematics, 7.1 The multiplication rule for counting", url = "https://openstax.org/books/contemporary-mathematics/pages/7-1-the-multiplication-rule-for-counting" },
+  { title = "OpenStax Contemporary Mathematics, 7.3 Combinations", url = "https://openstax.org/books/contemporary-mathematics/pages/7-3-combinations" },
+]
+
+[[topic]]
+principle = "SP.8.c"
+search = "Punnett square probability"
+links = [
+  { title = "OpenStax Concepts of Biology, 8.2 Laws of inheritance", url = "https://openstax.org/books/concepts-biology/pages/8-2-laws-of-inheritance" },
+  { title = "OpenStax Introductory Statistics 2e, 3.1 Terminology", url = "https://openstax.org/books/introductory-statistics-2e/pages/3-1-terminology" },
+]
+
+[[topic]]
+principle = "SP.7.b"
+search = "using physics formulas speed force density"
+links = [
+  { title = "OpenStax College Physics 2e, 2.3 Time velocity and speed", url = "https://openstax.org/books/college-physics-2e/pages/2-3-time-velocity-and-speed" },
+  { title = "OpenStax Chemistry 2e, 1.4 Measurements", url = "https://openstax.org/books/chemistry-2e/pages/1-4-measurements" },
+]
+
+[[topic]]
+principle = "SP.8.a"
+search = "mean median mode and range"
+links = [
+  { title = "OpenStax Introductory Statistics 2e, 2.5 Measures of the center of the data", url = "https://openstax.org/books/introductory-statistics-2e/pages/2-5-measures-of-the-center-of-the-data" },
+  { title = "Math is Fun: Finding a Central Value (Mean, Median, Mode)", url = "https://www.mathsisfun.com/data/central-measures.html" },
+]

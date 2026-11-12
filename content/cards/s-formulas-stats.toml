@@ -1,0 +1,34 @@
+# Quick review cards for s-formulas-stats (SP.7.b, SP.8.a). See WRITING.md.
+
+[[card]]
+id = "SP.7.b"
+status = "reviewed"
+title = "Using a formula"
+key = "Write the formula, swap each letter for its number, then solve."
+steps = [
+  'Write the formula you were given.',
+  'Put each number in place of its letter, with units.',
+  'Solve. If the unknown is not alone, undo steps.',
+]
+example = '''
+Pressure = force ÷ area. Force 84 N, area 7 m².
+Pressure = 84 ÷ 7 = **12 N/m²**.
+'''
+hack = 'Units are clues: N ÷ m² gives N/m².'
+
+[[card]]
+id = "SP.8.a"
+status = "reviewed"
+title = "Mean, median, mode, range"
+key = "Mean: add and divide. Median: middle. Mode: most often. Range: biggest minus smallest."
+steps = [
+  'Put the values in order first.',
+  'Median: the middle value. Two middles? Take their mean.',
+  'Mode: the value that appears most often.',
+  'Mean: sum ÷ count. Range: largest − smallest.',
+]
+example = '''
+Data: 2, 3, 3, 4, 8, 10.
+Mean = 30 ÷ 6 = **5**. Median = (3 + 4) ÷ 2 = **3.5**. Mode = **3**. Range = 10 − 2 = **8**.
+'''
+hack = 'MEDian is in the MIDdle, like the median of a road.'

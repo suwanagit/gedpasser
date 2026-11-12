@@ -137,3 +137,78 @@ the 1.2 scientific-method page; an optional improvement would be a page that sho
 tools. SP.2.b and SP.2.c unchanged and fine. The 62 math topics were spot-checked earlier.
 '''
 date = "2026-11-12"
+
+[[review]]
+id = "study"
+kind = "study"
+hash = "4abfb19f267ea396"
+verdict = "fix"
+note = '''
+All 93 unique URLs fetched with curl: every one returns HTTP 200 and its page title matches the link title (OpenStax section numbers and names, Math is Fun page names), so the earlier Math and SP.2 topics are fine. New topics: SP.1.a College Success 5.2 Effective Reading Strategies covers previewing, SQ3R and questioning for main ideas: fits. SP.1.b: College Success 5.2 has a "Learning Vocabulary" part on context clues and discipline vocabulary, and Chemistry 2e 4.1 explains equation symbols, arrows and (s)/(l)/(g)/(aq): fits. FIX SP.6.c: "Math is Fun, Data graphs" (https://www.mathsisfun.com/data/data-graph.html) is an interactive graph-maker tool ("Make a Bar Graph, Line Graph ... then Print or Save. Enter values separated by commas"); it does not teach reading a table or graph or putting what it shows into words. Replace it with a page that teaches reading data displays, e.g. Math is Fun Bar Graphs (https://www.mathsisfun.com/data/bar-graphs.html) and/or OpenStax Introductory Statistics 2e 2.1 (already used and checked for Q.6.a), or another free page on interpreting tables. Also, for consistency, other Math is Fun titles use "Math is Fun: <Page>", not a comma.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "study"
+kind = "study"
+hash = "fab3a32985e28d5c"
+verdict = "pass"
+note = "factcheck-c: curl-checked all 92 unique URLs: every one returned HTTP 200, and each page title matches its link title. A test showed both OpenStax and Math is Fun return 404 for missing pages, so these are real pages, not soft 404s. New topics: SP.1.a College Success 5.2 Effective Reading Strategies (previewing, questioning for main ideas, skimming), which fits. SP.1.b College Success 5.2 (the Learning Vocabulary section, context clues and discipline-specific terms) plus Chemistry 2e 4.1 (chemical-equation symbols, state labels), which fits terms and symbols. SP.6.c Math is Fun Bar Graphs plus Introductory Statistics 2e 2.1 (reading bar and line graphs), which is adequate for putting a table or graph into words. The search phrases fit. Earlier topics: link check only, as instructed."
+date = "2026-11-12"
+
+[[review]]
+id = "study"
+kind = "study"
+hash = "2d0cdd35b1406b25"
+verdict = "pass"
+note = """factcheck-f: fetched all 93 unique URLs in study.toml with curl -L: every one returned HTTP 200 (a made-up OpenStax slug returns 404, so 200 is meaningful). Compared every link title with the page <title>: all match (Math is Fun Cone/Cylinder pages are titled 'Spinning Cone/Cylinder' but are the cone and cylinder pages). New topics: SP.3.a and SP.4.a -> Concepts of Biology 1.2 (conclusions from evidence; hypotheses supported or rejected by results; falsifiable); SP.3.b -> Psychology 2e 2.3 (interpreting findings, correlation is not causation); SP.5.a -> Psychology 2e 2.2 (small samples limit generalizing) and 2.3 (control groups, placebo, chance). All fit their principles at an adult level; search words fit."""
+date = "2026-11-12"
+
+[[review]]
+id = "study"
+kind = "study"
+hash = "6ad4ba6ebe7183e9"
+verdict = "fix"
+note = "All 94 unique URLs return HTTP 200 with the expected page titles (no OpenStax soft 404s). SP.7.a links fit: Concepts of Biology 1.2 covers theories, laws and deductive reasoning (applying a general rule to predict a specific case); 19.4 applies the predator-prey model. FIX SP.3.c: its only link (Introductory Statistics 2e 2.2 time series graphs) shows how to display data and spot trends but never teaches predicting a value beyond or between data points. Add OpenStax Introductory Statistics 2e, 12.5 Prediction, https://openstax.org/books/introductory-statistics-2e/pages/12-5-prediction (HTTP 200; defines interpolation and extrapolation), or a similar page on reading a trend to predict. Earlier topics: link check only, per scope."
+date = "2026-11-12"
+
+[[review]]
+id = "study"
+kind = "study"
+hash = "df1a0392ce21c3b0"
+verdict = "pass"
+note = "Link-checked all 95 unique URLs in content/study.toml with curl -L: all HTTP 200 (confirmed OpenStax returns 404 for a bad slug, so 200s are real pages). New SP.3.c topic: OpenStax Introductory Statistics 2e 2.2 (Histograms, Frequency Polygons, and Time Series Graphs) and 12.5 Prediction both open, page titles match the link titles, and both fit making predictions from data trends at an adult-learner level."
+date = "2026-11-12"
+
+[[review]]
+id = "study"
+kind = "study"
+hash = "61123a091bea8ce8"
+reviewer = "factcheck-l"
+verdict = "fix"
+note = '''Link check: all 97 unique URLs return HTTP 200 (curl -L) and every page title matches its link title; no soft 404s. Earlier topics: links unchanged and working. New topics: SP.1.c (Math is Fun Line Graphs, Bar Graphs) fits reading graphs. SP.6.b (OpenStax Chemistry 2e 2.4) fits the symbol half of the principle; optionally add a graph-to-number page, since the principle also covers that. FIX (SP.6.a, choosing a graph): its only link, OpenStax Intro Stats 2.1, teaches how to build stemplots, line graphs (of frequencies) and bar graphs but never when to choose each, so it does not teach the principle; search words are fine. Add NCES Kids' Zone "How to Choose Which Type of Graph to Use" (https://nces.ed.gov/nceskids/help/user_guide/graph/whentouse.asp, HTTP 200, US government) and/or Math is Fun Line Graphs (has "When should we use a line graph?").'''
+date = "2026-11-12"
+
+[[review]]
+id = "study"
+kind = "study"
+hash = "de7372e42e8800a2"
+verdict = "pass"
+note = "factcheck-m: curl -L checked all unique URLs in study.toml: every link returns HTTP 200. New SP.6.a topic: NCES Kids' Zone How Do I Choose Which Type of Graph to Use? (line graphs for change over time, bar graphs to compare groups, pie charts for parts of a whole) and OpenStax Intro Stats 2e 2.1 (line and bar graphs) both teach choosing a graph type at a GED-suitable level; titles describe the pages; search words fit. Earlier topics were link-checked only, as instructed."
+date = "2026-11-12"
+
+[[review]]
+id = "study"
+kind = "study"
+hash = "0636b74ca2531d46"
+verdict = "pass"
+note = 'Curled all 103 unique links in study.toml: every one returns HTTP 200 (OpenStax returns 404 for bad slugs, so 200 is meaningful). New topics: SP.3.d -> Intro Stats 1.2 (random sampling, bias, sample size) fits; SP.8.b -> Contemporary Math 7.1 multiplication rule and 7.3 combinations fit counting; SP.8.c -> Concepts of Biology 8.2 (Punnett squares, probability) and Intro Stats 3.1 (basic probability) fit. Titles match page titles; search words fit. Minor optional: SP.8.b search mentions permutations; could add Contemporary Math 7.2 Permutations.'
+date = "2026-11-12"
+
+[[review]]
+id = "study"
+kind = "study"
+hash = "903e0af4467aeb32"
+verdict = "pass"
+note = "Link-checked all 105 unique URLs in content/study.toml with curl -L (browser UA): every one returned HTTP 200, and every page title is the real page (no OpenStax soft-404 'OpenStax' titles; a bad slug was confirmed to give that title). New topics: SP.7.b links OpenStax College Physics 2e 2.3 (average speed = distance / time) and Chemistry 2e 1.4 (density = mass / volume), both teach using a given formula at a suitable level; search words 'using physics formulas speed force density' fit. SP.8.a links OpenStax Intro Stats 2e 2.5 (mean, median) and Math is Fun central-measures (mean, median, mode); titles match the pages; search 'mean median mode and range' fits. Earlier reviewed topics: link check only, all pass."
+date = "2026-11-12"
