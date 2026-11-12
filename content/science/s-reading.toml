@@ -156,7 +156,7 @@ principle = "SP.1.b"
 topic = "P.a.1"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-heat-transfer"
 sources = ["Original passage science-heat-transfer", "OpenStax College Physics 2e 14.4 Heat Transfer Methods: https://openstax.org/books/college-physics-2e/pages/14-4-heat-transfer-methods"]
 prompt = "In the passage, what does conduction mean?"
@@ -176,7 +176,7 @@ principle = "SP.1.a"
 topic = "P.a.1"
 difficulty = 2
 type = "sort"
-status = "draft"
+status = "reviewed"
 stimulus = "science-heat-transfer"
 sources = ["Original passage science-heat-transfer", "OpenStax College Physics 2e 14.4 Heat Transfer Methods: https://openstax.org/books/college-physics-2e/pages/14-4-heat-transfer-methods", "OpenStax College Physics 2e 14.6 Convection: https://openstax.org/books/college-physics-2e/pages/14-6-convection", "OpenStax College Physics 2e 14.7 Radiation: https://openstax.org/books/college-physics-2e/pages/14-7-radiation"]
 prompt = "Sort each example from the passage by the way heat moves."
@@ -186,9 +186,10 @@ groups = [
   { name = "Radiation", items = ["Sunlight warming Earth", "Campfire warming your face"] },
 ]
 explanation = '''
-Conduction: the passage's examples are the **burner heating the pan** and **heat spreading to the handle**.
-Convection: its example is **warm water rising in a pot**.
-Radiation: its examples are **sunlight warming Earth** and **a campfire warming your face**.
+Conduction needs things that touch: the burner touches the pan, and the heat moves along the pan to the handle.
+Convection needs a moving liquid or gas: warm water rising in the pot carries the heat.
+Radiation needs no matter: sunlight crosses empty space, and campfire heat reaches your face without touching it.
+So the burner and handle are **conduction**, the rising water is **convection**, and the Sun and campfire are **radiation**.
 '''
 common_mistake = "Putting the campfire under conduction. Your face is not touching the fire; the heat comes by radiation."
 
@@ -199,7 +200,7 @@ principle = "SP.1.a"
 topic = "P.a.1"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-heat-transfer"
 sources = ["Original passage science-heat-transfer", "OpenStax College Physics 2e 14.1 Heat: https://openstax.org/books/college-physics-2e/pages/14-1-heat", "OpenStax College Physics 2e 14.4 Heat Transfer Methods: https://openstax.org/books/college-physics-2e/pages/14-4-heat-transfer-methods", "OpenStax College Physics 2e 14.7 Radiation: https://openstax.org/books/college-physics-2e/pages/14-7-radiation"]
 prompt = "According to the passage, how is radiation different from conduction and convection?"
@@ -221,7 +222,7 @@ principle = "SP.6.c"
 topic = "L.c.1"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-food-chain"
 sources = ["Original passage science-food-chain", "OpenStax Concepts of Biology 20.1 Energy Flow through Ecosystems: https://openstax.org/books/concepts-biology/pages/20-1-energy-flow-through-ecosystems"]
 prompt = "Which statement describes the table?"
@@ -241,7 +242,7 @@ principle = "SP.6.c"
 topic = "L.c.1"
 difficulty = 2
 type = "dropdown"
-status = "draft"
+status = "reviewed"
 stimulus = "science-food-chain"
 sources = ["Original passage science-food-chain", "OpenStax Concepts of Biology 20.1 Energy Flow through Ecosystems: https://openstax.org/books/concepts-biology/pages/20-1-energy-flow-through-ecosystems"]
 prompt = "Complete the sentence about the table: each trophic level holds about {{1}} of the energy of the level before it, so the {{2}} hold the least energy."
@@ -263,7 +264,7 @@ principle = "SP.1.b"
 topic = "L.c.1"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-food-chain"
 sources = ["Original passage science-food-chain", "OpenStax Concepts of Biology 20.1 Energy Flow through Ecosystems: https://openstax.org/books/concepts-biology/pages/20-1-energy-flow-through-ecosystems"]
 prompt = "In the passage, what is a producer?"
@@ -282,7 +283,7 @@ principle = "SP.6.c"
 topic = "L.c.1"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-food-chain"
 sources = ["Original passage science-food-chain", "OpenStax Concepts of Biology 20.1 Energy Flow through Ecosystems: https://openstax.org/books/concepts-biology/pages/20-1-energy-flow-through-ecosystems"]
 prompt = "Which statement about the grasshoppers does the table support?"
@@ -302,7 +303,7 @@ principle = "SP.6.c"
 topic = "L.c.1"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-food-chain"
 sources = ["Original passage science-food-chain", "OpenStax Concepts of Biology 20.1 Energy Flow through Ecosystems: https://openstax.org/books/concepts-biology/pages/20-1-energy-flow-through-ecosystems"]
 prompt = "Which statement compares the snakes' energy with the grass's energy correctly?"
@@ -324,9 +325,9 @@ principle = "SP.1.b"
 topic = "ES.a.1"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-water-cycle"
-sources = ["Original passage science-water-cycle", "OpenStax Concepts of Biology 20.2 Biogeochemical Cycles: https://openstax.org/books/concepts-biology/pages/20-2-biogeochemical-cycles"]
+sources = ["Original passage science-water-cycle", "OpenStax Concepts of Biology 20.2 Biogeochemical Cycles: https://openstax.org/books/concepts-biology/pages/20-2-biogeochemical-cycles", "USGS Water Science School, Evaporation and the Water Cycle: https://www.usgs.gov/water-science-school/science/evaporation-and-water-cycle"]
 prompt = "In the passage, what does evaporates mean?"
 choices = ["Changes from a liquid into a gas", "Changes from a gas into tiny droplets", "Falls as rain or snow", "Soaks into the ground"]
 answer = "Changes from a liquid into a gas"
@@ -343,9 +344,9 @@ principle = "SP.1.a"
 topic = "ES.a.1"
 difficulty = 2
 type = "order"
-status = "draft"
+status = "reviewed"
 stimulus = "science-water-cycle"
-sources = ["Original passage science-water-cycle", "OpenStax Concepts of Biology 20.2 Biogeochemical Cycles: https://openstax.org/books/concepts-biology/pages/20-2-biogeochemical-cycles"]
+sources = ["Original passage science-water-cycle", "OpenStax Concepts of Biology 20.2 Biogeochemical Cycles: https://openstax.org/books/concepts-biology/pages/20-2-biogeochemical-cycles", "NASA Global Precipitation Measurement, The Water Cycle: https://gpm.nasa.gov/education/water-cycle"]
 prompt = "Put these steps of the water cycle in the order the passage describes them."
 items = [
   "The Sun warms water in the ocean",
@@ -367,7 +368,7 @@ principle = "SP.6.c"
 topic = "ES.a.1"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-water-cycle"
 sources = ["Original passage science-water-cycle", "OpenStax Concepts of Biology 20.2 Biogeochemical Cycles: https://openstax.org/books/concepts-biology/pages/20-2-biogeochemical-cycles"]
 prompt = "Which statement describes the table?"
@@ -386,16 +387,17 @@ principle = "SP.6.c"
 topic = "ES.a.1"
 difficulty = 3
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-water-cycle"
 sources = ["Original passage science-water-cycle", "OpenStax Concepts of Biology 20.2 Biogeochemical Cycles: https://openstax.org/books/concepts-biology/pages/20-2-biogeochemical-cycles"]
 prompt = "Which sentence matches the table?"
 choices = ["About 1 out of every 40 liters of Earth's water is fresh water", "About 1 out of every 4 liters of Earth's water is fresh water", "About 1 out of every 25 liters of Earth's water is fresh water", "About 1 out of every 400 liters of Earth's water is fresh water"]
 answer = "About 1 out of every 40 liters of Earth's water is fresh water"
 explanation = '''
-Fresh water is 2.5%, which means 2.5 out of every 100 liters.
-100 ÷ 2.5 = 40.
-So **about 1 out of every 40 liters** is fresh water.
+Fresh water is 2.5%, which means 2.5 liters out of every 100 liters.
+To get 1 liter of fresh water, divide both numbers by 2.5: 2.5 ÷ 2.5 = 1 and 100 ÷ 2.5 = 40.
+So **about 1 out of every 40 liters** of Earth's water is fresh water.
+Check: 1 ÷ 40 = 0.025, which is 2.5%.
 '''
 common_mistake = "Picking 1 out of 25 by mixing up 2.5% with 1/25. 1/25 is 4%."
 

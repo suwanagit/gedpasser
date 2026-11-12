@@ -147,3 +147,11 @@ note = '''
 All 93 unique URLs fetched with curl: every one returns HTTP 200 and its page title matches the link title (OpenStax section numbers and names, Math is Fun page names), so the earlier Math and SP.2 topics are fine. New topics: SP.1.a College Success 5.2 Effective Reading Strategies covers previewing, SQ3R and questioning for main ideas: fits. SP.1.b: College Success 5.2 has a "Learning Vocabulary" part on context clues and discipline vocabulary, and Chemistry 2e 4.1 explains equation symbols, arrows and (s)/(l)/(g)/(aq): fits. FIX SP.6.c: "Math is Fun, Data graphs" (https://www.mathsisfun.com/data/data-graph.html) is an interactive graph-maker tool ("Make a Bar Graph, Line Graph ... then Print or Save. Enter values separated by commas"); it does not teach reading a table or graph or putting what it shows into words. Replace it with a page that teaches reading data displays, e.g. Math is Fun Bar Graphs (https://www.mathsisfun.com/data/bar-graphs.html) and/or OpenStax Introductory Statistics 2e 2.1 (already used and checked for Q.6.a), or another free page on interpreting tables. Also, for consistency, other Math is Fun titles use "Math is Fun: <Page>", not a comma.
 '''
 date = "2026-11-12"
+
+[[review]]
+id = "study"
+kind = "study"
+hash = "fab3a32985e28d5c"
+verdict = "pass"
+note = "factcheck-c: curl-checked all 92 unique URLs: every one returned HTTP 200, and each page title matches its link title. A test showed both OpenStax and Math is Fun return 404 for missing pages, so these are real pages, not soft 404s. New topics: SP.1.a College Success 5.2 Effective Reading Strategies (previewing, questioning for main ideas, skimming), which fits. SP.1.b College Success 5.2 (the Learning Vocabulary section, context clues and discipline-specific terms) plus Chemistry 2e 4.1 (chemical-equation symbols, state labels), which fits terms and symbols. SP.6.c Math is Fun Bar Graphs plus Introductory Statistics 2e 2.1 (reading bar and line graphs), which is adequate for putting a table or graph into words. The search phrases fit. Earlier topics: link check only, as instructed."
+date = "2026-11-12"

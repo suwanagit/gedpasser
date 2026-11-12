@@ -85,7 +85,7 @@ source = "Original (facts from OpenStax Concepts of Biology 5.1 Overview of Phot
 
 [[stimulus]]
 id = "science-heat-transfer"
-status = "draft"
+status = "reviewed"
 title = "Three ways heat moves"
 text = '''
 Heat moves from warmer things to cooler things. It can move in three ways.
@@ -100,7 +100,7 @@ source = "Original (facts from OpenStax College Physics 2e 14.1 Heat, 14.4 Heat 
 
 [[stimulus]]
 id = "science-food-chain"
-status = "draft"
+status = "reviewed"
 title = "Energy in a food chain"
 text = '''
 In a meadow, grasshoppers eat grass, mice eat grasshoppers, and snakes eat mice. Each step in a food chain is called a trophic level. Grass is a producer: it makes its own food using energy from sunlight. The animals are consumers: they get energy by eating other living things.
@@ -112,14 +112,14 @@ source = "Original (made-up numbers for practice; facts from OpenStax Concepts o
 
 [[stimulus]]
 id = "science-water-cycle"
-status = "draft"
+status = "reviewed"
 title = "The water cycle"
 text = '''
 Earth's water is always on the move. This movement is called the water cycle, and energy from the Sun drives it.
 
-The Sun warms oceans, lakes and rivers. Some of the water evaporates, which means it changes from a liquid into a gas called water vapor. The water vapor rises into the air. As it cools, it condenses into tiny droplets that form clouds. In time, the droplets fall as precipitation: rain or snow. Some of this water flows over the ground into streams and rivers. This is called runoff. Some soaks into the ground and becomes groundwater.
+The Sun warms oceans, lakes and rivers. Some of the water evaporates, which means it changes from a liquid into a gas called water vapor. The water vapor rises into the air. As it cools, it condenses into tiny droplets that form clouds. In time, water falls from the clouds as precipitation: rain or snow. Some of this water flows over the ground into streams and rivers. This is called runoff. Some soaks into the ground and becomes groundwater.
 
 As the table shows, very little of Earth's water is fresh water. Almost all fresh water is frozen in ice or held underground. Less than 1 percent of fresh water is in lakes and rivers.
 '''
 table = { headers = ["Kind of water", "Share of all water on Earth (%)"], rows = [["Salt water", "97.5"], ["Fresh water", "2.5"]] }
-source = "Original (facts and numbers from OpenStax Concepts of Biology 20.2 Biogeochemical Cycles)"
+source = "Original (facts and numbers from OpenStax Concepts of Biology 20.2 Biogeochemical Cycles; NASA Global Precipitation Measurement, The Water Cycle, https://gpm.nasa.gov/education/water-cycle; USGS Water Science School, Evaporation and the Water Cycle)"

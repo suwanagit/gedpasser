@@ -18,7 +18,7 @@ hack = 'If an answer adds something the passage never said, cross it out.'
 
 [[card]]
 id = "SP.1.b"
-status = "draft"
+status = "reviewed"
 title = "Terms and symbols"
 key = "The passage usually defines a new word right where it uses it."
 steps = [
@@ -30,11 +30,11 @@ example = '''
 "Plants lose water through transpiration, the escape of water vapor from leaves."
 **Transpiration** means water vapor escaping from leaves.
 '''
-hack = 'The definition is usually within one sentence of the word: read the sentence before and after.'
+hack = 'For a symbol, look for a key, a legend, or the first place it appears.'
 
 [[card]]
 id = "SP.6.c"
-status = "draft"
+status = "reviewed"
 title = "Tables into words"
 key = "Find the pattern first, then check the numbers."
 steps = [

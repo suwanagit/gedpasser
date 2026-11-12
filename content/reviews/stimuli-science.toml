@@ -354,3 +354,105 @@ Source line is fine (Original). CoB 20.2 supports: Sun drives the cycle by warmi
 date = "2026-11-12"
 
 # ── Study links (content/study.toml) ──────────────────────────────────
+
+[[review]]
+id = "science-heat-transfer"
+kind = "stimulus"
+hash = "e574cdd67c04adba"
+reviewer = "solver-e"
+role = "solver"
+verdict = "pass"
+note = "Clear and short, about grade 8-10. Each way has one definition and concrete examples; radiation as heat carried by light and similar waves (infrared) that needs no matter is a fair simplification. Supports 0008-0010 without ambiguity."
+date = "2026-11-12"
+
+[[review]]
+id = "science-food-chain"
+kind = "stimulus"
+hash = "645292fdeee28a0f"
+reviewer = "solver-e"
+role = "solver"
+verdict = "pass"
+note = "Clear; defines trophic level, producer and consumer. The table is labeled as a made-up model following the real pattern (about 10% passed up) and has units. Supports 0011-0015. Small non-blocking nit: holds with a per-year unit is loose wording for energy flow."
+date = "2026-11-12"
+
+[[review]]
+id = "science-water-cycle"
+kind = "stimulus"
+hash = "aa09c9825d29d765"
+reviewer = "solver-e"
+role = "solver"
+verdict = "pass"
+note = "Clear sequence (warm, evaporate, rise, cool and condense, fall, runoff and groundwater) with in-text definitions; the 97.5/2.5 table matches the text. About grade 9-10. Supports 0016-0019 with one order for 0017."
+date = "2026-11-12"
+
+[[review]]
+id = "science-heat-transfer"
+kind = "stimulus"
+hash = "e574cdd67c04adba"
+reviewer = "factcheck-c"
+role = "factcheck"
+verdict = "pass"
+note = "Source starts with 'Original' and the wording is our own. I found no long verbatim runs from OpenStax. Opened 14.1, 14.4, 14.6 and 14.7 (all 200). Warmer to cooler: 14.1. Conduction through touching matter, with the burner-pan example: 14.4. The pan handle is covered by 14.4's 'through stationary matter' and 'through a cooking pan'. Convection by a moving fluid: 14.4. Pot water rising, colder water sinking, repeating: 14.6 Fig. 14.18. Radiation as light and other EM waves, including infrared: 14.4 and 14.7. No medium needed, and Sun through space: 14.7. Feeling a fire's heat: 14.7. Optional: 14.5 Conduction would also back the handle example."
+date = "2026-11-12"
+
+[[review]]
+id = "science-food-chain"
+kind = "stimulus"
+hash = "645292fdeee28a0f"
+reviewer = "factcheck-c"
+role = "factcheck"
+verdict = "pass"
+note = "Source starts with 'Original' and the numbers are labeled made-up. Opened Concepts of Biology 20.1 (200). Trophic level as a position in the food chain: confirmed. Producers are photosynthetic and use sunlight: confirmed. Consumers or heterotrophs get energy by eating other organisms: confirmed. Each level has less energy, with energy lost at each level: confirmed in the text and in Fig. 20.5 (Silver Springs, about tenfold drops), which backs 'much less'. A meadow grazing food web is mentioned, and Fig. 20.6 includes a mouse and a snake. No verbatim copying."
+date = "2026-11-12"
+
+[[review]]
+id = "science-water-cycle"
+kind = "stimulus"
+hash = "aa09c9825d29d765"
+reviewer = "factcheck-c"
+role = "factcheck"
+verdict = "fix"
+note = "Source starts with 'Original' and the wording is our own. Opened Concepts of Biology 20.2 (200). Confirmed there: Sun drives the cycle by warming oceans and surface water; evaporation means liquid to vapor; vapor condenses into clouds as droplets; precipitation as rain or snow; surface runoff into streams; water percolating into the ground to form groundwater; 97.5% salt and 2.5% fresh (Fig. 20.9); 99% of fresh water in ice or underground; less than 1% of fresh water in lakes and rivers. Not confirmed: 'The water vapor rises into the air. As it cools, it condenses'. 20.2 says only that water moves 'into the atmosphere' and 'condenses'; it never says cooling causes condensation. Fix: add a source, e.g. NASA GPM 'The Water Cycle' https://gpm.nasa.gov/education/water-cycle (200; says water 'rises into the atmosphere, cools and condenses'). Write it as 'Original (facts from ... 20.2 Biogeochemical Cycles and NASA GPM The Water Cycle)'."
+date = "2026-11-12"
+
+# ── study links ─────────────────────────────────────────────────────
+
+[[review]]
+id = "science-water-cycle"
+kind = "stimulus"
+hash = "5daaf62436c55184"
+reviewer = "solver-g"
+role = "solver"
+verdict = "fix"
+note = "Clear, short, about grade 10 (no reading-level warning), and the table matches the text. One inaccurate sentence: 'In time, the droplets fall as precipitation: rain or snow.' Tiny cloud droplets do not fall as snow (snow forms from ice crystals, and rain drops form when droplets grow). Change to: 'In time, water falls from the clouds as precipitation: rain or snow.' This does not change any question's answer (0017's item already says 'Water falls as rain or snow')."
+date = "2026-11-12"
+
+[[review]]
+id = "science-water-cycle"
+kind = "stimulus"
+hash = "5daaf62436c55184"
+reviewer = "factcheck-d"
+role = "factcheck"
+verdict = "fix"
+note = "Source starts with 'Original'; wording is our own paraphrase with no long verbatim run (closest: 'less than 1 percent of fresh water is in lakes and rivers', a short fact phrase). Checked against OpenStax Concepts of Biology 20.2 and NASA GPM The Water Cycle (https://gpm.nasa.gov/education/water-cycle): Sun drives the cycle by warming oceans and surface waters; vapor rises, cools and condenses into clouds of droplets; precipitation as rain or snow; runoff over the surface into streams; water percolates into the ground to form groundwater; 97.5% salt / 2.5% fresh; 99% of fresh water is underground or ice; less than 1% of fresh water in lakes and rivers: all supported. NOT supported by either cited source: 'changes from a liquid into a gas called water vapor' (OpenStax says only 'water to water vapor'; NASA does not say gas). Fix: add USGS Water Science School, Evaporation and the Water Cycle (https://www.usgs.gov/water-science-school/science/evaporation-and-water-cycle), which states evaporation 'changes liquid water to gaseous water (water vapor)'. Also suggest giving the NASA source its URL in `source` so it can be opened directly."
+date = "2026-11-12"
+
+[[review]]
+id = "science-water-cycle"
+kind = "stimulus"
+hash = "1b387c81d4193454"
+reviewer = "solver-i"
+role = "solver"
+verdict = "pass"
+note = "Clear, short (about 150 words plus a 2-row table), roughly grade 8 to 10, which suits Science. Science is accurate as a simplification: Sun drives evaporation (liquid to vapor), vapor rises and cools, condenses into droplets that form clouds, precipitation, then runoff and infiltration to groundwater. 97.5/2.5 split, 'almost all fresh water is ice or underground' and 'less than 1 percent of fresh water is in lakes and rivers' agree with the OpenStax 20.2 and USGS figures (lakes plus rivers are about 0.3% of fresh water). Leaving out transpiration, sublimation and ice crystals in clouds is an acceptable omission, not misleading, since the passage never says these are the only paths. Table title and units are clear and the text points to it."
+date = "2026-11-12"
+
+[[review]]
+id = "science-water-cycle"
+kind = "stimulus"
+hash = "1b387c81d4193454"
+reviewer = "factcheck-e"
+role = "factcheck"
+verdict = "pass"
+note = "Opened OpenStax Concepts of Biology 20.2, NASA GPM Water Cycle and USGS Evaporation and the Water Cycle. OpenStax: cycle driven by the Sun's energy warming oceans and surface waters; evaporation is water to water vapor; vapor condenses into clouds and leads to precipitation (rain or snow); surface runoff; percolation into ground; 97.5 percent salt water (so 2.5 fresh), 99 percent of the rest underground or ice, less than 1 percent of fresh water in lakes and rivers. NASA: evaporates, rises, cools and condenses, falls as precipitation; runoff and groundwater. USGS: evaporation changes liquid water to water vapor. Table 97.5/2.5 matches OpenStax. Source starts with Original; wording is paraphrased, no long verbatim runs."
+date = "2026-11-12"

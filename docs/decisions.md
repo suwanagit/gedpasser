@@ -4,6 +4,8 @@ Newest first. One line per decision: date, decision, reason.
 
 | Date | Decision | Reason |
 | --- | --- | --- |
+| 2026-11-12 | A practice test takes at most 3 questions from one passage (`set_max` in `subjects.toml`; Language Arts 8), chosen at random; a passage may carry more for practice | The real Science and Social Studies tests ask two or three per stimulus, and a big set would crowd a 10-question test |
+| 2026-11-12 | The demo test bank (`fixtures/demo-science`) replaces the real content of the subjects it defines instead of adding to it | Real Science content grows batch by batch; the demo must not clash with it |
 | 2026-11-12 | Non-math content needs three reviewers: two blind solvers and a fact-checker (a passage: one solver and a fact-checker), each a fresh subagent, recorded with `reviewer` and `role` in the review notes. Each reviewer's latest entry counts once; any current fix or reject blocks approval; a question waits for its passage | No code can check these answers, so independent people have to |
 | 2026-11-12 | Every non-math question cites sources; passages are original, public domain or public data (the `source` says which), never copyrighted. Passages above their subject's target reading grade (Science and Social Studies 10, Language Arts 12) get a warning the reviewer must answer | Accuracy and legality; match the real tests' reading level |
 | 2026-11-12 | Subjects are content: `content/subjects.toml` lists each GED test with its domains and weights, practice-test sizes and calculator rule; skills, path stages and questions belong to a subject (Math by default). Every subject-specific API takes `?subject=` (Math by default); `GET /api/subjects` says which are ready | Adding a subject should need content files only |
