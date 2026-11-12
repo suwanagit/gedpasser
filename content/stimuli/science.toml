@@ -286,7 +286,7 @@ source = "Original (made-up numbers for practice; facts from OpenStax Introducto
 
 [[stimulus]]
 id = "science-rainfall"
-status = "draft"
+status = "reviewed"
 title = "A week of rain"
 text = '''
 A student in a rainy coastal town measures the rainfall each day for one week with a rain gauge. The numbers are made up for practice.

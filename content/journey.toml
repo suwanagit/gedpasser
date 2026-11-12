@@ -228,7 +228,7 @@ day = 5
 title = "Graphs and formulas"
 principles = ["SP.6.a", "SP.6.b"]
 size = 5
-max_difficulty = 2
+max_difficulty = 3
 
 [[stage]]
 id = "sci-d6a"
@@ -246,7 +246,7 @@ day = 6
 title = "Chance and counting"
 principles = ["SP.8.c", "SP.8.b"]
 size = 5
-max_difficulty = 2
+max_difficulty = 3
 
 [[stage]]
 id = "sci-d7a"

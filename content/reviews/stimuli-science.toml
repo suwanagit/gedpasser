@@ -878,3 +878,23 @@ role = "factcheck"
 verdict = "pass"
 note = 'Source line starts with Original and says numbers are made up; text also says so. Table sums correctly (60+30+10 = 100). Sampling description (random sites, shallow and deep water) matches OpenStax Intro Stats 2e 1.2 on random, representative samples. No verbatim copying.'
 date = "2026-11-12"
+
+[[review]]
+id = "science-rainfall"
+kind = "stimulus"
+hash = "be3b50636391dd48"
+reviewer = "solver-ii"
+role = "solver"
+verdict = "pass"
+note = "Clear, short, realistic: 63 mm in a week fits a rainy Southeast Alaska town; labeled as made-up numbers; source 'Original'. Data supports a distinct mean (9), median (6), mode (14) and range (20), with a 0 mm day that tests common mistakes. Reading level is easy, below grade 10. Carries 5 questions; practice tests pick at most set_max of them."
+date = "2026-11-12"
+
+[[review]]
+id = "science-rainfall"
+kind = "stimulus"
+hash = "be3b50636391dd48"
+reviewer = "factcheck-r"
+role = "factcheck"
+verdict = "pass"
+note = "Source is 'Original (made-up numbers for practice)', starts with Original, and the text itself says the numbers are made up; no verbatim runs (one original sentence). Realism: daily totals 0-20 mm and 63 mm for the week are ordinary for a rainy coastal town (e.g. Southeast Alaska towns average well over 5 mm per day); a rain gauge measures in mm. Table values used by questions 0001-0005 verified (mode 14, mean 9, median 6, range 20)."
+date = "2026-11-12"

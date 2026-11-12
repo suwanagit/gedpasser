@@ -204,3 +204,11 @@ hash = "0636b74ca2531d46"
 verdict = "pass"
 note = 'Curled all 103 unique links in study.toml: every one returns HTTP 200 (OpenStax returns 404 for bad slugs, so 200 is meaningful). New topics: SP.3.d -> Intro Stats 1.2 (random sampling, bias, sample size) fits; SP.8.b -> Contemporary Math 7.1 multiplication rule and 7.3 combinations fit counting; SP.8.c -> Concepts of Biology 8.2 (Punnett squares, probability) and Intro Stats 3.1 (basic probability) fit. Titles match page titles; search words fit. Minor optional: SP.8.b search mentions permutations; could add Contemporary Math 7.2 Permutations.'
 date = "2026-11-12"
+
+[[review]]
+id = "study"
+kind = "study"
+hash = "903e0af4467aeb32"
+verdict = "pass"
+note = "Link-checked all 105 unique URLs in content/study.toml with curl -L (browser UA): every one returned HTTP 200, and every page title is the real page (no OpenStax soft-404 'OpenStax' titles; a bad slug was confirmed to give that title). New topics: SP.7.b links OpenStax College Physics 2e 2.3 (average speed = distance / time) and Chemistry 2e 1.4 (density = mass / volume), both teach using a given formula at a suitable level; search words 'using physics formulas speed force density' fit. SP.8.a links OpenStax Intro Stats 2e 2.5 (mean, median) and Math is Fun central-measures (mean, median, mode); titles match the pages; search 'mean median mode and range' fits. Earlier reviewed topics: link check only, all pass."
+date = "2026-11-12"

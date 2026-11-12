@@ -1487,7 +1487,7 @@ Probability is the number of ways an event can happen divided by the number of e
 [[principle]]
 id = "SP.7.b"
 skill = "s-formulas-stats"
-status = "draft"
+status = "reviewed"
 name = "Using a formula"
 summary = "Put numbers into a given science formula and solve for the unknown."
 lesson = '''
@@ -1501,7 +1501,7 @@ The test gives you the science formulas you need. Your job is to use them.
 [[principle]]
 id = "SP.8.a"
 skill = "s-formulas-stats"
-status = "draft"
+status = "reviewed"
 name = "Mean, median, mode and range"
 summary = "Describe a set of data with its mean, median, mode and range."
 lesson = '''

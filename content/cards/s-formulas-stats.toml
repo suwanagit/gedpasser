@@ -12,7 +12,7 @@ steps = [
 ]
 example = '''
 Pressure = force ÷ area. Force 60 N, area 3 m².
-**Pressure:** 60 ÷ 3 = 20 N/m².
+Pressure = 60 ÷ 3 = **20 N/m²**.
 '''
 hack = 'Units are clues: N ÷ m² gives N/m².'
 
@@ -23,11 +23,12 @@ title = "Mean, median, mode, range"
 key = "Mean: add and divide. Median: middle. Mode: most often. Range: biggest minus smallest."
 steps = [
   'Put the values in order first.',
-  'Find the middle (median) and the most common (mode).',
+  'Median: the middle value. Two middles? Take their mean.',
+  'Mode: the value that appears most often.',
   'Mean: sum ÷ count. Range: largest − smallest.',
 ]
 example = '''
-Data: 2, 3, 3, 8.
-**Mean** 4, **median** 3, **mode** 3, **range** 6.
+Data: 2, 3, 3, 4, 8, 10.
+Mean = 30 ÷ 6 = **5**. Median = (3 + 4) ÷ 2 = **3.5**. Mode = **3**. Range = 10 − 2 = **8**.
 '''
 hack = 'MEDian is in the MIDdle, like the median of a road.'
