@@ -18,7 +18,7 @@ hack = 'Change over time needs at least two times.'
 
 [[card]]
 id = "SP.3.b"
-status = "draft"
+status = "reviewed"
 title = "Supported conclusions"
 key = "A supported conclusion says no more than the data show."
 steps = [
@@ -28,7 +28,7 @@ steps = [
 ]
 example = '''
 Data: 3 of 4 plants in the sun grew taller than the plants in the shade.
-**Supported:** most sunny plants grew taller. Not: "sun always makes plants taller".
+**Supported:** most plants in the sun grew taller than those in the shade. Not: "sun always makes plants taller".
 '''
 hack = 'Pick the answer that fits every number and claims no more.'
 
@@ -50,7 +50,7 @@ hack = 'Ask: "If the claim were true, what would I see?"'
 
 [[card]]
 id = "SP.5.a"
-status = "draft"
+status = "reviewed"
 title = "Two findings"
 key = "Two findings can both be right if the conditions differed."
 steps = [

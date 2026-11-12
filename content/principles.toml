@@ -1360,7 +1360,7 @@ Evidence supports a claim when it is what you'd expect if the claim were true. I
 [[principle]]
 id = "SP.5.a"
 skill = "s-evidence"
-status = "draft"
+status = "reviewed"
 name = "Two findings"
 summary = "Explain how two findings can both be right, or why one is stronger."
 lesson = '''

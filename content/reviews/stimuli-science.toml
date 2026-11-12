@@ -558,3 +558,43 @@ note = """Source line starts with Original, results labelled made-up. OpenStax A
 date = "2026-11-12"
 
 # ── study links (append to content/reviews/study.toml) ──
+
+[[review]]
+id = "science-co2"
+kind = "stimulus"
+hash = "17ce755f8413bb3d"
+reviewer = "solver-m"
+role = "solver"
+verdict = "pass"
+note = "Clear, short, about grade 9-10: defines ppm in plain words, says each row is a yearly average, Data: source with rounding stated. Values look consistent with the NOAA Mauna Loa annual means as I know them (fact-checker to confirm 2025). Supports 0001-0003 without ambiguity."
+date = "2026-11-12"
+
+[[review]]
+id = "science-beetles"
+kind = "stimulus"
+hash = "5294a283a5ac5949"
+reviewer = "solver-m"
+role = "solver"
+verdict = "pass"
+note = "Clear and realistic length at about grade 8-10. Gives every piece needed (two colors, heritable, birds find stand-out beetles, light soil then dark ash, counts every four years); clearly labeled made-up data. Does not name the natural-selection claim itself, which is why 0014 must restate it (see 0014 note)."
+date = "2026-11-12"
+
+[[review]]
+id = "science-co2"
+kind = "stimulus"
+hash = "17ce755f8413bb3d"
+reviewer = "factcheck-g"
+role = "factcheck"
+verdict = "pass"
+note = 'Source line starts with Data: and names NOAA GML. All five values match co2_annmean_mlo.txt at 0.1 ppm (316.91, 338.76, 369.71, 414.21, 427.35). Mauna Loa Observatory in Hawaii confirmed; 2025 is after measurements resumed there (July 2023). ppm definition is a fair simplification of the NOAA mole fraction in dry air. Original wording.'
+date = "2026-11-12"
+
+[[review]]
+id = "science-beetles"
+kind = "stimulus"
+hash = "5294a283a5ac5949"
+reviewer = "factcheck-g"
+role = "factcheck"
+verdict = "pass"
+note = 'Source line starts with Original and labels results made-up. Scenario facts (heritable color, predators finding conspicuous prey) are consistent with OpenStax Concepts of Biology 11.1 (inherited variation, differential survival) and 11.2. Original wording, no verbatim runs.'
+date = "2026-11-12"

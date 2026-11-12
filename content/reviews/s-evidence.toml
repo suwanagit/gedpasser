@@ -675,3 +675,611 @@ note = """Opened OpenStax College Physics 2e 2.7 (with negligible air resistance
 date = "2026-11-12"
 
 # ── science stimuli (append to content/reviews/stimuli-science.toml) ──
+
+[[review]]
+id = "SP.5.a"
+kind = "lesson"
+hash = "104f49a1244747cd"
+verdict = "pass"
+note = "Accurate and short: both-right-if-conditions-differ, bigger sample / more trials / fairer test is stronger, newer or surprising is not. Generic enough that it gives away no question (it names 'the place' as one possible difference but does not mirror 0008/0009 or 0019)."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.3.b"
+kind = "card"
+hash = "551c46fa399cf727"
+verdict = "fix"
+note = "Example's supported conclusion drops the comparison: 'most sunny plants grew taller' can be read as 'grew (over time)', not 'taller than the shade plants'. Rewrite e.g. 'Data: 3 of 4 plants in the sun grew taller than every plant in the shade. **Supported:** most plants in the sun grew taller than those in the shade. Not: \"sun always makes plants taller\".' Key, steps and hack are correct and short; no question numbers reused."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.5.a"
+kind = "card"
+hash = "2401c9af163af689"
+verdict = "pass"
+note = "Key, steps and hack correct and short (under 90 words). Bread example (kitchen 4 days vs fridge 12 days, cold slows mold) is accurate, shows the both-right pattern on a different topic with different numbers, so it does not give away 0008/0009/0019."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0001"
+kind = "question"
+hash = "b6d7b63cb9b57ca1"
+reviewer = "solver-m"
+role = "solver"
+verdict = "pass"
+solved = "The amount of carbon dioxide in the air went up from 1960 to 2025"
+note = "Blind answer matches key. Each reading is higher than the last; distractors (down, same, up and down) are clearly unsupported by the five rows yet tempting. SP.3.b and ES.b.1 fit. Explanation lists the readings and ends with a bold So-line; common mistake targets the up-and-down distractor."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0002"
+kind = "question"
+hash = "625c22cbe0498bd2"
+reviewer = "solver-m"
+role = "solver"
+verdict = "pass"
+solved = "It rose 44.5 ppm from 2000 to 2020, but only 21.9 ppm from 1960 to 1980"
+note = "Blind answer matches key. Checked 414.2 - 369.7 = 44.5, 338.8 - 316.9 = 21.9, 427.4 - 414.2 = 13.2. Both spans are 20 years, so total rise is a fair rate comparison (explanation says so). Other choices are true facts that do not compare the two spans: good SP.3.a distractors. Style OK."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0003"
+kind = "question"
+hash = "cd4ceed2f16934c7"
+reviewer = "solver-m"
+role = "solver"
+verdict = "pass"
+solved = "They weaken it, because the readings went up after 2000"
+note = "Blind answer matches key. Explanation states the prediction (below 369.7) then the data (414.2, 427.4): good SP.4.a reasoning, bold So-line. Distractors are wrong ('2000 highest' is false, table does show 2000, a smaller rise is still a rise). The 'table does not show 2000' option is only tempting to a careless reader, but acceptable."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0007"
+kind = "question"
+hash = "a986161226ed39ad"
+reviewer = "solver-m"
+role = "solver"
+verdict = "pass"
+solved = "It supports the claim, because salty water stays liquid at temperatures where pure water would freeze"
+note = "Blind answer matches key; only defensible choice. 'About freezing, not melting' is the tempting distractor and the common mistake answers it (same temperature). Minor nuance, not blocking: freezing-point lowering most directly shows salted ice melts at colder temperatures, not that it melts faster, but 'supports' is clearly the best choice. Explanation chain (salt dissolves, lower freezing point, ice keeps melting) is correct and in style. SP.4.a, P.c.4 fit; difficulty 3 reasonable."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0008"
+kind = "question"
+hash = "ebbd5bbcacb7e7fd"
+reviewer = "solver-m"
+role = "solver"
+verdict = "pass"
+solved = "Water boils at a lower temperature where the air pressure is lower"
+note = "Blind answer matches key. Passage says both thermometers read correctly, ruling out the 'broken' and 'one is wrong' choices; 'different substance' is wrong (pure water). SP.5.a (how both findings can hold) and P.c.2 fit. Explanation correct and in style; it uses the pressure-boiling rule from general knowledge, which the science targets expect."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0009"
+kind = "question"
+hash = "789aaeaca3d8deef"
+reviewer = "solver-m"
+role = "solver"
+verdict = "fix"
+solved = "They were at very different heights above sea level"
+note = "Key and distractors fine. Explanation needs two small fixes: (1) line 2 says 'The passage says that height brings much lower air pressure', but the passage only says the camp's air pressure is much lower; write 'At the mountain camp the air pressure is much lower.' (2) The why-step linking pressure to boiling is missing; add 'Lower air pressure makes water boil at a lower temperature.' before the So-line, so the learner sees why height explains the 10 degree difference."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0010"
+kind = "question"
+hash = "bd0bb86414c6639c"
+reviewer = "solver-m"
+role = "solver"
+verdict = "pass"
+solved = "Pure water boiled at a lower temperature at the mountain camp than near sea level"
+note = "Blind answer matches key. Distractors overgeneralize (everywhere), contradict the passage (thermometers read correctly) or go beyond the data (boiling time not measured): good SP.3.b set. Explanation and common mistake correct and in style."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0011"
+kind = "question"
+hash = "c8820d3547671955"
+reviewer = "solver-m"
+role = "solver"
+verdict = "pass"
+solved = "{{1}} became more common; {{2}} 85%"
+note = "Blind answers match both blanks. 70% (2018 value) and 15% (light share) are realistic misreads, both clearly wrong. Explanation walks the table and bolds both answers. SP.3.b, L.f.2 fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0012"
+kind = "question"
+hash = "d1c225365c9014af"
+reviewer = "solver-m"
+role = "solver"
+verdict = "pass"
+solved = "On the dark ash, birds caught light beetles more often than dark beetles"
+note = "Blind answer matches key. The claim is stated in the prompt; only the key bears on bird predation by color. Distractors are off-topic facts (food, volcano, rocks) and clearly do not support the mechanism. Explanation ties stand-out color on dark ash to light beetles; in style. SP.4.a, L.f.2 fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0013"
+kind = "question"
+hash = "1d1341ec8dcc23d2"
+reviewer = "solver-m"
+role = "solver"
+verdict = "pass"
+solved = "Color is passed from parents to their young"
+note = "Blind answer matches key. Heritability is the only listed detail natural selection needs; the 85% figure is a good tempting distractor (shows the change, not the mechanism). Explanation correct and in style. SP.3.a and L.f.2 fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0014"
+kind = "question"
+hash = "393c8f23bdd3f614"
+reviewer = "solver-m"
+role = "solver"
+verdict = "fix"
+solved = "It would weaken the claim, because birds would not be favoring dark beetles"
+note = "Key is right, but (1) 'the natural selection claim' is never stated in this prompt or the passage; it is defined only in 0012, and a practice test takes at most 3 of this passage's 4 questions, so 0014 can appear without it. The explanation's 'The claim says birds caught the beetles that stood out more often' then refers to text the learner has not seen. Restate it in the prompt, e.g. 'A scientist claims the change happened by natural selection: birds caught more of the beetles that stood out.' (2) 'caught by birds equally often' can be read as equal numbers caught, which with unequal populations is not equal risk; say 'were equally likely to be caught by birds'."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0019"
+kind = "question"
+hash = "09e56a2d8c3232eb"
+reviewer = "solver-m"
+role = "solver"
+verdict = "pass"
+solved = "Air slows the feather on Earth, but the Moon has no air to slow it"
+note = "Blind answer matches key. Distractors are classic misconceptions (no gravity on the Moon, faster fall on the Moon, heavier feather), all clearly wrong. Explanation names air as the difference, gives the why, ends with a bold So-line; common mistake answers the no-gravity distractor. SP.5.a and P.b.2 fit."
+date = "2026-11-12"
+
+# ---- content/reviews/stimuli-science.toml entries ----
+
+[[review]]
+id = "s-evidence-0001"
+kind = "question"
+hash = "b6d7b63cb9b57ca1"
+reviewer = "solver-n"
+role = "solver"
+verdict = "pass"
+solved = "The amount of carbon dioxide in the air went up from 1960 to 2025"
+note = "Blind answer matches key. Each reading is higher than the last, so only the key fits; distractors are clear misreads. SP.3.b and ES.b.1 fit. Explanation has the steps and a bold So line."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0002"
+kind = "question"
+hash = "625c22cbe0498bd2"
+reviewer = "solver-n"
+role = "solver"
+verdict = "fix"
+solved = "It rose 44.5 ppm from 2000 to 2020, but only 21.9 ppm from 1960 to 1980"
+note = "Blind answer matches key; math checks (414.2 - 369.7 = 44.5, 338.8 - 316.9 = 21.9). Defect: distractor 'It was 414.2 ppm in 2020, higher than any other year in the table' is false (2025 is 427.4), so it can be ruled out on a misreading instead of on reasoning, and the common_mistake ('Picking the highest reading') does not match it because 414.2 is not the highest reading. Fix: change the distractor to 'It was 427.4 ppm in 2025, higher than any other year in the table' (true but says nothing about rate), keeping the common_mistake as is. Optional: split explanation line 2 into one subtraction per line."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0003"
+kind = "question"
+hash = "cd4ceed2f16934c7"
+reviewer = "solver-n"
+role = "solver"
+verdict = "pass"
+solved = "They weaken it, because the readings went up after 2000"
+note = "Blind answer matches key. 2020 and 2025 readings exceed 369.7, so the claim is weakened; other choices rest on false premises or call a small rise a fall. SP.4.a fits. Explanation states what the claim predicts, then compares, with a bold So line."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0007"
+kind = "question"
+hash = "a986161226ed39ad"
+reviewer = "solver-n"
+role = "solver"
+verdict = "fix"
+solved = "It supports the claim, because salty water stays liquid at temperatures where pure water would freeze"
+note = "Blind answer matches key and it is the best choice; distractor reasons are wrong (the 'neither' option's reason fails because freezing and melting points are the same). Defect: the explanation shows that salt lets ice melt at lower temperatures but never links that to the claim, which is about melting FASTER, so a learner asking 'why does that make it faster?' is left stuck (and a careful learner may lean to 'neither'). Fix: add one line before the So line, e.g. 'Salt lowers the temperature at which the ice melts, so the room is warmer compared with that point and heat melts the ice sooner.' (or wording the fact-checker confirms against OpenStax 11.4)."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0008"
+kind = "question"
+hash = "ebbd5bbcacb7e7fd"
+reviewer = "solver-n"
+role = "solver"
+verdict = "pass"
+solved = "Water boils at a lower temperature where the air pressure is lower"
+note = "Blind answer matches key. Passage rules out broken thermometers; 'always 100 °C' and 'different substance' are tempting but wrong. SP.5.a (how both can hold) and P.c.2 fit. Explanation correct with bold So line. Optional polish: add the why in a few words (less air pressing on the water, so it boils at a lower temperature)."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0009"
+kind = "question"
+hash = "789aaeaca3d8deef"
+reviewer = "solver-n"
+role = "solver"
+verdict = "pass"
+solved = "They were at very different heights above sea level"
+note = "Blind answer matches key. Pots, amount of water and day do not change the boiling point of pure water by about 10 °C; height (via pressure) does, and the passage gives it. Fits SP.5.a and P.c.2; difficulty 1 is fair. Explanation and common mistake are fine."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0010"
+kind = "question"
+hash = "bd0bb86414c6639c"
+reviewer = "solver-n"
+role = "solver"
+verdict = "pass"
+solved = "Pure water boiled at a lower temperature at the mountain camp than near sea level"
+note = "Blind answer matches key. 'Everywhere in the mountains' overgeneralizes, 'thermometers read lower' contradicts the passage, and boiling time was never measured. SP.3.b fits. Explanation and common mistake are clear and correct."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0011"
+kind = "question"
+hash = "c8820d3547671955"
+reviewer = "solver-n"
+role = "solver"
+verdict = "pass"
+solved = "{{1}} became more common; {{2}} 85%"
+note = "Both blanks match key. 70% (the 2018 value) and 15% (light share) are good tempting distractors; only one defensible fill. SP.3.b and L.f.2 fit. Explanation lists the series and bolds both answers."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0012"
+kind = "question"
+hash = "d1c225365c9014af"
+reviewer = "solver-n"
+role = "solver"
+verdict = "fix"
+solved = "On the dark ash, birds caught light beetles more often than dark beetles"
+note = "Blind answer matches key. Defect: 'birds caught light beetles more often than dark beetles' can be read as a raw count. Right after the ash fell, 80% of beetles were light, so birds would catch more light beetles even with no selection at all; the finding only supports the claim as a per-beetle rate. Fix the key (and the explanation's So line) to say 'On the dark ash, a light beetle was more likely to be caught by birds than a dark beetle'. Rest is fine: distractors irrelevant to predation, SP.4.a fits."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0013"
+kind = "question"
+hash = "1d1341ec8dcc23d2"
+reviewer = "solver-n"
+role = "solver"
+verdict = "pass"
+solved = "Color is passed from parents to their young"
+note = "Blind answer matches key. Heritability is the needed premise; the 85% figure is a good tempting distractor (shows the change, not the mechanism). SP.3.a (point to the words that support the explanation) is an acceptable fit. Explanation correct with bold So line."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0014"
+kind = "question"
+hash = "393c8f23bdd3f614"
+reviewer = "solver-n"
+role = "solver"
+verdict = "fix"
+solved = "It would weaken the claim, because birds would not be favoring dark beetles"
+note = "Blind answer matches key. Same count-versus-rate ambiguity as 0012: 'caught by birds equally often' could mean equal numbers caught, which (with unequal numbers of each color) would actually mean one color was at higher risk. Fix the prompt to 'Suppose scientists find that on the ash, a dark beetle and a light beetle were equally likely to be caught by birds.' and line 2 of the explanation to match. Otherwise good: 'dark still became more common' is a strong tempting distractor, SP.4.a fits, difficulty 3 fair."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0019"
+kind = "question"
+hash = "09e56a2d8c3232eb"
+reviewer = "solver-n"
+role = "solver"
+verdict = "pass"
+solved = "Air slows the feather on Earth, but the Moon has no air to slow it"
+note = "Blind answer matches key. Distractors are common misconceptions and clearly wrong (Moon has gravity, weaker than Earth's, so objects fall slower, not faster). SP.5.a and P.b.2 fit. Explanation gives the why, and the common mistake answers the 'no gravity' distractor well."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0001"
+kind = "question"
+hash = "b6d7b63cb9b57ca1"
+reviewer = "factcheck-g"
+role = "factcheck"
+verdict = "pass"
+note = 'Checked all five readings against NOAA co2_annmean_mlo.txt (316.91, 338.76, 369.71, 414.21, 427.35 -> 316.9, 338.8, 369.7, 414.2, 427.4); each is higher than the last, so the key and explanation are correct. No outside facts beyond the table.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0002"
+kind = "question"
+hash = "625c22cbe0498bd2"
+reviewer = "factcheck-g"
+role = "factcheck"
+verdict = "pass"
+note = 'Recomputed from NOAA-matched table: 414.2-369.7 = 44.5, 338.8-316.9 = 21.9, 427.4-414.2 = 13.2. Readings 316.9 lowest and 414.2 not highest (2025 is 427.4) so distractor B is also factually false. Key and explanation correct.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0003"
+kind = "question"
+hash = "cd4ceed2f16934c7"
+reviewer = "factcheck-g"
+role = "factcheck"
+verdict = "pass"
+note = 'Checked against NOAA file: 2000 = 369.71, 2020 = 414.21, 2025 = 427.35, so readings rose after 2000 and 2000 is not the highest; the table does show 2000. Key and explanation correct.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0007"
+kind = "question"
+hash = "a986161226ed39ad"
+reviewer = "factcheck-g"
+role = "factcheck"
+verdict = "pass"
+note = 'OpenStax Chem 2e 11.4 confirms solutions freeze lower than pure water and salt is used to melt ice on roads (freezing point below 0 C); 10.3 confirms the melting point of the solid equals the freezing point of the liquid (common_mistake). The explanation mechanism is supported.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0008"
+kind = "question"
+hash = "ebbd5bbcacb7e7fd"
+reviewer = "factcheck-g"
+role = "factcheck"
+verdict = "pass"
+note = 'OpenStax Chem 2e 10.3: boiling point is where vapor pressure equals surrounding pressure, so lower pressure means lower boiling point; its Leadville example (about 3,100 m, 68 kPa) gives about 90 C, matching the passage. Key and explanation correct.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0009"
+kind = "question"
+hash = "789aaeaca3d8deef"
+reviewer = "factcheck-g"
+role = "factcheck"
+verdict = "pass"
+note = 'OpenStax Chem 2e 10.3 ties boiling point to surrounding pressure only (not pot or amount of water), supporting the common_mistake; altitude/pressure link supported by its Leadville and Denver examples. Key correct.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0010"
+kind = "question"
+hash = "bd0bb86414c6639c"
+reviewer = "factcheck-g"
+role = "factcheck"
+verdict = "pass"
+note = 'Checked against passage (100 C near sea level, about 90 C at camp, thermometers correct) and OpenStax Chem 2e 10.3 (boiling point depends on surrounding pressure, so other heights give other boiling points, supporting the common_mistake). Key correct.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0011"
+kind = "question"
+hash = "c8820d3547671955"
+reviewer = "factcheck-g"
+role = "factcheck"
+verdict = "pass"
+note = 'Checked against passage table (20, 45, 70, 85 %); 100-85 = 15 % light beetles in 2022, so the common_mistake is accurate. No outside facts beyond the cited OpenStax 11.1 context.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0012"
+kind = "question"
+hash = "d1c225365c9014af"
+reviewer = "factcheck-g"
+role = "factcheck"
+verdict = "pass"
+note = 'Claim matches OpenStax Concepts of Biology 11.1 description of natural selection (individuals better able to survive leave more offspring); bird behavior is part of the labelled made-up scenario stated in the passage. Key and explanation consistent.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0013"
+kind = "question"
+hash = "1d1341ec8dcc23d2"
+reviewer = "factcheck-g"
+role = "factcheck"
+verdict = "pass"
+note = 'OpenStax Concepts of Biology 11.1: the first Darwin principle is that characteristics are inherited, passed from parent to offspring, and natural selection needs inherited variation. Supports key and explanation.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0014"
+kind = "question"
+hash = "393c8f23bdd3f614"
+reviewer = "factcheck-g"
+role = "factcheck"
+verdict = "pass"
+note = 'Explanation follows from the claim as stated. common_mistake (something else might have caused it) is supported by OpenStax Concepts of Biology 11.2, which lists mutation, genetic drift and gene flow as other causes of evolution besides natural selection.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0019"
+kind = "question"
+hash = "09e56a2d8c3232eb"
+reviewer = "factcheck-g"
+role = "factcheck"
+verdict = "pass"
+note = 'NASA NSSDCA page confirms David Scott dropped a hammer and feather on Apollo 15; essentially in a vacuum, no air resistance, they struck the surface simultaneously. OpenStax College Physics 2e 2.7 confirms air resistance slows lighter objects and Moon gravity is 1.67 m/s2 (so the no-gravity and faster-on-the-Moon choices are false).'
+date = "2026-11-12"
+
+[[review]]
+id = "SP.3.b"
+kind = "card"
+hash = "0633b19efec4abbe"
+verdict = "pass"
+note = "Key, steps and hack are correct and short (about 78 words, steps under 16 words each). Plant example (3 of 4 -> most) uses numbers no s-evidence question uses and gives nothing away. Optional polish: step 2 could read 'Cross out \"always\" or \"all\" unless every case shows it', since a data set can truly support an \"all\"; the hack already covers this, so not blocking."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0002"
+kind = "question"
+hash = "25bad77da29cc4a3"
+reviewer = "solver-o"
+role = "solver"
+verdict = "pass"
+solved = "It rose 44.5 ppm from 2000 to 2020, but only 21.9 ppm from 1960 to 1980"
+note = "Blind answer matches key. Checked 414.2 - 369.7 = 44.5 and 338.8 - 316.9 = 21.9; spans are both 20 years so the comparison is fair. Distractors (single highest/lowest reading, the 2020-2025 rise) are tempting and clearly not about the two spans. Answerable from passage alone. SP.3.a and ES.b.1 fit. Explanation in style with bold closing line."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0007"
+kind = "question"
+hash = "c9de636ded74bb99"
+reviewer = "solver-o"
+role = "solver"
+verdict = "pass"
+solved = "It supports the claim, because salty water stays liquid at temperatures where pure water would freeze"
+note = "Blind answer matches key. Freezing-point lowering is the standard reason salt melts ice, so 'supports' is best; 'freezing, not melting' is a good tempting distractor and the common mistake rightly notes freezing and melting points are the same temperature. 'Weakens, harder to freeze' and 'weakens, pure water cubes' are defensibly wrong. Explanation chain (brine, lower melting point, bigger temperature gap, faster heat flow) is sound. Stands alone with the passage. SP.4.a, P.c.4, difficulty 3 fit. Explanation is 5 lines, at the long end but acceptable for a hard item."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0009"
+kind = "question"
+hash = "f5d5902f22ff719d"
+reviewer = "solver-o"
+role = "solver"
+verdict = "pass"
+solved = "They were at very different heights above sea level"
+note = "Blind answer matches key. Passage gives 3,100 m and much lower air pressure; pots, amount of water and different days are not stated as differences and would not shift pure water's boiling point by about 10 degrees C (day-to-day weather changes it by well under 1 degree). Does not depend on 0008's wording. SP.5.a and P.c.2 fit; difficulty 1 reasonable. Explanation correct and in style."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0012"
+kind = "question"
+hash = "5f05806a7f57049d"
+reviewer = "solver-o"
+role = "solver"
+verdict = "pass"
+solved = "On the dark ash, a light beetle was more likely to be caught by birds than a dark beetle"
+note = "Blind answer matches key. Only the key tests the claim's mechanism (birds catching the beetles that stand out); food, volcano and rocks are off-topic and defensibly wrong, tempting to a learner who grabs any passage-related fact. Prompt restates the claim, so it stands alone. SP.4.a and L.f.2 fit. Explanation correct and in style. Note: 0012 and 0014 are mirror images on the same claim; if both appear in one set, 0012's key hints 0014, but neither relies on the other's wording."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0014"
+kind = "question"
+hash = "24d89326e754eed0"
+reviewer = "solver-o"
+role = "solver"
+verdict = "fix"
+solved = "It would weaken the claim, because birds would not be favoring dark beetles"
+note = "Blind answer matches key and the logic is right, but the key's wording is ambiguous: 'birds would not be favoring dark beetles' can be read in plain English as 'birds would not be preferring to eat dark beetles', which is the opposite of the intended meaning (selection favoring dark beetles by sparing them). Fix: change the key choice, answer and explanation lines to 'It would weaken the claim, because birds would not be catching more of the light beetles that stood out' (and explanation line 2: 'If both colors were equally likely to be caught, the birds were not catching more of the light beetles.'). Rest checked: distractors good (esp. 'dark beetles still became more common', matching the common mistake); stands alone; SP.4.a, L.f.2, difficulty 3 fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0002"
+kind = "question"
+hash = "25bad77da29cc4a3"
+reviewer = "solver-p"
+role = "solver"
+verdict = "pass"
+solved = "It rose 44.5 ppm from 2000 to 2020, but only 21.9 ppm from 1960 to 1980"
+note = "Blind answer matches key. Checked 414.2 - 369.7 = 44.5 and 338.8 - 316.9 = 21.9; distractor 427.4 - 414.2 = 13.2 is also correct arithmetic but covers the wrong span. Distractors (single highest/lowest reading, wrong span) are tempting and clearly wrong because the claim is about rate over two 20-year spans. Answerable from the table alone. SP.3.a and ES.b.1 fit. Explanation shows both subtractions and ends with a bold So line; common mistake matches a distractor."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0007"
+kind = "question"
+hash = "c9de636ded74bb99"
+reviewer = "solver-p"
+role = "solver"
+verdict = "pass"
+solved = "It supports the claim, because salty water stays liquid at temperatures where pure water would freeze"
+note = "Blind answer matches key. Science is sound: salt dissolves in meltwater, the brine-ice interface sits below 0 °C, so ice can melt at lower temperatures and heat flows in faster from the room. Distractors are tempting misreadings (harder to freeze read as weakening; cubes were pure water, but salt dissolves in the surface melt; freezing vs melting, same temperature) and each is clearly wrong. Prompt gives the needed fact, so it works with any subset of the passage's questions. SP.4.a and P.c.4 (solutions) fit; difficulty 3 is fair. Explanation has two lines starting with So (line 3 and the final line); optional polish: reword line 3 as 'That means salted ice melts at a lower temperature than plain ice.' Not blocking."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0009"
+kind = "question"
+hash = "f5d5902f22ff719d"
+reviewer = "solver-p"
+role = "solver"
+verdict = "pass"
+solved = "They were at very different heights above sea level"
+note = "Blind answer matches key. The passage gives the heights and says pressure is much lower at the camp, so it is answerable alone. Pots, amount of water and different days do not change the boiling point of pure water by about 10 °C (day-to-day weather shifts it by well under 1 °C), so each distractor is clearly wrong but tempting to a novice. About 90 °C at 3,100 m is realistic. SP.5.a (how both findings can hold) and P.c.2 fit; difficulty 1 is fair. Explanation is clear, why before how, ends with a bold So line."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0012"
+kind = "question"
+hash = "5f05806a7f57049d"
+reviewer = "solver-p"
+role = "solver"
+verdict = "pass"
+solved = "On the dark ash, a light beetle was more likely to be caught by birds than a dark beetle"
+note = "Blind answer matches key. Only the key bears on whether birds selectively caught beetles that stood out; the volcano, food and rocks choices are off-target but plausible-sounding. Answerable from the passage (it says birds find beetles that stand out more easily, and ash is dark). SP.4.a and L.f.2 fit. Explanation correct and in style. Minor: 0012 and 0014 test the same idea (support vs weaken, same claim sentence); seeing 0014 first cues 0012, but each is still a fair item."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0014"
+kind = "question"
+hash = "24d89326e754eed0"
+reviewer = "solver-p"
+role = "solver"
+verdict = "pass"
+solved = "It would weaken the claim, because birds would not be favoring dark beetles"
+note = "Blind answer matches key. Equal capture rates remove the selective predation the claim depends on, so it weakens it. Distractor 'dark beetles still became more common' is the real trap and is clearly wrong since the claim is about the cause, not the change; the other two are definitely wrong. Self-contained prompt restates the claim. SP.4.a and L.f.2 fit; difficulty 3 fair. Explanation correct, ends with a bold So line; common mistake targets the main distractor. See 0012 note on overlap."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0002"
+kind = "question"
+hash = "25bad77da29cc4a3"
+reviewer = "factcheck-h"
+role = "factcheck"
+verdict = "pass"
+note = "Opened NOAA GML co2_annmean_mlo.txt: 1960 316.91, 1980 338.76, 2000 369.71, 2020 414.21, 2025 427.35, matching the passage rounded to 0.1. Rises check: 414.2-369.7 = 44.5 (raw 44.50); 338.8-316.9 = 21.9 (raw 21.85); distractor 427.4-414.2 = 13.2. 2025 is the table maximum and 1960 the minimum, as the distractors state. No other outside facts."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0007"
+kind = "question"
+hash = "c9de636ded74bb99"
+reviewer = "factcheck-h"
+role = "factcheck"
+verdict = "pass"
+note = "Checked each step of the explanation against the three cited OpenStax pages. Chem 2e 11.4: solutions freeze at lower temperatures than pure liquids; salt solution freezes below 0 C; seawater stays liquid below 0 C; salt is used to melt ice (supports 'salt dissolves in meltwater and makes salt water that stays liquid where pure water would freeze'). Chem 2e 10.3: the temperature where solid and liquid are in equilibrium is both the melting point and the freezing point (supports the common_mistake line). College Physics 2e 14.5: rate of heat transfer is directly proportional to the temperature difference, Q/t = kA(T2-T1)/d (supports 'heat flows in faster across a bigger gap'). Chain is scientifically sound: ice in contact with brine melts at the brine's lower freezing point, so the room-to-ice temperature difference grows and heat arrives faster. Optional wording polish, not required: 'salted ice melts at a lower temperature' could read 'ice in salt water melts at a lower temperature', since the ice itself stays pure. The explanation says 'heat flows in' generally, which also holds for air convection, so citing the conduction page is fine."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0009"
+kind = "question"
+hash = "f5d5902f22ff719d"
+reviewer = "factcheck-h"
+role = "factcheck"
+verdict = "pass"
+note = "Chem 2e 10.3: boiling point is where the liquid's vapor pressure equals the surrounding pressure; Example 10.6 gives Leadville, CO (10,200 ft, about 3,110 m, 68 kPa) boiling at about 90 C, matching the passage's 3,100 m and about 90 C. Same page: 'the area of the surface of the liquid ... and the size of the vessel have no effect on the vapor pressure', which supports the common_mistake that pots or amount of water do not change the boiling temperature. Different days could shift air pressure slightly, but not by 10 C, so the key is the best answer."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0012"
+kind = "question"
+hash = "5f05806a7f57049d"
+reviewer = "factcheck-h"
+role = "factcheck"
+verdict = "pass"
+note = "Concepts of Biology 11.1: natural selection requires inherited variation and differences in survival tied to a trait (Grants' finch example: 'differences in survival'). A finding that light beetles on dark ash were caught more often is direct evidence of differential survival by color, as the claim says. Passage states birds find beetles that stand out more easily and color is inherited. Distractors (food, volcano, rocks) make no false factual claims."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0014"
+kind = "question"
+hash = "24d89326e754eed0"
+reviewer = "factcheck-h"
+role = "factcheck"
+verdict = "pass"
+note = "Concepts of Biology 11.1 (natural selection = differences in survival tied to an inherited trait) supports that equal catch rates would remove the claimed mechanism and weaken the claim. 11.2 lists other causes of change in a population (mutation, genetic drift as 'the effect of chance', gene flow), supporting the common_mistake line that something else might have caused the rise. No other outside facts."
+date = "2026-11-12"
+
+[[review]]
+id = "s-evidence-0014"
+kind = "question"
+hash = "9af1b9c3905ce5ec"
+reviewer = "solver-q"
+role = "solver"
+verdict = "pass"
+solved = "It would weaken the claim, because birds would not be catching more of the light beetles that stood out"
+note = "Blind answer matches key. The claim's mechanism is that birds catch more beetles that stand out; equal catch rates remove that mechanism, so it weakens the claim. Distractors are wrong but tempting: 'birds still ate beetles' (predation alone is not selection), 'dark beetles still became more common' (outcome without mechanism, matches common_mistake), 'birds are not part of it' (contradicts the claim's wording). Each choice reads one way. Answerable from passage alone; the 'Suppose' framing makes the counterfactual clear even though the passage says birds spot standout beetles more easily. SP.4.a (evidence supports or weakens a claim) and L.f.2 (selection) fit; difficulty 3 reasonable. Explanation is short, correct and ends with a bold 'So ...' answer line."
+date = "2026-11-12"
+[[review]]
+id = "s-evidence-0014"
+kind = "question"
+hash = "9af1b9c3905ce5ec"
+reviewer = "solver-r"
+role = "solver"
+verdict = "pass"
+solved = "It would weaken the claim, because birds would not be catching more of the light beetles that stood out"
+note = "Blind answer matches the key. The claim's mechanism is birds catching more of the beetles that stand out; equal catch rates remove that mechanism, so it weakens the claim. Light beetles standing out on dark ash follows from the passage. Distractors are clearly wrong but tempting: 'birds still ate beetles' (eating is not selective), 'dark beetles still became more common' (shows the change, not its cause; the common mistake targets this), 'birds are not part of it' (the claim names birds). Wording has one reading; answerable from the passage alone. Topic L.f.2 (selection) and SP.4.a (evidence supports or weakens a claim) fit; difficulty 3 reasonable. Explanation is correct, short, one step per line, and ends with a bold 'So ...' answer line."
+date = "2026-11-12"
+[[review]]
+id = "s-evidence-0014"
+kind = "question"
+hash = "9af1b9c3905ce5ec"
+reviewer = "factcheck-i"
+role = "factcheck"
+verdict = "pass"
+note = "Opened OpenStax Concepts of Biology 11.1 and 11.2. 11.1 confirms natural selection needs inherited variation and differences in survival/reproduction tied to a trait (passage: color is inherited; birds find beetles that stand out more easily). 11.2 confirms a phenotype gives an advantage or disadvantage depending on environment, and lists other causes of allele-frequency change (mutation, genetic drift, gene flow), which backs the common mistake that a rise in dark beetles alone does not prove selection. Keyed answer is sound: if dark and light beetles on ash were caught equally, the claimed mechanism (differential predation on conspicuous beetles) is absent, so the claim is weakened. Distractors are correctly wrong. Passage is labeled original with made-up data, consistent with its source line. No unsupported factual claims found."
+date = "2026-11-12"

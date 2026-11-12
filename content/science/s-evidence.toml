@@ -11,7 +11,7 @@ principle = "SP.3.b"
 topic = "ES.b.1"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-co2"
 sources = ["Original passage science-co2", "NOAA Global Monitoring Laboratory, Mauna Loa annual mean CO2: https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.txt"]
 prompt = "Which conclusion do the data support?"
@@ -31,15 +31,16 @@ principle = "SP.3.a"
 topic = "ES.b.1"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-co2"
 sources = ["Original passage science-co2", "NOAA Global Monitoring Laboratory, Mauna Loa annual mean CO2: https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.txt"]
 prompt = "A student claims that carbon dioxide rose faster from 2000 to 2020 than from 1960 to 1980. Which data support this claim?"
-choices = ["It rose 44.5 ppm from 2000 to 2020, but only 21.9 ppm from 1960 to 1980", "It was 414.2 ppm in 2020, higher than any other year in the table", "It was 316.9 ppm in 1960, lower than any other year in the table", "It rose 13.2 ppm from 2020 to 2025"]
+choices = ["It rose 44.5 ppm from 2000 to 2020, but only 21.9 ppm from 1960 to 1980", "It was 427.4 ppm in 2025, higher than any other year in the table", "It was 316.9 ppm in 1960, lower than any other year in the table", "It rose 13.2 ppm from 2020 to 2025"]
 answer = "It rose 44.5 ppm from 2000 to 2020, but only 21.9 ppm from 1960 to 1980"
 explanation = '''
 The claim compares two 20-year spans, so you need the rise in each.
-2000 to 2020: 414.2 − 369.7 = 44.5 ppm. 1960 to 1980: 338.8 − 316.9 = 21.9 ppm.
+2000 to 2020: 414.2 − 369.7 = 44.5 ppm.
+1960 to 1980: 338.8 − 316.9 = 21.9 ppm.
 So the evidence is: **it rose 44.5 ppm from 2000 to 2020, but only 21.9 ppm from 1960 to 1980**.
 '''
 common_mistake = "Picking the highest reading. One number says how much there was, not how fast it rose."
@@ -51,7 +52,7 @@ principle = "SP.4.a"
 topic = "ES.b.1"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-co2"
 sources = ["Original passage science-co2", "NOAA Global Monitoring Laboratory, Mauna Loa annual mean CO2: https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.txt"]
 prompt = "A news post says, \"Carbon dioxide in the air has been falling since 2000.\" How do the data affect this claim?"
@@ -133,16 +134,17 @@ principle = "SP.4.a"
 topic = "P.c.4"
 difficulty = 3
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-road-salt"
-sources = ["Original passage science-road-salt", "OpenStax Chemistry 2e 11.4 Colligative Properties: https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties", "OpenStax Chemistry 2e 10.3 Phase Transitions: https://openstax.org/books/chemistry-2e/pages/10-3-phase-transitions"]
+sources = ["Original passage science-road-salt", "OpenStax Chemistry 2e 11.4 Colligative Properties: https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties", "OpenStax Chemistry 2e 10.3 Phase Transitions: https://openstax.org/books/chemistry-2e/pages/10-3-phase-transitions", "OpenStax College Physics 2e 14.5 Conduction: https://openstax.org/books/college-physics-2e/pages/14-5-conduction"]
 prompt = "A chemistry book says that salt water freezes at a lower temperature than pure water. How does this fact relate to the claim that salt makes ice melt faster?"
 choices = ["It supports the claim, because salty water stays liquid at temperatures where pure water would freeze", "It weakens the claim, because salt water is harder to freeze", "It weakens the claim, because the ice cubes were made of pure water", "It neither supports nor weakens the claim, because it is about freezing, not melting"]
 answer = "It supports the claim, because salty water stays liquid at temperatures where pure water would freeze"
 explanation = '''
 Salt dissolves in water from the melting ice and makes salt water.
 Salt water freezes at a lower temperature, so it stays liquid where pure water would freeze.
-That lets ice touching salt water keep melting at temperatures where plain ice would stay solid.
+So salted ice melts at a lower temperature than plain ice.
+In a warm room, that makes a bigger gap between the room and the melting ice, and heat flows in faster across a bigger gap.
 So the fact **supports the claim, because salty water stays liquid at temperatures where pure water would freeze**.
 '''
 common_mistake = "Thinking freezing and melting are unrelated. The freezing point and the melting point of water are the same temperature."
@@ -156,7 +158,7 @@ principle = "SP.5.a"
 topic = "P.c.2"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-boiling"
 sources = ["Original passage science-boiling", "OpenStax Chemistry 2e 10.3 Phase Transitions: https://openstax.org/books/chemistry-2e/pages/10-3-phase-transitions"]
 prompt = "How can both students' results be correct?"
@@ -176,7 +178,7 @@ principle = "SP.5.a"
 topic = "P.c.2"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-boiling"
 sources = ["Original passage science-boiling", "OpenStax Chemistry 2e 10.3 Phase Transitions: https://openstax.org/books/chemistry-2e/pages/10-3-phase-transitions"]
 prompt = "Which difference between the two students best explains their different results?"
@@ -184,7 +186,8 @@ choices = ["They were at very different heights above sea level", "They used dif
 answer = "They were at very different heights above sea level"
 explanation = '''
 One student was near sea level; the other was about 3,100 meters up.
-The passage says that height brings much lower air pressure.
+At the mountain camp the air pressure is much lower.
+Lower air pressure makes water boil at a lower temperature.
 So the key difference is that **they were at very different heights above sea level**.
 '''
 common_mistake = "Picking the pots or the amount of water. Neither changes the temperature at which pure water boils."
@@ -196,7 +199,7 @@ principle = "SP.3.b"
 topic = "P.c.2"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-boiling"
 sources = ["Original passage science-boiling", "OpenStax Chemistry 2e 10.3 Phase Transitions: https://openstax.org/books/chemistry-2e/pages/10-3-phase-transitions"]
 prompt = "Which conclusion do the two students' results support?"
@@ -218,7 +221,7 @@ principle = "SP.3.b"
 topic = "L.f.2"
 difficulty = 1
 type = "dropdown"
-status = "draft"
+status = "reviewed"
 stimulus = "science-beetles"
 sources = ["Original passage science-beetles", "OpenStax Concepts of Biology 11.1 Discovering How Populations Change: https://openstax.org/books/concepts-biology/pages/11-1-discovering-how-populations-change"]
 prompt = "Complete the conclusion: after the ash fell, dark beetles {{1}}, going from 20% of all beetles in 2010 to {{2}} in 2022."
@@ -240,16 +243,16 @@ principle = "SP.4.a"
 topic = "L.f.2"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-beetles"
 sources = ["Original passage science-beetles", "OpenStax Concepts of Biology 11.1 Discovering How Populations Change: https://openstax.org/books/concepts-biology/pages/11-1-discovering-how-populations-change", "OpenStax Concepts of Biology 11.2 Mechanisms of Evolution: https://openstax.org/books/concepts-biology/pages/11-2-mechanisms-of-evolution"]
 prompt = "A scientist claims the change happened by natural selection: birds ate more of the beetles that stood out. Which finding would support this claim most?"
-choices = ["On the dark ash, birds caught light beetles more often than dark beetles", "Dark beetles and light beetles eat the same food", "The volcano has not erupted since 2010", "Some beetles live under rocks"]
-answer = "On the dark ash, birds caught light beetles more often than dark beetles"
+choices = ["On the dark ash, a light beetle was more likely to be caught by birds than a dark beetle", "Dark beetles and light beetles eat the same food", "The volcano has not erupted since 2010", "Some beetles live under rocks"]
+answer = "On the dark ash, a light beetle was more likely to be caught by birds than a dark beetle"
 explanation = '''
 The claim says birds ate more of the beetles that stood out.
 On dark ash, the light beetles stand out.
-So the best support is that **birds caught light beetles more often than dark beetles**.
+So the best support is that **a light beetle was more likely to be caught than a dark beetle**.
 '''
 common_mistake = "Picking the food. What the beetles eat has nothing to do with which ones the birds find."
 
@@ -260,7 +263,7 @@ principle = "SP.3.a"
 topic = "L.f.2"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-beetles"
 sources = ["Original passage science-beetles", "OpenStax Concepts of Biology 11.1 Discovering How Populations Change: https://openstax.org/books/concepts-biology/pages/11-1-discovering-how-populations-change"]
 prompt = "Which detail from the passage is needed for natural selection to explain the change in beetle color?"
@@ -280,16 +283,16 @@ principle = "SP.4.a"
 topic = "L.f.2"
 difficulty = 3
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-beetles"
 sources = ["Original passage science-beetles", "OpenStax Concepts of Biology 11.1 Discovering How Populations Change: https://openstax.org/books/concepts-biology/pages/11-1-discovering-how-populations-change", "OpenStax Concepts of Biology 11.2 Mechanisms of Evolution: https://openstax.org/books/concepts-biology/pages/11-2-mechanisms-of-evolution"]
-prompt = "Suppose scientists find that dark and light beetles on the ash were caught by birds equally often. How would this affect the natural selection claim?"
-choices = ["It would weaken the claim, because birds would not be favoring dark beetles", "It would support the claim, because birds still ate beetles", "It would support the claim, because dark beetles still became more common", "It would not affect the claim, because birds are not part of it"]
-answer = "It would weaken the claim, because birds would not be favoring dark beetles"
+prompt = "A scientist claims the change happened by natural selection: birds caught more of the beetles that stood out. Suppose scientists then find that, on the ash, a dark beetle and a light beetle were equally likely to be caught by birds. How would this affect the claim?"
+choices = ["It would weaken the claim, because birds would not be catching more of the light beetles that stood out", "It would support the claim, because birds still ate beetles", "It would support the claim, because dark beetles still became more common", "It would not affect the claim, because birds are not part of it"]
+answer = "It would weaken the claim, because birds would not be catching more of the light beetles that stood out"
 explanation = '''
 The claim says birds caught the beetles that stood out more often.
-If birds caught both colors equally, there is no favoring of dark beetles.
-So this would **weaken the claim, because birds would not be favoring dark beetles**.
+If a beetle of either color was equally likely to be caught, the birds were not catching more of the light beetles that stood out.
+So this would **weaken the claim, because birds would not be catching more of the light beetles that stood out**.
 '''
 common_mistake = "Thinking the rise in dark beetles proves the claim anyway. Something else might have caused it."
 
@@ -383,7 +386,7 @@ principle = "SP.5.a"
 topic = "P.b.2"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 sources = ["OpenStax College Physics 2e 2.7 Falling Objects: https://openstax.org/books/college-physics-2e/pages/2-7-falling-objects", "NASA NSSDCA, The Apollo 15 Hammer-Feather Drop: https://nssdc.gsfc.nasa.gov/planetary/lunar/apollo_15_feather_drop.html"]
 prompt = "In class, a feather falls much more slowly than a hammer. On the Moon, where there is no air, an astronaut dropped a feather and a hammer, and they landed at the same time. How can both results be correct?"
 choices = ["Air slows the feather on Earth, but the Moon has no air to slow it", "The Moon has no gravity", "The feather on the Moon was heavier", "Objects fall faster on the Moon than on Earth"]
