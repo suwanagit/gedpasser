@@ -7,7 +7,7 @@ title = "Predicting from data"
 key = "A prediction follows the pattern the data already show."
 steps = [
   'Find the pattern: up, down, faster, slower, or repeating.',
-  'Between two points: the answer falls between their results.',
+  'Between two points: the answer usually falls between their results.',
   'Far beyond the data: be careful, patterns can level off.',
 ]
 example = '''
@@ -28,6 +28,7 @@ steps = [
 ]
 example = '''
 Model: objects with the same electric charge push each other away.
-**New case:** two balloons rubbed on the same hair push apart.
+New case: two balloons rubbed on the same hair get the same charge.
+**Prediction:** they push apart.
 '''
 hack = 'Ask: "Which part of the model is this?"'

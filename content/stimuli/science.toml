@@ -183,7 +183,7 @@ source = "Original (made-up results for practice; facts from OpenStax Anatomy an
 
 [[stimulus]]
 id = "science-planets"
-status = "draft"
+status = "reviewed"
 title = "Distance and the length of a year"
 text = '''
 A planet's year is the time it takes to go once around the Sun. The table shows how far the five planets closest to the Sun are from the Sun, and how long each one's year is in Earth days.
@@ -193,7 +193,7 @@ source = "Data: NASA NSSDCA Planetary Fact Sheet, https://nssdc.gsfc.nasa.gov/pl
 
 [[stimulus]]
 id = "science-hare-lynx"
-status = "draft"
+status = "reviewed"
 title = "Hares and lynx"
 text = '''
 In the northern forests of North America, including Alaska, the lynx is a wild cat that hunts snowshoe hares. Hares are its main food. Scientists have found that the two populations rise and fall in cycles of about ten years. When there are many hares, there is more food for lynx, and the lynx population grows. When lynx become common, they eat so many hares that the hare population falls. Then the lynx have less food, and their numbers fall too, about a year or two after the hares.
@@ -205,7 +205,7 @@ source = "Original (made-up numbers for practice; facts from OpenStax Concepts o
 
 [[stimulus]]
 id = "science-cooling"
-status = "draft"
+status = "reviewed"
 title = "A cooling cup of tea"
 text = '''
 A student pours hot tea into a mug and leaves it on a table in a room that stays at 20 °C. Every 5 minutes, she measures the temperature of the tea.
@@ -218,10 +218,10 @@ id = "science-seasons"
 status = "draft"
 title = "Why we have seasons"
 text = '''
-Earth's axis, the line it spins around, is tilted about 23.5° compared with its path around the Sun. The tilt stays pointed the same way in space all year.
+Earth's axis, the line it spins around, is tilted about 23.5° from straight up and down, compared with its path around the Sun. The tilt stays pointed the same way in space all year.
 
 In June, the northern half of Earth leans toward the Sun. Sunlight hits it more directly and days are longer, so it is summer there. At the same time, the southern half leans away from the Sun, so it is winter there. In December, it is the other way around.
 
-In June, the area around the North Pole gets sunlight all day and all night. Every place north of the Arctic Circle, at about 67° north, has at least one day around then when the Sun never sets.
+In June, the area around the North Pole gets sunlight all day and all night. Every place north of the Arctic Circle, at about 66.5° north, has at least one day around then when the Sun never sets.
 '''
-source = "Original (facts from OpenStax Astronomy 2e 4.2 The Seasons)"
+source = "Original (facts from OpenStax Astronomy 2e 4.2 The Seasons and the National Snow and Ice Data Center, Arctic Weather and Climate)"

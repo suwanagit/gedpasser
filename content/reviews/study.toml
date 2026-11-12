@@ -163,3 +163,11 @@ hash = "2d0cdd35b1406b25"
 verdict = "pass"
 note = """factcheck-f: fetched all 93 unique URLs in study.toml with curl -L: every one returned HTTP 200 (a made-up OpenStax slug returns 404, so 200 is meaningful). Compared every link title with the page <title>: all match (Math is Fun Cone/Cylinder pages are titled 'Spinning Cone/Cylinder' but are the cone and cylinder pages). New topics: SP.3.a and SP.4.a -> Concepts of Biology 1.2 (conclusions from evidence; hypotheses supported or rejected by results; falsifiable); SP.3.b -> Psychology 2e 2.3 (interpreting findings, correlation is not causation); SP.5.a -> Psychology 2e 2.2 (small samples limit generalizing) and 2.3 (control groups, placebo, chance). All fit their principles at an adult level; search words fit."""
 date = "2026-11-12"
+
+[[review]]
+id = "study"
+kind = "study"
+hash = "6ad4ba6ebe7183e9"
+verdict = "fix"
+note = "All 94 unique URLs return HTTP 200 with the expected page titles (no OpenStax soft 404s). SP.7.a links fit: Concepts of Biology 1.2 covers theories, laws and deductive reasoning (applying a general rule to predict a specific case); 19.4 applies the predator-prey model. FIX SP.3.c: its only link (Introductory Statistics 2e 2.2 time series graphs) shows how to display data and spot trends but never teaches predicting a value beyond or between data points. Add OpenStax Introductory Statistics 2e, 12.5 Prediction, https://openstax.org/books/introductory-statistics-2e/pages/12-5-prediction (HTTP 200; defines interpolation and extrapolation), or a similar page on reading a trend to predict. Earlier topics: link check only, per scope."
+date = "2026-11-12"

@@ -598,3 +598,83 @@ role = "factcheck"
 verdict = "pass"
 note = 'Source line starts with Original and labels results made-up. Scenario facts (heritable color, predators finding conspicuous prey) are consistent with OpenStax Concepts of Biology 11.1 (inherited variation, differential survival) and 11.2. Original wording, no verbatim runs.'
 date = "2026-11-12"
+
+[[review]]
+id = "science-planets"
+kind = "stimulus"
+hash = "c9104cb69687a6ae"
+reviewer = "solver-s"
+role = "solver"
+verdict = "pass"
+note = "Clear, short, grade-appropriate. Values match the NSSDCA fact sheet as I know it (57.9/88.0, 108.2/224.7, 149.6/365.2, 228.0/687.0, 778.5/4,331). Supports 0001 and 0002 on its own."
+date = "2026-11-12"
+
+[[review]]
+id = "science-hare-lynx"
+kind = "stimulus"
+hash = "9d9fb454d79ef96d"
+reviewer = "solver-s"
+role = "solver"
+verdict = "pass"
+note = "Clear and about grade 10; Alaska setting appropriate. Made-up table is consistent with the text (hares peak year 3, lynx year 4; lynx low a year or so after hares). The predation-only cause is a simplification of the real cycle (hare food also matters), but it is labeled a simple model, so acceptable. Each of 0003-0005 is answerable from it alone."
+date = "2026-11-12"
+
+[[review]]
+id = "science-cooling"
+kind = "stimulus"
+hash = "f383bdc45fae9770"
+reviewer = "solver-s"
+role = "solver"
+verdict = "pass"
+note = "Clear, short; room temperature is stated, which 0007 and 0008 need. Numbers follow Newton's law of cooling closely (excess temp ratio ~0.72 per 5 min), so the predicted 34 °C is consistent."
+date = "2026-11-12"
+
+[[review]]
+id = "science-seasons"
+kind = "stimulus"
+hash = "0fb0ceebe07023ac"
+reviewer = "solver-s"
+role = "solver"
+verdict = "fix"
+note = "'tilted about 23.5° compared with its path around the Sun' reads as the axis being 23.5° from the orbital plane; it is 23.5° from perpendicular to that plane (66.5° from the plane). Rewrite: 'Earth's axis, the line it spins around, is tilted about 23.5° from straight up and down, compared with its path around the Sun.' Also the Arctic Circle is at about 66.5° N (90 − 23.5), not 67°; suggest 'at about 66.5° north' (0010 uses 70° so still works). Otherwise clear, grade-appropriate and supports 0009-0011."
+date = "2026-11-12"
+
+[[review]]
+id = "science-planets"
+kind = "stimulus"
+hash = "c9104cb69687a6ae"
+reviewer = "factcheck-j"
+role = "factcheck"
+verdict = "pass"
+note = "Checked every cell against the NASA NSSDCA Planetary Fact Sheet (opened 2026-11-12): distances 57.9, 108.2, 149.6, 228.0, 778.5 (10^6 km) and orbital periods 88.0, 224.7, 365.2, 687.0, 4331 days all match exactly. These are the five planets closest to the Sun. Source line starts with 'Data:'."
+date = "2026-11-12"
+
+[[review]]
+id = "science-hare-lynx"
+kind = "stimulus"
+hash = "9d9fb454d79ef96d"
+reviewer = "factcheck-j"
+role = "factcheck"
+verdict = "pass"
+note = "NPS Gates of the Arctic Lynx: only cat native to Alaska; boreal forests of Alaska and Canada; snowshoe hare is its favorite food; lynx peak a couple of years after hares. OpenStax Biology 19.4: about ten-year cycle, predator lags one to two years, lynx kill so many hares that hares decline, then lynx decline from scarce food. Table labelled made-up and follows the pattern. Source starts 'Original'; wording is our own, no long verbatim runs."
+date = "2026-11-12"
+
+[[review]]
+id = "science-cooling"
+kind = "stimulus"
+hash = "f383bdc45fae9770"
+reviewer = "factcheck-j"
+role = "factcheck"
+verdict = "pass"
+note = "Made-up results labelled as such; numbers are physically realistic (excess over 20 C decays by a near-constant factor of about 0.72 per 5 min, as in Newton cooling, consistent with OpenStax 14.5 heat flux depending on temperature difference). Source starts 'Original'; no copied text."
+date = "2026-11-12"
+
+[[review]]
+id = "science-seasons"
+kind = "stimulus"
+hash = "0fb0ceebe07023ac"
+reviewer = "factcheck-j"
+role = "factcheck"
+verdict = "pass"
+note = "OpenStax Astronomy 2e 4.2: tilt 23.5 degrees; axis points the same direction all year; in June the north leans into the Sun, more direct light and longer days; south has winter; reversed in December; North Pole lit continuously at the June solstice; 67 N is the southernmost latitude with a 24-hour day (the Arctic Circle). All claims match. Source starts 'Original'; wording is our own."
+date = "2026-11-12"

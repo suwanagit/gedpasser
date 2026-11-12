@@ -591,6 +591,7 @@ principle = "SP.3.c"
 search = "making predictions from data trends"
 links = [
   { title = "OpenStax Introductory Statistics 2e, 2.2 Histograms frequency polygons and time series graphs", url = "https://openstax.org/books/introductory-statistics-2e/pages/2-2-histograms-frequency-polygons-and-time-series-graphs" },
+  { title = "OpenStax Introductory Statistics 2e, 12.5 Prediction", url = "https://openstax.org/books/introductory-statistics-2e/pages/12-5-prediction" },
 ]
 
 [[topic]]

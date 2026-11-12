@@ -20,7 +20,8 @@ answer = "Longer than 4,331 Earth days"
 explanation = '''
 In the table, the farther a planet is from the Sun, the longer its year.
 Jupiter is the farthest planet listed, with a year of 4,331 days.
-Saturn is farther still, so its year is most likely **longer than 4,331 Earth days**.
+Saturn is farther from the Sun than Jupiter.
+So a year on Saturn is most likely **longer than 4,331 Earth days**.
 '''
 common_mistake = "Picking \"between 687 and 4,331\". That range fits a planet between Mars and Jupiter, not one beyond Jupiter."
 
@@ -31,7 +32,7 @@ principle = "SP.3.c"
 topic = "ES.c.2"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-planets"
 sources = ["Original passage science-planets", "NASA NSSDCA Planetary Fact Sheet: https://nssdc.gsfc.nasa.gov/planetary/factsheet/"]
 prompt = "An asteroid goes around the Sun at about 400 million km from the Sun. Based on the table, how long is its year most likely to be?"
@@ -53,7 +54,7 @@ principle = "SP.7.a"
 topic = "L.c.4"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 alaska = true
 stimulus = "science-hare-lynx"
 sources = ["Original passage science-hare-lynx", "OpenStax Concepts of Biology 19.4 Community Ecology: https://openstax.org/books/concepts-biology/pages/19-4-community-ecology", "National Park Service, Gates of the Arctic National Park and Preserve, Lynx: https://www.nps.gov/gaar/learn/nature/lynx.htm"]
@@ -82,7 +83,7 @@ prompt = "Based on the pattern in the table, what will most likely happen to the
 choices = ["They will increase, after the hares have increased", "They will keep falling every year", "They will stay at 300 forever", "They will increase before the hares do"]
 answer = "They will increase, after the hares have increased"
 explanation = '''
-In year 8, the hares are rising again (15 thousand, then 35 thousand).
+The hares are rising again: 10 thousand in year 6, 15 thousand in year 7, 35 thousand in year 8.
 In the pattern, lynx rise a year or two after the hares rise, because they have more food.
 So the lynx will most likely **increase, after the hares have increased**.
 '''
@@ -95,7 +96,7 @@ principle = "SP.7.a"
 topic = "L.c.4"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 alaska = true
 stimulus = "science-hare-lynx"
 sources = ["Original passage science-hare-lynx", "OpenStax Concepts of Biology 19.4 Community Ecology: https://openstax.org/books/concepts-biology/pages/19-4-community-ecology", "National Park Service, Gates of the Arctic National Park and Preserve, Lynx: https://www.nps.gov/gaar/learn/nature/lynx.htm"]
@@ -122,12 +123,13 @@ status = "draft"
 stimulus = "science-cooling"
 sources = ["Original passage science-cooling", "OpenStax College Physics 2e 14.1 Heat: https://openstax.org/books/college-physics-2e/pages/14-1-heat"]
 prompt = "If the pattern continues, what will the tea temperature most likely be at 25 minutes?"
-choices = ["About 34 °C", "About 45 °C", "About 20 °C", "About 10 °C"]
+choices = ["About 34 °C", "About 45 °C", "About 20 °C", "About 39 °C"]
 answer = "About 34 °C"
 explanation = '''
 The tea drops less each time: 20, then 14, then 10, then 7 degrees.
-The next drop should be a bit smaller than 7 degrees, so about 5 degrees.
-39 − 5 = 34, so the tea will most likely be **about 34 °C**.
+Each drop is about a third smaller than the one before, so the next drop is about 5 degrees.
+Subtract it from the 20-minute reading: 39 − 5 = 34.
+So at 25 minutes the tea will most likely be **about 34 °C**.
 '''
 common_mistake = "Picking about 20 °C, as if the tea jumps to room temperature. The drops are getting smaller, not bigger."
 
@@ -138,7 +140,7 @@ principle = "SP.3.c"
 topic = "P.a.1"
 difficulty = 2
 type = "dropdown"
-status = "draft"
+status = "reviewed"
 stimulus = "science-cooling"
 sources = ["Original passage science-cooling", "OpenStax College Physics 2e 14.1 Heat: https://openstax.org/books/college-physics-2e/pages/14-1-heat"]
 prompt = "Complete the prediction: if the tea is left for many hours, it will most likely end up at about {{1}}, because heat keeps moving from {{2}} until both are at the same temperature."
@@ -160,7 +162,7 @@ principle = "SP.7.a"
 topic = "P.a.1"
 difficulty = 3
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-cooling"
 sources = ["Original passage science-cooling", "OpenStax College Physics 2e 14.1 Heat: https://openstax.org/books/college-physics-2e/pages/14-1-heat", "OpenStax College Physics 2e 14.5 Conduction: https://openstax.org/books/college-physics-2e/pages/14-5-conduction"]
 prompt = "The student repeats the test with the same tea, starting at 90 °C, but in a room at 5 °C. How will the tea cool, compared with the first test?"
@@ -205,13 +207,13 @@ type = "multiple_choice"
 status = "draft"
 alaska = true
 stimulus = "science-seasons"
-sources = ["Original passage science-seasons", "OpenStax Astronomy 2e 4.2 The Seasons: https://openstax.org/books/astronomy-2e/pages/4-2-the-seasons"]
+sources = ["Original passage science-seasons", "OpenStax Astronomy 2e 4.2 The Seasons: https://openstax.org/books/astronomy-2e/pages/4-2-the-seasons", "National Snow and Ice Data Center, Arctic Weather and Climate: https://nsidc.org/learn/parts-cryosphere/arctic-weather-and-climate"]
 prompt = "A town is at 70° north. Using the passage, what is most likely true there around late June?"
 choices = ["The Sun does not set for at least one day", "The Sun does not rise for at least one day", "Day and night are each 12 hours long", "It is winter there"]
 answer = "The Sun does not set for at least one day"
 explanation = '''
-The passage says every place north of the Arctic Circle, at about 67° north, has a day around June when the Sun never sets.
-70° north is farther north than 67°.
+The passage says every place north of the Arctic Circle, at about 66.5° north, has a day around June when the Sun never sets.
+70° north is farther north than 66.5°.
 So in late June, **the Sun does not set for at least one day** there.
 '''
 common_mistake = "Picking \"the Sun does not rise\". That happens near the North Pole in December, when the north leans away from the Sun."
@@ -245,7 +247,7 @@ principle = "SP.3.c"
 topic = "P.c.2"
 difficulty = 3
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-boiling"
 sources = ["Original passage science-boiling", "OpenStax Chemistry 2e 10.3 Phase Transitions: https://openstax.org/books/chemistry-2e/pages/10-3-phase-transitions"]
 prompt = "A third student heats pure water at a place about 1,500 meters above sea level. Based on the passage, which result is most likely?"
@@ -267,7 +269,7 @@ principle = "SP.7.a"
 topic = "P.b.2"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 sources = ["OpenStax College Physics 2e 4.4 Newton's Third Law of Motion: https://openstax.org/books/college-physics-2e/pages/4-4-newtons-third-law-of-motion-symmetry-in-forces"]
 prompt = "Newton's third law says that when one object pushes on another, the second pushes back just as hard in the opposite direction. A swimmer pushes backward on the wall of a pool and glides forward. What pushes the swimmer forward?"
 choices = ["The wall pushes forward on the swimmer", "The swimmer pushes forward on the wall", "The water pulls the swimmer forward", "Nothing pushes the swimmer; the swimmer just moves"]
@@ -286,7 +288,7 @@ principle = "SP.7.a"
 topic = "P.b.2"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 sources = ["OpenStax College Physics 2e 4.4 Newton's Third Law of Motion: https://openstax.org/books/college-physics-2e/pages/4-4-newtons-third-law-of-motion-symmetry-in-forces"]
 prompt = "Newton's third law says that when one object pushes on another, the second pushes back just as hard in the opposite direction. A person in a canoe pushes water backward with a paddle. Why does the canoe move forward?"
 choices = ["The water pushes forward on the paddle", "The paddle pulls the canoe forward through the air", "The water in front of the canoe moves out of the way", "The person leans forward in the canoe"]
@@ -305,7 +307,7 @@ principle = "SP.7.a"
 topic = "L.b.1"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 sources = ["OpenStax Concepts of Biology 5.1 Overview of Photosynthesis: https://openstax.org/books/concepts-biology/pages/5-1-overview-of-photosynthesis"]
 prompt = "A healthy green plant is sealed in a clear glass jar and left in bright sunlight. Using what you know about photosynthesis, what will most likely happen to the amount of carbon dioxide in the jar over the next few hours?"
 choices = ["It will go down, because the plant uses it to make sugar", "It will go up, because the plant gives off carbon dioxide in sunlight", "It will stay the same, because plants only use water", "It will go down, because sunlight destroys carbon dioxide"]
@@ -324,7 +326,7 @@ principle = "SP.7.a"
 topic = "L.c.5"
 difficulty = 3
 type = "order"
-status = "draft"
+status = "reviewed"
 sources = ["OpenStax Concepts of Biology 19.4 Community Ecology: https://openstax.org/books/concepts-biology/pages/19-4-community-ecology", "OpenStax Concepts of Biology 20.1 Energy Flow through Ecosystems: https://openstax.org/books/concepts-biology/pages/20-1-energy-flow-through-ecosystems"]
 prompt = "In a pond, minnows eat algae and bass eat minnows. Suppose all the bass are removed. Put the most likely events in order."
 items = [

@@ -1374,7 +1374,7 @@ Two findings can seem to disagree but both be right when the conditions were dif
 [[principle]]
 id = "SP.3.c"
 skill = "s-models"
-status = "draft"
+status = "reviewed"
 name = "Predicting from data"
 summary = "Use a pattern in data to predict a value beyond it or between two values."
 lesson = '''
@@ -1388,7 +1388,7 @@ A prediction follows the pattern the data already show.
 [[principle]]
 id = "SP.7.a"
 skill = "s-models"
-status = "draft"
+status = "reviewed"
 name = "Using a model"
 summary = "Apply a known model or process to a new situation."
 lesson = '''
