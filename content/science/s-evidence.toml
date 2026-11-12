@@ -1,0 +1,395 @@
+# Science: claims and evidence (SP.3.a, SP.3.b, SP.4.a, SP.5.a)
+# Every question cites its sources (docs/CONTENT_RULES.md). Explanations
+# follow docs/EXPLANATION_STYLE.md: one line per step, answer in bold.
+
+# ── Carbon dioxide in the air (science-co2) ───────────────────────────
+
+[[question]]
+id = "s-evidence-0001"
+skill = "s-evidence"
+principle = "SP.3.b"
+topic = "ES.b.1"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-co2"
+sources = ["Original passage science-co2", "NOAA Global Monitoring Laboratory, Mauna Loa annual mean CO2: https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.txt"]
+prompt = "Which conclusion do the data support?"
+choices = ["The amount of carbon dioxide in the air went up from 1960 to 2025", "The amount of carbon dioxide in the air went down from 1960 to 2025", "The amount of carbon dioxide in the air stayed about the same", "The amount of carbon dioxide went up in some years and down in others"]
+answer = "The amount of carbon dioxide in the air went up from 1960 to 2025"
+explanation = '''
+The readings go 316.9, 338.8, 369.7, 414.2, 427.4.
+Each one is higher than the one before.
+So **the amount of carbon dioxide went up from 1960 to 2025**.
+'''
+common_mistake = "Picking \"up and down\". The table shows only these five years, and each one is higher than the last."
+
+[[question]]
+id = "s-evidence-0002"
+skill = "s-evidence"
+principle = "SP.3.a"
+topic = "ES.b.1"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-co2"
+sources = ["Original passage science-co2", "NOAA Global Monitoring Laboratory, Mauna Loa annual mean CO2: https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.txt"]
+prompt = "A student claims that carbon dioxide rose faster from 2000 to 2020 than from 1960 to 1980. Which data support this claim?"
+choices = ["It rose 44.5 ppm from 2000 to 2020, but only 21.9 ppm from 1960 to 1980", "It was 414.2 ppm in 2020, higher than any other year in the table", "It was 316.9 ppm in 1960, lower than any other year in the table", "It rose 13.2 ppm from 2020 to 2025"]
+answer = "It rose 44.5 ppm from 2000 to 2020, but only 21.9 ppm from 1960 to 1980"
+explanation = '''
+The claim compares two 20-year spans, so you need the rise in each.
+2000 to 2020: 414.2 − 369.7 = 44.5 ppm. 1960 to 1980: 338.8 − 316.9 = 21.9 ppm.
+So the evidence is: **it rose 44.5 ppm from 2000 to 2020, but only 21.9 ppm from 1960 to 1980**.
+'''
+common_mistake = "Picking the highest reading. One number says how much there was, not how fast it rose."
+
+[[question]]
+id = "s-evidence-0003"
+skill = "s-evidence"
+principle = "SP.4.a"
+topic = "ES.b.1"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-co2"
+sources = ["Original passage science-co2", "NOAA Global Monitoring Laboratory, Mauna Loa annual mean CO2: https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.txt"]
+prompt = "A news post says, \"Carbon dioxide in the air has been falling since 2000.\" How do the data affect this claim?"
+choices = ["They weaken it, because the readings went up after 2000", "They support it, because 2000 had the highest reading", "They support it, because the rise from 2020 to 2025 was small", "They neither support nor weaken it, because the table does not show 2000"]
+answer = "They weaken it, because the readings went up after 2000"
+explanation = '''
+If the claim were true, the readings after 2000 would be lower than 369.7.
+Instead they are 414.2 in 2020 and 427.4 in 2025.
+So the data **weaken the claim, because the readings went up after 2000**.
+'''
+common_mistake = "Calling the 2020 to 2025 rise a fall. It is a smaller rise, but it is still a rise."
+
+# ── Salt on ice (science-road-salt) ───────────────────────────────────
+
+[[question]]
+id = "s-evidence-0004"
+skill = "s-evidence"
+principle = "SP.3.b"
+topic = "P.c.4"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-road-salt"
+sources = ["Original passage science-road-salt", "OpenStax Chemistry 2e 11.4 Colligative Properties: https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties"]
+prompt = "Which conclusion do the student's results support?"
+choices = ["More salt made the ice cubes melt faster", "More salt made the ice cubes melt more slowly", "Salt had no effect on how fast the ice melted", "Salt makes ice melt faster at any temperature"]
+answer = "More salt made the ice cubes melt faster"
+explanation = '''
+With 0 g of salt, the cube took 62 minutes. With 2 g, 48 minutes. With 4 g, 39 minutes.
+More salt, less time to melt.
+So **more salt made the ice cubes melt faster**.
+'''
+common_mistake = "Picking \"at any temperature\". He tested only one room, so the data say nothing about other temperatures."
+
+[[question]]
+id = "s-evidence-0005"
+skill = "s-evidence"
+principle = "SP.4.a"
+topic = "P.c.4"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-road-salt"
+sources = ["Original passage science-road-salt", "OpenStax Chemistry 2e 11.4 Colligative Properties: https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties"]
+prompt = "Do the results support or weaken the claim that salt makes ice melt faster?"
+choices = ["They support it, because the salted cubes melted in less time", "They weaken it, because the salted cubes took longer to melt", "They support it, because the cube with no salt melted first", "They neither support nor weaken it, because only one room was used"]
+answer = "They support it, because the salted cubes melted in less time"
+explanation = '''
+If the claim were true, salted cubes would melt in less time than the plain one.
+The salted cubes took 48 and 39 minutes; the plain cube took 62.
+So the results **support the claim, because the salted cubes melted in less time**.
+'''
+common_mistake = "Thinking a test in one room tells you nothing. It still tests the claim in that room."
+
+[[question]]
+id = "s-evidence-0006"
+skill = "s-evidence"
+principle = "SP.3.a"
+topic = "P.c.4"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-road-salt"
+sources = ["Original passage science-road-salt", "OpenStax Chemistry 2e 11.4 Colligative Properties: https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties"]
+prompt = "The student concludes, \"The more salt I used, the faster the ice melted.\" Which evidence best supports this conclusion?"
+choices = ["The melting time dropped from 62 to 48 to 39 minutes as the salt went from 0 to 2 to 4 grams", "Every cube was 30 grams", "The city uses salt on icy roads", "He repeated the test three times"]
+answer = "The melting time dropped from 62 to 48 to 39 minutes as the salt went from 0 to 2 to 4 grams"
+explanation = '''
+The conclusion links the amount of salt to the melting time.
+The evidence has to show both: as salt went 0, 2, 4 grams, the time went 62, 48, 39 minutes.
+So the best evidence is **the melting time dropped from 62 to 48 to 39 minutes as the salt went up**.
+'''
+common_mistake = "Picking \"he repeated the test\". That makes the results more trustworthy, but it does not show the pattern."
+
+[[question]]
+id = "s-evidence-0007"
+skill = "s-evidence"
+principle = "SP.4.a"
+topic = "P.c.4"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-road-salt"
+sources = ["Original passage science-road-salt", "OpenStax Chemistry 2e 11.4 Colligative Properties: https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties"]
+prompt = "A chemistry book says that salt water freezes at a lower temperature than pure water. How does this fact relate to the claim that salt makes ice melt faster?"
+choices = ["It supports the claim, because salty water stays liquid at temperatures where pure water would freeze", "It weakens the claim, because salt water is harder to freeze", "It weakens the claim, because the ice cubes were made of pure water", "It neither supports nor weakens the claim, because it is about freezing, not melting"]
+answer = "It supports the claim, because salty water stays liquid at temperatures where pure water would freeze"
+explanation = '''
+Salt dissolves into the thin layer of water on the ice, making salt water.
+Salt water freezes at a lower temperature, so it stays liquid where pure water would freeze.
+So the fact **supports the claim, because salty water stays liquid at temperatures where pure water would freeze**.
+'''
+common_mistake = "Thinking freezing and melting are unrelated. The freezing point and the melting point of water are the same temperature."
+
+# ── Two boiling points (science-boiling) ──────────────────────────────
+
+[[question]]
+id = "s-evidence-0008"
+skill = "s-evidence"
+principle = "SP.5.a"
+topic = "P.c.2"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-boiling"
+sources = ["Original passage science-boiling", "OpenStax Chemistry 2e 10.3 Phase Transitions: https://openstax.org/books/chemistry-2e/pages/10-3-phase-transitions"]
+prompt = "How can both students' results be correct?"
+choices = ["Water boils at a lower temperature where the air pressure is lower", "Student 2's thermometer was broken", "Water in the mountains is a different substance", "Water always boils at 100 °C, so one result is wrong"]
+answer = "Water boils at a lower temperature where the air pressure is lower"
+explanation = '''
+Both thermometers read correctly, so both results are real.
+The passage says the air pressure at the camp is much lower.
+Both can be right because **water boils at a lower temperature where the air pressure is lower**.
+'''
+common_mistake = "Deciding one result must be wrong. The passage says both thermometers read correctly."
+
+[[question]]
+id = "s-evidence-0009"
+skill = "s-evidence"
+principle = "SP.5.a"
+topic = "P.c.2"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-boiling"
+sources = ["Original passage science-boiling", "OpenStax Chemistry 2e 10.3 Phase Transitions: https://openstax.org/books/chemistry-2e/pages/10-3-phase-transitions"]
+prompt = "Which difference between the two students best explains their different results?"
+choices = ["They were at very different heights above sea level", "They used different pots", "One was a boy and one was a girl", "They did the test on different days"]
+answer = "They were at very different heights above sea level"
+explanation = '''
+One student was near sea level; the other was about 3,100 meters up.
+The passage says that height brings much lower air pressure.
+So the key difference is that **they were at very different heights above sea level**.
+'''
+common_mistake = "Picking the pots. The pot does not change the temperature at which pure water boils."
+
+[[question]]
+id = "s-evidence-0010"
+skill = "s-evidence"
+principle = "SP.3.b"
+topic = "P.c.2"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-boiling"
+sources = ["Original passage science-boiling", "OpenStax Chemistry 2e 10.3 Phase Transitions: https://openstax.org/books/chemistry-2e/pages/10-3-phase-transitions"]
+prompt = "A third student heats pure water at a place about 1,500 meters above sea level. Based on the passage, which result is most likely?"
+choices = ["It boils at a temperature between 90 °C and 100 °C", "It boils at exactly 100 °C", "It boils at a temperature below 90 °C", "It boils at a temperature above 100 °C"]
+answer = "It boils at a temperature between 90 °C and 100 °C"
+explanation = '''
+Higher places have lower air pressure, and lower pressure means a lower boiling point.
+1,500 meters is between sea level (100 °C) and 3,100 meters (about 90 °C).
+So the water most likely **boils at a temperature between 90 °C and 100 °C**.
+'''
+common_mistake = "Picking below 90 °C. That would fit a place higher than the mountain camp, not lower."
+
+# ── Beetles on an island (science-beetles) ────────────────────────────
+
+[[question]]
+id = "s-evidence-0011"
+skill = "s-evidence"
+principle = "SP.3.b"
+topic = "L.f.2"
+difficulty = 1
+type = "dropdown"
+status = "draft"
+stimulus = "science-beetles"
+sources = ["Original passage science-beetles", "OpenStax Concepts of Biology 11.1 Discovering How Populations Change: https://openstax.org/books/concepts-biology/pages/11-1-discovering-how-populations-change"]
+prompt = "Complete the conclusion: after the ash fell, dark beetles {{1}}, going from 20% of all beetles in 2010 to {{2}} in 2022."
+blanks = [
+  { choices = ["became more common", "became less common", "stayed about as common"], answer = "became more common" },
+  { choices = ["85%", "15%", "70%"], answer = "85%" },
+]
+explanation = '''
+Dark beetles were 20% in 2010, then 45%, 70% and 85%.
+The share went up every time the scientists counted.
+So dark beetles **became more common**, reaching **85%** in 2022.
+'''
+common_mistake = "Picking 15%, which is the share of light beetles left in 2022, not dark ones."
+
+[[question]]
+id = "s-evidence-0012"
+skill = "s-evidence"
+principle = "SP.4.a"
+topic = "L.f.2"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-beetles"
+sources = ["Original passage science-beetles", "OpenStax Concepts of Biology 11.1 Discovering How Populations Change: https://openstax.org/books/concepts-biology/pages/11-1-discovering-how-populations-change", "OpenStax Concepts of Biology 11.2 Mechanisms of Evolution: https://openstax.org/books/concepts-biology/pages/11-2-mechanisms-of-evolution"]
+prompt = "A scientist claims the change happened by natural selection: birds ate more of the beetles that stood out. Which finding would support this claim most?"
+choices = ["On the dark ash, birds caught light beetles more often than dark beetles", "Dark beetles and light beetles eat the same food", "The volcano has not erupted since 2010", "Some beetles live under rocks"]
+answer = "On the dark ash, birds caught light beetles more often than dark beetles"
+explanation = '''
+The claim says birds ate more of the beetles that stood out.
+On dark ash, the light beetles stand out.
+So the best support is that **birds caught light beetles more often than dark beetles**.
+'''
+common_mistake = "Picking the food. What the beetles eat has nothing to do with which ones the birds find."
+
+[[question]]
+id = "s-evidence-0013"
+skill = "s-evidence"
+principle = "SP.3.a"
+topic = "L.f.2"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-beetles"
+sources = ["Original passage science-beetles", "OpenStax Concepts of Biology 11.1 Discovering How Populations Change: https://openstax.org/books/concepts-biology/pages/11-1-discovering-how-populations-change"]
+prompt = "Which detail from the passage is needed for natural selection to explain the change in beetle color?"
+choices = ["Color is passed from parents to their young", "Scientists counted beetles every four years", "The island is small", "The beetles come in two shades of brown"]
+answer = "Color is passed from parents to their young"
+explanation = '''
+Natural selection works on traits that are passed on.
+Dark beetles that survived had more dark young, so the share of dark beetles grew.
+So the needed detail is that **color is passed from parents to their young**.
+'''
+common_mistake = "Picking the two shades. Variation matters too, but without passing color on, survivors could not raise the share in the next generation."
+
+[[question]]
+id = "s-evidence-0014"
+skill = "s-evidence"
+principle = "SP.4.a"
+topic = "L.f.2"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-beetles"
+sources = ["Original passage science-beetles", "OpenStax Concepts of Biology 11.1 Discovering How Populations Change: https://openstax.org/books/concepts-biology/pages/11-1-discovering-how-populations-change", "OpenStax Concepts of Biology 11.2 Mechanisms of Evolution: https://openstax.org/books/concepts-biology/pages/11-2-mechanisms-of-evolution"]
+prompt = "Suppose scientists find that dark and light beetles on the ash were caught by birds equally often. How would this affect the natural selection claim?"
+choices = ["It would weaken the claim, because birds would not be favoring dark beetles", "It would support the claim, because birds still ate beetles", "It would support the claim, because dark beetles still became more common", "It would not affect the claim, because birds are not part of it"]
+answer = "It would weaken the claim, because birds would not be favoring dark beetles"
+explanation = '''
+The claim says birds caught the beetles that stood out more often.
+If birds caught both colors equally, there is no favoring of dark beetles.
+So this would **weaken the claim, because birds would not be favoring dark beetles**.
+'''
+common_mistake = "Thinking the rise in dark beetles proves the claim anyway. Something else might have caused it."
+
+# ── Heart rate and exercise (science-heart-rate) ──────────────────────
+
+[[question]]
+id = "s-evidence-0015"
+skill = "s-evidence"
+principle = "SP.3.b"
+topic = "L.a.1"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-heart-rate"
+sources = ["Original passage science-heart-rate", "OpenStax Anatomy and Physiology 2e 19.4 Cardiac Physiology: https://openstax.org/books/anatomy-and-physiology-2e/pages/19-4-cardiac-physiology"]
+prompt = "Which conclusion do the data support?"
+choices = ["Average heart rate went up as the activity got harder", "Average heart rate went down as the activity got harder", "Walking raised heart rate more than running did", "Every person had a heart rate of 142 bpm after running"]
+answer = "Average heart rate went up as the activity got harder"
+explanation = '''
+Sitting: 70 bpm. Walking: 96 bpm. Running: 142 bpm.
+The harder the activity, the higher the average.
+So **average heart rate went up as the activity got harder**.
+'''
+common_mistake = "Picking \"every person had 142\". That is the group average; some were higher and some lower."
+
+[[question]]
+id = "s-evidence-0016"
+skill = "s-evidence"
+principle = "SP.4.a"
+topic = "L.a.1"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-heart-rate"
+sources = ["Original passage science-heart-rate", "OpenStax Anatomy and Physiology 2e 19.4 Cardiac Physiology: https://openstax.org/books/anatomy-and-physiology-2e/pages/19-4-cardiac-physiology"]
+prompt = "A friend says, \"Exercise slows your heart down.\" How do the data affect this claim?"
+choices = ["They weaken it, because heart rates were higher after walking and running", "They support it, because heart rates were lowest after sitting", "They support it, because only 10 people were tested", "They neither support nor weaken it, because heart rate is not about exercise"]
+answer = "They weaken it, because heart rates were higher after walking and running"
+explanation = '''
+If exercise slowed the heart, rates after walking and running would be below 70 bpm.
+They were 96 and 142 bpm, higher than sitting.
+So the data **weaken the claim, because heart rates were higher after walking and running**.
+'''
+common_mistake = "Mixing up \"lowest after sitting\" with support. Sitting is the rest, not the exercise."
+
+[[question]]
+id = "s-evidence-0017"
+skill = "s-evidence"
+principle = "SP.3.a"
+topic = "L.a.1"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-heart-rate"
+sources = ["Original passage science-heart-rate", "OpenStax Anatomy and Physiology 2e 19.4 Cardiac Physiology: https://openstax.org/books/anatomy-and-physiology-2e/pages/19-4-cardiac-physiology"]
+prompt = "The coach concludes that running raises heart rate more than walking. Which numbers back this up?"
+choices = ["142 bpm after running compared with 96 bpm after walking", "70 bpm after sitting compared with 96 bpm after walking", "10 adults in the group", "5 minutes for each activity"]
+answer = "142 bpm after running compared with 96 bpm after walking"
+explanation = '''
+The conclusion compares running with walking.
+Running: 142 bpm. Walking: 96 bpm.
+So the numbers are **142 bpm after running compared with 96 bpm after walking**.
+'''
+common_mistake = "Picking sitting and walking. That comparison does not include running."
+
+# ── Stand-alone ───────────────────────────────────────────────────────
+
+[[question]]
+id = "s-evidence-0018"
+skill = "s-evidence"
+principle = "SP.5.a"
+topic = "L.a.3"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+sources = ["OpenStax Psychology 2e 2.2 Approaches to Research: https://openstax.org/books/psychology-2e/pages/2-2-approaches-to-research", "OpenStax Psychology 2e 2.3 Analyzing Findings: https://openstax.org/books/psychology-2e/pages/2-3-analyzing-findings", "OpenStax Concepts of Biology 1.2 The Process of Science: https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science"]
+prompt = "Study A gave a vitamin to 12 people and found they had fewer colds. Study B gave the same vitamin or a fake pill to 2,000 people and found no difference in colds. Which statement is best?"
+choices = ["Study B is stronger evidence, because it tested far more people and compared them with a group taking a fake pill", "Study A is stronger evidence, because it found an effect", "The two studies agree, because both used the same vitamin", "Neither study tells us anything, because they disagree"]
+answer = "Study B is stronger evidence, because it tested far more people and compared them with a group taking a fake pill"
+explanation = '''
+Study A had only 12 people and nothing to compare them with. Fewer colds could be chance.
+Study B had 2,000 people and a fake-pill group to compare.
+So **Study B is stronger evidence**: far more people and a fair comparison.
+'''
+common_mistake = "Trusting the study that found an effect. A small study with no comparison group can find an effect by chance."
+
+[[question]]
+id = "s-evidence-0019"
+skill = "s-evidence"
+principle = "SP.5.a"
+topic = "P.b.2"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+sources = ["OpenStax College Physics 2e 2.7 Falling Objects: https://openstax.org/books/college-physics-2e/pages/2-7-falling-objects", "NASA NSSDCA, The Apollo 15 Hammer-Feather Drop: https://nssdc.gsfc.nasa.gov/planetary/lunar/apollo_15_feather_drop.html"]
+prompt = "In class, a feather falls much more slowly than a hammer. On the Moon, where there is no air, an astronaut dropped a feather and a hammer, and they landed at the same time. How can both results be correct?"
+choices = ["Air slows the feather on Earth, but the Moon has no air to slow it", "The Moon has no gravity", "The feather on the Moon was heavier", "Objects fall faster on the Moon than on Earth"]
+answer = "Air slows the feather on Earth, but the Moon has no air to slow it"
+explanation = '''
+The difference between the two places is air.
+On Earth, air pushes against the light, wide feather and slows it.
+With no air on the Moon, **nothing slows the feather, so both fall together**.
+'''
+common_mistake = "Thinking the Moon has no gravity. If it had none, the feather and hammer would not have fallen at all."

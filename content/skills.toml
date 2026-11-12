@@ -212,3 +212,16 @@ means where it is used, and putting a table or diagram into words.\
 difficulty_min = 1
 difficulty_max = 3
 targets = ["SP.1.a", "SP.1.b", "SP.6.c"]
+
+[[skill]]
+id = "s-evidence"
+subject = "science"
+name = "Claims and evidence"
+description = """
+Deciding what the evidence shows: which conclusion it supports, which \
+data back a claim, whether new evidence supports or weakens it, and how \
+two findings can both hold.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["SP.3.a", "SP.3.b", "SP.4.a", "SP.5.a"]

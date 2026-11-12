@@ -1314,3 +1314,59 @@ To put a table into words, look for the pattern first, then check the numbers.
 - Ask: what goes up, what goes down, and what is biggest or smallest?
 - A comparison like "half" or "1 out of 20" must match the numbers. Divide to check.
 '''
+
+[[principle]]
+id = "SP.3.a"
+skill = "s-evidence"
+status = "draft"
+name = "Pointing to the evidence"
+summary = "Pick the numbers or words that back up a conclusion."
+lesson = '''
+Evidence is the data or facts a conclusion rests on.
+
+- Find the exact rows, numbers or sentences the conclusion talks about.
+- Good evidence matches the conclusion: a claim about change over time needs data from more than one time.
+- A true fact is not evidence if it is about something else.
+'''
+
+[[principle]]
+id = "SP.3.b"
+skill = "s-evidence"
+status = "draft"
+name = "Supported conclusions"
+summary = "Decide which conclusion the data actually support."
+lesson = '''
+A supported conclusion says no more than the data show.
+
+- Check each choice against the numbers. Throw out any the data contradict.
+- Watch for choices that go too far: "always", "all", or a cause the study didn't test.
+- Watch for choices about things the study never measured.
+'''
+
+[[principle]]
+id = "SP.4.a"
+skill = "s-evidence"
+status = "draft"
+name = "Support or weaken"
+summary = "Decide whether new evidence makes a claim more or less believable."
+lesson = '''
+Evidence supports a claim when it is what you'd expect if the claim were true. It weakens a claim when it goes against what the claim predicts.
+
+- First say what the claim predicts.
+- Then compare the evidence with that prediction.
+- Evidence about something else neither supports nor weakens the claim.
+'''
+
+[[principle]]
+id = "SP.5.a"
+skill = "s-evidence"
+status = "draft"
+name = "Two findings"
+summary = "Explain how two findings can both be right, or why one is stronger."
+lesson = '''
+Two findings can seem to disagree but both be right, because the conditions were different.
+
+- Look for what was different: the place, the amount, the people, the tools.
+- One finding is stronger when it comes from a bigger sample, more trials, or a fairer test.
+- A finding is not stronger just because it is newer or sounds surprising.
+'''

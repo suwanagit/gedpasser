@@ -123,3 +123,60 @@ As the table shows, very little of Earth's water is fresh water. Almost all fres
 '''
 table = { headers = ["Kind of water", "Share of all water on Earth (%)"], rows = [["Salt water", "97.5"], ["Fresh water", "2.5"]] }
 source = "Original (facts and numbers from OpenStax Concepts of Biology 20.2 Biogeochemical Cycles; NASA Global Precipitation Measurement, The Water Cycle, https://gpm.nasa.gov/education/water-cycle; USGS Water Science School, Evaporation and the Water Cycle)"
+
+[[stimulus]]
+id = "science-co2"
+status = "draft"
+title = "Carbon dioxide in the air"
+text = '''
+Scientists at Mauna Loa Observatory in Hawaii measure the amount of carbon dioxide in the air. The amount is given in parts per million (ppm): the number of carbon dioxide molecules in every million molecules of air. The table shows the average for each of five years.
+'''
+table = { headers = ["Year", "Carbon dioxide (ppm)"], rows = [["1960", "316.9"], ["1980", "338.8"], ["2000", "369.7"], ["2020", "414.2"], ["2025", "427.4"]] }
+source = "Data: NOAA Global Monitoring Laboratory, Mauna Loa annual mean carbon dioxide (rounded to 0.1 ppm)"
+
+[[stimulus]]
+id = "science-road-salt"
+status = "draft"
+title = "Salt on ice"
+text = '''
+A city uses salt on icy roads in winter. A student wants to test the claim that salt makes ice melt faster. He puts one 30-gram ice cube in each of three identical dishes in the same room. He sprinkles 0 grams of salt on the first cube, 2 grams on the second, and 4 grams on the third. He records how long each cube takes to melt completely. He repeats the test three times and finds the average.
+'''
+table = { headers = ["Salt (g)", "Average time to melt (minutes)"], rows = [["0", "62"], ["2", "48"], ["4", "39"]] }
+source = "Original (made-up results for practice; facts from OpenStax Chemistry 2e 11.4 Colligative Properties)"
+
+[[stimulus]]
+id = "science-boiling"
+status = "draft"
+title = "Two boiling points"
+text = '''
+Two students each heat a pot of pure water and measure its temperature when it boils.
+
+Student 1 is in a kitchen near sea level. Her water boils at 100 °C.
+
+Student 2 is at a camp in the mountains, about 3,100 meters above sea level. His water boils at about 90 °C.
+
+Both used thermometers that read correctly. The air pressure at the mountain camp is much lower than the air pressure at sea level.
+'''
+source = "Original (facts from OpenStax Chemistry 2e 10.3 Phase Transitions)"
+
+[[stimulus]]
+id = "science-beetles"
+status = "draft"
+title = "Beetles on an island"
+text = '''
+On a small island, a kind of beetle comes in two colors: light brown and dark brown. Color is passed from parents to their young. Birds on the island eat the beetles. Birds find a beetle more easily when its color stands out against the ground.
+
+In 2010, the island's soil was light brown. That year, a volcano nearby covered the island in dark ash. Scientists counted beetles every four years.
+'''
+table = { headers = ["Year", "Dark beetles (% of all beetles)"], rows = [["2010", "20"], ["2014", "45"], ["2018", "70"], ["2022", "85"]] }
+source = "Original (made-up results for practice; facts from OpenStax Concepts of Biology 11.1 and 11.2)"
+
+[[stimulus]]
+id = "science-heart-rate"
+status = "draft"
+title = "Heart rate and exercise"
+text = '''
+A coach measured the heart rate of 10 healthy adults in beats per minute (bpm). She measured each person after sitting still for 5 minutes, after walking for 5 minutes, and after running for 5 minutes. The table shows the average for the group.
+'''
+table = { headers = ["Activity", "Average heart rate (bpm)"], rows = [["Sitting", "70"], ["Walking", "96"], ["Running", "142"]] }
+source = "Original (made-up results for practice; facts from OpenStax Anatomy and Physiology 2e 19.4 Cardiac Physiology)"

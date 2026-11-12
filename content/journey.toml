@@ -175,3 +175,21 @@ title = "Tables into words"
 principles = ["SP.6.c"]
 size = 5
 max_difficulty = 2
+
+[[stage]]
+id = "sci-d3a"
+subject = "science"
+day = 3
+title = "What the data show"
+principles = ["SP.3.b", "SP.3.a"]
+size = 5
+max_difficulty = 2
+
+[[stage]]
+id = "sci-d3b"
+subject = "science"
+day = 3
+title = "Claims and two findings"
+principles = ["SP.4.a", "SP.5.a"]
+size = 5
+max_difficulty = 2

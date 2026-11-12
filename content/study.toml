@@ -9,7 +9,7 @@
 # Reviewed as a whole: `cargo content-template study`, then
 # `cargo content-approve study` after an independent review.
 
-status = "reviewed"
+status = "draft"
 
 [[topic]]
 principle = "Q.1.a"
@@ -555,4 +555,33 @@ search = "how to describe a data table in words"
 links = [
   { title = "Math is Fun: Bar Graphs", url = "https://www.mathsisfun.com/data/bar-graphs.html" },
   { title = "OpenStax Introductory Statistics 2e, 2.1 Stem and leaf graphs stemplots line graphs and bar graphs", url = "https://openstax.org/books/introductory-statistics-2e/pages/2-1-stem-and-leaf-graphs-stemplots-line-graphs-and-bar-graphs" },
+]
+
+[[topic]]
+principle = "SP.3.a"
+search = "using evidence to support a scientific claim"
+links = [
+  { title = "OpenStax Concepts of Biology, 1.2 The process of science", url = "https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science" },
+]
+
+[[topic]]
+principle = "SP.3.b"
+search = "drawing conclusions from data"
+links = [
+  { title = "OpenStax Psychology 2e, 2.3 Analyzing findings", url = "https://openstax.org/books/psychology-2e/pages/2-3-analyzing-findings" },
+]
+
+[[topic]]
+principle = "SP.4.a"
+search = "evidence that supports or weakens a claim"
+links = [
+  { title = "OpenStax Concepts of Biology, 1.2 The process of science", url = "https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science" },
+]
+
+[[topic]]
+principle = "SP.5.a"
+search = "why sample size and control groups matter"
+links = [
+  { title = "OpenStax Psychology 2e, 2.2 Approaches to research", url = "https://openstax.org/books/psychology-2e/pages/2-2-approaches-to-research" },
+  { title = "OpenStax Psychology 2e, 2.3 Analyzing findings", url = "https://openstax.org/books/psychology-2e/pages/2-3-analyzing-findings" },
 ]
