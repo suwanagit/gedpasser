@@ -327,6 +327,7 @@ Each sub-phase is planned and approved separately. Research notes with sources a
   - Science batch 4 of 7 done (2026-11-12): Predictions and models (SP.3.c, SP.7.a), 16 questions on 4 new passages (NASA planet data, hares and lynx, cooling tea, the seasons and the midnight sun), two review rounds, approved. Day 4 of the Science path added.
   - Science batch 5 of 7 done (2026-11-12): Graphs, tables and diagrams (SP.1.c, SP.6.a, SP.6.b), 16 questions on 3 passages with a table and line graphs, three review rounds, approved. Day 5 of the Science path added. Plane figures gained `free_scale` for data graphs; graphs checked in the browser.
   - Science batch 6 of 7 done (2026-11-12): Probability and sampling (SP.3.d, SP.8.b, SP.8.c), 15 questions on a Punnett square and a lake fish survey, three review rounds, approved. Day 6 of the Science path added.
+  - Science batch 7 of 7 done (2026-11-12): Formulas and statistics (SP.7.b, SP.8.a), 15 questions, two review rounds, approved. Day 7 and its final check added. **Science is complete:** 120 questions on 25 passages covering all 22 Science Practice codes, a 7-day path (14 sets), practice tests at the 40/40/20 domain split (the full 34-question test can be filled), all reviewed by two blind solvers and a fact-checker.
 - [ ] 7e. Decide how to give feedback on RLA's extended response (a checklist the learner self-scores against the three rubric traits, or AI scoring through the Claude API). That needs Jon's decision on cost and privacy.
 
 ## Risks and open questions

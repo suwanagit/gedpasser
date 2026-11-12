@@ -4,6 +4,7 @@ Newest first. One line per decision: date, decision, reason.
 
 | Date | Decision | Reason |
 | --- | --- | --- |
+| 2026-11-12 | A typed number answer may carry a trailing unit ("14 mm", "5 km/h", "20 °C") and a typographic minus sign; the number itself must still be right | Science fill-ins name units, and learners naturally type them |
 | 2026-11-12 | The server shuffles multiple-choice options and drop-down menus every time it serves a question; `cargo content-quiz` prints them in a fixed mixed order | Authors list the answer first (92 of 95 Math and all Science items did), so the file order gave the answer away to learners and blind reviewers |
 | 2026-11-12 | A practice test takes at most 3 questions from one passage (`set_max` in `subjects.toml`; Language Arts 8), chosen at random; a passage may carry more for practice | The real Science and Social Studies tests ask two or three per stimulus, and a big set would crowd a 10-question test |
 | 2026-11-12 | The demo test bank (`fixtures/demo-science`) replaces the real content of the subjects it defines instead of adding to it | Real Science content grows batch by batch; the demo must not clash with it |

@@ -40,8 +40,9 @@ After logging in you land on **Learn**. The four tabs:
 After any answer, "Show me how" opens the worked explanation, the common
 mistake, and free pages to study that topic on your own.
 
-Only Math has content so far. Language Arts, Science and Social Studies are
-placeholders marked "Soon".
+Math and Science have content: Science has 120 questions on 25 original or
+public-data passages, a 7-day week path and practice tests. Language Arts
+and Social Studies are placeholders marked "Soon".
 
 Set a test date in Me to get daily tasks that put the most common, weakest
 principles first.

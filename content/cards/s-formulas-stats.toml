@@ -2,7 +2,7 @@
 
 [[card]]
 id = "SP.7.b"
-status = "draft"
+status = "reviewed"
 title = "Using a formula"
 key = "Write the formula, swap each letter for its number, then solve."
 steps = [
@@ -11,14 +11,14 @@ steps = [
   'Solve. If the unknown is not alone, undo steps.',
 ]
 example = '''
-Pressure = force ÷ area. Force 60 N, area 3 m².
-Pressure = 60 ÷ 3 = **20 N/m²**.
+Pressure = force ÷ area. Force 84 N, area 7 m².
+Pressure = 84 ÷ 7 = **12 N/m²**.
 '''
 hack = 'Units are clues: N ÷ m² gives N/m².'
 
 [[card]]
 id = "SP.8.a"
-status = "draft"
+status = "reviewed"
 title = "Mean, median, mode, range"
 key = "Mean: add and divide. Median: middle. Mode: most often. Range: biggest minus smallest."
 steps = [

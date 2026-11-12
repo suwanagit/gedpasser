@@ -511,3 +511,123 @@ role = "factcheck"
 verdict = "pass"
 note = "Opened OpenStax Chemistry 2e 1.4: density = mass / volume (and 1 mL = 1 cm³). m = 0.8 × 250 = 200 g. 0.8 g/mL is realistic (Table 1.4: ethanol and acetone 0.79 g/cm³). 250/0.8 = 312.5 correct."
 date = "2026-11-12"
+
+[[review]]
+id = "SP.7.b"
+kind = "card"
+hash = "80f152d571bdf65c"
+verdict = "fix"
+note = "Rule, steps and hack are correct and short. But the example reuses a question's numbers: 60 and 3 with answer 20 is 0009 (60 g / 20 cm3 = 3) rearranged, and close to 0011 (600 J / 3 s = 200). WRITING.md asks for different numbers. Swap to e.g. Force 84 N, area 7 m2: Pressure = 84 / 7 = **12 N/m2**, and keep everything else."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.8.a"
+kind = "card"
+hash = "ffeaf5468ffb0ee4"
+verdict = "pass"
+note = "Checked example: 2,3,3,4,8,10 sum 30, mean 5, median (3+4)/2 = 3.5, mode 3, range 8, all correct. Steps cover the even-count median. Data and results do not match any of the 15 questions (rainfall set, boiling trials). Under 90 words, plain wording; hack is correct and memorable."
+date = "2026-11-12"
+
+[[review]]
+id = "s-formulas-stats-0004"
+kind = "question"
+hash = "cfc6e807ebbd638d"
+reviewer = "solver-kk"
+role = "solver"
+verdict = "pass"
+solved = "A few very wet days raise the mean but barely change the median"
+note = "Blind answer matches key. Data sorted 0,4,5,6,14,14,20: mean 63/7 = 9, median 6. Distractors are clearly wrong (only 3 days above 9 mm; the mean includes the 0 day; median is not always lower) yet tempting. Explanation correct (median stays 6 if the wettest day doubles), closing So line with bold answer, no banned words. Common mistake counts check out (3 days above 9, other 4 at 6 mm or less). SP.8.a and ES.b.1 fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-formulas-stats-0006"
+kind = "question"
+hash = "6aa0e7addb89b7b5"
+reviewer = "solver-kk"
+role = "solver"
+verdict = "pass"
+solved = "101.4"
+note = "Blind answer matches key and check: 405.6 / 4 = 101.4. Explanation steps correct, closing So line with bold answer, no banned words. Common mistake is real: median of 101.1, 101.4, 101.5, 101.6 is indeed 101.45. SP.8.a fits; P.c.4 (solutions) fits a salt-solution boiling point. Metric units."
+date = "2026-11-12"
+
+[[review]]
+id = "s-formulas-stats-0007"
+kind = "question"
+hash = "f3d81fa2431ba672"
+reviewer = "solver-kk"
+role = "solver"
+verdict = "pass"
+solved = "5"
+note = "Blind answer matches key; check 30 / 6 = 5. Formula given in the prompt, so SP.7.b fits; P.b.1 (speed) fits. Explanation is short, correct, ends with a So line with bold answer, no banned words. Common mistake (30 x 6 = 180) is a realistic error. Difficulty 1 is right."
+date = "2026-11-12"
+
+[[review]]
+id = "s-formulas-stats-0004"
+kind = "question"
+hash = "cfc6e807ebbd638d"
+reviewer = "solver-ll"
+role = "solver"
+verdict = "pass"
+solved = "A few very wet days raise the mean but barely change the median"
+note = "Blind answer matches key. Checked from table: total 63 / 7 = 9, sorted 0,4,5,6,14,14,20 gives median 6. Distractors clearly wrong but tempting: only 3 of 7 days exceed 9 mm; the mean counts the 0 mm day (dropping it would raise the mean); median is not always lower. Explanation correct (median stays 6 if wettest day doubles), ends with So line and bold answer, no banned words. Common mistake matches a distractor with correct counts. SP.8.a and ES.b.1 (atmosphere/weather) fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-formulas-stats-0006"
+kind = "question"
+hash = "6aa0e7addb89b7b5"
+reviewer = "solver-ll"
+role = "solver"
+verdict = "pass"
+solved = "101.4"
+note = "Blind answer matches key. Sum 101.1+101.6+101.4+101.5 = 405.6, / 4 = 101.4; check expression computes it. Explanation one line per step, explains every number, ends with So line and bold answer. Common mistake (median 101.45) is a real confusion and the value is correct. SP.8.a fits; P.c.4 (solutions) fits the salt-solution context. Metric units."
+date = "2026-11-12"
+
+[[review]]
+id = "s-formulas-stats-0007"
+kind = "question"
+hash = "f3d81fa2431ba672"
+reviewer = "solver-ll"
+role = "solver"
+verdict = "pass"
+solved = "5"
+note = "Blind answer matches key. 30 km / 6 h = 5 km/h; check 30 / 6 computes it. Formula is given in the prompt as the science test does. Explanation short, says why before how, ends with So line and bold answer. Common mistake (multiplying to get 180) is realistic. SP.7.b and P.b.1 (speed) fit; difficulty 1 reasonable."
+date = "2026-11-12"
+
+[[review]]
+id = "s-formulas-stats-0004"
+kind = "question"
+hash = "cfc6e807ebbd638d"
+reviewer = "factcheck-s"
+role = "factcheck"
+verdict = "pass"
+note = "Opened OpenStax Intro Stats 2e 2.5: mean = sum / count; median = middle of ordered data and is not affected by the exact values of outliers, which supports the key and the explanation. Passage science-rainfall is original, with made-up numbers labeled as such. Checked the numbers: sum 63 / 7 = 9 (mean); ordered 0,4,5,6,14,14,20, so the median is 6. Wet days 14, 14, 20 are the only 3 above 9, and the other 4 (0,6,4,5) are 6 or less, as the common mistake says. Doubling 20 to 40 leaves the median at 6. Distractors are false: 'mean leaves out the 0 day' is wrong (0 counts in n = 7), and 'median always lower' is wrong. Seven-day totals (63 mm) are realistic for a rainy coastal town."
+date = "2026-11-12"
+
+[[review]]
+id = "s-formulas-stats-0006"
+kind = "question"
+hash = "6aa0e7addb89b7b5"
+reviewer = "factcheck-s"
+role = "factcheck"
+verdict = "pass"
+note = "Opened OpenStax Prealgebra 2e 5.5 (mean = sum of values / number of values) and Intro Stats 2e 2.5 (median of ordered data). Sum 101.1+101.6+101.4+101.5 = 405.6, / 4 = 101.4, which matches the key and the check. Median of 101.1, 101.4, 101.5, 101.6 = (101.4+101.5)/2 = 101.45, as the common mistake says. Realism: OpenStax Chemistry 2e 11.4 gives dTb = Kb*m with Kb(water) = 0.512 C/m. A NaCl solution of about 1.4 mol/kg (i = 2, about 8% salt by mass) boils near 101.4 C at sea level, so the values and the trial-to-trial spread of 0.5 C are plausible. The question makes no further factual claim."
+date = "2026-11-12"
+
+[[review]]
+id = "s-formulas-stats-0007"
+kind = "question"
+hash = "f3d81fa2431ba672"
+reviewer = "factcheck-s"
+role = "factcheck"
+verdict = "pass"
+note = "Opened OpenStax College Physics 2e 2.3: average speed is distance traveled divided by elapsed time, with units such as km/h. This matches the formula as stated in the prompt. 30 km / 6 h = 5 km/h, which matches the key and the check, and 30 x 6 = 180 is the stated mistake. Realism: 5 km/h is a typical relaxed canoe touring speed (paddling about 4-6 km/h, plus some current), and 30 km over 6 hours is a plausible day trip. The units are metric."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.7.b"
+kind = "card"
+hash = "9edd6c14e61a0dfa"
+verdict = "pass"
+note = "card-reviewer: Key, steps and example are correct: pressure = force / area, 84 N / 7 m^2 = 12 N/m^2 (N/m^2 is the pascal). Hack is correct and useful as a setup check (dividing N by m^2 gives N/m^2), and it does not mislead. Well under 90 words, short sentences, high-school level, no jargon. Checked all 15 questions in content/science/s-formulas-stats.toml: none uses pressure, and none uses 84, 7 or 12 (formula items use speed 30/6 and 150/50, F=ma 1200x2, density 60/20 and 0.8x250, work 50x4, power 600/3, momentum 0.5x4, Q=mcdT 0.5x4186x10), so nothing is given away. Metric units, original wording. Optional polish, not blocking: step 3 'undo steps' is a little vague (e.g. 'If the unknown is not alone, rearrange the formula first'), and WRITING.md prefers display math in the example, though the sibling reviewed SP.8.a card uses plain text too."
+date = "2026-11-12"

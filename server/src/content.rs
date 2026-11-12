@@ -239,7 +239,7 @@ pub fn grade(q: &Question, response: &str) -> bool {
     match q.kind {
         QuestionType::MultipleChoice => response.trim() == q.answer.trim(),
         QuestionType::FillIn => std::iter::once(&q.answer).chain(q.accept.iter()).any(|want| {
-            match (ged_content::parse_answer(want), ged_content::parse_answer(response)) {
+            match (ged_content::parse_answer(want), parse_number(response)) {
                 (Some(w), Some(got)) => ged_content::close_enough(w, got),
                 _ => normalize(response) == normalize(want),
             }
@@ -265,6 +265,34 @@ pub fn grade(q: &Question, response: &str) -> bool {
     }
 }
 
+/// A typed number, allowing a trailing unit ("14 mm", "5 km/h", "20 °C")
+/// and a typographic minus sign. The number itself must still be right.
+fn parse_number(response: &str) -> Option<f64> {
+    let r = response.trim().replace('\u{2212}', "-");
+    ged_content::parse_answer(&r).or_else(|| {
+        let bare = r.trim_end_matches(|c: char| c.is_alphabetic() || c.is_whitespace() || "°/²³·().".contains(c));
+        if bare.len() < r.len() { ged_content::parse_answer(bare) } else { None }
+    })
+}
+
 fn normalize(s: &str) -> String {
     s.chars().filter(|c| !c.is_whitespace()).flat_map(char::to_lowercase).collect()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::parse_number;
+
+    #[test]
+    fn number_answers_may_carry_a_unit() {
+        assert_eq!(parse_number("14"), Some(14.0));
+        assert_eq!(parse_number("14 mm"), Some(14.0));
+        assert_eq!(parse_number("5 km/h"), Some(5.0));
+        assert_eq!(parse_number("2,400 N"), Some(2400.0));
+        assert_eq!(parse_number("3 g/cm³"), Some(3.0));
+        assert_eq!(parse_number("\u{2212}10 °C"), Some(-10.0));
+        assert_eq!(parse_number("101.4°C"), Some(101.4));
+        assert_eq!(parse_number("12 or 13"), None);
+        assert_eq!(parse_number("mm"), None);
+    }
 }
