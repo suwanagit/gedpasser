@@ -247,3 +247,22 @@ title = "Chance and counting"
 principles = ["SP.8.c", "SP.8.b"]
 size = 5
 max_difficulty = 2
+
+[[stage]]
+id = "sci-d7a"
+subject = "science"
+day = 7
+title = "Formulas and averages"
+principles = ["SP.7.b", "SP.8.a"]
+size = 5
+max_difficulty = 3
+
+[[stage]]
+id = "sci-d7b"
+subject = "science"
+day = 7
+title = "Final check"
+checkpoint = true
+cumulative = true
+size = 10
+max_difficulty = 3

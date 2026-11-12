@@ -9,7 +9,7 @@
 # Reviewed as a whole: `cargo content-template study`, then
 # `cargo content-approve study` after an independent review.
 
-status = "reviewed"
+status = "draft"
 
 [[topic]]
 principle = "Q.1.a"
@@ -646,4 +646,20 @@ search = "Punnett square probability"
 links = [
   { title = "OpenStax Concepts of Biology, 8.2 Laws of inheritance", url = "https://openstax.org/books/concepts-biology/pages/8-2-laws-of-inheritance" },
   { title = "OpenStax Introductory Statistics 2e, 3.1 Terminology", url = "https://openstax.org/books/introductory-statistics-2e/pages/3-1-terminology" },
+]
+
+[[topic]]
+principle = "SP.7.b"
+search = "using physics formulas speed force density"
+links = [
+  { title = "OpenStax College Physics 2e, 2.3 Time velocity and speed", url = "https://openstax.org/books/college-physics-2e/pages/2-3-time-velocity-and-speed" },
+  { title = "OpenStax Chemistry 2e, 1.4 Measurements", url = "https://openstax.org/books/chemistry-2e/pages/1-4-measurements" },
+]
+
+[[topic]]
+principle = "SP.8.a"
+search = "mean median mode and range"
+links = [
+  { title = "OpenStax Introductory Statistics 2e, 2.5 Measures of the center of the data", url = "https://openstax.org/books/introductory-statistics-2e/pages/2-5-measures-of-the-center-of-the-data" },
+  { title = "Math is Fun: Finding a Central Value (Mean, Median, Mode)", url = "https://www.mathsisfun.com/data/central-measures.html" },
 ]

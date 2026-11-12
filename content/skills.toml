@@ -264,3 +264,15 @@ can tell us.\
 difficulty_min = 1
 difficulty_max = 3
 targets = ["SP.3.d", "SP.8.b", "SP.8.c"]
+
+[[skill]]
+id = "s-formulas-stats"
+subject = "science"
+name = "Formulas and statistics"
+description = """
+Using a science formula you are given to find an unknown, and \
+describing data with the mean, median, mode and range.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["SP.7.b", "SP.8.a"]

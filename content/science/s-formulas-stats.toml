@@ -1,0 +1,302 @@
+# Science: formulas and statistics (SP.7.b, SP.8.a)
+# Every question cites its sources (docs/CONTENT_RULES.md). Explanations
+# follow docs/EXPLANATION_STYLE.md: one line per step, answer in bold.
+
+# ── A week of rain (science-rainfall) ─────────────────────────────────
+
+[[question]]
+id = "s-formulas-stats-0001"
+skill = "s-formulas-stats"
+principle = "SP.8.a"
+topic = "ES.b.1"
+difficulty = 1
+type = "fill_in"
+status = "draft"
+stimulus = "science-rainfall"
+sources = ["Original passage science-rainfall", "OpenStax Introductory Statistics 2e 2.5 Measures of the Center of the Data: https://openstax.org/books/introductory-statistics-2e/pages/2-5-measures-of-the-center-of-the-data", "Math is Fun: Finding a Central Value (Mean, Median, Mode): https://www.mathsisfun.com/data/central-measures.html"]
+prompt = "What is the mode of the daily rainfall, in millimeters?"
+answer = "14"
+check = "14"
+explanation = '''
+The mode is the value that appears most often.
+14 mm appears twice (Monday and Thursday); every other value appears once.
+So the mode is **14** mm.
+'''
+common_mistake = "Answering 20, the largest value. The mode is the most common value, not the biggest."
+
+[[question]]
+id = "s-formulas-stats-0002"
+skill = "s-formulas-stats"
+principle = "SP.8.a"
+topic = "ES.b.1"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+stimulus = "science-rainfall"
+sources = ["Original passage science-rainfall", "OpenStax Introductory Statistics 2e 2.5 Measures of the Center of the Data: https://openstax.org/books/introductory-statistics-2e/pages/2-5-measures-of-the-center-of-the-data", "OpenStax Prealgebra 2e 5.5 Averages and Probability: https://openstax.org/books/prealgebra-2e/pages/5-5-averages-and-probability"]
+prompt = "What is the mean daily rainfall for the week, in millimeters?"
+answer = "9"
+check = "(14 + 0 + 6 + 14 + 20 + 4 + 5) / 7"
+explanation = '''
+The mean is the total divided by the number of days.
+Total: 14 + 0 + 6 + 14 + 20 + 4 + 5 = 63 mm, over 7 days.
+63 ÷ 7 = 9.
+So the mean is **9** mm.
+'''
+common_mistake = "Dividing by 6 because Tuesday had no rain. A day with 0 mm still counts as one of the 7 days."
+
+[[question]]
+id = "s-formulas-stats-0003"
+skill = "s-formulas-stats"
+principle = "SP.8.a"
+topic = "ES.b.1"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+stimulus = "science-rainfall"
+sources = ["Original passage science-rainfall", "OpenStax Introductory Statistics 2e 2.5 Measures of the Center of the Data: https://openstax.org/books/introductory-statistics-2e/pages/2-5-measures-of-the-center-of-the-data", "Math is Fun: Finding a Central Value (Mean, Median, Mode): https://www.mathsisfun.com/data/central-measures.html"]
+prompt = "What is the median daily rainfall for the week, in millimeters?"
+answer = "6"
+check = "6"
+explanation = '''
+The median is the middle value once the values are in order.
+In order: 0, 4, 5, 6, 14, 14, 20. With 7 values, the middle is the 4th.
+So the median is **6** mm.
+'''
+common_mistake = "Taking the middle of the table as listed (Thursday, 14 mm) without putting the values in order first."
+
+[[question]]
+id = "s-formulas-stats-0004"
+skill = "s-formulas-stats"
+principle = "SP.8.a"
+topic = "ES.b.1"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-rainfall"
+sources = ["Original passage science-rainfall", "OpenStax Introductory Statistics 2e 2.5 Measures of the Center of the Data: https://openstax.org/books/introductory-statistics-2e/pages/2-5-measures-of-the-center-of-the-data"]
+prompt = "The mean rainfall for the week is 9 mm, but the median is only 6 mm. Which statement best explains why the mean is higher?"
+choices = ["The two wettest days pull the mean up more than they move the median", "The median counts the dry day twice", "The mean leaves out the day with no rain", "The median is always lower than the mean"]
+answer = "The two wettest days pull the mean up more than they move the median"
+explanation = '''
+The mean adds every value, so large values like 14, 14 and 20 raise it.
+The median is just the middle value, 6, no matter how big the largest values are.
+So the mean is higher because **the two wettest days pull the mean up more than they move the median**.
+'''
+common_mistake = "Picking \"the median is always lower\". In some data sets the median is higher than the mean."
+
+[[question]]
+id = "s-formulas-stats-0005"
+skill = "s-formulas-stats"
+principle = "SP.8.a"
+topic = "ES.b.1"
+difficulty = 1
+type = "fill_in"
+status = "draft"
+stimulus = "science-rainfall"
+sources = ["Original passage science-rainfall", "Math is Fun: Range: https://www.mathsisfun.com/data/range.html"]
+prompt = "What is the range of the daily rainfall, in millimeters?"
+answer = "20"
+check = "20 - 0"
+explanation = '''
+The range is the largest value minus the smallest.
+Largest: 20 mm (Friday). Smallest: 0 mm (Tuesday). 20 − 0 = 20.
+So the range is **20** mm.
+'''
+common_mistake = "Answering 16 by subtracting the smallest rainy day, 4 mm. A day with 0 mm is still the smallest value."
+
+# ── Stand-alone: statistics ───────────────────────────────────────────
+
+[[question]]
+id = "s-formulas-stats-0006"
+skill = "s-formulas-stats"
+principle = "SP.8.a"
+topic = "P.c.4"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+sources = ["OpenStax Introductory Statistics 2e 2.5 Measures of the Center of the Data: https://openstax.org/books/introductory-statistics-2e/pages/2-5-measures-of-the-center-of-the-data", "OpenStax Prealgebra 2e 5.5 Averages and Probability: https://openstax.org/books/prealgebra-2e/pages/5-5-averages-and-probability"]
+prompt = "A student measures the boiling point of a salt solution in four trials: 101.2 °C, 101.6 °C, 101.4 °C and 101.4 °C. What is the mean of the four trials, in °C?"
+answer = "101.4"
+check = "(101.2 + 101.6 + 101.4 + 101.4) / 4"
+explanation = '''
+The mean is the total divided by the number of trials.
+Total: 101.2 + 101.6 + 101.4 + 101.4 = 405.6, over 4 trials.
+405.6 ÷ 4 = 101.4.
+So the mean is **101.4** °C.
+'''
+common_mistake = "Dividing by 3 because two trials match. Every trial counts, so divide by 4."
+
+# ── Stand-alone: formulas ─────────────────────────────────────────────
+
+[[question]]
+id = "s-formulas-stats-0007"
+skill = "s-formulas-stats"
+principle = "SP.7.b"
+topic = "P.b.1"
+difficulty = 1
+type = "fill_in"
+status = "draft"
+sources = ["OpenStax College Physics 2e 2.3 Time, Velocity, and Speed: https://openstax.org/books/college-physics-2e/pages/2-3-time-velocity-and-speed"]
+prompt = "Average speed = distance ÷ time. A salmon swims 30 km up a river in 6 hours. What is its average speed, in kilometers per hour?"
+answer = "5"
+check = "30 / 6"
+explanation = '''
+Use the formula: average speed = distance ÷ time.
+Put in the numbers: 30 km ÷ 6 h = 5 km/h.
+So the salmon's average speed is **5** km/h.
+'''
+common_mistake = "Multiplying 30 × 6 = 180. Speed is distance divided by time."
+
+[[question]]
+id = "s-formulas-stats-0008"
+skill = "s-formulas-stats"
+principle = "SP.7.b"
+topic = "P.b.2"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+sources = ["OpenStax College Physics 2e 4.3 Newton's Second Law of Motion: https://openstax.org/books/college-physics-2e/pages/4-3-newtons-second-law-of-motion-concept-of-a-system"]
+prompt = "Force = mass × acceleration (F = ma). A 1,200 kg car speeds up with an acceleration of 2 m/s². What net force acts on the car, in newtons?"
+answer = "2400"
+check = "1200 * 2"
+explanation = '''
+Use the formula F = ma, with mass in kilograms and acceleration in m/s².
+F = 1,200 kg × 2 m/s² = 2,400 N.
+So the net force is **2,400** newtons.
+'''
+common_mistake = "Dividing 1,200 ÷ 2 = 600. The formula multiplies mass by acceleration."
+
+[[question]]
+id = "s-formulas-stats-0009"
+skill = "s-formulas-stats"
+principle = "SP.7.b"
+topic = "P.c.2"
+difficulty = 1
+type = "fill_in"
+status = "draft"
+sources = ["OpenStax Chemistry 2e 1.4 Measurements: https://openstax.org/books/chemistry-2e/pages/1-4-measurements"]
+prompt = "Density = mass ÷ volume. A rock has a mass of 60 g and a volume of 20 cm³. What is its density, in g/cm³?"
+answer = "3"
+check = "60 / 20"
+explanation = '''
+Use the formula: density = mass ÷ volume.
+60 g ÷ 20 cm³ = 3 g/cm³.
+So the rock's density is **3** g/cm³.
+'''
+common_mistake = "Dividing 20 ÷ 60. Mass goes on top: density is mass divided by volume."
+
+[[question]]
+id = "s-formulas-stats-0010"
+skill = "s-formulas-stats"
+principle = "SP.7.b"
+topic = "P.b.3"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+sources = ["OpenStax College Physics 2e 7.1 Work: The Scientific Definition: https://openstax.org/books/college-physics-2e/pages/7-1-work-the-scientific-definition"]
+prompt = "Work = force × distance. A worker pushes a box with a force of 50 N for 4 m in the direction of the push. How much work does the worker do, in joules?"
+answer = "200"
+check = "50 * 4"
+explanation = '''
+Use the formula: work = force × distance.
+50 N × 4 m = 200 J.
+So the worker does **200** joules of work.
+'''
+common_mistake = "Adding 50 + 4 = 54. Work multiplies force by distance."
+
+[[question]]
+id = "s-formulas-stats-0011"
+skill = "s-formulas-stats"
+principle = "SP.7.b"
+topic = "P.b.3"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+sources = ["OpenStax College Physics 2e 7.7 Power: https://openstax.org/books/college-physics-2e/pages/7-7-power"]
+prompt = "Power = work ÷ time. A motor does 600 J of work in 3 seconds. What is its power, in watts?"
+answer = "200"
+check = "600 / 3"
+explanation = '''
+Use the formula: power = work ÷ time.
+600 J ÷ 3 s = 200 W.
+So the motor's power is **200** watts.
+'''
+common_mistake = "Multiplying 600 × 3 = 1,800. Power is work divided by time."
+
+[[question]]
+id = "s-formulas-stats-0012"
+skill = "s-formulas-stats"
+principle = "SP.7.b"
+topic = "P.b.1"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+sources = ["OpenStax College Physics 2e 8.1 Linear Momentum and Force: https://openstax.org/books/college-physics-2e/pages/8-1-linear-momentum-and-force"]
+prompt = "Momentum = mass × velocity (p = mv). A 0.5 kg ball moves at 4 m/s. What is its momentum, in kg·m/s?"
+answer = "2"
+check = "0.5 * 4"
+explanation = '''
+Use the formula p = mv.
+0.5 kg × 4 m/s = 2 kg·m/s.
+So the ball's momentum is **2** kg·m/s.
+'''
+common_mistake = "Answering 8 by dividing 4 ÷ 0.5. The formula multiplies mass by velocity."
+
+[[question]]
+id = "s-formulas-stats-0013"
+skill = "s-formulas-stats"
+principle = "SP.7.b"
+topic = "P.b.1"
+difficulty = 3
+type = "fill_in"
+status = "draft"
+sources = ["OpenStax College Physics 2e 2.3 Time, Velocity, and Speed: https://openstax.org/books/college-physics-2e/pages/2-3-time-velocity-and-speed"]
+prompt = "Average speed = distance ÷ time. A bus travels 150 km at an average speed of 50 km/h. How many hours does the trip take?"
+answer = "3"
+check = "150 / 50"
+explanation = '''
+The unknown is time, so rearrange the formula: time = distance ÷ speed.
+150 km ÷ 50 km/h = 3 h.
+So the trip takes **3** hours.
+'''
+common_mistake = "Multiplying 150 × 50. To find time, divide the distance by the speed."
+
+[[question]]
+id = "s-formulas-stats-0014"
+skill = "s-formulas-stats"
+principle = "SP.7.b"
+topic = "P.a.1"
+difficulty = 3
+type = "fill_in"
+status = "draft"
+sources = ["OpenStax College Physics 2e 14.2 Temperature Change and Heat Capacity: https://openstax.org/books/college-physics-2e/pages/14-2-temperature-change-and-heat-capacity"]
+prompt = "Heat needed = mass × specific heat × temperature change (Q = mcΔT). The specific heat of water is 4,186 J/(kg·°C). How many joules of heat are needed to warm 0.5 kg of water by 10 °C?"
+answer = "20930"
+check = "0.5 * 4186 * 10"
+explanation = '''
+Use the formula Q = mcΔT.
+Q = 0.5 kg × 4,186 J/(kg·°C) × 10 °C.
+0.5 × 4,186 = 2,093, and 2,093 × 10 = 20,930.
+So **20,930** joules are needed.
+'''
+common_mistake = "Leaving out the mass and answering 41,860. Every factor in the formula has to be multiplied."
+
+[[question]]
+id = "s-formulas-stats-0015"
+skill = "s-formulas-stats"
+principle = "SP.7.b"
+topic = "P.c.2"
+difficulty = 3
+type = "fill_in"
+status = "draft"
+sources = ["OpenStax Chemistry 2e 1.4 Measurements: https://openstax.org/books/chemistry-2e/pages/1-4-measurements"]
+prompt = "Density = mass ÷ volume. A liquid has a density of 0.8 g/mL. What is the mass, in grams, of 250 mL of the liquid?"
+answer = "200"
+check = "0.8 * 250"
+explanation = '''
+The unknown is mass, so rearrange the formula: mass = density × volume.
+0.8 g/mL × 250 mL = 200 g.
+So the liquid has a mass of **200** grams.
+'''
+common_mistake = "Dividing 250 ÷ 0.8 = 312.5. To find mass, multiply density by volume."

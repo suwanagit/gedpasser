@@ -283,3 +283,13 @@ The table shows their sample. The numbers are made up for practice.
 '''
 table = { headers = ["Kind of fish", "Number caught"], rows = [["Trout", "60"], ["Grayling", "30"], ["Pike", "10"], ["Total", "100"]] }
 source = "Original (made-up numbers for practice; facts from OpenStax Introductory Statistics 2e 1.2)"
+
+[[stimulus]]
+id = "science-rainfall"
+status = "draft"
+title = "A week of rain"
+text = '''
+A student in a rainy coastal town measures the rainfall each day for one week with a rain gauge. The numbers are made up for practice.
+'''
+table = { headers = ["Day", "Rainfall (mm)"], rows = [["Monday", "14"], ["Tuesday", "0"], ["Wednesday", "6"], ["Thursday", "14"], ["Friday", "20"], ["Saturday", "4"], ["Sunday", "5"]] }
+source = "Original (made-up numbers for practice)"
