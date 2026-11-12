@@ -1444,7 +1444,7 @@ Many questions ask you to pull one number out of a picture, or to write words as
 [[principle]]
 id = "SP.3.d"
 skill = "s-probability"
-status = "draft"
+status = "reviewed"
 name = "Samples"
 summary = "Judge how a sample was chosen, and use a sample to estimate a whole group."
 lesson = '''
@@ -1466,14 +1466,14 @@ lesson = '''
 Counting rules let you find how many possibilities there are without listing them all.
 
 - Choosing one thing from each of several groups: multiply the number of choices in each group.
-- Putting a set of things in order: multiply down, for example 4 × 3 × 2 × 1 for four things.
+- Putting a set of things in order: multiply down, for example 3 × 2 × 1 = 6 orders for three things.
 - Choosing a group where order doesn't matter: count the ordered ways, then divide by the number of ways to order the group.
 '''
 
 [[principle]]
 id = "SP.8.c"
 skill = "s-probability"
-status = "draft"
+status = "reviewed"
 name = "Probability and Punnett squares"
 summary = "Find the chance of an event, including traits from a Punnett square."
 lesson = '''

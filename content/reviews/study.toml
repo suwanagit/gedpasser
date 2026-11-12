@@ -196,3 +196,11 @@ hash = "de7372e42e8800a2"
 verdict = "pass"
 note = "factcheck-m: curl -L checked all unique URLs in study.toml: every link returns HTTP 200. New SP.6.a topic: NCES Kids' Zone How Do I Choose Which Type of Graph to Use? (line graphs for change over time, bar graphs to compare groups, pie charts for parts of a whole) and OpenStax Intro Stats 2e 2.1 (line and bar graphs) both teach choosing a graph type at a GED-suitable level; titles describe the pages; search words fit. Earlier topics were link-checked only, as instructed."
 date = "2026-11-12"
+
+[[review]]
+id = "study"
+kind = "study"
+hash = "0636b74ca2531d46"
+verdict = "pass"
+note = 'Curled all 103 unique links in study.toml: every one returns HTTP 200 (OpenStax returns 404 for bad slugs, so 200 is meaningful). New topics: SP.3.d -> Intro Stats 1.2 (random sampling, bias, sample size) fits; SP.8.b -> Contemporary Math 7.1 multiplication rule and 7.3 combinations fit counting; SP.8.c -> Concepts of Biology 8.2 (Punnett squares, probability) and Intro Stats 3.1 (basic probability) fit. Titles match page titles; search words fit. Minor optional: SP.8.b search mentions permutations; could add Contemporary Math 7.2 Permutations.'
+date = "2026-11-12"

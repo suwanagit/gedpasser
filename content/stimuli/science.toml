@@ -262,7 +262,7 @@ source = "Original (made-up results for practice; facts from OpenStax Chemistry 
 
 [[stimulus]]
 id = "science-pea-cross"
-status = "draft"
+status = "reviewed"
 title = "A pea plant cross"
 text = '''
 In pea plants, the allele for purple flowers (P) is dominant, and the allele for white flowers (p) is recessive. A plant with at least one P allele has purple flowers. Only a plant with two p alleles (pp) has white flowers.
@@ -274,7 +274,7 @@ source = "Original (facts from OpenStax Concepts of Biology 8.2 Laws of Inherita
 
 [[stimulus]]
 id = "science-fish-survey"
-status = "draft"
+status = "reviewed"
 title = "Counting fish in a lake"
 text = '''
 Biologists want to know what kinds of fish live in a large lake. The lake holds about 5,000 fish. Catching them all is impossible, so the biologists take a sample. They set nets at 20 places chosen at random around the whole lake, in both shallow and deep water. They identify each fish they catch and then let it go.

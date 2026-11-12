@@ -2,7 +2,7 @@
 
 [[card]]
 id = "SP.3.d"
-status = "draft"
+status = "reviewed"
 title = "Samples"
 key = "A fair sample is random and spread across the whole group."
 steps = [
@@ -24,7 +24,8 @@ key = "One choice from each group: multiply the choices."
 steps = [
   'Count the choices in each group.',
   'Multiply them together.',
-  'For putting things in order: 4 × 3 × 2 × 1.',
+  'Putting things in order: multiply down, like 3 × 2 × 1.',
+  'Order does not matter? Divide by the ways to order each group (pairs: divide by 2).',
 ]
 example = '''
 3 shirts and 2 pairs of pants.
@@ -34,7 +35,7 @@ hack = '"And" between choices means multiply.'
 
 [[card]]
 id = "SP.8.c"
-status = "draft"
+status = "reviewed"
 title = "Probability"
 key = "Probability = ways it can happen ÷ all equally likely outcomes."
 steps = [

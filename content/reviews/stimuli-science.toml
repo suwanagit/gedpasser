@@ -838,3 +838,43 @@ role = "factcheck"
 verdict = "pass"
 note = '''Source starts with Original, labels numbers made-up, and cites both USGS pages; text is our own wording, no verbatim runs. USGS Earthquake Magnitude, Energy Release, and Shaking Intensity (opened): "Seismometers record the vibrations from earthquakes"; "Magnitude is the size of the earthquake", higher = larger (each whole step = 10x amplitude, about 32x energy); "how strong" is a fair plain-language rendering. USGS Lists, Maps, and Statistics (opened): world counts 2017-2021 about 1,300-2,050 M5, 104-140 M6, 6-16 M7, 0-3 M8+ per year, roughly tenfold fewer per whole magnitude, so the 1,000/100/10/1 table "follows the real pattern" and is not misleading.'''
 date = "2026-11-12"
+
+[[review]]
+id = "science-pea-cross"
+kind = "stimulus"
+hash = "6f32879f7370a0ea"
+reviewer = "solver-cc"
+role = "solver"
+verdict = "pass"
+note = "Clear, accurate (Pp x Pp, P dominant, four equally likely boxes), short, about grade 10. States the rules a learner needs without stating any probability, so 0001-0004 still need work; any 3 of them stand alone."
+date = "2026-11-12"
+
+[[review]]
+id = "science-fish-survey"
+kind = "stimulus"
+hash = "4657a638e36ee10d"
+reviewer = "solver-cc"
+role = "solver"
+verdict = "pass"
+note = "Clear, short, about grade 10; table sums to 100 and is labeled made-up. Gives the 5,000 total needed for 0005 and the random, shallow-and-deep placement needed for 0006 and 0007 without stating why it matters. Alaska-realistic species."
+date = "2026-11-12"
+
+[[review]]
+id = "science-pea-cross"
+kind = "stimulus"
+hash = "6f32879f7370a0ea"
+reviewer = "factcheck-o"
+role = "factcheck"
+verdict = "pass"
+note = 'Source line starts with Original; no verbatim runs from OpenStax. OpenStax CoB 8.2 confirms: purple/violet flower color dominant over white in peas, recessive trait only in homozygous recessive plants, Punnett square combinations equally likely. Table PP/Pp/Pp/pp correct for Pp x Pp.'
+date = "2026-11-12"
+
+[[review]]
+id = "science-fish-survey"
+kind = "stimulus"
+hash = "4657a638e36ee10d"
+reviewer = "factcheck-o"
+role = "factcheck"
+verdict = "pass"
+note = 'Source line starts with Original and says numbers are made up; text also says so. Table sums correctly (60+30+10 = 100). Sampling description (random sites, shallow and deep water) matches OpenStax Intro Stats 2e 1.2 on random, representative samples. No verbatim copying.'
+date = "2026-11-12"
