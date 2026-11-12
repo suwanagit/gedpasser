@@ -1459,7 +1459,7 @@ A sample is a small part of a group that scientists study to learn about the who
 [[principle]]
 id = "SP.8.b"
 skill = "s-probability"
-status = "draft"
+status = "reviewed"
 name = "Counting possibilities"
 summary = "Count how many combinations or arrangements are possible."
 lesson = '''

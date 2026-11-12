@@ -25,7 +25,7 @@ steps = [
   'Count the choices in each group.',
   'Multiply them together.',
   'Putting things in order: multiply down, like 3 × 2 × 1.',
-  'Order does not matter? Divide by the ways to order each group (pairs: divide by 2).',
+  'Order does not matter? Divide by the ways to order the picks (pairs: divide by 2).',
 ]
 example = '''
 3 shirts and 2 pairs of pants.
