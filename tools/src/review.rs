@@ -9,9 +9,8 @@ use std::path::{Path, PathBuf};
 
 use sha2::{Digest, Sha256};
 
-use crate::schema::{
-    Card, Principle, Question, QuestionType, Review, ReviewFile, ReviewKind, Status, StrategyFile, Verdict,
-};
+use crate::schema::{Card, Principle, Question, Review, ReviewFile, ReviewKind, Status, Stimulus, StrategyFile, Verdict};
+use crate::subjects::stimulus_subject;
 use crate::{Level, Report, check_content, read_toml};
 
 pub fn hex(bytes: &[u8]) -> String {
@@ -27,17 +26,10 @@ fn hash_parts(parts: &[&str]) -> String {
     hex(&h.finalize())[..16].to_string()
 }
 
-fn type_name(t: QuestionType) -> &'static str {
-    match t {
-        QuestionType::MultipleChoice => "multiple_choice",
-        QuestionType::FillIn => "fill_in",
-        QuestionType::Dropdown => "dropdown",
-        QuestionType::DragDrop => "drag_drop",
-    }
-}
-
 /// Hash of everything a reviewer checks in a question (not its status).
-pub fn question_hash(q: &Question) -> String {
+/// `stimulus` is the stimulus the question points to, so that editing a
+/// passage sends its questions back for review.
+pub fn question_hash(q: &Question, stimulus: Option<&Stimulus>) -> String {
     let answer_value = q.answer_value.map(|v| v.to_string()).unwrap_or_default();
     let difficulty = q.difficulty.to_string();
     let mut parts = vec![
@@ -45,7 +37,7 @@ pub fn question_hash(q: &Question) -> String {
         &q.skill,
         &q.principle,
         &difficulty,
-        type_name(q.kind),
+        q.kind.name(),
         q.prompt.trim(),
         &choices_joined(q),
         q.answer.trim(),
@@ -57,12 +49,40 @@ pub fn question_hash(q: &Question) -> String {
     .into_iter()
     .map(str::to_string)
     .collect::<Vec<String>>();
-    // Only questions with a figure hash it, so older hashes stay valid.
+    // Newer fields are hashed only when used, so older hashes stay valid.
     if let Some(f) = &q.figure {
         parts.push(format!("{f:?}"));
     }
+    if !q.accept.is_empty() {
+        parts.push(format!("accept {:?}", q.accept));
+    }
+    if !q.blanks.is_empty() {
+        parts.push(format!("{:?}", q.blanks));
+    }
+    if !q.items.is_empty() {
+        parts.push(format!("items {:?}", q.items));
+    }
+    if !q.groups.is_empty() {
+        parts.push(format!("{:?}", q.groups));
+    }
+    if let Some(t) = &q.topic {
+        parts.push(format!("topic {t}"));
+    }
+    if !q.sources.is_empty() {
+        parts.push(format!("sources {:?}", q.sources));
+    }
+    if let Some(id) = &q.stimulus {
+        parts.push(format!("stimulus {id} {}", stimulus.map(stimulus_hash).unwrap_or_default()));
+    }
     let refs: Vec<&str> = parts.iter().map(String::as_str).collect();
     hash_parts(&refs)
+}
+
+/// Hash of a shared stimulus (not its status).
+pub fn stimulus_hash(s: &Stimulus) -> String {
+    let table = s.table.as_ref().map(|t| format!("{t:?}")).unwrap_or_default();
+    let figure = s.figure.as_ref().map(|f| format!("{f:?}")).unwrap_or_default();
+    hash_parts(&["stimulus", &s.id, s.title.as_deref().unwrap_or("").trim(), s.text.trim(), &table, &figure, s.source.trim()])
 }
 
 fn choices_joined(q: &Question) -> String {
@@ -107,7 +127,8 @@ pub(crate) fn check_reviews(root: &Path, report: &mut Report) {
     let mut diags = Vec::new();
     for path in paths {
         let stem = path.file_stem().and_then(|s| s.to_str()).unwrap_or_default().to_string();
-        if !skill_ids.contains(&stem.as_str()) && stem != "strategy" {
+        let stimuli_file = stem.strip_prefix("stimuli-").is_some_and(|sub| report.subjects.iter().any(|s| s.id == sub));
+        if !skill_ids.contains(&stem.as_str()) && stem != "strategy" && !stimuli_file {
             diags.push((Level::Error, path.clone(), None, format!("review file {stem:?} is not named after a skill")));
         }
         let mut sub = Report::default();
@@ -125,6 +146,7 @@ pub(crate) fn check_reviews(root: &Path, report: &mut Report) {
             ReviewKind::Lesson => principle_ids.contains_key(r.id.as_str()),
             ReviewKind::Card => report.cards.iter().any(|(_, c)| c.id == r.id),
             ReviewKind::Strategy => r.id == "strategy" && report.strategy.is_some(),
+            ReviewKind::Stimulus => report.stimulus(&r.id).is_some(),
         };
         if !known {
             diags.push((Level::Error, path.clone(), Some(r.id.clone()), "review refers to an unknown item".into()));
@@ -145,7 +167,11 @@ pub(crate) fn check_reviews(root: &Path, report: &mut Report) {
     report.reviews = loaded;
 
     for (path, q) in &report.questions {
-        gate(report_latest(&report.reviews, ReviewKind::Question, &q.id), q.status, &question_hash(q), path, &q.id, &mut diags);
+        let hash = question_hash(q, report.stimulus_of(q));
+        gate(report_latest(&report.reviews, ReviewKind::Question, &q.id), q.status, &hash, path, &q.id, &mut diags);
+    }
+    for (path, st) in &report.stimuli {
+        gate(report_latest(&report.reviews, ReviewKind::Stimulus, &st.id), st.status, &stimulus_hash(st), path, &st.id, &mut diags);
     }
     let principles_path = root.join("principles.toml");
     for p in &report.principles {
@@ -222,6 +248,25 @@ pub fn template(root: &Path, skill: &str) -> Result<String, String> {
              \n[[review]]\nid = \"strategy\"\nkind = \"strategy\"\nhash = \"{h}\"\nverdict = \"\"\nnote = \"\"\ndate = \"\"\n"
         ));
     }
+    if let Some(subject) = skill.strip_prefix("stimuli-") {
+        let mut out = format!("# Review notes for the {subject} stimuli. Append to content/reviews/{skill}.toml.\n");
+        let mut count = 0;
+        for (path, st) in report.stimuli.iter().filter(|(p, st)| stimulus_subject(p) == subject && st.status != Status::Retired) {
+            let _ = path;
+            let h = stimulus_hash(st);
+            if !has_current_pass(&report, ReviewKind::Stimulus, &st.id, &h) {
+                out.push_str(&format!(
+                    "\n[[review]]\nid = \"{}\"\nkind = \"stimulus\"\nhash = \"{h}\"\nverdict = \"\"\nnote = \"\"\ndate = \"\"\n",
+                    st.id
+                ));
+                count += 1;
+            }
+        }
+        if count == 0 {
+            out.push_str("\n# Nothing to review: every stimulus has a current pass.\n");
+        }
+        return Ok(out);
+    }
     if !report.skills.iter().any(|s| s.id == skill) {
         return Err(format!("unknown skill {skill:?}"));
     }
@@ -238,7 +283,7 @@ pub fn template(root: &Path, skill: &str) -> Result<String, String> {
     };
     let mut count = 0;
     for (_, q) in report.questions.iter().filter(|(_, q)| q.skill == skill && q.status != Status::Retired) {
-        let h = question_hash(q);
+        let h = question_hash(q, report.stimulus_of(q));
         if !has_current_pass(&report, ReviewKind::Question, &q.id, &h) {
             push("question", &q.id, &h);
             count += 1;
@@ -284,9 +329,27 @@ pub fn approve(root: &Path, skill: &str) -> Result<Vec<String>, String> {
         std::fs::write(&path, new).map_err(|e| e.to_string())?;
         return Ok(vec!["strategy".into()]);
     }
-    if !report.skills.iter().any(|s| s.id == skill) {
-        return Err(format!("unknown skill {skill:?}"));
+    if let Some(subject) = skill.strip_prefix("stimuli-") {
+        let path = root.join("stimuli").join(format!("{subject}.toml"));
+        let ids: Vec<String> = report
+            .stimuli
+            .iter()
+            .filter(|(p, st)| *p == path && st.status == Status::Draft)
+            .filter(|(_, st)| has_current_pass(&report, ReviewKind::Stimulus, &st.id, &stimulus_hash(st)))
+            .map(|(_, st)| st.id.clone())
+            .collect();
+        if !ids.is_empty() {
+            set_status(&path, "[[stimulus]]", &ids)?;
+        }
+        let after = check_content(root);
+        if after.errors() > 0 {
+            return Err(format!("approval left {} error(s); run `cargo content`", after.errors()));
+        }
+        return Ok(ids);
     }
+    let Some(subject) = report.skills.iter().find(|s| s.id == skill).map(|s| s.subject.clone()) else {
+        return Err(format!("unknown skill {skill:?}"));
+    };
     let mut approved = Vec::new();
 
     let cfile = root.join("cards").join(format!("{skill}.toml"));
@@ -302,12 +365,12 @@ pub fn approve(root: &Path, skill: &str) -> Result<Vec<String>, String> {
         approved.extend(ids);
     }
 
-    let qfile = root.join("math").join(format!("{skill}.toml"));
+    let qfile = root.join(&subject).join(format!("{skill}.toml"));
     let ids: Vec<String> = report
         .questions
         .iter()
         .filter(|(_, q)| q.skill == skill && q.status == Status::Draft)
-        .filter(|(_, q)| has_current_pass(&report, ReviewKind::Question, &q.id, &question_hash(q)))
+        .filter(|(_, q)| has_current_pass(&report, ReviewKind::Question, &q.id, &question_hash(q, report.stimulus_of(q))))
         .map(|(_, q)| q.id.clone())
         .collect();
     if !ids.is_empty() {

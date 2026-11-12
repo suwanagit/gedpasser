@@ -251,11 +251,23 @@ pub(crate) fn check_journey(root: &Path, report: &mut Report) {
     }
     let Some(file) = read_toml::<JourneyFile>(&path, report) else { return };
     let known: HashSet<&str> = report.principles.iter().map(|p| p.id.as_str()).collect();
+    let skill_subject: HashMap<&str, &str> = report.skills.iter().map(|s| (s.id.as_str(), s.subject.as_str())).collect();
+    let principle_subject: HashMap<&str, &str> = report
+        .principles
+        .iter()
+        .filter_map(|p| skill_subject.get(p.skill.as_str()).map(|sub| (p.id.as_str(), *sub)))
+        .collect();
     let mut ids = HashSet::new();
     let mut taught: HashMap<String, String> = HashMap::new();
+    let mut started: HashSet<&str> = HashSet::new();
     let mut diags = Vec::new();
-    for (i, s) in file.stage.iter().enumerate() {
+    for s in file.stage.iter() {
+        // Each subject has its own path; `i` counts within it.
+        let i = if started.insert(s.subject.as_str()) { 0 } else { 1 };
         let mut err = |m: String| diags.push((Level::Error, Some(s.id.clone()), m));
+        if !report.subjects.iter().any(|x| x.id == s.subject) {
+            err(format!("unknown subject {:?}", s.subject));
+        }
         if !ids.insert(s.id.clone()) {
             err("duplicate stage id".into());
         }
@@ -281,6 +293,8 @@ pub(crate) fn check_journey(root: &Path, report: &mut Report) {
         for p in &s.principles {
             if !known.contains(p.as_str()) {
                 err(format!("unknown principle {p}"));
+            } else if principle_subject.get(p.as_str()).is_some_and(|sub| *sub != s.subject) {
+                err(format!("principle {p} belongs to another subject than this stage ({})", s.subject));
             } else if let Some(other) = taught.insert(p.clone(), s.id.clone()) {
                 err(format!("principle {p} is already taught in {other}"));
             }

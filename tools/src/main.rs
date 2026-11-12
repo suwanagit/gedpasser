@@ -3,6 +3,7 @@
 //!
 //!   ged-content [check] [DIR]           validate everything (cargo content)
 //!   ged-content template SKILL [DIR]    review-note skeleton for SKILL (cargo content-template SKILL)
+//!                                       SKILL may also be `strategy` or `stimuli-<subject>`
 //!   ged-content approve SKILL [DIR]     mark passed items reviewed  (cargo content-approve SKILL)
 //!   ged-content quiz SKILL [DIR]        questions without answers, for blind review (cargo content-quiz SKILL)
 //!
@@ -61,17 +62,63 @@ fn quiz(root: &std::path::Path, skill: &str) -> ExitCode {
         return fail(&format!("unknown skill {skill:?}"));
     }
     println!("# Blind quiz for {skill}: solve each one BEFORE opening the question file.\n");
+    let mut shown = std::collections::HashSet::new();
     for (_, q) in report.questions.iter().filter(|(_, q)| q.skill == skill && q.status != Status::Retired) {
-        println!("## {} (difficulty {})", q.id, q.difficulty);
+        if let Some(st) = report.stimulus_of(q) {
+            if shown.insert(st.id.clone()) {
+                println!("### Stimulus {}{}", st.id, st.title.as_ref().map(|t| format!(": {t}")).unwrap_or_default());
+                if !st.text.trim().is_empty() {
+                    println!("{}", st.text.trim());
+                }
+                if let Some(t) = &st.table {
+                    println!("| {} |", t.headers.join(" | "));
+                    for row in &t.rows {
+                        println!("| {} |", row.join(" | "));
+                    }
+                }
+                if let Some(f) = &st.figure {
+                    println!("[figure: {f:?}]");
+                }
+                println!("Source: {}\n", st.source.trim());
+            }
+        }
+        println!("## {} (difficulty {}, {})", q.id, q.difficulty, q.kind.name());
+        if let Some(id) = &q.stimulus {
+            println!("(uses stimulus {id})");
+        }
         println!("{}", q.prompt.trim());
         if let Some(f) = &q.figure {
             println!("[figure shown with the question: {f:?}]");
         }
-        if q.choices.is_empty() {
-            println!("(type your answer)");
-        }
-        for (i, c) in q.choices.iter().enumerate() {
-            println!("  {}. {c}", i + 1);
+        match q.kind {
+            ged_content::QuestionType::MultipleChoice => {
+                for (i, c) in q.choices.iter().enumerate() {
+                    println!("  {}. {c}", i + 1);
+                }
+            }
+            ged_content::QuestionType::FillIn => println!("(type your answer)"),
+            ged_content::QuestionType::Dropdown => {
+                for (i, b) in q.blanks.iter().enumerate() {
+                    println!("  menu {}: {}", i + 1, b.choices.join(" | "));
+                }
+            }
+            ged_content::QuestionType::Order => {
+                // Alphabetical, so the listing does not give the order away.
+                let mut items: Vec<&String> = q.items.iter().collect();
+                items.sort();
+                println!("(put in order)");
+                for i in items {
+                    println!("  - {i}");
+                }
+            }
+            ged_content::QuestionType::Sort => {
+                let mut items: Vec<&String> = q.groups.iter().flat_map(|g| g.items.iter()).collect();
+                items.sort();
+                println!("(sort into: {})", q.groups.iter().map(|g| g.name.as_str()).collect::<Vec<_>>().join(" | "));
+                for i in items {
+                    println!("  - {i}");
+                }
+            }
         }
         println!();
     }
@@ -133,7 +180,8 @@ fn check(root: PathBuf) -> ExitCode {
     let count = |s: Status| report.questions.iter().filter(|(_, q)| q.status == s).count();
     let lessons_reviewed = report.principles.iter().filter(|p| p.status == Status::Reviewed).count();
     println!(
-        "\n{} skills, {} principles ({} lessons reviewed, {} cards / {} reviewed), {} questions ({} reviewed, {} draft, {} retired), {} review notes: {} error(s), {} warning(s)",
+        "\n{}{} skills, {} principles ({} lessons reviewed, {} cards / {} reviewed), {} questions ({} reviewed, {} draft, {} retired), {} review notes: {} error(s), {} warning(s)",
+        if report.stimuli.is_empty() { String::new() } else { format!("{} stimuli, ", report.stimuli.len()) },
         report.skills.len(),
         report.principles.len(),
         lessons_reviewed,

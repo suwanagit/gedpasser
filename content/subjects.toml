@@ -1,0 +1,74 @@
+# The GED tests this app covers.
+#
+# A subject is "ready" in the app once it has reviewed questions. Until then
+# it shows as "Soon".
+#
+# Fields:
+#   id          stable id; questions live in content/<id>/<skill>.toml
+#   name        display name
+#   calculator  true if the real test allows a calculator throughout
+#   domain      content domains and their share of the real test (sum to 1).
+#               Math: a skill's `area`. Others: the first part of a
+#               question's `topic` code ("L" for "L.c.2").
+#   test        practice-test sizes: short, long, full
+#
+# Sources for shares and time limits: docs/subjects/*.md. GED Testing
+# Service does not publish question counts; the full-test counts are the
+# commonly reported ones.
+
+[[subject]]
+id = "math"
+name = "Math"
+domain = [
+  { id = "quantitative", name = "Quantitative problem solving", share = 0.45 },
+  { id = "algebraic", name = "Algebraic problem solving", share = 0.55 },
+]
+test = [
+  { kind = "short", questions = 10, minutes = 25 },
+  { kind = "long", questions = 25, minutes = 60 },
+  { kind = "full", questions = 46, minutes = 115 },
+]
+
+[[subject]]
+id = "language"
+name = "Language Arts"
+domain = [
+  { id = "informational", name = "Informational texts", share = 0.75 },
+  { id = "literary", name = "Literary texts", share = 0.25 },
+]
+test = [
+  { kind = "short", questions = 12, minutes = 25 },
+  { kind = "long", questions = 24, minutes = 50 },
+  { kind = "full", questions = 46, minutes = 95 },
+]
+
+[[subject]]
+id = "science"
+name = "Science"
+calculator = true
+domain = [
+  { id = "L", name = "Life science", share = 0.4 },
+  { id = "P", name = "Physical science", share = 0.4 },
+  { id = "ES", name = "Earth and space science", share = 0.2 },
+]
+test = [
+  { kind = "short", questions = 10, minutes = 25 },
+  { kind = "long", questions = 20, minutes = 50 },
+  { kind = "full", questions = 34, minutes = 90 },
+]
+
+[[subject]]
+id = "social"
+name = "Social Studies"
+calculator = true
+domain = [
+  { id = "CG", name = "Civics and government", share = 0.5 },
+  { id = "USH", name = "United States history", share = 0.2 },
+  { id = "E", name = "Economics", share = 0.15 },
+  { id = "G", name = "Geography and the world", share = 0.15 },
+]
+test = [
+  { kind = "short", questions = 10, minutes = 20 },
+  { kind = "long", questions = 20, minutes = 40 },
+  { kind = "full", questions = 35, minutes = 70 },
+]

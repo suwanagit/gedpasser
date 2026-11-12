@@ -1,24 +1,27 @@
 //! Question bank schema, validator and answer checker.
 //!
-//! `check_content(root)` loads `root/skills.toml`, `root/principles.toml`
-//! and every `root/math/<skill>.toml`, validates them, evaluates each
-//! question's `check` expression against its stored answer, and returns a
-//! [`Report`].
+//! `check_content(root)` loads `root/subjects.toml`, `root/skills.toml`,
+//! `root/principles.toml`, `root/stimuli/<subject>.toml` and every
+//! `root/<subject>/<skill>.toml`, validates them, evaluates each question's
+//! `check` expression against its stored answer, and returns a [`Report`].
 
 pub mod expr;
 pub mod extra;
 pub mod review;
 pub mod schema;
+pub mod subjects;
 
-pub use review::{approve, card_hash, lesson_hash, question_hash, strategy_hash, template};
+pub use review::{approve, card_hash, lesson_hash, question_hash, stimulus_hash, strategy_hash, template};
+pub use subjects::{blank_markers, question_domain, stimulus_subject};
 
 use std::collections::{BTreeSet, HashMap, HashSet};
 use std::fmt;
 use std::path::{Path, PathBuf};
 
 pub use schema::{
-    Area, Card, Figure, Formula, Principle, PrincipleFile, Question, QuestionFile, QuestionType, Review, ReviewKind,
-    Skill, SkillFile, Stage, Status, StrategyFile, Tactic, Verdict,
+    Blank, Card, Domain, Figure, Formula, Group, Principle, PrincipleFile, Question, QuestionFile, QuestionType,
+    Review, ReviewKind, Skill, SkillFile, Stage, Status, Stimulus, StrategyFile, Subject, Table, Tactic, TestShape,
+    Verdict,
 };
 
 /// Prompts whose word sets overlap at least this much are flagged.
@@ -56,7 +59,9 @@ impl fmt::Display for Diagnostic {
 
 #[derive(Debug, Default)]
 pub struct Report {
+    pub subjects: Vec<Subject>,
     pub skills: Vec<Skill>,
+    pub stimuli: Vec<(PathBuf, Stimulus)>,
     pub principles: Vec<Principle>,
     pub questions: Vec<(PathBuf, Question)>,
     pub cards: Vec<(PathBuf, Card)>,
@@ -78,7 +83,17 @@ impl Report {
         self.diagnostics.iter().any(|d| d.message.contains(needle))
     }
 
-    fn push(&mut self, level: Level, file: &Path, id: Option<&str>, message: impl Into<String>) {
+    /// A stimulus by id.
+    pub fn stimulus(&self, id: &str) -> Option<&Stimulus> {
+        self.stimuli.iter().map(|(_, s)| s).find(|s| s.id == id)
+    }
+
+    /// The stimulus a question points to, if any.
+    pub fn stimulus_of(&self, q: &Question) -> Option<&Stimulus> {
+        q.stimulus.as_deref().and_then(|id| self.stimulus(id))
+    }
+
+    pub(crate) fn push(&mut self, level: Level, file: &Path, id: Option<&str>, message: impl Into<String>) {
         self.diagnostics.push(Diagnostic {
             level,
             file: file.to_path_buf(),
@@ -91,6 +106,7 @@ impl Report {
 /// Load and validate only the skill map. Used by the server at startup.
 pub fn load_skills(root: &Path) -> Result<Vec<Skill>, String> {
     let mut report = Report::default();
+    subjects::check_subjects(root, &mut report);
     check_skills(root, &mut report);
     if report.errors() > 0 {
         let msgs: Vec<String> = report.diagnostics.iter().map(|d| d.to_string()).collect();
@@ -102,8 +118,10 @@ pub fn load_skills(root: &Path) -> Result<Vec<Skill>, String> {
 /// Run the validator and the answer checker over a content directory.
 pub fn check_content(root: &Path) -> Report {
     let mut report = Report::default();
+    subjects::check_subjects(root, &mut report);
     check_skills(root, &mut report);
     check_principles(root, &mut report);
+    subjects::load_stimuli(root, &mut report);
     load_questions(root, &mut report);
     validate_questions(&mut report);
     check_answers(&mut report);
@@ -134,19 +152,22 @@ pub(crate) fn read_toml<T: serde::de::DeserializeOwned>(path: &Path, report: &mu
     }
 }
 
+/// An official indicator code: capital letters, then one or two parts that
+/// are a number or a lowercase letter. "Q.1.a", "SP.3.b", "R.2.1", "W.1".
 fn is_target_code(s: &str) -> bool {
-    let b = s.as_bytes();
-    b.len() == 5
-        && (b[0] == b'Q' || b[0] == b'A')
-        && b[1] == b'.'
-        && b[2].is_ascii_digit()
-        && b[3] == b'.'
-        && b[4].is_ascii_lowercase()
+    let parts: Vec<&str> = s.split('.').collect();
+    (2..=3).contains(&parts.len())
+        && (1..=3).contains(&parts[0].len())
+        && parts[0].chars().all(|c| c.is_ascii_uppercase())
+        && parts[1..].iter().all(|p| {
+            !p.is_empty() && (p.chars().all(|c| c.is_ascii_digit()) || (p.len() == 1 && p.chars().all(|c| c.is_ascii_lowercase())))
+        })
 }
 
 fn is_skill_id(s: &str) -> bool {
-    (s.starts_with("q-") || s.starts_with("a-"))
-        && s.len() > 2
+    s.len() > 2
+        && s.starts_with(|c: char| c.is_ascii_lowercase())
+        && s.contains('-')
         && s.chars().all(|c| c.is_ascii_lowercase() || c.is_ascii_digit() || c == '-')
 }
 
@@ -159,12 +180,26 @@ fn check_skills(root: &Path, report: &mut Report) {
         if !is_skill_id(&s.id) {
             report.push(Level::Error, &path, id, "skill id must look like q-name or a-name");
         }
-        let prefix_ok = match s.area {
-            Area::Quantitative => s.id.starts_with("q-"),
-            Area::Algebraic => s.id.starts_with("a-"),
-        };
-        if !prefix_ok {
-            report.push(Level::Error, &path, id, "id prefix does not match area (q- quantitative, a- algebraic)");
+        match report.subjects.iter().find(|x| x.id == s.subject) {
+            None => report.push(Level::Error, &path, id, format!("unknown subject {:?} (see subjects.toml)", s.subject)),
+            Some(_) if s.subject == "math" => {
+                let prefix_ok = match s.area.as_str() {
+                    "quantitative" => s.id.starts_with("q-"),
+                    "algebraic" => s.id.starts_with("a-"),
+                    _ => {
+                        report.push(Level::Error, &path, id, "area must be \"quantitative\" or \"algebraic\"");
+                        true
+                    }
+                };
+                if !prefix_ok {
+                    report.push(Level::Error, &path, id, "id prefix does not match area (q- quantitative, a- algebraic)");
+                }
+            }
+            Some(_) => {
+                if !s.area.is_empty() {
+                    report.push(Level::Error, &path, id, "area is for math skills only; other subjects use each question's topic");
+                }
+            }
         }
         if !seen.insert(s.id.clone()) {
             report.push(Level::Error, &path, id, "duplicate skill id");
@@ -234,41 +269,48 @@ fn check_principles(root: &Path, report: &mut Report) {
 }
 
 fn load_questions(root: &Path, report: &mut Report) {
-    let dir = root.join("math");
-    let entries = match std::fs::read_dir(&dir) {
-        Ok(e) => e,
-        Err(e) => {
-            report.push(Level::Error, &dir, None, format!("cannot read question directory: {e}"));
-            return;
-        }
-    };
-    let mut paths: Vec<PathBuf> = entries
-        .filter_map(|e| e.ok().map(|e| e.path()))
-        .filter(|p| p.extension().is_some_and(|x| x == "toml"))
-        .collect();
-    paths.sort();
-    let skill_ids: HashSet<&str> = report.skills.iter().map(|s| s.id.as_str()).collect();
     let mut file_errors = Vec::new();
     let mut loaded = Vec::new();
-    for path in paths {
-        let stem = path.file_stem().and_then(|s| s.to_str()).unwrap_or_default().to_string();
-        if !skill_ids.contains(stem.as_str()) {
-            file_errors.push((path.clone(), format!("file name {stem:?} is not a skill id in skills.toml")));
-        }
-        let mut sub = Report::default();
-        if let Some(file) = read_toml::<QuestionFile>(&path, &mut sub) {
-            for q in file.question {
-                if q.skill != stem {
-                    file_errors.push((
-                        path.clone(),
-                        format!("question {} has skill {:?} but lives in {stem}.toml", q.id, q.skill),
-                    ));
-                }
-                loaded.push((path.clone(), q));
+    let mut sub_diags = Vec::new();
+    for subject in &report.subjects {
+        let skill_ids: HashSet<&str> =
+            report.skills.iter().filter(|s| s.subject == subject.id).map(|s| s.id.as_str()).collect();
+        let dir = root.join(&subject.id);
+        let entries = match std::fs::read_dir(&dir) {
+            Ok(e) => e,
+            // A subject with no skills yet needs no question folder.
+            Err(_) if skill_ids.is_empty() => continue,
+            Err(e) => {
+                file_errors.push((dir.clone(), format!("cannot read question directory: {e}")));
+                continue;
             }
+        };
+        let mut paths: Vec<PathBuf> = entries
+            .filter_map(|e| e.ok().map(|e| e.path()))
+            .filter(|p| p.extension().is_some_and(|x| x == "toml"))
+            .collect();
+        paths.sort();
+        for path in paths {
+            let stem = path.file_stem().and_then(|s| s.to_str()).unwrap_or_default().to_string();
+            if !skill_ids.contains(stem.as_str()) {
+                file_errors.push((path.clone(), format!("file name {stem:?} is not a skill id in skills.toml")));
+            }
+            let mut sub = Report::default();
+            if let Some(file) = read_toml::<QuestionFile>(&path, &mut sub) {
+                for q in file.question {
+                    if q.skill != stem {
+                        file_errors.push((
+                            path.clone(),
+                            format!("question {} has skill {:?} but lives in {stem}.toml", q.id, q.skill),
+                        ));
+                    }
+                    loaded.push((path.clone(), q));
+                }
+            }
+            sub_diags.extend(sub.diagnostics);
         }
-        report.diagnostics.extend(sub.diagnostics);
     }
+    report.diagnostics.extend(sub_diags);
     for (p, m) in file_errors {
         report.push(Level::Error, &p, None, m);
     }
@@ -276,11 +318,10 @@ fn load_questions(root: &Path, report: &mut Report) {
 }
 
 fn validate_questions(report: &mut Report) {
-    let skills: HashMap<String, (u8, u8)> = report
-        .skills
-        .iter()
-        .map(|s| (s.id.clone(), (s.difficulty_min, s.difficulty_max)))
-        .collect();
+    let skills: HashMap<&str, &Skill> = report.skills.iter().map(|s| (s.id.as_str(), s)).collect();
+    // stimulus id -> (subject, status)
+    let stimuli: HashMap<&str, (String, Status)> =
+        report.stimuli.iter().map(|(p, s)| (s.id.as_str(), (stimulus_subject(p), s.status))).collect();
     // principle id -> (skill, lesson status)
     let principles: HashMap<String, (String, Status)> =
         report.principles.iter().map(|p| (p.id.clone(), (p.skill.clone(), p.status))).collect();
@@ -298,11 +339,43 @@ fn validate_questions(report: &mut Report) {
         if !seen_ids.insert(q.id.clone()) {
             err("duplicate question id".into());
         }
-        match skills.get(&q.skill) {
+        let skill = skills.get(q.skill.as_str()).copied();
+        match skill {
             None => err(format!("unknown skill {:?}", q.skill)),
-            Some(&(lo, hi)) => {
+            Some(sk) => {
+                let (lo, hi) = (sk.difficulty_min, sk.difficulty_max);
                 if !(lo..=hi).contains(&q.difficulty) {
                     err(format!("difficulty {} is outside this skill's range {lo}-{hi}", q.difficulty));
+                }
+                // Every question counts toward one domain of its subject.
+                if let Some(subject) = report.subjects.iter().find(|x| x.id == sk.subject) {
+                    if sk.subject == "math" && q.topic.is_some() {
+                        err("math questions take their domain from the skill's area; remove topic".into());
+                    } else if sk.subject != "math" && q.topic.is_none() {
+                        err("needs a topic (the official content-topic code, e.g. \"L.c.2\")".into());
+                    } else {
+                        let domain = question_domain(q, sk);
+                        if !subject.domain.iter().any(|d| d.id == domain) {
+                            err(format!("domain {domain:?} is not listed for subject {} in subjects.toml", subject.id));
+                        }
+                    }
+                }
+                let numeric = q.kind == QuestionType::FillIn && q.accept.is_empty() && parse_answer(&q.answer).is_some();
+                if q.check.trim().is_empty() && (sk.subject == "math" || numeric) {
+                    err("check must not be empty (required for math and for numeric answers)".into());
+                }
+                if let Some(id) = &q.stimulus {
+                    match stimuli.get(id.as_str()) {
+                        None => err(format!("unknown stimulus {id:?}")),
+                        Some((subject, _)) if *subject != sk.subject => {
+                            err(format!("stimulus {id} belongs to subject {subject}, not {}", sk.subject))
+                        }
+                        Some((_, status)) => {
+                            if q.status == Status::Reviewed && *status != Status::Reviewed {
+                                err(format!("reviewed question uses stimulus {id}, which is not reviewed yet"));
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -324,8 +397,6 @@ fn validate_questions(report: &mut Report) {
         }
         for (name, value) in [
             ("prompt", &q.prompt),
-            ("answer", &q.answer),
-            ("check", &q.check),
             ("explanation", &q.explanation),
             ("common_mistake", &q.common_mistake),
         ] {
@@ -333,27 +404,8 @@ fn validate_questions(report: &mut Report) {
                 err(format!("{name} must not be empty"));
             }
         }
-        match q.kind {
-            QuestionType::MultipleChoice | QuestionType::Dropdown => {
-                if q.choices.len() < 2 {
-                    err("needs at least two choices".into());
-                }
-                let distinct: BTreeSet<&str> = q.choices.iter().map(|c| c.trim()).collect();
-                if distinct.len() != q.choices.len() {
-                    err("choices must be distinct".into());
-                }
-                if !q.choices.iter().any(|c| c.trim() == q.answer.trim()) {
-                    err(format!("answer {:?} is not one of the choices", q.answer));
-                }
-            }
-            QuestionType::FillIn => {
-                if !q.choices.is_empty() {
-                    err("fill_in questions must not have choices".into());
-                }
-            }
-            QuestionType::DragDrop => {
-                err("drag_drop questions are not supported by the checker yet".into());
-            }
+        for m in subjects::format_problems(q) {
+            err(m);
         }
     }
     for (level, path, id, m) in diags {
@@ -483,11 +535,16 @@ fn words(s: &str) -> BTreeSet<String> {
 
 fn check_duplicates(report: &mut Report) {
     let sets: Vec<BTreeSet<String>> = report.questions.iter().map(|(_, q)| words(&q.prompt)).collect();
+    // Questions on one stimulus may share a short stem ("Which conclusion…").
+    let same_set = |a: &Question, b: &Question| a.stimulus.is_some() && a.stimulus != b.stimulus;
     let mut diags = Vec::new();
     for i in 0..sets.len() {
         for j in (i + 1)..sets.len() {
             let (pa, a) = &report.questions[i];
             let (_, b) = &report.questions[j];
+            if same_set(a, b) || same_set(b, a) {
+                continue;
+            }
             if a.prompt.trim() == b.prompt.trim() {
                 diags.push((Level::Error, pa.clone(), a.id.clone(), format!("same prompt as {}", b.id)));
                 continue;

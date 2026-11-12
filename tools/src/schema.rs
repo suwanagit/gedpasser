@@ -14,7 +14,14 @@ pub struct SkillFile {
 #[serde(deny_unknown_fields)]
 pub struct Skill {
     pub id: String,
-    pub area: Area,
+    /// The subject this skill belongs to (`subjects.toml`). Math if left out.
+    #[serde(default = "math")]
+    pub subject: String,
+    /// Math only: the domain every question in this skill counts toward,
+    /// "quantitative" or "algebraic". Other subjects take the domain from
+    /// each question's `topic`.
+    #[serde(default)]
+    pub area: String,
     pub name: String,
     pub description: String,
     pub difficulty_min: u8,
@@ -22,11 +29,116 @@ pub struct Skill {
     pub targets: Vec<String>,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize)]
-#[serde(rename_all = "snake_case")]
-pub enum Area {
-    Quantitative,
-    Algebraic,
+pub(crate) fn math() -> String {
+    "math".into()
+}
+
+/// `content/subjects.toml`: the GED tests the app covers.
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct SubjectFile {
+    pub subject: Vec<Subject>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct Subject {
+    pub id: String,
+    pub name: String,
+    /// Whether the real test allows a calculator throughout.
+    #[serde(default)]
+    pub calculator: bool,
+    /// Content domains and their share of the real test. Shares sum to 1.
+    pub domain: Vec<Domain>,
+    /// Practice-test sizes: short, long and full.
+    pub test: Vec<TestShape>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct Domain {
+    /// For Math, a skill `area`. Otherwise the prefix of a question's
+    /// `topic` code, e.g. "L" for "L.c.2".
+    pub id: String,
+    pub name: String,
+    pub share: f64,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct TestShape {
+    /// "short" | "long" | "full".
+    pub kind: String,
+    pub questions: u32,
+    pub minutes: u32,
+}
+
+impl Subject {
+    /// The built-in Math subject, used when a bank has no `subjects.toml`.
+    pub fn default_math() -> Subject {
+        let shape = |kind: &str, questions, minutes| TestShape { kind: kind.into(), questions, minutes };
+        Subject {
+            id: "math".into(),
+            name: "Math".into(),
+            calculator: false,
+            domain: vec![
+                Domain { id: "quantitative".into(), name: "Quantitative problem solving".into(), share: 0.45 },
+                Domain { id: "algebraic".into(), name: "Algebraic problem solving".into(), share: 0.55 },
+            ],
+            test: vec![shape("short", 10, 25), shape("long", 25, 60), shape("full", 46, 115)],
+        }
+    }
+}
+
+/// `content/stimuli/<subject>.toml`: a text, table or figure that several
+/// questions share.
+#[derive(Debug, Clone, Default, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct StimulusFile {
+    #[serde(default)]
+    pub stimulus: Vec<Stimulus>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct Stimulus {
+    pub id: String,
+    pub status: Status,
+    #[serde(default)]
+    pub title: Option<String>,
+    /// Paragraphs separated by blank lines; math in $...$.
+    #[serde(default)]
+    pub text: String,
+    #[serde(default)]
+    pub table: Option<Table>,
+    #[serde(default)]
+    pub figure: Option<Figure>,
+    /// Where the text or data comes from ("Original" for our own writing).
+    pub source: String,
+}
+
+#[derive(Debug, Clone, Deserialize, Serialize, TS)]
+#[ts(export)]
+#[serde(deny_unknown_fields)]
+pub struct Table {
+    pub headers: Vec<String>,
+    pub rows: Vec<Vec<String>>,
+}
+
+/// One drop-down menu in a `dropdown` question.
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct Blank {
+    pub choices: Vec<String>,
+    pub answer: String,
+}
+
+/// One group in a `sort` question, with the items that belong in it.
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct Group {
+    pub name: String,
+    pub items: Vec<String>,
 }
 
 /// `content/principles.toml`: one principle per official assessment
@@ -74,13 +186,42 @@ pub struct Question {
     pub status: Status,
     #[serde(default)]
     pub alaska: bool,
+    /// For a dropdown question, the text holds `{{1}}`, `{{2}}` … where the
+    /// menus go.
     pub prompt: String,
-    /// Options for multiple_choice and dropdown; empty for fill_in.
+    /// Options for multiple_choice; empty otherwise.
     #[serde(default)]
     pub choices: Vec<String>,
     /// The correct answer exactly as shown to (or typed by) the learner.
+    /// Required for multiple_choice and fill_in; the other types carry
+    /// their answers in `blanks`, `items` or `groups`.
+    #[serde(default)]
     pub answer: String,
-    /// Arithmetic expression the answer checker evaluates.
+    /// fill_in: other answers that are also right ("the mitochondria").
+    #[serde(default)]
+    pub accept: Vec<String>,
+    /// dropdown: one entry per `{{n}}` marker, in order.
+    #[serde(default)]
+    pub blanks: Vec<Blank>,
+    /// order: the items in their correct order.
+    #[serde(default)]
+    pub items: Vec<String>,
+    /// sort: the groups and the items that belong in each.
+    #[serde(default)]
+    pub groups: Vec<Group>,
+    /// A shared stimulus from `stimuli/<subject>.toml`.
+    #[serde(default)]
+    pub stimulus: Option<String>,
+    /// Official content-topic code, e.g. "L.c.2". Its first part names the
+    /// subject domain the question counts toward.
+    #[serde(default)]
+    pub topic: Option<String>,
+    /// Citations for facts the question relies on.
+    #[serde(default)]
+    pub sources: Vec<String>,
+    /// Arithmetic expression the answer checker evaluates. Required for
+    /// Math and for any numeric answer.
+    #[serde(default)]
     pub check: String,
     /// Numeric value to compare `check` against when `answer` is not a
     /// plain number (for example an algebraic expression).
@@ -319,6 +460,9 @@ pub struct JourneyFile {
 #[serde(deny_unknown_fields)]
 pub struct Stage {
     pub id: String,
+    /// The subject whose path this stage is on. Math if left out.
+    #[serde(default = "math")]
+    pub subject: String,
     pub title: String,
     /// Principles taught in this stage. Empty for a checkpoint, which mixes
     /// every principle since the previous checkpoint.
@@ -376,8 +520,41 @@ pub struct Formula {
 pub enum QuestionType {
     MultipleChoice,
     FillIn,
+    /// Menus set inside a text; every menu must be right.
     Dropdown,
-    DragDrop,
+    /// Put the items in order.
+    Order,
+    /// Sort the items into groups.
+    Sort,
+}
+
+impl QuestionType {
+    pub fn name(self) -> &'static str {
+        match self {
+            QuestionType::MultipleChoice => "multiple_choice",
+            QuestionType::FillIn => "fill_in",
+            QuestionType::Dropdown => "dropdown",
+            QuestionType::Order => "order",
+            QuestionType::Sort => "sort",
+        }
+    }
+}
+
+impl Question {
+    /// The correct answer as one readable line, for any question type.
+    pub fn answer_text(&self) -> String {
+        match self.kind {
+            QuestionType::MultipleChoice | QuestionType::FillIn => self.answer.trim().to_string(),
+            QuestionType::Dropdown => self.blanks.iter().map(|b| b.answer.trim()).collect::<Vec<_>>().join(" / "),
+            QuestionType::Order => self.items.iter().map(|i| i.trim()).collect::<Vec<_>>().join(" → "),
+            QuestionType::Sort => self
+                .groups
+                .iter()
+                .map(|g| format!("{}: {}", g.name.trim(), g.items.iter().map(|i| i.trim()).collect::<Vec<_>>().join(", ")))
+                .collect::<Vec<_>>()
+                .join("; "),
+        }
+    }
 }
 
 /// `content/reviews/<skill>.toml`: notes from an independent reviewer.
@@ -413,6 +590,8 @@ pub enum ReviewKind {
     Card,
     /// The whole of `content/strategy.toml` (id "strategy").
     Strategy,
+    /// A shared stimulus from `content/stimuli/<subject>.toml`.
+    Stimulus,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize)]
