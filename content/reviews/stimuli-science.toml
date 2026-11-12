@@ -678,3 +678,23 @@ role = "factcheck"
 verdict = "pass"
 note = "OpenStax Astronomy 2e 4.2: tilt 23.5 degrees; axis points the same direction all year; in June the north leans into the Sun, more direct light and longer days; south has winter; reversed in December; North Pole lit continuously at the June solstice; 67 N is the southernmost latitude with a 24-hour day (the Arctic Circle). All claims match. Source starts 'Original'; wording is our own."
 date = "2026-11-12"
+
+[[review]]
+id = "science-seasons"
+kind = "stimulus"
+hash = "212d59467049c55b"
+reviewer = "solver-u"
+role = "solver"
+verdict = "pass"
+note = "The passage is clear and scientifically accurate. The axis is tilted about 23.5° from perpendicular to the orbit and keeps a fixed direction. Seasons come from more direct sunlight plus longer days. June and December are correctly reversed between the hemispheres, and north of about 66.5° N there is at least one day of midnight sun around the June solstice. It is short, as suits a Science passage, and reads at about grade 9 to 10. It gives everything 0009, 0010 and 0011 need without stating their answers, and it does not mention distance from the Sun, so the distance distractors in 0011 are fairly tested."
+date = "2026-11-12"
+
+[[review]]
+id = "science-seasons"
+kind = "stimulus"
+hash = "212d59467049c55b"
+reviewer = "factcheck-k"
+role = "factcheck"
+verdict = "pass"
+note = "Source starts with 'Original'; text is our own wording, no long verbatim runs from OpenStax or NSIDC. Checked each claim: tilt about 23.5 deg and axis points the same direction all year (OpenStax 4.2); June north leans into the Sun, more direct light, longer days, south opposite, reversed in December (OpenStax 4.2); area around the North Pole has 24-hour sunlight in June and Arctic Circle at about 66.5 N (NSIDC: 66 deg 33' N) has the Sun not setting around the June solstice (NSIDC, OpenStax). All supported."
+date = "2026-11-12"

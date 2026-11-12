@@ -215,7 +215,7 @@ source = "Original (made-up results for practice; facts from OpenStax College Ph
 
 [[stimulus]]
 id = "science-seasons"
-status = "draft"
+status = "reviewed"
 title = "Why we have seasons"
 text = '''
 Earth's axis, the line it spins around, is tilted about 23.5° from straight up and down, compared with its path around the Sun. The tilt stays pointed the same way in space all year.

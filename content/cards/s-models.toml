@@ -2,7 +2,7 @@
 
 [[card]]
 id = "SP.3.c"
-status = "draft"
+status = "reviewed"
 title = "Predicting from data"
 key = "A prediction follows the pattern the data already show."
 steps = [
@@ -18,7 +18,7 @@ hack = 'Say the pattern out loud before you predict.'
 
 [[card]]
 id = "SP.7.a"
-status = "draft"
+status = "reviewed"
 title = "Using a model"
 key = "Match the new case to the model, then follow its rule."
 steps = [
