@@ -4,9 +4,9 @@ import type { Level } from "./Level";
 /**
  * A skill on the practice menu, with this learner's progress.
  */
-export type SkillSummary = { id: string, 
+export type SkillSummary = { id: string, subject: string, 
 /**
- * "quantitative" or "algebraic".
+ * Math only: "quantitative" or "algebraic". Empty for other subjects.
  */
 area: string, name: string, description: string, 
 /**

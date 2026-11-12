@@ -197,12 +197,30 @@ pub async fn get_me(State(state): State<Arc<AppState>>, user: CurrentUser) -> Js
 
 // ── Skills and practice ───────────────────────────────────────────────────
 
+/// `?subject=ID`; Math when left out.
+#[derive(Debug, Default, Deserialize)]
+pub struct SubjectParam {
+    pub subject: Option<String>,
+}
+
+impl SubjectParam {
+    /// The subject asked for, checked against the bank.
+    pub(crate) fn resolve<'a>(&'a self, state: &'a AppState) -> Result<&'a str, ApiError> {
+        let id = self.subject.as_deref().unwrap_or("math");
+        if state.bank.subject(id).is_none() {
+            return Err(ApiError::new(StatusCode::NOT_FOUND, "No such subject."));
+        }
+        Ok(id)
+    }
+}
+
 /// A skill on the practice menu, with this learner's progress.
 #[derive(Debug, Serialize, TS)]
 #[ts(export)]
 pub struct SkillSummary {
     pub id: String,
-    /// "quantitative" or "algebraic".
+    pub subject: String,
+    /// Math only: "quantitative" or "algebraic". Empty for other subjects.
     pub area: String,
     pub name: String,
     pub description: String,
@@ -273,23 +291,22 @@ pub(crate) fn principle_question_ids<'a>(state: &'a AppState, principle: &'a str
     state.bank.questions.values().filter(move |q| q.principle == principle).map(|q| &q.id)
 }
 
-async fn skill_summaries(state: &AppState, user_id: i64) -> Result<Vec<SkillSummary>, ApiError> {
+async fn skill_summaries(state: &AppState, user_id: i64, subject: &str) -> Result<Vec<SkillSummary>, ApiError> {
     let stats = LearnerStats::load(state, user_id).await?;
     let flagged = crate::flags::flagged_ids(&state.pool).await?;
     Ok(state
         .bank
         .skills
         .iter()
+        .filter(|s| s.subject == subject)
         .map(|s| {
             let ids = state.bank.by_skill.get(&s.id).map(Vec::as_slice).unwrap_or(&[]);
             let available = servable(state, &flagged, ids.iter()).len();
             let (answered, correct, mastery, level) = stats.skill(&s.id);
             SkillSummary {
                 id: s.id.clone(),
-                area: match s.area {
-                    ged_content::Area::Quantitative => "quantitative".into(),
-                    ged_content::Area::Algebraic => "algebraic".into(),
-                },
+                subject: s.subject.clone(),
+                area: s.area.clone(),
                 name: s.name.clone(),
                 description: s.description.trim().to_string(),
                 available: available as u32,
@@ -302,8 +319,13 @@ async fn skill_summaries(state: &AppState, user_id: i64) -> Result<Vec<SkillSumm
         .collect())
 }
 
-pub async fn list_skills(State(state): State<Arc<AppState>>, user: CurrentUser) -> ApiResult<Json<Vec<SkillSummary>>> {
-    Ok(Json(skill_summaries(&state, user.id).await?))
+pub async fn list_skills(
+    State(state): State<Arc<AppState>>,
+    user: CurrentUser,
+    Query(sp): Query<SubjectParam>,
+) -> ApiResult<Json<Vec<SkillSummary>>> {
+    let subject = sp.resolve(&state)?;
+    Ok(Json(skill_summaries(&state, user.id, subject).await?))
 }
 
 /// The dashboard: every skill with mastery, plus the three to focus on next.
@@ -327,8 +349,13 @@ pub fn focus_skills(skills: &[SkillSummary], n: usize) -> Vec<String> {
     candidates.into_iter().take(n).map(|s| s.id.clone()).collect()
 }
 
-pub async fn progress(State(state): State<Arc<AppState>>, user: CurrentUser) -> ApiResult<Json<Progress>> {
-    let skills = skill_summaries(&state, user.id).await?;
+pub async fn progress(
+    State(state): State<Arc<AppState>>,
+    user: CurrentUser,
+    Query(sp): Query<SubjectParam>,
+) -> ApiResult<Json<Progress>> {
+    let subject = sp.resolve(&state)?;
+    let skills = skill_summaries(&state, user.id, subject).await?;
     let focus = focus_skills(&skills, 3);
     Ok(Json(Progress { skills, focus }))
 }
@@ -339,7 +366,37 @@ pub async fn progress(State(state): State<Arc<AppState>>, user: CurrentUser) -> 
 pub enum QuestionKind {
     MultipleChoice,
     FillIn,
+    /// Menus inside the prompt at `{{1}}`, `{{2}}` …; answer with a JSON list.
     Dropdown,
+    /// Put `items` in order; answer with a JSON list.
+    Order,
+    /// Sort `items` into `groups`; answer with a JSON object item -> group.
+    Sort,
+}
+
+/// A shared text, table or figure that several questions use.
+#[derive(Debug, Clone, Serialize, TS)]
+#[ts(export)]
+pub struct StimulusView {
+    pub id: String,
+    pub title: Option<String>,
+    /// Paragraphs separated by blank lines; math in `$...$`.
+    pub text: String,
+    pub table: Option<ged_content::Table>,
+    pub figure: Option<FigureView>,
+    pub source: String,
+}
+
+pub(crate) fn stimulus_view(state: &AppState, id: &str) -> Option<StimulusView> {
+    let s = state.bank.stimuli.get(id)?;
+    Some(StimulusView {
+        id: s.id.clone(),
+        title: s.title.clone(),
+        text: s.text.trim().to_string(),
+        table: s.table.clone(),
+        figure: s.figure.as_ref().map(FigureView::new),
+        source: s.source.trim().to_string(),
+    })
 }
 
 /// Which principle (official indicator) a question tests.
@@ -361,6 +418,7 @@ pub(crate) fn principle_ref(state: &AppState, id: &str) -> PrincipleRef {
 #[ts(export)]
 pub struct PracticeQuestion {
     pub id: String,
+    pub subject: String,
     pub skill: String,
     pub skill_name: String,
     pub principle: PrincipleRef,
@@ -368,8 +426,18 @@ pub struct PracticeQuestion {
     pub kind: QuestionKind,
     /// Text with math between `$...$`; a literal dollar sign is `\$`.
     pub prompt: String,
-    /// Empty for fill-in questions.
+    /// Multiple choice only.
     pub choices: Vec<String>,
+    /// Drop-down: the choices for each menu, in marker order.
+    pub blanks: Vec<Vec<String>>,
+    /// Order and sort: the items, shuffled.
+    pub items: Vec<String>,
+    /// Sort: the group names.
+    pub groups: Vec<String>,
+    /// The shared text, table or figure this question is about.
+    pub stimulus: Option<StimulusView>,
+    /// Whether the real test allows a calculator for this subject.
+    pub calculator: bool,
     /// Graph, number line, chart or shape to show with the prompt.
     pub figure: Option<FigureView>,
     pub alaska: bool,
@@ -418,6 +486,8 @@ impl PracticeMode {
 /// | `?mode=review`, each with an optional `&after=ID` (the question just shown).
 #[derive(Debug, Deserialize)]
 pub struct NextParams {
+    /// For mixed practice: which subject (Math when left out).
+    pub subject: Option<String>,
     pub skill: Option<String>,
     pub principle: Option<String>,
     pub mode: Option<PracticeMode>,
@@ -482,11 +552,13 @@ pub async fn next_question(
         }
         ids
     } else if params.mode == Some(PracticeMode::Mixed) {
+        let subject = params.subject.clone().unwrap_or_else(|| "math".into());
         let stats = LearnerStats::load(&state, user.id).await?;
         let weights: Vec<(String, f64)> = state
             .bank
             .skills
             .iter()
+            .filter(|s| s.subject == subject)
             .filter(|s| {
                 let ids = state.bank.by_skill.get(&s.id).map(Vec::as_slice).unwrap_or(&[]);
                 !servable(&state, &flagged, ids.iter()).is_empty()
@@ -552,10 +624,28 @@ pub(crate) fn practice_question(state: &AppState, q: &ged_content::Question) -> 
         QuestionType::MultipleChoice => QuestionKind::MultipleChoice,
         QuestionType::FillIn => QuestionKind::FillIn,
         QuestionType::Dropdown => QuestionKind::Dropdown,
-        QuestionType::DragDrop => return Err(ApiError::new(StatusCode::INTERNAL_SERVER_ERROR, "unsupported question type")),
+        QuestionType::Order => QuestionKind::Order,
+        QuestionType::Sort => QuestionKind::Sort,
     };
+    let mut items: Vec<String> = match q.kind {
+        QuestionType::Order => q.items.clone(),
+        QuestionType::Sort => q.groups.iter().flat_map(|g| g.items.clone()).collect(),
+        _ => Vec::new(),
+    };
+    // Shuffle, and never show an order question already in order.
+    for _ in 0..8 {
+        for i in (1..items.len()).rev() {
+            items.swap(i, random_u32() as usize % (i + 1));
+        }
+        if q.kind != QuestionType::Order || items != q.items {
+            break;
+        }
+    }
+    let subject = state.bank.skill_subject(&q.skill).to_string();
+    let calculator = state.bank.subject(&subject).is_some_and(|s| s.calculator);
     Ok(PracticeQuestion {
         id: q.id.clone(),
+        subject,
         skill: q.skill.clone(),
         skill_name: state.bank.skill(&q.skill).map(|s| s.name.clone()).unwrap_or_default(),
         principle: principle_ref(state, &q.principle),
@@ -563,6 +653,11 @@ pub(crate) fn practice_question(state: &AppState, q: &ged_content::Question) -> 
         kind,
         prompt: q.prompt.trim().to_string(),
         choices: q.choices.clone(),
+        blanks: q.blanks.iter().map(|b| b.choices.clone()).collect(),
+        items,
+        groups: q.groups.iter().map(|g| g.name.clone()).collect(),
+        stimulus: q.stimulus.as_deref().and_then(|id| stimulus_view(state, id)),
+        calculator,
         figure: q.figure.as_ref().map(FigureView::new),
         alaska: q.alaska,
         draft: q.status == ged_content::Status::Draft,
@@ -615,7 +710,7 @@ pub async fn submit_answer(
     if req.response.trim().is_empty() {
         return Err(ApiError::new(StatusCode::BAD_REQUEST, "Please enter an answer."));
     }
-    let response: String = req.response.chars().take(200).collect();
+    let response: String = req.response.chars().take(2000).collect();
     let correct = grade(q, &response);
     sqlx::query(
         "INSERT INTO attempts
@@ -636,7 +731,7 @@ pub async fn submit_answer(
     crate::spaced::record(&state.pool, user.id, &q.id, correct).await?;
     Ok(Json(AnswerResult {
         correct,
-        answer: q.answer.clone(),
+        answer: q.answer_text(),
         explanation: q.explanation.trim().to_string(),
         common_mistake: q.common_mistake.trim().to_string(),
         principle: principle_ref(&state, &q.principle),
@@ -692,13 +787,16 @@ pub struct Lesson {
 pub async fn list_principles(
     State(state): State<Arc<AppState>>,
     user: CurrentUser,
+    Query(sp): Query<SubjectParam>,
 ) -> ApiResult<Json<Vec<PrincipleSummary>>> {
+    let subject = sp.resolve(&state)?;
     let stats = LearnerStats::load(&state, user.id).await?;
     let flagged = crate::flags::flagged_ids(&state.pool).await?;
     let out = state
         .bank
         .principles
         .iter()
+        .filter(|p| state.bank.skill_subject(&p.skill) == subject)
         .map(|p| {
             let (answered, correct, mastery, level) = stats.principle(&p.id);
             PrincipleSummary {

@@ -1,0 +1,57 @@
+# DEMO questions (made up, not real content).
+
+[[question]]
+id = "s-demo-data-0001"
+skill = "s-demo-data"
+principle = "SP.1.c"
+topic = "L.b.1"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-plants"
+prompt = "Under which light level did the plant grow tallest?"
+choices = ["Low", "Medium", "High", "All the same"]
+answer = "High"
+explanation = '''
+Look at the Height column: 10, 12 and 14 cm.
+The biggest is 14 cm, in the High row. So the plant grew tallest under **high** light.
+'''
+common_mistake = "Reading the first row of the table instead of comparing all three."
+
+[[question]]
+id = "s-demo-data-0002"
+skill = "s-demo-data"
+principle = "SP.8.a"
+topic = "L.b.1"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+stimulus = "science-plants"
+prompt = "What is the mean height of the three plants, in centimeters?"
+answer = "12"
+check = "(10 + 12 + 14) / 3"
+explanation = '''
+Add the heights: $10 + 12 + 14 = 36$.
+Divide by the number of plants, 3: $36 \div 3 = 12$.
+So the mean height is **12 cm**.
+'''
+common_mistake = "Adding the heights but forgetting to divide by 3 (36)."
+
+[[question]]
+id = "s-demo-data-0003"
+skill = "s-demo-data"
+principle = "SP.1.c"
+topic = "ES.a.3"
+difficulty = 2
+type = "sort"
+status = "draft"
+prompt = "Sort each energy source as renewable or nonrenewable."
+groups = [
+  { name = "Renewable", items = ["Sunlight", "Wind"] },
+  { name = "Nonrenewable", items = ["Coal", "Natural gas"] },
+]
+explanation = '''
+Renewable sources are replaced by nature in a human lifetime: **sunlight** and **wind**.
+Coal and natural gas took millions of years to form, so they are **nonrenewable**.
+'''
+common_mistake = "Calling natural gas renewable because it is cleaner than coal."

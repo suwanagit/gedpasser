@@ -5,13 +5,13 @@ use std::collections::{HashMap, HashSet};
 use std::sync::Arc;
 
 use axum::Json;
-use axum::extract::{Path, State};
+use axum::extract::{Path, Query, State};
 use axum::http::StatusCode;
 use serde::Serialize;
 use ts_rs::TS;
 
 use crate::AppState;
-use crate::api::{ApiError, PracticeQuestion, PrincipleRef, practice_question, principle_ref, random_u32, servable};
+use crate::api::{ApiError, PracticeQuestion, PrincipleRef, SubjectParam, practice_question, principle_ref, random_u32, servable};
 use crate::auth::CurrentUser;
 use crate::figures::FigureView;
 use crate::spaced::now_unix;
@@ -95,7 +95,7 @@ fn stage_principles(state: &AppState, index: usize) -> Vec<String> {
         return s.principles.clone();
     }
     let mut out = Vec::new();
-    for prev in stages[..index].iter().rev() {
+    for prev in stages[..index].iter().rev().filter(|p| p.subject == s.subject) {
         if prev.checkpoint && !s.cumulative {
             break;
         }
@@ -114,13 +114,14 @@ async fn progress(state: &AppState, user_id: i64) -> Result<HashMap<String, (u32
     Ok(rows.into_iter().map(|(s, c, t, st)| (s, (c as u32, t as u32, st as u32))).collect())
 }
 
-async fn build_view(state: &AppState, user_id: i64) -> Result<JourneyView, ApiError> {
+/// One subject's week path with this learner's progress.
+pub(crate) async fn build_view(state: &AppState, user_id: i64, subject: &str) -> Result<JourneyView, ApiError> {
     let done = progress(state, user_id).await?;
     let mut stages = Vec::new();
     let mut prev_passed = true;
     let mut current = None;
     let mut passed = 0;
-    for (i, s) in state.bank.journey.iter().enumerate() {
+    for (i, s) in state.bank.path(subject) {
         let best = done.get(&s.id);
         let stars = best.map(|b| b.2).unwrap_or(0);
         let status = if stars > 0 {
@@ -153,8 +154,13 @@ async fn build_view(state: &AppState, user_id: i64) -> Result<JourneyView, ApiEr
     Ok(JourneyView { stages, current, passed })
 }
 
-pub async fn get_journey(State(state): State<Arc<AppState>>, user: CurrentUser) -> Result<Json<JourneyView>, ApiError> {
-    Ok(Json(build_view(&state, user.id).await?))
+pub async fn get_journey(
+    State(state): State<Arc<AppState>>,
+    user: CurrentUser,
+    Query(sp): Query<SubjectParam>,
+) -> Result<Json<JourneyView>, ApiError> {
+    let subject = sp.resolve(&state)?;
+    Ok(Json(build_view(&state, user.id, subject).await?))
 }
 
 #[derive(Debug, Serialize, TS)]
@@ -211,8 +217,14 @@ pub async fn start_stage(
         .iter()
         .position(|s| s.id == id)
         .ok_or_else(|| ApiError::new(StatusCode::NOT_FOUND, "No such stage."))?;
-    let view = build_view(&state, user.id).await?;
-    let stage_view = view.stages[index].clone();
+    let subject = state.bank.journey[index].subject.clone();
+    let view = build_view(&state, user.id, &subject).await?;
+    let stage_view = view
+        .stages
+        .iter()
+        .find(|v| v.id == id)
+        .cloned()
+        .ok_or_else(|| ApiError::new(StatusCode::NOT_FOUND, "No such stage."))?;
     if stage_view.status == StageStatus::Locked {
         return Err(ApiError::new(StatusCode::FORBIDDEN, "Finish the stage before this one first."));
     }
@@ -364,7 +376,12 @@ pub async fn finish_stage(
     let bonus_xp = stage_xp(stars).saturating_sub(stage_xp(prev_stars));
 
     let index = state.bank.journey.iter().position(|s| s.id == stage_id).unwrap_or(0);
-    let next_stage = if stars > 0 { state.bank.journey.get(index + 1).map(|s| s.id.clone()) } else { None };
+    let subject = &state.bank.journey[index].subject;
+    let next_stage = if stars > 0 {
+        state.bank.journey[index + 1..].iter().find(|s| &s.subject == subject).map(|s| s.id.clone())
+    } else {
+        None
+    };
     let hack_from: Vec<String> =
         if missed_principles.is_empty() { stage_principles(&state, index) } else { missed_principles.clone() };
     Ok(Json(StageResult {

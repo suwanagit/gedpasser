@@ -13,6 +13,7 @@ pub mod plan;
 pub mod spaced;
 pub mod stats;
 pub mod study;
+pub mod subjects;
 
 use std::path::{Path, PathBuf};
 use std::str::FromStr;
@@ -87,6 +88,7 @@ pub async fn build_app(config: &Config) -> Result<App, String> {
         .route("/api/login", post(api::login))
         .route("/api/logout", post(api::logout))
         .route("/api/me", get(api::get_me))
+        .route("/api/subjects", get(subjects::list_subjects))
         .route("/api/skills", get(api::list_skills))
         .route("/api/practice/next", get(api::next_question))
         .route("/api/progress", get(api::progress))

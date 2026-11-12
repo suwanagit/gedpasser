@@ -5,11 +5,17 @@
 use std::collections::HashMap;
 use std::path::Path;
 
-use ged_content::{Card, Principle, Question, QuestionType, Skill, Stage, Status, StrategyFile, StudyFile, check_content};
+use ged_content::{
+    Card, Principle, Question, QuestionType, Skill, Stage, Status, Stimulus, StrategyFile, StudyFile, Subject, check_content,
+};
 use sqlx::SqlitePool;
 
 pub struct Bank {
+    /// The GED tests, Math first (`subjects.toml`).
+    pub subjects: Vec<Subject>,
     pub skills: Vec<Skill>,
+    /// Shared texts, tables and figures, by id.
+    pub stimuli: HashMap<String, Stimulus>,
     /// In skill order, then file order within each skill.
     pub principles: Vec<Principle>,
     pub questions: HashMap<String, Question>,
@@ -45,18 +51,23 @@ impl Bank {
         let mut questions = HashMap::new();
         let mut by_skill: HashMap<String, Vec<String>> = HashMap::new();
         let mut hashes = HashMap::new();
-        for (_, q) in report.questions {
+        for (_, q) in &report.questions {
             by_skill.entry(q.skill.clone()).or_default().push(q.id.clone());
-            hashes.insert(q.id.clone(), content_hash(&q));
+            hashes.insert(q.id.clone(), ged_content::question_hash(q, report.stimulus_of(q)));
+        }
+        for (_, q) in report.questions {
             questions.insert(q.id.clone(), q);
         }
+        let stimuli = report.stimuli.into_iter().map(|(_, s)| (s.id.clone(), s)).collect();
         let skill_order: HashMap<&str, usize> =
             report.skills.iter().enumerate().map(|(i, s)| (s.id.as_str(), i)).collect();
         let mut principles = report.principles.clone();
         principles.sort_by_key(|p| skill_order.get(p.skill.as_str()).copied().unwrap_or(usize::MAX));
         let cards = report.cards.into_iter().map(|(_, c)| (c.id.clone(), c)).collect();
         Ok(Bank {
+            subjects: report.subjects,
             skills: report.skills,
+            stimuli,
             principles,
             questions,
             by_skill,
@@ -91,6 +102,30 @@ impl Bank {
         self.skills.iter().find(|s| s.id == id)
     }
 
+    pub fn subject(&self, id: &str) -> Option<&Subject> {
+        self.subjects.iter().find(|s| s.id == id)
+    }
+
+    /// The subject a skill belongs to ("math" if unknown).
+    pub fn skill_subject(&self, skill: &str) -> &str {
+        self.skill(skill).map(|s| s.subject.as_str()).unwrap_or("math")
+    }
+
+    /// The subject a principle belongs to.
+    pub fn principle_subject(&self, principle: &str) -> &str {
+        self.principle(principle).map(|p| self.skill_subject(&p.skill)).unwrap_or("math")
+    }
+
+    /// The domain of the subject a question counts toward.
+    pub fn question_domain(&self, q: &Question) -> String {
+        self.skill(&q.skill).map(|s| ged_content::question_domain(q, s)).unwrap_or_default()
+    }
+
+    /// The stages of one subject's week path, in order.
+    pub fn path(&self, subject: &str) -> Vec<(usize, &Stage)> {
+        self.journey.iter().enumerate().filter(|(_, s)| s.subject == subject).collect()
+    }
+
     /// Whether learners may be served this question.
     pub fn servable(q: &Question, serve_drafts: bool) -> bool {
         status_servable(q.status, serve_drafts)
@@ -107,17 +142,14 @@ impl Bank {
     pub async fn sync(&self, pool: &SqlitePool) -> sqlx::Result<()> {
         let mut tx = pool.begin().await?;
         for s in &self.skills {
-            let area = match s.area {
-                ged_content::Area::Quantitative => "quantitative",
-                ged_content::Area::Algebraic => "algebraic",
-            };
             sqlx::query(
-                "INSERT INTO skills (id, area, name, description) VALUES (?, ?, ?, ?)
-                 ON CONFLICT(id) DO UPDATE SET area = excluded.area, name = excluded.name,
-                     description = excluded.description",
+                "INSERT INTO skills (id, subject, area, name, description) VALUES (?, ?, ?, ?, ?)
+                 ON CONFLICT(id) DO UPDATE SET subject = excluded.subject, area = excluded.area,
+                     name = excluded.name, description = excluded.description",
             )
             .bind(&s.id)
-            .bind(area)
+            .bind(&s.subject)
+            .bind(&s.area)
             .bind(&s.name)
             .bind(s.description.trim())
             .execute(&mut *tx)
@@ -150,7 +182,7 @@ impl Bank {
             .bind(&q.skill)
             .bind(&q.principle)
             .bind(q.difficulty as i64)
-            .bind(type_name(q.kind))
+            .bind(q.kind.name())
             .bind(status_name(q.status))
             .bind(&self.hashes[&q.id])
             .execute(&mut *tx)
@@ -184,15 +216,6 @@ fn status_servable(s: Status, serve_drafts: bool) -> bool {
     }
 }
 
-pub fn type_name(t: QuestionType) -> &'static str {
-    match t {
-        QuestionType::MultipleChoice => "multiple_choice",
-        QuestionType::FillIn => "fill_in",
-        QuestionType::Dropdown => "dropdown",
-        QuestionType::DragDrop => "drag_drop",
-    }
-}
-
 fn status_name(s: Status) -> &'static str {
     match s {
         Status::Draft => "draft",
@@ -201,28 +224,44 @@ fn status_name(s: Status) -> &'static str {
     }
 }
 
-/// The same hash the review gate uses, so "changed since answered" and
-/// "changed since reviewed" agree.
-fn content_hash(q: &Question) -> String {
-    ged_content::question_hash(q)
-}
-
 pub use ged_content::review::hex;
 
 /// Grade a learner's response.
-/// Choice questions need the exact choice. Fill-in answers compare as
-/// numbers when both sides parse (so "88.2" matches "88.20"), otherwise as
-/// text ignoring spaces and case.
+///
+/// - Multiple choice needs the exact choice.
+/// - Fill-in answers compare as numbers when both sides parse (so "88.2"
+///   matches "88.20"), otherwise as text ignoring spaces and case, against
+///   the answer or any `accept` entry.
+/// - Drop-down: a JSON list with one choice per menu, all right.
+/// - Order: a JSON list of the items in the learner's order.
+/// - Sort: a JSON object from each item to the group it was put in.
 pub fn grade(q: &Question, response: &str) -> bool {
     match q.kind {
-        QuestionType::MultipleChoice | QuestionType::Dropdown => response.trim() == q.answer.trim(),
-        QuestionType::FillIn => {
-            match (ged_content::parse_answer(&q.answer), ged_content::parse_answer(response)) {
-                (Some(want), Some(got)) => ged_content::close_enough(want, got),
-                _ => normalize(response) == normalize(&q.answer),
+        QuestionType::MultipleChoice => response.trim() == q.answer.trim(),
+        QuestionType::FillIn => std::iter::once(&q.answer).chain(q.accept.iter()).any(|want| {
+            match (ged_content::parse_answer(want), ged_content::parse_answer(response)) {
+                (Some(w), Some(got)) => ged_content::close_enough(w, got),
+                _ => normalize(response) == normalize(want),
             }
-        }
-        QuestionType::DragDrop => false,
+        }),
+        QuestionType::Dropdown => match serde_json::from_str::<Vec<String>>(response) {
+            Ok(picks) => {
+                picks.len() == q.blanks.len() && picks.iter().zip(&q.blanks).all(|(p, b)| p.trim() == b.answer.trim())
+            }
+            Err(_) => false,
+        },
+        QuestionType::Order => match serde_json::from_str::<Vec<String>>(response) {
+            Ok(order) => order.len() == q.items.len() && order.iter().zip(&q.items).all(|(a, b)| a.trim() == b.trim()),
+            Err(_) => false,
+        },
+        QuestionType::Sort => match serde_json::from_str::<HashMap<String, String>>(response) {
+            Ok(placed) => {
+                let total: usize = q.groups.iter().map(|g| g.items.len()).sum();
+                placed.len() == total
+                    && q.groups.iter().all(|g| g.items.iter().all(|i| placed.get(i.trim()).is_some_and(|got| got.trim() == g.name.trim())))
+            }
+            Err(_) => false,
+        },
     }
 }
 

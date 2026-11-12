@@ -5,13 +5,13 @@ use std::collections::{HashMap, HashSet};
 use std::sync::Arc;
 
 use axum::Json;
-use axum::extract::{Path, State};
+use axum::extract::{Path, Query, State};
 use axum::http::StatusCode;
 use serde::{Deserialize, Serialize};
 use ts_rs::TS;
 
 use crate::AppState;
-use crate::api::{ApiError, PracticeQuestion, PrincipleRef, practice_question, principle_ref, random_u32, servable};
+use crate::api::{ApiError, PracticeQuestion, PrincipleRef, SubjectParam, practice_question, principle_ref, random_u32, servable};
 use crate::auth::CurrentUser;
 use crate::content::grade;
 use crate::spaced::now_unix;
@@ -26,15 +26,6 @@ pub enum TestKind {
 }
 
 impl TestKind {
-    /// (questions, time limit in seconds)
-    pub fn shape(self) -> (usize, i64) {
-        match self {
-            TestKind::Short => (10, 25 * 60),
-            TestKind::Long => (25, 60 * 60),
-            // About the length of the real GED Math test.
-            TestKind::Full => (46, 115 * 60),
-        }
-    }
     fn as_str(self) -> &'static str {
         match self {
             TestKind::Short => "short",
@@ -42,15 +33,25 @@ impl TestKind {
             TestKind::Full => "full",
         }
     }
-}
 
-/// Share of questions from quantitative skills (the rest algebraic).
-const QUANT_SHARE: f64 = 0.45;
+    /// (questions, time limit in seconds) for a subject, from subjects.toml.
+    pub fn shape(self, subject: &ged_content::Subject) -> (usize, i64) {
+        subject
+            .test
+            .iter()
+            .find(|t| t.kind == self.as_str())
+            .map(|t| (t.questions as usize, t.minutes as i64 * 60))
+            .unwrap_or((10, 25 * 60))
+    }
+}
 
 #[derive(Debug, Deserialize, TS)]
 #[ts(export)]
 pub struct NewTest {
     pub kind: TestKind,
+    /// Which subject; Math when left out.
+    #[serde(default)]
+    pub subject: Option<String>,
 }
 
 #[derive(Debug, Serialize, TS)]
@@ -59,6 +60,7 @@ pub struct TestPaper {
     #[ts(type = "number")]
     pub id: i64,
     pub kind: TestKind,
+    pub subject: String,
     pub time_limit_secs: u32,
     pub questions: Vec<PracticeQuestion>,
 }
@@ -69,20 +71,54 @@ fn shuffle<T>(v: &mut [T]) {
     }
 }
 
-/// Pick `n` questions: about 45% quantitative, spread round-robin across
-/// skills, random within each skill.
-fn pick(state: &AppState, n: usize, flagged: &HashSet<String>) -> Vec<String> {
-    let quant_n = ((n as f64) * QUANT_SHARE).round() as usize;
-    let mut out = Vec::new();
-    for (area, want) in [(ged_content::Area::Quantitative, quant_n), (ged_content::Area::Algebraic, n - quant_n)] {
-        let mut pools: Vec<Vec<String>> = state
-            .bank
-            .skills
+/// A question, or a set of questions sharing one stimulus; tests keep a set
+/// together, as the real test does.
+struct Unit {
+    ids: Vec<String>,
+    skill: String,
+    domain: String,
+}
+
+/// Pick about `n` questions for a subject: each domain gets its share of the
+/// real test (for Math, 45% quantitative), spread round-robin across
+/// skills, random within each, with stimulus sets kept together.
+pub(crate) fn pick(state: &AppState, subject: &ged_content::Subject, n: usize, flagged: &HashSet<String>) -> Vec<String> {
+    // Build units from every servable question in the subject.
+    let mut units: Vec<Unit> = Vec::new();
+    let mut by_stimulus: HashMap<String, usize> = HashMap::new();
+    let mut ids: Vec<&String> = state
+        .bank
+        .skills
+        .iter()
+        .filter(|s| s.subject == subject.id)
+        .flat_map(|s| state.bank.by_skill.get(&s.id).map(Vec::as_slice).unwrap_or(&[]))
+        .collect();
+    ids.sort();
+    for id in servable(state, flagged, ids.into_iter()) {
+        let q = &state.bank.questions[id];
+        match &q.stimulus {
+            Some(st) if by_stimulus.contains_key(st) => units[by_stimulus[st]].ids.push(id.clone()),
+            other => {
+                if let Some(st) = other {
+                    by_stimulus.insert(st.clone(), units.len());
+                }
+                units.push(Unit { ids: vec![id.clone()], skill: q.skill.clone(), domain: state.bank.question_domain(q) });
+            }
+        }
+    }
+    let mut out: Vec<Vec<String>> = Vec::new();
+    let mut given = 0;
+    let last = subject.domain.len().saturating_sub(1);
+    for (i, d) in subject.domain.iter().enumerate() {
+        let want = if i == last { n.saturating_sub(given) } else { ((n as f64) * d.share).round() as usize };
+        // One shuffled pool per skill in this domain.
+        let mut skills: Vec<&str> = units.iter().filter(|u| u.domain == d.id).map(|u| u.skill.as_str()).collect();
+        skills.sort();
+        skills.dedup();
+        let mut pools: Vec<Vec<&Unit>> = skills
             .iter()
-            .filter(|s| s.area == area)
-            .map(|s| {
-                let ids = state.bank.by_skill.get(&s.id).map(Vec::as_slice).unwrap_or(&[]);
-                let mut v: Vec<String> = servable(state, flagged, ids.iter()).into_iter().cloned().collect();
+            .map(|sk| {
+                let mut v: Vec<&Unit> = units.iter().filter(|u| u.domain == d.id && u.skill == *sk).collect();
                 shuffle(&mut v);
                 v
             })
@@ -93,15 +129,20 @@ fn pick(state: &AppState, n: usize, flagged: &HashSet<String>) -> Vec<String> {
         while taken < want && pools.iter().any(|p| p.len() > round) {
             for p in &pools {
                 if taken < want && p.len() > round {
-                    out.push(p[round].clone());
-                    taken += 1;
+                    let u = p[round];
+                    // A set bigger than what's left is skipped, unless nothing else fits.
+                    if taken + u.ids.len() <= want || taken == 0 {
+                        out.push(u.ids.clone());
+                        taken += u.ids.len();
+                    }
                 }
             }
             round += 1;
         }
+        given += taken;
     }
     shuffle(&mut out);
-    out
+    out.into_iter().flatten().collect()
 }
 
 pub async fn new_test(
@@ -109,17 +150,23 @@ pub async fn new_test(
     user: CurrentUser,
     Json(req): Json<NewTest>,
 ) -> Result<Json<TestPaper>, ApiError> {
-    let (n, limit) = req.kind.shape();
+    let subject_id = req.subject.clone().unwrap_or_else(|| "math".into());
+    let subject = state
+        .bank
+        .subject(&subject_id)
+        .ok_or_else(|| ApiError::new(StatusCode::NOT_FOUND, "No such subject."))?;
+    let (n, limit) = req.kind.shape(subject);
     let flagged = crate::flags::flagged_ids(&state.pool).await?;
-    let ids = pick(&state, n, &flagged);
+    let ids = pick(&state, subject, n, &flagged);
     if ids.is_empty() {
         return Err(ApiError::new(StatusCode::NOT_FOUND, "No reviewed questions are available yet."));
     }
     let id: i64 = sqlx::query_scalar(
-        "INSERT INTO tests (user_id, kind, question_ids, time_limit_secs, started_at) VALUES (?, ?, ?, ?, ?) RETURNING id",
+        "INSERT INTO tests (user_id, kind, subject, question_ids, time_limit_secs, started_at) VALUES (?, ?, ?, ?, ?, ?) RETURNING id",
     )
     .bind(user.id)
     .bind(req.kind.as_str())
+    .bind(&subject_id)
     .bind(serde_json::to_string(&ids).unwrap_or_default())
     .bind(limit)
     .bind(now_unix())
@@ -129,7 +176,7 @@ pub async fn new_test(
         .iter()
         .map(|q| practice_question(&state, &state.bank.questions[q]))
         .collect::<Result<Vec<_>, _>>()?;
-    Ok(Json(TestPaper { id, kind: req.kind, time_limit_secs: limit as u32, questions }))
+    Ok(Json(TestPaper { id, kind: req.kind, subject: subject_id, time_limit_secs: limit as u32, questions }))
 }
 
 #[derive(Debug, Deserialize, TS)]
@@ -254,7 +301,7 @@ pub async fn submit_test(
             question_id: q.id.clone(),
             response,
             correct,
-            answer: q.answer.clone(),
+            answer: q.answer_text(),
             explanation: q.explanation.trim().to_string(),
             common_mistake: q.common_mistake.trim().to_string(),
             principle: principle_ref(&state, &q.principle),
@@ -305,12 +352,18 @@ pub struct TestSummary {
     pub finished_at: i64,
 }
 
-pub async fn list_tests(State(state): State<Arc<AppState>>, user: CurrentUser) -> Result<Json<Vec<TestSummary>>, ApiError> {
+pub async fn list_tests(
+    State(state): State<Arc<AppState>>,
+    user: CurrentUser,
+    Query(sp): Query<SubjectParam>,
+) -> Result<Json<Vec<TestSummary>>, ApiError> {
+    let subject = sp.resolve(&state)?;
     let rows: Vec<(i64, String, i64, i64, i64)> = sqlx::query_as(
         "SELECT id, kind, correct, total, finished_at FROM tests
-         WHERE user_id = ? AND finished_at IS NOT NULL ORDER BY finished_at DESC LIMIT 20",
+         WHERE user_id = ? AND subject = ? AND finished_at IS NOT NULL ORDER BY finished_at DESC LIMIT 20",
     )
     .bind(user.id)
+    .bind(subject)
     .fetch_all(&state.pool)
     .await?;
     Ok(Json(

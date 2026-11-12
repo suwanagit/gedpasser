@@ -2,19 +2,40 @@
 import type { FigureView } from "./FigureView";
 import type { PrincipleRef } from "./PrincipleRef";
 import type { QuestionKind } from "./QuestionKind";
+import type { StimulusView } from "./StimulusView";
 
 /**
  * A question as shown to the learner: no answer, check or explanation.
  */
-export type PracticeQuestion = { id: string, skill: string, skill_name: string, principle: PrincipleRef, difficulty: number, kind: QuestionKind, 
+export type PracticeQuestion = { id: string, subject: string, skill: string, skill_name: string, principle: PrincipleRef, difficulty: number, kind: QuestionKind, 
 /**
  * Text with math between `$...$`; a literal dollar sign is `\$`.
  */
 prompt: string, 
 /**
- * Empty for fill-in questions.
+ * Multiple choice only.
  */
 choices: Array<string>, 
+/**
+ * Drop-down: the choices for each menu, in marker order.
+ */
+blanks: Array<Array<string>>, 
+/**
+ * Order and sort: the items, shuffled.
+ */
+items: Array<string>, 
+/**
+ * Sort: the group names.
+ */
+groups: Array<string>, 
+/**
+ * The shared text, table or figure this question is about.
+ */
+stimulus: StimulusView | null, 
+/**
+ * Whether the real test allows a calculator for this subject.
+ */
+calculator: boolean, 
 /**
  * Graph, number line, chart or shape to show with the prompt.
  */

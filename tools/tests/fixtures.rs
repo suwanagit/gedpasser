@@ -210,3 +210,17 @@ fn study_links_are_checked_and_gated() {
     std::fs::write(root.join("study.toml"), good.replace("draft", "reviewed")).unwrap();
     assert!(check_content(&root).mentions("marked reviewed but it has no review"));
 }
+
+#[test]
+fn demo_bank_builds_clean() {
+    let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("..");
+    let out = PathBuf::from(env!("CARGO_TARGET_TMPDIR")).join("demo-bank");
+    ged_content::demo::build(&root.join("content"), &root.join("fixtures").join("demo-science"), &out).unwrap();
+    let r = check_content(&out);
+    for d in r.diagnostics.iter().filter(|d| d.level == ged_content::Level::Error) {
+        eprintln!("{d}");
+    }
+    assert_eq!(r.errors(), 0);
+    assert_eq!(r.stimuli.len(), 2);
+    assert!(r.questions.iter().any(|(_, q)| q.kind == ged_content::QuestionType::Sort));
+}

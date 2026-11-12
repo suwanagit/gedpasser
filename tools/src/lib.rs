@@ -5,6 +5,7 @@
 //! `root/<subject>/<skill>.toml`, validates them, evaluates each question's
 //! `check` expression against its stored answer, and returns a [`Report`].
 
+pub mod demo;
 pub mod expr;
 pub mod extra;
 pub mod review;

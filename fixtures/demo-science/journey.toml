@@ -1,0 +1,30 @@
+
+# ── DEMO science week path (made up, not real content) ──
+
+[[stage]]
+id = "sci-d1a"
+subject = "science"
+day = 1
+title = "Demo: reading science"
+principles = ["SP.1.a", "SP.3.b"]
+size = 3
+max_difficulty = 2
+
+[[stage]]
+id = "sci-d1b"
+subject = "science"
+day = 1
+title = "Demo: data"
+principles = ["SP.1.c", "SP.8.a"]
+size = 3
+max_difficulty = 2
+
+[[stage]]
+id = "sci-d2a"
+subject = "science"
+day = 2
+title = "Demo: final check"
+checkpoint = true
+cumulative = true
+size = 5
+max_difficulty = 3

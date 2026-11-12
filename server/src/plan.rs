@@ -127,7 +127,9 @@ pub async fn get_plan(
     State(state): State<Arc<AppState>>,
     user: CurrentUser,
     Query(tz): Query<TzParams>,
+    Query(sp): Query<crate::api::SubjectParam>,
 ) -> Result<Json<Plan>, ApiError> {
+    let subject = sp.resolve(&state)?.to_string();
     let test_date: Option<String> = sqlx::query_scalar("SELECT test_date FROM users WHERE id = ?")
         .bind(user.id)
         .fetch_one(&state.pool)
@@ -142,6 +144,7 @@ pub async fn get_plan(
         .principles
         .iter()
         .enumerate()
+        .filter(|(_, p)| state.bank.skill_subject(&p.skill) == subject)
         .filter(|(_, p)| !servable(&state, &flagged, principle_question_ids(&state, &p.id)).is_empty())
         .map(|(i, p)| {
             let (_, _, mastery, level) = stats.principle(&p.id);

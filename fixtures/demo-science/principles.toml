@@ -1,0 +1,34 @@
+
+# ── DEMO science principles (made up, not real content) ──
+
+[[principle]]
+id = "SP.1.a"
+skill = "s-demo-reading"
+status = "draft"
+name = "Demo: understand a science text"
+summary = "Made-up demo principle."
+lesson = "Demo lesson text."
+
+[[principle]]
+id = "SP.3.b"
+skill = "s-demo-reading"
+status = "draft"
+name = "Demo: reason from evidence"
+summary = "Made-up demo principle."
+lesson = "Demo lesson text."
+
+[[principle]]
+id = "SP.1.c"
+skill = "s-demo-data"
+status = "draft"
+name = "Demo: read a table or graph"
+summary = "Made-up demo principle."
+lesson = "Demo lesson text."
+
+[[principle]]
+id = "SP.8.a"
+skill = "s-demo-data"
+status = "draft"
+name = "Demo: mean, median and mode"
+summary = "Made-up demo principle."
+lesson = "Demo lesson text."

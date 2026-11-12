@@ -1,0 +1,61 @@
+# DEMO questions (made up, not real content).
+
+[[question]]
+id = "s-demo-reading-0001"
+skill = "s-demo-reading"
+principle = "SP.1.a"
+topic = "L.b.1"
+difficulty = 1
+type = "fill_in"
+status = "draft"
+stimulus = "science-plants"
+prompt = "What did the student change on purpose in this experiment? Type one or two words."
+answer = "light level"
+accept = ["light", "the light", "amount of light", "the light level"]
+explanation = '''
+The student gave every plant the same water and soil.
+The only thing she changed was the **light level**: low, medium or high.
+'''
+common_mistake = "Answering height, which is what she measured, not what she changed."
+
+[[question]]
+id = "s-demo-reading-0002"
+skill = "s-demo-reading"
+principle = "SP.3.b"
+topic = "P.a.3"
+difficulty = 2
+type = "dropdown"
+status = "draft"
+stimulus = "science-energy"
+prompt = "A battery stores {{1}} energy. In a flashlight it changes into {{2}} and some heat."
+blanks = [
+  { choices = ["chemical", "nuclear", "sound"], answer = "chemical" },
+  { choices = ["light", "motion", "sound"], answer = "light" },
+]
+explanation = '''
+The text says the battery stores **chemical** energy.
+When the flashlight is on, that energy changes into **light** and some heat.
+'''
+common_mistake = "Picking nuclear energy because it sounds powerful."
+
+[[question]]
+id = "s-demo-reading-0003"
+skill = "s-demo-reading"
+principle = "SP.1.a"
+topic = "ES.a.1"
+difficulty = 2
+type = "order"
+status = "draft"
+prompt = "Put the steps of the water cycle in order, starting with water in the ocean."
+items = [
+  "Water evaporates from the ocean",
+  "Water vapor cools and forms clouds",
+  "Rain or snow falls",
+  "Water flows back to the ocean",
+]
+explanation = '''
+The sun heats ocean water, and it **evaporates**.
+The vapor cools high up and **forms clouds**.
+The clouds drop **rain or snow**, which **flows back** to the ocean.
+'''
+common_mistake = "Putting clouds before evaporation: the water has to rise first."

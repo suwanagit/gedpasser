@@ -5,6 +5,7 @@
 //!   ged-content template SKILL [DIR]    review-note skeleton for SKILL (cargo content-template SKILL)
 //!                                       SKILL may also be `strategy` or `stimuli-<subject>`
 //!   ged-content approve SKILL [DIR]     mark passed items reviewed  (cargo content-approve SKILL)
+//!   ged-content demo OUT_DIR           real content plus fixtures/demo-science, for testing
 //!   ged-content quiz SKILL [DIR]        questions without answers, for blind review (cargo content-quiz SKILL)
 //!
 //! DIR defaults to `content`. Exit code 1 on any error.
@@ -46,6 +47,19 @@ fn main() -> ExitCode {
         Some("quiz") => match args.get(1) {
             Some(skill) => quiz(&dir(2), skill),
             None => fail("usage: ged-content quiz SKILL [DIR]"),
+        },
+        Some("demo") => match args.get(1) {
+            Some(out) => {
+                let root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("..");
+                match ged_content::demo::build(&root.join("content"), &root.join("fixtures").join("demo-science"), &PathBuf::from(out)) {
+                    Ok(()) => {
+                        println!("Built a demo bank in {out}. Run the server with GED_CONTENT={out} and GED_SERVE_DRAFTS=1.");
+                        check(PathBuf::from(out))
+                    }
+                    Err(e) => fail(&e),
+                }
+            }
+            None => fail("usage: ged-content demo OUT_DIR"),
         },
         Some("check") => check(dir(1)),
         Some(other) if other.starts_with('-') => fail("usage: ged-content [check|template|approve] ..."),

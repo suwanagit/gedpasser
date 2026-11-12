@@ -1,0 +1,22 @@
+# DEMO stimuli (made up, not real content).
+
+[[stimulus]]
+id = "science-plants"
+status = "draft"
+title = "A plant experiment (made-up data)"
+text = '''
+A student grew bean plants under three light levels for two weeks. Every
+plant got the same water and soil. She measured each plant's height.
+'''
+table = { headers = ["Light level", "Height (cm)"], rows = [["Low", "10"], ["Medium", "12"], ["High", "14"]] }
+source = "Original (made-up demo data)"
+
+[[stimulus]]
+id = "science-energy"
+status = "draft"
+title = "Energy in a battery (demo)"
+text = '''
+A flashlight battery stores chemical energy. When the flashlight is on,
+the battery's energy is changed into light and some heat.
+'''
+source = "Original (demo)"

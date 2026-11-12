@@ -1,0 +1,20 @@
+
+# ── DEMO science skills (fixtures/demo-science; made up, not real content) ──
+
+[[skill]]
+id = "s-demo-reading"
+subject = "science"
+name = "Demo: reading science"
+description = "Made-up demo skill for testing the app."
+difficulty_min = 1
+difficulty_max = 3
+targets = ["SP.1.a", "SP.3.b"]
+
+[[skill]]
+id = "s-demo-data"
+subject = "science"
+name = "Demo: data and graphs"
+description = "Made-up demo skill for testing the app."
+difficulty_min = 1
+difficulty_max = 3
+targets = ["SP.1.c", "SP.8.a"]

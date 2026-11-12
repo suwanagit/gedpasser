@@ -679,3 +679,87 @@ async fn figures_are_sampled_for_the_client() {
     let curve = &fig["curves"][0][0];
     assert!(curve.as_array().unwrap().len() > 20, "sampled polyline");
 }
+/// The real content plus the made-up demo science subject.
+fn demo_content(name: &str) -> PathBuf {
+    let dir = PathBuf::from(env!("CARGO_TARGET_TMPDIR")).join("server-tests").join(format!("{name}-demo"));
+    let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("..");
+    ged_content::demo::build(&root.join("content"), &root.join("fixtures").join("demo-science"), &dir).expect("demo bank builds");
+    dir
+}
+
+#[tokio::test]
+async fn second_subject_formats_paths_and_tests() {
+    let db = temp_db("subjects");
+    let app = app_with(&demo_content("subjects"), &db, true).await;
+    let r = &app.router;
+    let (_, cookie) = create(r, "Sci", "abcd").await;
+
+    // Subjects: Math and the demo science are ready; the others are not.
+    let (_, subjects, _) = call(r, "GET", "/api/subjects", Some(&cookie), None).await;
+    let ready: Vec<&str> =
+        subjects.as_array().unwrap().iter().filter(|s| s["ready"] == true).map(|s| s["id"].as_str().unwrap()).collect();
+    assert_eq!(ready, vec!["math", "science"]);
+    let sci = subjects.as_array().unwrap().iter().find(|s| s["id"] == "science").unwrap();
+    assert_eq!(sci["stages_total"], 3);
+    assert_eq!(sci["calculator"], true);
+
+    // Skills and the path are per subject.
+    let (_, skills, _) = call(r, "GET", "/api/skills?subject=science", Some(&cookie), None).await;
+    assert_eq!(skills.as_array().unwrap().len(), 2);
+    let (_, math_skills, _) = call(r, "GET", "/api/skills", Some(&cookie), None).await;
+    assert_eq!(math_skills.as_array().unwrap().len(), 13);
+    let (_, path, _) = call(r, "GET", "/api/journey?subject=science", Some(&cookie), None).await;
+    assert_eq!(path["current"], "sci-d1a");
+    let (_, math_path, _) = call(r, "GET", "/api/journey", Some(&cookie), None).await;
+    assert_eq!(math_path["current"], "d1a", "math progress is separate");
+
+    // Every format grades right and wrong.
+    let cases: [(&str, &str, &str); 6] = [
+        ("s-demo-data-0001", "High", "Low"),
+        ("s-demo-data-0002", "12.0", "36"),
+        ("s-demo-reading-0001", "The Light", "height"),
+        ("s-demo-reading-0002", r#"["chemical","light"]"#, r#"["chemical","sound"]"#),
+        (
+            "s-demo-reading-0003",
+            r#"["Water evaporates from the ocean","Water vapor cools and forms clouds","Rain or snow falls","Water flows back to the ocean"]"#,
+            r#"["Water vapor cools and forms clouds","Water evaporates from the ocean","Rain or snow falls","Water flows back to the ocean"]"#,
+        ),
+        (
+            "s-demo-data-0003",
+            r#"{"Sunlight":"Renewable","Wind":"Renewable","Coal":"Nonrenewable","Natural gas":"Nonrenewable"}"#,
+            r#"{"Sunlight":"Renewable","Wind":"Renewable","Coal":"Nonrenewable","Natural gas":"Renewable"}"#,
+        ),
+    ];
+    for (id, right, wrong) in cases {
+        for (response, want) in [(right, true), (wrong, false)] {
+            let (status, res, _) = call(r, "POST", "/api/answer", Some(&cookie), Some(json!({"question_id": id, "response": response, "time_ms": 900}))).await;
+            assert_eq!(status, StatusCode::OK, "{res}");
+            assert_eq!(res["correct"], want, "{id} with {response}");
+        }
+    }
+
+    // The learner's view: shuffled items, group names, menus, the stimulus.
+    let (_, next, _) = call(r, "GET", "/api/practice/next?principle=SP.1.c", Some(&cookie), None).await;
+    assert!(next["question"]["calculator"] == true);
+    let (_, sort, _) = call(r, "GET", "/api/practice/next?principle=SP.1.c&after=s-demo-data-0001", Some(&cookie), None).await;
+    let q = &sort["question"];
+    if q["kind"] == "sort" {
+        assert_eq!(q["items"].as_array().unwrap().len(), 4);
+        assert_eq!(q["groups"], json!(["Renewable", "Nonrenewable"]));
+    } else {
+        assert_eq!(q["stimulus"]["id"], "science-plants");
+        assert_eq!(q["stimulus"]["table"]["rows"].as_array().unwrap().len(), 3);
+    }
+
+    // A science practice test keeps the plant questions together.
+    let (status, paper, _) = call(r, "POST", "/api/tests", Some(&cookie), Some(json!({"kind": "short", "subject": "science"}))).await;
+    assert_eq!(status, StatusCode::OK, "{paper}");
+    assert_eq!(paper["subject"], "science");
+    assert_eq!(paper["time_limit_secs"], 25 * 60);
+    let stims: Vec<Option<&str>> = paper["questions"].as_array().unwrap().iter().map(|q| q["stimulus"]["id"].as_str()).collect();
+    let first = stims.iter().position(|s| *s == Some("science-plants")).expect("plant set included");
+    let count = stims.iter().filter(|s| **s == Some("science-plants")).count();
+    assert_eq!(count, 3);
+    assert!(stims[first..first + count].iter().all(|s| *s == Some("science-plants")), "set kept together: {stims:?}");
+    assert!(paper["questions"].as_array().unwrap().iter().all(|q| q["subject"] == "science"));
+}

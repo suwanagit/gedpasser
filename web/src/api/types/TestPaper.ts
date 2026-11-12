@@ -2,4 +2,4 @@
 import type { PracticeQuestion } from "./PracticeQuestion";
 import type { TestKind } from "./TestKind";
 
-export type TestPaper = { id: number, kind: TestKind, time_limit_secs: number, questions: Array<PracticeQuestion>, };
+export type TestPaper = { id: number, kind: TestKind, subject: string, time_limit_secs: number, questions: Array<PracticeQuestion>, };
