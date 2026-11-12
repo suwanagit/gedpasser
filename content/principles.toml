@@ -1402,7 +1402,7 @@ A model is a simple rule or picture that explains how something works. You use i
 [[principle]]
 id = "SP.1.c"
 skill = "s-displays"
-status = "draft"
+status = "reviewed"
 name = "Reading graphs and tables"
 summary = "Read values, patterns and changes from a science graph, table or diagram."
 lesson = '''
@@ -1416,7 +1416,7 @@ Graphs and tables answer questions only if you read their labels first.
 [[principle]]
 id = "SP.6.a"
 skill = "s-displays"
-status = "draft"
+status = "reviewed"
 name = "Choosing a graph"
 summary = "Pick the kind of graph and the axes that best show a set of data."
 lesson = '''
@@ -1430,7 +1430,7 @@ Different graphs show different things.
 [[principle]]
 id = "SP.6.b"
 skill = "s-displays"
-status = "draft"
+status = "reviewed"
 name = "Words and pictures into numbers"
 summary = "Turn a graph, a description or a diagram into a number or a symbol."
 lesson = '''

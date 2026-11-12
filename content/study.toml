@@ -614,6 +614,7 @@ links = [
 principle = "SP.6.a"
 search = "choosing the right type of graph"
 links = [
+  { title = "NCES Kids' Zone: How Do I Choose Which Type of Graph to Use?", url = "https://nces.ed.gov/nceskids/help/user_guide/graph/whentouse.asp" },
   { title = "OpenStax Introductory Statistics 2e, 2.1 Stem and leaf graphs stemplots line graphs and bar graphs", url = "https://openstax.org/books/introductory-statistics-2e/pages/2-1-stem-and-leaf-graphs-stemplots-line-graphs-and-bar-graphs" },
 ]
 

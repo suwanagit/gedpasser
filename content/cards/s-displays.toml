@@ -2,7 +2,7 @@
 
 [[card]]
 id = "SP.1.c"
-status = "draft"
+status = "reviewed"
 title = "Reading graphs"
 key = "Read the labels and units before the numbers."
 steps = [
@@ -27,8 +27,8 @@ steps = [
   'What you changed or chose goes along the bottom (x-axis).',
 ]
 example = '''
-Rainfall in four different towns last year.
-**Best graph:** a bar graph, one bar per town.
+Fish caught at three different lakes on one day.
+**Best graph:** a bar graph, one bar per lake.
 '''
 hack = 'Time along the bottom, almost always.'
 
@@ -41,9 +41,10 @@ steps = [
   'Read both values you need.',
   'Subtract to find the change.',
   'Divide by the time or distance to find a rate.',
+  'In a formula, a small number after a symbol counts that atom.',
 ]
 example = '''
 A pond is 12 cm deep on day 1 and 6 cm deep on day 4.
 **Rate:** 6 cm lost over 3 days = 2 cm a day.
 '''
-hack = 'Formula numbers: a small number after a symbol counts that atom.'
+hack = '"Per" means divide: degrees per kilometer is degrees ÷ kilometers.'

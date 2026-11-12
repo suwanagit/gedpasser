@@ -13,13 +13,13 @@ difficulty = 1
 type = "multiple_choice"
 status = "draft"
 stimulus = "science-quakes"
-sources = ["Original passage science-quakes"]
-prompt = "According to the bar graph, which magnitude of earthquake did the station record most often?"
+sources = ["Original passage science-quakes", "USGS Earthquake Hazards Program, Lists, Maps, and Statistics: https://www.usgs.gov/programs/earthquake-hazards/lists-maps-and-statistics"]
+prompt = "According to the table, which magnitude of earthquake did the station record most often?"
 choices = ["Magnitude 2", "Magnitude 3", "Magnitude 4", "Magnitude 5"]
 answer = "Magnitude 2"
 explanation = '''
-The tallest bar shows the magnitude recorded most often.
-The magnitude 2 bar reaches 80, higher than any other bar.
+The biggest count shows the magnitude recorded most often.
+Magnitude 2 has 1,000 earthquakes, more than any other row.
 So the station recorded **magnitude 2** earthquakes most often.
 '''
 common_mistake = "Picking magnitude 5 because it is the strongest. Strongest is not the same as most often."
@@ -33,16 +33,16 @@ difficulty = 2
 type = "multiple_choice"
 status = "draft"
 stimulus = "science-quakes"
-sources = ["Original passage science-quakes"]
-prompt = "Which statement describes the pattern in the bar graph?"
+sources = ["Original passage science-quakes", "USGS Earthquake Hazards Program, Lists, Maps, and Statistics: https://www.usgs.gov/programs/earthquake-hazards/lists-maps-and-statistics"]
+prompt = "Which statement describes the pattern in the table?"
 choices = ["The stronger the earthquake, the fewer of them the station recorded", "The stronger the earthquake, the more of them the station recorded", "The station recorded about the same number of each magnitude", "Most of the earthquakes were magnitude 5"]
 answer = "The stronger the earthquake, the fewer of them the station recorded"
 explanation = '''
-Going from magnitude 2 to 5, the bars go 80, then 40, then 20, then 10.
+Going from magnitude 2 to 5, the counts go 1,000, then 100, then 10, then 1.
 Each stronger group has fewer earthquakes.
 So **the stronger the earthquake, the fewer of them the station recorded**.
 '''
-common_mistake = "Reading the bars from right to left and seeing them grow. The magnitudes increase from left to right."
+common_mistake = "Reading the table from the bottom up and seeing the counts grow. The magnitudes increase going down the table."
 
 [[question]]
 id = "s-displays-0003"
@@ -53,16 +53,16 @@ difficulty = 2
 type = "fill_in"
 status = "draft"
 stimulus = "science-quakes"
-sources = ["Original passage science-quakes"]
+sources = ["Original passage science-quakes", "USGS Earthquake Hazards Program, Lists, Maps, and Statistics: https://www.usgs.gov/programs/earthquake-hazards/lists-maps-and-statistics"]
 prompt = "How many more magnitude 3 earthquakes than magnitude 4 earthquakes did the station record?"
-answer = "20"
-check = "40 - 20"
+answer = "90"
+check = "100 - 10"
 explanation = '''
 A "how many more" question asks for a difference, so subtract.
-Magnitude 3: 40. Magnitude 4: 20. 40 − 20 = 20.
-So the station recorded **20** more magnitude 3 earthquakes.
+Magnitude 3: 100. Magnitude 4: 10. 100 − 10 = 90.
+So the station recorded **90** more magnitude 3 earthquakes.
 '''
-common_mistake = "Adding the two bars (60) instead of finding the difference."
+common_mistake = "Answering 10 because magnitude 3 has ten times as many. The question asks how many more, which is a difference."
 
 # ── Temperature and height (science-balloon) ──────────────────────────
 
@@ -102,10 +102,10 @@ check = "(20 - (-20)) / 8"
 explanation = '''
 A drop for each kilometer is a rate: the total change divided by the distance.
 From 0 km to 8 km the temperature went from 20 °C to −20 °C, a drop of 20 − (−20) = 40 degrees.
-40 ÷ 8 = 5.
+The balloon rose 8 km, so divide: 40 ÷ 8 = 5.
 So the temperature dropped by **5** degrees for each kilometer.
 '''
-common_mistake = "Finding the change as 20 − 20 = 0. Going from 20 down to −20 passes 0, so the drop is 20 + 20 = 40."
+common_mistake = "Answering 10, the drop between two points 2 km apart. That is the drop for every 2 km, not every 1 km."
 
 [[question]]
 id = "s-displays-0006"
@@ -147,7 +147,7 @@ While a substance changes state, its temperature stays the same.
 0 °C is the melting point of ice, and the flat part is at 0 °C.
 So between A and B, **the ice is melting into liquid water**.
 '''
-common_mistake = "Picking \"the heater was turned off\". The student heated it at a steady rate the whole time."
+common_mistake = "Picking \"the heater has been turned off\". The student heated it at a steady rate the whole time."
 
 [[question]]
 id = "s-displays-0008"
@@ -159,15 +159,15 @@ type = "fill_in"
 status = "draft"
 stimulus = "science-heating-curve"
 sources = ["Original passage science-heating-curve", "OpenStax Chemistry 2e 10.3 Phase Transitions: https://openstax.org/books/chemistry-2e/pages/10-3-phase-transitions"]
-prompt = "According to the graph, at what temperature, in °C, did the water boil?"
+prompt = "According to the graph, at what temperature, in °C, did the water start to boil?"
 answer = "100"
 check = "100"
 explanation = '''
-Boiling is the second flat part of the graph, starting at point C.
-That flat part is at 100 °C.
-So the water boiled at **100 °C**.
+The passage says the water starts to boil at point C.
+Point C is at 100 °C.
+So the water started to boil at **100 °C**.
 '''
-common_mistake = "Reading 0 °C, the first flat part. That is melting, not boiling."
+common_mistake = "Reading 0 °C, the flat part. That is melting, not boiling."
 
 [[question]]
 id = "s-displays-0009"
@@ -179,15 +179,15 @@ type = "fill_in"
 status = "draft"
 stimulus = "science-heating-curve"
 sources = ["Original passage science-heating-curve", "OpenStax Chemistry 2e 10.3 Phase Transitions: https://openstax.org/books/chemistry-2e/pages/10-3-phase-transitions"]
-prompt = "According to the graph, how many minutes did the ice take to melt completely?"
-answer = "5"
-check = "10 - 5"
+prompt = "According to the graph, for how many minutes was the ice melting, from point A to point B?"
+answer = "40"
+check = "50 - 10"
 explanation = '''
 Melting is the flat part at 0 °C, from point A to point B.
-A is at 5 minutes and B is at 10 minutes, so 10 − 5 = 5.
-So melting took **5** minutes.
+A is at 10 minutes and B is at 50 minutes, so 50 − 10 = 40.
+So the ice was melting for **40** minutes.
 '''
-common_mistake = "Answering 10, the time at point B. That counts the 5 minutes of warming the ice from −20 °C too."
+common_mistake = "Answering 50, the time at point B. That also counts the 10 minutes of warming the ice from −40 °C."
 
 [[question]]
 id = "s-displays-0010"
@@ -207,7 +207,7 @@ At B, all the ice has melted. At C, the water starts to boil.
 In between, the line rises from 0 °C to 100 °C, and the water is all liquid.
 So the water is **staying liquid while its temperature rises**.
 '''
-common_mistake = "Picking \"boiling while its temperature rises\". Boiling starts only at C, where the line goes flat again."
+common_mistake = "Picking \"boiling while its temperature rises\". The passage says boiling starts only at C."
 
 # ── Stand-alone ───────────────────────────────────────────────────────
 
@@ -219,9 +219,9 @@ topic = "L.d.1"
 difficulty = 1
 type = "multiple_choice"
 status = "draft"
-sources = ["OpenStax Introductory Statistics 2e 2.1 Stem-and-Leaf Graphs, Line Graphs, and Bar Graphs: https://openstax.org/books/introductory-statistics-2e/pages/2-1-stem-and-leaf-graphs-stemplots-line-graphs-and-bar-graphs", "Math is Fun: Line Graphs: https://www.mathsisfun.com/data/line-graphs.html"]
+sources = ["OpenStax Introductory Statistics 2e 2.1 Stem-and-Leaf Graphs, Line Graphs, and Bar Graphs: https://openstax.org/books/introductory-statistics-2e/pages/2-1-stem-and-leaf-graphs-stemplots-line-graphs-and-bar-graphs", "Math is Fun: Line Graphs: https://www.mathsisfun.com/data/line-graphs.html", "Math is Fun: Pie Chart: https://www.mathsisfun.com/data/pie-charts.html", "NCES Kids' Zone, How Do I Choose Which Type of Graph to Use?: https://nces.ed.gov/nceskids/help/user_guide/graph/whentouse.asp"]
 prompt = "A student measures the height of a bean plant every day for two weeks. Which kind of graph would best show how the plant grew over time?"
-choices = ["A line graph", "A bar graph with one bar for each kind of plant", "A pie chart", "A table with no numbers"]
+choices = ["A line graph", "A single bar showing the plant's height on the last day", "A pie chart", "A Venn diagram"]
 answer = "A line graph"
 explanation = '''
 The data show one thing changing over time.
@@ -238,16 +238,16 @@ topic = "L.c.1"
 difficulty = 1
 type = "multiple_choice"
 status = "draft"
-sources = ["OpenStax Introductory Statistics 2e 2.1 Stem-and-Leaf Graphs, Line Graphs, and Bar Graphs: https://openstax.org/books/introductory-statistics-2e/pages/2-1-stem-and-leaf-graphs-stemplots-line-graphs-and-bar-graphs", "Math is Fun: Bar Graphs: https://www.mathsisfun.com/data/bar-graphs.html"]
+sources = ["OpenStax Introductory Statistics 2e 2.1 Stem-and-Leaf Graphs, Line Graphs, and Bar Graphs: https://openstax.org/books/introductory-statistics-2e/pages/2-1-stem-and-leaf-graphs-stemplots-line-graphs-and-bar-graphs", "Math is Fun: Bar Graphs: https://www.mathsisfun.com/data/bar-graphs.html", "NCES Kids' Zone, How Do I Choose Which Type of Graph to Use?: https://nces.ed.gov/nceskids/help/user_guide/graph/whentouse.asp"]
 prompt = "A scientist counts how many birds of four different kinds visit a feeder in one day. Which kind of graph would best compare the four kinds?"
-choices = ["A bar graph with one bar for each kind of bird", "A line graph of the time of day", "A single number line", "A graph with no labels"]
+choices = ["A bar graph with one bar for each kind of bird", "A single bar showing the total number of birds", "A line graph of the total number of birds each hour", "A Venn diagram"]
 answer = "A bar graph with one bar for each kind of bird"
 explanation = '''
 The data compare amounts in separate groups: four kinds of birds.
 A bar graph is made for comparing separate groups.
 So the best choice is **a bar graph with one bar for each kind of bird**.
 '''
-common_mistake = "Picking a line graph. A line connects points in order, but the kinds of birds have no order."
+common_mistake = "Picking a line graph of the total each hour. It shows change over time, but it never splits the birds by kind."
 
 [[question]]
 id = "s-displays-0013"
@@ -257,9 +257,9 @@ topic = "P.a.1"
 difficulty = 2
 type = "multiple_choice"
 status = "draft"
-sources = ["OpenStax Introductory Statistics 2e 2.1 Stem-and-Leaf Graphs, Line Graphs, and Bar Graphs: https://openstax.org/books/introductory-statistics-2e/pages/2-1-stem-and-leaf-graphs-stemplots-line-graphs-and-bar-graphs", "Math is Fun: Data Graphs: https://www.mathsisfun.com/data/data-graph.html"]
+sources = ["OpenStax Introductory Statistics 2e 2.1 Stem-and-Leaf Graphs, Line Graphs, and Bar Graphs: https://openstax.org/books/introductory-statistics-2e/pages/2-1-stem-and-leaf-graphs-stemplots-line-graphs-and-bar-graphs", "Math is Fun: Data Graphs: https://www.mathsisfun.com/data/data-graph.html", "NCES Kids' Zone, Learning Line Graphs: https://nces.ed.gov/nceskids/help/user_guide/graph/line.asp", "NCES Kids' Zone, What are Independent and Dependent Variables?: https://nces.ed.gov/nceskids/help/user_guide/graph/variables.asp"]
 prompt = "A student heats a beaker of water and records its temperature every minute. She wants to graph the results. Which should go on the x-axis, along the bottom?"
-choices = ["Time, in minutes", "Temperature, in °C", "The name of the student", "The size of the beaker"]
+choices = ["Time, in minutes", "Temperature, in °C", "The starting temperature of the water", "The size of the beaker"]
 answer = "Time, in minutes"
 explanation = '''
 The x-axis usually shows what was chosen or changed on purpose, like when to measure.
@@ -275,7 +275,7 @@ principle = "SP.6.a"
 topic = "L.c.1"
 difficulty = 2
 type = "sort"
-status = "draft"
+status = "reviewed"
 sources = ["OpenStax Introductory Statistics 2e 2.1 Stem-and-Leaf Graphs, Line Graphs, and Bar Graphs: https://openstax.org/books/introductory-statistics-2e/pages/2-1-stem-and-leaf-graphs-stemplots-line-graphs-and-bar-graphs", "Math is Fun: Bar Graphs: https://www.mathsisfun.com/data/bar-graphs.html", "Math is Fun: Line Graphs: https://www.mathsisfun.com/data/line-graphs.html"]
 prompt = "Sort each set of data by the kind of graph that would show it best."
 groups = [
@@ -296,7 +296,7 @@ principle = "SP.6.b"
 topic = "P.c.1"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 sources = ["OpenStax Chemistry 2e 2.4 Chemical Formulas: https://openstax.org/books/chemistry-2e/pages/2-4-chemical-formulas"]
 prompt = "A molecule of carbon dioxide has one carbon atom (C) and two oxygen atoms (O). Which formula shows this molecule?"
 choices = ["CO₂", "C₂O", "2CO", "CO"]
@@ -313,16 +313,17 @@ id = "s-displays-0016"
 skill = "s-displays"
 principle = "SP.6.b"
 topic = "P.c.1"
-difficulty = 3
-type = "multiple_choice"
+difficulty = 2
+type = "fill_in"
 status = "draft"
 sources = ["OpenStax Chemistry 2e 2.4 Chemical Formulas: https://openstax.org/books/chemistry-2e/pages/2-4-chemical-formulas"]
-prompt = "A molecule of methane is written CH₄. How many atoms of each element are in one molecule of methane?"
-choices = ["1 carbon atom and 4 hydrogen atoms", "4 carbon atoms and 1 hydrogen atom", "1 carbon atom and 1 hydrogen atom", "4 carbon atoms and 4 hydrogen atoms"]
-answer = "1 carbon atom and 4 hydrogen atoms"
+prompt = "Methane is written CH₄. How many atoms in all are in one molecule of methane?"
+answer = "5"
+check = "1 + 4"
 explanation = '''
-C stands for carbon and H for hydrogen.
-C has no small number after it, so there is 1 carbon. H has a 4 after it, so there are 4 hydrogens.
-So methane has **1 carbon atom and 4 hydrogen atoms**.
+A small number after a symbol counts the atom just before it. No number means one.
+C has no number, so there is 1 carbon atom. H has a 4, so there are 4 hydrogen atoms.
+Add them: 1 + 4 = 5.
+So one molecule of methane has **5** atoms.
 '''
-common_mistake = "Reading the 4 as belonging to carbon. A small number counts the atom just before it."
+common_mistake = "Answering 4 by counting only the hydrogens. The C with no number still counts as one carbon atom."

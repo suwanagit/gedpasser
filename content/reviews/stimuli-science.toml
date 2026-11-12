@@ -698,3 +698,63 @@ role = "factcheck"
 verdict = "pass"
 note = "Source starts with 'Original'; text is our own wording, no long verbatim runs from OpenStax or NSIDC. Checked each claim: tilt about 23.5 deg and axis points the same direction all year (OpenStax 4.2); June north leans into the Sun, more direct light, longer days, south opposite, reversed in December (OpenStax 4.2); area around the North Pole has 24-hour sunlight in June and Arctic Circle at about 66.5 N (NSIDC: 66 deg 33' N) has the Sun not setting around the June solstice (NSIDC, OpenStax). All supported."
 date = "2026-11-12"
+
+[[review]]
+id = "science-quakes"
+kind = "stimulus"
+hash = "326ffbdaf392b524"
+reviewer = "solver-w"
+role = "solver"
+verdict = "pass"
+note = '''Clear, short, about grade 9-10; defines seismometer and magnitude. Bars 80/40/20/10 read exactly on a gridded axis. Marked as made-up numbers (real counts fall about tenfold per magnitude, so the label matters and is present).'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-balloon"
+kind = "stimulus"
+hash = "52b76f236ecc35b1"
+reviewer = "solver-w"
+role = "solver"
+verdict = "fix"
+note = '''Figure is good: all points on tidy gridlines (x every 2 km, y every 10 °C), so 0004 and 0005 read exactly. But the last sentence of the first paragraph, "In this layer, air usually gets colder as you go higher.", states the answer to s-displays-0006 in words, so that graph-reading question needs no graph. Cut that sentence (the explanation of 0006 or its common_mistake can carry the fact), or keep it only if 0006 is replaced.'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-heating-curve"
+kind = "stimulus"
+hash = "bd8ed918a5651730"
+reviewer = "solver-w"
+role = "solver"
+verdict = "fix"
+note = '''The curve teaches wrong physics. At a steady heating rate, ice (specific heat about 2.1 J/g°C) warms about twice as fast as liquid water (4.18 J/g°C), and melting (334 J/g) takes about 8 times as long as warming ice by 20 °C (42 J/g) and about 0.8 times as long as warming water 0 to 100 °C (418 J/g). Here ice warms at 4 °C/min but water at 10 °C/min (backwards), and melting takes the same 5 minutes as warming the ice. Also the text, unlike the other two passages, does not say the results are made up or simplified. Fix: x_max = 100 (or 110), segments (0,-20)->(5,0), (5,0)->(45,0), (45,0)->(95,100), (95,100)->(100,100); points A (5,0), B (45,0), C (95,100). That gives ice 4 °C/min, water 2 °C/min, melt 40 min vs water 50 min, all on 5-minute ticks. Add "The results are simplified for practice." Then update s-displays-0009 to 40 (filed there). 0007, 0008, 0010 stay valid.'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-quakes"
+kind = "stimulus"
+hash = "326ffbdaf392b524"
+reviewer = "factcheck-l"
+role = "factcheck"
+verdict = "fix"
+note = '''Source line starts with Original; no copied text. Fact check: USGS "Earthquake Magnitude, Energy Release, and Shaking Intensity" (https://www.usgs.gov/programs/earthquake-hazards/earthquake-magnitude-energy-release-and-shaking-intensity) confirms seismometers record earthquake vibrations and that magnitude is the size of an earthquake, higher = larger. FIX 1: the passage states these outside facts but its source cites nothing; add that USGS page, e.g. "Original (made-up numbers for practice; facts from USGS, Earthquake Magnitude, Energy Release, and Shaking Intensity)". FIX 2: the made-up counts halve with each magnitude step (80, 40, 20, 10). Real counts fall roughly tenfold per whole magnitude (USGS "Lists, Maps, and Statistics", https://www.usgs.gov/programs/earthquake-hazards/lists-maps-and-statistics: about 1,200-2,300 M5 vs 100-185 M6 per year worldwide, 2000-2021). The direction of the pattern is right, but the size of the drop is physically misleading. Suggest counts near tenfold, e.g. 1000, 100, 10, 1 (or 900, 100, 12, 1), and update s-displays-0002/0003 to match (0003 would become 100 - 10 = 90).'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-balloon"
+kind = "stimulus"
+hash = "52b76f236ecc35b1"
+reviewer = "factcheck-l"
+role = "factcheck"
+verdict = "pass"
+note = '''Source line starts with Original, says made-up, and cites OpenStax Astronomy 2e 8.3 (opened, HTTP 200). OpenStax: the troposphere is the lowest ~10 km and temperature decreases rapidly with elevation to about -50 C at its top. The passage claim (air usually gets colder with height in the lowest layer) is supported. Made-up data: 20 C at the ground to -20 C at 8 km = 5 C per km, within the real range (OpenStax implies roughly 6.5 C/km on average); 8 km is inside the troposphere. Not misleading. No copied text.'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-heating-curve"
+kind = "stimulus"
+hash = "bd8ed918a5651730"
+reviewer = "factcheck-l"
+role = "factcheck"
+verdict = "fix"
+note = '''Source line starts with Original and cites OpenStax Chemistry 2e 10.3 (opened, HTTP 200). Confirmed there: temperature stays constant during a change of state; ice melts at 0 C (enthalpy of fusion given at 0 C); a stove burner supplies heat at a roughly constant rate. FIX 1 (physically misleading data): with steady heating, each stage's time is proportional to the heat it needs. OpenStax Example 10.10 values: ice c = 2.09 J/g C, fusion 6.01 kJ/mol (334 J/g), water c = 4.18 J/g C. Per gram: warm ice -20 to 0 C = 42 J, melt = 334 J, warm water 0 to 100 C = 418 J, a ratio of about 1 : 8 : 10. The graph shows 5 : 5 : 10 minutes, so melting looks as quick as warming the ice, and liquid water (10 C/min) heats faster than ice (4 C/min), the reverse of what the specific heats give. Suggest A at 1 min, B at 9 min, C at 19 min (x_max 25): segments (0,-20)-(1,0), (1,0)-(9,0), (9,0)-(19,100), (19,100)-(25,100); s-displays-0009 then becomes 8 (check 9 - 1). FIX 2: the text does not say the results are made up (only the source line does); add "The numbers are made up for practice." like the other two passages. FIX 3: 100 C is the boiling point at 1 atm (sea level); OpenStax 10.3 Example 10.6 shows water boiling near 90 C at Leadville. Say the pot is at sea level, since some Alaska learners live at altitude.'''
+date = "2026-11-12"
