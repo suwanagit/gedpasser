@@ -597,6 +597,8 @@ pub struct AnswerResult {
     pub hack: Option<String>,
     /// XP earned for this answer.
     pub xp: u32,
+    /// Where to go study this principle.
+    pub study: Option<crate::study::StudyView>,
 }
 
 pub async fn submit_answer(
@@ -640,6 +642,7 @@ pub async fn submit_answer(
         principle: principle_ref(&state, &q.principle),
         hack: state.bank.card(&q.principle, state.serve_drafts).map(|c| c.hack.trim().to_string()),
         xp: crate::stats::answer_xp(correct),
+        study: crate::study::study_view(&state, &q.principle),
     }))
 }
 
@@ -681,6 +684,8 @@ pub struct Lesson {
     pub draft: bool,
     /// The short card: shown first; the long lesson is "more detail".
     pub card: Option<crate::journey::CardView>,
+    /// Where to go study this principle.
+    pub study: Option<crate::study::StudyView>,
 }
 
 /// Every principle, in skill order.
@@ -732,6 +737,7 @@ pub async fn get_principle(
         lesson: show.then(|| p.lesson.trim().to_string()),
         draft: show && p.status == ged_content::Status::Draft,
         card: crate::journey::card_view(&state, &p.id),
+        study: crate::study::study_view(&state, &p.id),
     }))
 }
 

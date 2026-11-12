@@ -1,0 +1,487 @@
+# Where to go study each principle on your own. Shown under "Study this"
+# after an answer, in the Library, and on the focus lists.
+#
+# search: a few words for a web search (only these words are searched).
+# links: one to three free pages. OpenStax textbooks are free college
+# texts written for returning adult students; Math is Fun is a free
+# reference site. Every link was checked to open (HTTP 200) when added.
+#
+# Reviewed as a whole: `cargo content-template study`, then
+# `cargo content-approve study` after an independent review.
+
+status = "draft"
+
+[[topic]]
+principle = "Q.1.a"
+search = "compare and order fractions and decimals"
+links = [
+  { title = "OpenStax Prealgebra 2e, 5.3 Decimals and fractions", url = "https://openstax.org/books/prealgebra-2e/pages/5-3-decimals-and-fractions" },
+  { title = "Math is Fun: Ordering Decimals", url = "https://www.mathsisfun.com/ordering_decimals.html" },
+]
+
+[[topic]]
+principle = "Q.1.b"
+search = "greatest common factor and least common multiple"
+links = [
+  { title = "OpenStax Prealgebra 2e, 2.4 Find multiples and factors", url = "https://openstax.org/books/prealgebra-2e/pages/2-4-find-multiples-and-factors" },
+  { title = "OpenStax Prealgebra 2e, 2.5 Prime factorization and the least common multiple", url = "https://openstax.org/books/prealgebra-2e/pages/2-5-prime-factorization-and-the-least-common-multiple" },
+  { title = "OpenStax Prealgebra 2e, 7.3 Distributive property", url = "https://openstax.org/books/prealgebra-2e/pages/7-3-distributive-property" },
+]
+
+[[topic]]
+principle = "Q.1.c"
+search = "exponent rules"
+links = [
+  { title = "OpenStax Prealgebra 2e, 10.2 Use multiplication properties of exponents", url = "https://openstax.org/books/prealgebra-2e/pages/10-2-use-multiplication-properties-of-exponents" },
+  { title = "Math is Fun: Laws of Exponents", url = "https://www.mathsisfun.com/algebra/exponent-laws.html" },
+]
+
+[[topic]]
+principle = "Q.1.d"
+search = "absolute value on a number line"
+links = [
+  { title = "OpenStax Prealgebra 2e, 3.1 Introduction to integers", url = "https://openstax.org/books/prealgebra-2e/pages/3-1-introduction-to-integers" },
+  { title = "Math is Fun: Absolute Value", url = "https://www.mathsisfun.com/numbers/absolute-value.html" },
+]
+
+[[topic]]
+principle = "Q.2.a"
+search = "operations with fractions decimals and negatives"
+links = [
+  { title = "OpenStax Prealgebra 2e, 4.5 Add and subtract fractions with different denominators", url = "https://openstax.org/books/prealgebra-2e/pages/4-5-add-and-subtract-fractions-with-different-denominators" },
+  { title = "OpenStax Prealgebra 2e, 3.4 Multiply and divide integers", url = "https://openstax.org/books/prealgebra-2e/pages/3-4-multiply-and-divide-integers" },
+  { title = "OpenStax Prealgebra 2e, 5.2 Decimal operations", url = "https://openstax.org/books/prealgebra-2e/pages/5-2-decimal-operations" },
+]
+
+[[topic]]
+principle = "Q.2.b"
+search = "squares and square roots"
+links = [
+  { title = "OpenStax Prealgebra 2e, 5.7 Simplify and use square roots", url = "https://openstax.org/books/prealgebra-2e/pages/5-7-simplify-and-use-square-roots" },
+  { title = "Math is Fun: Square Roots", url = "https://www.mathsisfun.com/square-root.html" },
+]
+
+[[topic]]
+principle = "Q.2.c"
+search = "cubes and cube roots"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 9.7 Higher roots", url = "https://openstax.org/books/elementary-algebra-2e/pages/9-7-higher-roots" },
+  { title = "Math is Fun: Cube Root", url = "https://www.mathsisfun.com/numbers/cube-root.html" },
+]
+
+[[topic]]
+principle = "Q.2.d"
+search = "why dividing by zero is undefined"
+links = [
+  { title = "OpenStax Prealgebra 2e, 7.4 Properties of identity inverses and zero", url = "https://openstax.org/books/prealgebra-2e/pages/7-4-properties-of-identity-inverses-and-zero" },
+  { title = "Math is Fun: Dividing by Zero", url = "https://www.mathsisfun.com/numbers/dividing-by-zero.html" },
+]
+
+[[topic]]
+principle = "Q.2.e"
+search = "multi-step word problems"
+links = [
+  { title = "OpenStax Prealgebra 2e, 9.1 Use a problem solving strategy", url = "https://openstax.org/books/prealgebra-2e/pages/9-1-use-a-problem-solving-strategy" },
+  { title = "OpenStax Prealgebra 2e, 9.2 Solve money applications", url = "https://openstax.org/books/prealgebra-2e/pages/9-2-solve-money-applications" },
+]
+
+[[topic]]
+principle = "Q.3.a"
+search = "unit rates"
+links = [
+  { title = "OpenStax Prealgebra 2e, 5.6 Ratios and rate", url = "https://openstax.org/books/prealgebra-2e/pages/5-6-ratios-and-rate" },
+]
+
+[[topic]]
+principle = "Q.3.b"
+search = "scale drawings and scale factors"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 8.7 Solve proportion and similar figure applications", url = "https://openstax.org/books/elementary-algebra-2e/pages/8-7-solve-proportion-and-similar-figure-applications" },
+]
+
+[[topic]]
+principle = "Q.3.c"
+search = "proportions and unit conversion"
+links = [
+  { title = "OpenStax Prealgebra 2e, 6.5 Solve proportions and their applications", url = "https://openstax.org/books/prealgebra-2e/pages/6-5-solve-proportions-and-their-applications" },
+  { title = "OpenStax Prealgebra 2e, 7.5 Systems of measurement", url = "https://openstax.org/books/prealgebra-2e/pages/7-5-systems-of-measurement" },
+]
+
+[[topic]]
+principle = "Q.3.d"
+search = "percent word problems"
+links = [
+  { title = "OpenStax Prealgebra 2e, 6.2 Solve general applications of percent", url = "https://openstax.org/books/prealgebra-2e/pages/6-2-solve-general-applications-of-percent" },
+  { title = "OpenStax Prealgebra 2e, 6.3 Solve sales tax commission and discount applications", url = "https://openstax.org/books/prealgebra-2e/pages/6-3-solve-sales-tax-commission-and-discount-applications" },
+]
+
+[[topic]]
+principle = "Q.4.a"
+search = "area and perimeter of rectangles and triangles"
+links = [
+  { title = "OpenStax Prealgebra 2e, 9.4 Use properties of rectangles triangles and trapezoids", url = "https://openstax.org/books/prealgebra-2e/pages/9-4-use-properties-of-rectangles-triangles-and-trapezoids" },
+  { title = "Math is Fun: Area", url = "https://www.mathsisfun.com/area.html" },
+]
+
+[[topic]]
+principle = "Q.4.b"
+search = "circumference and area of a circle"
+links = [
+  { title = "OpenStax Prealgebra 2e, 9.5 Solve geometry applications circles and irregular figures", url = "https://openstax.org/books/prealgebra-2e/pages/9-5-solve-geometry-applications-circles-and-irregular-figures" },
+  { title = "Math is Fun: Area of a Circle", url = "https://www.mathsisfun.com/geometry/circle-area.html" },
+]
+
+[[topic]]
+principle = "Q.4.c"
+search = "area of trapezoids and polygons"
+links = [
+  { title = "OpenStax Prealgebra 2e, 9.4 Use properties of rectangles triangles and trapezoids", url = "https://openstax.org/books/prealgebra-2e/pages/9-4-use-properties-of-rectangles-triangles-and-trapezoids" },
+]
+
+[[topic]]
+principle = "Q.4.d"
+search = "area of composite figures"
+links = [
+  { title = "OpenStax Prealgebra 2e, 9.5 Solve geometry applications circles and irregular figures", url = "https://openstax.org/books/prealgebra-2e/pages/9-5-solve-geometry-applications-circles-and-irregular-figures" },
+]
+
+[[topic]]
+principle = "Q.4.e"
+search = "Pythagorean theorem"
+links = [
+  { title = "OpenStax Prealgebra 2e, 9.3 Use properties of angles triangles and the pythagorean theorem", url = "https://openstax.org/books/prealgebra-2e/pages/9-3-use-properties-of-angles-triangles-and-the-pythagorean-theorem" },
+  { title = "Math is Fun: Pythagoras' Theorem", url = "https://www.mathsisfun.com/pythagoras.html" },
+]
+
+[[topic]]
+principle = "Q.5.a"
+search = "volume of a rectangular prism"
+links = [
+  { title = "OpenStax Prealgebra 2e, 9.6 Solve geometry applications volume and surface area", url = "https://openstax.org/books/prealgebra-2e/pages/9-6-solve-geometry-applications-volume-and-surface-area" },
+  { title = "Math is Fun: Cuboids (Rectangular Prisms)", url = "https://www.mathsisfun.com/geometry/cuboids-rectangular-prisms.html" },
+]
+
+[[topic]]
+principle = "Q.5.b"
+search = "volume and surface area of a cylinder"
+links = [
+  { title = "OpenStax Prealgebra 2e, 9.6 Solve geometry applications volume and surface area", url = "https://openstax.org/books/prealgebra-2e/pages/9-6-solve-geometry-applications-volume-and-surface-area" },
+  { title = "Math is Fun: Cylinder", url = "https://www.mathsisfun.com/geometry/cylinder.html" },
+]
+
+[[topic]]
+principle = "Q.5.c"
+search = "volume of a prism"
+links = [
+  { title = "OpenStax Prealgebra 2e, 9.6 Solve geometry applications volume and surface area", url = "https://openstax.org/books/prealgebra-2e/pages/9-6-solve-geometry-applications-volume-and-surface-area" },
+  { title = "Math is Fun: Prisms", url = "https://www.mathsisfun.com/geometry/prisms.html" },
+]
+
+[[topic]]
+principle = "Q.5.d"
+search = "volume of a cone and a pyramid"
+links = [
+  { title = "OpenStax Prealgebra 2e, 9.6 Solve geometry applications volume and surface area", url = "https://openstax.org/books/prealgebra-2e/pages/9-6-solve-geometry-applications-volume-and-surface-area" },
+  { title = "Math is Fun: Cone", url = "https://www.mathsisfun.com/geometry/cone.html" },
+]
+
+[[topic]]
+principle = "Q.5.e"
+search = "volume and surface area of a sphere"
+links = [
+  { title = "OpenStax Prealgebra 2e, 9.6 Solve geometry applications volume and surface area", url = "https://openstax.org/books/prealgebra-2e/pages/9-6-solve-geometry-applications-volume-and-surface-area" },
+  { title = "Math is Fun: Sphere", url = "https://www.mathsisfun.com/geometry/sphere.html" },
+]
+
+[[topic]]
+principle = "Q.5.f"
+search = "volume of composite solids"
+links = [
+  { title = "OpenStax Prealgebra 2e, 9.6 Solve geometry applications volume and surface area", url = "https://openstax.org/books/prealgebra-2e/pages/9-6-solve-geometry-applications-volume-and-surface-area" },
+]
+
+[[topic]]
+principle = "Q.6.a"
+search = "reading bar graphs and pie charts"
+links = [
+  { title = "OpenStax Introductory Statistics 2e, 2.1 Stem and leaf graphs stemplots line graphs and bar graphs", url = "https://openstax.org/books/introductory-statistics-2e/pages/2-1-stem-and-leaf-graphs-stemplots-line-graphs-and-bar-graphs" },
+  { title = "Math is Fun: Bar Graphs", url = "https://www.mathsisfun.com/data/bar-graphs.html" },
+  { title = "Math is Fun: Pie Chart", url = "https://www.mathsisfun.com/data/pie-charts.html" },
+]
+
+[[topic]]
+principle = "Q.6.b"
+search = "dot plots histograms and box plots"
+links = [
+  { title = "OpenStax Introductory Statistics 2e, 2.2 Histograms frequency polygons and time series graphs", url = "https://openstax.org/books/introductory-statistics-2e/pages/2-2-histograms-frequency-polygons-and-time-series-graphs" },
+  { title = "OpenStax Introductory Statistics 2e, 2.4 Box plots", url = "https://openstax.org/books/introductory-statistics-2e/pages/2-4-box-plots" },
+]
+
+[[topic]]
+principle = "Q.6.c"
+search = "reading tables and scatter plots"
+links = [
+  { title = "Math is Fun: Scatter (XY) Plots", url = "https://www.mathsisfun.com/data/scatter-xy-plots.html" },
+  { title = "OpenStax Elementary Algebra 2e, 4.1 Use the rectangular coordinate system", url = "https://openstax.org/books/elementary-algebra-2e/pages/4-1-use-the-rectangular-coordinate-system" },
+]
+
+[[topic]]
+principle = "Q.7.a"
+search = "mean median mode and range"
+links = [
+  { title = "OpenStax Prealgebra 2e, 5.5 Averages and probability", url = "https://openstax.org/books/prealgebra-2e/pages/5-5-averages-and-probability" },
+  { title = "Math is Fun: Mean, Median and Mode", url = "https://www.mathsisfun.com/data/central-measures.html" },
+]
+
+[[topic]]
+principle = "Q.8.a"
+search = "combinations and permutations"
+links = [
+  { title = "Math is Fun: Combinations and Permutations", url = "https://www.mathsisfun.com/combinatorics/combinations-permutations.html" },
+]
+
+[[topic]]
+principle = "Q.8.b"
+search = "probability of simple and compound events"
+links = [
+  { title = "OpenStax Prealgebra 2e, 5.5 Averages and probability", url = "https://openstax.org/books/prealgebra-2e/pages/5-5-averages-and-probability" },
+  { title = "Math is Fun: Probability", url = "https://www.mathsisfun.com/data/probability.html" },
+]
+
+[[topic]]
+principle = "A.1.a"
+search = "combining like terms"
+links = [
+  { title = "OpenStax Prealgebra 2e, 2.2 Evaluate simplify and translate expressions", url = "https://openstax.org/books/prealgebra-2e/pages/2-2-evaluate-simplify-and-translate-expressions" },
+]
+
+[[topic]]
+principle = "A.1.b"
+search = "evaluating algebraic expressions"
+links = [
+  { title = "OpenStax Prealgebra 2e, 2.2 Evaluate simplify and translate expressions", url = "https://openstax.org/books/prealgebra-2e/pages/2-2-evaluate-simplify-and-translate-expressions" },
+]
+
+[[topic]]
+principle = "A.1.c"
+search = "translating words into algebraic expressions"
+links = [
+  { title = "OpenStax Prealgebra 2e, 2.2 Evaluate simplify and translate expressions", url = "https://openstax.org/books/prealgebra-2e/pages/2-2-evaluate-simplify-and-translate-expressions" },
+  { title = "OpenStax Elementary Algebra 2e, 1.2 Use the language of algebra", url = "https://openstax.org/books/elementary-algebra-2e/pages/1-2-use-the-language-of-algebra" },
+]
+
+[[topic]]
+principle = "A.1.d"
+search = "adding and multiplying polynomials"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 6.1 Add and subtract polynomials", url = "https://openstax.org/books/elementary-algebra-2e/pages/6-1-add-and-subtract-polynomials" },
+  { title = "OpenStax Elementary Algebra 2e, 6.3 Multiply polynomials", url = "https://openstax.org/books/elementary-algebra-2e/pages/6-3-multiply-polynomials" },
+]
+
+[[topic]]
+principle = "A.1.e"
+search = "evaluating polynomials"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 6.1 Add and subtract polynomials", url = "https://openstax.org/books/elementary-algebra-2e/pages/6-1-add-and-subtract-polynomials" },
+]
+
+[[topic]]
+principle = "A.1.f"
+search = "factoring polynomials"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 7.1 Greatest common factor and factor by grouping", url = "https://openstax.org/books/elementary-algebra-2e/pages/7-1-greatest-common-factor-and-factor-by-grouping" },
+  { title = "OpenStax Elementary Algebra 2e, 7.2 Factor trinomials of the form x2 bx c", url = "https://openstax.org/books/elementary-algebra-2e/pages/7-2-factor-trinomials-of-the-form-x2-bx-c" },
+]
+
+[[topic]]
+principle = "A.1.g"
+search = "writing polynomial expressions from words"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 6.1 Add and subtract polynomials", url = "https://openstax.org/books/elementary-algebra-2e/pages/6-1-add-and-subtract-polynomials" },
+  { title = "OpenStax Elementary Algebra 2e, 1.2 Use the language of algebra", url = "https://openstax.org/books/elementary-algebra-2e/pages/1-2-use-the-language-of-algebra" },
+]
+
+[[topic]]
+principle = "A.1.h"
+search = "operations with rational expressions"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 8.2 Multiply and divide rational expressions", url = "https://openstax.org/books/elementary-algebra-2e/pages/8-2-multiply-and-divide-rational-expressions" },
+  { title = "OpenStax Elementary Algebra 2e, 8.4 Add and subtract rational expressions with unlike denominators", url = "https://openstax.org/books/elementary-algebra-2e/pages/8-4-add-and-subtract-rational-expressions-with-unlike-denominators" },
+]
+
+[[topic]]
+principle = "A.1.i"
+search = "evaluating rational expressions"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 8.1 Simplify rational expressions", url = "https://openstax.org/books/elementary-algebra-2e/pages/8-1-simplify-rational-expressions" },
+]
+
+[[topic]]
+principle = "A.1.j"
+search = "rational expression word problems"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 8.8 Solve uniform motion and work applications", url = "https://openstax.org/books/elementary-algebra-2e/pages/8-8-solve-uniform-motion-and-work-applications" },
+]
+
+[[topic]]
+principle = "A.2.a"
+search = "solving linear equations"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 2.4 Use a general strategy to solve linear equations", url = "https://openstax.org/books/elementary-algebra-2e/pages/2-4-use-a-general-strategy-to-solve-linear-equations" },
+]
+
+[[topic]]
+principle = "A.2.b"
+search = "linear equation word problems"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 3.1 Use a problem solving strategy", url = "https://openstax.org/books/elementary-algebra-2e/pages/3-1-use-a-problem-solving-strategy" },
+]
+
+[[topic]]
+principle = "A.2.c"
+search = "writing equations from word problems"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 3.1 Use a problem solving strategy", url = "https://openstax.org/books/elementary-algebra-2e/pages/3-1-use-a-problem-solving-strategy" },
+  { title = "OpenStax Prealgebra 2e, 9.1 Use a problem solving strategy", url = "https://openstax.org/books/prealgebra-2e/pages/9-1-use-a-problem-solving-strategy" },
+]
+
+[[topic]]
+principle = "A.2.d"
+search = "solving systems of linear equations"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 5.2 Solving systems of equations by substitution", url = "https://openstax.org/books/elementary-algebra-2e/pages/5-2-solving-systems-of-equations-by-substitution" },
+  { title = "OpenStax Elementary Algebra 2e, 5.3 Solve systems of equations by elimination", url = "https://openstax.org/books/elementary-algebra-2e/pages/5-3-solve-systems-of-equations-by-elimination" },
+]
+
+[[topic]]
+principle = "A.3.a"
+search = "solving linear inequalities"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 2.7 Solve linear inequalities", url = "https://openstax.org/books/elementary-algebra-2e/pages/2-7-solve-linear-inequalities" },
+]
+
+[[topic]]
+principle = "A.3.b"
+search = "graphing inequalities on a number line"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 2.7 Solve linear inequalities", url = "https://openstax.org/books/elementary-algebra-2e/pages/2-7-solve-linear-inequalities" },
+  { title = "Math is Fun: Inequality", url = "https://www.mathsisfun.com/algebra/inequality.html" },
+]
+
+[[topic]]
+principle = "A.3.c"
+search = "inequality word problems"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 3.6 Solve applications with linear inequalities", url = "https://openstax.org/books/elementary-algebra-2e/pages/3-6-solve-applications-with-linear-inequalities" },
+]
+
+[[topic]]
+principle = "A.3.d"
+search = "writing inequalities from words"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 3.6 Solve applications with linear inequalities", url = "https://openstax.org/books/elementary-algebra-2e/pages/3-6-solve-applications-with-linear-inequalities" },
+]
+
+[[topic]]
+principle = "A.4.a"
+search = "solving quadratic equations"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 10.3 Solve quadratic equations using the quadratic formula", url = "https://openstax.org/books/elementary-algebra-2e/pages/10-3-solve-quadratic-equations-using-the-quadratic-formula" },
+  { title = "OpenStax Elementary Algebra 2e, 7.6 Quadratic equations", url = "https://openstax.org/books/elementary-algebra-2e/pages/7-6-quadratic-equations" },
+]
+
+[[topic]]
+principle = "A.4.b"
+search = "quadratic equation word problems"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 10.4 Solve applications modeled by quadratic equations", url = "https://openstax.org/books/elementary-algebra-2e/pages/10-4-solve-applications-modeled-by-quadratic-equations" },
+]
+
+[[topic]]
+principle = "A.5.a"
+search = "plotting points on the coordinate plane"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 4.1 Use the rectangular coordinate system", url = "https://openstax.org/books/elementary-algebra-2e/pages/4-1-use-the-rectangular-coordinate-system" },
+]
+
+[[topic]]
+principle = "A.5.b"
+search = "finding the slope of a line"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 4.4 Understand slope of a line", url = "https://openstax.org/books/elementary-algebra-2e/pages/4-4-understand-slope-of-a-line" },
+]
+
+[[topic]]
+principle = "A.5.c"
+search = "slope as a rate of change"
+links = [
+  { title = "OpenStax Intermediate Algebra 2e, 3.2 Slope of a line", url = "https://openstax.org/books/intermediate-algebra-2e/pages/3-2-slope-of-a-line" },
+  { title = "OpenStax Elementary Algebra 2e, 4.4 Understand slope of a line", url = "https://openstax.org/books/elementary-algebra-2e/pages/4-4-understand-slope-of-a-line" },
+]
+
+[[topic]]
+principle = "A.5.d"
+search = "graphing linear equations"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 4.2 Graph linear equations in two variables", url = "https://openstax.org/books/elementary-algebra-2e/pages/4-2-graph-linear-equations-in-two-variables" },
+  { title = "OpenStax Elementary Algebra 2e, 4.5 Use the slope intercept form of an equation of a line", url = "https://openstax.org/books/elementary-algebra-2e/pages/4-5-use-the-slope-intercept-form-of-an-equation-of-a-line" },
+]
+
+[[topic]]
+principle = "A.6.a"
+search = "point-slope form of a line"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 4.6 Find the equation of a line", url = "https://openstax.org/books/elementary-algebra-2e/pages/4-6-find-the-equation-of-a-line" },
+]
+
+[[topic]]
+principle = "A.6.b"
+search = "equation of a line through two points"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 4.6 Find the equation of a line", url = "https://openstax.org/books/elementary-algebra-2e/pages/4-6-find-the-equation-of-a-line" },
+]
+
+[[topic]]
+principle = "A.6.c"
+search = "slopes of parallel and perpendicular lines"
+links = [
+  { title = "OpenStax Intermediate Algebra 2e, 3.3 Find the equation of a line", url = "https://openstax.org/books/intermediate-algebra-2e/pages/3-3-find-the-equation-of-a-line" },
+]
+
+[[topic]]
+principle = "A.5.e"
+search = "intercepts and key features of graphs"
+links = [
+  { title = "OpenStax Intermediate Algebra 2e, 3.6 Graphs of functions", url = "https://openstax.org/books/intermediate-algebra-2e/pages/3-6-graphs-of-functions" },
+  { title = "OpenStax Elementary Algebra 2e, 10.5 Graphing quadratic equations in two variables", url = "https://openstax.org/books/elementary-algebra-2e/pages/10-5-graphing-quadratic-equations-in-two-variables" },
+]
+
+[[topic]]
+principle = "A.7.a"
+search = "comparing proportional relationships"
+links = [
+  { title = "OpenStax Elementary Algebra 2e, 8.9 Use direct and inverse variation", url = "https://openstax.org/books/elementary-algebra-2e/pages/8-9-use-direct-and-inverse-variation" },
+  { title = "OpenStax Prealgebra 2e, 6.5 Solve proportions and their applications", url = "https://openstax.org/books/prealgebra-2e/pages/6-5-solve-proportions-and-their-applications" },
+]
+
+[[topic]]
+principle = "A.7.b"
+search = "what is a function"
+links = [
+  { title = "OpenStax Intermediate Algebra 2e, 3.5 Relations and functions", url = "https://openstax.org/books/intermediate-algebra-2e/pages/3-5-relations-and-functions" },
+  { title = "Math is Fun: What is a Function?", url = "https://www.mathsisfun.com/sets/function.html" },
+]
+
+[[topic]]
+principle = "A.7.c"
+search = "function notation"
+links = [
+  { title = "OpenStax Intermediate Algebra 2e, 3.5 Relations and functions", url = "https://openstax.org/books/intermediate-algebra-2e/pages/3-5-relations-and-functions" },
+]
+
+[[topic]]
+principle = "A.7.d"
+search = "comparing functions in tables and graphs"
+links = [
+  { title = "OpenStax Intermediate Algebra 2e, 3.6 Graphs of functions", url = "https://openstax.org/books/intermediate-algebra-2e/pages/3-6-graphs-of-functions" },
+]

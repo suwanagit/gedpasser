@@ -10,7 +10,7 @@ use std::path::{Path, PathBuf};
 use sha2::{Digest, Sha256};
 
 use crate::schema::{
-    Card, Principle, Question, QuestionType, Review, ReviewFile, ReviewKind, Status, StrategyFile, Verdict,
+    Card, Principle, Question, QuestionType, Review, ReviewFile, ReviewKind, Status, StrategyFile, StudyFile, Verdict,
 };
 use crate::{Level, Report, check_content, read_toml};
 
@@ -91,6 +91,11 @@ pub fn strategy_hash(s: &StrategyFile) -> String {
     ])
 }
 
+/// Hash of the study file's content (not its status).
+pub fn study_hash(s: &StudyFile) -> String {
+    hash_parts(&["study", &format!("{:?}", s.topic)])
+}
+
 /// Load `root/reviews/*.toml` and apply the review gate to every item.
 pub(crate) fn check_reviews(root: &Path, report: &mut Report) {
     let dir = root.join("reviews");
@@ -107,7 +112,7 @@ pub(crate) fn check_reviews(root: &Path, report: &mut Report) {
     let mut diags = Vec::new();
     for path in paths {
         let stem = path.file_stem().and_then(|s| s.to_str()).unwrap_or_default().to_string();
-        if !skill_ids.contains(&stem.as_str()) && stem != "strategy" {
+        if !skill_ids.contains(&stem.as_str()) && stem != "strategy" && stem != "study" {
             diags.push((Level::Error, path.clone(), None, format!("review file {stem:?} is not named after a skill")));
         }
         let mut sub = Report::default();
@@ -125,6 +130,7 @@ pub(crate) fn check_reviews(root: &Path, report: &mut Report) {
             ReviewKind::Lesson => principle_ids.contains_key(r.id.as_str()),
             ReviewKind::Card => report.cards.iter().any(|(_, c)| c.id == r.id),
             ReviewKind::Strategy => r.id == "strategy" && report.strategy.is_some(),
+            ReviewKind::Study => r.id == "study" && report.study.is_some(),
         };
         if !known {
             diags.push((Level::Error, path.clone(), Some(r.id.clone()), "review refers to an unknown item".into()));
@@ -164,6 +170,10 @@ pub(crate) fn check_reviews(root: &Path, report: &mut Report) {
     if let Some(s) = &report.strategy {
         let path = root.join("strategy.toml");
         gate(report_latest(&report.reviews, ReviewKind::Strategy, "strategy"), s.status, &strategy_hash(s), &path, "strategy", &mut diags);
+    }
+    if let Some(s) = &report.study {
+        let path = root.join("study.toml");
+        gate(report_latest(&report.reviews, ReviewKind::Study, "study"), s.status, &study_hash(s), &path, "study", &mut diags);
     }
     for (level, path, id, m) in diags {
         report.diagnostics.push(crate::Diagnostic { level, file: path, id, message: m });
@@ -220,6 +230,17 @@ pub fn template(root: &Path, skill: &str) -> Result<String, String> {
         return Ok(format!(
             "# Review notes for content/strategy.toml. Append to content/reviews/strategy.toml.\n\
              \n[[review]]\nid = \"strategy\"\nkind = \"strategy\"\nhash = \"{h}\"\nverdict = \"\"\nnote = \"\"\ndate = \"\"\n"
+        ));
+    }
+    if skill == "study" {
+        let s = report.study.as_ref().ok_or("content/study.toml is missing or invalid")?;
+        let h = study_hash(s);
+        if has_current_pass(&report, ReviewKind::Study, "study", &h) {
+            return Ok("# Nothing to review: study.toml has a current pass.\n".into());
+        }
+        return Ok(format!(
+            "# Review notes for content/study.toml. Append to content/reviews/study.toml.\n\
+             \n[[review]]\nid = \"study\"\nkind = \"study\"\nhash = \"{h}\"\nverdict = \"\"\nnote = \"\"\ndate = \"\"\n"
         ));
     }
     if !report.skills.iter().any(|s| s.id == skill) {
@@ -283,6 +304,17 @@ pub fn approve(root: &Path, skill: &str) -> Result<Vec<String>, String> {
         let new = text.replacen("status = \"draft\"", "status = \"reviewed\"", 1);
         std::fs::write(&path, new).map_err(|e| e.to_string())?;
         return Ok(vec!["strategy".into()]);
+    }
+    if skill == "study" {
+        let s = report.study.as_ref().ok_or("content/study.toml is missing or invalid")?;
+        if s.status != Status::Draft || !has_current_pass(&report, ReviewKind::Study, "study", &study_hash(s)) {
+            return Ok(Vec::new());
+        }
+        let path = root.join("study.toml");
+        let text = std::fs::read_to_string(&path).map_err(|e| e.to_string())?;
+        let new = text.replacen("status = \"draft\"", "status = \"reviewed\"", 1);
+        std::fs::write(&path, new).map_err(|e| e.to_string())?;
+        return Ok(vec!["study".into()]);
     }
     if !report.skills.iter().any(|s| s.id == skill) {
         return Err(format!("unknown skill {skill:?}"));

@@ -280,6 +280,17 @@ Seven phases take the app from an empty repo to a public site; Phases 0 to 3 are
 - [x] Subject layer: each tab opens on the four GED subjects; Math opens its path, tests, skills and lessons one layer down; the other three are placeholders marked "Soon"
 - [x] Jon checks the look on a phone and a PC, in light and dark mode (approved 2026-11-11)
 
+**Phase 5d: Practice playground** (added 2026-11-12 at Jon's request: "not a schoolhouse, but a playground")
+
+- [x] The path is a week: 7 days, two 5-question sets a day (about 15 minutes), a 10-question final check on day 7. Easy wins first (day 1 only the easiest questions), harder toward the end. Covers the high- and medium-yield principles; the rest stay in Practice and the tests
+- [x] Test first: path sets start with a question; Quick review is one tap away; "Show me how" opens the worked explanation, the common mistake and study links
+- [x] Study links: each principle has a search topic and free pages (OpenStax textbooks, Math is Fun), each checked to open, in "Show me how", the Library and the focus lists
+- [x] What to focus on: Practice and Me list the weakest high-value topics, each with practice and study links
+- [x] `docs/EXPLANATION_STYLE.md` sets how explanations are written
+- [ ] Jon tries the week path
+
+Full lessons (one idea each, with a lesson player) were built on branch `lessons` and parked: too much scope for a practice app.
+
 **Phase 6: Deploy and go public**
 
 - [ ] Docker image runs on vs00 behind Caddy on the LAN

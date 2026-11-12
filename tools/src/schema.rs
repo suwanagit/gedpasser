@@ -319,6 +319,8 @@ pub struct JourneyFile {
 #[serde(deny_unknown_fields)]
 pub struct Stage {
     pub id: String,
+    /// Day of the week path, 1–7.
+    pub day: u8,
     pub title: String,
     /// Principles taught in this stage. Empty for a checkpoint, which mixes
     /// every principle since the previous checkpoint.
@@ -334,6 +336,35 @@ pub struct Stage {
     pub size: u32,
     /// Prefer questions up to this difficulty (1–3).
     pub max_difficulty: u8,
+}
+
+// ── Study: where to go learn each principle ───────────────────────────────
+
+/// `content/study.toml`: for each principle, a topic to search for and one
+/// or two free pages to study on your own. Reviewed as a whole.
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct StudyFile {
+    pub status: Status,
+    #[serde(default)]
+    pub topic: Vec<StudyTopic>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct StudyTopic {
+    pub principle: String,
+    /// A few words to search for, e.g. "percent word problems".
+    pub search: String,
+    #[serde(default)]
+    pub links: Vec<StudyLink>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct StudyLink {
+    pub title: String,
+    pub url: String,
 }
 
 // ── Strategy: high-yield ranking, test-day tactics, formula sheet ────────
@@ -413,6 +444,8 @@ pub enum ReviewKind {
     Card,
     /// The whole of `content/strategy.toml` (id "strategy").
     Strategy,
+    /// The whole of `content/study.toml` (id "study").
+    Study,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize)]

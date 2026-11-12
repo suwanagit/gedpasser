@@ -39,7 +39,9 @@ Work from the repo root (`C:\dev\gedpasser`). Do not edit any file except
   Rounding instructions are present when the answer is rounded.
 - Fill-in answers: a learner typing the natural form of the answer (for
   example `88.2` or `88.20`, `-5`, `3/4`) will be graded correct.
-- The explanation is correct, complete, and matches the key.
+- The explanation is correct, complete, and matches the key, and follows
+  `docs/EXPLANATION_STYLE.md` (one line per step, why before how, every
+  number explained, a full-sentence answer).
 - The `common_mistake` describes a real error, ideally the one behind a
   distractor.
 - The `principle` (indicator code) fits what the question actually tests,
@@ -47,6 +49,13 @@ Work from the repo root (`C:\dev\gedpasser`). Do not edit any file except
 - Metric units, US spelling. Alaska settings are realistic and respectful.
 - Original wording; no claim of official GED status.
 - Math notation renders: math is inside `$...$`; a literal dollar sign is `\$`.
+
+## Study links (`content/study.toml`, kind = "study", id = "study")
+
+- Every link opens and teaches that principle at a level that suits adults
+  preparing for the GED: not another topic, not far too advanced.
+- Link titles describe the page.
+- The search words would find material on that principle.
 
 ## Lessons
 

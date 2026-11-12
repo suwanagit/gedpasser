@@ -5,7 +5,7 @@
 use std::collections::HashMap;
 use std::path::Path;
 
-use ged_content::{Card, Principle, Question, QuestionType, Skill, Stage, Status, StrategyFile, check_content};
+use ged_content::{Card, Principle, Question, QuestionType, Skill, Stage, Status, StrategyFile, StudyFile, check_content};
 use sqlx::SqlitePool;
 
 pub struct Bank {
@@ -21,6 +21,7 @@ pub struct Bank {
     /// The guided path, in order.
     pub journey: Vec<Stage>,
     pub strategy: Option<StrategyFile>,
+    pub study: Option<StudyFile>,
 }
 
 impl Bank {
@@ -63,6 +64,7 @@ impl Bank {
             cards,
             journey: report.journey,
             strategy: report.strategy,
+            study: report.study,
         })
     }
 
@@ -74,6 +76,11 @@ impl Bank {
     /// The strategy file, if learners may see it.
     pub fn strategy(&self, serve_drafts: bool) -> Option<&StrategyFile> {
         self.strategy.as_ref().filter(|s| status_servable(s.status, serve_drafts))
+    }
+
+    /// The study links file, if learners may see it.
+    pub fn study(&self, serve_drafts: bool) -> Option<&StudyFile> {
+        self.study.as_ref().filter(|s| status_servable(s.status, serve_drafts))
     }
 
     pub fn principle(&self, id: &str) -> Option<&Principle> {

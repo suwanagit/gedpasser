@@ -4,7 +4,7 @@
 use std::collections::{HashMap, HashSet};
 use std::path::{Path, PathBuf};
 
-use crate::schema::{Card, CardFile, Figure, JourneyFile, StrategyFile};
+use crate::schema::{Card, CardFile, Figure, JourneyFile, Status, StrategyFile, StudyFile};
 use crate::{Level, Report, read_toml};
 
 /// Cards must stay short: words outside of math, across all text fields.
@@ -253,9 +253,40 @@ pub(crate) fn check_journey(root: &Path, report: &mut Report) {
     let known: HashSet<&str> = report.principles.iter().map(|p| p.id.as_str()).collect();
     let mut ids = HashSet::new();
     let mut taught: HashMap<String, String> = HashMap::new();
+    // Questions available per principle, for checking each stage can fill.
+    let mut available: HashMap<&str, u32> = HashMap::new();
+    for (_, q) in &report.questions {
+        if q.status != Status::Retired {
+            *available.entry(q.principle.as_str()).or_default() += 1;
+        }
+    }
     let mut diags = Vec::new();
+    let mut since_checkpoint: Vec<&str> = Vec::new();
+    let mut all_so_far: Vec<&str> = Vec::new();
+    let mut last_day = 0u8;
     for (i, s) in file.stage.iter().enumerate() {
         let mut err = |m: String| diags.push((Level::Error, Some(s.id.clone()), m));
+        if !(1..=7).contains(&s.day) {
+            err("day must be 1–7".into());
+        } else if s.day < last_day || s.day > last_day + 1 {
+            err(format!("days must run in order with no gaps (day {} after day {last_day})", s.day));
+        }
+        last_day = last_day.max(s.day);
+        let pool: Vec<&str> = if s.checkpoint {
+            if s.cumulative { all_so_far.clone() } else { since_checkpoint.clone() }
+        } else {
+            s.principles.iter().map(String::as_str).collect()
+        };
+        let have: u32 = pool.iter().map(|p| available.get(p).copied().unwrap_or(0)).sum();
+        if have < s.size {
+            err(format!("only {have} questions exist for this stage's principles, but size is {}", s.size));
+        }
+        if s.checkpoint {
+            since_checkpoint.clear();
+        } else {
+            since_checkpoint.extend(s.principles.iter().map(String::as_str));
+            all_so_far.extend(s.principles.iter().map(String::as_str));
+        }
         if !ids.insert(s.id.clone()) {
             err("duplicate stage id".into());
         }
@@ -286,15 +317,58 @@ pub(crate) fn check_journey(root: &Path, report: &mut Report) {
             }
         }
     }
-    let mut missing: Vec<&str> = known.iter().copied().filter(|p| !taught.contains_key(*p)).collect();
-    missing.sort();
-    if !missing.is_empty() {
-        diags.push((Level::Warning, None, format!("principles not in the journey: {}", missing.join(", "))));
+    if file.stage.first().is_some_and(|s| s.day != 1) {
+        diags.push((Level::Error, None, "the path must start on day 1".into()));
     }
     for (level, id, m) in diags {
         report.diagnostics.push(crate::Diagnostic { level, file: path.clone(), id, message: m });
     }
     report.journey = file.stage;
+}
+
+pub(crate) fn check_study(root: &Path, report: &mut Report) {
+    let path = root.join("study.toml");
+    if !path.exists() {
+        return;
+    }
+    let Some(file) = read_toml::<StudyFile>(&path, report) else { return };
+    let known: HashSet<&str> = report.principles.iter().map(|p| p.id.as_str()).collect();
+    let mut seen = HashSet::new();
+    let mut errs: Vec<(Level, Option<String>, String)> = Vec::new();
+    for t in &file.topic {
+        let id = Some(t.principle.clone());
+        let mut err = |m: String| errs.push((Level::Error, id.clone(), m));
+        if !known.contains(t.principle.as_str()) {
+            err("unknown principle".into());
+        }
+        if !seen.insert(t.principle.clone()) {
+            err("principle listed twice".into());
+        }
+        let words = t.search.split_whitespace().count();
+        if !(1..=8).contains(&words) {
+            err(format!("search should be 1–8 words (has {words})"));
+        }
+        if !(1..=3).contains(&t.links.len()) {
+            err(format!("needs 1 to 3 links (has {})", t.links.len()));
+        }
+        for l in &t.links {
+            if l.title.trim().is_empty() {
+                err("every link needs a title".into());
+            }
+            if !l.url.starts_with("https://") || l.url.contains(char::is_whitespace) {
+                err(format!("link {:?} must be a plain https:// address", l.url));
+            }
+        }
+    }
+    let mut missing: Vec<&str> = known.iter().copied().filter(|p| !seen.contains(*p)).collect();
+    missing.sort();
+    if !missing.is_empty() {
+        errs.push((Level::Warning, None, format!("principles with no study topic: {}", missing.join(", "))));
+    }
+    for (level, id, m) in errs {
+        report.diagnostics.push(crate::Diagnostic { level, file: path.clone(), id, message: m });
+    }
+    report.study = Some(file);
 }
 
 pub(crate) fn check_strategy(root: &Path, report: &mut Report) {

@@ -7,7 +7,7 @@ import type { StageResult } from '../api/types/StageResult'
 import type { StageView } from '../api/types/StageView'
 import { Confetti } from '../components/Confetti'
 import { Icon, type IconName } from '../components/Icon'
-import { CARD_PARTS, Hack, LessonCard } from '../components/LessonCard'
+import { Hack } from '../components/LessonCard'
 import { Mascot } from '../components/Mascot'
 import { QuestionView } from '../components/QuestionView'
 import { SessionShell } from '../components/SessionShell'
@@ -19,7 +19,7 @@ function placeholderStages(units: string[]): { names: string[]; stages: StageVie
   const stages: StageView[] = []
   units.forEach((_, u) => {
     for (let k = 0; k < 4; k++)
-      stages.push({ id: `soon-${u}-${k}`, title: '', checkpoint: k === 3, principles: [], size: 0, status: 'locked', stars: 0, best_correct: null, best_total: null })
+      stages.push({ id: `soon-${u}-${k}`, day: u + 1, title: '', checkpoint: k === 3, principles: [], size: 0, status: 'locked', stars: 0, best_correct: null, best_total: null })
   })
   return { names: units, stages }
 }
@@ -44,13 +44,13 @@ export function SubjectPath({ subject, onOpen, onBack }: { subject: Subject; onO
   const stages = soon ? soon.stages : view?.stages
   const current = soon ? null : (view?.current ?? null)
 
-  // A band is the run of stages up to and including a checkpoint.
-  const bands: StageView[][] = [[]]
+  // A band is one day of the week path (or one unit of a placeholder).
+  const bands: StageView[][] = []
   for (const s of stages ?? []) {
-    bands[bands.length - 1].push(s)
-    if (s.checkpoint) bands.push([])
+    const last = bands[bands.length - 1]
+    if (last && last[0].day === s.day) last.push(s)
+    else bands.push([s])
   }
-  if (bands[bands.length - 1].length === 0) bands.pop()
 
   let n = 0
   return (
@@ -69,7 +69,7 @@ export function SubjectPath({ subject, onOpen, onBack }: { subject: Subject; onO
           return (
             <section key={b} className={`band band-${b % 6}`}>
               <header className="band-head">
-                <span>{soon ? soon.names[b] : `Part ${b + 1}`}</span>
+                <span>{soon ? soon.names[b] : `Day ${band[0].day}`}</span>
                 <span className="band-count">
                   {done}/{band.length}
                 </span>
@@ -115,7 +115,6 @@ export function SubjectPath({ subject, onOpen, onBack }: { subject: Subject; onO
 type Phase =
   | { kind: 'loading' }
   | { kind: 'error'; message: string }
-  | { kind: 'cards'; index: number; part: number }
   | { kind: 'quiz'; index: number }
   | { kind: 'finishing' }
   | { kind: 'result'; result: StageResult }
@@ -132,14 +131,14 @@ export function StageRunner({
 }) {
   const [run, setRun] = useState<JourneyRun | null>(null)
   const [phase, setPhase] = useState<Phase>({ kind: 'loading' })
-  const reduce = useReducedMotion()
 
   useEffect(() => {
     api
       .startStage(stageId)
       .then((r) => {
         setRun(r)
-        setPhase(r.cards.length > 0 ? { kind: 'cards', index: 0, part: 1 } : { kind: 'quiz', index: 0 })
+        // Test first: the set starts with a question. Quick review is one tap away.
+        setPhase({ kind: 'quiz', index: 0 })
       })
       .catch((e) => setPhase({ kind: 'error', message: errorMessage(e) }))
   }, [stageId])
@@ -182,31 +181,7 @@ export function StageRunner({
       </SessionShell>
     )
 
-  const cardSteps = run.cards.length * CARD_PARTS
-  const total = cardSteps + run.questions.length
-
-  if (phase.kind === 'cards') {
-    const { index, part } = phase
-    const lastPart = part >= CARD_PARTS
-    const lastCard = index + 1 >= run.cards.length
-    const next = () =>
-      setPhase(!lastPart ? { kind: 'cards', index, part: part + 1 } : !lastCard ? { kind: 'cards', index: index + 1, part: 1 } : { kind: 'quiz', index: 0 })
-    return (
-      <SessionShell
-        progress={(index * CARD_PARTS + part - 1) / total}
-        onClose={onExit}
-        footer={
-          <button key={`${index}-${part}`} className="primary wide" autoFocus onClick={next}>
-            {lastPart && lastCard ? 'Start quiz' : lastPart ? 'Next' : 'Continue'}
-          </button>
-        }
-      >
-        <motion.div key={index} initial={reduce ? false : { opacity: 0, x: 28 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: reduce ? 0 : 0.2 }}>
-          <LessonCard card={run.cards[index]} parts={part} />
-        </motion.div>
-      </SessionShell>
-    )
-  }
+  const total = run.questions.length
 
   if (phase.kind === 'quiz') {
     const { index } = phase
@@ -216,7 +191,7 @@ export function StageRunner({
         key={run.questions[index].id}
         q={run.questions[index]}
         mode="journey"
-        progress={(cardSteps + index) / total}
+        progress={index / total}
         onClose={onExit}
         onNext={advance}
         onFlagged={advance}

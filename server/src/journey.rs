@@ -30,6 +30,8 @@ pub enum StageStatus {
 #[ts(export)]
 pub struct StageView {
     pub id: String,
+    /// Day of the week path, 1–7.
+    pub day: u8,
     pub title: String,
     pub checkpoint: bool,
     /// Principles taught here; for a checkpoint, the principles it mixes.
@@ -137,6 +139,7 @@ async fn build_view(state: &AppState, user_id: i64) -> Result<JourneyView, ApiEr
         prev_passed = stars > 0;
         stages.push(StageView {
             id: s.id.clone(),
+            day: s.day,
             title: s.title.clone(),
             checkpoint: s.checkpoint,
             principles: stage_principles(state, i).iter().map(|p| principle_ref(state, p)).collect(),

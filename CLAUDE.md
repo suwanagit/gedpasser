@@ -30,6 +30,11 @@ Repo: https://github.com/suwanagit/gedpasser.git
 - Every new question starts as `status = "draft"` with a `check` expression,
   a worked explanation and a common mistake. Run `cargo content` before
   finishing.
+- The app is a practice playground, not a school: test first, explain only
+  when asked, and point to free pages to study. Explanations, common
+  mistakes, Quick review cards and study links follow
+  `docs/EXPLANATION_STYLE.md`. Full lessons are parked on the `lessons`
+  branch; don't add teaching content beyond that without Jon asking.
 - Review (Jon's decision, 2026-11-10: AI review replaces human sign-off; the
   app carries a disclaimer): each skill's batch is reviewed by a FRESH
   reviewer subagent that did not write it and solves each question blind

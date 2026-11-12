@@ -178,3 +178,35 @@ fn real_skill_map_is_valid() {
     let skills = ged_content::load_skills(&root).expect("content/skills.toml should be valid");
     assert_eq!(skills.len(), 13);
 }
+
+#[test]
+fn week_path_days_are_checked() {
+    let root = copy_tree("good", "days");
+    let stage = |id: &str, day: u8| {
+        format!("[[stage]]\nid = \"{id}\"\nday = {day}\ntitle = \"T\"\nprinciples = [\"Q.3.a\"]\nsize = 2\nmax_difficulty = 1\n\n")
+    };
+    std::fs::write(root.join("journey.toml"), stage("a", 2)).unwrap();
+    assert!(check_content(&root).mentions("must start on day 1"));
+    std::fs::write(root.join("journey.toml"), format!("{}{}", stage("a", 1), stage("b", 3).replace("Q.3.a", "Q.3.d"))).unwrap();
+    assert!(check_content(&root).mentions("no gaps"));
+    std::fs::write(root.join("journey.toml"), stage("a", 1).replace("size = 2", "size = 9")).unwrap();
+    assert!(check_content(&root).mentions("questions exist for this stage"));
+}
+
+#[test]
+fn study_links_are_checked_and_gated() {
+    let root = copy_tree("good", "study");
+    let good = "status = \"draft\"\n\n[[topic]]\nprinciple = \"Q.3.a\"\nsearch = \"unit rates\"\nlinks = [{ title = \"Rates\", url = \"https://example.org/rates\" }]\n";
+    std::fs::write(root.join("study.toml"), good).unwrap();
+    let r = check_content(&root);
+    assert_eq!(r.errors(), 0, "{:?}", r.diagnostics);
+    assert!(r.mentions("no study topic"), "missing principles are a warning");
+
+    std::fs::write(root.join("study.toml"), good.replace("https://example.org/rates", "http://example.org/rates").replace("Q.3.a", "Q.9.z")).unwrap();
+    let r = check_content(&root);
+    assert!(r.mentions("plain https://"));
+    assert!(r.mentions("unknown principle"));
+
+    std::fs::write(root.join("study.toml"), good.replace("draft", "reviewed")).unwrap();
+    assert!(check_content(&root).mentions("marked reviewed but it has no review"));
+}

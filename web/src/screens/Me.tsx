@@ -5,6 +5,7 @@ import type { SkillSummary } from '../api/types/SkillSummary'
 import type { Stats } from '../api/types/Stats'
 import { Icon } from '../components/Icon'
 import { MasteryBar } from '../components/MasteryBar'
+import { FocusList } from '../components/StudyLinks'
 import { setSoundOn, soundOn } from '../sound'
 import { SUBJECTS } from '../subjects'
 
@@ -101,13 +102,7 @@ export function Me({
       {plan && plan.priorities.length > 0 && (
         <section>
           <h2>Work on next</h2>
-          {plan.priorities.slice(0, 5).map((p) => (
-            <button key={p.principle.id} className="row row-btn" onClick={() => onStart({ mode: 'principle', id: p.principle.id, name: p.principle.name })}>
-              <span className={`dot level-${p.level}`} />
-              <span>{p.principle.name}</span>
-              <Icon name="right" size={18} />
-            </button>
-          ))}
+          <FocusList items={plan.priorities.slice(0, 5)} onPractice={(p) => onStart({ mode: 'principle', id: p.principle.id, name: p.principle.name })} />
         </section>
       )}
 

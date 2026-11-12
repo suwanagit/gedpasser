@@ -533,22 +533,25 @@ async fn journey_review_stats_tests_and_plan() {
     let (status, j, _) = call(r, "GET", "/api/journey", Some(&cookie), None).await;
     assert_eq!(status, StatusCode::OK);
     let stages = j["stages"].as_array().unwrap();
-    assert_eq!(stages.len(), 30);
+    assert_eq!(stages.len(), 14);
+    assert_eq!(stages[0]["day"], 1);
+    assert_eq!(stages[13]["day"], 7);
     assert_eq!(stages[0]["status"], "open");
     assert!(stages[1..].iter().all(|s| s["status"] == "locked"));
-    assert_eq!(j["current"], "s01");
-    let (status, _, _) = call(r, "POST", "/api/journey/s02/start", Some(&cookie), None).await;
+    assert_eq!(j["current"], "d1a");
+    let (status, _, _) = call(r, "POST", "/api/journey/d1b/start", Some(&cookie), None).await;
     assert_eq!(status, StatusCode::FORBIDDEN);
 
-    // Start s01: short cards and a few easy questions.
-    let (status, run, _) = call(r, "POST", "/api/journey/s01/start", Some(&cookie), None).await;
+    // Start d1a: a few easy questions (cards come with it, for Quick review).
+    let (status, run, _) = call(r, "POST", "/api/journey/d1a/start", Some(&cookie), None).await;
     assert_eq!(status, StatusCode::OK, "{run}");
     let cards = run["cards"].as_array().unwrap();
     assert_eq!(cards.len(), 3);
     assert!(cards.iter().all(|c| !c["hack"].as_str().unwrap().is_empty() && !c["key"].as_str().unwrap().is_empty()));
     let qs = run["questions"].as_array().unwrap();
-    assert_eq!(qs.len(), 3);
-    assert!(qs.iter().all(|q| q["difficulty"].as_u64().unwrap() <= 2));
+    assert_eq!(qs.len(), 5);
+    // Day 1 is easy wins: only the easiest questions.
+    assert!(qs.iter().all(|q| q["difficulty"].as_u64().unwrap() == 1));
     for q in qs {
         let id = q["id"].as_str().unwrap();
         let (_, res, _) = call(r, "POST", "/api/answer", Some(&cookie), Some(json!({"question_id": id, "response": keys[id], "time_ms": 900, "mode": "journey"}))).await;
@@ -558,10 +561,10 @@ async fn journey_review_stats_tests_and_plan() {
     let run_id = run["run_id"].as_i64().unwrap();
     let (status, result, _) = call(r, "POST", &format!("/api/journey/runs/{run_id}/finish"), Some(&cookie), None).await;
     assert_eq!(status, StatusCode::OK, "{result}");
-    assert_eq!((result["correct"].as_u64(), result["total"].as_u64(), result["stars"].as_u64()), (Some(3), Some(3), Some(3)));
+    assert_eq!((result["correct"].as_u64(), result["total"].as_u64(), result["stars"].as_u64()), (Some(5), Some(5), Some(3)));
     assert_eq!(result["passed"], true);
     assert_eq!(result["bonus_xp"], 55);
-    assert_eq!(result["next_stage"], "s02");
+    assert_eq!(result["next_stage"], "d1b");
     let (status, _, _) = call(r, "POST", &format!("/api/journey/runs/{run_id}/finish"), Some(&cookie), None).await;
     assert_eq!(status, StatusCode::CONFLICT);
     let (_, j, _) = call(r, "GET", "/api/journey", Some(&cookie), None).await;
@@ -581,11 +584,11 @@ async fn journey_review_stats_tests_and_plan() {
     let interval: i64 = sqlx::query_scalar("SELECT interval_days FROM review_queue").fetch_one(&app.pool).await.unwrap();
     assert_eq!(interval, 1);
 
-    // Stats: XP from 5 answers (4 right) + stage bonus; streak of 1 day.
+    // Stats: XP from 7 answers (6 right) + stage bonus; streak of 1 day.
     let (_, s, _) = call(r, "GET", "/api/stats?tz=-540", Some(&cookie), None).await;
-    assert_eq!(s["xp"], 4 * 10 + 2 + 55);
+    assert_eq!(s["xp"], 6 * 10 + 2 + 55);
     assert_eq!(s["streak_days"], 1);
-    assert_eq!(s["answered_today"], 5);
+    assert_eq!(s["answered_today"], 7);
     assert_eq!(s["level"], 1);
 
     // Practice test: 10 questions, ~45% quantitative; graded only on submit.

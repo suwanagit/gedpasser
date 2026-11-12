@@ -10,6 +10,7 @@ import { FlagDialog } from './FlagDialog'
 import { Icon } from './Icon'
 import { Hack } from './LessonCard'
 import { LessonPanel } from './LessonPanel'
+import { StudyLinks } from './StudyLinks'
 import { MathText } from './MathText'
 import { SessionShell } from './SessionShell'
 
@@ -125,23 +126,31 @@ export function QuestionView({
       {!result.correct && result.hack && !why && <Hack text={result.hack} />}
       {why && (
         <div className="verdict-why">
+          <div className="work-lines">
+            {result.explanation.split('\n').filter((l) => l.trim()).map((line, i) => (
+              <div key={i}>
+                <MathText text={line} />
+              </div>
+            ))}
+          </div>
           <p>
-            <MathText text={result.explanation} />
+            <strong>Watch out:</strong> <MathText text={result.common_mistake} />
           </p>
-          {!result.correct && (
-            <p>
-              <strong>Watch out:</strong> <MathText text={result.common_mistake} />
-            </p>
+          {result.study && (
+            <div className="verdict-study">
+              <p className="eyebrow">Study this</p>
+              <StudyLinks study={result.study} />
+            </div>
           )}
           <button className="link" onClick={() => setLessonFor(result.principle.id)}>
-            Open the lesson
+            Quick review
           </button>
         </div>
       )}
       <div className="verdict-actions">
         {!why && (
           <button className="link" onClick={() => setWhy(true)}>
-            {result.correct ? 'Why?' : 'See how'}
+            Show me how
           </button>
         )}
         <button className={`primary wide ${result.correct ? 'ok' : 'bad'}`} autoFocus onClick={onNext}>
@@ -153,13 +162,13 @@ export function QuestionView({
     <div className="check-row">
       <button
         className="secondary"
-        aria-label="Hint: open the lesson"
+        aria-label="Quick review"
         onClick={() => {
           hintUsed.current = true
           setLessonFor(q.principle.id)
         }}
       >
-        <Icon name="bulb" size={20} /> Hint
+        <Icon name="bulb" size={20} /> Quick review
       </button>
       <button className="primary wide" disabled={!response || busy} onClick={() => void submit()}>
         Check

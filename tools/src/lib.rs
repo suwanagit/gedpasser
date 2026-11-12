@@ -10,7 +10,7 @@ pub mod extra;
 pub mod review;
 pub mod schema;
 
-pub use review::{approve, card_hash, lesson_hash, question_hash, strategy_hash, template};
+pub use review::{approve, card_hash, lesson_hash, question_hash, strategy_hash, study_hash, template};
 
 use std::collections::{BTreeSet, HashMap, HashSet};
 use std::fmt;
@@ -18,7 +18,7 @@ use std::path::{Path, PathBuf};
 
 pub use schema::{
     Area, Card, Figure, Formula, Principle, PrincipleFile, Question, QuestionFile, QuestionType, Review, ReviewKind,
-    Skill, SkillFile, Stage, Status, StrategyFile, Tactic, Verdict,
+    Skill, SkillFile, Stage, Status, StrategyFile, StudyFile, StudyLink, StudyTopic, Tactic, Verdict,
 };
 
 /// Prompts whose word sets overlap at least this much are flagged.
@@ -62,6 +62,7 @@ pub struct Report {
     pub cards: Vec<(PathBuf, Card)>,
     pub journey: Vec<Stage>,
     pub strategy: Option<StrategyFile>,
+    pub study: Option<StudyFile>,
     pub reviews: Vec<(PathBuf, Review)>,
     pub diagnostics: Vec<Diagnostic>,
 }
@@ -112,6 +113,7 @@ pub fn check_content(root: &Path) -> Report {
     extra::check_cards(root, &mut report);
     extra::check_journey(root, &mut report);
     extra::check_strategy(root, &mut report);
+    extra::check_study(root, &mut report);
     review::check_reviews(root, &mut report);
     report
 }

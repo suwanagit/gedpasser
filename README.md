@@ -25,15 +25,20 @@ cargo test                          # unit + fixture tests; regenerates TS API t
 After logging in you land on **Learn**. The four tabs:
 
 - **Learn**: an "up next" button, today's goal and tasks, and the four GED
-  subjects. A subject opens its path: tap the stage marked Start for a few
-  short lesson cards, then a short quiz; pass to unlock the next.
-- **Practice**: Quick 5, Weak spots, Review, then the subjects. A subject
-  opens its practice tests (10, 25 or 46 questions, timed, with a calculator
-  and formula sheet) and its skills.
-- **Library**: the subjects, each with lesson cards by skill, memory hacks
-  and the formula sheet, plus test-day tactics (printable).
-- **Me**: level, streak, test date, what to work on next, strengths by
-  subject, sound, log out, About.
+  subjects. A subject opens its week path: seven days of two short sets
+  (about 15 minutes a day), easiest first, ending in a final check.
+- **Practice**: Quick 5, Weak spots, Review, the topics to focus on (each
+  with study links), then the subjects. A subject opens its practice tests
+  (10, 25 or 46 questions, timed, with a calculator and formula sheet) and
+  its skills.
+- **Library**: the subjects, each with Quick review cards by skill, study
+  links, memory hacks and the formula sheet, plus test-day tactics
+  (printable).
+- **Me**: level, streak, test date, what to work on next (with study
+  links), strengths by subject, sound, log out, About.
+
+After any answer, "Show me how" opens the worked explanation, the common
+mistake, and free pages to study that topic on your own.
 
 Only Math has content so far. Language Arts, Science and Social Studies are
 placeholders marked "Soon".

@@ -713,3 +713,89 @@ details.fold > p {
   color: var(--muted);
   font-size: 0.9rem;
 }
+
+/* ── Study links and focus list ───────────────────────────────────────── */
+
+.study-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.study-links a {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  color: var(--blue);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.study-links a .icon {
+  flex: none;
+  margin-top: 0.15rem;
+}
+
+.study-links.compact {
+  font-size: 0.9rem;
+}
+
+.verdict-study,
+.study-more {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.verdict-why .work-lines {
+  align-self: stretch;
+  background: var(--surface);
+}
+
+.work-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.focus-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.focus-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.75rem 0.9rem;
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.focus-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.focus-head strong {
+  flex: 1;
+  line-height: 1.25;
+}
+
+.session-foot .study-links a {
+  color: inherit;
+}

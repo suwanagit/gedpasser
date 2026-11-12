@@ -2,7 +2,11 @@
 import type { PrincipleRef } from "./PrincipleRef";
 import type { StageStatus } from "./StageStatus";
 
-export type StageView = { id: string, title: string, checkpoint: boolean, 
+export type StageView = { id: string, 
+/**
+ * Day of the week path, 1–7.
+ */
+day: number, title: string, checkpoint: boolean, 
 /**
  * Principles taught here; for a checkpoint, the principles it mixes.
  */

@@ -6,6 +6,7 @@ import { Icon } from './Icon'
 import { LessonCard } from './LessonCard'
 import { LessonText } from './LessonText'
 import { MathText } from './MathText'
+import { StudyLinks } from './StudyLinks'
 
 /**
  * A lesson for one principle, shown as a dialog over the current screen.
@@ -106,6 +107,12 @@ export function LessonPanel({
               </details>
             ) : (
               !lesson.card && <p className="muted">Lesson coming soon.</p>
+            )}
+            {lesson.study && (
+              <section className="study-more">
+                <p className="eyebrow">Study more</p>
+                <StudyLinks study={lesson.study} />
+              </section>
             )}
             {onPractice && (
               <div className="actions">

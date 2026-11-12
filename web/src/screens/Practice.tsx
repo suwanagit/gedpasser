@@ -13,6 +13,7 @@ import { Mascot } from '../components/Mascot'
 import { QuestionView } from '../components/QuestionView'
 import { Ring } from '../components/Ring'
 import { SessionShell } from '../components/SessionShell'
+import { FocusList } from '../components/StudyLinks'
 import { ComingSoon, SubHead, SubjectCard } from '../components/Subject'
 import { play } from '../sound'
 import { SUBJECTS, type Subject, type SubjectId } from '../subjects'
@@ -64,6 +65,13 @@ export function PracticeMenu({
           </button>
         ))}
       </div>
+
+      {plan && plan.priorities.length > 0 && (
+        <>
+          <h2>Focus on</h2>
+          <FocusList items={plan.priorities.slice(0, 3)} onPractice={(p) => onStart({ mode: 'principle', id: p.principle.id, name: p.principle.name })} />
+        </>
+      )}
 
       <h2>Tests and skills</h2>
       <div className="subject-grid">

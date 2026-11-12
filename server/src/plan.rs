@@ -56,6 +56,8 @@ pub struct Priority {
     pub yield_level: Yield,
     pub mastery: Option<f64>,
     pub level: Level,
+    /// Where to go study it.
+    pub study: Option<crate::study::StudyView>,
 }
 
 #[derive(Debug, Clone, Copy, Serialize, TS)]
@@ -151,6 +153,7 @@ pub async fn get_plan(
                 yield_level: y,
                 mastery,
                 level,
+                study: crate::study::study_view(&state, &p.id),
             };
             (weight(y) * need, i, pr)
         })

@@ -12,6 +12,7 @@ pub mod mastery;
 pub mod plan;
 pub mod spaced;
 pub mod stats;
+pub mod study;
 
 use std::path::{Path, PathBuf};
 use std::str::FromStr;
