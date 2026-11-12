@@ -18,7 +18,7 @@ hack = 'Bigger and more random means more trustworthy.'
 
 [[card]]
 id = "SP.8.b"
-status = "draft"
+status = "reviewed"
 title = "Counting possibilities"
 key = "One choice from each group: multiply the choices."
 steps = [

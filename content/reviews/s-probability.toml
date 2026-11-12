@@ -767,3 +767,43 @@ role = "factcheck"
 verdict = "pass"
 note = "OpenStax Contemporary Math 7.1 Multiplication Rule for Counting supports multiplying choices: 3 letters x 10 digits (0-9) = 30. Answer and check correct. Labeling scenario is hypothetical; no real-world claim made."
 date = "2026-11-12"
+
+[[review]]
+id = "SP.8.b"
+kind = "card"
+hash = "d41a0d8528027001"
+verdict = "pass"
+note = "Rule, steps and example are correct (3 shirts x 2 pants = 6 outfits; ordering = multiply down; unordered pairs = divide by 2). Short, plain words, well under 90 words, hack is memorable and correct. Checked all 15 s-probability items: the example's 6 and the 3 x 2 x 1 hint match no answer key (0010=12, 0011=24, 0012=10, 0013=30, rest are fractions or MC); the method steps teach the idea without giving any question's numbers."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0011"
+kind = "question"
+hash = "2aec285325f02276"
+reviewer = "solver-gg"
+role = "solver"
+verdict = "pass"
+solved = "24"
+note = "Blind answer 24 (4! = 4 x 3 x 2 x 1) matches the key; check 4*3*2*1 computes 24. Prompt is clear (4 different tubes, all placed in a row). SP.8.b (count arrangements) fits; topic P.c.4 (solutions) fits the salt-solution setting. Explanation is correct, short, shows where each factor comes from, ends with a bold answer sentence. Common mistake (4 or 16) names real errors. Difficulty 2 reasonable."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0011"
+kind = "question"
+hash = "2aec285325f02276"
+reviewer = "solver-hh"
+role = "solver"
+verdict = "pass"
+solved = "24"
+note = "Blind answer 24 (4! arrangements) matches key; check 4*3*2*1 = 24. SP.8.b (arrangements) fits; topic P.c.4 (solutions) fits the salt-solution context. Explanation is short, one step per line, shows where each factor comes from, ends with bold answer. Common mistake (4 or 16) is realistic."
+date = "2026-11-12"
+
+[[review]]
+id = "s-probability-0011"
+kind = "question"
+hash = "2aec285325f02276"
+reviewer = "factcheck-q"
+role = "factcheck"
+verdict = "pass"
+note = "Opened the cited OpenStax Contemporary Mathematics 7.2 Permutations page. It explains that ordering n distinct objects uses the multiplication rule n x (n-1) x ... x 1 = n! (factorial). The question's only factual claims are this counting method and the arithmetic 4 x 3 x 2 x 1 = 24, both correct and consistent with the source; check expression matches answer 24. The common mistakes (4 or 16) are plausible errors and the correction is accurate. The lab scenario is generic and makes no scientific claims needing a source."
+date = "2026-11-12"
