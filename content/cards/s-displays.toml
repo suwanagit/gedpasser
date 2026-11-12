@@ -18,7 +18,7 @@ hack = 'Labels first, line second, numbers last.'
 
 [[card]]
 id = "SP.6.a"
-status = "draft"
+status = "reviewed"
 title = "Choosing a graph"
 key = "Line graphs show change; bar graphs compare groups."
 steps = [
@@ -36,15 +36,15 @@ hack = 'Time along the bottom, almost always.'
 id = "SP.6.b"
 status = "draft"
 title = "Words into numbers"
-key = "Change: subtract. Rate: divide the change by the time."
+key = "Change: subtract. Rate: divide the change by the time or distance."
 steps = [
   'Read both values you need.',
   'Subtract to find the change.',
   'Divide by the time or distance to find a rate.',
-  'In a formula, a small number after a symbol counts that atom.',
+  'In a formula, a small number after a symbol counts that atom; no number means one.',
 ]
 example = '''
 A pond is 12 cm deep on day 1 and 6 cm deep on day 4.
 **Rate:** 6 cm lost over 3 days = 2 cm a day.
 '''
-hack = '"Per" means divide: degrees per kilometer is degrees ÷ kilometers.'
+hack = '"Per" means divide: cm per day = cm ÷ days.'

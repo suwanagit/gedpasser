@@ -80,7 +80,7 @@ prompt = "According to the graph, what was the air temperature, in °C, at a hei
 answer = "-10"
 check = "-10"
 explanation = '''
-Find 6 km along the bottom axis and go down to the line.
+Find 6 km on the height axis (the line at 0 °C) and go down to the line.
 Then read across to the temperature axis: the point is at −10.
 So the temperature at 6 km was **−10 °C**.
 '''
@@ -93,7 +93,7 @@ principle = "SP.6.b"
 topic = "ES.b.1"
 difficulty = 3
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 stimulus = "science-balloon"
 sources = ["Original passage science-balloon", "OpenStax Astronomy 2e 8.3 Earth's Atmosphere: https://openstax.org/books/astronomy-2e/pages/8-3-earths-atmosphere"]
 prompt = "Based on the graph, by how many degrees Celsius did the temperature drop for each 1 km the balloon rose?"
@@ -114,7 +114,7 @@ principle = "SP.1.c"
 topic = "ES.b.1"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-balloon"
 sources = ["Original passage science-balloon", "OpenStax Astronomy 2e 8.3 Earth's Atmosphere: https://openstax.org/books/astronomy-2e/pages/8-3-earths-atmosphere"]
 prompt = "Which statement does the graph show?"
@@ -140,14 +140,14 @@ status = "draft"
 stimulus = "science-heating-curve"
 sources = ["Original passage science-heating-curve", "OpenStax Chemistry 2e 10.3 Phase Transitions: https://openstax.org/books/chemistry-2e/pages/10-3-phase-transitions"]
 prompt = "Between points A and B, the temperature stays at 0 °C even though heat is still being added. What is happening during that time?"
-choices = ["The ice is melting into liquid water", "The water is boiling", "The ice is getting colder", "The heater has been turned off"]
+choices = ["The ice is melting into liquid water", "The water is boiling", "The ice is getting colder", "The water is freezing into ice"]
 answer = "The ice is melting into liquid water"
 explanation = '''
 While a substance changes state, its temperature stays the same.
 0 °C is the melting point of ice, and the flat part is at 0 °C.
 So between A and B, **the ice is melting into liquid water**.
 '''
-common_mistake = "Picking \"the heater has been turned off\". The student heated it at a steady rate the whole time."
+common_mistake = "Picking \"the water is boiling\". Water boils at 100 °C, at point C; at 0 °C, ice melts."
 
 [[question]]
 id = "s-displays-0008"
@@ -156,7 +156,7 @@ principle = "SP.1.c"
 topic = "P.c.2"
 difficulty = 1
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 stimulus = "science-heating-curve"
 sources = ["Original passage science-heating-curve", "OpenStax Chemistry 2e 10.3 Phase Transitions: https://openstax.org/books/chemistry-2e/pages/10-3-phase-transitions"]
 prompt = "According to the graph, at what temperature, in °C, did the water start to boil?"
@@ -176,7 +176,7 @@ principle = "SP.6.b"
 topic = "P.c.2"
 difficulty = 2
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 stimulus = "science-heating-curve"
 sources = ["Original passage science-heating-curve", "OpenStax Chemistry 2e 10.3 Phase Transitions: https://openstax.org/books/chemistry-2e/pages/10-3-phase-transitions"]
 prompt = "According to the graph, for how many minutes was the ice melting, from point A to point B?"
@@ -196,7 +196,7 @@ principle = "SP.1.c"
 topic = "P.c.2"
 difficulty = 3
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-heating-curve"
 sources = ["Original passage science-heating-curve", "OpenStax Chemistry 2e 10.3 Phase Transitions: https://openstax.org/books/chemistry-2e/pages/10-3-phase-transitions"]
 prompt = "Between points B and C, what is the water doing?"
@@ -218,7 +218,7 @@ principle = "SP.6.a"
 topic = "L.d.1"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 sources = ["OpenStax Introductory Statistics 2e 2.1 Stem-and-Leaf Graphs, Line Graphs, and Bar Graphs: https://openstax.org/books/introductory-statistics-2e/pages/2-1-stem-and-leaf-graphs-stemplots-line-graphs-and-bar-graphs", "Math is Fun: Line Graphs: https://www.mathsisfun.com/data/line-graphs.html", "Math is Fun: Pie Chart: https://www.mathsisfun.com/data/pie-charts.html", "NCES Kids' Zone, How Do I Choose Which Type of Graph to Use?: https://nces.ed.gov/nceskids/help/user_guide/graph/whentouse.asp"]
 prompt = "A student measures the height of a bean plant every day for two weeks. Which kind of graph would best show how the plant grew over time?"
 choices = ["A line graph", "A single bar showing the plant's height on the last day", "A pie chart", "A Venn diagram"]
@@ -237,7 +237,7 @@ principle = "SP.6.a"
 topic = "L.c.1"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 sources = ["OpenStax Introductory Statistics 2e 2.1 Stem-and-Leaf Graphs, Line Graphs, and Bar Graphs: https://openstax.org/books/introductory-statistics-2e/pages/2-1-stem-and-leaf-graphs-stemplots-line-graphs-and-bar-graphs", "Math is Fun: Bar Graphs: https://www.mathsisfun.com/data/bar-graphs.html", "NCES Kids' Zone, How Do I Choose Which Type of Graph to Use?: https://nces.ed.gov/nceskids/help/user_guide/graph/whentouse.asp"]
 prompt = "A scientist counts how many birds of four different kinds visit a feeder in one day. Which kind of graph would best compare the four kinds?"
 choices = ["A bar graph with one bar for each kind of bird", "A single bar showing the total number of birds", "A line graph of the total number of birds each hour", "A Venn diagram"]
@@ -257,7 +257,7 @@ topic = "P.a.1"
 difficulty = 2
 type = "multiple_choice"
 status = "draft"
-sources = ["OpenStax Introductory Statistics 2e 2.1 Stem-and-Leaf Graphs, Line Graphs, and Bar Graphs: https://openstax.org/books/introductory-statistics-2e/pages/2-1-stem-and-leaf-graphs-stemplots-line-graphs-and-bar-graphs", "Math is Fun: Data Graphs: https://www.mathsisfun.com/data/data-graph.html", "NCES Kids' Zone, Learning Line Graphs: https://nces.ed.gov/nceskids/help/user_guide/graph/line.asp", "NCES Kids' Zone, What are Independent and Dependent Variables?: https://nces.ed.gov/nceskids/help/user_guide/graph/variables.asp"]
+sources = ["OpenStax Introductory Statistics 2e 2.1 Stem-and-Leaf Graphs, Line Graphs, and Bar Graphs: https://openstax.org/books/introductory-statistics-2e/pages/2-1-stem-and-leaf-graphs-stemplots-line-graphs-and-bar-graphs", "OpenStax College Physics 2e 2.8 Graphical Analysis of One-Dimensional Motion: https://openstax.org/books/college-physics-2e/pages/2-8-graphical-analysis-of-one-dimensional-motion", "NCES Kids' Zone, Learning Line Graphs: https://nces.ed.gov/nceskids/help/user_guide/graph/line.asp", "NCES Kids' Zone, What are Independent and Dependent Variables?: https://nces.ed.gov/nceskids/help/user_guide/graph/variables.asp"]
 prompt = "A student heats a beaker of water and records its temperature every minute. She wants to graph the results. Which should go on the x-axis, along the bottom?"
 choices = ["Time, in minutes", "Temperature, in °C", "The starting temperature of the water", "The size of the beaker"]
 answer = "Time, in minutes"
@@ -315,7 +315,7 @@ principle = "SP.6.b"
 topic = "P.c.1"
 difficulty = 2
 type = "fill_in"
-status = "draft"
+status = "reviewed"
 sources = ["OpenStax Chemistry 2e 2.4 Chemical Formulas: https://openstax.org/books/chemistry-2e/pages/2-4-chemical-formulas"]
 prompt = "Methane is written CH₄. How many atoms in all are in one molecule of methane?"
 answer = "5"

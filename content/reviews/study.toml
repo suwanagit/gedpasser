@@ -188,3 +188,11 @@ reviewer = "factcheck-l"
 verdict = "fix"
 note = '''Link check: all 97 unique URLs return HTTP 200 (curl -L) and every page title matches its link title; no soft 404s. Earlier topics: links unchanged and working. New topics: SP.1.c (Math is Fun Line Graphs, Bar Graphs) fits reading graphs. SP.6.b (OpenStax Chemistry 2e 2.4) fits the symbol half of the principle; optionally add a graph-to-number page, since the principle also covers that. FIX (SP.6.a, choosing a graph): its only link, OpenStax Intro Stats 2.1, teaches how to build stemplots, line graphs (of frequencies) and bar graphs but never when to choose each, so it does not teach the principle; search words are fine. Add NCES Kids' Zone "How to Choose Which Type of Graph to Use" (https://nces.ed.gov/nceskids/help/user_guide/graph/whentouse.asp, HTTP 200, US government) and/or Math is Fun Line Graphs (has "When should we use a line graph?").'''
 date = "2026-11-12"
+
+[[review]]
+id = "study"
+kind = "study"
+hash = "de7372e42e8800a2"
+verdict = "pass"
+note = "factcheck-m: curl -L checked all unique URLs in study.toml: every link returns HTTP 200. New SP.6.a topic: NCES Kids' Zone How Do I Choose Which Type of Graph to Use? (line graphs for change over time, bar graphs to compare groups, pie charts for parts of a whole) and OpenStax Intro Stats 2e 2.1 (line and bar graphs) both teach choosing a graph type at a GED-suitable level; titles describe the pages; search words fit. Earlier topics were link-checked only, as instructed."
+date = "2026-11-12"

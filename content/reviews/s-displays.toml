@@ -559,3 +559,467 @@ role = "factcheck"
 verdict = "pass"
 note = '''OpenStax Chemistry 2e 2.4: methane's formula has one C atom and four H atoms (Figure 2.16); a subscript counts the atom just before it. Key, explanation and common mistake correct.'''
 date = "2026-11-12"
+
+[[review]]
+id = "SP.6.a"
+kind = "card"
+hash = "4fc258bd2d2ae727"
+verdict = "pass"
+note = '''solver-y: Correct and short: line graph for change over time, bar graph for separate groups, chosen/changed variable on the x-axis. Example (fish at three lakes) uses no question's data. Hack "Time along the bottom, almost always" is correct and memorable; it states the rule 0013 tests but no question-specific answer. Optional polish: key "Line graphs show change over time" (bars can also show change) to match step 2.'''
+date = "2026-11-12"
+
+[[review]]
+id = "SP.6.b"
+kind = "card"
+hash = "cc4752d93338c25c"
+verdict = "fix"
+note = '''solver-y: Example (12 to 6 cm, day 1 to day 4 = 3 days, 2 cm a day) is correct. Three fixes: (1) Key says "divide the change by the time" but step 3 and 0005 use distance; change to "Rate: divide the change by the time or distance." (2) Step 4 "counts that atom" is vague and omits "no number means one", which is exactly the 0016 trap; write "In a formula, a small number after a symbol counts that atom; no number means one." (16 words). (3) The hack uses 0005's own units ("degrees per kilometer"), which nearly hands over that question's method; use the example's units instead: "Per" means divide: cm per day = cm ÷ days.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0001"
+kind = "question"
+hash = "66c43e6bef284724"
+reviewer = "solver-y"
+role = "solver"
+verdict = "pass"
+solved = "Magnitude 2"
+note = '''Blind answer matches. 1,000 is clearly the largest count; magnitude 5 (strongest) is the real trap, named in common_mistake. SP.1.c and ES.a.2 fit. Explanation short, ends with bold "So" line.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0002"
+kind = "question"
+hash = "0f80672016627782"
+reviewer = "solver-y"
+role = "solver"
+verdict = "pass"
+solved = "The stronger the earthquake, the fewer of them the station recorded"
+note = '''Blind answer matches; only one choice fits 1,000/100/10/1; the reversed trend and "same number" are tempting but clearly wrong. Explanation lists the counts and ends in bold. The item is fine but currently trivial because the passage states the pattern in words: see my fix on science-quakes.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0003"
+kind = "question"
+hash = "25c988491922d74b"
+reviewer = "solver-y"
+role = "solver"
+verdict = "pass"
+solved = "90"
+note = '''Blind answer matches; check 100 - 10 = 90. Says why (difference) before subtracting. Common mistake (10 from "ten times as many") is a real confusion of ratio and difference. SP.6.b fits.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0004"
+kind = "question"
+hash = "ed7fc67465cca96c"
+reviewer = "solver-y"
+role = "solver"
+verdict = "pass"
+solved = "-10"
+note = '''Blind answer matches; check -10. (6, -10) lies on gridlines and reads exactly. Dropped minus sign is the real trap. Explanation: find 6 km, go to the line, read across; bold answer.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0005"
+kind = "question"
+hash = "15bf986bf67fc098"
+reviewer = "solver-y"
+role = "solver"
+verdict = "pass"
+solved = "5"
+note = '''Blind answer matches; check (20 - (-20)) / 8 = 5. Constant 10 °C per 2 km, so one defensible rate. Explanation explains the 40 and why divide; common mistake (10 per 2 km) is real. "Drop by how many degrees" makes the positive 5 the natural form. SP.6.b fits; difficulty 3 reasonable.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0006"
+kind = "question"
+hash = "81e8a3be1819adba"
+reviewer = "solver-y"
+role = "solver"
+verdict = "pass"
+solved = "The higher the balloon went, the colder the air was"
+note = '''Blind answer matches. Passage does not state the trend; distractors are reversals or misreads (coldest at ground), clearly wrong yet tempting. Common mistake (closer to the Sun) is a real misconception. SP.1.c, ES.b.1 fit.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0007"
+kind = "question"
+hash = "e5e13823d5653a9b"
+reviewer = "solver-y"
+role = "solver"
+verdict = "fix"
+solved = "The ice is melting into liquid water"
+note = '''Key correct. Problem: the stem itself says "even though heat is still being added", so the choice "The heater has been turned off" is ruled out by the question and is a throwaway, yet common_mistake is built on it. Replace that choice with a tempting one: "The water is freezing into ice" (0 °C is also the freezing point, but heat is being added, so it can't be freezing). Then change common_mistake to: Picking "the water is boiling". Water boils at 100 °C, at point C; at 0 °C, ice melts. Explanation is fine.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0008"
+kind = "question"
+hash = "a5db3aa63ef7301d"
+reviewer = "solver-y"
+role = "solver"
+verdict = "pass"
+solved = "100"
+note = '''Blind answer matches; check 100. C sits on the 100 gridline. A learner who knows sea-level boiling can answer without the graph, which is fine for a difficulty-1 reading item. Common mistake (reading the 0 °C plateau) is real.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0009"
+kind = "question"
+hash = "8b5fec9202f8aae2"
+reviewer = "solver-y"
+role = "solver"
+verdict = "pass"
+solved = "40"
+note = '''Blind answer matches; check 50 - 10 = 40. A and B on 10-minute gridlines. Common mistake (50, the time at B) is the real trap. SP.6.b fits; explanation in style.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0010"
+kind = "question"
+hash = "46fdbb8f19c5019e"
+reviewer = "solver-y"
+role = "solver"
+verdict = "pass"
+solved = "Staying liquid while its temperature rises"
+note = '''Blind answer matches. "Boiling while its temperature rises" is the tempting trap and is ruled out by the passage (boiling starts at C); "Melting" describes A to B. One defensible answer. P.c.2 fits; explanation in style.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0011"
+kind = "question"
+hash = "7cb23ef96e6e4f3e"
+reviewer = "solver-y"
+role = "solver"
+verdict = "pass"
+solved = "A line graph"
+note = '''Blind answer matches; one defensible choice (a single last-day bar can't show change; a pie is parts of a whole). Venn diagram is the weakest distractor but still a known display a guesser might pick. SP.6.a, L.d.1 (growth) fit.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0012"
+kind = "question"
+hash = "b251d9fb279eff98"
+reviewer = "solver-y"
+role = "solver"
+verdict = "pass"
+solved = "A bar graph with one bar for each kind of bird"
+note = '''Blind answer matches; the hourly-total line graph is a good trap, and a single total bar never splits by kind. One defensible choice. SP.6.a fits; topic L.c.1 (energy flow) is a loose fit for birds at a feeder but acceptable as the ecosystem domain.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0013"
+kind = "question"
+hash = "009a34518cae77ab"
+reviewer = "solver-y"
+role = "solver"
+verdict = "pass"
+solved = "Time, in minutes"
+note = '''Blind answer matches. Temperature (the measured variable) is the real trap; the two constants are plausible to someone unsure what an axis holds. Explanation gives why (chosen vs measured). SP.6.a, P.a.1 fit.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0016"
+kind = "question"
+hash = "327cef2e6498a7c8"
+reviewer = "solver-y"
+role = "solver"
+verdict = "pass"
+solved = "5"
+note = '''Blind answer matches; check 1 + 4 = 5. Common mistake (4, forgetting the lone C) is the real trap. SP.6.b (symbol into number) and P.c.1 fit; explanation one line per step with bold answer.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0001"
+kind = "question"
+hash = "66c43e6bef284724"
+reviewer = "solver-z"
+role = "solver"
+verdict = "pass"
+solved = "Magnitude 2"
+note = "Blind answer matches key. Read straight from the table (1,000 is the largest count). Magnitude 5 is a tempting distractor (strongest vs most often) and the common mistake names it. SP.1.c and ES.a.2 fit. Explanation short, closes with So + bold answer."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0002"
+kind = "question"
+hash = "0f80672016627782"
+reviewer = "solver-z"
+role = "solver"
+verdict = "pass"
+solved = "The stronger the earthquake, the fewer of them the station recorded"
+note = "Blind answer matches key. Only one choice fits the 1,000/100/10/1 pattern; the reversed statement and 'same number' are clearly wrong yet tempting to a careless reader. Passage defines magnitude so 'stronger' is answerable. SP.1.c fits. Explanation in style."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0003"
+kind = "question"
+hash = "25c988491922d74b"
+reviewer = "solver-z"
+role = "solver"
+verdict = "pass"
+solved = "90"
+note = "Blind answer matches key; check 100 - 10 = 90. 'How many more' is unambiguous as a difference; common mistake (10, the ratio) is realistic. SP.6.b (table to a number) is acceptable. Explanation explains why subtract, every number sourced, So line bold."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0004"
+kind = "question"
+hash = "ed7fc67465cca96c"
+reviewer = "solver-z"
+role = "solver"
+verdict = "fix"
+solved = "-10"
+note = "Key -10 is correct and readable exactly (point at (6,-10), gridlines every 10 °C, x gridlines at whole km). Check -10 fine. Problem: the explanation says 'Find 6 km along the bottom axis'. Figure.tsx draws the x-axis at y = 0, which on this -30..30 graph is in the middle, not at the bottom, and the height tick labels sit there. A learner looking at the bottom edge finds no labels. Change line 1 to 'Find 6 km on the height axis (the line at 0 °C) and go down to the line.' Everything else passes."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0005"
+kind = "question"
+hash = "15bf986bf67fc098"
+reviewer = "solver-z"
+role = "solver"
+verdict = "pass"
+solved = "5"
+note = "Blind answer matches key; check (20 - (-20)) / 8 = 5. Graph is linear so every 1 km interval gives the same 5-degree drop; endpoints 20 and -20 sit on gridlines. Common mistake (10 per 2 km step) is the realistic error. SP.6.b and ES.b.1 fit; difficulty 3 reasonable. Explanation gives why (rate) before how, So line bold."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0006"
+kind = "question"
+hash = "81e8a3be1819adba"
+reviewer = "solver-z"
+role = "solver"
+verdict = "pass"
+solved = "The higher the balloon went, the colder the air was"
+note = "Blind answer matches key. Line falls steadily from 20 to -20 °C; 'coldest at the ground' and 'warmer higher up' are tempting misconceptions and clearly wrong from the graph. Passage limits it to the lowest layer, so the claim is accurate. SP.1.c, ES.b.1 fit. Explanation in style."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0007"
+kind = "question"
+hash = "e5e13823d5653a9b"
+reviewer = "solver-z"
+role = "solver"
+verdict = "pass"
+solved = "The ice is melting into liquid water"
+note = "Blind answer matches key. Flat part at 0 °C while heat is added = melting (GED-expected knowledge, P.c.2). Distractors: heater off is ruled out by 'steady rate', boiling by 0 °C, colder by the flat line. Explanation correct and in style. Side note on the shared figure: the A-B plateau lies exactly on the x-axis line (axis drawn at y = 0), so it may be hard to see as a separate segment; points A and B are labeled, so it is still answerable."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0008"
+kind = "question"
+hash = "a5db3aa63ef7301d"
+reviewer = "solver-z"
+role = "solver"
+verdict = "pass"
+solved = "100"
+note = "Blind answer matches key; check 100. Passage ties boiling to point C, labeled at (100, 100); 100 falls on a temperature gridline and 'near sea level' makes it consistent with real water. Common mistake (0, the plateau) realistic. SP.1.c fits. Explanation in style."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0009"
+kind = "question"
+hash = "8b5fec9202f8aae2"
+reviewer = "solver-z"
+role = "solver"
+verdict = "pass"
+solved = "40"
+note = "Blind answer matches key; check 50 - 10 = 40. A at 10 min and B at 50 min sit on gridlines (every 10 min) and are labeled, so readable exactly. Common mistake (50, reading B's time) realistic. SP.6.b acceptable. Explanation in style."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0010"
+kind = "question"
+hash = "46fdbb8f19c5019e"
+reviewer = "solver-z"
+role = "solver"
+verdict = "pass"
+solved = "Staying liquid while its temperature rises"
+note = "Blind answer matches key. Passage says boiling starts at C, so 'boiling while rising' is wrong but tempting; melting and freezing are wrong by the rising line. SP.1.c, P.c.2 fit; difficulty 3 is generous but defensible. Explanation correct, So line bold."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0011"
+kind = "question"
+hash = "7cb23ef96e6e4f3e"
+reviewer = "solver-z"
+role = "solver"
+verdict = "pass"
+solved = "A line graph"
+note = "Blind answer matches key. Change over time -> line graph; single bar, pie chart and Venn diagram are clearly worse. SP.6.a fits. Topic L.d.1 (functions of life: growth) is a loose but acceptable fit. Explanation in style; common mistake (pie chart) names a distractor."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0012"
+kind = "question"
+hash = "b251d9fb279eff98"
+reviewer = "solver-z"
+role = "solver"
+verdict = "pass"
+solved = "A bar graph with one bar for each kind of bird"
+note = "Blind answer matches key. Comparing four categories -> bar per category; the hourly-total line graph is tempting but never splits by kind. SP.6.a fits. Topic L.c.1 (energy flow) is loose for counting birds at a feeder; L.c in general is fine, matches the already reviewed 0014. Explanation in style."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0013"
+kind = "question"
+hash = "009a34518cae77ab"
+reviewer = "solver-z"
+role = "solver"
+verdict = "pass"
+solved = "Time, in minutes"
+note = "Blind answer matches key. Independent variable (time chosen by the student) on x; temperature is the tempting distractor and the common mistake names it. 'Usually' hedge is accurate. SP.6.a, P.a.1 fit. Explanation says why before how, So line bold."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0016"
+kind = "question"
+hash = "327cef2e6498a7c8"
+reviewer = "solver-z"
+role = "solver"
+verdict = "pass"
+solved = "5"
+note = "Blind answer matches key; check 1 + 4 = 5. Subscript rule is stated in the explanation; common mistake (4, ignoring the unsubscripted C) is realistic. SP.6.b (symbol to number) and P.c.1 fit. Explanation in style."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0001"
+kind = "question"
+hash = "66c43e6bef284724"
+reviewer = "factcheck-m"
+role = "factcheck"
+verdict = "pass"
+note = "Answer read from passage table (M2 = 1,000, the largest count). USGS Lists, Maps, and Statistics (opened via WebFetch; curl gets 403) has yearly worldwide counts by magnitude: 2010 M5-5.9 2209, M6 150, M7 23, M8+ 1; 2020 1312/112/9/0, about tenfold fewer per step, so the made-up counts follow the real pattern. Common mistake (strongest is not most frequent) is sound."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0002"
+kind = "question"
+hash = "0f80672016627782"
+reviewer = "factcheck-m"
+role = "factcheck"
+verdict = "pass"
+note = "Counts 1,000/100/10/1 match the passage table; the pattern (stronger = fewer) matches USGS Lists, Maps, and Statistics yearly counts (M5 > M6 > M7 > M8+, roughly tenfold steps). Wrong choices are clearly contradicted by the table."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0003"
+kind = "question"
+hash = "25c988491922d74b"
+reviewer = "factcheck-m"
+role = "factcheck"
+verdict = "pass"
+note = "100 - 10 = 90 from the passage table; check expression matches. No outside facts beyond the USGS pattern already confirmed on the Lists, Maps, and Statistics page."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0004"
+kind = "question"
+hash = "ed7fc67465cca96c"
+reviewer = "factcheck-m"
+role = "factcheck"
+verdict = "pass"
+note = "Figure point (6, -10) gives -10 C. OpenStax Astronomy 2e 8.3 (HTTP 200) confirms troposphere is the lowest layer, about the bottom 10 km, with temperature falling with height to about -50 C at its top; 8 km readings stay inside it."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0005"
+kind = "question"
+hash = "15bf986bf67fc098"
+reviewer = "factcheck-m"
+role = "factcheck"
+verdict = "pass"
+note = "(20 - (-20)) / 8 = 5 C per km from the figure. Physically plausible: OpenStax Astronomy 2e 8.3 gives a fall from surface to about -50 C over about 10 km (roughly 6.5 C/km); 5 C/km is a realistic made-up value, labelled made-up in the passage."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0006"
+kind = "question"
+hash = "81e8a3be1819adba"
+reviewer = "factcheck-m"
+role = "factcheck"
+verdict = "pass"
+note = "Line falls 20 to -20 C over 0-8 km. OpenStax Astronomy 2e 8.3: in the troposphere temperature decreases with elevation. Common mistake correctly limited to this layer (stratosphere warms with height, not claimed here)."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0007"
+kind = "question"
+hash = "e5e13823d5653a9b"
+reviewer = "factcheck-m"
+role = "factcheck"
+verdict = "pass"
+note = "OpenStax Chemistry 2e 10.3 (HTTP 200): while a substance is undergoing a change in state, its temperature remains constant; ice melts at 0 C (Fig 10.26, Example 10.10). Flat segment A-B at 0 C is melting. Distractor about the heater is contradicted by the passage (steady heating)."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0008"
+kind = "question"
+hash = "a5db3aa63ef7301d"
+reviewer = "factcheck-m"
+role = "factcheck"
+verdict = "pass"
+note = "Point C at (100, 100). OpenStax Chemistry 2e 10.3 treats water as boiling at 100 C (normal boiling point at 1 atm); the passage says near sea level, so 100 C is correct."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0009"
+kind = "question"
+hash = "8b5fec9202f8aae2"
+reviewer = "factcheck-m"
+role = "factcheck"
+verdict = "pass"
+note = "50 - 10 = 40 minutes from the figure. Checked the made-up times against steady heating with OpenStax Chemistry 2e 10.3 Example 10.10 values (ice 2.09 J/g C, water 4.18 J/g C, fusion 6.0 kJ/mol = 333 J/g): warm ice -40 to 0 C = 83.6 J/g, melt = 333 J/g, warm water 0 to 100 C = 418 J/g, ratio 1 : 3.98 : 5.0, matching 10 : 40 : 50 minutes. Not misleading."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0010"
+kind = "question"
+hash = "46fdbb8f19c5019e"
+reviewer = "factcheck-m"
+role = "factcheck"
+verdict = "pass"
+note = "B-C rises 0 to 100 C; OpenStax Chemistry 2e 10.3 heating curve: after melting, liquid water warms until boiling, where temperature again stays constant. Explanation and distractors correct."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0011"
+kind = "question"
+hash = "7cb23ef96e6e4f3e"
+reviewer = "factcheck-m"
+role = "factcheck"
+verdict = "pass"
+note = "All four sources open (HTTP 200). NCES whentouse: line graphs track changes over time; pie charts compare parts of a whole. Math is Fun Line Graphs: line graphs show information that changes over time; Pie Chart: slices show relative sizes. OpenStax Intro Stats 2e 2.1 covers line and bar graphs. Explanation and common mistake match."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0012"
+kind = "question"
+hash = "b251d9fb279eff98"
+reviewer = "factcheck-m"
+role = "factcheck"
+verdict = "pass"
+note = "NCES whentouse: bar graphs are used to compare things between different groups; Math is Fun Bar Graphs and OpenStax Intro Stats 2e 2.1 (bar graph of categories) agree. All links HTTP 200. Distractors clearly fail to compare the four kinds."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0013"
+kind = "question"
+hash = "009a34518cae77ab"
+reviewer = "factcheck-m"
+role = "factcheck"
+verdict = "fix"
+note = "Answer (time on x-axis) is correct and NCES Learning Line Graphs supports it (x-axis typically shows time periods; y-axis the amount measured). But the explanation's general rule, that the x-axis shows what was chosen or changed on purpose (independent variable) and the measured value goes on the y-axis, is not stated in any cited source: NCES Independent and Dependent Variables defines the terms but never mentions axes, and Math is Fun Data Graphs is only a graph-maker tool with no relevant text. Fix: replace the Math is Fun Data Graphs source with OpenStax College Physics 2e 2.8 Graphical Analysis of One-Dimensional Motion (https://openstax.org/books/college-physics-2e/pages/2-8-graphical-analysis-of-one-dimensional-motion), which says the horizontal axis is usually the independent variable, the vertical axis the dependent variable, and time is usually the independent variable."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0016"
+kind = "question"
+hash = "327cef2e6498a7c8"
+reviewer = "factcheck-m"
+role = "factcheck"
+verdict = "pass"
+note = "OpenStax Chemistry 2e 2.4 (HTTP 200): subscripts show the number of atoms of each type, a subscript is used only when more than one atom is present, and methane has one C atom and four H atoms (Fig 2.16). 1 + 4 = 5 is correct."
+date = "2026-11-12"

@@ -758,3 +758,63 @@ role = "factcheck"
 verdict = "fix"
 note = '''Source line starts with Original and cites OpenStax Chemistry 2e 10.3 (opened, HTTP 200). Confirmed there: temperature stays constant during a change of state; ice melts at 0 C (enthalpy of fusion given at 0 C); a stove burner supplies heat at a roughly constant rate. FIX 1 (physically misleading data): with steady heating, each stage's time is proportional to the heat it needs. OpenStax Example 10.10 values: ice c = 2.09 J/g C, fusion 6.01 kJ/mol (334 J/g), water c = 4.18 J/g C. Per gram: warm ice -20 to 0 C = 42 J, melt = 334 J, warm water 0 to 100 C = 418 J, a ratio of about 1 : 8 : 10. The graph shows 5 : 5 : 10 minutes, so melting looks as quick as warming the ice, and liquid water (10 C/min) heats faster than ice (4 C/min), the reverse of what the specific heats give. Suggest A at 1 min, B at 9 min, C at 19 min (x_max 25): segments (0,-20)-(1,0), (1,0)-(9,0), (9,0)-(19,100), (19,100)-(25,100); s-displays-0009 then becomes 8 (check 9 - 1). FIX 2: the text does not say the results are made up (only the source line does); add "The numbers are made up for practice." like the other two passages. FIX 3: 100 C is the boiling point at 1 atm (sea level); OpenStax 10.3 Example 10.6 shows water boiling near 90 C at Leadville. Say the pot is at sea level, since some Alaska learners live at altitude.'''
 date = "2026-11-12"
+
+[[review]]
+id = "science-quakes"
+kind = "stimulus"
+hash = "e584a57539d0335f"
+reviewer = "solver-y"
+role = "solver"
+verdict = "fix"
+note = '''Clear, short, made-up numbers flagged, realistic 10x-per-magnitude pattern. But the sentence "each step up in magnitude, there are about ten times fewer earthquakes" states in words the exact pattern that s-displays-0002 asks the learner to find in the table (stronger -> fewer), so 0002 can be answered without reading the table. Fix: shorten to "The numbers are made up for practice, but they follow the real pattern." (or drop the pattern clause entirely) so the learner has to read the trend from the table. Table values read exactly.'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-balloon"
+kind = "stimulus"
+hash = "a66fe3ce4aeac84d"
+reviewer = "solver-y"
+role = "solver"
+verdict = "pass"
+note = '''Clear and short; does not state the trend in words. Every point (0,20) (2,10) (4,0) (6,-10) (8,-20) sits on whole km and on 10-degree gridlines of a -30..30 axis, so all values read exactly. Physically realistic: 5 °C per km is a plausible lapse rate (average about 6.5), 20 °C at the ground, 8 km is still inside the troposphere ("lowest layer").'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-heating-curve"
+kind = "stimulus"
+hash = "43fb4904781cd3db"
+reviewer = "solver-y"
+role = "solver"
+verdict = "pass"
+note = '''Clear, short, "simplified" flagged. A (10,0), B (50,0), C (100,100) and the start (0,-40) all sit on 10-minute and 20-degree gridlines, so every needed value reads exactly. Physically consistent at a steady heat rate: ice 40 °C x 2.1 J/g°C = 84 J/g in 10 min, melting 334 J/g in 40 min, water 100 °C x 4.18 = 418 J/g in 50 min, all about 8.4 J/g per minute. Boiling at 100 °C fits "near sea level". Ice at -40 °C is unusual but realistic in an Alaska winter.'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-quakes"
+kind = "stimulus"
+hash = "e584a57539d0335f"
+reviewer = "factcheck-m"
+role = "factcheck"
+verdict = "pass"
+note = "Source line starts with Original and labels numbers made-up; no verbatim text. USGS Earthquake Magnitude, Energy Release, and Shaking Intensity: magnitude is the size of the earthquake (passage says how strong, fine at this level). USGS Lists, Maps, and Statistics yearly world counts (2010: M5 2209, M6 150, M7 23, M8+ 1) confirm about ten times fewer per magnitude step; the 1,000/100/10/1 table follows it. Optional: the magnitude page itself has no frequency data, so the tenfold claim rests on the Lists page only; the archived USGS Frequency of Occurrence table (M4 about 13,000, M5 1,319, M6 134 per year) would extend support to small magnitudes."
+date = "2026-11-12"
+
+[[review]]
+id = "science-balloon"
+kind = "stimulus"
+hash = "a66fe3ce4aeac84d"
+reviewer = "factcheck-m"
+role = "factcheck"
+verdict = "pass"
+note = "Source starts with Original, readings labelled made-up. OpenStax Astronomy 2e 8.3: troposphere is the lowest layer, about the bottom 10 km, temperature decreasing with elevation to near -50 C at its top. Graph (20 C at ground, 5 C/km fall, -20 C at 8 km) is realistic and stays within the layer, so not misleading."
+date = "2026-11-12"
+
+[[review]]
+id = "science-heating-curve"
+kind = "stimulus"
+hash = "43fb4904781cd3db"
+reviewer = "factcheck-m"
+role = "factcheck"
+verdict = "pass"
+note = "Source starts with Original, results labelled made-up and simplified. Steady-heating check with OpenStax Chemistry 2e 10.3 Example 10.10 values (c_ice 2.09, c_water 4.18 J/g C, fusion 6.0 kJ/mol = 333 J/g): -40 to 0 C ice 83.6 J/g, melting 333 J/g, 0 to 100 C water 418 J/g, ratio 1 : 3.98 : 5.0 vs graph 10 : 40 : 50 minutes, a near-exact match. Flat at 0 C, boiling at 100 C near sea level, constant temperature during change of state all confirmed."
+date = "2026-11-12"

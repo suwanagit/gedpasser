@@ -233,14 +233,14 @@ title = "Earthquakes at one station"
 text = '''
 A seismometer is an instrument that records earthquakes. The table shows how many earthquakes one station recorded in a year, grouped by magnitude. Magnitude is a number that describes how strong an earthquake is: the higher the magnitude, the stronger the earthquake.
 
-The numbers are made up for practice, but they follow the real pattern: each step up in magnitude, there are about ten times fewer earthquakes.
+The numbers are made up for practice, but they follow the real pattern.
 '''
 table = { headers = ["Magnitude", "Earthquakes in one year"], rows = [["2", "1,000"], ["3", "100"], ["4", "10"], ["5", "1"]] }
 source = "Original (made-up numbers for practice; facts from USGS Earthquake Hazards Program, Earthquake Magnitude, Energy Release, and Shaking Intensity, and Lists, Maps, and Statistics)"
 
 [[stimulus]]
 id = "science-balloon"
-status = "draft"
+status = "reviewed"
 title = "Temperature and height"
 text = '''
 A weather balloon carries a thermometer up through the lowest layer of the atmosphere. The graph shows the air temperature the balloon measured at different heights above the ground.
@@ -252,7 +252,7 @@ source = "Original (made-up readings for practice; facts from OpenStax Astronomy
 
 [[stimulus]]
 id = "science-heating-curve"
-status = "draft"
+status = "reviewed"
 title = "Heating ice"
 text = '''
 A student near sea level puts ice at −40 °C in a pot and heats it at a steady rate. She measures the temperature every minute until the water starts to boil, at point C. The graph shows her results, simplified for practice.
