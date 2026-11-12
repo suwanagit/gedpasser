@@ -180,3 +180,48 @@ A coach measured the heart rate of 10 healthy adults in beats per minute (bpm). 
 '''
 table = { headers = ["Activity", "Average heart rate (bpm)"], rows = [["Sitting", "70"], ["Walking", "96"], ["Running", "142"]] }
 source = "Original (made-up results for practice; facts from OpenStax Anatomy and Physiology 2e 19.4 Cardiac Physiology)"
+
+[[stimulus]]
+id = "science-planets"
+status = "draft"
+title = "Distance and the length of a year"
+text = '''
+A planet's year is the time it takes to go once around the Sun. The table shows how far the five planets closest to the Sun are from the Sun, and how long each one's year is in Earth days.
+'''
+table = { headers = ["Planet", "Distance from the Sun (million km)", "Length of year (Earth days)"], rows = [["Mercury", "57.9", "88.0"], ["Venus", "108.2", "224.7"], ["Earth", "149.6", "365.2"], ["Mars", "228.0", "687.0"], ["Jupiter", "778.5", "4,331"]] }
+source = "Data: NASA NSSDCA Planetary Fact Sheet, https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
+
+[[stimulus]]
+id = "science-hare-lynx"
+status = "draft"
+title = "Hares and lynx"
+text = '''
+In the northern forests of North America, including Alaska, the lynx is a wild cat that hunts snowshoe hares. Hares are its main food. Scientists have found that the two populations rise and fall in cycles of about ten years. When there are many hares, there is more food for lynx, and the lynx population grows. When lynx become common, they eat so many hares that the hare population falls. Then the lynx have less food, and their numbers fall too, about a year or two after the hares.
+
+The table shows a simple model of one forest, with made-up numbers that follow this pattern.
+'''
+table = { headers = ["Year", "Hares (thousands)", "Lynx (hundreds)"], rows = [["1", "20", "3"], ["2", "50", "4"], ["3", "80", "8"], ["4", "60", "12"], ["5", "25", "10"], ["6", "10", "5"], ["7", "15", "3"], ["8", "35", "3"]] }
+source = "Original (made-up numbers for practice; facts from OpenStax Concepts of Biology 19.4 Community Ecology and the National Park Service, Gates of the Arctic National Park and Preserve, Lynx)"
+
+[[stimulus]]
+id = "science-cooling"
+status = "draft"
+title = "A cooling cup of tea"
+text = '''
+A student pours hot tea into a mug and leaves it on a table in a room that stays at 20 °C. Every 5 minutes, she measures the temperature of the tea.
+'''
+table = { headers = ["Time (minutes)", "Tea temperature (°C)"], rows = [["0", "90"], ["5", "70"], ["10", "56"], ["15", "46"], ["20", "39"]] }
+source = "Original (made-up results for practice; facts from OpenStax College Physics 2e 14.1 Heat and 14.5 Conduction)"
+
+[[stimulus]]
+id = "science-seasons"
+status = "draft"
+title = "Why we have seasons"
+text = '''
+Earth's axis, the line it spins around, is tilted about 23.5° compared with its path around the Sun. The tilt stays pointed the same way in space all year.
+
+In June, the northern half of Earth leans toward the Sun. Sunlight hits it more directly and days are longer, so it is summer there. At the same time, the southern half leans away from the Sun, so it is winter there. In December, it is the other way around.
+
+In June, the area around the North Pole gets sunlight all day and all night. Every place north of the Arctic Circle, at about 67° north, has at least one day around then when the Sun never sets.
+'''
+source = "Original (facts from OpenStax Astronomy 2e 4.2 The Seasons)"

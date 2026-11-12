@@ -225,3 +225,16 @@ two findings can both hold.\
 difficulty_min = 1
 difficulty_max = 3
 targets = ["SP.3.a", "SP.3.b", "SP.4.a", "SP.5.a"]
+
+[[skill]]
+id = "s-models"
+subject = "science"
+name = "Predictions and models"
+description = """
+Using data to predict what comes next or what lies in between, and \
+applying a well-known model or process, like predator and prey or the \
+seasons, to a new case.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["SP.3.c", "SP.7.a"]

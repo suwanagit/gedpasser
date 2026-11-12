@@ -193,3 +193,21 @@ title = "Claims and two findings"
 principles = ["SP.4.a", "SP.5.a"]
 size = 5
 max_difficulty = 2
+
+[[stage]]
+id = "sci-d4a"
+subject = "science"
+day = 4
+title = "Predicting from data"
+principles = ["SP.3.c"]
+size = 5
+max_difficulty = 2
+
+[[stage]]
+id = "sci-d4b"
+subject = "science"
+day = 4
+title = "Using models"
+principles = ["SP.7.a"]
+size = 5
+max_difficulty = 2

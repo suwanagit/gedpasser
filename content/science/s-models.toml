@@ -1,0 +1,341 @@
+# Science: predictions and models (SP.3.c, SP.7.a)
+# Every question cites its sources (docs/CONTENT_RULES.md). Explanations
+# follow docs/EXPLANATION_STYLE.md: one line per step, answer in bold.
+
+# ── Distance and the length of a year (science-planets) ───────────────
+
+[[question]]
+id = "s-models-0001"
+skill = "s-models"
+principle = "SP.3.c"
+topic = "ES.c.2"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-planets"
+sources = ["Original passage science-planets", "NASA NSSDCA Planetary Fact Sheet: https://nssdc.gsfc.nasa.gov/planetary/factsheet/"]
+prompt = "Saturn is farther from the Sun than Jupiter. Based on the table, how long is a year on Saturn most likely to be?"
+choices = ["Longer than 4,331 Earth days", "Shorter than 365 Earth days", "Between 687 and 4,331 Earth days", "About the same as a year on Earth"]
+answer = "Longer than 4,331 Earth days"
+explanation = '''
+In the table, the farther a planet is from the Sun, the longer its year.
+Jupiter is the farthest planet listed, with a year of 4,331 days.
+Saturn is farther still, so its year is most likely **longer than 4,331 Earth days**.
+'''
+common_mistake = "Picking \"between 687 and 4,331\". That range fits a planet between Mars and Jupiter, not one beyond Jupiter."
+
+[[question]]
+id = "s-models-0002"
+skill = "s-models"
+principle = "SP.3.c"
+topic = "ES.c.2"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-planets"
+sources = ["Original passage science-planets", "NASA NSSDCA Planetary Fact Sheet: https://nssdc.gsfc.nasa.gov/planetary/factsheet/"]
+prompt = "An asteroid goes around the Sun at about 400 million km from the Sun. Based on the table, how long is its year most likely to be?"
+choices = ["Between 687 and 4,331 Earth days", "Less than 88 Earth days", "Between 365 and 687 Earth days", "More than 4,331 Earth days"]
+answer = "Between 687 and 4,331 Earth days"
+explanation = '''
+400 million km is farther than Mars (228.0) but closer than Jupiter (778.5).
+In the table, a planet's year gets longer as its distance grows.
+So the asteroid's year most likely falls between those two: **between 687 and 4,331 Earth days**.
+'''
+common_mistake = "Picking between 365 and 687 days. That range fits something between Earth and Mars, closer than 228 million km."
+
+# ── Hares and lynx (science-hare-lynx) ────────────────────────────────
+
+[[question]]
+id = "s-models-0003"
+skill = "s-models"
+principle = "SP.7.a"
+topic = "L.c.4"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+alaska = true
+stimulus = "science-hare-lynx"
+sources = ["Original passage science-hare-lynx", "OpenStax Concepts of Biology 19.4 Community Ecology: https://openstax.org/books/concepts-biology/pages/19-4-community-ecology", "National Park Service, Gates of the Arctic National Park and Preserve, Lynx: https://www.nps.gov/gaar/learn/nature/lynx.htm"]
+prompt = "Use the predator and prey pattern in the passage. Why did the lynx population fall in years 5 and 6?"
+choices = ["There were fewer hares for the lynx to eat", "There were too many hares in the forest", "The hares were hunting the lynx", "The lynx moved into a different forest"]
+answer = "There were fewer hares for the lynx to eat"
+explanation = '''
+The passage says that when lynx are common, they eat so many hares that the hares fall.
+Hares dropped from 80 thousand in year 3 to 25 thousand in year 5, then lynx dropped after.
+So the lynx fell because **there were fewer hares for the lynx to eat**.
+'''
+common_mistake = "Picking \"the lynx moved\". Nothing in the passage says they left; the model says less food means fewer lynx."
+
+[[question]]
+id = "s-models-0004"
+skill = "s-models"
+principle = "SP.3.c"
+topic = "L.c.4"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+alaska = true
+stimulus = "science-hare-lynx"
+sources = ["Original passage science-hare-lynx", "OpenStax Concepts of Biology 19.4 Community Ecology: https://openstax.org/books/concepts-biology/pages/19-4-community-ecology", "National Park Service, Gates of the Arctic National Park and Preserve, Lynx: https://www.nps.gov/gaar/learn/nature/lynx.htm"]
+prompt = "Based on the pattern in the table, what will most likely happen to the lynx in the next few years after year 8?"
+choices = ["They will increase, after the hares have increased", "They will keep falling every year", "They will stay at 300 forever", "They will increase before the hares do"]
+answer = "They will increase, after the hares have increased"
+explanation = '''
+In year 8, the hares are rising again (15 thousand, then 35 thousand).
+In the pattern, lynx rise a year or two after the hares rise, because they have more food.
+So the lynx will most likely **increase, after the hares have increased**.
+'''
+common_mistake = "Picking \"they will keep falling\". The lynx stopped falling at 300 in years 7 and 8, and their food is coming back."
+
+[[question]]
+id = "s-models-0005"
+skill = "s-models"
+principle = "SP.7.a"
+topic = "L.c.4"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+alaska = true
+stimulus = "science-hare-lynx"
+sources = ["Original passage science-hare-lynx", "OpenStax Concepts of Biology 19.4 Community Ecology: https://openstax.org/books/concepts-biology/pages/19-4-community-ecology", "National Park Service, Gates of the Arctic National Park and Preserve, Lynx: https://www.nps.gov/gaar/learn/nature/lynx.htm"]
+prompt = "Suppose a disease kills most of the hares in this forest one year. Using the predator and prey model, what will most likely happen next?"
+choices = ["The lynx population will fall", "The lynx population will grow quickly", "The hare population will grow quickly that same year", "Nothing will happen to the lynx, because only hares got sick"]
+answer = "The lynx population will fall"
+explanation = '''
+In the model, the lynx depend on hares for food.
+If most hares die, the lynx have much less to eat.
+So **the lynx population will fall**.
+'''
+common_mistake = "Thinking the lynx are safe because the disease hit only hares. Losing their food still hurts them."
+
+# ── A cooling cup of tea (science-cooling) ────────────────────────────
+
+[[question]]
+id = "s-models-0006"
+skill = "s-models"
+principle = "SP.3.c"
+topic = "P.a.1"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-cooling"
+sources = ["Original passage science-cooling", "OpenStax College Physics 2e 14.1 Heat: https://openstax.org/books/college-physics-2e/pages/14-1-heat"]
+prompt = "If the pattern continues, what will the tea temperature most likely be at 25 minutes?"
+choices = ["About 34 °C", "About 45 °C", "About 20 °C", "About 10 °C"]
+answer = "About 34 °C"
+explanation = '''
+The tea drops less each time: 20, then 14, then 10, then 7 degrees.
+The next drop should be a bit smaller than 7 degrees, so about 5 degrees.
+39 − 5 = 34, so the tea will most likely be **about 34 °C**.
+'''
+common_mistake = "Picking about 20 °C, as if the tea jumps to room temperature. The drops are getting smaller, not bigger."
+
+[[question]]
+id = "s-models-0007"
+skill = "s-models"
+principle = "SP.3.c"
+topic = "P.a.1"
+difficulty = 2
+type = "dropdown"
+status = "draft"
+stimulus = "science-cooling"
+sources = ["Original passage science-cooling", "OpenStax College Physics 2e 14.1 Heat: https://openstax.org/books/college-physics-2e/pages/14-1-heat"]
+prompt = "Complete the prediction: if the tea is left for many hours, it will most likely end up at about {{1}}, because heat keeps moving from {{2}} until both are at the same temperature."
+blanks = [
+  { choices = ["20 °C", "0 °C", "39 °C"], answer = "20 °C" },
+  { choices = ["the warmer tea to the cooler room", "the cooler room to the warmer tea", "the mug to the tea"], answer = "the warmer tea to the cooler room" },
+]
+explanation = '''
+Heat moves from warmer things to cooler things until they reach the same temperature.
+The tea is warmer than the room, so heat leaves the tea until it matches the room.
+So it ends up at about **20 °C**, because heat moves from **the warmer tea to the cooler room**.
+'''
+common_mistake = "Picking 0 °C, as if the tea keeps cooling forever. It stops cooling when it matches the room."
+
+[[question]]
+id = "s-models-0008"
+skill = "s-models"
+principle = "SP.7.a"
+topic = "P.a.1"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-cooling"
+sources = ["Original passage science-cooling", "OpenStax College Physics 2e 14.1 Heat: https://openstax.org/books/college-physics-2e/pages/14-1-heat", "OpenStax College Physics 2e 14.5 Conduction: https://openstax.org/books/college-physics-2e/pages/14-5-conduction"]
+prompt = "The student repeats the test with the same tea, starting at 90 °C, but in a room at 5 °C. How will the tea cool, compared with the first test?"
+choices = ["Faster, because the gap between the tea and the room is bigger", "Slower, because cold air holds heat in", "At the same rate, because the tea is the same", "Faster at first, then it will stop at 20 °C"]
+answer = "Faster, because the gap between the tea and the room is bigger"
+explanation = '''
+Heat flows from the tea to the room, and it flows faster across a bigger temperature difference.
+At 5 °C, the room is much colder than before, so the difference is bigger.
+So the tea will cool **faster, because the gap between the tea and the room is bigger**.
+'''
+common_mistake = "Picking \"stop at 20 °C\". The tea cools until it matches its own room, which is now 5 °C."
+
+# ── Why we have seasons (science-seasons) ─────────────────────────────
+
+[[question]]
+id = "s-models-0009"
+skill = "s-models"
+principle = "SP.7.a"
+topic = "ES.c.2"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-seasons"
+sources = ["Original passage science-seasons", "OpenStax Astronomy 2e 4.2 The Seasons: https://openstax.org/books/astronomy-2e/pages/4-2-the-seasons"]
+prompt = "Australia is in the southern half of Earth. Using the model in the passage, what season is it in Australia in June?"
+choices = ["Winter", "Summer", "Spring", "It has no seasons"]
+answer = "Winter"
+explanation = '''
+In June, the northern half leans toward the Sun and has summer.
+The passage says the southern half leans away at the same time.
+So in June it is **winter** in Australia.
+'''
+common_mistake = "Picking summer because June is summer in the United States. The two halves of Earth have opposite seasons."
+
+[[question]]
+id = "s-models-0010"
+skill = "s-models"
+principle = "SP.7.a"
+topic = "ES.c.2"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+alaska = true
+stimulus = "science-seasons"
+sources = ["Original passage science-seasons", "OpenStax Astronomy 2e 4.2 The Seasons: https://openstax.org/books/astronomy-2e/pages/4-2-the-seasons"]
+prompt = "A town is at 70° north. Using the passage, what is most likely true there around late June?"
+choices = ["The Sun does not set for at least one day", "The Sun does not rise for at least one day", "Day and night are each 12 hours long", "It is winter there"]
+answer = "The Sun does not set for at least one day"
+explanation = '''
+The passage says every place north of the Arctic Circle, at about 67° north, has a day around June when the Sun never sets.
+70° north is farther north than 67°.
+So in late June, **the Sun does not set for at least one day** there.
+'''
+common_mistake = "Picking \"the Sun does not rise\". That happens near the North Pole in December, when the north leans away from the Sun."
+
+[[question]]
+id = "s-models-0011"
+skill = "s-models"
+principle = "SP.7.a"
+topic = "ES.c.2"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-seasons"
+sources = ["Original passage science-seasons", "OpenStax Astronomy 2e 4.2 The Seasons: https://openstax.org/books/astronomy-2e/pages/4-2-the-seasons"]
+prompt = "Suppose Earth's axis had no tilt at all. Using the model in the passage, what would most likely happen to the seasons?"
+choices = ["They would mostly disappear, because each place would get about the same sunlight all year", "They would get stronger, because the Sun would be closer", "Both halves of Earth would have summer at the same time each year", "Nothing would change, because seasons are caused by distance from the Sun"]
+answer = "They would mostly disappear, because each place would get about the same sunlight all year"
+explanation = '''
+In the model, seasons happen because the tilt makes each half lean toward the Sun, then away.
+With no tilt, neither half would lean toward or away from the Sun during the year.
+So the seasons **would mostly disappear, because each place would get about the same sunlight all year**.
+'''
+common_mistake = "Picking \"seasons are caused by distance\". The passage explains seasons by tilt, not by distance from the Sun."
+
+# ── Two boiling points (science-boiling) ──────────────────────────────
+
+[[question]]
+id = "s-models-0012"
+skill = "s-models"
+principle = "SP.3.c"
+topic = "P.c.2"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-boiling"
+sources = ["Original passage science-boiling", "OpenStax Chemistry 2e 10.3 Phase Transitions: https://openstax.org/books/chemistry-2e/pages/10-3-phase-transitions"]
+prompt = "A third student heats pure water at a place about 1,500 meters above sea level. Based on the passage, which result is most likely?"
+choices = ["It boils at a temperature between 90 °C and 100 °C", "It boils at exactly 100 °C", "It boils at a temperature below 90 °C", "It boils at a temperature above 100 °C"]
+answer = "It boils at a temperature between 90 °C and 100 °C"
+explanation = '''
+Higher places have lower air pressure, and lower air pressure means a lower boiling point.
+1,500 meters is between sea level (100 °C) and about 3,100 meters (about 90 °C).
+So the water most likely **boils at a temperature between 90 °C and 100 °C**.
+'''
+common_mistake = "Picking below 90 °C. That would fit a place higher than the mountain camp, not lower."
+
+# ── Stand-alone ───────────────────────────────────────────────────────
+
+[[question]]
+id = "s-models-0013"
+skill = "s-models"
+principle = "SP.7.a"
+topic = "P.b.2"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+sources = ["OpenStax College Physics 2e 4.4 Newton's Third Law of Motion: https://openstax.org/books/college-physics-2e/pages/4-4-newtons-third-law-of-motion-symmetry-in-forces"]
+prompt = "Newton's third law says that when one object pushes on another, the second pushes back just as hard in the opposite direction. A swimmer pushes backward on the wall of a pool and glides forward. What pushes the swimmer forward?"
+choices = ["The wall pushes forward on the swimmer", "The swimmer pushes forward on the wall", "The water pulls the swimmer forward", "Nothing pushes the swimmer; the swimmer just moves"]
+answer = "The wall pushes forward on the swimmer"
+explanation = '''
+The swimmer pushes backward on the wall.
+By the third law, the wall pushes back on the swimmer just as hard, in the opposite direction: forward.
+So **the wall pushes forward on the swimmer**.
+'''
+common_mistake = "Picking \"the swimmer pushes forward on the wall\". The swimmer pushes backward; the forward push comes from the wall."
+
+[[question]]
+id = "s-models-0014"
+skill = "s-models"
+principle = "SP.7.a"
+topic = "P.b.2"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+sources = ["OpenStax College Physics 2e 4.4 Newton's Third Law of Motion: https://openstax.org/books/college-physics-2e/pages/4-4-newtons-third-law-of-motion-symmetry-in-forces"]
+prompt = "Newton's third law says that when one object pushes on another, the second pushes back just as hard in the opposite direction. A person in a canoe pushes water backward with a paddle. Why does the canoe move forward?"
+choices = ["The water pushes forward on the paddle", "The paddle pulls the canoe forward through the air", "The water in front of the canoe moves out of the way", "The person leans forward in the canoe"]
+answer = "The water pushes forward on the paddle"
+explanation = '''
+The paddle pushes the water backward.
+By the third law, the water pushes the paddle forward just as hard, and the paddle is held by the person in the canoe.
+So the canoe moves forward because **the water pushes forward on the paddle**.
+'''
+common_mistake = "Picking \"the person leans forward\". Leaning moves weight around inside the canoe; it does not push the canoe through the water."
+
+[[question]]
+id = "s-models-0015"
+skill = "s-models"
+principle = "SP.7.a"
+topic = "L.b.1"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+sources = ["OpenStax Concepts of Biology 5.1 Overview of Photosynthesis: https://openstax.org/books/concepts-biology/pages/5-1-overview-of-photosynthesis"]
+prompt = "A healthy green plant is sealed in a clear glass jar and left in bright sunlight. Using what you know about photosynthesis, what will most likely happen to the amount of carbon dioxide in the jar over the next few hours?"
+choices = ["It will go down, because the plant uses it to make sugar", "It will go up, because the plant gives off carbon dioxide in sunlight", "It will stay the same, because plants only use water", "It will go down, because sunlight destroys carbon dioxide"]
+answer = "It will go down, because the plant uses it to make sugar"
+explanation = '''
+In photosynthesis, a plant uses carbon dioxide and water, with energy from sunlight, to make sugar and oxygen.
+In bright light, the plant takes carbon dioxide out of the air in the jar.
+So the carbon dioxide **will go down, because the plant uses it to make sugar**.
+'''
+common_mistake = "Picking \"it will go up\". In bright light, photosynthesis uses up carbon dioxide; the plant gives off oxygen."
+
+[[question]]
+id = "s-models-0016"
+skill = "s-models"
+principle = "SP.7.a"
+topic = "L.c.5"
+difficulty = 3
+type = "order"
+status = "draft"
+sources = ["OpenStax Concepts of Biology 19.4 Community Ecology: https://openstax.org/books/concepts-biology/pages/19-4-community-ecology", "OpenStax Concepts of Biology 20.1 Energy Flow through Ecosystems: https://openstax.org/books/concepts-biology/pages/20-1-energy-flow-through-ecosystems"]
+prompt = "In a pond, minnows eat algae and bass eat minnows. Suppose all the bass are removed. Put the most likely events in order."
+items = [
+  "The bass are removed from the pond",
+  "Fewer minnows are eaten, so the minnow population grows",
+  "The larger number of minnows eats more algae",
+  "The amount of algae goes down",
+]
+explanation = '''
+Bass eat minnows, so removing the bass first means fewer minnows get eaten.
+With more minnows, more algae get eaten.
+So the order is: **bass removed, minnows grow, minnows eat more algae, algae go down**.
+'''
+common_mistake = "Putting \"algae go down\" before \"minnows grow\". The algae drop because there are more minnows eating them, so the minnows have to grow first."

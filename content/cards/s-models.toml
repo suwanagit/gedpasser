@@ -1,0 +1,33 @@
+# Quick review cards for s-models (SP.3.c, SP.7.a). See WRITING.md.
+
+[[card]]
+id = "SP.3.c"
+status = "draft"
+title = "Predicting from data"
+key = "A prediction follows the pattern the data already show."
+steps = [
+  'Find the pattern: up, down, faster, slower, or repeating.',
+  'Between two points: the answer falls between their results.',
+  'Far beyond the data: be careful, patterns can level off.',
+]
+example = '''
+A plant is 2 cm, then 4 cm, then 6 cm after weeks 1, 2 and 3.
+**Week 4:** about 8 cm, since it grows about 2 cm a week.
+'''
+hack = 'Say the pattern out loud before you predict.'
+
+[[card]]
+id = "SP.7.a"
+status = "draft"
+title = "Using a model"
+key = "Match the new case to the model, then follow its rule."
+steps = [
+  "Say the model's rule in one sentence.",
+  'Match each part of the new case to a part of the model.',
+  'Follow the rule to the result.',
+]
+example = '''
+Model: objects with the same electric charge push each other away.
+**New case:** two balloons rubbed on the same hair push apart.
+'''
+hack = 'Ask: "Which part of the model is this?"'

@@ -9,7 +9,7 @@
 # Reviewed as a whole: `cargo content-template study`, then
 # `cargo content-approve study` after an independent review.
 
-status = "reviewed"
+status = "draft"
 
 [[topic]]
 principle = "Q.1.a"
@@ -584,4 +584,19 @@ search = "why sample size and control groups matter"
 links = [
   { title = "OpenStax Psychology 2e, 2.2 Approaches to research", url = "https://openstax.org/books/psychology-2e/pages/2-2-approaches-to-research" },
   { title = "OpenStax Psychology 2e, 2.3 Analyzing findings", url = "https://openstax.org/books/psychology-2e/pages/2-3-analyzing-findings" },
+]
+
+[[topic]]
+principle = "SP.3.c"
+search = "making predictions from data trends"
+links = [
+  { title = "OpenStax Introductory Statistics 2e, 2.2 Histograms frequency polygons and time series graphs", url = "https://openstax.org/books/introductory-statistics-2e/pages/2-2-histograms-frequency-polygons-and-time-series-graphs" },
+]
+
+[[topic]]
+principle = "SP.7.a"
+search = "scientific models and how they are used"
+links = [
+  { title = "OpenStax Concepts of Biology, 1.2 The process of science", url = "https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science" },
+  { title = "OpenStax Concepts of Biology, 19.4 Community ecology", url = "https://openstax.org/books/concepts-biology/pages/19-4-community-ecology" },
 ]
