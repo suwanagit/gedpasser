@@ -10,7 +10,7 @@ use std::path::{Path, PathBuf};
 use sha2::{Digest, Sha256};
 
 use crate::schema::{
-    Card, Principle, Question, QuestionType, Review, ReviewFile, ReviewKind, Status, StrategyFile, Verdict,
+    Card, Lesson, Principle, Question, QuestionType, Review, ReviewFile, ReviewKind, Status, StrategyFile, Verdict,
 };
 use crate::{Level, Report, check_content, read_toml};
 
@@ -74,6 +74,13 @@ pub fn lesson_hash(p: &Principle) -> String {
     hash_parts(&["lesson", &p.id, &p.skill, p.name.trim(), p.summary.trim(), p.lesson.trim()])
 }
 
+/// Hash of a full lesson (not its status).
+pub fn unit_hash(l: &Lesson) -> String {
+    let mut copy = l.clone();
+    copy.status = Status::Draft;
+    hash_parts(&["unit", &format!("{copy:?}")])
+}
+
 /// Hash of a short lesson card (not its status).
 pub fn card_hash(c: &Card) -> String {
     let figure = c.figure.as_ref().map(|f| format!("{f:?}")).unwrap_or_default();
@@ -122,7 +129,7 @@ pub(crate) fn check_reviews(root: &Path, report: &mut Report) {
     for (path, r) in &loaded {
         let known = match r.kind {
             ReviewKind::Question => question_ids.contains_key(r.id.as_str()),
-            ReviewKind::Lesson => principle_ids.contains_key(r.id.as_str()),
+            ReviewKind::Lesson => principle_ids.contains_key(r.id.as_str()) || report.lessons.iter().any(|(_, l)| l.id == r.id),
             ReviewKind::Card => report.cards.iter().any(|(_, c)| c.id == r.id),
             ReviewKind::Strategy => r.id == "strategy" && report.strategy.is_some(),
         };
@@ -157,6 +164,9 @@ pub(crate) fn check_reviews(root: &Path, report: &mut Report) {
             &p.id,
             &mut diags,
         );
+    }
+    for (path, l) in &report.lessons {
+        gate(report_latest(&report.reviews, ReviewKind::Lesson, &l.id), l.status, &unit_hash(l), path, &l.id, &mut diags);
     }
     for (path, c) in &report.cards {
         gate(report_latest(&report.reviews, ReviewKind::Card, &c.id), c.status, &card_hash(c), path, &c.id, &mut diags);
@@ -252,6 +262,13 @@ pub fn template(root: &Path, skill: &str) -> Result<String, String> {
         }
     }
     let skill_principles: Vec<&str> = report.principles.iter().filter(|p| p.skill == skill).map(|p| p.id.as_str()).collect();
+    for (_, l) in report.lessons.iter().filter(|(_, l)| skill_principles.contains(&l.principle.as_str()) && l.status != Status::Retired) {
+        let h = unit_hash(l);
+        if !has_current_pass(&report, ReviewKind::Lesson, &l.id, &h) {
+            push("lesson", &l.id, &h);
+            count += 1;
+        }
+    }
     for (_, c) in report.cards.iter().filter(|(_, c)| skill_principles.contains(&c.id.as_str()) && c.status != Status::Retired) {
         let h = card_hash(c);
         if !has_current_pass(&report, ReviewKind::Card, &c.id, &h) {
@@ -299,6 +316,19 @@ pub fn approve(root: &Path, skill: &str) -> Result<Vec<String>, String> {
         .collect();
     if !ids.is_empty() {
         set_status(&cfile, "[[card]]", &ids)?;
+        approved.extend(ids);
+    }
+
+    let lfile = root.join("lessons").join(format!("{skill}.toml"));
+    let ids: Vec<String> = report
+        .lessons
+        .iter()
+        .filter(|(p, l)| *p == lfile && l.status == Status::Draft)
+        .filter(|(_, l)| has_current_pass(&report, ReviewKind::Lesson, &l.id, &unit_hash(l)))
+        .map(|(_, l)| l.id.clone())
+        .collect();
+    if !ids.is_empty() {
+        set_status(&lfile, "[[lesson]]", &ids)?;
         approved.extend(ids);
     }
 

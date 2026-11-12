@@ -1,6 +1,8 @@
 # Writing cards and figures
 
-Cards are the short lesson for each principle. Learners read them on a phone
+Cards are the short **Quick review** for each principle: a cheat sheet for
+someone who has already done the lesson. Full lessons follow
+`docs/LESSON_STYLE.md` instead. Learners read them on a phone
 in the middle of practice, so **every word has to earn its place**. Aim for a
 high-school reading level: short sentences, everyday words, no jargon unless
 the test uses it (then define it in a few words).

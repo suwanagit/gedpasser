@@ -7,18 +7,19 @@
 
 pub mod expr;
 pub mod extra;
+pub mod lessons;
 pub mod review;
 pub mod schema;
 
-pub use review::{approve, card_hash, lesson_hash, question_hash, strategy_hash, template};
+pub use review::{approve, card_hash, lesson_hash, question_hash, strategy_hash, template, unit_hash};
 
 use std::collections::{BTreeSet, HashMap, HashSet};
 use std::fmt;
 use std::path::{Path, PathBuf};
 
 pub use schema::{
-    Area, Card, Figure, Formula, Principle, PrincipleFile, Question, QuestionFile, QuestionType, Review, ReviewKind,
-    Skill, SkillFile, Stage, Status, StrategyFile, Tactic, Verdict,
+    Area, Card, Figure, Formula, Lesson, LessonFile, LessonRule, Mistake, Principle, PrincipleFile, Question, QuestionFile, QuestionType, Review, ReviewKind,
+    Skill, SkillFile, Stage, Status, StrategyFile, Tactic, Term, TryIt, Verdict, WorkedExample, WorkedStep,
 };
 
 /// Prompts whose word sets overlap at least this much are flagged.
@@ -60,6 +61,8 @@ pub struct Report {
     pub principles: Vec<Principle>,
     pub questions: Vec<(PathBuf, Question)>,
     pub cards: Vec<(PathBuf, Card)>,
+    /// Full lessons, in file order.
+    pub lessons: Vec<(PathBuf, Lesson)>,
     pub journey: Vec<Stage>,
     pub strategy: Option<StrategyFile>,
     pub reviews: Vec<(PathBuf, Review)>,
@@ -78,7 +81,7 @@ impl Report {
         self.diagnostics.iter().any(|d| d.message.contains(needle))
     }
 
-    fn push(&mut self, level: Level, file: &Path, id: Option<&str>, message: impl Into<String>) {
+    pub(crate) fn push(&mut self, level: Level, file: &Path, id: Option<&str>, message: impl Into<String>) {
         self.diagnostics.push(Diagnostic {
             level,
             file: file.to_path_buf(),
@@ -110,6 +113,7 @@ pub fn check_content(root: &Path) -> Report {
     check_duplicates(&mut report);
     extra::check_question_figures(&mut report);
     extra::check_cards(root, &mut report);
+    lessons::check_lessons(root, &mut report);
     extra::check_journey(root, &mut report);
     extra::check_strategy(root, &mut report);
     review::check_reviews(root, &mut report);

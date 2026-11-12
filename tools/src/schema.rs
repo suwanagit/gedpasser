@@ -276,6 +276,97 @@ pub struct Circle {
 
 // ── Cards: the short lesson for each principle ───────────────────────────
 
+/// `content/lessons/<skill>.toml`: full lessons, one idea each, written to
+/// `docs/LESSON_STYLE.md`. A principle can have several.
+#[derive(Debug, Clone, Default, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct LessonFile {
+    #[serde(default)]
+    pub lesson: Vec<Lesson>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct Lesson {
+    /// e.g. "q1b-gcf": the principle code without dots, then a short name.
+    pub id: String,
+    pub principle: String,
+    pub status: Status,
+    pub title: String,
+    /// A real situation where this comes up.
+    pub why: String,
+    /// The idea in plain words, no symbols.
+    pub idea: String,
+    /// Exactly two worked examples, the second a little harder.
+    #[serde(default)]
+    pub example: Vec<WorkedExample>,
+    pub rule: LessonRule,
+    pub mistake: Mistake,
+    /// Two or three questions inside the lesson.
+    #[serde(default, rename = "try")]
+    pub tries: Vec<TryIt>,
+    /// Two to four short lines: the cheat-sheet version.
+    #[serde(default)]
+    pub recap: Vec<String>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct WorkedExample {
+    pub title: String,
+    pub steps: Vec<WorkedStep>,
+    /// The result, said in a full sentence.
+    pub answer: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct WorkedStep {
+    /// One line of work.
+    #[serde(rename = "do")]
+    pub work: String,
+    /// Why this step.
+    pub why: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct LessonRule {
+    pub text: String,
+    #[serde(default)]
+    pub terms: Vec<Term>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct Term {
+    pub term: String,
+    pub means: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct Mistake {
+    pub wrong: String,
+    pub right: String,
+    pub why: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct TryIt {
+    pub prompt: String,
+    /// Leave out for a typed answer.
+    #[serde(default)]
+    pub choices: Vec<String>,
+    pub answer: String,
+    /// Required when the answer is a number.
+    #[serde(default)]
+    pub check: String,
+    /// The full worked solution, shown when the learner is wrong.
+    pub solution: String,
+}
+
 /// `content/cards/<skill>.toml`: one short card per principle.
 #[derive(Debug, Clone, Default, Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -409,6 +500,8 @@ pub struct Review {
 #[serde(rename_all = "snake_case")]
 pub enum ReviewKind {
     Question,
+    /// A principle's notes (id = principle code) or a full lesson (id =
+    /// lesson id, e.g. "q1b-gcf").
     Lesson,
     Card,
     /// The whole of `content/strategy.toml` (id "strategy").

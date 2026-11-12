@@ -5,7 +5,7 @@
 use std::collections::HashMap;
 use std::path::Path;
 
-use ged_content::{Card, Principle, Question, QuestionType, Skill, Stage, Status, StrategyFile, check_content};
+use ged_content::{Card, Lesson, Principle, Question, QuestionType, Skill, Stage, Status, StrategyFile, check_content};
 use sqlx::SqlitePool;
 
 pub struct Bank {
@@ -16,6 +16,8 @@ pub struct Bank {
     /// Question ids per skill, in file order.
     pub by_skill: HashMap<String, Vec<String>>,
     pub hashes: HashMap<String, String>,
+    /// Full lessons, in file order.
+    pub lessons: Vec<Lesson>,
     /// Short lesson cards by principle id.
     pub cards: HashMap<String, Card>,
     /// The guided path, in order.
@@ -53,6 +55,7 @@ impl Bank {
             report.skills.iter().enumerate().map(|(i, s)| (s.id.as_str(), i)).collect();
         let mut principles = report.principles.clone();
         principles.sort_by_key(|p| skill_order.get(p.skill.as_str()).copied().unwrap_or(usize::MAX));
+        let lessons = report.lessons.into_iter().map(|(_, l)| l).collect();
         let cards = report.cards.into_iter().map(|(_, c)| (c.id.clone(), c)).collect();
         Ok(Bank {
             skills: report.skills,
@@ -60,6 +63,7 @@ impl Bank {
             questions,
             by_skill,
             hashes,
+            lessons,
             cards,
             journey: report.journey,
             strategy: report.strategy,
@@ -87,6 +91,11 @@ impl Bank {
     /// Whether learners may be served this question.
     pub fn servable(q: &Question, serve_drafts: bool) -> bool {
         status_servable(q.status, serve_drafts)
+    }
+
+    /// Whether learners may open this full lesson.
+    pub fn unit_servable(l: &Lesson, serve_drafts: bool) -> bool {
+        status_servable(l.status, serve_drafts)
     }
 
     /// Whether learners may read this principle's lesson. The name and

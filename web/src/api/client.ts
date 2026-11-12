@@ -8,6 +8,7 @@ import type { FlagRequest } from './types/FlagRequest'
 import type { JourneyRun } from './types/JourneyRun'
 import type { JourneyView } from './types/JourneyView'
 import type { Lesson } from './types/Lesson'
+import type { LessonView } from './types/LessonView'
 import type { LoginRequest } from './types/LoginRequest'
 import type { Me } from './types/Me'
 import type { NextQuestion } from './types/NextQuestion'
@@ -86,6 +87,7 @@ export const api = {
   answer: (body: AnswerRequest) => request<AnswerResult>('POST', '/api/answer', body),
   principles: () => request<PrincipleSummary[]>('GET', '/api/principles'),
   lesson: (id: string) => request<Lesson>('GET', `/api/principles/${encodeURIComponent(id)}`),
+  fullLesson: (id: string) => request<LessonView>('GET', `/api/lessons/${encodeURIComponent(id)}`),
   flag: (body: FlagRequest) => request<void>('POST', '/api/flags', body),
   journey: () => request<JourneyView>('GET', '/api/journey'),
   startStage: (id: string) => request<JourneyRun>('POST', `/api/journey/${encodeURIComponent(id)}/start`),

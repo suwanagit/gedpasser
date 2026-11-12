@@ -48,7 +48,30 @@ Work from the repo root (`C:\dev\gedpasser`). Do not edit any file except
 - Original wording; no claim of official GED status.
 - Math notation renders: math is inside `$...$`; a literal dollar sign is `\$`.
 
-## Lessons
+## Lessons (`content/lessons/<skill>.toml`, kind = "lesson")
+
+Read `docs/LESSON_STYLE.md` first. The validator already checks the
+structure, banned words and sentence length. You check what code cannot:
+
+- **One idea.** The lesson teaches one thing. If it drifts into a second
+  idea, verdict `fix`.
+- **Every new word is defined** in plain words the first time it appears,
+  with a number example right next to it. Only basic add, subtract,
+  multiply and divide may be assumed.
+- **Every answer is shown being worked out.** No "the GCF is 6" without the
+  work that finds it.
+- **Every new number is explained.** If a number appears that wasn't in the
+  problem, the text says where it came from.
+- **The examples match the rule as written.** Same operation, same order.
+- **Each step says why**, not just what.
+- **The examples are right.** Work each one yourself.
+- **The try-its.** Solve each one blind before reading the answer, and
+  record your answers in the note. Check that each solution is complete
+  enough to learn from.
+- **The mistake is real**: one that learners actually make, shown and then
+  corrected.
+
+## Principle notes (`content/principles.toml`, kind = "lesson")
 
 - Every statement, rule, example and number is correct.
 - Nothing is misleading or oversimplified to the point of being wrong.

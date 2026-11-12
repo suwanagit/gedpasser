@@ -679,8 +679,10 @@ pub struct Lesson {
     pub lesson: Option<String>,
     /// True if the lesson has not been reviewed yet (dev mode only).
     pub draft: bool,
-    /// The short card: shown first; the long lesson is "more detail".
+    /// The Quick review card; the notes above are "more detail".
     pub card: Option<crate::journey::CardView>,
+    /// Full lessons for this principle, one idea each.
+    pub lessons: Vec<crate::lessons::LessonRef>,
 }
 
 /// Every principle, in skill order.
@@ -732,6 +734,7 @@ pub async fn get_principle(
         lesson: show.then(|| p.lesson.trim().to_string()),
         draft: show && p.status == ged_content::Status::Draft,
         card: crate::journey::card_view(&state, &p.id),
+        lessons: crate::lessons::lesson_refs(&state, &p.id),
     }))
 }
 

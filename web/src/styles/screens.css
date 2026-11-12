@@ -713,3 +713,217 @@ details.fold > p {
   color: var(--muted);
   font-size: 0.9rem;
 }
+
+/* ── Full lessons (docs/LESSON_STYLE.md) ──────────────────────────────── */
+
+.lesson-player .session {
+  z-index: 50;
+}
+
+.lesson-page {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.lesson-page h2 {
+  font-size: 1.4rem;
+}
+
+.worked {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.worked li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.7rem 0.9rem 0.7rem 2.6rem;
+  position: relative;
+  border: 2px solid var(--line);
+  border-radius: var(--radius-sm);
+  opacity: 0.6;
+  counter-increment: step;
+}
+
+.worked li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0.75rem;
+  top: 0.7rem;
+  display: grid;
+  place-items: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background: var(--surface-3);
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.worked li.now {
+  opacity: 1;
+  border-color: var(--brand);
+  background: var(--brand-soft);
+}
+
+.worked li.now::before {
+  background: var(--brand);
+  color: var(--on-brand);
+}
+
+.worked .work {
+  font-weight: 800;
+}
+
+.worked .why {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.worked li.now .why {
+  color: var(--text);
+}
+
+.worked-answer {
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--ok-soft);
+  color: var(--ok-text);
+  font-weight: 800;
+}
+
+.rule-box {
+  padding: 0.9rem 1rem;
+  border: 2px solid var(--brand);
+  border-radius: var(--radius);
+  background: var(--brand-soft);
+  font-weight: 700;
+}
+
+.terms {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.terms div {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.terms dt {
+  font-weight: 900;
+}
+
+.terms dt::after {
+  content: ':';
+}
+
+.terms dd {
+  margin: 0;
+}
+
+.mistake {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-sm);
+}
+
+.mistake.wrong {
+  background: var(--coral-soft);
+  color: var(--coral-text);
+}
+
+.mistake.right {
+  background: var(--ok-soft);
+  color: var(--ok-text);
+}
+
+.mistake-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.solution {
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+}
+
+.recap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.recap li {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-weight: 700;
+}
+
+.recap .icon {
+  flex: none;
+  margin-top: 0.25rem;
+  color: var(--ok);
+}
+
+.recap-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.recap-actions .primary {
+  flex-basis: 100%;
+}
+
+.recap-actions .secondary {
+  flex: 1;
+}
+
+.lesson-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.lesson-row {
+  border-bottom: 2px solid var(--line);
+}
+
+.lesson-play {
+  display: grid;
+  place-items: center;
+  flex: none !important;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--brand);
+  color: var(--on-brand);
+}
+
+.quick-review {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}

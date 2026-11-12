@@ -178,3 +178,98 @@ fn real_skill_map_is_valid() {
     let skills = ged_content::load_skills(&root).expect("content/skills.toml should be valid");
     assert_eq!(skills.len(), 13);
 }
+
+const GOOD_LESSON: &str = r#"
+[[lesson]]
+id = "q3a-unit-rate"
+principle = "Q.3.a"
+status = "draft"
+title = "Unit rates"
+why = "You compare prices at the store."
+idea = "A unit rate tells you how much for one."
+recap = ["Divide to get the amount for one.", "Compare the amounts for one."]
+
+[[lesson.example]]
+title = "Apples"
+steps = [
+  { do = '$6 \div 3 = 2$', why = "Split the cost over the three apples." },
+  { do = "2 dollars each", why = "That is the cost for one." },
+]
+answer = "Each apple costs 2 dollars."
+
+[[lesson.example]]
+title = "Pears"
+steps = [
+  { do = '$12 \div 4 = 3$', why = "Split the cost over the four pears." },
+  { do = "3 dollars each", why = "That is the cost for one." },
+]
+answer = "Each pear costs 3 dollars."
+
+[lesson.rule]
+text = "Cost for one = total cost divided by how many."
+
+[lesson.mistake]
+wrong = '$3 \div 6$'
+right = '$6 \div 3$'
+why = "Put the total on top."
+
+[[lesson.try]]
+prompt = "Eight pens cost 16 dollars. How much is one pen?"
+answer = "2"
+check = "16 / 8"
+solution = "Divide 16 by 8 to get 2."
+
+[[lesson.try]]
+prompt = "Five cans cost 10 dollars. How much is one can?"
+choices = ["2", "5"]
+answer = "2"
+check = "10 / 5"
+solution = "Divide 10 by 5 to get 2."
+"#;
+
+fn with_lesson(dest: &str, text: &str) -> PathBuf {
+    let root = copy_tree("good", dest);
+    std::fs::create_dir_all(root.join("lessons")).unwrap();
+    std::fs::write(root.join("lessons").join("q-ratios-percent.toml"), text).unwrap();
+    root
+}
+
+#[test]
+fn a_well_formed_lesson_passes() {
+    let r = check_content(&with_lesson("lesson-good", GOOD_LESSON));
+    for d in &r.diagnostics {
+        eprintln!("{d}");
+    }
+    assert_eq!(r.errors(), 0);
+    assert_eq!(r.lessons.len(), 1);
+}
+
+#[test]
+fn lesson_rules_are_enforced() {
+    let bad = GOOD_LESSON
+        .replace("title = \"Unit rates\"", "title = \"Unit rates, ratios\"")
+        .replace("You compare prices", "You simply compare prices")
+        .replace("check = \"16 / 8\"", "check = \"16 / 4\"")
+        .replace("{ do = \"2 dollars each\", why = \"That is the cost for one.\" },", "");
+    let r = check_content(&with_lesson("lesson-bad", &bad));
+    assert!(r.mentions("title has a comma"), "{:?}", r.diagnostics);
+    assert!(r.mentions("uses \"simply\""));
+    assert!(r.mentions("WRONG KEY"));
+    assert!(r.mentions("example 1 needs at least two steps"));
+}
+
+#[test]
+fn a_lesson_needs_a_review_to_be_reviewed() {
+    let root = with_lesson("lesson-gate", &GOOD_LESSON.replacen("status = \"draft\"", "status = \"reviewed\"", 1));
+    let r = check_content(&root);
+    assert!(r.mentions("marked reviewed but it has no review"), "{:?}", r.diagnostics);
+
+    let root = with_lesson("lesson-approve", GOOD_LESSON);
+    let r = check_content(&root);
+    let h = ged_content::unit_hash(&r.lessons[0].1);
+    write_reviews(&root, "q-ratios-percent", &[("q3a-unit-rate", "lesson", &h, "pass")]);
+    let approved = approve(&root, "q-ratios-percent").expect("approve runs");
+    assert!(approved.contains(&"q3a-unit-rate".to_string()), "{approved:?}");
+    let r = check_content(&root);
+    assert_eq!(r.lessons[0].1.status, Status::Reviewed);
+}

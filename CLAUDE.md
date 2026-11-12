@@ -42,7 +42,12 @@ Repo: https://github.com/suwanagit/gedpasser.git
 - Principles are the official GED Math indicator codes (Q.1.a … A.7.d), but
   names and lessons are our own words. Never copy text from the GED guide.
   Lessons follow the same draft -> reviewed rule as questions.
-- Every principle has a short card in `content/cards/<skill>.toml` (format in
+- Every lesson follows `docs/LESSON_STYLE.md`: one idea per lesson, written
+  for adults who know only basic arithmetic, in the fixed order (why, idea,
+  two worked examples, rule, mistake, try it, recap). Lessons live in
+  `content/lessons/<skill>.toml`; read the style guide before writing one.
+- Every principle has a short card (shown as "Quick review") in
+  `content/cards/<skill>.toml` (format in
   `content/cards/WRITING.md`): as few words as possible, high-school reading
   level, one memory hack. Cards, figures and `content/strategy.toml` go
   through the same independent review and `cargo content-approve`.

@@ -153,13 +153,13 @@ export function QuestionView({
     <div className="check-row">
       <button
         className="secondary"
-        aria-label="Hint: open the lesson"
+        aria-label="Quick review"
         onClick={() => {
           hintUsed.current = true
           setLessonFor(q.principle.id)
         }}
       >
-        <Icon name="bulb" size={20} /> Hint
+        <Icon name="bulb" size={20} /> Quick review
       </button>
       <button className="primary wide" disabled={!response || busy} onClick={() => void submit()}>
         Check

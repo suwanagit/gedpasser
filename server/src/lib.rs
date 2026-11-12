@@ -8,6 +8,7 @@ pub mod exams;
 pub mod figures;
 pub mod flags;
 pub mod journey;
+pub mod lessons;
 pub mod mastery;
 pub mod plan;
 pub mod spaced;
@@ -92,6 +93,7 @@ pub async fn build_app(config: &Config) -> Result<App, String> {
         .route("/api/answer", post(api::submit_answer))
         .route("/api/principles", get(api::list_principles))
         .route("/api/principles/{id}", get(api::get_principle))
+        .route("/api/lessons/{id}", get(lessons::get_lesson))
         .route("/api/flags", post(flags::create_flag))
         .route("/api/journey", get(journey::get_journey))
         .route("/api/journey/{id}/start", post(journey::start_stage))

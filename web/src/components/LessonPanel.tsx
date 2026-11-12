@@ -4,12 +4,14 @@ import { api, errorMessage } from '../api/client'
 import type { Lesson } from '../api/types/Lesson'
 import { Icon } from './Icon'
 import { LessonCard } from './LessonCard'
+import { LessonPlayer } from './LessonPlayer'
 import { LessonText } from './LessonText'
 import { MathText } from './MathText'
 
 /**
- * A lesson for one principle, shown as a dialog over the current screen.
- * Esc, the Close button, or clicking outside closes it.
+ * One principle, shown as a dialog over the current screen: its full
+ * lessons, then the Quick review card. Esc, the Close button, or clicking
+ * outside closes it. A lesson opens full screen on top.
  */
 export function LessonPanel({
   principleId,
@@ -24,6 +26,8 @@ export function LessonPanel({
   const [lesson, setLesson] = useState<Lesson | null>(null)
   const [error, setError] = useState<string | null>(null)
   const closeRef = useRef<HTMLButtonElement>(null)
+  const reviewRef = useRef<HTMLDivElement>(null)
+  const [playing, setPlaying] = useState<string | null>(null)
   const reduce = useReducedMotion()
 
   useEffect(() => {
@@ -41,6 +45,7 @@ export function LessonPanel({
     const before = document.activeElement as HTMLElement | null
     closeRef.current?.focus()
     function onKey(e: KeyboardEvent) {
+      if (playing) return // the lesson on top handles its own keys
       if (e.key === 'Escape') {
         e.preventDefault()
         e.stopPropagation()
@@ -49,7 +54,7 @@ export function LessonPanel({
     }
     // Capture phase so Enter/number shortcuts on the practice screen don't fire underneath.
     function block(e: KeyboardEvent) {
-      if (e.key !== 'Escape' && e.key !== 'Tab') e.stopPropagation()
+      if (!playing && e.key !== 'Escape' && e.key !== 'Tab') e.stopPropagation()
     }
     window.addEventListener('keydown', onKey, true)
     window.addEventListener('keydown', block, true)
@@ -58,7 +63,7 @@ export function LessonPanel({
       window.removeEventListener('keydown', block, true)
       before?.focus()
     }
-  }, [onClose])
+  }, [onClose, playing])
 
   return (
     <motion.div
@@ -88,11 +93,28 @@ export function LessonPanel({
         {!lesson && !error && <p className="muted">Loading…</p>}
         {lesson && (
           <>
-            <h2 id="lesson-title" className={lesson.card ? 'sr-only' : undefined}>
-              {lesson.name}
-            </h2>
+            <h2 id="lesson-title">{lesson.name}</h2>
+            {lesson.lessons.length > 0 && (
+              <section className="lesson-list">
+                <p className="eyebrow">Lessons</p>
+                {lesson.lessons.map((l) => (
+                  <button key={l.id} className="row row-btn lesson-row" onClick={() => setPlaying(l.id)}>
+                    <span className="lesson-play">
+                      <Icon name="play" size={16} fill />
+                    </span>
+                    <span>
+                      {l.title} {l.draft && <span className="pill draft">Draft</span>}
+                    </span>
+                    <Icon name="right" size={18} />
+                  </button>
+                ))}
+              </section>
+            )}
             {lesson.card ? (
-              <LessonCard card={lesson.card} />
+              <div ref={reviewRef} className="quick-review">
+                <p className="eyebrow">Quick review</p>
+                <LessonCard card={lesson.card} />
+              </div>
             ) : (
               <p className="lesson-summary">
                 <MathText text={lesson.summary} />
@@ -117,6 +139,26 @@ export function LessonPanel({
           </>
         )}
       </motion.div>
+      {playing && (
+        <div onClick={(e) => e.stopPropagation()}>
+          <LessonPlayer
+            lessonId={playing}
+            onClose={() => setPlaying(null)}
+            onQuickReview={() => {
+              setPlaying(null)
+              requestAnimationFrame(() => reviewRef.current?.scrollIntoView({ block: 'start' }))
+            }}
+            onPractice={
+              onPractice
+                ? () => {
+                    setPlaying(null)
+                    onPractice()
+                  }
+                : undefined
+            }
+          />
+        </div>
+      )}
     </motion.div>
   )
 }
