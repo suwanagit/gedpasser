@@ -68,6 +68,23 @@ fn main() -> ExitCode {
     }
 }
 
+/// `v` in an order fixed by `seed`, so the quiz never shows the answer in
+/// its file position (authors list it first) yet prints the same each run.
+fn mixed(v: &[String], seed: &str) -> Vec<String> {
+    let mut h: u64 = 0xcbf29ce484222325;
+    for b in seed.bytes() {
+        h = (h ^ b as u64).wrapping_mul(0x100000001b3);
+    }
+    let mut out = v.to_vec();
+    for i in (1..out.len()).rev() {
+        h ^= h >> 33;
+        h = h.wrapping_mul(0xff51afd7ed558ccd);
+        h ^= h >> 33;
+        out.swap(i, (h % (i as u64 + 1)) as usize);
+    }
+    out
+}
+
 /// Print a skill's draft questions WITHOUT answers, for blind solving by a
 /// reviewer: id, difficulty, prompt and choices only.
 fn quiz(root: &std::path::Path, skill: &str) -> ExitCode {
@@ -106,14 +123,14 @@ fn quiz(root: &std::path::Path, skill: &str) -> ExitCode {
         }
         match q.kind {
             ged_content::QuestionType::MultipleChoice => {
-                for (i, c) in q.choices.iter().enumerate() {
+                for (i, c) in mixed(&q.choices, &q.id).iter().enumerate() {
                     println!("  {}. {c}", i + 1);
                 }
             }
             ged_content::QuestionType::FillIn => println!("(type your answer)"),
             ged_content::QuestionType::Dropdown => {
                 for (i, b) in q.blanks.iter().enumerate() {
-                    println!("  menu {}: {}", i + 1, b.choices.join(" | "));
+                    println!("  menu {}: {}", i + 1, mixed(&b.choices, &format!("{}-{i}", q.id)).join(" | "));
                 }
             }
             ged_content::QuestionType::Order => {

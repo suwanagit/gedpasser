@@ -652,8 +652,9 @@ pub(crate) fn practice_question(state: &AppState, q: &ged_content::Question) -> 
         difficulty: q.difficulty,
         kind,
         prompt: q.prompt.trim().to_string(),
-        choices: q.choices.clone(),
-        blanks: q.blanks.iter().map(|b| b.choices.clone()).collect(),
+        // Authors list the answer first; the learner sees a fresh order.
+        choices: shuffled(&q.choices),
+        blanks: q.blanks.iter().map(|b| shuffled(&b.choices)).collect(),
         items,
         groups: q.groups.iter().map(|g| g.name.clone()).collect(),
         stimulus: q.stimulus.as_deref().and_then(|id| stimulus_view(state, id)),
@@ -662,6 +663,15 @@ pub(crate) fn practice_question(state: &AppState, q: &ged_content::Question) -> 
         alaska: q.alaska,
         draft: q.status == ged_content::Status::Draft,
     })
+}
+
+/// A copy of `v` in random order.
+fn shuffled(v: &[String]) -> Vec<String> {
+    let mut out = v.to_vec();
+    for i in (1..out.len()).rev() {
+        out.swap(i, random_u32() as usize % (i + 1));
+    }
+    out
 }
 
 #[derive(Debug, Deserialize, TS)]
@@ -841,4 +851,21 @@ pub async fn get_principle(
 
 pub async fn api_not_found() -> ApiError {
     ApiError::new(StatusCode::NOT_FOUND, "no such API route")
+}
+
+#[cfg(test)]
+mod tests {
+    use super::shuffled;
+
+    #[test]
+    fn choices_are_shuffled() {
+        let v: Vec<String> = ["right", "b", "c", "d"].iter().map(|s| s.to_string()).collect();
+        let firsts: std::collections::HashSet<String> = (0..60).map(|_| shuffled(&v)[0].clone()).collect();
+        assert!(firsts.len() > 1, "the answer must not always come first");
+        let mut s = shuffled(&v);
+        s.sort();
+        let mut w = v.clone();
+        w.sort();
+        assert_eq!(s, w, "same choices, new order");
+    }
 }

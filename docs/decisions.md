@@ -4,6 +4,7 @@ Newest first. One line per decision: date, decision, reason.
 
 | Date | Decision | Reason |
 | --- | --- | --- |
+| 2026-11-12 | The server shuffles multiple-choice options and drop-down menus every time it serves a question; `cargo content-quiz` prints them in a fixed mixed order | Authors list the answer first (92 of 95 Math and all Science items did), so the file order gave the answer away to learners and blind reviewers |
 | 2026-11-12 | Non-math content needs three reviewers: two blind solvers and a fact-checker (a passage: one solver and a fact-checker), each a fresh subagent, recorded with `reviewer` and `role` in the review notes. Each reviewer's latest entry counts once; any current fix or reject blocks approval; a question waits for its passage | No code can check these answers, so independent people have to |
 | 2026-11-12 | Every non-math question cites sources; passages are original, public domain or public data (the `source` says which), never copyrighted. Passages above their subject's target reading grade (Science and Social Studies 10, Language Arts 12) get a warning the reviewer must answer | Accuracy and legality; match the real tests' reading level |
 | 2026-11-12 | Subjects are content: `content/subjects.toml` lists each GED test with its domains and weights, practice-test sizes and calculator rule; skills, path stages and questions belong to a subject (Math by default). Every subject-specific API takes `?subject=` (Math by default); `GET /api/subjects` says which are ready | Adding a subject should need content files only |
