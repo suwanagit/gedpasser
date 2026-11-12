@@ -225,3 +225,37 @@ In June, the northern half of Earth leans toward the Sun. Sunlight hits it more 
 In June, the area around the North Pole gets sunlight all day and all night. Every place north of the Arctic Circle, at about 66.5° north, has at least one day around then when the Sun never sets.
 '''
 source = "Original (facts from OpenStax Astronomy 2e 4.2 The Seasons and the National Snow and Ice Data Center, Arctic Weather and Climate)"
+
+[[stimulus]]
+id = "science-quakes"
+status = "draft"
+title = "Earthquakes at one station"
+text = '''
+A seismometer is an instrument that records earthquakes. The bar graph shows how many earthquakes one station recorded in a year, grouped by magnitude. Magnitude is a number that describes how strong an earthquake is: the higher the magnitude, the stronger the earthquake.
+
+The numbers are made up for practice.
+'''
+figure = { kind = "bars", bars = [{ label = "Magnitude 2", value = 80 }, { label = "Magnitude 3", value = 40 }, { label = "Magnitude 4", value = 20 }, { label = "Magnitude 5", value = 10 }], y_label = "earthquakes in one year" }
+source = "Original (made-up numbers for practice)"
+
+[[stimulus]]
+id = "science-balloon"
+status = "draft"
+title = "Temperature and height"
+text = '''
+A weather balloon carries a thermometer up through the lowest layer of the atmosphere. The graph shows the air temperature the balloon measured at different heights above the ground. In this layer, air usually gets colder as you go higher.
+
+The readings are made up for practice.
+'''
+figure = { kind = "plane", free_scale = true, x_min = 0, x_max = 8, y_min = -30, y_max = 30, x_label = "height (km)", y_label = "temperature (°C)", points = [{ x = 0, y = 20 }, { x = 2, y = 10 }, { x = 4, y = 0 }, { x = 6, y = -10 }, { x = 8, y = -20 }], segments = [{ from = [0, 20], to = [2, 10] }, { from = [2, 10], to = [4, 0] }, { from = [4, 0], to = [6, -10] }, { from = [6, -10], to = [8, -20] }] }
+source = "Original (made-up readings for practice; facts from OpenStax Astronomy 2e 8.3 Earth's Atmosphere)"
+
+[[stimulus]]
+id = "science-heating-curve"
+status = "draft"
+title = "Heating ice"
+text = '''
+A student puts ice at −20 °C in a pot and heats it at a steady rate. She measures the temperature every minute until the water has been boiling for a while. The graph shows her results.
+'''
+figure = { kind = "plane", free_scale = true, x_min = 0, x_max = 25, y_min = -20, y_max = 120, x_label = "time (minutes)", y_label = "temperature (°C)", segments = [{ from = [0, -20], to = [5, 0] }, { from = [5, 0], to = [10, 0] }, { from = [10, 0], to = [20, 100] }, { from = [20, 100], to = [25, 100] }], points = [{ x = 5, y = 0, label = "A" }, { x = 10, y = 0, label = "B" }, { x = 20, y = 100, label = "C" }] }
+source = "Original (made-up results for practice; facts from OpenStax Chemistry 2e 10.3 Phase Transitions)"

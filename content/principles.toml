@@ -1398,3 +1398,45 @@ A model is a simple rule or picture that explains how something works. You use i
 - Match each part of the new case to a part of the model.
 - Follow the rule to see what should happen.
 '''
+
+[[principle]]
+id = "SP.1.c"
+skill = "s-displays"
+status = "draft"
+name = "Reading graphs and tables"
+summary = "Read values, patterns and changes from a science graph, table or diagram."
+lesson = '''
+Graphs and tables answer questions only if you read their labels first.
+
+- Read the title, the axis labels and the units before any numbers.
+- To read a value on a line graph, go up from the x-axis to the line, then across to the y-axis.
+- A flat part of a line graph means the y-value is not changing.
+'''
+
+[[principle]]
+id = "SP.6.a"
+skill = "s-displays"
+status = "draft"
+name = "Choosing a graph"
+summary = "Pick the kind of graph and the axes that best show a set of data."
+lesson = '''
+Different graphs show different things.
+
+- A line graph shows how something changes, often over time.
+- A bar graph compares amounts in separate groups or categories.
+- The thing that was changed or chosen (often time) goes on the x-axis, along the bottom. The thing that was measured goes on the y-axis.
+'''
+
+[[principle]]
+id = "SP.6.b"
+skill = "s-displays"
+status = "draft"
+name = "Words and pictures into numbers"
+summary = "Turn a graph, a description or a diagram into a number or a symbol."
+lesson = '''
+Many questions ask you to pull one number out of a picture, or to write words as symbols.
+
+- For a change, read both values and subtract.
+- For a rate, divide the change by the time or distance it took.
+- In a chemical formula, each element gets its symbol, and a small number after a symbol says how many of those atoms there are. No number means one.
+'''

@@ -238,3 +238,16 @@ seasons, to a new case.\
 difficulty_min = 1
 difficulty_max = 3
 targets = ["SP.3.c", "SP.7.a"]
+
+[[skill]]
+id = "s-displays"
+subject = "science"
+name = "Graphs, tables and diagrams"
+description = """
+Reading values and patterns from science graphs and tables, choosing \
+the right kind of graph for data, and turning words or pictures into \
+numbers and symbols.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["SP.1.c", "SP.6.a", "SP.6.b"]

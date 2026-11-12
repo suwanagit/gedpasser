@@ -53,7 +53,7 @@ pub fn question_hash(q: &Question, stimulus: Option<&Stimulus>) -> String {
     .collect::<Vec<String>>();
     // Newer fields are hashed only when used, so older hashes stay valid.
     if let Some(f) = &q.figure {
-        parts.push(format!("{f:?}"));
+        parts.push(figure_text(f));
     }
     if !q.accept.is_empty() {
         parts.push(format!("accept {:?}", q.accept));
@@ -80,10 +80,16 @@ pub fn question_hash(q: &Question, stimulus: Option<&Stimulus>) -> String {
     hash_parts(&refs)
 }
 
+/// A figure as hashed: its debug text, minus newer settings left at their
+/// defaults, so hashes made before those settings existed stay valid.
+fn figure_text(f: &crate::schema::Figure) -> String {
+    format!("{f:?}").replace(", free_scale: false", "")
+}
+
 /// Hash of a shared stimulus (not its status).
 pub fn stimulus_hash(s: &Stimulus) -> String {
     let table = s.table.as_ref().map(|t| format!("{t:?}")).unwrap_or_default();
-    let figure = s.figure.as_ref().map(|f| format!("{f:?}")).unwrap_or_default();
+    let figure = s.figure.as_ref().map(figure_text).unwrap_or_default();
     hash_parts(&["stimulus", &s.id, s.title.as_deref().unwrap_or("").trim(), s.text.trim(), &table, &figure, s.source.trim()])
 }
 
@@ -98,7 +104,7 @@ pub fn lesson_hash(p: &Principle) -> String {
 
 /// Hash of a short lesson card (not its status).
 pub fn card_hash(c: &Card) -> String {
-    let figure = c.figure.as_ref().map(|f| format!("{f:?}")).unwrap_or_default();
+    let figure = c.figure.as_ref().map(figure_text).unwrap_or_default();
     hash_parts(&["card", &c.id, c.title.trim(), c.key.trim(), &c.steps.join("\u{1f}"), c.example.trim(), c.hack.trim(), &figure])
 }
 

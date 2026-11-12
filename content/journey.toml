@@ -211,3 +211,21 @@ title = "Using models"
 principles = ["SP.7.a"]
 size = 5
 max_difficulty = 2
+
+[[stage]]
+id = "sci-d5a"
+subject = "science"
+day = 5
+title = "Reading graphs"
+principles = ["SP.1.c"]
+size = 5
+max_difficulty = 2
+
+[[stage]]
+id = "sci-d5b"
+subject = "science"
+day = 5
+title = "Graphs and formulas"
+principles = ["SP.6.a", "SP.6.b"]
+size = 5
+max_difficulty = 2

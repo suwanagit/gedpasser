@@ -1,0 +1,49 @@
+# Quick review cards for s-displays (SP.1.c, SP.6.a, SP.6.b). See WRITING.md.
+
+[[card]]
+id = "SP.1.c"
+status = "draft"
+title = "Reading graphs"
+key = "Read the labels and units before the numbers."
+steps = [
+  'Read the title and both axis labels.',
+  'Go up from the x-axis to the line, then across.',
+  'A flat line means no change.',
+]
+example = '''
+A graph of a river's depth over a day is flat from noon to 3 p.m.
+**Reading:** the depth did not change from noon to 3 p.m.
+'''
+hack = 'Labels first, line second, numbers last.'
+
+[[card]]
+id = "SP.6.a"
+status = "draft"
+title = "Choosing a graph"
+key = "Line graphs show change; bar graphs compare groups."
+steps = [
+  'Ask: does the data change over time, or compare groups?',
+  'Change over time: line graph. Separate groups: bar graph.',
+  'What you changed or chose goes along the bottom (x-axis).',
+]
+example = '''
+Rainfall in four different towns last year.
+**Best graph:** a bar graph, one bar per town.
+'''
+hack = 'Time along the bottom, almost always.'
+
+[[card]]
+id = "SP.6.b"
+status = "draft"
+title = "Words into numbers"
+key = "Change: subtract. Rate: divide the change by the time."
+steps = [
+  'Read both values you need.',
+  'Subtract to find the change.',
+  'Divide by the time or distance to find a rate.',
+]
+example = '''
+A pond is 12 cm deep on day 1 and 6 cm deep on day 4.
+**Rate:** 6 cm lost over 3 days = 2 cm a day.
+'''
+hack = 'Formula numbers: a small number after a symbol counts that atom.'

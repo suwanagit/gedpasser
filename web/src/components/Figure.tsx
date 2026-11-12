@@ -59,15 +59,17 @@ function Plane({ f, curves }: { f: PlaneF; curves: FigureView['curves'] }) {
   const xr = f.x_max - f.x_min
   const yr = f.y_max - f.y_min
   const W = 320
-  const pad = 26
-  // Equal scale on both axes so slopes and right angles look true.
+  const pad = f.free_scale ? 34 : 26
+  // Math: equal scale on both axes so slopes and right angles look true.
+  // Data graphs (free_scale): each axis fills the frame.
   const scale = (W - 2 * pad) / xr
-  const H = Math.min(Math.max(yr * scale + 2 * pad, 160), 420)
-  const s = Math.min(scale, (H - 2 * pad) / yr)
-  const ox = (W - xr * s) / 2
-  const oy = (H - yr * s) / 2
-  const X = (x: number) => ox + (x - f.x_min) * s
-  const Y = (y: number) => H - oy - (y - f.y_min) * s
+  const H = f.free_scale ? 260 : Math.min(Math.max(yr * scale + 2 * pad, 160), 420)
+  const sx = f.free_scale ? scale : Math.min(scale, (H - 2 * pad) / yr)
+  const sy = f.free_scale ? (H - 2 * pad) / yr : sx
+  const ox = (W - xr * sx) / 2
+  const oy = (H - yr * sy) / 2
+  const X = (x: number) => ox + (x - f.x_min) * sx
+  const Y = (y: number) => H - oy - (y - f.y_min) * sy
   const xs = niceStep(xr)
   const ys = niceStep(yr)
   const ax = f.x_min <= 0 && f.x_max >= 0 ? 0 : f.x_min

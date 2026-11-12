@@ -9,7 +9,7 @@
 # Reviewed as a whole: `cargo content-template study`, then
 # `cargo content-approve study` after an independent review.
 
-status = "reviewed"
+status = "draft"
 
 [[topic]]
 principle = "Q.1.a"
@@ -600,4 +600,26 @@ search = "scientific models and how they are used"
 links = [
   { title = "OpenStax Concepts of Biology, 1.2 The process of science", url = "https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science" },
   { title = "OpenStax Concepts of Biology, 19.4 Community ecology", url = "https://openstax.org/books/concepts-biology/pages/19-4-community-ecology" },
+]
+
+[[topic]]
+principle = "SP.1.c"
+search = "how to read a line graph"
+links = [
+  { title = "Math is Fun: Line Graphs", url = "https://www.mathsisfun.com/data/line-graphs.html" },
+  { title = "Math is Fun: Bar Graphs", url = "https://www.mathsisfun.com/data/bar-graphs.html" },
+]
+
+[[topic]]
+principle = "SP.6.a"
+search = "choosing the right type of graph"
+links = [
+  { title = "OpenStax Introductory Statistics 2e, 2.1 Stem and leaf graphs stemplots line graphs and bar graphs", url = "https://openstax.org/books/introductory-statistics-2e/pages/2-1-stem-and-leaf-graphs-stemplots-line-graphs-and-bar-graphs" },
+]
+
+[[topic]]
+principle = "SP.6.b"
+search = "reading chemical formulas and subscripts"
+links = [
+  { title = "OpenStax Chemistry 2e, 2.4 Chemical formulas", url = "https://openstax.org/books/chemistry-2e/pages/2-4-chemical-formulas" },
 ]

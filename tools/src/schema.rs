@@ -277,6 +277,10 @@ pub enum Figure {
         x_label: Option<String>,
         #[serde(default)]
         y_label: Option<String>,
+        /// Scale each axis to fill the frame instead of using one scale for
+        /// both. For data graphs whose axes measure different things.
+        #[serde(default)]
+        free_scale: bool,
     },
     /// Number line, e.g. for inequalities.
     NumberLine {

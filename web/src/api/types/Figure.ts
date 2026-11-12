@@ -11,4 +11,9 @@ import type { Seg } from "./Seg";
 /**
  * A figure drawn as SVG in the app. Curves are expressions in `x`.
  */
-export type Figure = { "kind": "plane", x_min: number, x_max: number, y_min: number, y_max: number, curves: Array<string>, points: Array<Pt>, segments: Array<Seg>, x_label: string | null, y_label: string | null, } | { "kind": "number_line", min: number, max: number, points: Array<LinePoint>, ray: Ray | null, } | { "kind": "bars", bars: Array<Bar>, y_label: string | null, } | { "kind": "dots", counts: Array<DotCount>, label: string | null, } | { "kind": "box", min: number, q1: number, median: number, q3: number, max: number, axis_min: number, axis_max: number, label: string | null, } | { "kind": "shape", polygons: Array<Polygon>, circles: Array<Circle>, segments: Array<Seg>, labels: Array<Pt>, };
+export type Figure = { "kind": "plane", x_min: number, x_max: number, y_min: number, y_max: number, curves: Array<string>, points: Array<Pt>, segments: Array<Seg>, x_label: string | null, y_label: string | null, 
+/**
+ * Scale each axis to fill the frame instead of using one scale for
+ * both. For data graphs whose axes measure different things.
+ */
+free_scale: boolean, } | { "kind": "number_line", min: number, max: number, points: Array<LinePoint>, ray: Ray | null, } | { "kind": "bars", bars: Array<Bar>, y_label: string | null, } | { "kind": "dots", counts: Array<DotCount>, label: string | null, } | { "kind": "box", min: number, q1: number, median: number, q3: number, max: number, axis_min: number, axis_max: number, label: string | null, } | { "kind": "shape", polygons: Array<Polygon>, circles: Array<Circle>, segments: Array<Seg>, labels: Array<Pt>, };
