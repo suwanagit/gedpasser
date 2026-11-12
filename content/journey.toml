@@ -137,3 +137,23 @@ checkpoint = true
 cumulative = true
 size = 10
 max_difficulty = 3
+
+# ── Science week path (being built, Phase 7d) ────────────────────────────
+
+[[stage]]
+id = "sci-d1a"
+subject = "science"
+day = 1
+title = "Variables and hypotheses"
+principles = ["SP.2.e", "SP.2.b"]
+size = 5
+max_difficulty = 1
+
+[[stage]]
+id = "sci-d1b"
+subject = "science"
+day = 1
+title = "Planning a fair test"
+principles = ["SP.2.d", "SP.2.c", "SP.2.a"]
+size = 5
+max_difficulty = 2

@@ -1,0 +1,56 @@
+# Shared passages, tables and figures for Science. See docs/CONTENT_RULES.md.
+# Every source is Original, Public domain: or Data: (never copyrighted).
+
+[[stimulus]]
+id = "science-fertilizer"
+status = "draft"
+title = "A tomato experiment"
+text = '''
+A gardener wants to know if fertilizer helps tomato plants produce more fruit. She grows 12 tomato plants of the same kind in one greenhouse. She splits them into three groups of 4 plants. Each week, one group gets no fertilizer, one gets 5 grams, and one gets 10 grams. All plants get the same amount of water and light.
+
+After 8 weeks, she weighs the tomatoes from each plant and finds the average for each group.
+'''
+table = { headers = ["Fertilizer each week (g)", "Average tomato mass per plant (g)"], rows = [["0", "410"], ["5", "620"], ["10", "640"]] }
+source = "Original (made-up results for practice)"
+
+[[stimulus]]
+id = "science-insulation"
+status = "draft"
+title = "Keeping a drink hot"
+text = '''
+A student wants to find out which material keeps a hot drink hot the longest. She fills four identical cups with 200 mL of water at 80 °C. She wraps three of the cups in a different material and leaves the fourth cup unwrapped. All four cups sit on the same table. After 20 minutes, she measures the water temperature in each cup.
+'''
+table = { headers = ["Wrapping", "Water temperature after 20 minutes (°C)"], rows = [["None", "52"], ["Aluminum foil", "55"], ["Cotton cloth", "61"], ["Wool", "66"]] }
+source = "Original (made-up results for practice)"
+
+[[stimulus]]
+id = "science-ramp"
+status = "draft"
+title = "Rolling down a ramp"
+text = '''
+A class lets the same toy car roll down a ramp from different heights. They measure how far the car rolls across the floor after it leaves the ramp. They do three trials at each height.
+'''
+table = { headers = ["Ramp height (cm)", "Trial 1 (cm)", "Trial 2 (cm)", "Trial 3 (cm)"], rows = [["10", "82", "85", "79"], ["20", "160", "158", "165"], ["30", "241", "236", "248"]] }
+source = "Original (made-up results for practice)"
+
+[[stimulus]]
+id = "science-yeast"
+status = "draft"
+title = "Yeast and temperature"
+text = '''
+Yeast are tiny living fungi. When yeast break down sugar without oxygen, a process called fermentation, they give off carbon dioxide gas.
+
+A student puts the same amount of yeast, sugar and water into four bottles. Each bottle is kept at a different water temperature. She stretches a balloon over the top of each bottle. After 30 minutes, she measures how wide each balloon has become.
+'''
+table = { headers = ["Water temperature (°C)", "Balloon width after 30 minutes (cm)"], rows = [["10", "3"], ["25", "9"], ["40", "14"], ["60", "2"]] }
+source = "Original (made-up results for practice; fermentation facts from OpenStax Concepts of Biology 4.4)"
+
+[[stimulus]]
+id = "science-erosion"
+status = "draft"
+title = "Soil and rain"
+text = '''
+A student builds two identical trays of soil and tilts them at the same angle. One tray is covered with growing grass. The other tray is bare soil. She pours 1 liter of water over the top of each tray, the same way, and collects the soil that washes off the bottom.
+'''
+table = { headers = ["Tray", "Soil washed off (g)"], rows = [["Grass", "40"], ["Bare soil", "310"]] }
+source = "Original (made-up results for practice)"

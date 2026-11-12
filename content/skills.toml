@@ -183,3 +183,20 @@ shown in different ways.\
 difficulty_min = 1
 difficulty_max = 3
 targets = ["A.5.e", "A.7.a", "A.7.b", "A.7.c", "A.7.d"]
+
+# ── Science ──────────────────────────────────────────────────────────────
+# Skills follow the official Science Practices (SP codes), as the score
+# report does. See docs/subjects/science.md. Each question also carries a
+# content-topic code (L, P or ES) for the 40/40/20 domain split.
+
+[[skill]]
+id = "s-investigations"
+subject = "science"
+name = "Designing investigations"
+description = """
+Reading and planning experiments: variables and controls, hypotheses, \
+spotting errors, and judging whether a design is fair and reliable.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["SP.2.a", "SP.2.b", "SP.2.c", "SP.2.d", "SP.2.e"]

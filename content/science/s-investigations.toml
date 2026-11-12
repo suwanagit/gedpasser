@@ -1,0 +1,404 @@
+# Science: designing investigations (SP.2.a–e)
+# Every question cites its sources (docs/CONTENT_RULES.md). Explanations
+# follow docs/EXPLANATION_STYLE.md: one line per step, answer in bold.
+
+# ── Tomato experiment (science-fertilizer) ───────────────────────────────
+
+[[question]]
+id = "s-investigations-0001"
+skill = "s-investigations"
+principle = "SP.2.e"
+topic = "L.c.3"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-fertilizer"
+sources = ["Original passage science-fertilizer", "OpenStax Concepts of Biology 1.2 The Process of Science: https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science"]
+prompt = "What is the independent variable in the gardener's experiment?"
+choices = ["The amount of fertilizer each week", "The average mass of tomatoes", "The amount of water each plant gets", "The number of weeks the plants grow"]
+answer = "The amount of fertilizer each week"
+explanation = '''
+The independent variable is the one the experimenter changes on purpose.
+The gardener gave the groups 0, 5 or 10 grams of fertilizer.
+So the independent variable is **the amount of fertilizer each week**.
+'''
+common_mistake = "Picking the tomato mass, which is what she measured (the dependent variable)."
+
+[[question]]
+id = "s-investigations-0002"
+skill = "s-investigations"
+principle = "SP.2.e"
+topic = "L.c.3"
+difficulty = 2
+type = "sort"
+status = "draft"
+stimulus = "science-fertilizer"
+sources = ["Original passage science-fertilizer", "OpenStax Concepts of Biology 1.2 The Process of Science: https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science"]
+prompt = "Sort each part of the tomato experiment into the right kind of variable."
+groups = [
+  { name = "Independent", items = ["Fertilizer each week"] },
+  { name = "Dependent", items = ["Mass of tomatoes"] },
+  { name = "Controlled", items = ["Amount of water", "Amount of light"] },
+]
+explanation = '''
+Independent: what she changed on purpose, **fertilizer each week**.
+Dependent: what she measured, **mass of tomatoes**.
+Controlled: what she kept the same for every plant, **water and light**.
+'''
+common_mistake = "Calling water a variable to test. She kept it the same, so it is controlled."
+
+[[question]]
+id = "s-investigations-0003"
+skill = "s-investigations"
+principle = "SP.2.c"
+topic = "L.c.3"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-fertilizer"
+sources = ["Original passage science-fertilizer", "OpenStax Concepts of Biology 1.2 The Process of Science: https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science"]
+prompt = "Which change would make the gardener's results more reliable?"
+choices = ["Use more plants in each group", "Give every group 10 grams of fertilizer", "Weigh only the biggest tomato on each plant", "Grow the no-fertilizer group outside"]
+answer = "Use more plants in each group"
+explanation = '''
+Each group had only 4 plants. One unusual plant could change a group's average a lot.
+More plants in each group make the averages more trustworthy.
+So the best change is to **use more plants in each group**.
+'''
+common_mistake = "Giving every group the same fertilizer, which removes the thing being tested."
+
+# ── Keeping a drink hot (science-insulation) ─────────────────────────────
+
+[[question]]
+id = "s-investigations-0004"
+skill = "s-investigations"
+principle = "SP.2.e"
+topic = "P.a.1"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-insulation"
+sources = ["Original passage science-insulation", "OpenStax Concepts of Biology 1.2 The Process of Science: https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science"]
+prompt = "Why did the student leave one cup unwrapped?"
+choices = ["To have a control to compare the wrapped cups against", "To make the water in that cup cool faster on purpose", "Because the unwrapped cup is the dependent variable", "To measure the temperature of the room"]
+answer = "To have a control to compare the wrapped cups against"
+explanation = '''
+The unwrapped cup shows how fast water cools with no wrapping at all.
+Comparing each wrapped cup with it shows what the wrapping did.
+So the unwrapped cup is **a control to compare against**.
+'''
+common_mistake = "Thinking the unwrapped cup was a mistake. A control is part of a fair test."
+
+[[question]]
+id = "s-investigations-0005"
+skill = "s-investigations"
+principle = "SP.2.b"
+topic = "P.a.1"
+difficulty = 2
+type = "dropdown"
+status = "draft"
+stimulus = "science-insulation"
+sources = ["Original passage science-insulation"]
+prompt = "Complete the hypothesis that these results support best. If a cup is wrapped in {{1}}, then the water in it will {{2}} more slowly than in the other cups."
+blanks = [
+  { choices = ["wool", "aluminum foil", "no material"], answer = "wool" },
+  { choices = ["cool", "heat up", "evaporate"], answer = "cool" },
+]
+explanation = '''
+After 20 minutes, the wool cup was warmest: 66 °C, compared with 52 to 61 °C for the others.
+All the water started at 80 °C, so the wool cup lost the least heat.
+So: if a cup is wrapped in **wool**, the water will **cool** more slowly.
+'''
+common_mistake = "Picking aluminum foil because it feels like it should hold heat; its cup was only 3 °C warmer than no wrapping."
+
+[[question]]
+id = "s-investigations-0006"
+skill = "s-investigations"
+principle = "SP.2.a"
+topic = "P.a.1"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-insulation"
+sources = ["Original passage science-insulation"]
+prompt = "The student repeats the test, but this time the wool cup sits in a sunny window and the other cups sit in the shade. Why are the new results less trustworthy?"
+choices = [
+  "Sunlight could warm the wool cup, so the wool might not be the reason it stayed hotter",
+  "Wool does not keep anything warm in sunlight",
+  "The cups should have held more water",
+  "The water should have started cold",
+]
+answer = "Sunlight could warm the wool cup, so the wool might not be the reason it stayed hotter"
+explanation = '''
+In a fair test, only the wrapping changes from cup to cup.
+Now the wool cup also gets sunlight, so two things are different.
+So the sunlight, not the wool, **could explain the result**.
+'''
+common_mistake = "Blaming the material. The problem is that a second thing changed besides the material."
+
+# ── Rolling down a ramp (science-ramp) ───────────────────────────────────
+
+[[question]]
+id = "s-investigations-0007"
+skill = "s-investigations"
+principle = "SP.2.c"
+topic = "P.b.1"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-ramp"
+sources = ["Original passage science-ramp", "OpenStax Concepts of Biology 1.2 The Process of Science: https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science"]
+prompt = "Why did the class do three trials at each height?"
+choices = ["So one odd trial would not decide the result", "To make the car roll faster", "To test three different cars", "Because the ramp has three heights"]
+answer = "So one odd trial would not decide the result"
+explanation = '''
+Every trial is a little different: 82, 85 and 79 cm at the same height.
+Repeating the test shows the usual result, so one odd trial can't mislead you.
+So they did three trials **so one odd trial would not decide the result**.
+'''
+common_mistake = "Thinking the three trials were three different tests. They were repeats of the same test."
+
+[[question]]
+id = "s-investigations-0008"
+skill = "s-investigations"
+principle = "SP.2.a"
+topic = "P.b.1"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-ramp"
+sources = ["Original passage science-ramp"]
+prompt = "Another group's results at 20 cm were 158 cm, 162 cm and 210 cm. They notice a student pushed the car in the third trial. What should they do?"
+choices = ["Repeat that trial, letting the car go without pushing", "Keep 210 cm, because it is the farthest roll", "Average all three trials, including 210 cm", "Lower the ramp to 10 cm and start over"]
+answer = "Repeat that trial, letting the car go without pushing"
+explanation = '''
+The push gave the car extra speed, so 210 cm doesn't measure what the ramp height did.
+That trial was done differently from the others, so it is an error.
+They should **repeat that trial, letting the car go without pushing**.
+'''
+common_mistake = "Averaging in the bad trial. A known error should be redone, not averaged."
+
+[[question]]
+id = "s-investigations-0009"
+skill = "s-investigations"
+principle = "SP.2.d"
+topic = "P.b.1"
+difficulty = 2
+type = "order"
+status = "draft"
+stimulus = "science-ramp"
+sources = ["Original passage science-ramp"]
+prompt = "Put the steps of one trial of the ramp test in order."
+items = [
+  "Set the ramp to the height being tested",
+  "Place the car at the top of the ramp",
+  "Let go of the car without pushing it",
+  "Measure how far the car rolled past the end of the ramp",
+]
+explanation = '''
+First set the ramp height, since that is what is being tested.
+Then place the car at the top and let it go without pushing.
+Last, **measure how far it rolled**, after it has stopped.
+'''
+common_mistake = "Measuring before the car has stopped rolling."
+
+# ── Yeast and temperature (science-yeast) ────────────────────────────────
+
+[[question]]
+id = "s-investigations-0010"
+skill = "s-investigations"
+principle = "SP.2.e"
+topic = "L.b.1"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-yeast"
+sources = ["Original passage science-yeast", "OpenStax Concepts of Biology 1.2 The Process of Science: https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science"]
+prompt = "What is the dependent variable in the yeast experiment?"
+choices = ["The width of the balloon", "The water temperature", "The amount of sugar", "The number of bottles"]
+answer = "The width of the balloon"
+explanation = '''
+The dependent variable is what the experimenter measures.
+The student measured how wide each balloon became.
+So the dependent variable is **the width of the balloon**.
+'''
+common_mistake = "Picking the water temperature, which she changed on purpose (the independent variable)."
+
+[[question]]
+id = "s-investigations-0011"
+skill = "s-investigations"
+principle = "SP.2.b"
+topic = "L.b.1"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-yeast"
+sources = ["Original passage science-yeast", "OpenStax Concepts of Biology 4.4 Fermentation: https://openstax.org/books/concepts-biology/pages/4-4-fermentation"]
+prompt = "Which hypothesis was this experiment designed to test?"
+choices = [
+  "The temperature of the water affects how much gas the yeast give off",
+  "Yeast give off more gas when they get more sugar",
+  "Balloons stretch more in warm air",
+  "Yeast need oxygen to give off gas",
+]
+answer = "The temperature of the water affects how much gas the yeast give off"
+explanation = '''
+The only thing the student changed was the water temperature.
+She measured the balloons, which fill with the gas the yeast give off.
+So the experiment tests whether **temperature affects how much gas the yeast give off**.
+'''
+common_mistake = "Choosing the sugar hypothesis. Every bottle got the same amount of sugar, so sugar wasn't tested."
+
+[[question]]
+id = "s-investigations-0012"
+skill = "s-investigations"
+principle = "SP.2.c"
+topic = "L.b.1"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-yeast"
+sources = ["Original passage science-yeast"]
+prompt = "A classmate says the results prove that 40 °C is the best temperature for yeast to give off gas. Why is this claim too strong?"
+choices = [
+  "She tested one bottle at only four temperatures, so the best temperature could be one she didn't test",
+  "The balloon at 60 °C was the smallest",
+  "Yeast do not give off any gas",
+  "The bottles held different amounts of yeast",
+]
+answer = "She tested one bottle at only four temperatures, so the best temperature could be one she didn't test"
+explanation = '''
+The biggest balloon was at 40 °C, but she only tried 10, 25, 40 and 60 °C.
+The best temperature could be, say, 35 °C or 45 °C, which she never tested. She also used just one bottle each.
+So "40 °C is the best" goes further than the data: **she only tested four temperatures**.
+'''
+common_mistake = "Picking a choice that contradicts the passage, like different amounts of yeast. The passage says the amounts were the same."
+
+# ── Soil and rain (science-erosion) ──────────────────────────────────────
+
+[[question]]
+id = "s-investigations-0013"
+skill = "s-investigations"
+principle = "SP.2.e"
+topic = "ES.b.3"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-erosion"
+sources = ["Original passage science-erosion"]
+prompt = "What is the one thing the student changed between the two trays?"
+choices = ["Whether the soil was covered with grass", "The amount of water poured", "How steeply the trays were tilted", "How much soil washed off"]
+answer = "Whether the soil was covered with grass"
+explanation = '''
+The trays were identical, tilted the same, and got the same water.
+The only difference was grass on one tray and bare soil on the other.
+So she changed **whether the soil was covered with grass**.
+'''
+common_mistake = "Picking the soil that washed off, which is what she measured, not what she changed."
+
+[[question]]
+id = "s-investigations-0014"
+skill = "s-investigations"
+principle = "SP.2.c"
+topic = "ES.b.3"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-erosion"
+sources = ["Original passage science-erosion"]
+prompt = "Which change would most improve this investigation?"
+choices = ["Test several grass trays and several bare trays", "Pour more water on the bare tray", "Plant grass on both trays", "Tilt the bare tray more steeply"]
+answer = "Test several grass trays and several bare trays"
+explanation = '''
+She tested only one tray of each kind, so one odd tray could change the result.
+Testing several of each shows whether the difference holds up.
+So the best change is to **test several grass trays and several bare trays**.
+'''
+common_mistake = "Changing the water or tilt for one tray, which adds a second difference and makes the test unfair."
+
+# ── Standalone questions ─────────────────────────────────────────────────
+
+[[question]]
+id = "s-investigations-0015"
+skill = "s-investigations"
+principle = "SP.2.b"
+topic = "L.d.1"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+sources = ["OpenStax Concepts of Biology 1.2 The Process of Science: https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science"]
+prompt = "A student notices that bread left on the counter grows mold faster in summer than in winter. Which is a hypothesis she could test?"
+choices = [
+  "If bread is kept at a warmer temperature, then mold will grow on it faster",
+  "Moldy bread is not safe to eat",
+  "Summer is a better season than winter",
+  "Bread should always be kept in the refrigerator",
+]
+answer = "If bread is kept at a warmer temperature, then mold will grow on it faster"
+explanation = '''
+A hypothesis is a suggested explanation that can be tested.
+"Warmer bread grows mold faster" can be tested: keep bread at different temperatures and watch the mold.
+So the hypothesis is **if bread is kept warmer, then mold will grow on it faster**.
+'''
+common_mistake = "Picking advice like \"keep bread in the refrigerator\". Advice is not a testable explanation."
+
+[[question]]
+id = "s-investigations-0016"
+skill = "s-investigations"
+principle = "SP.2.d"
+topic = "L.a.2"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+sources = ["OpenStax Concepts of Biology 1.2 The Process of Science: https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science"]
+prompt = "A nurse wants to record how a patient's body temperature changes during the day. Which tool and unit should she use?"
+choices = ["A thermometer, in degrees Celsius", "A scale, in grams", "A ruler, in centimeters", "A stopwatch, in seconds"]
+answer = "A thermometer, in degrees Celsius"
+explanation = '''
+She is measuring temperature.
+A thermometer measures temperature, in degrees Celsius.
+So she should use **a thermometer, in degrees Celsius**.
+'''
+common_mistake = "Picking the stopwatch because the question mentions time of day. Time is when she measures, not what she measures."
+
+[[question]]
+id = "s-investigations-0017"
+skill = "s-investigations"
+principle = "SP.2.d"
+topic = "P.c.2"
+difficulty = 2
+type = "order"
+status = "draft"
+sources = ["OpenStax Concepts of Biology 1.2 The Process of Science: https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science"]
+prompt = "A student wants to test whether salt water takes longer to freeze than fresh water. Put the steps of a fair test in order."
+items = [
+  "Pour 100 mL of fresh water into one cup and 100 mL of salt water into an identical cup",
+  "Put both cups in the same freezer at the same time",
+  "Check both cups every 10 minutes",
+  "Record the time when each cup is frozen solid",
+]
+explanation = '''
+First set up two cups the same way, except for the salt.
+Then put them in the freezer together, so both get the same cold.
+Check both on the same schedule, and **record when each one freezes**.
+'''
+common_mistake = "Putting the cups in the freezer at different times, which makes the comparison unfair."
+
+[[question]]
+id = "s-investigations-0018"
+skill = "s-investigations"
+principle = "SP.2.a"
+topic = "L.d.1"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+sources = ["OpenStax Concepts of Biology 1.2 The Process of Science: https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science"]
+prompt = "A student measures the height of seedlings with a ruler whose first centimeter has broken off, so its end now starts at the 1 cm mark. She reads the heights as printed. What is wrong with her measurements?"
+choices = ["Every height reads 1 cm too tall", "Every height reads 1 cm too short", "The heights are correct", "Only the tallest seedlings are wrong"]
+answer = "Every height reads 1 cm too tall"
+explanation = '''
+The broken end of the ruler sits at the 1 cm mark, not at 0.
+So a seedling that is really 4 cm tall reaches the 5 cm mark.
+Every reading is **1 cm too tall**. She should subtract 1 cm from each.
+'''
+common_mistake = "Thinking the readings are too short because part of the ruler is missing."

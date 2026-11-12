@@ -1,0 +1,82 @@
+# Quick review cards for s-investigations (SP.2.a–e). See WRITING.md.
+
+[[card]]
+id = "SP.2.a"
+status = "draft"
+title = "Finding errors"
+key = "Anything that changed besides the tested variable is a possible error."
+steps = [
+  'Compare how each group was treated.',
+  'Look for one result far from the others.',
+  'Fix it: repeat the step, or keep conditions the same.',
+]
+example = '''
+Cups tested for heat loss, but one sat in the sun.
+**Error:** the sun, not the wrapping, could explain the result.
+'''
+hack = 'Ask: "What else could explain this result?"'
+
+[[card]]
+id = "SP.2.b"
+status = "draft"
+title = "Hypotheses"
+key = "If [I change this], then [this will happen to what I measure]."
+steps = [
+  'Name the thing being changed.',
+  'Name the thing being measured.',
+  'Make sure it can be tested.',
+]
+example = '''
+If bread is kept warmer, then mold will grow on it faster.
+**Testable:** change temperature, measure mold.
+'''
+hack = 'If you can’t picture the experiment, it isn’t a hypothesis yet.'
+
+[[card]]
+id = "SP.2.c"
+status = "draft"
+title = "Judging a design"
+key = "Fair tests change one thing, keep the rest the same, and repeat."
+steps = [
+  'One change only?',
+  'A control to compare against?',
+  'Enough subjects and trials?',
+]
+example = '''
+4 plants per group, 1 trial.
+**Weakness:** too few plants. **Fix:** use more plants and repeat.
+'''
+hack = 'More trials, more trust.'
+
+[[card]]
+id = "SP.2.d"
+status = "draft"
+title = "Planning steps"
+key = "Set up, change one thing, measure, record."
+steps = [
+  'Set up every group the same way.',
+  'Make the one change.',
+  'Measure with the right tool and unit.',
+  'Record the result.',
+]
+example = '''
+Temperature: thermometer, °C. Mass: balance, g.
+Length: ruler, cm. Time: stopwatch, s.
+'''
+hack = 'Tool matches the thing measured, unit matches the tool.'
+
+[[card]]
+id = "SP.2.e"
+status = "draft"
+title = "Variables"
+key = "Independent: changed on purpose. Dependent: measured. Controlled: kept the same."
+steps = [
+  'What did the experimenter change? Independent.',
+  'What did they measure? Dependent.',
+  'What stayed the same? Controlled.',
+]
+example = '''
+Fertilizer amount → independent. Tomato mass → dependent.
+Water and light → controlled.
+'''
+hack = 'The Dependent variable Depends on the Independent one.'

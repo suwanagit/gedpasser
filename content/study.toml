@@ -9,7 +9,7 @@
 # Reviewed as a whole: `cargo content-template study`, then
 # `cargo content-approve study` after an independent review.
 
-status = "reviewed"
+status = "draft"
 
 [[topic]]
 principle = "Q.1.a"
@@ -491,4 +491,42 @@ search = "comparing functions in tables and graphs"
 links = [
   { title = "OpenStax Intermediate Algebra 2e, 3.6 Graphs of functions", url = "https://openstax.org/books/intermediate-algebra-2e/pages/3-6-graphs-of-functions" },
   { title = "OpenStax Elementary Algebra 2e, 4.5 Use the slope intercept form of an equation of a line", url = "https://openstax.org/books/elementary-algebra-2e/pages/4-5-use-the-slope-intercept-form-of-an-equation-of-a-line" },
+]
+
+[[topic]]
+principle = "SP.2.a"
+search = "sources of error in experiments"
+links = [
+  { title = "OpenStax Concepts of Biology, 1.2 The process of science", url = "https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science" },
+]
+
+[[topic]]
+principle = "SP.2.b"
+search = "how to write a testable hypothesis"
+links = [
+  { title = "OpenStax Concepts of Biology, 1.2 The process of science", url = "https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science" },
+  { title = "OpenStax Biology 2e, 1.1 The science of biology", url = "https://openstax.org/books/biology-2e/pages/1-1-the-science-of-biology" },
+]
+
+[[topic]]
+principle = "SP.2.c"
+search = "fair test controls and repeated trials"
+links = [
+  { title = "OpenStax Biology 2e, 1.1 The science of biology", url = "https://openstax.org/books/biology-2e/pages/1-1-the-science-of-biology" },
+  { title = "OpenStax Concepts of Biology, 1.2 The process of science", url = "https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science" },
+]
+
+[[topic]]
+principle = "SP.2.d"
+search = "planning a science experiment"
+links = [
+  { title = "OpenStax Concepts of Biology, 1.2 The process of science", url = "https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science" },
+]
+
+[[topic]]
+principle = "SP.2.e"
+search = "independent dependent and controlled variables"
+links = [
+  { title = "OpenStax Concepts of Biology, 1.2 The process of science", url = "https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science" },
+  { title = "OpenStax Biology 2e, 1.1 The science of biology", url = "https://openstax.org/books/biology-2e/pages/1-1-the-science-of-biology" },
 ]

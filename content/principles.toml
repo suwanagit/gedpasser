@@ -1198,3 +1198,76 @@ Example: $f(x) = 3x + 2$. Function $g$ has the table $g(0) = 1$, $g(2) = 9$.
 - $g$ has slope $\frac{9 - 1}{2 - 0} = 4$.
 So $g$ grows faster, even though $f$ starts higher (2 compared with 1).
 '''
+
+# ── Science: designing investigations (SP.2) ─────────────────────────────
+
+[[principle]]
+id = "SP.2.a"
+skill = "s-investigations"
+status = "draft"
+name = "Finding and fixing errors"
+summary = "Spot what could make an investigation's results wrong, and change the design to fix it."
+lesson = '''
+An error is anything that makes results less trustworthy: a measurement read wrong, a step done differently, or one group treated differently from another.
+
+- Look for anything that changed besides the one thing being tested.
+- A result far from the others in the same group is a clue that something went wrong.
+- Fix it by repeating the step the right way, or by keeping conditions the same for every group.
+'''
+
+[[principle]]
+id = "SP.2.b"
+skill = "s-investigations"
+status = "draft"
+name = "Hypotheses"
+summary = "Pick or write a hypothesis that an investigation can test."
+lesson = '''
+A hypothesis is a suggested explanation that can be tested. A good one names what will be changed and what will be measured.
+
+- "If plants get more light, then they will grow taller" can be tested.
+- "Plants are beautiful" cannot.
+- The hypothesis an experiment tests is about the one thing the experimenter changed on purpose.
+'''
+
+[[principle]]
+id = "SP.2.c"
+skill = "s-investigations"
+status = "draft"
+name = "Strengths and weaknesses of a design"
+summary = "Judge whether an investigation is fair and reliable, and how to make it better."
+lesson = '''
+A strong investigation changes one thing, keeps everything else the same, has a control to compare against, and repeats each test.
+
+- Few test subjects or a single trial make results less reliable.
+- Results only support conclusions about the conditions that were tested.
+- Repeating trials and testing more subjects make results more trustworthy.
+'''
+
+[[principle]]
+id = "SP.2.d"
+skill = "s-investigations"
+status = "draft"
+name = "Planning an investigation"
+summary = "Put the steps of an investigation in order and choose the right tools and units."
+lesson = '''
+A plan sets things up the same way for every group, makes one change, then measures the result.
+
+- Set up first, then change the variable, then measure and record.
+- Pick the tool that measures what you need: a thermometer for temperature, a balance for mass, a ruler for length, a stopwatch for time.
+- Use units that match: degrees Celsius, grams, centimeters, seconds.
+'''
+
+[[principle]]
+id = "SP.2.e"
+skill = "s-investigations"
+status = "draft"
+name = "Variables and controls"
+summary = "Tell the independent, dependent and controlled variables apart, and see how they relate."
+lesson = '''
+- The independent variable is what the experimenter changes on purpose.
+- The dependent variable is what is measured to see the effect.
+- Controlled variables are kept the same for every group, so they can't explain the results.
+- A control group gets no change at all, to compare against.
+
+Example: testing fertilizer on plants, the fertilizer amount is independent, plant growth is dependent, and water and light are controlled.
+'''
