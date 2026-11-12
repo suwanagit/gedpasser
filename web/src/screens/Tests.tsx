@@ -3,6 +3,8 @@ import { api, errorMessage } from '../api/client'
 import type { TestKind } from '../api/types/TestKind'
 import type { TestPaper } from '../api/types/TestPaper'
 import type { TestReport } from '../api/types/TestReport'
+import { AnswerInput } from '../components/AnswerInput'
+import { isStructured } from '../components/answers'
 import { Calculator } from '../components/Calculator'
 import { Figure } from '../components/Figure'
 import { FormulaSheet } from '../components/FormulaSheet'
@@ -12,6 +14,7 @@ import { Mascot } from '../components/Mascot'
 import { MathText } from '../components/MathText'
 import { Ring } from '../components/Ring'
 import { SessionShell } from '../components/SessionShell'
+import { Stimulus } from '../components/Stimulus'
 
 const BAND_TEXT: Record<string, string> = {
   ready: 'Looking ready',
@@ -24,7 +27,7 @@ const BAND_TEXT: Record<string, string> = {
  * Take a test: timer, question list, mark for review, calculator, formula
  * sheet. Plain on purpose: it should feel like test day, not a game.
  */
-export function TestRunner({ kind, onExit }: { kind: TestKind; onExit: () => void }) {
+export function TestRunner({ kind, subject = 'math', onExit }: { kind: TestKind; subject?: string; onExit: () => void }) {
   const [paper, setPaper] = useState<TestPaper | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [index, setIndex] = useState(0)
@@ -41,14 +44,14 @@ export function TestRunner({ kind, onExit }: { kind: TestKind; onExit: () => voi
 
   useEffect(() => {
     api
-      .newTest(kind)
+      .newTest(kind, subject)
       .then((p) => {
         setPaper(p)
         setLeft(p.time_limit_secs)
         shownAt.current = performance.now()
       })
       .catch((e) => setError(errorMessage(e)))
-  }, [kind])
+  }, [kind, subject])
 
   const track = useCallback(() => {
     if (!paper) return
@@ -138,17 +141,26 @@ export function TestRunner({ kind, onExit }: { kind: TestKind; onExit: () => voi
           {index + 1} / {paper.questions.length} <Icon name="down" size={16} />
         </button>
         <span className="test-tools">
-          <button className={`icon-btn${tool === 'calc' ? ' on' : ''}`} aria-label="Calculator" aria-pressed={tool === 'calc'} onClick={() => setTool(tool === 'calc' ? 'none' : 'calc')}>
-            <Icon name="calc" />
-          </button>
-          <button
-            className={`icon-btn${tool === 'formulas' ? ' on' : ''}`}
-            aria-label="Formula sheet"
-            aria-pressed={tool === 'formulas'}
-            onClick={() => setTool(tool === 'formulas' ? 'none' : 'formulas')}
-          >
-            <Icon name="sigma" />
-          </button>
+          {(subject === 'math' || q.calculator) && (
+            <button
+              className={`icon-btn${tool === 'calc' ? ' on' : ''}`}
+              aria-label="Calculator"
+              aria-pressed={tool === 'calc'}
+              onClick={() => setTool(tool === 'calc' ? 'none' : 'calc')}
+            >
+              <Icon name="calc" />
+            </button>
+          )}
+          {subject === 'math' && (
+            <button
+              className={`icon-btn${tool === 'formulas' ? ' on' : ''}`}
+              aria-label="Formula sheet"
+              aria-pressed={tool === 'formulas'}
+              onClick={() => setTool(tool === 'formulas' ? 'none' : 'formulas')}
+            >
+              <Icon name="sigma" />
+            </button>
+          )}
         </span>
       </header>
 
@@ -179,12 +191,18 @@ export function TestRunner({ kind, onExit }: { kind: TestKind; onExit: () => voi
               <FormulaSheet />
             </div>
           )}
-          <div className="question" key={q.id}>
-            <p className="prompt">
-              <MathText text={q.prompt} />
-            </p>
+          <div className={`question${q.stimulus ? ' with-stimulus' : ''}`} key={q.id}>
+            {q.stimulus && <Stimulus s={q.stimulus} />}
+            <div className="question-main">
+            {q.kind !== 'dropdown' && (
+              <p className="prompt">
+                <MathText text={q.prompt} />
+              </p>
+            )}
             {q.figure && <Figure view={q.figure} />}
-            {q.kind === 'fill_in' ? (
+            {isStructured(q) ? (
+              <AnswerInput q={q} value={answers[q.id] ?? ''} onChange={(v) => setAnswers({ ...answers, [q.id]: v })} />
+            ) : q.kind === 'fill_in' ? (
               <input
                 className="answer-box"
                 aria-label="Your answer"
@@ -211,6 +229,7 @@ export function TestRunner({ kind, onExit }: { kind: TestKind; onExit: () => voi
                 ))}
               </div>
             )}
+            </div>
           </div>
         </div>
       </div>

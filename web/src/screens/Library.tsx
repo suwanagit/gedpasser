@@ -9,7 +9,7 @@ import { Hack } from '../components/LessonCard'
 import { LessonPanel } from '../components/LessonPanel'
 import { Mascot } from '../components/Mascot'
 import { ComingSoon, SubHead, SubjectCard } from '../components/Subject'
-import { SUBJECTS, type Subject, type SubjectId } from '../subjects'
+import { useSubjects, type Subject, type SubjectId } from '../subjects'
 
 export type LibraryTab = 'lessons' | 'hacks' | 'formulas'
 
@@ -21,10 +21,11 @@ const TABS: { tab: LibraryTab; label: string }[] = [
 
 /** Library tab: pick a subject to look things up, or read the test-day tips. */
 export function Library({ onSubject, onTestDay }: { onSubject: (id: SubjectId) => void; onTestDay: () => void }) {
+  const subjects = useSubjects()
   return (
     <div className="library">
       <div className="subject-grid">
-        {SUBJECTS.map((s) => (
+        {subjects.map((s) => (
           <SubjectCard key={s.id} subject={s} sub={s.id === 'math' ? 'Lessons · Hacks · Formulas' : undefined} onClick={() => onSubject(s.id)} />
         ))}
       </div>
@@ -66,14 +67,14 @@ export function LibrarySubject({
 
   useEffect(() => {
     if (!subject.ready) return
-    Promise.all([api.skills(), api.principles(), api.strategy()])
+    Promise.all([api.skills(subject.id), api.principles(subject.id), api.strategy()])
       .then(([s, p, st]) => {
         setSkills(s)
         setPrinciples(p)
         setStrategy(st)
       })
       .catch((e) => setError(errorMessage(e)))
-  }, [subject.ready])
+  }, [subject.ready, subject.id])
 
   if (!subject.ready)
     return (
@@ -114,7 +115,7 @@ export function LibrarySubject({
     <div className="library">
       <SubHead subject={subject} onBack={onBack} />
       <div className="seg no-print" role="tablist">
-        {TABS.map((t) => (
+        {TABS.filter((t) => subject.id === 'math' || t.tab === 'lessons').map((t) => (
           <button key={t.tab} role="tab" aria-selected={tab === t.tab} className={tab === t.tab ? 'on' : ''} onClick={() => setTab(t.tab)}>
             {t.label}
           </button>

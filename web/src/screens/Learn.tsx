@@ -7,7 +7,7 @@ import type { Stats } from '../api/types/Stats'
 import { Icon, type IconName } from '../components/Icon'
 import { Ring } from '../components/Ring'
 import { SubjectCard } from '../components/Subject'
-import { SUBJECTS, type SubjectId } from '../subjects'
+import { useSubjects, type SubjectId } from '../subjects'
 
 export const DAILY_GOAL = 10
 
@@ -55,10 +55,10 @@ export function Learn({
     api.journey().then(setJourney).catch(() => setJourney(null))
   }, [])
 
+  const subjects = useSubjects()
   const today = stats?.answered_today ?? 0
   const tasks = (plan?.today ?? []).filter((t) => t.kind !== 'journey' && t.kind !== 'rest').slice(0, 3)
   const next = journey?.stages.find((s) => s.id === journey.current)
-  const total = journey?.stages.length ?? 0
 
   return (
     <div className="learn">
@@ -93,12 +93,12 @@ export function Learn({
         )}
 
         <div className="subject-grid">
-          {SUBJECTS.map((s) => (
+          {subjects.map((s) => (
             <SubjectCard
               key={s.id}
               subject={s}
-              value={s.id === 'math' && total > 0 ? (journey?.passed ?? 0) / total : undefined}
-              sub={s.id === 'math' && total > 0 ? `${journey?.passed ?? 0} / ${total} stages` : undefined}
+              value={s.info && s.info.stages_total > 0 ? s.info.stages_passed / s.info.stages_total : undefined}
+              sub={s.info && s.info.stages_total > 0 ? `${s.info.stages_passed} / ${s.info.stages_total} sets` : undefined}
               onClick={() => onSubject(s.id)}
             />
           ))}

@@ -16,7 +16,7 @@ import { SessionShell } from '../components/SessionShell'
 import { FocusList } from '../components/StudyLinks'
 import { ComingSoon, SubHead, SubjectCard } from '../components/Subject'
 import { play } from '../sound'
-import { SUBJECTS, type Subject, type SubjectId } from '../subjects'
+import { useSubjects, type Subject, type SubjectId } from '../subjects'
 import { ResultScreen } from './Journey'
 
 export const TEST_KINDS: { kind: TestKind; title: string; questions: number; minutes: number }[] = [
@@ -37,6 +37,7 @@ export function PracticeMenu({
   onStart: (scope: Scope, setLength?: number) => void
   onSubject: (id: SubjectId) => void
 }) {
+  const subjects = useSubjects()
   const due = stats?.review_due ?? 0
   const weak = (plan?.priorities ?? []).slice(0, 5).map((p) => p.principle.id)
   const quick: { icon: IconName; title: string; sub: string; tone: string; badge?: number; disabled?: boolean; go: () => void }[] = [
@@ -75,7 +76,7 @@ export function PracticeMenu({
 
       <h2>Tests and skills</h2>
       <div className="subject-grid">
-        {SUBJECTS.map((s) => (
+        {subjects.map((s) => (
           <SubjectCard key={s.id} subject={s} onClick={() => onSubject(s.id)} />
         ))}
       </div>
@@ -101,9 +102,9 @@ export function PracticeSubject({
 
   useEffect(() => {
     if (!subject.ready) return
-    api.progress().then(setProgress).catch((e) => setError(errorMessage(e)))
-    api.tests().then(setHistory).catch(() => setHistory([]))
-  }, [subject.ready])
+    api.progress(subject.id).then(setProgress).catch((e) => setError(errorMessage(e)))
+    api.tests(subject.id).then(setHistory).catch(() => setHistory([]))
+  }, [subject.ready, subject.id])
 
   return (
     <div className="practice-menu">
@@ -112,16 +113,19 @@ export function PracticeSubject({
 
       <h2>Practice test</h2>
       <div className="quick-grid">
-        {TEST_KINDS.map((k) => (
-          <button key={k.kind} className="tile plain" disabled={!subject.ready} onClick={() => onTest(k.kind)}>
-            <strong>{k.title}</strong>
-            {subject.ready && (
-              <span className="tile-sub">
-                {k.questions} Q · {k.minutes} min
-              </span>
-            )}
-          </button>
-        ))}
+        {TEST_KINDS.map((k) => {
+          const size = subject.info?.tests.find((t) => t.kind === k.kind) ?? k
+          return (
+            <button key={k.kind} className="tile plain" disabled={!subject.ready} onClick={() => onTest(k.kind)}>
+              <strong>{k.title}</strong>
+              {subject.ready && (
+                <span className="tile-sub">
+                  {size.questions} Q · {size.minutes} min
+                </span>
+              )}
+            </button>
+          )
+        })}
       </div>
       {history.length > 0 && (
         <ul className="rows">

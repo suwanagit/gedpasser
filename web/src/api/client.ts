@@ -20,6 +20,7 @@ import type { SkillSummary } from './types/SkillSummary'
 import type { StageResult } from './types/StageResult'
 import type { Stats } from './types/Stats'
 import type { StrategyView } from './types/StrategyView'
+import type { SubjectView } from './types/SubjectView'
 import type { TestKind } from './types/TestKind'
 import type { TestPaper } from './types/TestPaper'
 import type { TestReport } from './types/TestReport'
@@ -33,7 +34,7 @@ import type { TestSummary } from './types/TestSummary'
 export type Scope =
   | { mode: Extract<PracticeMode, 'skill'>; id: string; name: string }
   | { mode: Extract<PracticeMode, 'principle'>; id: string; name: string }
-  | { mode: Extract<PracticeMode, 'mixed'> }
+  | { mode: Extract<PracticeMode, 'mixed'>; subject?: string }
   | { mode: Extract<PracticeMode, 'review'> }
 
 export class ApiError extends Error {
@@ -73,30 +74,32 @@ export const api = {
   createProfile: (body: CreateProfile) => request<Me>('POST', '/api/profiles', body),
   login: (body: LoginRequest) => request<Me>('POST', '/api/login', body),
   logout: () => request<void>('POST', '/api/logout'),
-  skills: () => request<SkillSummary[]>('GET', '/api/skills'),
+  subjects: () => request<SubjectView[]>('GET', '/api/subjects'),
+  skills: (subject = 'math') => request<SkillSummary[]>('GET', `/api/skills?subject=${subject}`),
   next: (scope: Scope, after?: string) => {
     const q = new URLSearchParams()
     if (scope.mode === 'skill') q.set('skill', scope.id)
     else if (scope.mode === 'principle') q.set('principle', scope.id)
     else q.set('mode', scope.mode)
+    if (scope.mode === 'mixed' && scope.subject) q.set('subject', scope.subject)
     if (after) q.set('after', after)
     return request<NextQuestion>('GET', `/api/practice/next?${q.toString()}`)
   },
-  progress: () => request<Progress>('GET', '/api/progress'),
+  progress: (subject = 'math') => request<Progress>('GET', `/api/progress?subject=${subject}`),
   answer: (body: AnswerRequest) => request<AnswerResult>('POST', '/api/answer', body),
-  principles: () => request<PrincipleSummary[]>('GET', '/api/principles'),
+  principles: (subject = 'math') => request<PrincipleSummary[]>('GET', `/api/principles?subject=${subject}`),
   lesson: (id: string) => request<Lesson>('GET', `/api/principles/${encodeURIComponent(id)}`),
   flag: (body: FlagRequest) => request<void>('POST', '/api/flags', body),
-  journey: () => request<JourneyView>('GET', '/api/journey'),
+  journey: (subject = 'math') => request<JourneyView>('GET', `/api/journey?subject=${subject}`),
   startStage: (id: string) => request<JourneyRun>('POST', `/api/journey/${encodeURIComponent(id)}/start`),
   finishStage: (runId: number) => request<StageResult>('POST', `/api/journey/runs/${runId}/finish`),
   stats: () => request<Stats>('GET', `/api/stats?tz=${tz()}`),
   plan: () => request<Plan>('GET', `/api/plan?tz=${tz()}`),
   setTestDate: (test_date: string | null) => request<void>('POST', '/api/me/test-date', { test_date }),
   strategy: () => request<StrategyView>('GET', '/api/strategy'),
-  newTest: (kind: TestKind) => request<TestPaper>('POST', '/api/tests', { kind }),
+  newTest: (kind: TestKind, subject = 'math') => request<TestPaper>('POST', '/api/tests', { kind, subject }),
   submitTest: (id: number, body: TestSubmission) => request<TestReport>('POST', `/api/tests/${id}/submit`, body),
-  tests: () => request<TestSummary[]>('GET', '/api/tests'),
+  tests: (subject = 'math') => request<TestSummary[]>('GET', `/api/tests?subject=${subject}`),
 }
 
 export function errorMessage(e: unknown): string {

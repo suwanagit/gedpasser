@@ -14,7 +14,8 @@ import { Me } from './screens/Me'
 import { Practice, PracticeMenu, PracticeSubject } from './screens/Practice'
 import { ProfilePicker } from './screens/ProfilePicker'
 import { TestRunner } from './screens/Tests'
-import { SUBJECTS, subjectOf, type Subject, type SubjectId } from './subjects'
+import type { SubjectView } from './api/types/SubjectView'
+import { SUBJECTS, SubjectsContext, withInfo, type Subject, type SubjectId } from './subjects'
 
 type Tab = 'learn' | 'practice' | 'library' | 'me'
 
@@ -33,7 +34,7 @@ type Place =
 type Session =
   | { kind: 'stage'; stageId: string; run: number; back: Place }
   | { kind: 'practice'; scope: Scope; setLength: number; run: number; back: Place }
-  | { kind: 'test'; testKind: TestKind; run: number; back: Place }
+  | { kind: 'test'; testKind: TestKind; subject: SubjectId; run: number; back: Place }
 
 type View = Place | Session
 
@@ -100,14 +101,13 @@ function hashPlace(): Place {
   return tabView(TABS.some((t) => t.tab === tab) ? (tab as Tab) : 'learn')
 }
 
-function subj(id: SubjectId): Subject {
-  return subjectOf(id) ?? SUBJECTS[0]
-}
-
 export default function App() {
   const [screen, setScreen] = useState<Screen>({ kind: 'starting' })
   const [stats, setStats] = useState<Stats | null>(null)
   const [plan, setPlan] = useState<Plan | null>(null)
+  const [subjectInfo, setSubjectInfo] = useState<SubjectView[] | null>(null)
+  const subjects = withInfo(subjectInfo)
+  const subj = (id: SubjectId): Subject => subjects.find((s) => s.id === id) ?? subjects[0]
 
   useEffect(() => {
     api
@@ -127,10 +127,11 @@ export default function App() {
   const placeKey = onPlace && here ? placeHash(here) : null
 
   const refresh = useCallback(() => {
-    Promise.all([api.stats(), api.plan()])
-      .then(([s, p]) => {
+    Promise.all([api.stats(), api.plan(), api.subjects()])
+      .then(([s, p, sub]) => {
         setStats(s)
         setPlan(p)
+        setSubjectInfo(sub)
       })
       .catch(() => {
         // the screens show their own errors
@@ -173,7 +174,7 @@ export default function App() {
   const back: Place = here ?? { kind: 'learn' }
   const start = (scope: Scope, setLength = 10) => go({ kind: 'practice', scope, setLength, run: Date.now(), back })
   const openStage = (stageId: string) => go({ kind: 'stage', stageId, run: Date.now(), back })
-  const startTest = (testKind: TestKind) => go({ kind: 'test', testKind, run: Date.now(), back })
+  const startTest = (testKind: TestKind, subject: SubjectId = 'math') => go({ kind: 'test', testKind, subject, run: Date.now(), back })
 
   function runTask(t: PlanTask) {
     switch (t.kind) {
@@ -227,11 +228,12 @@ export default function App() {
         onAgain={() => start(view.scope, view.setLength)}
       />
     )
-  if (view.kind === 'test') return <TestRunner key={view.run} kind={view.testKind} onExit={() => go(view.back)} />
+  if (view.kind === 'test') return <TestRunner key={view.run} kind={view.testKind} subject={view.subject} onExit={() => go(view.back)} />
 
   const days = plan?.days_left ?? null
   return (
-    <div className="shell">
+    <SubjectsContext.Provider value={subjects}>
+      <div className="shell">
       <nav className="rail" aria-label="Main">
         <span className="brand">
           <Mascot size={40} /> GED Passer
@@ -275,7 +277,7 @@ export default function App() {
             <PracticeMenu stats={stats} plan={plan} onStart={start} onSubject={(subject) => go({ kind: 'practice-subject', subject })} />
           )}
           {view.kind === 'practice-subject' && (
-            <PracticeSubject key={view.subject} subject={subj(view.subject)} onBack={() => go({ kind: 'practice-menu' })} onStart={start} onTest={startTest} />
+            <PracticeSubject key={view.subject} subject={subj(view.subject)} onBack={() => go({ kind: 'practice-menu' })} onStart={start} onTest={(k) => startTest(k, view.subject)} />
           )}
           {view.kind === 'library' && (
             <Library onSubject={(subject) => go({ kind: 'library-subject', subject, tab: 'lessons' })} onTestDay={() => go({ kind: 'testday' })} />
@@ -298,6 +300,7 @@ export default function App() {
           </button>
         ))}
       </nav>
-    </div>
+      </div>
+    </SubjectsContext.Provider>
   )
 }

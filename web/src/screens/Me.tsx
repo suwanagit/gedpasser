@@ -7,7 +7,7 @@ import { Icon } from '../components/Icon'
 import { MasteryBar } from '../components/MasteryBar'
 import { FocusList } from '../components/StudyLinks'
 import { setSoundOn, soundOn } from '../sound'
-import { SUBJECTS } from '../subjects'
+import { useSubjects } from '../subjects'
 
 /** Me: level and streak, test date, what to work on, strengths, settings. */
 export function Me({
@@ -25,6 +25,7 @@ export function Me({
   onStart: (scope: Scope) => void
   onLogout: () => void
 }) {
+  const subjects = useSubjects()
   const [skills, setSkills] = useState<SkillSummary[]>([])
   const [error, setError] = useState<string | null>(null)
   const [sound, setSound] = useState(soundOn)
@@ -108,8 +109,8 @@ export function Me({
 
       <section>
         <h2>Subjects</h2>
-        {SUBJECTS.map((sub) =>
-          sub.ready ? (
+        {subjects.map((sub) =>
+          sub.id === 'math' ? (
             <details key={sub.id} className={`fold subject-fold subj-${sub.id}`}>
               <summary>
                 <span className="subject-icon">
@@ -136,7 +137,13 @@ export function Me({
                 <Icon name={sub.icon} size={20} />
               </span>
               <span className="fold-text">{sub.name}</span>
-              <span className="pill">Soon</span>
+              {sub.ready && sub.info ? (
+                <span className="muted small">
+                  {sub.info.stages_passed}/{sub.info.stages_total} sets
+                </span>
+              ) : (
+                <span className="pill">Soon</span>
+              )}
             </div>
           ),
         )}

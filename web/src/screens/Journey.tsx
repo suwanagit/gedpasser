@@ -31,8 +31,8 @@ export function SubjectPath({ subject, onOpen, onBack }: { subject: Subject; onO
   const currentRef = useRef<HTMLLIElement>(null)
 
   useEffect(() => {
-    if (subject.ready) api.journey().then(setView).catch((e) => setError(errorMessage(e)))
-  }, [subject.ready])
+    if (subject.ready) api.journey(subject.id).then(setView).catch((e) => setError(errorMessage(e)))
+  }, [subject.ready, subject.id])
 
   // Land on the stage that's up next.
   const loaded = !!view

@@ -5,6 +5,9 @@ import type { AnswerResult } from '../api/types/AnswerResult'
 import type { PracticeMode } from '../api/types/PracticeMode'
 import type { PracticeQuestion } from '../api/types/PracticeQuestion'
 import { play } from '../sound'
+import { AnswerInput } from './AnswerInput'
+import { complete, isStructured } from './answers'
+import { Calculator } from './Calculator'
 import { Figure } from './Figure'
 import { FlagDialog } from './FlagDialog'
 import { Icon } from './Icon'
@@ -13,6 +16,7 @@ import { LessonPanel } from './LessonPanel'
 import { StudyLinks } from './StudyLinks'
 import { MathText } from './MathText'
 import { SessionShell } from './SessionShell'
+import { Stimulus } from './Stimulus'
 
 const CHEERS = ['Nice!', 'Correct!', 'You got it!', 'Great!']
 
@@ -42,6 +46,8 @@ export function QuestionView({
 }) {
   const [selected, setSelected] = useState<string | null>(null)
   const [typed, setTyped] = useState('')
+  const [structured, setStructured] = useState('')
+  const [calc, setCalc] = useState(false)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [answered, setAnswered] = useState<{ response: string; result: AnswerResult } | null>(null)
@@ -55,7 +61,7 @@ export function QuestionView({
   const closeLesson = useCallback(() => setLessonFor(null), [])
   const cancelFlag = useCallback(() => setFlagging(false), [])
 
-  const response = q.kind === 'fill_in' ? typed.trim() : selected
+  const response = isStructured(q) ? (complete(q, structured) ? structured : '') : q.kind === 'fill_in' ? typed.trim() : selected
   const submit = useCallback(async () => {
     if (answered || busy || !response) return
     setBusy(true)
@@ -89,7 +95,7 @@ export function QuestionView({
         }
         return
       }
-      if (q.kind !== 'fill_in' && !inField) {
+      if (q.kind === 'multiple_choice' && !inField) {
         const n = Number(e.key)
         if (n >= 1 && n <= q.choices.length) setSelected(q.choices[n - 1])
       }
@@ -170,6 +176,11 @@ export function QuestionView({
       >
         <Icon name="bulb" size={20} /> Quick review
       </button>
+      {q.calculator && (
+        <button className={`secondary${calc ? ' on' : ''}`} aria-label="Calculator" aria-pressed={calc} onClick={() => setCalc(!calc)}>
+          <Icon name="calc" size={20} />
+        </button>
+      )}
       <button className="primary wide" disabled={!response || busy} onClick={() => void submit()}>
         Check
       </button>
@@ -185,7 +196,7 @@ export function QuestionView({
       footer={footer}
     >
       <motion.div
-        className="question"
+        className={`question${q.stimulus ? ' with-stimulus' : ''}`}
         initial={reduce ? false : { opacity: 0, x: 28 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: reduce ? 0 : 0.2 }}
@@ -195,12 +206,18 @@ export function QuestionView({
             {showSkill && q.skill_name} {q.draft && <span className="pill draft">Draft</span>}
           </p>
         )}
-        <p className="prompt">
-          <MathText text={q.prompt} />
-        </p>
-        {q.figure && <Figure view={q.figure} />}
+        {q.stimulus && <Stimulus s={q.stimulus} />}
+        <div className="question-main">
+          {q.kind !== 'dropdown' && (
+            <p className="prompt">
+              <MathText text={q.prompt} />
+            </p>
+          )}
+          {q.figure && <Figure view={q.figure} />}
 
-        {q.kind === 'fill_in' ? (
+          {isStructured(q) ? (
+            <AnswerInput q={q} value={answered ? answered.response : structured} onChange={setStructured} disabled={!!answered} />
+          ) : q.kind === 'fill_in' ? (
           <input
             className="answer-box"
             autoFocus
@@ -229,9 +246,11 @@ export function QuestionView({
             })}
           </div>
         )}
-        {error && <p className="error">{error}</p>}
+          {error && <p className="error">{error}</p>}
+        </div>
       </motion.div>
 
+      {calc && <Calculator onClose={() => setCalc(false)} />}
       {lessonFor && <LessonPanel principleId={lessonFor} onClose={closeLesson} />}
       {flagging && (
         <FlagDialog

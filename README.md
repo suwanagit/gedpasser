@@ -46,6 +46,14 @@ placeholders marked "Soon".
 Set a test date in Me to get daily tasks that put the most common, weakest
 principles first.
 
+To try the multi-subject features before real content exists, build a test
+bank with a made-up demo Science subject and point the server at it:
+
+```powershell
+cargo run -q -p ged-content -- demo $env:TEMP\ged-demo
+$env:GED_CONTENT = "$env:TEMP\ged-demo"; $env:GED_SERVE_DRAFTS = 1; cargo run -p gedpasser-server
+```
+
 For frontend work, run `cargo run -p gedpasser-server` and `npm --prefix web run dev`
 together; Vite forwards `/api` to the server on port 8080.
 
