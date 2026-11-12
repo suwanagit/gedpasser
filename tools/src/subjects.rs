@@ -110,8 +110,8 @@ pub(crate) fn load_stimuli(root: &Path, report: &mut Report) {
                 if s.text.trim().is_empty() && s.table.is_none() && s.figure.is_none() {
                     err("a stimulus needs text, a table or a figure".into());
                 }
-                if s.source.trim().is_empty() {
-                    err("source must not be empty (use \"Original\" for our own writing)".into());
+                if !source_ok(&s.source) {
+                    err("source must start with \"Original\", \"Public domain:\" or \"Data:\" (no copyrighted text)".into());
                 }
                 if let Some(t) = &s.table {
                     if t.headers.is_empty() || t.rows.is_empty() {
@@ -134,7 +134,34 @@ pub(crate) fn load_stimuli(root: &Path, report: &mut Report) {
     for (path, id, m) in diags {
         report.push(Level::Error, &path, id.as_deref(), m);
     }
+    // Passages near each test's reading level.
+    for (path, s) in &loaded {
+        let subject = stimulus_subject(path);
+        let target = report.subjects.iter().find(|x| x.id == subject).and_then(|x| x.passage_grade);
+        if let Some(target) = target {
+            let g = crate::readability::grade(&s.text);
+            if g > target + 0.5 {
+                report.push(
+                    Level::Warning,
+                    path,
+                    Some(&s.id),
+                    format!("passage reads at about grade {g:.1}, above the {subject} target of {target}; the reviewer must say if that is on purpose"),
+                );
+            }
+        }
+    }
     report.stimuli = loaded;
+}
+
+/// A passage's source must say it is ours, in the public domain, or public
+/// data: never copyrighted text.
+pub fn source_ok(source: &str) -> bool {
+    let s = source.trim();
+    s == "Original"
+        || s.starts_with("Original ")
+        || s.starts_with("Original (")
+        || s.strip_prefix("Public domain:").is_some_and(|r| !r.trim().is_empty())
+        || s.strip_prefix("Data:").is_some_and(|r| !r.trim().is_empty())
 }
 
 /// The subject a stimulus belongs to: the name of the file it is in.

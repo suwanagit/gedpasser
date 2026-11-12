@@ -312,7 +312,7 @@ Each sub-phase is planned and approved separately. Research notes with sources a
   - hot spot questions are left for later; a labeled figure with multiple choice stands in.
 
   Status (2026-11-12, branch `phase-7b-subjects`): content tools, server and screens are built and tested against a made-up demo subject (`fixtures/demo-science`, `cargo run -p ged-content -- demo OUT`). Each subject has its own week path, practice tests sized and weighted from `content/subjects.toml`, and study links. Still to do before ticking: check the screens in a browser (passages, drop-down, order, sort, a science practice test), and Jon's look.
-- [ ] 7c. Content pipeline for subjects without a code check (Science keeps a `check` expression for its numeric questions):
+- [x] 7c. Content pipeline for subjects without a code check (built 2026-11-12; rules in `docs/CONTENT_RULES.md`) (Science keeps a `check` expression for its numeric questions):
   - Every factual claim cites a source.
   - Passages are original, or public domain (for example founding documents, which the real Social Studies and RLA tests lean on), never copyrighted text.
   - Two independent reviewer subagents per batch, both solving blind. Both must pass an item.

@@ -42,6 +42,11 @@ Repo: https://github.com/suwanagit/gedpasser.git
   from `cargo content-template <skill>`). Only `cargo content-approve <skill>`
   may set `status = "reviewed"`, and only for items with a current `pass`.
   Never set `reviewed` by hand. Any edit to a reviewed item needs a new review.
+- Science, Social Studies and Language Arts content follows
+  `docs/CONTENT_RULES.md`: every question cites sources, passages are
+  original, public domain or public data (never copyrighted), and each item
+  needs two blind solver passes plus a fact-check pass from three fresh
+  reviewer subagents before `cargo content-approve` will set it reviewed.
 - Every question has exactly one skill from `content/skills.toml` and exactly
   one `principle` from `content/principles.toml` that belongs to that skill.
 - Principles are the official GED Math indicator codes (Q.1.a … A.7.d), but

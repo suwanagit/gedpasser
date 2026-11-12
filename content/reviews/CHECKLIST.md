@@ -50,6 +50,41 @@ Work from the repo root (`C:\dev\gedpasser`). Do not edit any file except
 - Original wording; no claim of official GED status.
 - Math notation renders: math is inside `$...$`; a literal dollar sign is `\$`.
 
+## Science, Social Studies and Language Arts
+
+Read `docs/CONTENT_RULES.md` first. Each item needs several reviewers. Put
+your own `reviewer` name (pick one, e.g. "solver-b") and your `role` in
+every entry; the template prints them.
+
+### As a solver (role = "solver")
+
+1. Run `cargo content-quiz <skill>`. It prints each passage, then its
+   questions without answers. Solve each one and write down your answer
+   before opening any content file.
+2. Then open the question file and check:
+   - Your answer matches the key. If not, work out who is right.
+   - Every wrong choice or menu option is clearly wrong to someone who
+     understands the passage, and tempting to someone who doesn't.
+   - Order and sort questions have exactly one defensible arrangement.
+   - The question can be answered from the passage plus general knowledge
+     the official targets expect (`docs/subjects/<subject>.md`).
+   - The `topic` code and `principle` fit what the question tests.
+   - The explanation is correct and follows `docs/EXPLANATION_STYLE.md`.
+3. For a passage: it is clear, not misleading, a realistic length, and
+   either at its subject's reading level or hard on purpose (say which if
+   `cargo content` warns).
+
+### As a fact-checker (role = "factcheck")
+
+- Open every source listed in the question's `sources` and the passage's
+  `source`. Check every factual claim in the passage, question, answer and
+  explanation against them.
+- A passage marked `Public domain:` really is (for example a US government
+  work or published before 1930). `Data:` tables match their source, apart
+  from stated simplifying.
+- Anything you can't confirm from a source is a `fix`, with what's
+  missing.
+
 ## Study links (`content/study.toml`, kind = "study", id = "study")
 
 - Every link opens and teaches that principle at a level that suits adults

@@ -2,6 +2,7 @@
 
 [[question]]
 id = "s-demo-reading-0001"
+sources = ["Original demo passage science-plants"]
 skill = "s-demo-reading"
 principle = "SP.1.a"
 topic = "L.b.1"
@@ -20,6 +21,7 @@ common_mistake = "Answering height, which is what she measured, not what she cha
 
 [[question]]
 id = "s-demo-reading-0002"
+sources = ["Original demo passage science-energy"]
 skill = "s-demo-reading"
 principle = "SP.3.b"
 topic = "P.a.3"
@@ -40,6 +42,7 @@ common_mistake = "Picking nuclear energy because it sounds powerful."
 
 [[question]]
 id = "s-demo-reading-0003"
+sources = ["https://www.usgs.gov/special-topics/water-science-school/science/water-cycle (USGS)"]
 skill = "s-demo-reading"
 principle = "SP.1.a"
 topic = "ES.a.1"

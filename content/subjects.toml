@@ -11,6 +11,9 @@
 #               Math: a skill's `area`. Others: the first part of a
 #               question's `topic` code ("L" for "L.c.2").
 #   test        practice-test sizes: short, long, full
+#   passage_grade  target reading grade for passages; above it, a warning
+#               the reviewer must answer (the real tests use high-school
+#               texts, RLA up to career- and college-ready)
 #
 # Sources for shares and time limits: docs/subjects/*.md. GED Testing
 # Service does not publish question counts; the full-test counts are the
@@ -32,6 +35,7 @@ test = [
 [[subject]]
 id = "language"
 name = "Language Arts"
+passage_grade = 12.0
 domain = [
   { id = "informational", name = "Informational texts", share = 0.75 },
   { id = "literary", name = "Literary texts", share = 0.25 },
@@ -46,6 +50,7 @@ test = [
 id = "science"
 name = "Science"
 calculator = true
+passage_grade = 10.0
 domain = [
   { id = "L", name = "Life science", share = 0.4 },
   { id = "P", name = "Physical science", share = 0.4 },
@@ -61,6 +66,7 @@ test = [
 id = "social"
 name = "Social Studies"
 calculator = true
+passage_grade = 10.0
 domain = [
   { id = "CG", name = "Civics and government", share = 0.5 },
   { id = "USH", name = "United States history", share = 0.2 },

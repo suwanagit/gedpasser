@@ -224,3 +224,108 @@ fn demo_bank_builds_clean() {
     assert_eq!(r.stimuli.len(), 2);
     assert!(r.questions.iter().any(|(_, q)| q.kind == ged_content::QuestionType::Sort));
 }
+
+fn demo_copy(dest: &str) -> PathBuf {
+    let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("..");
+    let out = PathBuf::from(env!("CARGO_TARGET_TMPDIR")).join(format!("demo-{dest}"));
+    ged_content::demo::build(&root.join("content"), &root.join("fixtures").join("demo-science"), &out).unwrap();
+    out
+}
+
+fn edit_file(path: &Path, from: &str, to: &str) {
+    let text = std::fs::read_to_string(path).unwrap();
+    assert!(text.contains(from), "{from:?} not in {}", path.display());
+    std::fs::write(path, text.replacen(from, to, 1)).unwrap();
+}
+
+#[test]
+fn non_math_needs_sources_and_open_passages() {
+    let root = demo_copy("sources");
+    edit_file(&root.join("science").join("s-demo-data.toml"), "sources = [\"Original demo passage science-plants\"]\n", "");
+    edit_file(&root.join("stimuli").join("science.toml"), "source = \"Original (demo)\"", "source = \"Adapted from a magazine article\"");
+    let r = check_content(&root);
+    assert!(r.mentions("must list at least one source"), "{:?}", r.diagnostics);
+    assert!(r.mentions("no copyrighted text"));
+}
+
+/// (reviewer, role, verdict) entries for one demo question, at its current hash.
+fn panel_reviews(root: &Path, id: &str, entries: &[(&str, &str, &str)]) {
+    let r = check_content(root);
+    let q = &r.questions.iter().find(|(_, q)| q.id == id).unwrap().1;
+    let h = question_hash(q, r.stimulus_of(q));
+    let mut text = String::new();
+    for (who, role, verdict) in entries {
+        text.push_str(&format!(
+            "[[review]]\nid = \"{id}\"\nkind = \"question\"\nhash = \"{h}\"\nreviewer = \"{who}\"\nrole = \"{role}\"\nverdict = \"{verdict}\"\nsolved = \"High\"\nnote = \"checked\"\ndate = \"2026-11-12\"\n\n"
+        ));
+    }
+    std::fs::create_dir_all(root.join("reviews")).unwrap();
+    std::fs::write(root.join("reviews").join("s-demo-data.toml"), text).unwrap();
+}
+
+#[test]
+fn non_math_questions_need_two_solvers_and_a_fact_check() {
+    let id = "s-demo-data-0001";
+    let qfile = |root: &Path| root.join("science").join("s-demo-data.toml");
+    let status = |root: &Path| check_content(root).questions.iter().find(|(_, q)| q.id == id).unwrap().1.status;
+
+    // One solver is not enough, and a hand-flipped status is caught.
+    let root = demo_copy("panel-one");
+    panel_reviews(&root, id, &[("solver-a", "solver", "pass")]);
+    edit_file(&qfile(&root), "id = \"s-demo-data-0001\"\nsources = [\"Original demo passage science-plants\"]\nskill = \"s-demo-data\"\nprinciple = \"SP.1.c\"\ntopic = \"L.b.1\"\ndifficulty = 1\ntype = \"multiple_choice\"\nstatus = \"draft\"", "id = \"s-demo-data-0001\"\nsources = [\"Original demo passage science-plants\"]\nskill = \"s-demo-data\"\nprinciple = \"SP.1.c\"\ntopic = \"L.b.1\"\ndifficulty = 1\ntype = \"multiple_choice\"\nstatus = \"reviewed\"");
+    assert!(check_content(&root).mentions("1 of 2 solver passes and 0 of 1 fact-check"));
+
+    // The same reviewer twice counts once; approve leaves it a draft.
+    let root = demo_copy("panel-same");
+    panel_reviews(&root, id, &[("solver-a", "solver", "pass"), ("solver-a", "solver", "pass"), ("checker", "factcheck", "pass")]);
+    approve(&root, "s-demo-data").expect("approve runs");
+    assert_eq!(status(&root), Status::Draft);
+
+    // A fact-check fix blocks approval.
+    let root = demo_copy("panel-fix");
+    panel_reviews(&root, id, &[("solver-a", "solver", "pass"), ("solver-b", "solver", "pass"), ("checker", "factcheck", "fix")]);
+    approve(&root, "s-demo-data").expect("approve runs");
+    assert_eq!(status(&root), Status::Draft);
+    assert!(template(&root, "s-demo-data").unwrap().contains("role = \"factcheck\""), "the fact-check is still needed");
+
+    // Two solvers and a fact-check pass, but the passage is still a draft:
+    // the question waits.
+    let root = demo_copy("panel-ok");
+    panel_reviews(&root, id, &[("solver-a", "solver", "pass"), ("solver-b", "solver", "pass"), ("checker", "factcheck", "pass")]);
+    assert!(approve(&root, "s-demo-data").expect("approve runs").is_empty());
+
+    // Approve the passage (one solver, one fact-check), then the question.
+    let r = check_content(&root);
+    let st = r.stimulus("science-plants").unwrap();
+    let h = ged_content::stimulus_hash(st);
+    let mut text = String::new();
+    for (who, role) in [("reader", "solver"), ("checker", "factcheck")] {
+        text.push_str(&format!(
+            "[[review]]
+id = \"science-plants\"
+kind = \"stimulus\"
+hash = \"{h}\"
+reviewer = \"{who}\"
+role = \"{role}\"
+verdict = \"pass\"
+note = \"checked\"
+date = \"2026-11-12\"
+
+"
+        ));
+    }
+    std::fs::write(root.join("reviews").join("stimuli-science.toml"), text).unwrap();
+    assert_eq!(approve(&root, "stimuli-science").expect("approve runs"), vec!["science-plants".to_string()]);
+    let approved = approve(&root, "s-demo-data").expect("approve runs");
+    assert_eq!(approved, vec![id.to_string()]);
+    let r = check_content(&root);
+    assert_eq!(r.errors(), 0, "{:?}", r.diagnostics);
+    assert_eq!(status(&root), Status::Reviewed);
+}
+
+#[test]
+fn non_math_reviews_must_name_reviewer_and_role() {
+    let root = demo_copy("panel-anon");
+    write_reviews(&root, "s-demo-data", &[("s-demo-data-0001", "question", "abc", "pass")]);
+    assert!(check_content(&root).mentions("non-math reviews need `reviewer`"));
+}

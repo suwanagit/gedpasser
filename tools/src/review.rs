@@ -10,7 +10,7 @@ use std::path::{Path, PathBuf};
 use sha2::{Digest, Sha256};
 
 use crate::schema::{
-    Card, Principle, Question, Review, ReviewFile, ReviewKind, Status, Stimulus, StrategyFile, StudyFile, Verdict,
+    Card, Principle, Question, Review, ReviewFile, ReviewKind, ReviewRole, Status, Stimulus, StrategyFile, StudyFile, Verdict,
 };
 use crate::subjects::stimulus_subject;
 use crate::{Level, Report, check_content, read_toml};
@@ -146,6 +146,7 @@ pub(crate) fn check_reviews(root: &Path, report: &mut Report) {
     }
 
     let question_ids: HashMap<&str, &Question> = report.questions.iter().map(|(_, q)| (q.id.as_str(), q)).collect();
+    let panel_ids: std::collections::HashSet<String> = panel_items(report).into_iter().collect();
     let principle_ids: HashMap<&str, &Principle> = report.principles.iter().map(|p| (p.id.as_str(), p)).collect();
     for (path, r) in &loaded {
         let known = match r.kind {
@@ -162,7 +163,19 @@ pub(crate) fn check_reviews(root: &Path, report: &mut Report) {
         if r.note.trim().is_empty() {
             diags.push((Level::Error, path.clone(), Some(r.id.clone()), "review note must not be empty".into()));
         }
-        if r.kind == ReviewKind::Question && r.verdict == Verdict::Pass && r.solved.as_deref().unwrap_or("").trim().is_empty()
+        let on_panel = panel_ids.contains(&panel_key(r.kind, &r.id));
+        if on_panel && (r.reviewer.as_deref().unwrap_or("").trim().is_empty() || r.role.is_none()) {
+            diags.push((
+                Level::Error,
+                path.clone(),
+                Some(r.id.clone()),
+                "non-math reviews need `reviewer` (a name) and `role` (\"solver\" or \"factcheck\")".into(),
+            ));
+        }
+        if r.kind == ReviewKind::Question
+            && r.verdict == Verdict::Pass
+            && r.role != Some(ReviewRole::Factcheck)
+            && r.solved.as_deref().unwrap_or("").trim().is_empty()
         {
             diags.push((
                 Level::Error,
@@ -176,10 +189,14 @@ pub(crate) fn check_reviews(root: &Path, report: &mut Report) {
 
     for (path, q) in &report.questions {
         let hash = question_hash(q, report.stimulus_of(q));
-        gate(report_latest(&report.reviews, ReviewKind::Question, &q.id), q.status, &hash, path, &q.id, &mut diags);
+        if panel_ids.contains(&panel_key(ReviewKind::Question, &q.id)) {
+            panel_gate(&report.reviews, ReviewKind::Question, q.status, &hash, path, &q.id, &mut diags);
+        } else {
+            gate(report_latest(&report.reviews, ReviewKind::Question, &q.id), q.status, &hash, path, &q.id, &mut diags);
+        }
     }
     for (path, st) in &report.stimuli {
-        gate(report_latest(&report.reviews, ReviewKind::Stimulus, &st.id), st.status, &stimulus_hash(st), path, &st.id, &mut diags);
+        panel_gate(&report.reviews, ReviewKind::Stimulus, st.status, &stimulus_hash(st), path, &st.id, &mut diags);
     }
     let principles_path = root.join("principles.toml");
     for p in &report.principles {
@@ -242,7 +259,132 @@ fn gate(latest: Option<&Review>, status: Status, hash: &str, path: &Path, id: &s
 
 /// True if the item has a current pass and so needs no review.
 fn has_current_pass(report: &Report, kind: ReviewKind, id: &str, hash: &str) -> bool {
+    if report_panel_item(report, kind, id) {
+        return panel(&report.reviews, kind, id, hash).done(kind);
+    }
     report_latest(&report.reviews, kind, id).is_some_and(|r| r.verdict == Verdict::Pass && r.hash == hash)
+}
+
+// ── Non-math review panel ─────────────────────────────────────────────────
+//
+// Content without a code check needs several independent reviewers: two
+// blind solvers and a fact-checker for a question, one solver and a
+// fact-checker for a stimulus. Each reviewer's latest entry counts once.
+
+fn panel_key(kind: ReviewKind, id: &str) -> String {
+    format!("{kind:?}:{id}")
+}
+
+/// Keys of every item that needs the panel: non-math questions, and stimuli.
+fn panel_items(report: &Report) -> Vec<String> {
+    let subject: HashMap<&str, &str> = report.skills.iter().map(|s| (s.id.as_str(), s.subject.as_str())).collect();
+    let mut out: Vec<String> = report
+        .questions
+        .iter()
+        .filter(|(_, q)| subject.get(q.skill.as_str()).is_some_and(|s| *s != "math"))
+        .map(|(_, q)| panel_key(ReviewKind::Question, &q.id))
+        .collect();
+    out.extend(report.stimuli.iter().map(|(_, s)| panel_key(ReviewKind::Stimulus, &s.id)));
+    out
+}
+
+fn report_panel_item(report: &Report, kind: ReviewKind, id: &str) -> bool {
+    let key = panel_key(kind, id);
+    panel_items(report).contains(&key)
+}
+
+/// Passes needed: (solvers, fact-checkers).
+pub fn panel_needs(kind: ReviewKind) -> (usize, usize) {
+    match kind {
+        ReviewKind::Question => (2, 1),
+        _ => (1, 1),
+    }
+}
+
+/// Where an item stands with its panel, for its current content.
+pub struct Panel<'a> {
+    pub solvers: usize,
+    pub factchecks: usize,
+    /// A current fix or reject from any reviewer.
+    pub blocking: Option<&'a Review>,
+    /// Some reviewer passed an older version.
+    pub stale: bool,
+}
+
+impl Panel<'_> {
+    pub fn done(&self, kind: ReviewKind) -> bool {
+        let (s, f) = panel_needs(kind);
+        self.blocking.is_none() && self.solvers >= s && self.factchecks >= f
+    }
+}
+
+pub fn panel<'a>(reviews: &'a [(PathBuf, Review)], kind: ReviewKind, id: &str, hash: &str) -> Panel<'a> {
+    let mut seen = std::collections::HashSet::new();
+    let mut out = Panel { solvers: 0, factchecks: 0, blocking: None, stale: false };
+    for r in reviews.iter().rev().map(|(_, r)| r).filter(|r| r.kind == kind && r.id == id) {
+        let (Some(name), Some(role)) = (r.reviewer.as_deref(), r.role) else { continue };
+        if !seen.insert(name.trim().to_lowercase()) {
+            continue; // only each reviewer's latest entry counts
+        }
+        if r.hash != hash {
+            out.stale = true;
+            continue;
+        }
+        match (r.verdict, role) {
+            (Verdict::Pass, ReviewRole::Solver) => out.solvers += 1,
+            (Verdict::Pass, ReviewRole::Factcheck) => out.factchecks += 1,
+            _ => {
+                if out.blocking.is_none() {
+                    out.blocking = Some(r);
+                }
+            }
+        }
+    }
+    out
+}
+
+fn panel_gate(reviews: &[(PathBuf, Review)], kind: ReviewKind, status: Status, hash: &str, path: &Path, id: &str, diags: &mut Vec<Diag>) {
+    let p = panel(reviews, kind, id, hash);
+    let (need_s, need_f) = panel_needs(kind);
+    if status == Status::Reviewed && !p.done(kind) {
+        let why = match p.blocking {
+            Some(r) => format!("{} gave verdict {:?}", r.reviewer.as_deref().unwrap_or("a reviewer"), r.verdict).to_lowercase(),
+            None => format!(
+                "it has {} of {need_s} solver passes and {} of {need_f} fact-check passes from different reviewers{}",
+                p.solvers,
+                p.factchecks,
+                if p.stale { " (some reviews are for an older version)" } else { "" }
+            ),
+        };
+        diags.push((
+            Level::Error,
+            path.to_path_buf(),
+            Some(id.to_string()),
+            format!("marked reviewed but {why} (only `ged-content approve` may set reviewed)"),
+        ));
+    }
+    if status == Status::Draft && p.blocking.is_some_and(|r| r.verdict == Verdict::Reject) {
+        diags.push((Level::Warning, path.to_path_buf(), Some(id.to_string()), "a reviewer rejected this draft; remove or rewrite it".into()));
+    }
+}
+
+/// Template entries for the panel roles an item still needs.
+fn panel_template(report: &Report, kind: ReviewKind, kind_name: &str, id: &str, hash: &str) -> String {
+    let p = panel(&report.reviews, kind, id, hash);
+    let (need_s, need_f) = panel_needs(kind);
+    let mut out = String::new();
+    let solved = if kind == ReviewKind::Question { "solved = \"\"\n" } else { "" };
+    for _ in p.solvers..need_s {
+        out.push_str(&format!(
+            "\n[[review]]\nid = \"{id}\"\nkind = \"{kind_name}\"\nhash = \"{hash}\"\nreviewer = \"\"\nrole = \"solver\"\nverdict = \"\"\n{solved}note = \"\"\ndate = \"\"\n"
+        ));
+    }
+    for _ in p.factchecks..need_f {
+        out.push_str(&format!(
+            "\n[[review]]\nid = \"{id}\"\nkind = \"{kind_name}\"\nhash = \"{hash}\"\nreviewer = \"\"\nrole = \"factcheck\"\nverdict = \"\"\nnote = \"\"\ndate = \"\"\n"
+        ));
+    }
+    out
 }
 
 /// A review-note skeleton for every item in `skill` without a current pass:
@@ -278,10 +420,7 @@ pub fn template(root: &Path, skill: &str) -> Result<String, String> {
             let _ = path;
             let h = stimulus_hash(st);
             if !has_current_pass(&report, ReviewKind::Stimulus, &st.id, &h) {
-                out.push_str(&format!(
-                    "\n[[review]]\nid = \"{}\"\nkind = \"stimulus\"\nhash = \"{h}\"\nverdict = \"\"\nnote = \"\"\ndate = \"\"\n",
-                    st.id
-                ));
+                out.push_str(&panel_template(&report, ReviewKind::Stimulus, "stimulus", &st.id, &h));
                 count += 1;
             }
         }
@@ -298,6 +437,7 @@ pub fn template(root: &Path, skill: &str) -> Result<String, String> {
          # verdict: pass | fix | reject. For questions, fill `solved` with your own\n\
          # answer worked out BEFORE reading the answer key.\n"
     );
+    let mut panel_out = String::new();
     let mut push = |kind: &str, id: &str, hash: &str| {
         let solved = if kind == "question" { "solved = \"\"\n" } else { "" };
         out.push_str(&format!(
@@ -308,7 +448,11 @@ pub fn template(root: &Path, skill: &str) -> Result<String, String> {
     for (_, q) in report.questions.iter().filter(|(_, q)| q.skill == skill && q.status != Status::Retired) {
         let h = question_hash(q, report.stimulus_of(q));
         if !has_current_pass(&report, ReviewKind::Question, &q.id, &h) {
-            push("question", &q.id, &h);
+            if report_panel_item(&report, ReviewKind::Question, &q.id) {
+                panel_out.push_str(&panel_template(&report, ReviewKind::Question, "question", &q.id, &h));
+            } else {
+                push("question", &q.id, &h);
+            }
             count += 1;
         }
     }
@@ -327,6 +471,7 @@ pub fn template(root: &Path, skill: &str) -> Result<String, String> {
             count += 1;
         }
     }
+    out.push_str(&panel_out);
     if count == 0 {
         out.push_str("\n# Nothing to review: every item in this skill has a current pass.\n");
     }
@@ -405,6 +550,8 @@ pub fn approve(root: &Path, skill: &str) -> Result<Vec<String>, String> {
         .iter()
         .filter(|(_, q)| q.skill == skill && q.status == Status::Draft)
         .filter(|(_, q)| has_current_pass(&report, ReviewKind::Question, &q.id, &question_hash(q, report.stimulus_of(q))))
+        // A question waits until its passage is approved.
+        .filter(|(_, q)| report.stimulus_of(q).is_none_or(|st| st.status == Status::Reviewed))
         .map(|(_, q)| q.id.clone())
         .collect();
     if !ids.is_empty() {

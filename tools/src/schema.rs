@@ -52,6 +52,10 @@ pub struct Subject {
     pub domain: Vec<Domain>,
     /// Practice-test sizes: short, long and full.
     pub test: Vec<TestShape>,
+    /// Target reading grade for passages (stimuli). Passages above it get a
+    /// warning the reviewer must answer.
+    #[serde(default)]
+    pub passage_grade: Option<f64>,
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -86,6 +90,7 @@ impl Subject {
                 Domain { id: "algebraic".into(), name: "Algebraic problem solving".into(), share: 0.55 },
             ],
             test: vec![shape("short", 10, 25), shape("long", 25, 60), shape("full", 46, 115)],
+            passage_grade: None,
         }
     }
 }
@@ -611,6 +616,22 @@ pub struct Review {
     pub solved: Option<String>,
     pub note: String,
     pub date: String,
+    /// Who wrote this review (a name the reviewer picks, e.g. "solver-a").
+    /// Required for non-math content, which needs several reviewers.
+    #[serde(default)]
+    pub reviewer: Option<String>,
+    /// What this reviewer did. Required for non-math content.
+    #[serde(default)]
+    pub role: Option<ReviewRole>,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum ReviewRole {
+    /// Solved the item blind, then checked it against the key.
+    Solver,
+    /// Checked every factual claim against the cited sources.
+    Factcheck,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Deserialize)]

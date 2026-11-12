@@ -8,6 +8,7 @@
 pub mod demo;
 pub mod expr;
 pub mod extra;
+pub mod readability;
 pub mod review;
 pub mod schema;
 pub mod subjects;
@@ -21,7 +22,7 @@ use std::path::{Path, PathBuf};
 
 pub use schema::{
     Blank, Card, Domain, Figure, Formula, Group, Principle, PrincipleFile, Question, QuestionFile, QuestionType,
-    Review, ReviewKind, Skill, SkillFile, Stage, Status, Stimulus, StrategyFile, StudyFile, StudyLink, StudyTopic,
+    Review, ReviewKind, ReviewRole, Skill, SkillFile, Stage, Status, Stimulus, StrategyFile, StudyFile, StudyLink, StudyTopic,
     Subject, Table, Tactic, TestShape, Verdict,
 };
 
@@ -362,6 +363,9 @@ fn validate_questions(report: &mut Report) {
                             err(format!("domain {domain:?} is not listed for subject {} in subjects.toml", subject.id));
                         }
                     }
+                }
+                if sk.subject != "math" && q.sources.iter().all(|x| x.trim().is_empty()) {
+                    err("non-math questions must list at least one source in `sources`".into());
                 }
                 let numeric = q.kind == QuestionType::FillIn && q.accept.is_empty() && parse_answer(&q.answer).is_some();
                 if q.check.trim().is_empty() && (sk.subject == "math" || numeric) {

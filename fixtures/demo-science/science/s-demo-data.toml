@@ -2,6 +2,7 @@
 
 [[question]]
 id = "s-demo-data-0001"
+sources = ["Original demo passage science-plants"]
 skill = "s-demo-data"
 principle = "SP.1.c"
 topic = "L.b.1"
@@ -20,6 +21,7 @@ common_mistake = "Reading the first row of the table instead of comparing all th
 
 [[question]]
 id = "s-demo-data-0002"
+sources = ["Original demo passage science-plants"]
 skill = "s-demo-data"
 principle = "SP.8.a"
 topic = "L.b.1"
@@ -39,6 +41,7 @@ common_mistake = "Adding the heights but forgetting to divide by 3 (36)."
 
 [[question]]
 id = "s-demo-data-0003"
+sources = ["https://www.eia.gov/energyexplained/renewable-sources/ (U.S. Energy Information Administration)"]
 skill = "s-demo-data"
 principle = "SP.1.c"
 topic = "ES.a.3"
