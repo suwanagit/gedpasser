@@ -9,7 +9,7 @@
 # Reviewed as a whole: `cargo content-template study`, then
 # `cargo content-approve study` after an independent review.
 
-status = "draft"
+status = "reviewed"
 
 [[topic]]
 principle = "Q.1.a"
@@ -33,6 +33,7 @@ principle = "Q.1.c"
 search = "exponent rules"
 links = [
   { title = "OpenStax Prealgebra 2e, 10.2 Use multiplication properties of exponents", url = "https://openstax.org/books/prealgebra-2e/pages/10-2-use-multiplication-properties-of-exponents" },
+  { title = "OpenStax Prealgebra 2e, 10.5 Integer exponents and scientific notation", url = "https://openstax.org/books/prealgebra-2e/pages/10-5-integer-exponents-and-scientific-notation" },
   { title = "Math is Fun: Laws of Exponents", url = "https://www.mathsisfun.com/algebra/exponent-laws.html" },
 ]
 
@@ -58,7 +59,7 @@ principle = "Q.2.b"
 search = "squares and square roots"
 links = [
   { title = "OpenStax Prealgebra 2e, 5.7 Simplify and use square roots", url = "https://openstax.org/books/prealgebra-2e/pages/5-7-simplify-and-use-square-roots" },
-  { title = "Math is Fun: Square Roots", url = "https://www.mathsisfun.com/square-root.html" },
+  { title = "Math is Fun: Squares and Square Roots", url = "https://www.mathsisfun.com/square-root.html" },
 ]
 
 [[topic]]
@@ -66,7 +67,7 @@ principle = "Q.2.c"
 search = "cubes and cube roots"
 links = [
   { title = "OpenStax Elementary Algebra 2e, 9.7 Higher roots", url = "https://openstax.org/books/elementary-algebra-2e/pages/9-7-higher-roots" },
-  { title = "Math is Fun: Cube Root", url = "https://www.mathsisfun.com/numbers/cube-root.html" },
+  { title = "Math is Fun: Cubes and Cube Roots", url = "https://www.mathsisfun.com/numbers/cube-root.html" },
 ]
 
 [[topic]]
@@ -82,7 +83,6 @@ principle = "Q.2.e"
 search = "multi-step word problems"
 links = [
   { title = "OpenStax Prealgebra 2e, 9.1 Use a problem solving strategy", url = "https://openstax.org/books/prealgebra-2e/pages/9-1-use-a-problem-solving-strategy" },
-  { title = "OpenStax Prealgebra 2e, 9.2 Solve money applications", url = "https://openstax.org/books/prealgebra-2e/pages/9-2-solve-money-applications" },
 ]
 
 [[topic]]
@@ -120,7 +120,7 @@ principle = "Q.4.a"
 search = "area and perimeter of rectangles and triangles"
 links = [
   { title = "OpenStax Prealgebra 2e, 9.4 Use properties of rectangles triangles and trapezoids", url = "https://openstax.org/books/prealgebra-2e/pages/9-4-use-properties-of-rectangles-triangles-and-trapezoids" },
-  { title = "Math is Fun: Area", url = "https://www.mathsisfun.com/area.html" },
+  { title = "Math is Fun: Area of Plane Shapes", url = "https://www.mathsisfun.com/area.html" },
 ]
 
 [[topic]]
@@ -136,6 +136,7 @@ principle = "Q.4.c"
 search = "area of trapezoids and polygons"
 links = [
   { title = "OpenStax Prealgebra 2e, 9.4 Use properties of rectangles triangles and trapezoids", url = "https://openstax.org/books/prealgebra-2e/pages/9-4-use-properties-of-rectangles-triangles-and-trapezoids" },
+  { title = "Math is Fun: Area of Plane Shapes", url = "https://www.mathsisfun.com/area.html" },
 ]
 
 [[topic]]
@@ -183,6 +184,7 @@ search = "volume of a cone and a pyramid"
 links = [
   { title = "OpenStax Prealgebra 2e, 9.6 Solve geometry applications volume and surface area", url = "https://openstax.org/books/prealgebra-2e/pages/9-6-solve-geometry-applications-volume-and-surface-area" },
   { title = "Math is Fun: Cone", url = "https://www.mathsisfun.com/geometry/cone.html" },
+  { title = "Math is Fun: Pyramids", url = "https://www.mathsisfun.com/geometry/pyramids.html" },
 ]
 
 [[topic]]
@@ -215,6 +217,7 @@ search = "dot plots histograms and box plots"
 links = [
   { title = "OpenStax Introductory Statistics 2e, 2.2 Histograms frequency polygons and time series graphs", url = "https://openstax.org/books/introductory-statistics-2e/pages/2-2-histograms-frequency-polygons-and-time-series-graphs" },
   { title = "OpenStax Introductory Statistics 2e, 2.4 Box plots", url = "https://openstax.org/books/introductory-statistics-2e/pages/2-4-box-plots" },
+  { title = "Math is Fun: Dot Plots", url = "https://www.mathsisfun.com/data/dot-plots.html" },
 ]
 
 [[topic]]
@@ -222,7 +225,7 @@ principle = "Q.6.c"
 search = "reading tables and scatter plots"
 links = [
   { title = "Math is Fun: Scatter (XY) Plots", url = "https://www.mathsisfun.com/data/scatter-xy-plots.html" },
-  { title = "OpenStax Elementary Algebra 2e, 4.1 Use the rectangular coordinate system", url = "https://openstax.org/books/elementary-algebra-2e/pages/4-1-use-the-rectangular-coordinate-system" },
+  { title = "OpenStax Introductory Statistics 2e, 12.2 Scatter plots", url = "https://openstax.org/books/introductory-statistics-2e/pages/12-2-scatter-plots" },
 ]
 
 [[topic]]
@@ -230,13 +233,15 @@ principle = "Q.7.a"
 search = "mean median mode and range"
 links = [
   { title = "OpenStax Prealgebra 2e, 5.5 Averages and probability", url = "https://openstax.org/books/prealgebra-2e/pages/5-5-averages-and-probability" },
-  { title = "Math is Fun: Mean, Median and Mode", url = "https://www.mathsisfun.com/data/central-measures.html" },
+  { title = "Math is Fun: Finding a Central Value (Mean, Median, Mode)", url = "https://www.mathsisfun.com/data/central-measures.html" },
+  { title = "Math is Fun: Weighted Mean", url = "https://www.mathsisfun.com/data/weighted-mean.html" },
 ]
 
 [[topic]]
 principle = "Q.8.a"
 search = "combinations and permutations"
 links = [
+  { title = "Math is Fun: Basic Counting Principle", url = "https://www.mathsisfun.com/data/basic-counting-principle.html" },
   { title = "Math is Fun: Combinations and Permutations", url = "https://www.mathsisfun.com/combinatorics/combinations-permutations.html" },
 ]
 
@@ -246,6 +251,7 @@ search = "probability of simple and compound events"
 links = [
   { title = "OpenStax Prealgebra 2e, 5.5 Averages and probability", url = "https://openstax.org/books/prealgebra-2e/pages/5-5-averages-and-probability" },
   { title = "Math is Fun: Probability", url = "https://www.mathsisfun.com/data/probability.html" },
+  { title = "Math is Fun: Independent Events", url = "https://www.mathsisfun.com/data/probability-events-independent.html" },
 ]
 
 [[topic]]
@@ -290,14 +296,14 @@ principle = "A.1.f"
 search = "factoring polynomials"
 links = [
   { title = "OpenStax Elementary Algebra 2e, 7.1 Greatest common factor and factor by grouping", url = "https://openstax.org/books/elementary-algebra-2e/pages/7-1-greatest-common-factor-and-factor-by-grouping" },
-  { title = "OpenStax Elementary Algebra 2e, 7.2 Factor trinomials of the form x2 bx c", url = "https://openstax.org/books/elementary-algebra-2e/pages/7-2-factor-trinomials-of-the-form-x2-bx-c" },
+  { title = "OpenStax Elementary Algebra 2e, 7.2 Factor trinomials of the form x² + bx + c", url = "https://openstax.org/books/elementary-algebra-2e/pages/7-2-factor-trinomials-of-the-form-x2-bx-c" },
 ]
 
 [[topic]]
 principle = "A.1.g"
 search = "writing polynomial expressions from words"
 links = [
-  { title = "OpenStax Elementary Algebra 2e, 6.1 Add and subtract polynomials", url = "https://openstax.org/books/elementary-algebra-2e/pages/6-1-add-and-subtract-polynomials" },
+  { title = "OpenStax Elementary Algebra 2e, 6.3 Multiply polynomials", url = "https://openstax.org/books/elementary-algebra-2e/pages/6-3-multiply-polynomials" },
   { title = "OpenStax Elementary Algebra 2e, 1.2 Use the language of algebra", url = "https://openstax.org/books/elementary-algebra-2e/pages/1-2-use-the-language-of-algebra" },
 ]
 
@@ -365,7 +371,7 @@ principle = "A.3.b"
 search = "graphing inequalities on a number line"
 links = [
   { title = "OpenStax Elementary Algebra 2e, 2.7 Solve linear inequalities", url = "https://openstax.org/books/elementary-algebra-2e/pages/2-7-solve-linear-inequalities" },
-  { title = "Math is Fun: Inequality", url = "https://www.mathsisfun.com/algebra/inequality.html" },
+  { title = "Math is Fun: Intervals", url = "https://www.mathsisfun.com/sets/intervals.html" },
 ]
 
 [[topic]]
@@ -415,7 +421,7 @@ links = [
 principle = "A.5.c"
 search = "slope as a rate of change"
 links = [
-  { title = "OpenStax Intermediate Algebra 2e, 3.2 Slope of a line", url = "https://openstax.org/books/intermediate-algebra-2e/pages/3-2-slope-of-a-line" },
+  { title = "OpenStax Elementary Algebra 2e, 8.9 Use direct and inverse variation", url = "https://openstax.org/books/elementary-algebra-2e/pages/8-9-use-direct-and-inverse-variation" },
   { title = "OpenStax Elementary Algebra 2e, 4.4 Understand slope of a line", url = "https://openstax.org/books/elementary-algebra-2e/pages/4-4-understand-slope-of-a-line" },
 ]
 
@@ -484,4 +490,5 @@ principle = "A.7.d"
 search = "comparing functions in tables and graphs"
 links = [
   { title = "OpenStax Intermediate Algebra 2e, 3.6 Graphs of functions", url = "https://openstax.org/books/intermediate-algebra-2e/pages/3-6-graphs-of-functions" },
+  { title = "OpenStax Elementary Algebra 2e, 4.5 Use the slope intercept form of an equation of a line", url = "https://openstax.org/books/elementary-algebra-2e/pages/4-5-use-the-slope-intercept-form-of-an-equation-of-a-line" },
 ]
