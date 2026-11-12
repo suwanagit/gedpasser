@@ -11,8 +11,8 @@ steps = [
   'Fix it: repeat the step, or keep conditions the same.',
 ]
 example = '''
-Cups tested for heat loss, but one sat in the sun.
-**Error:** the sun, not the wrapping, could explain the result.
+Two kinds of seeds tested, but one tray was watered twice as often.
+**Error:** the extra water, not the seed, could explain the result.
 '''
 hack = 'Ask: "What else could explain this result?"'
 
@@ -20,15 +20,15 @@ hack = 'Ask: "What else could explain this result?"'
 id = "SP.2.b"
 status = "draft"
 title = "Hypotheses"
-key = "If [I change this], then [this will happen to what I measure]."
+key = "A hypothesis is an explanation you can test: this change causes that effect."
 steps = [
   'Name the thing being changed.',
   'Name the thing being measured.',
   'Make sure it can be tested.',
 ]
 example = '''
-If bread is kept warmer, then mold will grow on it faster.
-**Testable:** change temperature, measure mold.
+"Salt makes ice melt faster."
+**Testable:** add salt to some ice, not to other ice, and time the melting.
 '''
 hack = 'If you can’t picture the experiment, it isn’t a hypothesis yet.'
 
@@ -43,8 +43,8 @@ steps = [
   'Enough subjects and trials?',
 ]
 example = '''
-4 plants per group, 1 trial.
-**Weakness:** too few plants. **Fix:** use more plants and repeat.
+One battery of each brand tested once.
+**Weakness:** one sample can be a dud. **Fix:** test several of each and repeat.
 '''
 hack = 'More trials, more trust.'
 
@@ -76,7 +76,7 @@ steps = [
   'What stayed the same? Controlled.',
 ]
 example = '''
-Fertilizer amount → independent. Tomato mass → dependent.
-Water and light → controlled.
+Testing study time on quiz scores:
+Study time → independent. Quiz score → dependent. Same quiz → controlled.
 '''
 hack = 'The Dependent variable Depends on the Independent one.'

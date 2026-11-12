@@ -18,7 +18,7 @@ id = "science-insulation"
 status = "draft"
 title = "Keeping a drink hot"
 text = '''
-A student wants to find out which material keeps a hot drink hot the longest. She fills four identical cups with 200 mL of water at 80 °C. She wraps three of the cups in a different material and leaves the fourth cup unwrapped. All four cups sit on the same table. After 20 minutes, she measures the water temperature in each cup.
+A student wants to find out which material keeps a hot drink hot the longest. She fills four identical cups with 200 mL of water at 80 °C. She wraps each of three cups in a different material and leaves the fourth cup unwrapped. All four cups sit on the same table. After 20 minutes, she measures the water temperature in each cup.
 '''
 table = { headers = ["Wrapping", "Water temperature after 20 minutes (°C)"], rows = [["None", "52"], ["Aluminum foil", "55"], ["Cotton cloth", "61"], ["Wool", "66"]] }
 source = "Original (made-up results for practice)"
@@ -43,7 +43,7 @@ Yeast are tiny living fungi. When yeast break down sugar without oxygen, a proce
 A student puts the same amount of yeast, sugar and water into four bottles. Each bottle is kept at a different water temperature. She stretches a balloon over the top of each bottle. After 30 minutes, she measures how wide each balloon has become.
 '''
 table = { headers = ["Water temperature (°C)", "Balloon width after 30 minutes (cm)"], rows = [["10", "3"], ["25", "9"], ["40", "14"], ["60", "2"]] }
-source = "Original (made-up results for practice; fermentation facts from OpenStax Concepts of Biology 4.4)"
+source = "Original (made-up results for practice; facts from OpenStax Concepts of Biology 4.4 Fermentation and 13.4 Fungi)"
 
 [[stimulus]]
 id = "science-erosion"

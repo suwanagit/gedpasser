@@ -92,3 +92,29 @@ Titles now match their pages. Q.2.e: the reviser rightly declined my suggested P
 topics, one per principle, 1-3 links each, 110 links / all unique URLs return HTTP 200.
 '''
 date = "2026-11-12"
+
+[[review]]
+id = "study"
+kind = "study"
+hash = "da10778bf5d6a120"
+reviewer = "checker"
+verdict = "fix"
+note = '''
+Spot-checked 8 random math links (all HTTP 200, titles match slugs); the 62 earlier topics look
+unchanged. The three links used by the 5 new topics all open: Concepts of Biology 1.2 and Biology 2e 1.1
+(read in full) and their titles describe the pages. Both pages teach hypotheses, variables vs
+controls, control vs experimental groups and repeatable experiments. Gaps:
+- SP.2.a (search "sources of error in experiments"): its only link, Concepts of Biology 1.2, does not
+  discuss errors or measurement at all. Add a page that does, e.g. OpenStax College Physics 2e 1.3
+  Accuracy, Precision, and Significant Figures
+  (https://openstax.org/books/college-physics-2e/pages/1-3-accuracy-precision-and-significant-figures).
+- SP.2.e (search "independent dependent and controlled variables"): neither link uses the terms
+  independent or dependent variable. Add OpenStax Psychology 2e 2.3 Analyzing Findings
+  (https://openstax.org/books/psychology-2e/pages/2-3-analyzing-findings), which defines both,
+  experimental and control groups, and confounding variables.
+- SP.2.d (search "planning a science experiment"; principle includes choosing tools and units):
+  Concepts of Biology 1.2 covers the steps of the scientific method but not tools or units. Suggest
+  adding a measurement page such as OpenStax Chemistry 2e 1.4 Measurements (SI units).
+SP.2.b and SP.2.c are fine as linked. Search words for all five make sense.
+'''
+date = "2026-11-12"

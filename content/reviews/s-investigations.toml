@@ -1,0 +1,764 @@
+# Review notes for s-investigations. Non-math items need two solvers and a fact-checker.
+
+[[review]]
+id = "SP.2.a"
+kind = "lesson"
+hash = "58a318b919589f54"
+reviewer = "solver-a"
+verdict = "pass"
+note = "Correct, clear definition of an error and how to fix it; matches SP.2.a (spot a source of error and fix the design) in our own words."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.2.b"
+kind = "lesson"
+hash = "b10f3973a5e2dff0"
+reviewer = "solver-a"
+verdict = "pass"
+note = "Correct definition of a testable hypothesis, good testable vs untestable pair, fits SP.2.b. Light/plant-height example does not give away any question."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.2.c"
+kind = "lesson"
+hash = "858791b82f39d600"
+reviewer = "solver-a"
+verdict = "pass"
+note = "Correct list of design strengths (one change, controls, control group, repeats) and weaknesses (few subjects, single trial, untested conditions). Fits SP.2.c."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.2.d"
+kind = "lesson"
+hash = "21075dcdfc9db26e"
+reviewer = "solver-a"
+verdict = "pass"
+note = "Correct step order and tool/unit pairs (thermometer/°C, balance/g, ruler/cm, stopwatch/s). Fits SP.2.d. Metric units."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.2.e"
+kind = "lesson"
+hash = "1f70c2cefb667a3b"
+reviewer = "solver-a"
+verdict = "fix"
+note = '''Definitions are correct. But the example ("testing fertilizer on plants, the fertilizer amount is independent, plant growth is dependent, and water and light are controlled") is exactly the scenario and answer key of s-investigations-0001 and -0002 (fertilizer independent, tomato mass dependent, water and light controlled). Use a different scenario, e.g. "testing how the amount of salt in water affects how fast an egg floats: salt amount is independent, time to float is dependent, water amount and temperature are controlled."'''
+date = "2026-11-12"
+
+# ── Cards ────────────────────────────────────────────────────────────────
+
+[[review]]
+id = "SP.2.a"
+kind = "card"
+hash = "5502b6cc7b668d51"
+reviewer = "solver-a"
+verdict = "fix"
+note = '''Content is correct and short, hack is good. But the example ("Cups tested for heat loss, but one sat in the sun. Error: the sun, not the wrapping, could explain the result.") is the answer to s-investigations-0006 almost word for word. WRITING.md: a card must not give a question away. Use another scenario, e.g. "Plants tested with two fertilizers, but one group sat by a heater. Error: the heat, not the fertilizer, could explain the result."'''
+date = "2026-11-12"
+
+[[review]]
+id = "SP.2.b"
+kind = "card"
+hash = "9f79f2bbb7770eee"
+reviewer = "solver-a"
+verdict = "fix"
+note = '''Key, steps and hack are correct and short. But the example ("If bread is kept warmer, then mold will grow on it faster.") is the exact answer to s-investigations-0015. Use a different example, e.g. "If a paper airplane has longer wings, then it will fly farther. Testable: change wing length, measure distance."'''
+date = "2026-11-12"
+
+[[review]]
+id = "SP.2.c"
+kind = "card"
+hash = "cf2600dbe1e1c456"
+reviewer = "solver-a"
+verdict = "fix"
+note = '''Key, steps and hack are correct. But the example ("4 plants per group, 1 trial. Weakness: too few plants. Fix: use more plants") reuses the tomato experiment's 4 plants per group and is the answer to s-investigations-0003 (and close to 0014). Use a different scenario and number, e.g. "1 battery of each brand tested once. Weakness: one odd battery could decide it. Fix: test several of each."'''
+date = "2026-11-12"
+
+[[review]]
+id = "SP.2.d"
+kind = "card"
+hash = "15643314c738a198"
+reviewer = "solver-a"
+verdict = "pass"
+note = "Correct, short; tool/unit table is general knowledge rather than a giveaway of 0016 (which tests exactly this knowledge, as intended). Hack is correct. Minor optional: example has no bolded item; could bold the tool names."
+date = "2026-11-12"
+
+[[review]]
+id = "SP.2.e"
+kind = "card"
+hash = "c11e4dad195a6c21"
+reviewer = "solver-a"
+verdict = "fix"
+note = '''Key, steps and hack ("The Dependent variable Depends on the Independent one") are correct and good. But the example (fertilizer amount independent, tomato mass dependent, water and light controlled) is the full answer key of s-investigations-0001 and -0002. Use a different scenario, e.g. "Hours of sunlight → independent. Plant height → dependent. Pot size and soil → controlled." (any scenario not used in the questions).'''
+date = "2026-11-12"
+
+# ── Questions ────────────────────────────────────────────────────────────
+
+[[review]]
+id = "s-investigations-0001"
+kind = "question"
+hash = "ff2725bf24d85247"
+reviewer = "solver-a"
+role = "solver"
+verdict = "fix"
+solved = "The amount of fertilizer each week"
+note = '''Blind answer matches key. Distractors are good (dependent variable, a controlled variable, duration). Explanation fine. Problem: topic "L.c.3" is carrying capacity in docs/subjects/science.md (L.c.1-5: energy flow, food webs, carrying capacity, symbiosis, disruption). A fertilizer/plant-yield experiment is not about carrying capacity. Retag to L.d.1 (functions of life, as 0015 and 0018 use for growth) or another fitting code, consistently for 0001-0003.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0002"
+kind = "question"
+hash = "adb83b051dc23e6e"
+reviewer = "solver-a"
+role = "solver"
+verdict = "fix"
+solved = "Amount of light -> Controlled; Amount of water -> Controlled; Fertilizer each week -> Independent; Mass of tomatoes -> Dependent"
+note = '''Blind sort matches key; each item fits exactly one group; explanation correct. Same topic problem as 0001: "L.c.3" (carrying capacity) does not fit a fertilizer/plant-yield experiment. Retag (e.g. L.d.1). Note also the SP.2.e lesson and card examples currently give this item's full answer away (see those entries).'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0003"
+kind = "question"
+hash = "3321b7cb88213332"
+reviewer = "solver-a"
+role = "solver"
+verdict = "fix"
+solved = "Use more plants in each group"
+note = '''Blind answer matches key; distractors clearly wrong yet tempting (removing the variable, biased sampling, adding a confound); SP.2.c fits; explanation correct. Same topic problem as 0001: "L.c.3" (carrying capacity) does not fit. Retag (e.g. L.d.1). The SP.2.c card example currently gives this answer away (see card entry).'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0004"
+kind = "question"
+hash = "96bd67e0120eaa5b"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = "To have a control to compare the wrapped cups against"
+note = "Blind answer matches key. Distractors are clearly wrong (cooling faster is a result, not a purpose; a cup is not a variable; it measures water not room temperature) but tempting. SP.2.e and P.a.1 (heat transfer) fit. Explanation correct and short."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0005"
+kind = "question"
+hash = "51f5c86b6a5a88ea"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = "1: wool; 2: cool"
+note = "Blind picks match. Wool (66 °C) clearly lost least heat; foil is a good tempting wrong pick; 'heat up' and 'evaporate' are wrong (water only cooled; evaporation not measured). SP.2.b and P.a.1 fit. Explanation numbers (66 vs 52-61, start 80) correct; common mistake 55-52 = 3 °C correct."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0006"
+kind = "question"
+hash = "05e1e026c222b4dd"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = "Sunlight could warm the wool cup, so the wool might not be the reason it stayed hotter"
+note = "Blind answer matches key. Only defensible choice; distractors wrong but tempting. SP.2.a (source of error) and P.a.1 fit. Explanation correct. The SP.2.a card example gives this answer away (fix filed on the card, not here)."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0007"
+kind = "question"
+hash = "7a5f871800c53594"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = "So one odd trial would not decide the result"
+note = "Blind answer matches key. Distractors clearly wrong (same car, repeats do not change speed, three heights is a coincidence trap). SP.2.c and P.b.1 fit. Explanation cites the 82/85/79 trials correctly. Difficulty 1 is fair."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0008"
+kind = "question"
+hash = "d39da349de7a2be7"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = "Repeat that trial, letting the car go without pushing"
+note = "Blind answer matches key. Only defensible choice (keeping or averaging a known error is wrong; changing height changes the variable). SP.2.a fits exactly. Numbers 158/162 consistent with the class's 20 cm data. Explanation correct."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0009"
+kind = "question"
+hash = "01fd0ec02d644212"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = "Set the ramp to the height being tested; Place the car at the top of the ramp; Let go of the car without pushing it; Measure how far the car rolled past the end of the ramp"
+note = "Blind order matches key. Only one defensible order (placing the car before setting the height is not sensible, measuring must come last). SP.2.d fits. Explanation correct."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0010"
+kind = "question"
+hash = "1d6469dc62d62fc9"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = "The width of the balloon"
+note = "Blind answer matches key. Distractors are the independent variable, a controlled variable and a count. SP.2.e and L.b.1 (fermentation) fit. Explanation correct."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0011"
+kind = "question"
+hash = "6285cd115c6b9105"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = "The temperature of the water affects how much gas the yeast give off"
+note = "Blind answer matches key. Sugar distractor is wrong (sugar held constant); balloon-air distractor is tempting but not the hypothesis about yeast; oxygen distractor contradicts the passage. SP.2.b and L.b.1 fit. Explanation correct."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0012"
+kind = "question"
+hash = "c2ad27fc78bdcaab"
+reviewer = "solver-a"
+role = "solver"
+verdict = "fix"
+solved = "She tested one bottle at only four temperatures, so the best temperature could be one she didn't test"
+note = '''Blind answer matches key, and the reasoning is right. Problems: (1) The key's wording "She tested one bottle at only four temperatures" says one bottle was tested at four temperatures, which contradicts the passage (four bottles, one at each temperature). Reword: "She tested only four temperatures, one bottle each, so the best temperature could be one she didn't test." (2) The key is about three times as long as every distractor, which gives it away on a difficulty-3 item; shorten it or lengthen distractors. (3) Distractor "Yeast do not give off any gas" is nonsense (the passage says they do and the balloons grew); replace with a tempting wrong reason, e.g. "The 10 °C balloon also grew, so temperature does not matter." (4) Explanation line 2 has two sentences/ideas; split "She also used just one bottle each." onto its own line or drop it, and make the bold answer match the reworded key.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0013"
+kind = "question"
+hash = "0c90d0891bf2ffa1"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = "Whether the soil was covered with grass"
+note = "Blind answer matches key. Distractors are the controlled variables and the dependent variable. SP.2.e fits; ES.b.3 (interactions between Earth systems: plants and soil erosion) is reasonable. Explanation correct."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0014"
+kind = "question"
+hash = "4187626f5e9000de"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = "Test several grass trays and several bare trays"
+note = "Blind answer matches key. Distractors each add a confound or remove the variable, clearly wrong but tempting. SP.2.c fits. Explanation correct."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0015"
+kind = "question"
+hash = "a06d6403c5f3d065"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = "If bread is kept at a warmer temperature, then mold will grow on it faster"
+note = "Blind answer matches key. Distractors are a fact claim, an opinion and advice, none a testable explanation of the observation. SP.2.b fits; L.d.1 acceptable. Explanation correct. The SP.2.b card example gives this answer away (fix filed on the card)."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0016"
+kind = "question"
+hash = "963059f7dcc3bb6a"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = "A thermometer, in degrees Celsius"
+note = "Blind answer matches key. Stopwatch distractor is tempting; others clearly wrong. SP.2.d (tools and units) and L.a.2 (homeostasis, body temperature) fit. Explanation correct; metric units."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0017"
+kind = "question"
+hash = "dbcd83ca1925df97"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = "Pour 100 mL of fresh water into one cup and 100 mL of salt water into an identical cup; Put both cups in the same freezer at the same time; Check both cups every 10 minutes; Record the time when each cup is frozen solid"
+note = "Blind order matches key. Exactly one defensible order. SP.2.d and P.c.2 (changes of state) fit. Explanation correct and short."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0018"
+kind = "question"
+hash = "397b646f5495331c"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = "Every height reads 1 cm too tall"
+note = "Blind answer matches key: with the end at the 1 cm mark, a 4 cm seedling reads 5 cm. 'Too short' is the tempting wrong answer, named in common_mistake. SP.2.a (systematic error) fits; difficulty 3 fair. Explanation correct with a concrete check."
+date = "2026-11-12"
+
+# ── Stimuli ──────────────────────────────────────────────────────────────
+
+[[review]]
+id = "s-investigations-0001"
+kind = "question"
+hash = "ff2725bf24d85247"
+reviewer = "solver-b"
+role = "solver"
+verdict = "fix"
+solved = "The amount of fertilizer each week"
+note = '''Blind answer matches key. Distractors (mass = dependent, water = controlled, weeks = constant) are clearly wrong and tempting; explanation is fine; SP.2.e fits; difficulty 1 fine. Problem: topic = "L.c.3". In docs/subjects/science.md L.c.1-5 are ecosystem topics (energy flow, food webs, carrying capacity, symbiosis/predators, disruption/extinction); L.c.3 is carrying capacity. A fertilizer-vs-tomato-yield experiment is not about ecosystems or carrying capacity. Fix: retag to a plant-growth/function-of-life topic, e.g. L.d.1 (functions of life), and apply the same tag to 0002 and 0003 (or confirm against the official Assessment Guide wording for L.c.3 if it really covers resource-limited plant growth).'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0002"
+kind = "question"
+hash = "adb83b051dc23e6e"
+reviewer = "solver-b"
+role = "solver"
+verdict = "fix"
+solved = "Fertilizer each week->Independent; Mass of tomatoes->Dependent; Amount of water->Controlled; Amount of light->Controlled"
+note = '''Blind sort matches key; each item fits exactly one group (passage states water and light were the same). Explanation and common mistake fine; SP.2.e fits; difficulty 2 fine. Only problem: topic = "L.c.3" (carrying capacity, an ecosystem topic) does not fit a fertilizer/tomato-yield experiment. Retag, e.g. to L.d.1, consistently with 0001 and 0003.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0003"
+kind = "question"
+hash = "3321b7cb88213332"
+reviewer = "solver-b"
+role = "solver"
+verdict = "fix"
+solved = "Use more plants in each group"
+note = '''Blind answer matches key. Distractors each break the design (removes the variable, biased sampling, adds a second variable) and are clearly wrong; explanation correct; SP.2.c fits; difficulty 2 fine. Only problem: topic = "L.c.3" (carrying capacity) does not fit; retag, e.g. to L.d.1, consistently with 0001 and 0002.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0004"
+kind = "question"
+hash = "96bd67e0120eaa5b"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = "To have a control to compare the wrapped cups against"
+note = "Blind answer matches key. Distractors clearly wrong (cooling faster is a result not a purpose; a cup is not a variable; room temperature is not measured) yet tempting. Explanation correct and short. SP.2.e (control vs variables) acceptable; P.a.1 (heat transfer) fits. Difficulty 1 fine."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0005"
+kind = "question"
+hash = "51f5c86b6a5a88ea"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = "wool; cool"
+note = "Blind picks match key. Wool cup was warmest (66 vs 52-61 C) so it cooled most slowly; foil and no material are defensibly wrong; heat up and evaporate are not supported (nothing heated, evaporation not measured). Explanation numbers correct (foil 55 - none 52 = 3 C). SP.2.b and P.a.1 fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0006"
+kind = "question"
+hash = "05e1e026c222b4dd"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = "Sunlight could warm the wool cup, so the wool might not be the reason it stayed hotter"
+note = "Blind answer matches key. Classic uncontrolled second variable; other choices are clearly irrelevant or false. Explanation states the fair-test rule and the second difference. SP.2.a fits; P.a.1 fits; difficulty 2 fine."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0007"
+kind = "question"
+hash = "7a5f871800c53594"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = "So one odd trial would not decide the result"
+note = "Blind answer matches key. Distractors contradict the passage (same car, repeats) or confuse three heights with three trials (tempting). Explanation cites the 82/85/79 spread correctly. SP.2.c and P.b.1 fit; difficulty 1 fine."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0008"
+kind = "question"
+hash = "d39da349de7a2be7"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = "Repeat that trial, letting the car go without pushing"
+note = "Blind answer matches key. Keeping or averaging a known-bad trial and changing the height are clearly wrong; no competing defensible choice (such as dropping it and averaging two) is offered. Explanation correct. SP.2.a and P.b.1 fit; difficulty 3 reasonable."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0009"
+kind = "question"
+hash = "01fd0ec02d644212"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = "Set the ramp to the height being tested; Place the car at the top of the ramp; Let go of the car without pushing it; Measure how far the car rolled past the end of the ramp"
+note = "Blind order matches key. Checked swaps: placing the car before setting the height is not sensible (the car would roll or be disturbed while adjusting), and the other steps are strictly sequential, so one defensible order. Explanation correct. SP.2.d and P.b.1 fit; difficulty 2 fine."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0010"
+kind = "question"
+hash = "1d6469dc62d62fc9"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = "The width of the balloon"
+note = "Blind answer matches key. Temperature (independent) is the tempting wrong choice; sugar is controlled; bottle count is not a variable. Explanation correct. SP.2.e and L.b.1 (fermentation) fit; difficulty 1 fine."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0011"
+kind = "question"
+hash = "6285cd115c6b9105"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = "The temperature of the water affects how much gas the yeast give off"
+note = "Blind answer matches key. Sugar was held constant, balloon-in-warm-air is a tempting misreading, oxygen contradicts the passage. Explanation correct. SP.2.b and L.b.1 fit; difficulty 2 fine."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0012"
+kind = "question"
+hash = "c2ad27fc78bdcaab"
+reviewer = "solver-b"
+role = "solver"
+verdict = "fix"
+solved = "She tested one bottle at only four temperatures, so the best temperature could be one she didn't test"
+note = '''Blind answer matches key, and the idea is right, but the key's wording is misleading: "She tested one bottle at only four temperatures" reads as if a single bottle was tested at four temperatures, while the passage has four bottles, one per temperature. It also packs two reasons into one choice. Fix the choice and answer to e.g. "She tested only four temperatures, so the best temperature could be one she didn't test". In the explanation change "She also used just one bottle each." to "She also used just one bottle at each temperature." Distractors are fine (60 C smallest is true but not a reason; the other two contradict the passage). SP.2.c and L.b.1 fit; difficulty 3 fine.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0013"
+kind = "question"
+hash = "0c90d0891bf2ffa1"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = "Whether the soil was covered with grass"
+note = "Blind answer matches key. Water and tilt were held the same per passage; soil washed off is the measured result (tempting). Explanation correct. SP.2.e fits; ES.b.3 (interactions between systems: plants, water, soil) acceptable; difficulty 1 fine."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0014"
+kind = "question"
+hash = "4187626f5e9000de"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = "Test several grass trays and several bare trays"
+note = "Blind answer matches key. Other choices add a second variable or remove the tested one, clearly wrong. Explanation correct. SP.2.c and ES.b.3 fit; difficulty 2 fine."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0015"
+kind = "question"
+hash = "a06d6403c5f3d065"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = "If bread is kept at a warmer temperature, then mold will grow on it faster"
+note = "Blind answer matches key. Distractors are a fact claim, an opinion and advice, none a testable explanation of the observation. Explanation correct. SP.2.b fits; L.d.1 (functions of life: growth) acceptable; difficulty 1 fine."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0016"
+kind = "question"
+hash = "963059f7dcc3bb6a"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = "A thermometer, in degrees Celsius"
+note = "Blind answer matches key. Stopwatch is the tempting wrong choice, addressed by the common mistake. Metric units. SP.2.d (tools and units) and L.a.2 (homeostasis, body temperature) fit; difficulty 1 fine."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0017"
+kind = "question"
+hash = "dbcd83ca1925df97"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = "Pour 100 mL of fresh water into one cup and 100 mL of salt water into an identical cup; Put both cups in the same freezer at the same time; Check both cups every 10 minutes; Record the time when each cup is frozen solid"
+note = "Blind order matches key. Checked swaps: checking cannot come before putting the cups in the freezer, and recording the freeze time happens only after checks find a cup frozen, so one defensible order. Explanation correct. SP.2.d and P.c.2 (changes of state) fit; difficulty 2 fine."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0018"
+kind = "question"
+hash = "397b646f5495331c"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = "Every height reads 1 cm too tall"
+note = "Blind answer matches key: the ruler's end is at the 1 cm mark, so a true 4 cm seedling reads 5 cm; a systematic +1 cm error. Too short is the tempting wrong choice and is addressed in the common mistake. Explanation with worked example is correct and short. SP.2.a fits; L.d.1 acceptable; difficulty 3 fine."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0001"
+kind = "question"
+hash = "ff2725bf24d85247"
+reviewer = "checker"
+role = "factcheck"
+verdict = "fix"
+note = '''
+Passage facts are right (0, 5, 10 g each week; tomato mass measured). But the explanation rests on
+"The independent variable is the one the experimenter changes on purpose", and the cited CB1.2 never
+uses the terms independent or dependent variable (it only says "A variable is any part of the
+experiment that can vary or change"). Add a source that defines them, e.g. OpenStax Psychology 2e
+2.3 Analyzing Findings (https://openstax.org/books/psychology-2e/pages/2-3-analyzing-findings):
+"An independent variable is manipulated or controlled by the experimenter" and "A dependent variable
+is what the researcher measures". Content itself is correct.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0002"
+kind = "question"
+hash = "adb83b051dc23e6e"
+reviewer = "checker"
+role = "factcheck"
+verdict = "fix"
+note = '''
+Sorting is correct against the passage (fertilizer changed, mass measured, water and light the same).
+CB1.2 supports only "a control is a part of the experiment that does not change"; it does not define
+independent or dependent variables. Add OpenStax Psychology 2e 2.3 Analyzing Findings
+(https://openstax.org/books/psychology-2e/pages/2-3-analyzing-findings), which defines both.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0003"
+kind = "question"
+hash = "3321b7cb88213332"
+reviewer = "checker"
+role = "factcheck"
+verdict = "fix"
+note = '''
+Passage facts right (groups of 4 plants). The key idea, that more plants per group make averages more
+trustworthy (sample size), is not in CB1.2. Add a source: OpenStax Psychology 2e 2.3 Analyzing
+Findings says random samples help "if the sample is large enough", and discusses replication.
+Answer and wrong choices are otherwise sound.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0004"
+kind = "question"
+hash = "96bd67e0120eaa5b"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Passage: three cups wrapped, one unwrapped, same table. CB1.2 describes controls as the comparison
+cases (the salt ponds vs the phosphate ponds) and "a control is a part of the experiment that does not
+change". Unwrapped cup as control to compare against is correct; wrong choices are defensibly wrong.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0005"
+kind = "question"
+hash = "51f5c86b6a5a88ea"
+reviewer = "checker"
+role = "factcheck"
+verdict = "fix"
+note = '''
+Numbers check out: wool 66 °C vs 52-61 °C for the others; all started at 80 °C; foil 55 vs none 52 is
+3 °C warmer. Problem: the item calls an "If ..., then ..." sentence a hypothesis, cites only the
+passage, and the course's own source (CB1.2) says: "A prediction is similar to a hypothesis but it
+typically has the format 'If . . . then . . . .'" So either (a) cite a source that accepts the
+if/then form as a hypothesis statement, or (b) word the hypothesis as an explanation (e.g. "Wool slows
+heat loss from the water more than foil or cotton does") or call the sentence a prediction. In any
+case add a source for what a hypothesis is.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0006"
+kind = "question"
+hash = "05e1e026c222b4dd"
+reviewer = "checker"
+role = "factcheck"
+verdict = "fix"
+note = '''
+Reasoning is correct (a second difference, sunlight, is confounded with the wrapping). But the
+explanation's general claim "In a fair test, only the wrapping changes from cup to cup" is an
+outside fact and only the passage is cited. Add a source, e.g. OpenStax Psychology 2e 2.3 Analyzing
+Findings ("experimental manipulation is the only difference between the experimental and control
+groups"; confounding variables) or Biology 2e 1.1 ("The control group contains every feature of the
+experimental group except ...").
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0007"
+kind = "question"
+hash = "7a5f871800c53594"
+reviewer = "checker"
+role = "factcheck"
+verdict = "fix"
+note = '''
+Data right (82, 85, 79 cm at 10 cm). CB1.2 does not discuss repeated trials within one experiment
+(it only says other scientists reproduce experiments). Add a source for why trials are repeated, e.g.
+OpenStax College Physics 2e 1.3 Accuracy, Precision, and Significant Figures (repeated measurements,
+"All measurements contain some amount of uncertainty").
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0008"
+kind = "question"
+hash = "d39da349de7a2be7"
+reviewer = "checker"
+role = "factcheck"
+verdict = "fix"
+note = '''
+Internally consistent: 158 and 162 cm match the class's 20 cm results (158-165), 210 is the outlier
+with a known cause. Answer is right. But "a known error should be redone, not averaged" is an outside
+methods claim and only the passage is cited. Add a source on measurement error, e.g. OpenStax College
+Physics 2e 1.3 (sources of uncertainty include "the skill of the person making the measurement").
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0009"
+kind = "question"
+hash = "01fd0ec02d644212"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Steps match the passage (roll from a set height, measure distance across the floor past the ramp).
+No outside facts beyond common procedure; one defensible order. Source (passage) is adequate.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0010"
+kind = "question"
+hash = "1d6469dc62d62fc9"
+reviewer = "checker"
+role = "factcheck"
+verdict = "fix"
+note = '''
+Passage facts right (balloon width measured; temperature changed). The definition "The dependent
+variable is what the experimenter measures" is not in CB1.2. Add OpenStax Psychology 2e 2.3 Analyzing
+Findings: "A dependent variable is what the researcher measures to see how much effect the
+independent variable had."
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0011"
+kind = "question"
+hash = "6285cd115c6b9105"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Passage: same yeast, sugar and water, only temperature differs; balloons catch the gas. CB4.4
+confirms fermentation happens "in the absence of oxygen" and releases carbon dioxide, so the
+oxygen distractor is wrong; CB1.2 confirms a hypothesis is a testable suggested explanation, which
+fits the keyed choice (not an if/then form). Correct.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0012"
+kind = "question"
+hash = "c2ad27fc78bdcaab"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Checked against the passage: temperatures 10, 25, 40, 60 °C; widths 3, 9, 14, 2 cm (largest at 40);
+one bottle per temperature; same amounts of yeast. CB1.2 also backs the point that data support but
+do not prove a claim. Optional: list CB1.2 in sources. Correct.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0013"
+kind = "question"
+hash = "0c90d0891bf2ffa1"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Passage: identical trays, same angle, same 1 L poured the same way; only grass vs bare differs; soil
+washed off is measured. All statements in answer, explanation and mistake match. No outside facts.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0014"
+kind = "question"
+hash = "4187626f5e9000de"
+reviewer = "checker"
+role = "factcheck"
+verdict = "fix"
+note = '''
+Passage fact right (one tray of each). The explanation relies on the outside methods claim that
+testing several of each shows whether a difference holds up (replication / sample size), and only the
+passage is cited. Add a source, e.g. OpenStax Psychology 2e 2.3 Analyzing Findings (sample size,
+replication). Answer and distractors otherwise fine.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0015"
+kind = "question"
+hash = "a06d6403c5f3d065"
+reviewer = "checker"
+role = "factcheck"
+verdict = "fix"
+note = '''
+The explanation quotes CB1.2's definition ("a suggested explanation that can be tested", nearly word
+for word from CB1.2, which is fine to paraphrase) but then labels an "If ..., then ..." sentence the
+hypothesis. CB1.2, the only source, says that format is a PREDICTION. Fix: reword the keyed choice as
+an explanation (e.g. "Warmer temperatures make mold grow faster on bread") or cite a source that uses
+the if/then form for hypotheses. The science claim (warmth speeds mold growth) is fine.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0016"
+kind = "question"
+hash = "963059f7dcc3bb6a"
+reviewer = "checker"
+role = "factcheck"
+verdict = "fix"
+note = '''
+Content correct, but the cited CB1.2 says nothing about tools or units. Add a source: OpenStax College
+Physics 2e 13.1 Temperature (https://openstax.org/books/college-physics-2e/pages/13-1-temperature):
+"temperature is the quantity measured by a thermometer", with the Celsius scale.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0017"
+kind = "question"
+hash = "dbcd83ca1925df97"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+No factual claim about salt water is asserted (premise only, and it is true that salt lowers the
+freezing point, so the test is sensible). Steps follow CB1.2's idea that everything but the tested
+variable is kept the same (equal volumes, identical cups, same freezer and time). One defensible order.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0018"
+kind = "question"
+hash = "397b646f5495331c"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Verified the geometry: if the ruler's end is the 1 cm mark, a 4 cm seedling reaches the 5 cm mark, so
+every reading is 1 cm too tall; subtracting 1 cm corrects it. Self-contained reasoning. Optional:
+cite OpenStax College Physics 2e 1.3 (accuracy, limits of the measuring device) instead of CB1.2,
+which does not discuss measurement error.
+'''
+date = "2026-11-12"

@@ -1,0 +1,172 @@
+# Review notes for stimuli-science. Non-math items need two solvers and a fact-checker.
+
+[[review]]
+id = "science-fertilizer"
+kind = "stimulus"
+hash = "dd83f0a720a01523"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+note = "Clear, short, realistic; numbers consistent (12 plants = 3 groups of 4); controlled variables stated; marked as made-up data; metric units. Gives away nothing beyond what the questions fairly ask."
+date = "2026-11-12"
+
+[[review]]
+id = "science-insulation"
+kind = "stimulus"
+hash = "c2a65989d9cbb48c"
+reviewer = "solver-a"
+role = "solver"
+verdict = "fix"
+note = '''Realistic and consistent data (all below 80 °C start; foil slightly better than none; wool best). One ambiguity: "She wraps three of the cups in a different material" can be read as all three wrapped in one (different) material. Reword: "She wraps each of three cups in a different material and leaves the fourth cup unwrapped."'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-ramp"
+kind = "stimulus"
+hash = "e181892e65bdafde"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+note = "Clear and short. Data realistic (distance roughly proportional to height, small trial-to-trial spread). Units cm throughout."
+date = "2026-11-12"
+
+[[review]]
+id = "science-yeast"
+kind = "stimulus"
+hash = "bcfb1c49d9db194e"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+note = "Clear; fermentation fact stated correctly; same yeast, sugar and water stated as controlled; data realistic (peak near 40 °C, drop at 60 °C as heat harms yeast). Reading level fine."
+date = "2026-11-12"
+
+[[review]]
+id = "science-erosion"
+kind = "stimulus"
+hash = "985bc4e8a36b8b0f"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+note = "Clear, short; controlled variables (identical trays, same angle, same 1 liter poured the same way) stated; realistic data; US spelling 'liter'."
+date = "2026-11-12"
+
+[[review]]
+id = "science-fertilizer"
+kind = "stimulus"
+hash = "dd83f0a720a01523"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+note = "Clear, short, realistic design (same kind of plant, same greenhouse, same water and light; 3 groups of 4). Numbers consistent (12 = 3 x 4); results plausible and labeled made-up. Metric units, reading level fine."
+date = "2026-11-12"
+
+[[review]]
+id = "science-insulation"
+kind = "stimulus"
+hash = "c2a65989d9cbb48c"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+note = '''Clear and realistic; all cups start at 80 C and every result is below that; ranking (none < foil < cotton < wool) is plausible. Optional wording polish: "She wraps three of the cups in a different material" could read "each in a different material"; the table makes it clear, so not a fix.'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-ramp"
+kind = "stimulus"
+hash = "e181892e65bdafde"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+note = "Clear and short. Three trials per height with a small realistic spread; distance roughly proportional to height, which is physically plausible. Metric units."
+date = "2026-11-12"
+
+[[review]]
+id = "science-yeast"
+kind = "stimulus"
+hash = "bcfb1c49d9db194e"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+note = "Clear; the fermentation sentence is correct (yeast are fungi; fermentation releases CO2). Same yeast, sugar and water in each bottle. Results plausible: rise to 40 C, then drop at 60 C as heat harms yeast. Reading level fine."
+date = "2026-11-12"
+
+[[review]]
+id = "science-erosion"
+kind = "stimulus"
+hash = "985bc4e8a36b8b0f"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+note = "Clear controlled design (identical trays, same tilt, 1 liter poured the same way); grass sharply reduces soil loss, which is realistic. Metric units, US spelling."
+date = "2026-11-12"
+
+[[review]]
+id = "science-fertilizer"
+kind = "stimulus"
+hash = "dd83f0a720a01523"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Source "Original (made-up results for practice)" is honest; text is not copied from anything I found.
+Results internally consistent (12 plants = 3 groups of 4; mass rises 410, 620, 640 g with diminishing
+return) and plausible. No general science claims.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-insulation"
+kind = "stimulus"
+hash = "c2a65989d9cbb48c"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Original, honest source line. 200 mL at 80 °C cooling to 52 °C unwrapped in 20 minutes is plausible;
+ranking none < foil < cotton < wool is physically reasonable (foil adds little insulation, wool traps
+air). Internally consistent; no copied text.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-ramp"
+kind = "stimulus"
+hash = "e181892e65bdafde"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Original, honest source line. Distance roughly proportional to height (about 82, 161, 242 cm averages),
+as expected when the car's energy grows with drop height; trial spread is realistic. No copied text.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-yeast"
+kind = "stimulus"
+hash = "bcfb1c49d9db194e"
+reviewer = "checker"
+role = "factcheck"
+verdict = "fix"
+note = '''
+CB4.4 confirms fermentation works "in the absence of oxygen" and that yeast fermentation releases
+carbon dioxide as a gas. But "Yeast are tiny living fungi" is NOT in CB4.4 (it never calls yeast fungi),
+while the source line credits the facts to 4.4 only. Add OpenStax Concepts of Biology 13.4 Fungi
+(https://openstax.org/books/concepts-biology/pages/13-4-fungi): "Unicellular fungi are generally
+referred to as yeasts." Results (peak at 40 °C, near nothing at 10 and 60 °C) are plausible and
+consistent; source label otherwise honest; no copied text.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-erosion"
+kind = "stimulus"
+hash = "985bc4e8a36b8b0f"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Original, honest source line. Grass cover sharply reducing soil loss (40 g vs 310 g) is plausible and
+in the expected direction. Internally consistent; no copied text.
+'''
+date = "2026-11-12"

@@ -498,6 +498,7 @@ principle = "SP.2.a"
 search = "sources of error in experiments"
 links = [
   { title = "OpenStax Concepts of Biology, 1.2 The process of science", url = "https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science" },
+  { title = "OpenStax College Physics 2e, 1.3 Accuracy, precision, and significant figures", url = "https://openstax.org/books/college-physics-2e/pages/1-3-accuracy-precision-and-significant-figures" },
 ]
 
 [[topic]]
@@ -521,6 +522,7 @@ principle = "SP.2.d"
 search = "planning a science experiment"
 links = [
   { title = "OpenStax Concepts of Biology, 1.2 The process of science", url = "https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science" },
+  { title = "OpenStax Chemistry 2e, 1.4 Measurements", url = "https://openstax.org/books/chemistry-2e/pages/1-4-measurements" },
 ]
 
 [[topic]]
@@ -529,4 +531,5 @@ search = "independent dependent and controlled variables"
 links = [
   { title = "OpenStax Concepts of Biology, 1.2 The process of science", url = "https://openstax.org/books/concepts-biology/pages/1-2-the-process-of-science" },
   { title = "OpenStax Biology 2e, 1.1 The science of biology", url = "https://openstax.org/books/biology-2e/pages/1-1-the-science-of-biology" },
+  { title = "OpenStax Psychology 2e, 2.3 Analyzing findings", url = "https://openstax.org/books/psychology-2e/pages/2-3-analyzing-findings" },
 ]

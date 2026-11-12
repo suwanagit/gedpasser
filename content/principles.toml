@@ -1222,10 +1222,11 @@ status = "draft"
 name = "Hypotheses"
 summary = "Pick or write a hypothesis that an investigation can test."
 lesson = '''
-A hypothesis is a suggested explanation that can be tested. A good one names what will be changed and what will be measured.
+A hypothesis is a suggested explanation that can be tested. A good one names a cause and an effect you can measure.
 
-- "If plants get more light, then they will grow taller" can be tested.
+- "Plants grow taller when they get more light" can be tested.
 - "Plants are beautiful" cannot.
+- An "if... then..." sentence is a prediction made from a hypothesis: "If I give this plant more light, then it will grow taller."
 - The hypothesis an experiment tests is about the one thing the experimenter changed on purpose.
 '''
 
@@ -1269,5 +1270,5 @@ lesson = '''
 - Controlled variables are kept the same for every group, so they can't explain the results.
 - A control group gets no change at all, to compare against.
 
-Example: testing fertilizer on plants, the fertilizer amount is independent, plant growth is dependent, and water and light are controlled.
+Example: testing whether study time affects quiz scores, study time is independent, the quiz score is dependent, and using the same quiz for everyone keeps it controlled.
 '''
