@@ -51,9 +51,9 @@ fn question<'a>(r: &'a Report, id: &str) -> &'a ged_content::Question {
 fn approve_flips_only_current_passes() {
     let root = copy_tree("good", "approve");
     let r = check_content(&root);
-    let h1 = question_hash(question(&r, "q-ratios-percent-0001"));
-    let h2 = question_hash(question(&r, "q-ratios-percent-0002"));
-    let h3 = question_hash(question(&r, "q-ratios-percent-0003"));
+    let h1 = question_hash(question(&r, "q-ratios-percent-0001"), None);
+    let h2 = question_hash(question(&r, "q-ratios-percent-0002"), None);
+    let h3 = question_hash(question(&r, "q-ratios-percent-0003"), None);
     let lesson = lesson_hash(r.principles.iter().find(|p| p.id == "Q.3.a").unwrap());
     write_reviews(
         &root,

@@ -251,6 +251,12 @@ pub(crate) fn check_journey(root: &Path, report: &mut Report) {
     }
     let Some(file) = read_toml::<JourneyFile>(&path, report) else { return };
     let known: HashSet<&str> = report.principles.iter().map(|p| p.id.as_str()).collect();
+    let skill_subject: HashMap<&str, &str> = report.skills.iter().map(|s| (s.id.as_str(), s.subject.as_str())).collect();
+    let principle_subject: HashMap<&str, &str> = report
+        .principles
+        .iter()
+        .filter_map(|p| skill_subject.get(p.skill.as_str()).map(|sub| (p.id.as_str(), *sub)))
+        .collect();
     let mut ids = HashSet::new();
     let mut taught: HashMap<String, String> = HashMap::new();
     // Questions available per principle, for checking each stage can fill.
@@ -261,19 +267,32 @@ pub(crate) fn check_journey(root: &Path, report: &mut Report) {
         }
     }
     let mut diags = Vec::new();
-    let mut since_checkpoint: Vec<&str> = Vec::new();
-    let mut all_so_far: Vec<&str> = Vec::new();
-    let mut last_day = 0u8;
-    for (i, s) in file.stage.iter().enumerate() {
+    // Each subject has its own week path; these track the one each stage is on.
+    let mut since_checkpoint: HashMap<&str, Vec<&str>> = HashMap::new();
+    let mut all_so_far: HashMap<&str, Vec<&str>> = HashMap::new();
+    let mut last_day: HashMap<&str, u8> = HashMap::new();
+    for s in file.stage.iter() {
+        let sub = s.subject.as_str();
+        let first = !last_day.contains_key(sub);
         let mut err = |m: String| diags.push((Level::Error, Some(s.id.clone()), m));
+        if !report.subjects.iter().any(|x| x.id == s.subject) {
+            err(format!("unknown subject {:?}", s.subject));
+        }
+        let prev = last_day.get(sub).copied().unwrap_or(0);
         if !(1..=7).contains(&s.day) {
             err("day must be 1–7".into());
-        } else if s.day < last_day || s.day > last_day + 1 {
-            err(format!("days must run in order with no gaps (day {} after day {last_day})", s.day));
+        } else if first && s.day != 1 {
+            err(format!("the {sub} path must start on day 1"));
+        } else if s.day < prev || s.day > prev + 1 {
+            err(format!("days must run in order with no gaps (day {} after day {prev})", s.day));
         }
-        last_day = last_day.max(s.day);
+        last_day.insert(sub, prev.max(s.day));
         let pool: Vec<&str> = if s.checkpoint {
-            if s.cumulative { all_so_far.clone() } else { since_checkpoint.clone() }
+            if s.cumulative {
+                all_so_far.get(sub).cloned().unwrap_or_default()
+            } else {
+                since_checkpoint.get(sub).cloned().unwrap_or_default()
+            }
         } else {
             s.principles.iter().map(String::as_str).collect()
         };
@@ -282,10 +301,10 @@ pub(crate) fn check_journey(root: &Path, report: &mut Report) {
             err(format!("only {have} questions exist for this stage's principles, but size is {}", s.size));
         }
         if s.checkpoint {
-            since_checkpoint.clear();
+            since_checkpoint.entry(sub).or_default().clear();
         } else {
-            since_checkpoint.extend(s.principles.iter().map(String::as_str));
-            all_so_far.extend(s.principles.iter().map(String::as_str));
+            since_checkpoint.entry(sub).or_default().extend(s.principles.iter().map(String::as_str));
+            all_so_far.entry(sub).or_default().extend(s.principles.iter().map(String::as_str));
         }
         if !ids.insert(s.id.clone()) {
             err("duplicate stage id".into());
@@ -303,8 +322,8 @@ pub(crate) fn check_journey(root: &Path, report: &mut Report) {
             if !s.principles.is_empty() {
                 err("a checkpoint takes no principles (it mixes the stages before it)".into());
             }
-            if i == 0 {
-                err("the journey can't start with a checkpoint".into());
+            if first {
+                err("a path can't start with a checkpoint".into());
             }
         } else if s.principles.is_empty() {
             err("a stage needs at least one principle".into());
@@ -312,13 +331,12 @@ pub(crate) fn check_journey(root: &Path, report: &mut Report) {
         for p in &s.principles {
             if !known.contains(p.as_str()) {
                 err(format!("unknown principle {p}"));
+            } else if principle_subject.get(p.as_str()).is_some_and(|sub| *sub != s.subject) {
+                err(format!("principle {p} belongs to another subject than this stage ({})", s.subject));
             } else if let Some(other) = taught.insert(p.clone(), s.id.clone()) {
                 err(format!("principle {p} is already taught in {other}"));
             }
         }
-    }
-    if file.stage.first().is_some_and(|s| s.day != 1) {
-        diags.push((Level::Error, None, "the path must start on day 1".into()));
     }
     for (level, id, m) in diags {
         report.diagnostics.push(crate::Diagnostic { level, file: path.clone(), id, message: m });
