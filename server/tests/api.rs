@@ -700,16 +700,16 @@ async fn second_subject_formats_paths_and_tests() {
         subjects.as_array().unwrap().iter().filter(|s| s["ready"] == true).map(|s| s["id"].as_str().unwrap()).collect();
     assert_eq!(ready, vec!["math", "science"]);
     let sci = subjects.as_array().unwrap().iter().find(|s| s["id"] == "science").unwrap();
-    assert_eq!(sci["stages_total"], 5, "the real Day 1 sets plus the demo path");
+    assert_eq!(sci["stages_total"], 3, "the demo path only: real Science is left out");
     assert_eq!(sci["calculator"], true);
 
     // Skills and the path are per subject.
     let (_, skills, _) = call(r, "GET", "/api/skills?subject=science", Some(&cookie), None).await;
-    assert_eq!(skills.as_array().unwrap().len(), 3, "s-investigations plus the two demo skills");
+    assert_eq!(skills.as_array().unwrap().len(), 2, "the two demo skills");
     let (_, math_skills, _) = call(r, "GET", "/api/skills", Some(&cookie), None).await;
     assert_eq!(math_skills.as_array().unwrap().len(), 13);
     let (_, path, _) = call(r, "GET", "/api/journey?subject=science", Some(&cookie), None).await;
-    assert_eq!(path["current"], "sci-d1a", "the real Science path comes first");
+    assert_eq!(path["current"], "demo-d1a");
     let (_, math_path, _) = call(r, "GET", "/api/journey", Some(&cookie), None).await;
     assert_eq!(math_path["current"], "d1a", "math progress is separate");
 
@@ -763,6 +763,7 @@ async fn second_subject_formats_paths_and_tests() {
         let first = stims.iter().position(|s| s == &Some(*id)).unwrap();
         let count = stims.iter().filter(|s| *s == &Some(*id)).count();
         assert!(stims[first..first + count].iter().all(|s| s == &Some(*id)), "{id} kept together: {stims:?}");
+        assert!(count <= 3, "{id}: at most 3 questions from one passage: {stims:?}");
     }
     assert!(paper["questions"].as_array().unwrap().iter().all(|q| q["subject"] == "science"));
 }

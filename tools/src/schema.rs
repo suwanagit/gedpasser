@@ -56,6 +56,10 @@ pub struct Subject {
     /// warning the reviewer must answer.
     #[serde(default)]
     pub passage_grade: Option<f64>,
+    /// Most questions a practice test takes from one passage (default 3, as
+    /// on the real Science and Social Studies tests).
+    #[serde(default)]
+    pub set_max: Option<usize>,
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -91,6 +95,7 @@ impl Subject {
             ],
             test: vec![shape("short", 10, 25), shape("long", 25, 60), shape("full", 46, 115)],
             passage_grade: None,
+            set_max: None,
         }
     }
 }

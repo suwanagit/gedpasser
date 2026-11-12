@@ -553,5 +553,6 @@ links = [
 principle = "SP.6.c"
 search = "how to describe a data table in words"
 links = [
-  { title = "Math is Fun, Data graphs", url = "https://www.mathsisfun.com/data/data-graph.html" },
+  { title = "Math is Fun: Bar Graphs", url = "https://www.mathsisfun.com/data/bar-graphs.html" },
+  { title = "OpenStax Introductory Statistics 2e, 2.1 Stem and leaf graphs stemplots line graphs and bar graphs", url = "https://openstax.org/books/introductory-statistics-2e/pages/2-1-stem-and-leaf-graphs-stemplots-line-graphs-and-bar-graphs" },
 ]

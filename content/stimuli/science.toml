@@ -57,7 +57,7 @@ source = "Original (made-up results for practice)"
 
 [[stimulus]]
 id = "science-body-temperature"
-status = "draft"
+status = "reviewed"
 title = "Keeping body temperature steady"
 text = '''
 Your body works best when its inside temperature stays close to 37 °C. Keeping conditions inside the body steady like this is called homeostasis. The steady value the body aims for is called the set point.
@@ -70,7 +70,7 @@ source = "Original (facts from OpenStax Anatomy and Physiology 2e 1.5 Homeostasi
 
 [[stimulus]]
 id = "science-photosynthesis"
-status = "draft"
+status = "reviewed"
 title = "How plants make food"
 text = '''
 Plants make their own food by photosynthesis. Their leaves take in carbon dioxide from the air, and the plant takes in water. Using energy from sunlight, the plant turns these starting materials into a sugar called glucose. It gives off oxygen as well.
@@ -94,7 +94,7 @@ Conduction is heat moving through matter that is touching. When a metal pan sits
 
 Convection is heat carried by a moving liquid or gas. In a pot of water on the stove, the water at the bottom warms up and rises. Cooler water sinks to take its place, and the water keeps circling.
 
-Radiation is heat carried by light and other waves, such as infrared waves. It does not need any matter. This is how heat from the Sun reaches Earth through empty space, and how you feel warmth on your face from a campfire.
+Radiation is heat carried by light and waves like it, such as infrared waves. It does not need any matter. This is how heat from the Sun reaches Earth through empty space, and how you feel warmth on your face from a campfire.
 '''
 source = "Original (facts from OpenStax College Physics 2e 14.1 Heat, 14.4 Heat Transfer Methods, 14.6 Convection and 14.7 Radiation)"
 
@@ -105,7 +105,7 @@ title = "Energy in a food chain"
 text = '''
 In a meadow, grasshoppers eat grass, mice eat grasshoppers, and snakes eat mice. Each step in a food chain is called a trophic level. Grass is a producer: it makes its own food using energy from sunlight. The animals are consumers: they get energy by eating other living things.
 
-A student made a model of how much energy each level of this food chain holds in one year. The numbers are made up, but they show a pattern scientists see in real food chains.
+A student made a model of how much energy each level of this food chain holds in one year. The numbers are made up, but real food chains follow the same pattern: each level up the chain holds much less energy than the level it feeds on.
 '''
 table = { headers = ["Trophic level", "Living thing", "Energy (kJ per square meter per year)"], rows = [["1", "Grass", "20,000"], ["2", "Grasshoppers", "2,000"], ["3", "Mice", "200"], ["4", "Snakes", "20"]] }
 source = "Original (made-up numbers for practice; facts from OpenStax Concepts of Biology 20.1 Energy Flow through Ecosystems)"
@@ -117,7 +117,7 @@ title = "The water cycle"
 text = '''
 Earth's water is always on the move. This movement is called the water cycle, and energy from the Sun drives it.
 
-The Sun warms oceans, lakes and rivers. Some of the water evaporates, which means it changes from a liquid into a gas called water vapor. The water vapor rises into the air. As it cools, it condenses into tiny droplets that form clouds. When the droplets grow heavy enough, they fall as precipitation: rain or snow. Some of this water flows over the ground into streams and rivers. This is called runoff. Some soaks into the ground and becomes groundwater.
+The Sun warms oceans, lakes and rivers. Some of the water evaporates, which means it changes from a liquid into a gas called water vapor. The water vapor rises into the air. As it cools, it condenses into tiny droplets that form clouds. In time, the droplets fall as precipitation: rain or snow. Some of this water flows over the ground into streams and rivers. This is called runoff. Some soaks into the ground and becomes groundwater.
 
 As the table shows, very little of Earth's water is fresh water. Almost all fresh water is frozen in ice or held underground. Less than 1 percent of fresh water is in lakes and rivers.
 '''

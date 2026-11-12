@@ -106,6 +106,19 @@ pub(crate) fn pick(state: &AppState, subject: &ged_content::Subject, n: usize, f
             }
         }
     }
+    // A passage can carry more questions for practice, but a test shows at
+    // most `set_max` of them (default 3, as on the real Science and Social
+    // Studies tests), picked at random and kept in file order.
+    let set_max = subject.set_max.unwrap_or(3).max(1);
+    for u in &mut units {
+        if u.ids.len() > set_max {
+            let mut keep: Vec<usize> = (0..u.ids.len()).collect();
+            shuffle(&mut keep);
+            keep.truncate(set_max);
+            keep.sort();
+            u.ids = keep.into_iter().map(|i| u.ids[i].clone()).collect();
+        }
+    }
     let mut out: Vec<Vec<String>> = Vec::new();
     let mut given = 0;
     let last = subject.domain.len().saturating_sub(1);

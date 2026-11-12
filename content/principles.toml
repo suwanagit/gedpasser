@@ -1276,7 +1276,7 @@ Example: testing whether study time affects quiz scores, study time is independe
 [[principle]]
 id = "SP.1.a"
 skill = "s-reading"
-status = "draft"
+status = "reviewed"
 name = "Main idea and details"
 summary = "Find what a science passage is mostly about, and pick out what it says."
 lesson = '''
@@ -1297,7 +1297,7 @@ lesson = '''
 Science passages often explain a new word right where they use it.
 
 - Look for "is called", "means", or a definition after a comma or colon.
-- Symbols have fixed meanings: in a chemical equation, the arrow means "react to make", and (s), (l), (g) and (aq) mean solid, liquid, gas, and dissolved in water.
+- Symbols work the same way: a passage or a key often says what a symbol stands for the first time it appears. Some, like °C for degrees Celsius, are worth knowing by heart.
 - Check your answer by putting it in place of the word. The sentence should still make sense.
 '''
 
@@ -1312,5 +1312,5 @@ To put a table into words, look for the pattern first, then check the numbers.
 
 - Read the column headings and units before the numbers.
 - Ask: what goes up, what goes down, and what is biggest or smallest?
-- A comparison like "one-tenth" or "1 out of 40" must match the numbers. Divide to check.
+- A comparison like "half" or "1 out of 20" must match the numbers. Divide to check.
 '''

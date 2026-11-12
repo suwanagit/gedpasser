@@ -2,7 +2,7 @@
 
 [[card]]
 id = "SP.1.a"
-status = "draft"
+status = "reviewed"
 title = "Main idea"
 key = "The main idea covers the whole passage, not one detail."
 steps = [
@@ -30,7 +30,7 @@ example = '''
 "Plants lose water through transpiration, the escape of water vapor from leaves."
 **Transpiration** means water vapor escaping from leaves.
 '''
-hack = '(s) solid, (l) liquid, (g) gas, (aq) dissolved in water.'
+hack = 'The definition is usually within one sentence of the word: read the sentence before and after.'
 
 [[card]]
 id = "SP.6.c"
@@ -46,4 +46,4 @@ example = '''
 Day 1: 40 seeds sprouted. Day 2: 20. Day 3: 10.
 **In words:** each day, half as many sprouted as the day before.
 '''
-hack = 'Headings first, numbers second.'
+hack = 'Say the pattern in one plain sentence, then check it with one division.'

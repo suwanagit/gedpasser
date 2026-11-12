@@ -11,7 +11,7 @@ principle = "SP.1.a"
 topic = "L.a.2"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-body-temperature"
 sources = ["Original passage science-body-temperature", "OpenStax Anatomy and Physiology 2e 1.5 Homeostasis: https://openstax.org/books/anatomy-and-physiology-2e/pages/1-5-homeostasis", "OpenStax Concepts of Biology 16.1 Homeostasis and Osmoregulation: https://openstax.org/books/concepts-biology/pages/16-1-homeostasis-and-osmoregulation"]
 prompt = "What is the main idea of the passage?"
@@ -31,7 +31,7 @@ principle = "SP.1.b"
 topic = "L.a.2"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-body-temperature"
 sources = ["Original passage science-body-temperature", "OpenStax Anatomy and Physiology 2e 1.5 Homeostasis: https://openstax.org/books/anatomy-and-physiology-2e/pages/1-5-homeostasis"]
 prompt = "In the passage, what does homeostasis mean?"
@@ -50,7 +50,7 @@ principle = "SP.1.a"
 topic = "L.a.2"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-body-temperature"
 sources = ["Original passage science-body-temperature", "OpenStax Anatomy and Physiology 2e 1.5 Homeostasis: https://openstax.org/books/anatomy-and-physiology-2e/pages/1-5-homeostasis", "OpenStax Concepts of Biology 16.1 Homeostasis and Osmoregulation: https://openstax.org/books/concepts-biology/pages/16-1-homeostasis-and-osmoregulation"]
 prompt = "According to the passage, how is the body's response to cold different from its response to heat?"
@@ -70,7 +70,7 @@ principle = "SP.1.b"
 topic = "L.a.2"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-body-temperature"
 sources = ["Original passage science-body-temperature", "OpenStax Anatomy and Physiology 2e 1.5 Homeostasis: https://openstax.org/books/anatomy-and-physiology-2e/pages/1-5-homeostasis", "OpenStax Concepts of Biology 16.1 Homeostasis and Osmoregulation: https://openstax.org/books/concepts-biology/pages/16-1-homeostasis-and-osmoregulation"]
 prompt = "As the passage uses the term, what is negative feedback?"
@@ -92,7 +92,7 @@ principle = "SP.1.b"
 topic = "L.b.1"
 difficulty = 1
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-photosynthesis"
 sources = ["Original passage science-photosynthesis", "OpenStax Concepts of Biology 5.1 Overview of Photosynthesis: https://openstax.org/books/concepts-biology/pages/5-1-overview-of-photosynthesis"]
 prompt = "In the passage, what are the products of photosynthesis?"
@@ -112,7 +112,7 @@ principle = "SP.1.a"
 topic = "L.b.1"
 difficulty = 2
 type = "dropdown"
-status = "draft"
+status = "reviewed"
 stimulus = "science-photosynthesis"
 sources = ["Original passage science-photosynthesis", "OpenStax Concepts of Biology 5.1 Overview of Photosynthesis: https://openstax.org/books/concepts-biology/pages/5-1-overview-of-photosynthesis"]
 prompt = "Complete the summary of the passage: plants use energy from {{1}} to turn carbon dioxide and water into {{2}} and oxygen."
@@ -134,7 +134,7 @@ principle = "SP.1.a"
 topic = "L.b.1"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 stimulus = "science-photosynthesis"
 sources = ["Original passage science-photosynthesis", "OpenStax Concepts of Biology 5.1 Overview of Photosynthesis: https://openstax.org/books/concepts-biology/pages/5-1-overview-of-photosynthesis"]
 prompt = "According to the passage, how does photosynthesis help animals that eat plants?"
@@ -160,7 +160,7 @@ status = "draft"
 stimulus = "science-heat-transfer"
 sources = ["Original passage science-heat-transfer", "OpenStax College Physics 2e 14.4 Heat Transfer Methods: https://openstax.org/books/college-physics-2e/pages/14-4-heat-transfer-methods"]
 prompt = "In the passage, what does conduction mean?"
-choices = ["Heat moving through matter that is touching", "Heat carried by a moving liquid or gas", "Heat carried by light and other waves", "Heat moving from cooler things to warmer things"]
+choices = ["Heat moving through matter that is touching", "Heat carried by a moving liquid or gas", "Heat carried by light and waves like it", "Heat moving from cooler things to warmer things"]
 answer = "Heat moving through matter that is touching"
 explanation = '''
 The passage says: "Conduction is heat moving through matter that is touching."
@@ -225,12 +225,12 @@ status = "draft"
 stimulus = "science-food-chain"
 sources = ["Original passage science-food-chain", "OpenStax Concepts of Biology 20.1 Energy Flow through Ecosystems: https://openstax.org/books/concepts-biology/pages/20-1-energy-flow-through-ecosystems"]
 prompt = "Which statement describes the table?"
-choices = ["Each level holds less energy than the level below it", "Each level holds more energy than the level below it", "Every level holds the same amount of energy", "The snakes hold the most energy"]
-answer = "Each level holds less energy than the level below it"
+choices = ["Each level holds less energy than the level before it", "Each level holds more energy than the level before it", "Every level holds the same amount of energy", "The snakes hold the most energy"]
+answer = "Each level holds less energy than the level before it"
 explanation = '''
 The energy goes 20,000, then 2,000, then 200, then 20.
 Each number is smaller than the one before it.
-So **each level holds less energy than the level below it**.
+So **each level holds less energy than the level before it**.
 '''
 common_mistake = "Thinking the top animal holds the most because it eats the others."
 
@@ -244,16 +244,17 @@ type = "dropdown"
 status = "draft"
 stimulus = "science-food-chain"
 sources = ["Original passage science-food-chain", "OpenStax Concepts of Biology 20.1 Energy Flow through Ecosystems: https://openstax.org/books/concepts-biology/pages/20-1-energy-flow-through-ecosystems"]
-prompt = "Complete the sentence about the table: each trophic level holds about {{1}} of the energy of the level below it, so the {{2}} hold the least energy."
+prompt = "Complete the sentence about the table: each trophic level holds about {{1}} of the energy of the level before it, so the {{2}} hold the least energy."
 blanks = [
-  { choices = ["one-tenth", "one-half", "ten times"], answer = "one-tenth" },
+  { choices = ["one-tenth", "one-half", "one-hundredth"], answer = "one-tenth" },
   { choices = ["snakes", "grasshoppers", "grass"], answer = "snakes" },
 ]
 explanation = '''
-2,000 ÷ 20,000 = 0.1, and 200 ÷ 2,000 = 0.1. That is **one-tenth** each time.
-The smallest number, 20, belongs to the **snakes**.
+2,000 ÷ 20,000 = 0.1, 200 ÷ 2,000 = 0.1, and 20 ÷ 200 = 0.1. That is one-tenth each time.
+The smallest number, 20, belongs to the snakes.
+So each level holds about **one-tenth** of the energy of the level before it, and the **snakes** hold the least.
 '''
-common_mistake = "Picking \"ten times\". The energy shrinks going up the chain; it does not grow."
+common_mistake = "Picking one-hundredth by comparing levels two steps apart, like grass (20,000) and mice (200)."
 
 [[question]]
 id = "s-reading-0013"
@@ -312,7 +313,7 @@ The grass holds 20,000 and the snakes hold 20.
 20 ÷ 20,000 = 0.001, which is one-thousandth.
 So the snakes hold **one-thousandth of the energy the grass holds**.
 '''
-common_mistake = "Picking one-fourth because snakes are the fourth level. The energy shrinks to one-tenth at each of the three steps up."
+common_mistake = "Picking one-hundredth by stopping at the mice: 200 is one-hundredth of 20,000, but the snakes are one more step up."
 
 # ── The water cycle (science-water-cycle) ─────────────────────────────
 
@@ -354,8 +355,8 @@ items = [
 ]
 explanation = '''
 First the Sun warms the water. Then some of it evaporates and rises as water vapor.
-The vapor cools and condenses into clouds.
-Last, **the water falls as rain or snow**.
+The vapor cools and condenses into clouds, and last the water falls.
+So the order is: **Sun warms the water, water evaporates, vapor forms clouds, water falls as rain or snow**.
 '''
 common_mistake = "Putting clouds before evaporation. Clouds form from water vapor, so the water has to evaporate first."
 
@@ -407,7 +408,7 @@ principle = "SP.1.b"
 topic = "P.c.3"
 difficulty = 2
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 sources = ["OpenStax Chemistry 2e 4.1 Writing and Balancing Chemical Equations: https://openstax.org/books/chemistry-2e/pages/4-1-writing-and-balancing-chemical-equations"]
 prompt = "A science book shows this equation for burning methane: CH₄ + 2O₂ → CO₂ + 2H₂O. What does the arrow (→) mean?"
 choices = ["The substances on the left react to make the substances on the right", "The two sides are the same substance", "The substances on the right break down into the substances on the left", "The reaction gives off heat"]
@@ -426,7 +427,7 @@ principle = "SP.1.b"
 topic = "P.c.3"
 difficulty = 3
 type = "multiple_choice"
-status = "draft"
+status = "reviewed"
 sources = ["OpenStax Chemistry 2e 4.1 Writing and Balancing Chemical Equations: https://openstax.org/books/chemistry-2e/pages/4-1-writing-and-balancing-chemical-equations"]
 prompt = "In the equation Zn(s) + 2HCl(aq) → ZnCl₂(aq) + H₂(g), which product is a gas?"
 choices = ["H₂", "ZnCl₂", "Zn", "HCl"]

@@ -240,3 +240,117 @@ referred to as yeasts"; 4.4: fermentation works in the absence of oxygen and rel
 Every claim in the text is now covered; results plausible; no copied text.
 '''
 date = "2026-11-12"
+
+[[review]]
+id = "science-body-temperature"
+kind = "stimulus"
+hash = "fbcdef9d9cb8ac6a"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+note = "Clear, accurate, short; terms defined in context; no reading-level warning. Note for the author: 4 questions use it, above the 2-3 per passage in CONTENT_RULES (fine if the app draws a subset)."
+date = "2026-11-12"
+
+[[review]]
+id = "science-photosynthesis"
+kind = "stimulus"
+hash = "f444cdc11cdc0695"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+note = "Clear and correct; reactants and products defined; word equation matches the text. Realistic length, about grade 9-10."
+date = "2026-11-12"
+
+[[review]]
+id = "science-heat-transfer"
+kind = "stimulus"
+hash = "df153d55ad94fa1f"
+reviewer = "solver-c"
+role = "solver"
+verdict = "fix"
+note = '''
+Clear and well organized, but "Radiation is heat carried by light and other waves" is loose: "other waves" includes sound and water waves, which do not carry heat by radiation. Suggested rewrite: "Radiation is heat carried by light and waves like it, such as infrared waves." (or "by electromagnetic waves, such as light and infrared"). The three questions still work after this change.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-food-chain"
+kind = "stimulus"
+hash = "782e618f0b8344b8"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+note = "Clear; producer, consumer and trophic level defined; table clearly labeled made-up and shows the real 10% pattern. Note for the author: 5 questions use it, above the 2-3 per passage in CONTENT_RULES."
+date = "2026-11-12"
+
+[[review]]
+id = "science-water-cycle"
+kind = "stimulus"
+hash = "fe1c6aad9af7d6da"
+reviewer = "solver-c"
+role = "solver"
+verdict = "pass"
+note = "Clear, correct sequence, terms defined; table 97.5 + 2.5 = 100 and matches the text. Note: 4 questions use it (CONTENT_RULES suggests 2-3)."
+date = "2026-11-12"
+
+[[review]]
+id = "science-body-temperature"
+kind = "stimulus"
+hash = "fbcdef9d9cb8ac6a"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Source line starts with Original. Checked every claim: 37 C set point and normal range (A&P 2e 1.5); homeostasis and set point definitions (A&P 1.5, CoB 16.1); hypothalamus maintains the set point / "thermostat" (CoB 16.1); sweat evaporating carries heat away (A&P 1.5); vessels widen when hot, narrow when cold keeping blood toward the core (CoB 16.1, A&P 1.5); shivering as involuntary muscle activity that makes heat (CoB 16.1, A&P 1.5); negative feedback reverses deviation (A&P 1.5). 7-word shingle comparison with both pages found no copied runs.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-photosynthesis"
+kind = "stimulus"
+hash = "f444cdc11cdc0695"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Source line starts with Original. CoB 5.1 supports: CO2 + water -> glucose (most commonly) + oxygen using sunlight energy; reactants and products terms; sugars store energy the organism uses; animals that eat plants get that energy (deer example, Figure 5.3); gas exchange through stomata. Saying "a sugar called glucose" is a fair simplification of "carbohydrate molecules, most commonly glucose". No copied runs found.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-heat-transfer"
+kind = "stimulus"
+hash = "df153d55ad94fa1f"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Source line starts with Original. Warmer to cooler (14.1); exactly three methods with burner-to-pan conduction example (14.4); pot of water convection with warm water rising and cooler water sinking (14.6 Figure 14.18); radiation by electromagnetic waves incl. infrared, no medium needed, Sun across largely empty space, heat felt from a fire (14.4, 14.7). "Light and other waves, such as infrared waves" is a fair simplification of electromagnetic radiation. No copied runs found.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-food-chain"
+kind = "stimulus"
+hash = "782e618f0b8344b8"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "fix"
+note = '''
+Source line is fine (Original, made-up numbers labelled). Trophic level, producer and consumer definitions match CoB 20.1. Problem: the passage says the made-up numbers "show a pattern scientists see in real food chains", and the table's pattern is an exact one-tenth drop at every level (which Q12 and Q15 build on). CoB 20.1 only supports "each trophic level has less energy available" (Figure 20.5); it gives no size for the drop. Fix one of two ways: (a) add OpenStax Biology 2e 46.2 Energy Flow through Ecosystems (https://openstax.org/books/biology-2e/pages/46-2-energy-flow-through-ecosystems), which defines trophic level transfer efficiency, calls it low, and gives about 14.5 percent for Silver Springs, and say "roughly one-tenth" is a typical rule of thumb; or (b) narrow the sentence to "they show the pattern scientists see in real food chains: each level holds much less energy than the one below it."
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-water-cycle"
+kind = "stimulus"
+hash = "fe1c6aad9af7d6da"
+reviewer = "factcheck-b"
+role = "factcheck"
+verdict = "fix"
+note = '''
+Source line is fine (Original). CoB 20.2 supports: Sun drives the cycle by warming oceans and surface water; evaporation is water to water vapor; vapor condenses into clouds of droplets; precipitation as rain or snow; surface runoff; percolation into groundwater; 97.5% salt / 2.5% fresh; 99% of fresh water locked as ice or underground; less than 1% of fresh water in lakes and rivers (table matches exactly). One claim is not in the cited source: "When the droplets grow heavy enough, they fall as precipitation." CoB 20.2 only says the vapor condenses into clouds "and eventually leads to precipitation". Either reword to "Eventually the droplets fall as precipitation: rain or snow." or add a source that states the droplet-growth mechanism (e.g. a NOAA or NASA water-cycle page). Overlap check: only the short phrase "less than 1 percent of fresh water" matches the source, which is a fact statement and fine.
+'''
+date = "2026-11-12"
+
+# ── Study links (content/study.toml) ──────────────────────────────────
