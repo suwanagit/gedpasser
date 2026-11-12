@@ -700,16 +700,16 @@ async fn second_subject_formats_paths_and_tests() {
         subjects.as_array().unwrap().iter().filter(|s| s["ready"] == true).map(|s| s["id"].as_str().unwrap()).collect();
     assert_eq!(ready, vec!["math", "science"]);
     let sci = subjects.as_array().unwrap().iter().find(|s| s["id"] == "science").unwrap();
-    assert_eq!(sci["stages_total"], 3);
+    assert_eq!(sci["stages_total"], 5, "the real Day 1 sets plus the demo path");
     assert_eq!(sci["calculator"], true);
 
     // Skills and the path are per subject.
     let (_, skills, _) = call(r, "GET", "/api/skills?subject=science", Some(&cookie), None).await;
-    assert_eq!(skills.as_array().unwrap().len(), 2);
+    assert_eq!(skills.as_array().unwrap().len(), 3, "s-investigations plus the two demo skills");
     let (_, math_skills, _) = call(r, "GET", "/api/skills", Some(&cookie), None).await;
     assert_eq!(math_skills.as_array().unwrap().len(), 13);
     let (_, path, _) = call(r, "GET", "/api/journey?subject=science", Some(&cookie), None).await;
-    assert_eq!(path["current"], "sci-d1a");
+    assert_eq!(path["current"], "sci-d1a", "the real Science path comes first");
     let (_, math_path, _) = call(r, "GET", "/api/journey", Some(&cookie), None).await;
     assert_eq!(math_path["current"], "d1a", "math progress is separate");
 
@@ -756,10 +756,13 @@ async fn second_subject_formats_paths_and_tests() {
     assert_eq!(status, StatusCode::OK, "{paper}");
     assert_eq!(paper["subject"], "science");
     assert_eq!(paper["time_limit_secs"], 25 * 60);
+    // Every passage's questions sit next to each other.
     let stims: Vec<Option<&str>> = paper["questions"].as_array().unwrap().iter().map(|q| q["stimulus"]["id"].as_str()).collect();
-    let first = stims.iter().position(|s| *s == Some("science-plants")).expect("plant set included");
-    let count = stims.iter().filter(|s| **s == Some("science-plants")).count();
-    assert_eq!(count, 3);
-    assert!(stims[first..first + count].iter().all(|s| *s == Some("science-plants")), "set kept together: {stims:?}");
+    assert!(stims.iter().any(|s| s.is_some()), "some passage sets included: {stims:?}");
+    for id in stims.iter().flatten() {
+        let first = stims.iter().position(|s| s == &Some(*id)).unwrap();
+        let count = stims.iter().filter(|s| *s == &Some(*id)).count();
+        assert!(stims[first..first + count].iter().all(|s| s == &Some(*id)), "{id} kept together: {stims:?}");
+    }
     assert!(paper["questions"].as_array().unwrap().iter().all(|q| q["subject"] == "science"));
 }

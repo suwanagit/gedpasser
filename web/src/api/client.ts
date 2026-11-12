@@ -96,7 +96,7 @@ export const api = {
   stats: () => request<Stats>('GET', `/api/stats?tz=${tz()}`),
   plan: () => request<Plan>('GET', `/api/plan?tz=${tz()}`),
   setTestDate: (test_date: string | null) => request<void>('POST', '/api/me/test-date', { test_date }),
-  strategy: () => request<StrategyView>('GET', '/api/strategy'),
+  strategy: (subject = 'math') => request<StrategyView>('GET', `/api/strategy?subject=${subject}`),
   newTest: (kind: TestKind, subject = 'math') => request<TestPaper>('POST', '/api/tests', { kind, subject }),
   submitTest: (id: number, body: TestSubmission) => request<TestReport>('POST', `/api/tests/${id}/submit`, body),
   tests: (subject = 'math') => request<TestSummary[]>('GET', `/api/tests?subject=${subject}`),

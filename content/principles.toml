@@ -1204,7 +1204,7 @@ So $g$ grows faster, even though $f$ starts higher (2 compared with 1).
 [[principle]]
 id = "SP.2.a"
 skill = "s-investigations"
-status = "draft"
+status = "reviewed"
 name = "Finding and fixing errors"
 summary = "Spot what could make an investigation's results wrong, and change the design to fix it."
 lesson = '''
@@ -1218,7 +1218,7 @@ An error is anything that makes results less trustworthy: a measurement read wro
 [[principle]]
 id = "SP.2.b"
 skill = "s-investigations"
-status = "draft"
+status = "reviewed"
 name = "Hypotheses"
 summary = "Pick or write a hypothesis that an investigation can test."
 lesson = '''
@@ -1233,7 +1233,7 @@ A hypothesis is a suggested explanation that can be tested. A good one names a c
 [[principle]]
 id = "SP.2.c"
 skill = "s-investigations"
-status = "draft"
+status = "reviewed"
 name = "Strengths and weaknesses of a design"
 summary = "Judge whether an investigation is fair and reliable, and how to make it better."
 lesson = '''
@@ -1247,7 +1247,7 @@ A strong investigation changes one thing, keeps everything else the same, has a 
 [[principle]]
 id = "SP.2.d"
 skill = "s-investigations"
-status = "draft"
+status = "reviewed"
 name = "Planning an investigation"
 summary = "Put the steps of an investigation in order and choose the right tools and units."
 lesson = '''
@@ -1261,7 +1261,7 @@ A plan sets things up the same way for every group, makes one change, then measu
 [[principle]]
 id = "SP.2.e"
 skill = "s-investigations"
-status = "draft"
+status = "reviewed"
 name = "Variables and controls"
 summary = "Tell the independent, dependent and controlled variables apart, and see how they relate."
 lesson = '''

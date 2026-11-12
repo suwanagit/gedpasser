@@ -118,3 +118,22 @@ controls, control vs experimental groups and repeatable experiments. Gaps:
 SP.2.b and SP.2.c are fine as linked. Search words for all five make sense.
 '''
 date = "2026-11-12"
+
+# Round 2 (after fixes)
+
+[[review]]
+id = "study"
+kind = "study"
+hash = "cf37bc5685eed40c"
+reviewer = "checker"
+verdict = "pass"
+note = '''
+All three new links open and match their titles. College Physics 2e 1.3 (SP.2.a) covers accuracy,
+precision and sources of uncertainty. Psychology 2e 2.3 (SP.2.e) defines independent and dependent
+variables, experimental and control groups, and confounding. Chemistry 2e 1.4 (SP.2.d) teaches SI units
+well (meter, kilogram, second, kelvin and Celsius, liter, derived density units). Its coverage of
+tools is thin: it only names a scale and a balance, in the density examples. That is acceptable with
+the 1.2 scientific-method page; an optional improvement would be a page that shows more measuring
+tools. SP.2.b and SP.2.c unchanged and fine. The 62 math topics were spot-checked earlier.
+'''
+date = "2026-11-12"

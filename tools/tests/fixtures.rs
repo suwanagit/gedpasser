@@ -168,7 +168,8 @@ fn real_principles_cover_every_target() {
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("..").join("content");
     let r = check_content(&root);
     assert_eq!(r.errors(), 0, "cargo content should pass");
-    assert_eq!(r.principles.len(), 62);
+    let math: Vec<&str> = r.skills.iter().filter(|s| s.subject == "math").map(|s| s.id.as_str()).collect();
+    assert_eq!(r.principles.iter().filter(|p| math.contains(&p.skill.as_str())).count(), 62);
     assert!(r.questions.iter().all(|(_, q)| !q.principle.is_empty()));
 }
 
@@ -176,7 +177,7 @@ fn real_principles_cover_every_target() {
 fn real_skill_map_is_valid() {
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("..").join("content");
     let skills = ged_content::load_skills(&root).expect("content/skills.toml should be valid");
-    assert_eq!(skills.len(), 13);
+    assert_eq!(skills.iter().filter(|s| s.subject == "math").count(), 13);
 }
 
 #[test]
@@ -221,7 +222,7 @@ fn demo_bank_builds_clean() {
         eprintln!("{d}");
     }
     assert_eq!(r.errors(), 0);
-    assert_eq!(r.stimuli.len(), 2);
+    assert_eq!(r.stimuli.len(), 7, "five real Science passages plus two demo ones");
     assert!(r.questions.iter().any(|(_, q)| q.kind == ged_content::QuestionType::Sort));
 }
 
@@ -314,7 +315,11 @@ date = \"2026-11-12\"
 "
         ));
     }
-    std::fs::write(root.join("reviews").join("stimuli-science.toml"), text).unwrap();
+    // Append: the real Science passages' reviews are in the same file.
+    let path = root.join("reviews").join("stimuli-science.toml");
+    let before = std::fs::read_to_string(&path).unwrap_or_default();
+    std::fs::write(&path, format!("{before}
+{text}")).unwrap();
     assert_eq!(approve(&root, "stimuli-science").expect("approve runs"), vec!["science-plants".to_string()]);
     let approved = approve(&root, "s-demo-data").expect("approve runs");
     assert_eq!(approved, vec![id.to_string()]);

@@ -762,3 +762,561 @@ cite OpenStax College Physics 2e 1.3 (accuracy, limits of the measuring device) 
 which does not discuss measurement error.
 '''
 date = "2026-11-12"
+
+# Round 2 (after fixes)
+
+[[review]]
+id = "SP.2.b"
+kind = "lesson"
+hash = "02d08858f3fa451a"
+reviewer = "solver-a"
+verdict = "pass"
+note = 'Re-check: hypothesis now defined as a testable explanation (cause and effect), with the if/then sentence correctly presented as a prediction made from it. Correct, clear, fits SP.2.b, and consistent with the reworded 0005 and 0015.'
+date = "2026-11-12"
+
+[[review]]
+id = "SP.2.e"
+kind = "lesson"
+hash = "48ae4af9546fc624"
+reviewer = "solver-a"
+verdict = "pass"
+note = 'Re-check: new example (study time independent, quiz score dependent, same quiz controlled) is correct and no longer gives away 0001/0002. Definitions unchanged and correct.'
+date = "2026-11-12"
+
+[[review]]
+id = "SP.2.a"
+kind = "card"
+hash = "4ba9c08b3a5ce10e"
+reviewer = "solver-a"
+verdict = "pass"
+note = 'Re-check: new example (seed trays, one watered twice as often) correctly shows a second variable as an error and no longer gives away 0006. Short, clear, hack correct.'
+date = "2026-11-12"
+
+[[review]]
+id = "SP.2.b"
+kind = "card"
+hash = "f3c18f4de197d1eb"
+reviewer = "solver-a"
+verdict = "pass"
+note = 'Re-check: key now matches the lesson (a hypothesis is a testable explanation). Salt and ice example is correct, testable, and does not give away 0005, 0015 or 0017. Short.'
+date = "2026-11-12"
+
+[[review]]
+id = "SP.2.c"
+kind = "card"
+hash = "126a9c609c78382e"
+reviewer = "solver-a"
+verdict = "pass"
+note = 'Re-check: battery example correctly shows a single-sample weakness and fix; no longer reuses the tomato numbers or gives away 0003/0014. Short and clear.'
+date = "2026-11-12"
+
+[[review]]
+id = "SP.2.e"
+kind = "card"
+hash = "264d3aa802f8f02b"
+reviewer = "solver-a"
+verdict = "pass"
+note = 'Re-check: study time and quiz score example is correct and no longer gives away 0001/0002; matches the lesson. Hack correct.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0001"
+kind = "question"
+hash = "2d3e9cadeec8685c"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = 'The amount of fertilizer each week'
+note = 'Re-check: topic now L.d.1, which fits plant growth (consistent with 0015, 0018). Extra source added. Key, distractors and explanation unchanged and correct.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0002"
+kind = "question"
+hash = "6a607f23fc6ba70f"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = 'Amount of light -> Controlled; Amount of water -> Controlled; Fertilizer each week -> Independent; Mass of tomatoes -> Dependent'
+note = 'Re-check: topic now L.d.1; sort still has exactly one arrangement; the SP.2.e lesson and card no longer give it away. Explanation correct.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0003"
+kind = "question"
+hash = "626ab873702cfc95"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = 'Use more plants in each group'
+note = 'Re-check: topic now L.d.1; the SP.2.c card no longer gives it away. Key, distractors and explanation unchanged and correct.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0004"
+kind = "question"
+hash = "dfb45a7d570d37bc"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = 'To have a control to compare the wrapped cups against'
+note = 'Re-check after the stimulus rewording (each of three cups in a different material). Key and distractors still correct; explanation correct.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0005"
+kind = "question"
+hash = "7eee5ddd92f1b4cc"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = '1: wool; 2: cool'
+note = "Re-check: prompt is now a cause-effect explanation ('wrapping a cup in ___ makes the water in it ___ more slowly than the other wrappings do'). Still exactly one defensible pick per menu: wool (66 °C, least heat lost) and cool (water only cooled). Explanation updated to match and correct."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0006"
+kind = "question"
+hash = "84aab296c5e7d998"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = 'Sunlight could warm the wool cup, so the wool might not be the reason it stayed hotter'
+note = 'Re-check: extra source only; question unchanged; the SP.2.a card no longer gives it away. Pass.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0007"
+kind = "question"
+hash = "39ec2844dfecfbc3"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = 'So one odd trial would not decide the result'
+note = 'Re-check: extra source only (College Physics 1.3); content unchanged and correct.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0008"
+kind = "question"
+hash = "d2b14468e6902050"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = 'Repeat that trial, letting the car go without pushing'
+note = 'Re-check: extra source only; content unchanged and correct.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0010"
+kind = "question"
+hash = "fc9e5b1856e208f4"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = 'The width of the balloon'
+note = "Re-check: extra source and the yeast stimulus's updated source; content unchanged and correct."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0011"
+kind = "question"
+hash = "88ebd4aee12e3739"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = 'The temperature of the water affects how much gas the yeast give off'
+note = 'Re-check after the yeast stimulus source update; content unchanged and correct.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0012"
+kind = "question"
+hash = "22f96dfb166ab3df"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = "She tested only four temperatures, so the best one could be a temperature she didn't test"
+note = "Re-check: key reworded correctly (no longer says one bottle at four temperatures); new distractor ('10 °C balloon also grew, so temperature does not matter') is tempting and clearly wrong; key length now comparable to that distractor. Exactly one defensible answer. Explanation one idea per line, bold matches key."
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0014"
+kind = "question"
+hash = "603f00486ff0940d"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = 'Test several grass trays and several bare trays'
+note = 'Re-check: extra source only; content unchanged and correct.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0015"
+kind = "question"
+hash = "d242cf14386a9cc4"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = 'Warmer temperatures make mold grow faster on bread'
+note = 'Re-check: key now worded as a testable explanation. Still exactly one defensible answer (others are a safety fact, an opinion and advice, none explaining the observation). The SP.2.b card no longer gives it away. Explanation matches.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0016"
+kind = "question"
+hash = "8de73975c445f9f3"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+solved = 'A thermometer, in degrees Celsius'
+note = 'Re-check: extra source only (College Physics 13.1 Temperature); content unchanged and correct.'
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0001"
+kind = "question"
+hash = "2d3e9cadeec8685c"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = '''The amount of fertilizer each week'''
+note = '''Re-check: topic now L.d.1 (functions of life: plant growth), which fits; my earlier fix is resolved. Blind answer matches key; distractors, explanation, SP.2.e and difficulty unchanged and fine. Added OpenStax Psychology 2e 2.3 source is relevant to variables.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0002"
+kind = "question"
+hash = "6a607f23fc6ba70f"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = '''Fertilizer each week->Independent; Mass of tomatoes->Dependent; Amount of water->Controlled; Amount of light->Controlled'''
+note = '''Re-check: topic now L.d.1, fix resolved. Sort still has exactly one arrangement; explanation fine.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0003"
+kind = "question"
+hash = "626ab873702cfc95"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = '''Use more plants in each group'''
+note = '''Re-check: topic now L.d.1, fix resolved. Key, distractors and explanation unchanged and correct.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0004"
+kind = "question"
+hash = "dfb45a7d570d37bc"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = '''To have a control to compare the wrapped cups against'''
+note = '''Re-check after passage wording change (each of three cups in a different material): question still clear and correct; key matches my blind answer; distractors clearly wrong; SP.2.e, P.a.1 fine.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0005"
+kind = "question"
+hash = "7eee5ddd92f1b4cc"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = '''wool; cool'''
+note = '''Re-check of reworded stem (wrapping a cup in {{1}} makes the water in it {{2}} more slowly than the other wrappings do). Still exactly one defensible pick per menu: wool cup warmest (66 C), foil and no material wrong; heat up and evaporate unsupported (nothing heated, evaporation not measured). 'No material' reads oddly after 'wrapping a cup in' but is a clearly wrong option, not ambiguous. Explanation updated consistently. SP.2.b, P.a.1 fit.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0006"
+kind = "question"
+hash = "84aab296c5e7d998"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = '''Sunlight could warm the wool cup, so the wool might not be the reason it stayed hotter'''
+note = '''Re-check: only a source was added; content unchanged and correct. Key matches blind answer.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0007"
+kind = "question"
+hash = "39ec2844dfecfbc3"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = '''So one odd trial would not decide the result'''
+note = '''Re-check: only a source was added (OpenStax College Physics 1.3, relevant to repeat measurements); content unchanged and correct.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0008"
+kind = "question"
+hash = "d2b14468e6902050"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = '''Repeat that trial, letting the car go without pushing'''
+note = '''Re-check: only a source was added; content unchanged and correct. Key matches blind answer.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0010"
+kind = "question"
+hash = "fc9e5b1856e208f4"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = '''The width of the balloon'''
+note = '''Re-check: only a source was added; content unchanged and correct. Key matches blind answer.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0011"
+kind = "question"
+hash = "88ebd4aee12e3739"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = '''The temperature of the water affects how much gas the yeast give off'''
+note = '''Re-check after passage source change: content unchanged and correct; key matches blind answer; distractors clearly wrong.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0012"
+kind = "question"
+hash = "22f96dfb166ab3df"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = '''She tested only four temperatures, so the best one could be a temperature she didn't test'''
+note = '''Re-check: my fix is resolved; key no longer implies one bottle tested at four temperatures. New distractor (10 C balloon grew, so temperature does not matter) is clearly wrong given widths of 2 to 14 cm, yet tempting. Other distractors still wrong (60 C smallest is true but not a reason; yeast amounts were the same). Explanation now says one bottle at each temperature and stays short. SP.2.c, L.b.1, difficulty 3 fine. My blind answer (same idea, old wording) matches.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0014"
+kind = "question"
+hash = "603f00486ff0940d"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = '''Test several grass trays and several bare trays'''
+note = '''Re-check: only a source was added; content unchanged and correct. Key matches blind answer.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0015"
+kind = "question"
+hash = "d242cf14386a9cc4"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = '''Warmer temperatures make mold grow faster on bread'''
+note = '''Re-check of reworded key: still the only testable explanation of the observation; other choices are a separate claim, an opinion and advice. Exactly one defensible answer. Explanation updated consistently and matches the cited OpenStax definition of a hypothesis as a suggested explanation. SP.2.b, L.d.1 fine. My blind pick (the if/then version) corresponds to this choice.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0016"
+kind = "question"
+hash = "8de73975c445f9f3"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+solved = '''A thermometer, in degrees Celsius'''
+note = '''Re-check: only a source was added (OpenStax College Physics 13.1 Temperature); content unchanged and correct.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0001"
+kind = "question"
+hash = "2d3e9cadeec8685c"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Psychology 2e 2.3 now cited: "An independent variable is manipulated or controlled by the
+experimenter" and "A dependent variable is what the researcher measures", which supports the
+explanation and the common mistake. Passage facts (0, 5, 10 g each week) correct. Topic change to
+L.d.1 does not affect any factual claim.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0002"
+kind = "question"
+hash = "6a607f23fc6ba70f"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Independent and dependent definitions confirmed in Psychology 2e 2.3; controlled = kept the same is
+backed by Concepts of Biology 1.2 ("a control is a part of the experiment that does not change") and
+Psychology 2e 2.3 (groups treated the same apart from the manipulation). Sorting matches the passage.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0003"
+kind = "question"
+hash = "626ab873702cfc95"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Psychology 2e 2.3 now cited; it covers sample size ("if the sample is large enough") and replication,
+which supports "more plants per group make averages more trustworthy". Passage fact (4 plants per
+group) correct.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0004"
+kind = "question"
+hash = "dfb45a7d570d37bc"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Re-checked against the reworded insulation passage (three cups each wrapped in a different material,
+fourth unwrapped, same table). Control as comparison case confirmed in Concepts of Biology 1.2
+(control ponds vs treated ponds). Correct.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0005"
+kind = "question"
+hash = "7eee5ddd92f1b4cc"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Now worded as a testable statement, not an if/then prediction, and Concepts of Biology 1.2 is cited
+(a hypothesis is a suggested explanation that can be tested). Numbers re-checked: wool 66 °C vs 52, 55,
+61 °C; all started at 80 °C; foil only 3 °C above no wrapping. Correct.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0006"
+kind = "question"
+hash = "84aab296c5e7d998"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Psychology 2e 2.3 now cited: experimental manipulation should be the only difference between groups,
+and a confounding variable can cause the effect instead. That supports "only the wrapping changes"
+and the sunlight reasoning. Correct.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0007"
+kind = "question"
+hash = "39ec2844dfecfbc3"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+College Physics 2e 1.3 now cited: repeated measurements spread ("precision ... agreement between
+repeated measurements"; "All measurements contain some amount of uncertainty"), which supports doing
+several trials. Data 82, 85, 79 cm correct.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0008"
+kind = "question"
+hash = "d2b14468e6902050"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+College Physics 2e 1.3 now cited; it lists "the skill of the person making the measurement" as a
+source of uncertainty, which backs treating the pushed trial as an error to redo. 158 and 162 cm fit
+the class's 158-165 cm at 20 cm; 210 cm is the outlier. Correct.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0010"
+kind = "question"
+hash = "fc9e5b1856e208f4"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Psychology 2e 2.3 confirms "A dependent variable is what the researcher measures". Passage: balloon
+width measured, temperature varied. Correct.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0011"
+kind = "question"
+hash = "88ebd4aee12e3739"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Item unchanged; re-checked against the yeast passage (same yeast, sugar, water; only temperature
+varies). Concepts of Biology 4.4 confirms fermentation works without oxygen and releases carbon dioxide,
+so the oxygen distractor is wrong. Correct.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0012"
+kind = "question"
+hash = "22f96dfb166ab3df"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Re-checked the new wording: temperatures 10, 25, 40, 60 °C; widths 3, 9, 14, 2 cm; one bottle each;
+same amounts of yeast. New distractor "the 10 °C balloon also grew, so temperature does not matter"
+is wrong by the data (widths range 2 to 14 cm). All claims come from the passage. Correct.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0014"
+kind = "question"
+hash = "603f00486ff0940d"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Psychology 2e 2.3 now cited for replication and sample size, supporting "test several of each". Passage
+fact (one tray of each) correct.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0015"
+kind = "question"
+hash = "d242cf14386a9cc4"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Key is now "Warmer temperatures make mold grow faster on bread": a suggested, testable explanation,
+matching Concepts of Biology 1.2's definition. No if/then mislabeling remains. Science claim (warmth
+speeds mold growth) is sound.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-investigations-0016"
+kind = "question"
+hash = "8de73975c445f9f3"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+College Physics 2e 13.1 now cited: "temperature is the quantity measured by a thermometer", and it uses
+the Celsius scale. Correct.
+'''
+date = "2026-11-12"

@@ -3,7 +3,7 @@
 
 [[stimulus]]
 id = "science-fertilizer"
-status = "draft"
+status = "reviewed"
 title = "A tomato experiment"
 text = '''
 A gardener wants to know if fertilizer helps tomato plants produce more fruit. She grows 12 tomato plants of the same kind in one greenhouse. She splits them into three groups of 4 plants. Each week, one group gets no fertilizer, one gets 5 grams, and one gets 10 grams. All plants get the same amount of water and light.
@@ -15,7 +15,7 @@ source = "Original (made-up results for practice)"
 
 [[stimulus]]
 id = "science-insulation"
-status = "draft"
+status = "reviewed"
 title = "Keeping a drink hot"
 text = '''
 A student wants to find out which material keeps a hot drink hot the longest. She fills four identical cups with 200 mL of water at 80 °C. She wraps each of three cups in a different material and leaves the fourth cup unwrapped. All four cups sit on the same table. After 20 minutes, she measures the water temperature in each cup.
@@ -25,7 +25,7 @@ source = "Original (made-up results for practice)"
 
 [[stimulus]]
 id = "science-ramp"
-status = "draft"
+status = "reviewed"
 title = "Rolling down a ramp"
 text = '''
 A class lets the same toy car roll down a ramp from different heights. They measure how far the car rolls across the floor after it leaves the ramp. They do three trials at each height.
@@ -35,7 +35,7 @@ source = "Original (made-up results for practice)"
 
 [[stimulus]]
 id = "science-yeast"
-status = "draft"
+status = "reviewed"
 title = "Yeast and temperature"
 text = '''
 Yeast are tiny living fungi. When yeast break down sugar without oxygen, a process called fermentation, they give off carbon dioxide gas.
@@ -47,7 +47,7 @@ source = "Original (made-up results for practice; facts from OpenStax Concepts o
 
 [[stimulus]]
 id = "science-erosion"
-status = "draft"
+status = "reviewed"
 title = "Soil and rain"
 text = '''
 A student builds two identical trays of soil and tilts them at the same angle. One tray is covered with growing grass. The other tray is bare soil. She pours 1 liter of water over the top of each tray, the same way, and collects the soil that washes off the bottom.

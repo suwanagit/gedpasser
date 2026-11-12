@@ -283,13 +283,28 @@ pub struct StrategyView {
     pub hacks: Vec<HackItem>,
 }
 
-pub async fn get_strategy(State(state): State<Arc<AppState>>, _user: CurrentUser) -> Json<StrategyView> {
+/// Test-day tactics (shared), and the formula sheet and memory hacks for a
+/// subject (`?subject=`, Math by default).
+pub async fn get_strategy(
+    State(state): State<Arc<AppState>>,
+    _user: CurrentUser,
+    Query(sp): Query<crate::api::SubjectParam>,
+) -> Result<Json<StrategyView>, ApiError> {
+    let subject = sp.resolve(&state)?.to_string();
     let (tactics, formulas) = match state.bank.strategy(state.serve_drafts) {
         Some(s) => (s.tactic.clone(), s.formula.clone()),
         None => (Vec::new(), Vec::new()),
     };
-    let hacks = state.bank.principles.iter().filter_map(|p| hack_item(&state, &p.id)).collect();
-    Json(StrategyView { tactics, formulas, hacks })
+    // The formula sheet is Math's.
+    let formulas = if subject == "math" { formulas } else { Vec::new() };
+    let hacks = state
+        .bank
+        .principles
+        .iter()
+        .filter(|p| state.bank.skill_subject(&p.skill) == subject)
+        .filter_map(|p| hack_item(&state, &p.id))
+        .collect();
+    Ok(Json(StrategyView { tactics, formulas, hacks }))
 }
 
 #[cfg(test)]

@@ -170,3 +170,73 @@ Original, honest source line. Grass cover sharply reducing soil loss (40 g vs 31
 in the expected direction. Internally consistent; no copied text.
 '''
 date = "2026-11-12"
+
+# Round 2 (after fixes)
+
+[[review]]
+id = "science-insulation"
+kind = "stimulus"
+hash = "6c7d982e68b579c3"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+note = "Re-check: now 'wraps each of three cups in a different material', so the ambiguity is gone. Data consistent and realistic."
+date = "2026-11-12"
+
+[[review]]
+id = "science-yeast"
+kind = "stimulus"
+hash = "fb2b9b97765c69c9"
+reviewer = "solver-a"
+role = "solver"
+verdict = "pass"
+note = "Re-check: only the source note changed (adds OpenStax 13.4 Fungi for 'yeast are fungi'). Text and data unchanged, clear and realistic."
+date = "2026-11-12"
+
+[[review]]
+id = "science-insulation"
+kind = "stimulus"
+hash = "6c7d982e68b579c3"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+note = '''Re-check: now says she wraps each of three cups in a different material, which removes my earlier wording concern. Numbers unchanged and consistent; clear and realistic.'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-yeast"
+kind = "stimulus"
+hash = "fb2b9b97765c69c9"
+reviewer = "solver-b"
+role = "solver"
+verdict = "pass"
+note = '''Re-check: text and table unchanged; source now also cites OpenStax Concepts of Biology 13.4 Fungi, which supports 'yeast are fungi'. Clear, realistic, numbers plausible.'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-insulation"
+kind = "stimulus"
+hash = "6c7d982e68b579c3"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Reworded sentence ("She wraps each of three cups in a different material") is clearer and still
+consistent with the table. Source "Original (made-up results for practice)" honest; results plausible;
+no copied text.
+'''
+date = "2026-11-12"
+
+[[review]]
+id = "science-yeast"
+kind = "stimulus"
+hash = "fb2b9b97765c69c9"
+reviewer = "checker"
+role = "factcheck"
+verdict = "pass"
+note = '''
+Source line now credits Concepts of Biology 4.4 and 13.4. 13.4: "Unicellular fungi are generally
+referred to as yeasts"; 4.4: fermentation works in the absence of oxygen and releases carbon dioxide.
+Every claim in the text is now covered; results plausible; no copied text.
+'''
+date = "2026-11-12"

@@ -9,7 +9,7 @@
 # Reviewed as a whole: `cargo content-template study`, then
 # `cargo content-approve study` after an independent review.
 
-status = "draft"
+status = "reviewed"
 
 [[topic]]
 principle = "Q.1.a"

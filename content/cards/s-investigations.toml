@@ -2,7 +2,7 @@
 
 [[card]]
 id = "SP.2.a"
-status = "draft"
+status = "reviewed"
 title = "Finding errors"
 key = "Anything that changed besides the tested variable is a possible error."
 steps = [
@@ -18,7 +18,7 @@ hack = 'Ask: "What else could explain this result?"'
 
 [[card]]
 id = "SP.2.b"
-status = "draft"
+status = "reviewed"
 title = "Hypotheses"
 key = "A hypothesis is an explanation you can test: this change causes that effect."
 steps = [
@@ -34,7 +34,7 @@ hack = 'If you can’t picture the experiment, it isn’t a hypothesis yet.'
 
 [[card]]
 id = "SP.2.c"
-status = "draft"
+status = "reviewed"
 title = "Judging a design"
 key = "Fair tests change one thing, keep the rest the same, and repeat."
 steps = [
@@ -50,7 +50,7 @@ hack = 'More trials, more trust.'
 
 [[card]]
 id = "SP.2.d"
-status = "draft"
+status = "reviewed"
 title = "Planning steps"
 key = "Set up, change one thing, measure, record."
 steps = [
@@ -67,7 +67,7 @@ hack = 'Tool matches the thing measured, unit matches the tool.'
 
 [[card]]
 id = "SP.2.e"
-status = "draft"
+status = "reviewed"
 title = "Variables"
 key = "Independent: changed on purpose. Dependent: measured. Controlled: kept the same."
 steps = [

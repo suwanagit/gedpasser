@@ -67,7 +67,7 @@ export function LibrarySubject({
 
   useEffect(() => {
     if (!subject.ready) return
-    Promise.all([api.skills(subject.id), api.principles(subject.id), api.strategy()])
+    Promise.all([api.skills(subject.id), api.principles(subject.id), api.strategy(subject.id)])
       .then(([s, p, st]) => {
         setSkills(s)
         setPrinciples(p)
@@ -115,7 +115,7 @@ export function LibrarySubject({
     <div className="library">
       <SubHead subject={subject} onBack={onBack} />
       <div className="seg no-print" role="tablist">
-        {TABS.filter((t) => subject.id === 'math' || t.tab === 'lessons').map((t) => (
+        {TABS.filter((t) => t.tab !== 'formulas' || subject.id === 'math').map((t) => (
           <button key={t.tab} role="tab" aria-selected={tab === t.tab} className={tab === t.tab ? 'on' : ''} onClick={() => setTab(t.tab)}>
             {t.label}
           </button>

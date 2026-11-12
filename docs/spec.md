@@ -321,6 +321,7 @@ Each sub-phase is planned and approved separately. Research notes with sources a
   - Distractors are analyzed for being "defensibly wrong"; drop-down and tap-to-place questions must have exactly one defensible answer.
   - Cards, journey stages, hacks and a test-week plan follow the Math pattern. Timed practice tests use each test's real time limit (Science 90 minutes, Social Studies 70, RLA 150 with a break and a 45-minute essay).
 - [ ] 7d. Build the subjects end to end, each with its own journey and practice tests, in this order: Science, then Social Studies, then RLA.
+  - Science batch 1 of 7 done (2026-11-12): Designing investigations (SP.2.a–e), 18 questions on 5 original passages, reviewed by two blind solvers and a fact-checker, approved. Science is now live with Day 1 of its week path. Waiting for Jon's look before batches 2–7.
 - [ ] 7e. Decide how to give feedback on RLA's extended response (a checklist the learner self-scores against the three rubric traits, or AI scoring through the Claude API). That needs Jon's decision on cost and privacy.
 
 ## Risks and open questions
