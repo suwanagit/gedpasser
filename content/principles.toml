@@ -1440,3 +1440,46 @@ Many questions ask you to pull one number out of a picture, or to write words as
 - For a rate, divide the change by the time or distance it took.
 - In a chemical formula, each element gets its symbol, and a small number after a symbol says how many of those atoms there are. No number means one.
 '''
+
+[[principle]]
+id = "SP.3.d"
+skill = "s-probability"
+status = "draft"
+name = "Samples"
+summary = "Judge how a sample was chosen, and use a sample to estimate a whole group."
+lesson = '''
+A sample is a small part of a group that scientists study to learn about the whole group.
+
+- A good sample is chosen at random from the whole group, so every member has a fair chance to be picked.
+- A sample taken from only one part of the group can give a wrong picture.
+- Bigger random samples usually give better estimates.
+- To estimate the whole group, use the sample's fraction: if 1 in 4 of the sample has a trait, about 1 in 4 of the group does too.
+'''
+
+[[principle]]
+id = "SP.8.b"
+skill = "s-probability"
+status = "draft"
+name = "Counting possibilities"
+summary = "Count how many combinations or arrangements are possible."
+lesson = '''
+Counting rules let you find how many possibilities there are without listing them all.
+
+- Choosing one thing from each of several groups: multiply the number of choices in each group.
+- Putting a set of things in order: multiply down, for example 4 × 3 × 2 × 1 for four things.
+- Choosing a group where order doesn't matter: count the ordered ways, then divide by the number of ways to order the group.
+'''
+
+[[principle]]
+id = "SP.8.c"
+skill = "s-probability"
+status = "draft"
+name = "Probability and Punnett squares"
+summary = "Find the chance of an event, including traits from a Punnett square."
+lesson = '''
+Probability is the number of ways an event can happen divided by the number of equally likely outcomes.
+
+- In a Punnett square, each of the four boxes is equally likely, so each box is a 1 in 4 chance.
+- A dominant allele (capital letter) shows its trait whenever it is present. A recessive trait shows only with two lowercase letters.
+- For two independent events both happening, multiply their probabilities.
+'''

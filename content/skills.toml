@@ -251,3 +251,16 @@ numbers and symbols.\
 difficulty_min = 1
 difficulty_max = 3
 targets = ["SP.1.c", "SP.6.a", "SP.6.b"]
+
+[[skill]]
+id = "s-probability"
+subject = "science"
+name = "Probability and sampling"
+description = """
+Chance in science: Punnett squares and simple probability, counting \
+possible setups and arrangements, and judging samples and what they \
+can tell us.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["SP.3.d", "SP.8.b", "SP.8.c"]

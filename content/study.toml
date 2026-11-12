@@ -9,7 +9,7 @@
 # Reviewed as a whole: `cargo content-template study`, then
 # `cargo content-approve study` after an independent review.
 
-status = "reviewed"
+status = "draft"
 
 [[topic]]
 principle = "Q.1.a"
@@ -623,4 +623,27 @@ principle = "SP.6.b"
 search = "reading chemical formulas and subscripts"
 links = [
   { title = "OpenStax Chemistry 2e, 2.4 Chemical formulas", url = "https://openstax.org/books/chemistry-2e/pages/2-4-chemical-formulas" },
+]
+
+[[topic]]
+principle = "SP.3.d"
+search = "random sampling and sample size"
+links = [
+  { title = "OpenStax Introductory Statistics 2e, 1.2 Data sampling and variation in data and sampling", url = "https://openstax.org/books/introductory-statistics-2e/pages/1-2-data-sampling-and-variation-in-data-and-sampling" },
+]
+
+[[topic]]
+principle = "SP.8.b"
+search = "counting principle permutations and combinations"
+links = [
+  { title = "OpenStax Contemporary Mathematics, 7.1 The multiplication rule for counting", url = "https://openstax.org/books/contemporary-mathematics/pages/7-1-the-multiplication-rule-for-counting" },
+  { title = "OpenStax Contemporary Mathematics, 7.3 Combinations", url = "https://openstax.org/books/contemporary-mathematics/pages/7-3-combinations" },
+]
+
+[[topic]]
+principle = "SP.8.c"
+search = "Punnett square probability"
+links = [
+  { title = "OpenStax Concepts of Biology, 8.2 Laws of inheritance", url = "https://openstax.org/books/concepts-biology/pages/8-2-laws-of-inheritance" },
+  { title = "OpenStax Introductory Statistics 2e, 3.1 Terminology", url = "https://openstax.org/books/introductory-statistics-2e/pages/3-1-terminology" },
 ]

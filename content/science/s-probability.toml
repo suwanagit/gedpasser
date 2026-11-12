@@ -1,0 +1,305 @@
+# Science: probability and sampling (SP.3.d, SP.8.b, SP.8.c)
+# Every question cites its sources (docs/CONTENT_RULES.md). Explanations
+# follow docs/EXPLANATION_STYLE.md: one line per step, answer in bold.
+
+# ── A pea plant cross (science-pea-cross) ─────────────────────────────
+
+[[question]]
+id = "s-probability-0001"
+skill = "s-probability"
+principle = "SP.8.c"
+topic = "L.e.2"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-pea-cross"
+sources = ["Original passage science-pea-cross", "OpenStax Concepts of Biology 8.2 Laws of Inheritance: https://openstax.org/books/concepts-biology/pages/8-2-laws-of-inheritance"]
+prompt = "What is the probability that an offspring of this cross has white flowers?"
+choices = ["1 out of 4", "1 out of 2", "3 out of 4", "0 out of 4"]
+answer = "1 out of 4"
+explanation = '''
+White flowers need two p alleles: pp.
+Only 1 of the 4 equally likely boxes in the Punnett square is pp.
+So the probability of white flowers is **1 out of 4**.
+'''
+common_mistake = "Picking 1 out of 2 because there are two colors. The four boxes are equally likely, and only one is white."
+
+[[question]]
+id = "s-probability-0002"
+skill = "s-probability"
+principle = "SP.8.c"
+topic = "L.e.2"
+difficulty = 2
+type = "dropdown"
+status = "draft"
+stimulus = "science-pea-cross"
+sources = ["Original passage science-pea-cross", "OpenStax Concepts of Biology 8.2 Laws of Inheritance: https://openstax.org/books/concepts-biology/pages/8-2-laws-of-inheritance"]
+prompt = "Complete the sentence: in this cross, about {{1}} of the offspring are expected to have purple flowers, and about {{2}} are expected to be Pp."
+blanks = [
+  { choices = ["3/4", "1/2", "1/4"], answer = "3/4" },
+  { choices = ["1/2", "1/4", "3/4"], answer = "1/2" },
+]
+explanation = '''
+Purple needs at least one P: PP, Pp and Pp. That is 3 of the 4 boxes.
+Two of the 4 boxes are Pp, and 2/4 = 1/2.
+So about **3/4** are expected to be purple, and about **1/2** are expected to be Pp.
+'''
+common_mistake = "Counting only PP as purple. Pp plants are purple too, because P is dominant."
+
+[[question]]
+id = "s-probability-0003"
+skill = "s-probability"
+principle = "SP.8.c"
+topic = "L.e.2"
+difficulty = 3
+type = "fill_in"
+status = "draft"
+stimulus = "science-pea-cross"
+sources = ["Original passage science-pea-cross", "OpenStax Concepts of Biology 8.2 Laws of Inheritance: https://openstax.org/books/concepts-biology/pages/8-2-laws-of-inheritance"]
+prompt = "The scientist grows 200 offspring from this cross. About how many are expected to have white flowers?"
+answer = "50"
+check = "200 / 4"
+explanation = '''
+Each offspring has a 1 in 4 chance of being pp, which gives white flowers.
+Out of 200 offspring, expect about 1/4 of them: 200 ÷ 4 = 50.
+So about **50** offspring are expected to have white flowers.
+'''
+common_mistake = "Answering 150, which is the number expected to be purple."
+
+[[question]]
+id = "s-probability-0004"
+skill = "s-probability"
+principle = "SP.8.c"
+topic = "L.e.2"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-pea-cross"
+sources = ["Original passage science-pea-cross", "OpenStax Concepts of Biology 8.2 Laws of Inheritance: https://openstax.org/books/concepts-biology/pages/8-2-laws-of-inheritance"]
+prompt = "An offspring of this cross has purple flowers. Which statement about its alleles is true?"
+choices = ["It could be PP or Pp", "It must be PP", "It must be Pp", "It must be pp"]
+answer = "It could be PP or Pp"
+explanation = '''
+A plant with at least one P allele has purple flowers.
+Both PP and Pp have a P, so both make purple flowers.
+So a purple offspring **could be PP or Pp**.
+'''
+common_mistake = "Picking \"it must be PP\". A plant with just one P is purple too."
+
+# ── Counting fish in a lake (science-fish-survey) ─────────────────────
+
+[[question]]
+id = "s-probability-0005"
+skill = "s-probability"
+principle = "SP.3.d"
+topic = "L.c.3"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+stimulus = "science-fish-survey"
+sources = ["Original passage science-fish-survey", "OpenStax Introductory Statistics 2e 1.2 Data, Sampling, and Variation in Data and Sampling: https://openstax.org/books/introductory-statistics-2e/pages/1-2-data-sampling-and-variation-in-data-and-sampling"]
+prompt = "Based on the sample, about how many grayling are in the whole lake?"
+answer = "1500"
+check = "30 / 100 * 5000"
+explanation = '''
+In the sample, 30 of 100 fish were grayling: 30/100 = 0.3.
+A random sample suggests the whole lake has about the same fraction.
+0.3 × 5,000 = 1,500.
+So the lake has about **1,500** grayling.
+'''
+common_mistake = "Answering 30, the number caught. The sample is only 100 of about 5,000 fish."
+
+[[question]]
+id = "s-probability-0006"
+skill = "s-probability"
+principle = "SP.3.d"
+topic = "L.c.3"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-fish-survey"
+sources = ["Original passage science-fish-survey", "OpenStax Introductory Statistics 2e 1.2 Data, Sampling, and Variation in Data and Sampling: https://openstax.org/books/introductory-statistics-2e/pages/1-2-data-sampling-and-variation-in-data-and-sampling"]
+prompt = "Why did the biologists set nets at many places chosen at random around the whole lake?"
+choices = ["So the sample would fairly represent all the fish in the lake", "So they could catch every fish in the lake", "So they would catch only the biggest fish", "So they would catch more trout"]
+answer = "So the sample would fairly represent all the fish in the lake"
+explanation = '''
+Different kinds of fish may live in different parts of a lake.
+Nets at random places all around the lake give every kind a fair chance to be caught.
+So they did it **so the sample would fairly represent all the fish in the lake**.
+'''
+common_mistake = "Picking \"to catch every fish\". A sample is only part of the group; the passage says catching them all is impossible."
+
+[[question]]
+id = "s-probability-0007"
+skill = "s-probability"
+principle = "SP.3.d"
+topic = "L.c.3"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+stimulus = "science-fish-survey"
+sources = ["Original passage science-fish-survey", "OpenStax Introductory Statistics 2e 1.2 Data, Sampling, and Variation in Data and Sampling: https://openstax.org/books/introductory-statistics-2e/pages/1-2-data-sampling-and-variation-in-data-and-sampling"]
+prompt = "Suppose the biologists had set all 20 nets in shallow water near one beach. Why might their results be less trustworthy?"
+choices = ["Fish in one shallow area may not be like the fish in the rest of the lake", "Twenty nets is too many for any lake", "Fish in shallow water cannot be identified", "The total number of fish caught would have to be exactly 100"]
+answer = "Fish in one shallow area may not be like the fish in the rest of the lake"
+explanation = '''
+A sample from one spot only shows the fish that live in that spot.
+Some kinds of fish may stay in deep water and would be missed.
+So the results would be less trustworthy because **fish in one shallow area may not be like the fish in the rest of the lake**.
+'''
+common_mistake = "Picking \"twenty nets is too many\". The number of nets is not the problem; where they are is."
+
+# ── Stand-alone ───────────────────────────────────────────────────────
+
+[[question]]
+id = "s-probability-0008"
+skill = "s-probability"
+principle = "SP.3.d"
+topic = "L.a.1"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+sources = ["OpenStax Introductory Statistics 2e 1.2 Data, Sampling, and Variation in Data and Sampling: https://openstax.org/books/introductory-statistics-2e/pages/1-2-data-sampling-and-variation-in-data-and-sampling"]
+prompt = "A health worker wants to estimate the average resting heart rate of adults in a town of 20,000 people. Which sample would be best?"
+choices = ["300 adults picked at random from the whole town", "The 300 adults at a running race", "300 adults who visit one hospital", "The worker and 2 friends"]
+answer = "300 adults picked at random from the whole town"
+explanation = '''
+A good sample is picked at random from the whole group.
+Runners or hospital patients may have heart rates unlike most adults, and 3 people is far too few.
+So the best sample is **300 adults picked at random from the whole town**.
+'''
+common_mistake = "Picking the runners because it is easy to find many adults there. Runners often have lower resting heart rates than most people."
+
+[[question]]
+id = "s-probability-0009"
+skill = "s-probability"
+principle = "SP.3.d"
+topic = "ES.a.3"
+difficulty = 2
+type = "multiple_choice"
+status = "draft"
+sources = ["OpenStax Introductory Statistics 2e 1.2 Data, Sampling, and Variation in Data and Sampling: https://openstax.org/books/introductory-statistics-2e/pages/1-2-data-sampling-and-variation-in-data-and-sampling"]
+prompt = "Two students test well water in the same county for a chemical. Student A tests 5 wells picked at random. Student B tests 50 wells picked at random. Whose estimate of the county average is likely to be more reliable?"
+choices = ["Student B's, because a bigger random sample usually gives a better estimate", "Student A's, because fewer tests means fewer mistakes", "Both are equally reliable, because both picked wells at random", "Neither, because a sample can never tell you anything"]
+answer = "Student B's, because a bigger random sample usually gives a better estimate"
+explanation = '''
+Both samples are random, so the difference is size.
+With only 5 wells, one unusual well can pull the average far off. With 50, unusual wells matter less.
+So **Student B's estimate is likely more reliable, because a bigger random sample usually gives a better estimate**.
+'''
+common_mistake = "Thinking random is enough. Random samples still give better estimates when they are bigger."
+
+[[question]]
+id = "s-probability-0010"
+skill = "s-probability"
+principle = "SP.8.b"
+topic = "L.d.1"
+difficulty = 1
+type = "fill_in"
+status = "draft"
+sources = ["OpenStax Contemporary Mathematics 7.1 The Multiplication Rule for Counting: https://openstax.org/books/contemporary-mathematics/pages/7-1-the-multiplication-rule-for-counting"]
+prompt = "A student tests 3 kinds of soil with 4 different amounts of water. She wants to try every soil with every amount of water once. How many different setups does she need?"
+answer = "12"
+check = "3 * 4"
+explanation = '''
+For each of the 3 soils, she can use any of the 4 amounts of water.
+Choosing one from each group means multiply: 3 × 4 = 12.
+So she needs **12** setups.
+'''
+common_mistake = "Adding 3 + 4 = 7. Each soil has to be paired with every amount of water, so multiply."
+
+[[question]]
+id = "s-probability-0011"
+skill = "s-probability"
+principle = "SP.8.b"
+topic = "P.c.4"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+sources = ["OpenStax Contemporary Mathematics 7.2 Permutations: https://openstax.org/books/contemporary-mathematics/pages/7-2-permutations"]
+prompt = "A lab worker has 4 different samples to place in a row on a shelf. In how many different orders can she place them?"
+answer = "24"
+check = "4 * 3 * 2 * 1"
+explanation = '''
+Any of the 4 samples can go first. Then 3 are left for second place, 2 for third, and 1 for last.
+Multiply: 4 × 3 × 2 × 1 = 24.
+So there are **24** different orders.
+'''
+common_mistake = "Answering 4 or 16. Each place has one fewer choice than the one before, so multiply 4 × 3 × 2 × 1."
+
+[[question]]
+id = "s-probability-0012"
+skill = "s-probability"
+principle = "SP.8.b"
+topic = "L.d.1"
+difficulty = 3
+type = "fill_in"
+status = "draft"
+sources = ["OpenStax Contemporary Mathematics 7.3 Combinations: https://openstax.org/books/contemporary-mathematics/pages/7-3-combinations"]
+prompt = "A teacher has 5 different plants and will choose 2 of them for an experiment. The order she picks them in does not matter. How many different pairs of plants could she choose?"
+answer = "10"
+check = "5 * 4 / 2"
+explanation = '''
+In order, there are 5 choices for the first plant and 4 for the second: 5 × 4 = 20.
+Each pair was counted twice, once in each order, so divide by 2.
+20 ÷ 2 = 10.
+So there are **10** different pairs.
+'''
+common_mistake = "Answering 20, which counts each pair twice: once in each order."
+
+[[question]]
+id = "s-probability-0013"
+skill = "s-probability"
+principle = "SP.8.b"
+topic = "L.e.1"
+difficulty = 2
+type = "fill_in"
+status = "draft"
+sources = ["OpenStax Contemporary Mathematics 7.1 The Multiplication Rule for Counting: https://openstax.org/books/contemporary-mathematics/pages/7-1-the-multiplication-rule-for-counting"]
+prompt = "A lab labels each sample with one letter (A, B or C) followed by one digit (0 to 9). How many different labels are possible?"
+answer = "30"
+check = "3 * 10"
+explanation = '''
+There are 3 choices for the letter and 10 choices for the digit.
+One letter and one digit means multiply: 3 × 10 = 30.
+So **30** different labels are possible.
+'''
+common_mistake = "Answering 13 by adding. Every letter can go with every digit, so multiply."
+
+[[question]]
+id = "s-probability-0014"
+skill = "s-probability"
+principle = "SP.8.c"
+topic = "L.e.2"
+difficulty = 1
+type = "multiple_choice"
+status = "draft"
+sources = ["OpenStax Introductory Statistics 2e 3.1 Terminology: https://openstax.org/books/introductory-statistics-2e/pages/3-1-terminology"]
+prompt = "A packet has 10 seeds: 6 will grow red flowers and 4 will grow white flowers. If you pick one seed at random, what is the probability it will grow red flowers?"
+choices = ["6/10", "4/10", "6/4", "1/6"]
+answer = "6/10"
+explanation = '''
+There are 10 seeds, and each is equally likely to be picked.
+6 of them grow red flowers.
+So the probability is **6/10**.
+'''
+common_mistake = "Picking 6/4 by comparing red to white. Probability compares red to all 10 seeds."
+
+[[question]]
+id = "s-probability-0015"
+skill = "s-probability"
+principle = "SP.8.c"
+topic = "L.e.2"
+difficulty = 3
+type = "multiple_choice"
+status = "draft"
+sources = ["OpenStax Concepts of Biology 8.2 Laws of Inheritance: https://openstax.org/books/concepts-biology/pages/8-2-laws-of-inheritance", "OpenStax Introductory Statistics 2e 3.2 Independent and Mutually Exclusive Events: https://openstax.org/books/introductory-statistics-2e/pages/3-2-independent-and-mutually-exclusive-events"]
+prompt = "Two parents are both Aa, and each of their children has a 1/4 chance of being aa. The children inherit alleles independently. What is the probability that their first two children are both aa?"
+choices = ["1/16", "1/8", "1/4", "1/2"]
+answer = "1/16"
+explanation = '''
+Each child has a 1/4 chance of being aa, and one child's alleles do not affect the other's.
+For two independent events both happening, multiply: 1/4 × 1/4 = 1/16.
+So the probability is **1/16**.
+'''
+common_mistake = "Adding 1/4 + 1/4 = 1/2. For both to happen, multiply the probabilities."
