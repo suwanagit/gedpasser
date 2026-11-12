@@ -325,6 +325,7 @@ Each sub-phase is planned and approved separately. Research notes with sources a
   - Science batch 2 of 7 done (2026-11-12): Reading science texts (SP.1.a, SP.1.b, SP.6.c), 21 questions on 5 passages, four review rounds, approved. Day 2 of the Science path added.
   - Science batch 3 of 7 done (2026-11-12): Claims and evidence (SP.3.a, SP.3.b, SP.4.a, SP.5.a), 19 questions on 5 passages (one built from NOAA carbon dioxide data), four review rounds, approved. Day 3 of the Science path added. Also found and fixed: answer choices were served in file order with the answer first; they are now shuffled, and a truly blind re-solve of batches 1–2 matched all 39 keys.
   - Science batch 4 of 7 done (2026-11-12): Predictions and models (SP.3.c, SP.7.a), 16 questions on 4 new passages (NASA planet data, hares and lynx, cooling tea, the seasons and the midnight sun), two review rounds, approved. Day 4 of the Science path added.
+  - Science batch 5 of 7 done (2026-11-12): Graphs, tables and diagrams (SP.1.c, SP.6.a, SP.6.b), 16 questions on 3 passages with a table and line graphs, three review rounds, approved. Day 5 of the Science path added. Plane figures gained `free_scale` for data graphs; graphs checked in the browser.
 - [ ] 7e. Decide how to give feedback on RLA's extended response (a checklist the learner self-scores against the three rubric traits, or AI scoring through the Claude API). That needs Jon's decision on cost and privacy.
 
 ## Risks and open questions

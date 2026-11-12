@@ -1023,3 +1023,203 @@ role = "factcheck"
 verdict = "pass"
 note = "OpenStax Chemistry 2e 2.4 (HTTP 200): subscripts show the number of atoms of each type, a subscript is used only when more than one atom is present, and methane has one C atom and four H atoms (Fig 2.16). 1 + 4 = 5 is correct."
 date = "2026-11-12"
+
+[[review]]
+id = "SP.6.b"
+kind = "card"
+hash = "8ace82df01ab0231"
+verdict = "pass"
+note = "Key, steps, example and hack are correct: pond 12 -> 6 cm from day 1 to day 4 is 6 cm over 3 days = 2 cm a day. Numbers differ from every s-displays question (0003 uses 100/10, 0005 uses 40/8, 0009 uses 50/10), so no answer is given away; step 4 states the subscript rule but not any answer to 0015/0016. About 80 words, every step within 16 words, high-school level. Minor, optional: step 4 (formulas) is not covered by the key, so the card reads as two ideas; acceptable since SP.6.b spans both."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0001"
+kind = "question"
+hash = "5207779f7c1d8c25"
+reviewer = "solver-aa"
+role = "solver"
+verdict = "pass"
+solved = "Magnitude 2"
+note = "Blind answer matches key. Only magnitude 2 has the largest count (1,000); magnitude 5 is the tempting strongest-vs-most-often mistake, 3 and 4 are runner-up misreads, all clearly wrong. SP.1.c (read a table) and ES.a.2 (natural hazards) fit. Explanation is short, correct, ends in bold sentence."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0002"
+kind = "question"
+hash = "dc5822cfffa3b2d3"
+reviewer = "solver-aa"
+role = "solver"
+verdict = "pass"
+solved = "The stronger the earthquake, the fewer of them the station recorded"
+note = "Blind answer matches key. Exactly one choice fits 1,000/100/10/1; the reversed trend (bottom-up reading), 'about the same' and 'most were magnitude 5' are each clearly wrong yet plausible misreads. Passage does not state the pattern, only that it is real. SP.1.c and ES.a.2 fit; explanation correct and in style."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0003"
+kind = "question"
+hash = "9ecec6def82a521c"
+reviewer = "solver-aa"
+role = "solver"
+verdict = "pass"
+solved = "90"
+note = "Blind answer matches key; check 100 - 10 = 90 computes the answer. Wording is unambiguous ('how many more' = difference). Common mistake (10, the ratio) is a real error. SP.6.b (words into a number operation) is a reasonable fit; ES.a.2 fits. Explanation says why before how and ends in bold."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0004"
+kind = "question"
+hash = "421428fbe869e28f"
+reviewer = "solver-aa"
+role = "solver"
+verdict = "pass"
+solved = "-10"
+note = "Blind answer matches key; check -10 matches. The plotted point (6, -10) lies on a tidy gridline, so the read-off is clean; reading the value is the skill being tested, so the figure showing it is intended. Explanation's 'height axis (the line at 0 °C) ... go down to the line' matches the app drawing the x-axis along y = 0. Minus-sign common mistake is the real trap. SP.1.c and ES.b.1 fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0007"
+kind = "question"
+hash = "32730c255a5cd757"
+reviewer = "solver-aa"
+role = "solver"
+verdict = "pass"
+solved = "The ice is melting into liquid water"
+note = "Blind answer matches key. Heat is being added at 0 °C after warming from -40 °C, so melting is the only defensible choice; 'freezing' (same temperature, wrong direction), 'boiling' (wrong temperature) and 'getting colder' (contradicts flat line) are tempting but clearly wrong. Explanation correct and in style. SP.1.c and P.c.2 fit."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0013"
+kind = "question"
+hash = "f6fb8259f67922cb"
+reviewer = "solver-aa"
+role = "solver"
+verdict = "pass"
+solved = "Time, in minutes"
+note = "Blind answer matches key. Time is the variable the student chose; temperature (the measured variable, the main trap) belongs on the y-axis; starting temperature and beaker size are fixed values, not graphed variables. 'Usually' in the explanation is appropriately hedged. SP.6.a (choosing how to graph data) fits; P.a.1 (heat) acceptable as context. Explanation in style."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0001"
+kind = "question"
+hash = "5207779f7c1d8c25"
+reviewer = "solver-bb"
+role = "solver"
+verdict = "pass"
+solved = "Magnitude 2"
+note = "Blind answer matches key. Largest count (1,000) is at magnitude 2; only one defensible choice. Magnitude 5 distractor targets the strongest-vs-most-often confusion named in the common mistake. SP.1.c and ES.a.2 (natural hazards) fit. Explanation short, correct, in style."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0002"
+kind = "question"
+hash = "dc5822cfffa3b2d3"
+reviewer = "solver-bb"
+role = "solver"
+verdict = "pass"
+solved = "The stronger the earthquake, the fewer of them the station recorded"
+note = "Blind answer matches key. Passage defines higher magnitude = stronger, so the inverse trend is readable from the table alone. Reversed-trend distractor is tempting; the others are clearly wrong. Pattern reading fits SP.1.c; ES.a.2 fits. Explanation lists every count and states the answer in a full sentence."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0003"
+kind = "question"
+hash = "9ecec6def82a521c"
+reviewer = "solver-bb"
+role = "solver"
+verdict = "pass"
+solved = "90"
+note = "Blind answer matches key; check 100 - 10 computes 90. Common mistake (10, from the ratio) is realistic. Reading two values and turning them into a number fits SP.6.b. Explanation gives the why (difference) before the subtraction."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0004"
+kind = "question"
+hash = "421428fbe869e28f"
+reviewer = "solver-bb"
+role = "solver"
+verdict = "pass"
+solved = "-10"
+note = "Blind answer matches key; check -10 matches the figure point (6, -10). With the x-axis drawn along y = 0, the explanation's 'go down to the line' is accurate. Dropped minus sign is a realistic mistake. SP.1.c and ES.b.1 fit; difficulty 1 reasonable."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0007"
+kind = "question"
+hash = "32730c255a5cd757"
+reviewer = "solver-bb"
+role = "solver"
+verdict = "pass"
+solved = "The ice is melting into liquid water"
+note = "Blind answer matches key. Passage says the pot starts with ice and boiling happens at C, so the 0 degree plateau is melting; freezing and getting colder contradict heat being added, boiling contradicts 0 degrees. Relies on the melting point of ice, which is expected general knowledge (P.c.2 changes of state). Explanation correct and in style."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0013"
+kind = "question"
+hash = "f6fb8259f67922cb"
+reviewer = "solver-bb"
+role = "solver"
+verdict = "pass"
+solved = "Time, in minutes"
+note = "Blind answer matches key. Time is the chosen (independent) variable and goes on the x-axis; temperature is the tempting swap. The two constant-value distractors are weaker but definitely wrong. Choosing axes fits SP.6.a; P.a.1 (heat) is a reasonable topic. Explanation explains why before how and hedges with 'usually', which is accurate."
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0001"
+kind = "question"
+hash = "5207779f7c1d8c25"
+reviewer = "factcheck-n"
+role = "factcheck"
+verdict = "pass"
+note = '''Key is read from the passage table (magnitude 2 = 1,000, the largest count). The only outside idea, that stronger quakes are not the most frequent (common_mistake), is supported by USGS Lists, Maps, and Statistics (opened): world counts 2017-2021 run about 1,300-2,050 M5, 104-140 M6, 6-16 M7, 0-3 M8+ per year.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0002"
+kind = "question"
+hash = "dc5822cfffa3b2d3"
+reviewer = "factcheck-n"
+role = "factcheck"
+verdict = "pass"
+note = '''Key and explanation match the table (1,000, 100, 10, 1 for magnitudes 2-5). The stronger-is-rarer pattern agrees with the USGS Lists, Maps, and Statistics yearly world table (opened): counts fall roughly tenfold per whole magnitude. Common mistake (magnitudes increase going down the table) matches the table layout.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0003"
+kind = "question"
+hash = "9ecec6def82a521c"
+reviewer = "factcheck-n"
+role = "factcheck"
+verdict = "pass"
+note = '''100 - 10 = 90 matches the current table and the check. "Ten times as many" in the common mistake is true of the table (100 vs 10) and of the real pattern (USGS Lists, Maps, and Statistics, opened). No other outside claims.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0004"
+kind = "question"
+hash = "421428fbe869e28f"
+reviewer = "factcheck-n"
+role = "factcheck"
+verdict = "pass"
+note = '''Figure point (6, -10) gives the key -10. OpenStax Astronomy 2e 8.3 (opened): troposphere is about the lowest 10 km and temperature falls with height to near -50 C at its top, so -10 C at 6 km in a 5 C/km made-up profile is realistic and inside the lowest layer. Explanation's "the line at 0 °C" correctly identifies the height axis, which crosses y = 0.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0007"
+kind = "question"
+hash = "32730c255a5cd757"
+reviewer = "factcheck-n"
+role = "factcheck"
+verdict = "pass"
+note = '''OpenStax Chemistry 2e 10.3 (opened): "While a substance is undergoing a change in state, its temperature remains constant"; ice melts at 0 C (fusion enthalpy given at 0 C; Fig. 10.26); heating curve Fig. 10.29 shows the melting plateau at 0 C and boiling at 100 C (normal boiling point, 1 atm). Passage says near sea level, so boiling at 100 C at point C (common_mistake) is correct. All claims supported.'''
+date = "2026-11-12"
+
+[[review]]
+id = "s-displays-0013"
+kind = "question"
+hash = "f6fb8259f67922cb"
+reviewer = "factcheck-n"
+role = "factcheck"
+verdict = "pass"
+note = '''OpenStax College Physics 2e 2.8 (opened): "Time is usually an independent variable" and "the horizontal axis is usually considered to be an independent variable and the vertical axis a dependent variable". NCES Kids' Zone Line Graphs (opened): x-axis typically shows time periods, y-axis the amount measured. NCES Variables page (opened) defines independent vs dependent variables. The explanation's "usually" and the common mistake (measured value goes on the y-axis) are supported. All four source URLs return 200.'''
+date = "2026-11-12"

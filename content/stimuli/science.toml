@@ -228,7 +228,7 @@ source = "Original (facts from OpenStax Astronomy 2e 4.2 The Seasons and the Nat
 
 [[stimulus]]
 id = "science-quakes"
-status = "draft"
+status = "reviewed"
 title = "Earthquakes at one station"
 text = '''
 A seismometer is an instrument that records earthquakes. The table shows how many earthquakes one station recorded in a year, grouped by magnitude. Magnitude is a number that describes how strong an earthquake is: the higher the magnitude, the stronger the earthquake.

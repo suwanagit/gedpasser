@@ -34,7 +34,7 @@ hack = 'Time along the bottom, almost always.'
 
 [[card]]
 id = "SP.6.b"
-status = "draft"
+status = "reviewed"
 title = "Words into numbers"
 key = "Change: subtract. Rate: divide the change by the time or distance."
 steps = [

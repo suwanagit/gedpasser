@@ -818,3 +818,23 @@ role = "factcheck"
 verdict = "pass"
 note = "Source starts with Original, results labelled made-up and simplified. Steady-heating check with OpenStax Chemistry 2e 10.3 Example 10.10 values (c_ice 2.09, c_water 4.18 J/g C, fusion 6.0 kJ/mol = 333 J/g): -40 to 0 C ice 83.6 J/g, melting 333 J/g, 0 to 100 C water 418 J/g, ratio 1 : 3.98 : 5.0 vs graph 10 : 40 : 50 minutes, a near-exact match. Flat at 0 C, boiling at 100 C near sea level, constant temperature during change of state all confirmed."
 date = "2026-11-12"
+
+[[review]]
+id = "science-quakes"
+kind = "stimulus"
+hash = "f481917eb4e822af"
+reviewer = "solver-aa"
+role = "solver"
+verdict = "pass"
+note = "Clear and short, about grade 8-10; defines seismometer and magnitude in a few words. Accurately says the numbers are made up but follow the real pattern (roughly ten times fewer quakes per step up in magnitude). Does not state the trend or any count difference, so it gives away none of 0001-0003. Table is easy to read."
+date = "2026-11-12"
+
+[[review]]
+id = "science-quakes"
+kind = "stimulus"
+hash = "f481917eb4e822af"
+reviewer = "factcheck-n"
+role = "factcheck"
+verdict = "pass"
+note = '''Source starts with Original, labels numbers made-up, and cites both USGS pages; text is our own wording, no verbatim runs. USGS Earthquake Magnitude, Energy Release, and Shaking Intensity (opened): "Seismometers record the vibrations from earthquakes"; "Magnitude is the size of the earthquake", higher = larger (each whole step = 10x amplitude, about 32x energy); "how strong" is a fair plain-language rendering. USGS Lists, Maps, and Statistics (opened): world counts 2017-2021 about 1,300-2,050 M5, 104-140 M6, 6-16 M7, 0-3 M8+ per year, roughly tenfold fewer per whole magnitude, so the 1,000/100/10/1 table "follows the real pattern" and is not misleading.'''
+date = "2026-11-12"
