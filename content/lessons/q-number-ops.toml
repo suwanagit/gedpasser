@@ -1,112 +1,197 @@
 # Full lessons for q-number-ops. Written to docs/LESSON_STYLE.md.
-# Text conventions: math goes in $...$ (KaTeX); a literal dollar sign is \$.
+# Text conventions: math goes in $...$ (KaTeX); a literal dollar sign is \$;
+# **bold** marks what to notice.
 
 [[lesson]]
 id = "q1b-gcf"
 principle = "Q.1.b"
 status = "draft"
 title = "The greatest common factor"
-why = '''
-Say you have 12 cookies and 18 brownies to pack into matching gift boxes, with nothing left over.
-The greatest common factor tells you the most boxes you can fill.
-'''
-idea = '''
-A factor of a number divides into it evenly, with nothing left over.
-3 is a factor of 12, because 12 divided by 3 is 4, with nothing left over.
-5 is not a factor of 12. 12 divided by 5 is 2, with 2 left over.
+goal = "You'll learn to find the greatest common factor (GCF) of two numbers."
+how_to = [
+  "Find all the factors of each number.",
+  "Mark the factors that are on both lists.",
+  "Pick the greatest one. That is the GCF.",
+]
+hook = "Read the name backwards: find the **Factors**, then the **Common** ones, then the **Greatest**."
 
-Two numbers can share factors. A factor that both numbers share is called a common factor.
-3 is a common factor of 12 and 18, because 3 divides both of them evenly.
+[lesson.problem]
+text = '''
+You baked 12 cookies and 18 brownies for a bake sale.
+You want to pack them into bags that all match. Every bag gets the same number of cookies and the same number of brownies. Nothing is left over.
 
-The greatest common factor, or GCF, is the biggest factor that two numbers share.
+What is the largest number of bags you can make?
+
+Think about it for a moment. We'll solve it together in Example 1.
 '''
-# Shown last, but TOML needs it before the sub-tables below.
-recap = [
-  "A factor divides a number evenly, with nothing left over.",
-  "List the factors of both numbers, then mark the ones they share.",
-  "The biggest shared factor is the GCF.",
+answer = "So you can make 6 matching bags. Each bag gets 2 cookies and 3 brownies."
+
+[lesson.idea]
+text = '''
+A **factor** is a number that divides another number evenly, with nothing left over.
+
+Here are 12 squares. You can line them up in a rectangle in three ways: 1 row of 12, 2 rows of 6, or 3 rows of 4.
+
+{{pictures}}
+
+Each way uses two factors. So the factors of 12 are 1, 2, 3, 4, 6 and 12.
+
+5 is not a factor of 12. If you try 5 rows, 12 ÷ 5 is 2, with 2 squares left over.
+
+A **common factor** is a factor that two numbers share. 3 is a common factor of 12 and 18, because 12 ÷ 3 = 4 and 18 ÷ 3 = 6.
+
+The **greatest common factor**, or **GCF**, is the biggest common factor.
+'''
+figures = [
+  { kind = "array", rows = 1, cols = 12, label = "1 × 12" },
+  { kind = "array", rows = 2, cols = 6, label = "2 × 6" },
+  { kind = "array", rows = 3, cols = 4, label = "3 × 4" },
 ]
 
 [[lesson.example]]
 title = "Find the GCF of 12 and 18"
 steps = [
-  { do = 'Pairs that make 12: $1 \times 12$, $2 \times 6$, $3 \times 4$', why = "Look for two numbers that multiply to make 12. Try 1, then 2, then 3. The next one, 4, is already in a pair, so you can stop." },
-  { do = 'Factors of 12: 1, 2, 3, 4, 6, 12', why = "Every number in those pairs divides 12 evenly. Write them in order so they are easy to compare." },
-  { do = 'Pairs that make 18: $1 \times 18$, $2 \times 9$, $3 \times 6$', why = "Do the same search for 18. 4 and 5 leave something over, so they are not factors. 6 is already in a pair, so stop." },
-  { do = 'Factors of 18: 1, 2, 3, 6, 9, 18', why = "Again, every number in the pairs, in order." },
-  { do = 'Shared factors: 1, 2, 3, 6', why = "Go down the list for 12. Keep each number that is also on the list for 18." },
-  { do = 'Biggest shared factor: 6', why = "The GCF is the biggest number on both lists." },
-  { do = '$12 \div 6 = 2$ and $18 \div 6 = 3$', why = "Check it. Both come out even, so 6 boxes work. Each box gets 2 cookies and 3 brownies." },
+  { say = "First, find all the factors of 12. Divide 12 by 1, 2, 3, and so on. Each time it divides evenly, you get a pair of factors.", work = [
+    "12 ÷ 1 = 12 → factors **1** and **12**",
+    "12 ÷ 2 = 6 → factors **2** and **6**",
+    "12 ÷ 3 = 4 → factors **3** and **4**",
+    "12 ÷ 4 = 3 → you already have 4 and 3. Stop.",
+  ] },
+  { say = "Why stop at 4? It is already in a pair. Every pair after this one is a pair you already have. Now do the same for 18.", work = [
+    "18 ÷ 1 = 18 → factors **1** and **18**",
+    "18 ÷ 2 = 9 → factors **2** and **9**",
+    "18 ÷ 3 = 6 → factors **3** and **6**",
+    "18 ÷ 4 and 18 ÷ 5 leave a remainder → not factors",
+    "18 ÷ 6 = 3 → you already have 6 and 3. Stop.",
+  ] },
+  { say = "Write both lists in order. Then mark the numbers that are on both lists. These are the common factors.", work = [
+    "Factors of 12: **1**, **2**, **3**, 4, **6**, 12",
+    "Factors of 18: **1**, **2**, **3**, **6**, 9, 18",
+  ] },
+  { say = "The common factors are 1, 2, 3 and 6. Of these, 6 is the greatest.", work = [
+    "GCF = **6**",
+  ] },
 ]
-answer = "The GCF of 12 and 18 is 6. You can fill 6 matching boxes."
+answer = "The greatest common factor of 12 and 18 is 6."
+check = "Check: 12 ÷ 6 = 2 and 18 ÷ 6 = 3. Both divide evenly, so 6 works."
 
-[[lesson.example]]
-title = "Find the GCF of 18 and 30"
-steps = [
-  { do = 'Factors of 18: 1, 2, 3, 6, 9, 18', why = "You found these in the first example." },
-  { do = 'Pairs that make 30: $1 \times 30$, $2 \times 15$, $3 \times 10$, $5 \times 6$', why = "Try 1, 2, 3, 4 and 5 in turn. 4 leaves something over, so skip it. The next one, 6, is already in a pair, so stop." },
-  { do = 'Factors of 30: 1, 2, 3, 5, 6, 10, 15, 30', why = "Every number in those pairs, in order." },
-  { do = 'Shared factors: 1, 2, 3, 6', why = "Go down the list for 18. 9 and 18 are not on the list for 30, so they drop out." },
-  { do = 'Biggest shared factor: 6', why = "6 is the biggest number left on both lists." },
-]
-answer = "The GCF of 18 and 30 is 6."
-
-[lesson.rule]
-text = '''
-To find the GCF of two numbers:
-- List the factors of each number.
-- Mark the factors that are on both lists.
-- The biggest one you marked is the GCF.
-'''
-terms = [
-  { term = "factor", means = "a number that divides another evenly. 3 is a factor of 12." },
-  { term = "GCF", means = "greatest common factor: the biggest factor two numbers share." },
-]
-
-[lesson.mistake]
-wrong = '''
-GCF of 4 and 6: $4 \times 3 = 12$ and $6 \times 2 = 12$. So the GCF is 12.
-'''
-right = '''
-Factors of 4: 1, 2, 4. Factors of 6: 1, 2, 3, 6. Shared: 1 and 2. So the GCF is 2.
-'''
-why = '''
-12 is a number that 4 and 6 both go into. That makes it a multiple of them, not a factor.
-A factor is never bigger than its number. So the GCF can never be bigger than the smaller number.
-'''
-
-[[lesson.try]]
+[lesson.example.turn]
 prompt = "What is the GCF of 8 and 12?"
 choices = ["2", "4", "8", "24"]
 answer = "4"
 check = "gcd(8, 12)"
 solution = '''
-Pairs that make 8: $1 \times 8$ and $2 \times 4$. So the factors of 8 are 1, 2, 4, 8.
-Pairs that make 12: $1 \times 12$, $2 \times 6$, $3 \times 4$. So the factors of 12 are 1, 2, 3, 4, 6, 12.
-The factors on both lists are 1, 2 and 4. The biggest is 4.
+Factors of 8: 8 ÷ 1 = 8 and 8 ÷ 2 = 4. So the factors are 1, 2, 4, 8.
+Factors of 12, from Example 1: 1, 2, 3, 4, 6, 12.
+The common factors are 1, 2 and 4. The greatest is 4.
 '''
 
-[[lesson.try]]
-prompt = "What is the GCF of 16 and 40? Type the number."
-answer = "8"
-check = "gcd(16, 40)"
-solution = '''
-Pairs that make 16: $1 \times 16$, $2 \times 8$, $4 \times 4$. So the factors of 16 are 1, 2, 4, 8, 16.
-Pairs that make 40: $1 \times 40$, $2 \times 20$, $4 \times 10$, $5 \times 8$. So the factors of 40 are 1, 2, 4, 5, 8, 10, 20, 40.
-The factors on both lists are 1, 2, 4 and 8. The biggest is 8.
-'''
+[[lesson.example]]
+title = "Find the GCF of 24 and 36"
+steps = [
+  { say = "These numbers are bigger, so there are more factors. Start with 24. Divide by 1, 2, 3, and so on.", work = [
+    "24 ÷ 1 = 24 → factors **1** and **24**",
+    "24 ÷ 2 = 12 → factors **2** and **12**",
+    "24 ÷ 3 = 8 → factors **3** and **8**",
+    "24 ÷ 4 = 6 → factors **4** and **6**",
+    "24 ÷ 5 leaves a remainder → not a factor",
+    "24 ÷ 6 = 4 → you already have 6 and 4. Stop.",
+  ] },
+  { say = "Now 36. Notice that 36 ÷ 6 = 6. The pair is 6 and 6, so you write 6 once.", work = [
+    "36 ÷ 1 = 36 → factors **1** and **36**",
+    "36 ÷ 2 = 18 → factors **2** and **18**",
+    "36 ÷ 3 = 12 → factors **3** and **12**",
+    "36 ÷ 4 = 9 → factors **4** and **9**",
+    "36 ÷ 5 leaves a remainder → not a factor",
+    "36 ÷ 6 = 6 → factor **6**. The pair meets itself. Stop.",
+  ] },
+  { say = "Write both lists in order, and mark the numbers on both lists.", work = [
+    "Factors of 24: **1**, **2**, **3**, **4**, **6**, 8, **12**, 24",
+    "Factors of 36: **1**, **2**, **3**, **4**, **6**, 9, **12**, 18, 36",
+  ] },
+  { say = "The common factors are 1, 2, 3, 4, 6 and 12. Of these, 12 is the greatest.", work = [
+    "GCF = **12**",
+  ] },
+]
+answer = "The greatest common factor of 24 and 36 is 12."
+check = "Check: 24 ÷ 12 = 2 and 36 ÷ 12 = 3. Both divide evenly, so 12 works."
 
-[[lesson.try]]
+[lesson.example.turn]
 prompt = '''
 A coach has 20 basketballs and 30 cones. She wants to make matching kits, with nothing left over.
-What is the most kits she can make?
+What is the largest number of kits she can make?
 '''
 choices = ["5", "10", "15", "60"]
 answer = "10"
 check = "gcd(20, 30)"
 solution = '''
-The number of kits has to divide 20 and 30 evenly, so look for the GCF.
-Factors of 20: 1, 2, 4, 5, 10, 20. Factors of 30: 1, 2, 3, 5, 6, 10, 15, 30.
-The factors on both lists are 1, 2, 5 and 10. The biggest is 10.
-Check: $20 \div 10 = 2$ and $30 \div 10 = 3$. Each kit gets 2 basketballs and 3 cones.
+The number of kits has to divide both 20 and 30 evenly. So you need the GCF of 20 and 30.
+Factors of 20: 1, 2, 4, 5, 10, 20.
+Factors of 30: 1, 2, 3, 5, 6, 10, 15, 30.
+The common factors are 1, 2, 5 and 10. The greatest is 10.
+Check: 20 ÷ 10 = 2 and 30 ÷ 10 = 3. Each kit gets 2 basketballs and 3 cones.
+'''
+
+[[lesson.mistake]]
+wrong = '''
+Factors of 24: 1, 2, 3, 4, 24
+Factors of 36: 1, 2, 3, 4, 36
+So the GCF is 4.
+'''
+right = '''
+Factors of 24: 1, 2, 3, 4, **6**, **8**, **12**, 24
+Factors of 36: 1, 2, 3, 4, **6**, **9**, **12**, **18**, 36
+So the GCF is 12.
+'''
+why = '''
+This person missed the factors in **bold**, so they missed the answer.
+To find them all, divide by 1, 2, 3 and so on, in order. Write down both numbers in each pair.
+'''
+
+[[lesson.mistake]]
+wrong = '''
+GCF of 4 and 6: 4 × 3 = 12 and 6 × 2 = 12. So the GCF is 12.
+'''
+right = '''
+Factors of 4: 1, 2, 4
+Factors of 6: 1, 2, 3, 6
+The common factors are 1 and 2. So the GCF is 2.
+'''
+why = '''
+4 and 6 both divide into 12. That makes 12 a multiple of 4 and 6, not a factor.
+A factor is never bigger than its number. So the GCF is never bigger than the smaller number.
+'''
+
+[[lesson.practice]]
+prompt = "What is the GCF of 16 and 40? Type the number."
+answer = "8"
+check = "gcd(16, 40)"
+solution = '''
+Factors of 16: 16 ÷ 1 = 16, 16 ÷ 2 = 8, 16 ÷ 4 = 4. So the factors are 1, 2, 4, 8, 16.
+Factors of 40: 40 ÷ 1 = 40, 40 ÷ 2 = 20, 40 ÷ 4 = 10, 40 ÷ 5 = 8. So the factors are 1, 2, 4, 5, 8, 10, 20, 40.
+The common factors are 1, 2, 4 and 8. The greatest is 8.
+'''
+
+[[lesson.practice]]
+prompt = '''
+A teacher has 15 pencils and 25 erasers. She wants to make matching packs, with nothing left over.
+What is the largest number of packs she can make?
+'''
+choices = ["3", "5", "10", "75"]
+answer = "5"
+check = "gcd(15, 25)"
+solution = '''
+The number of packs has to divide both 15 and 25 evenly. So you need the GCF of 15 and 25.
+Factors of 15: 1, 3, 5, 15.
+Factors of 25: 1, 5, 25.
+The common factors are 1 and 5. The greatest is 5.
+Check: 15 ÷ 5 = 3 and 25 ÷ 5 = 5. Each pack gets 3 pencils and 5 erasers.
+'''
+
+[lesson.review]
+example = '''
+GCF of 12 and 18
+Factors of 12: **1**, **2**, **3**, 4, **6**, 12
+Factors of 18: **1**, **2**, **3**, **6**, 9, 18
+GCF = **6**
 '''

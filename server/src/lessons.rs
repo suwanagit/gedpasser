@@ -12,6 +12,7 @@ use ts_rs::TS;
 use crate::AppState;
 use crate::api::{ApiError, PrincipleRef, principle_ref};
 use crate::auth::CurrentUser;
+use crate::figures::FigureView;
 
 /// A lesson in a list.
 #[derive(Debug, Clone, Serialize, TS)]
@@ -25,32 +26,9 @@ pub struct LessonRef {
 #[derive(Debug, Serialize, TS)]
 #[ts(export)]
 pub struct LessonStepView {
-    /// One line of work; math in `$...$`.
-    pub work: String,
-    pub why: String,
-}
-
-#[derive(Debug, Serialize, TS)]
-#[ts(export)]
-pub struct WorkedExampleView {
-    pub title: String,
-    pub steps: Vec<LessonStepView>,
-    pub answer: String,
-}
-
-#[derive(Debug, Serialize, TS)]
-#[ts(export)]
-pub struct TermView {
-    pub term: String,
-    pub means: String,
-}
-
-#[derive(Debug, Serialize, TS)]
-#[ts(export)]
-pub struct MistakeView {
-    pub wrong: String,
-    pub right: String,
-    pub why: String,
+    pub say: String,
+    /// Lines of written work; `**bold**` marks what to notice.
+    pub work: Vec<String>,
 }
 
 /// A question inside a lesson. The answer and solution travel with it so
@@ -67,23 +45,44 @@ pub struct TryItView {
 
 #[derive(Debug, Serialize, TS)]
 #[ts(export)]
+pub struct WorkedExampleView {
+    pub title: String,
+    pub steps: Vec<LessonStepView>,
+    pub answer: String,
+    pub check: String,
+    pub turn: TryItView,
+}
+
+#[derive(Debug, Serialize, TS)]
+#[ts(export)]
+pub struct MistakeView {
+    pub wrong: String,
+    pub right: String,
+    pub why: String,
+}
+
+#[derive(Debug, Serialize, TS)]
+#[ts(export)]
 pub struct LessonView {
     pub id: String,
     pub principle: PrincipleRef,
     pub skill_name: String,
     pub title: String,
-    pub why: String,
+    pub goal: String,
+    pub problem: String,
+    /// Said after example 1, which solves the problem.
+    pub problem_answer: String,
     pub idea: String,
+    pub figures: Vec<FigureView>,
     pub examples: Vec<WorkedExampleView>,
-    pub rule: String,
-    pub terms: Vec<TermView>,
-    pub mistake: MistakeView,
-    pub tries: Vec<TryItView>,
-    pub recap: Vec<String>,
+    pub how_to: Vec<String>,
+    pub hook: String,
+    pub mistakes: Vec<MistakeView>,
+    pub practice: Vec<TryItView>,
+    /// The small worked example on the lesson's Quick review.
+    pub review_example: String,
     /// True if the lesson has not been reviewed yet (dev mode only).
     pub draft: bool,
-    /// Whether the principle has a Quick review card.
-    pub has_quick_review: bool,
 }
 
 /// The lessons for a principle that learners may see, in file order.
@@ -115,32 +114,38 @@ pub async fn get_lesson(
         .map(|s| s.name.clone())
         .unwrap_or_default();
     let t = |s: &str| s.trim().to_string();
+    let q = |x: &ged_content::TryIt| TryItView {
+        prompt: t(&x.prompt),
+        choices: x.choices.clone(),
+        answer: t(&x.answer),
+        solution: t(&x.solution),
+    };
     Ok(Json(LessonView {
         id: l.id.clone(),
         principle: principle_ref(&state, &l.principle),
         skill_name,
         title: t(&l.title),
-        why: t(&l.why),
-        idea: t(&l.idea),
+        goal: t(&l.goal),
+        problem: t(&l.problem.text),
+        problem_answer: t(&l.problem.answer),
+        idea: t(&l.idea.text),
+        figures: l.idea.figures.iter().map(FigureView::new).collect(),
         examples: l
             .example
             .iter()
             .map(|e| WorkedExampleView {
                 title: t(&e.title),
-                steps: e.steps.iter().map(|s| LessonStepView { work: t(&s.work), why: t(&s.why) }).collect(),
+                steps: e.steps.iter().map(|s| LessonStepView { say: t(&s.say), work: s.work.iter().map(|w| t(w)).collect() }).collect(),
                 answer: t(&e.answer),
+                check: t(&e.check),
+                turn: q(&e.turn),
             })
             .collect(),
-        rule: t(&l.rule.text),
-        terms: l.rule.terms.iter().map(|x| TermView { term: t(&x.term), means: t(&x.means) }).collect(),
-        mistake: MistakeView { wrong: t(&l.mistake.wrong), right: t(&l.mistake.right), why: t(&l.mistake.why) },
-        tries: l
-            .tries
-            .iter()
-            .map(|x| TryItView { prompt: t(&x.prompt), choices: x.choices.clone(), answer: t(&x.answer), solution: t(&x.solution) })
-            .collect(),
-        recap: l.recap.iter().map(|r| t(r)).collect(),
+        how_to: l.how_to.iter().map(|h| t(h)).collect(),
+        hook: t(&l.hook),
+        mistakes: l.mistake.iter().map(|m| MistakeView { wrong: t(&m.wrong), right: t(&m.right), why: t(&m.why) }).collect(),
+        practice: l.practice.iter().map(q).collect(),
+        review_example: t(&l.review.example),
         draft: l.status == ged_content::Status::Draft,
-        has_quick_review: state.bank.card(&l.principle, state.serve_drafts).is_some(),
     }))
 }

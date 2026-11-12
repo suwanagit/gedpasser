@@ -15,6 +15,11 @@ pub const CARD_MAX_STEPS: usize = 4;
 pub fn figure_problems(f: &Figure) -> Vec<String> {
     let mut out = Vec::new();
     match f {
+        Figure::Array { rows, cols, .. } => {
+            if !(1..=30).contains(rows) || !(1..=30).contains(cols) {
+                out.push("array rows and cols must be 1–30".into());
+            }
+        }
         Figure::Plane { x_min, x_max, y_min, y_max, curves, .. } => {
             if x_min >= x_max || y_min >= y_max {
                 out.push("plane needs x_min < x_max and y_min < y_max".into());

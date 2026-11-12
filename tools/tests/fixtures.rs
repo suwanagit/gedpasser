@@ -185,46 +185,72 @@ id = "q3a-unit-rate"
 principle = "Q.3.a"
 status = "draft"
 title = "Unit rates"
-why = "You compare prices at the store."
-idea = "A unit rate tells you how much for one."
-recap = ["Divide to get the amount for one.", "Compare the amounts for one."]
+goal = "You'll learn to find the cost of one."
+how_to = ["Divide the total by how many.", "That is the cost for one."]
+hook = "Per means for each one."
+
+[lesson.problem]
+text = "Three apples cost 6 dollars. How much is one?"
+answer = "So one apple costs 2 dollars."
+
+[lesson.idea]
+text = '''
+A unit rate tells you how much for one.
+
+{{pictures}}
+'''
+figures = [{ kind = "array", rows = 1, cols = 3, label = "3 apples" }]
 
 [[lesson.example]]
 title = "Apples"
 steps = [
-  { do = '$6 \div 3 = 2$', why = "Split the cost over the three apples." },
-  { do = "2 dollars each", why = "That is the cost for one." },
+  { say = "Split the cost over the three apples.", work = ['$6 \div 3 = 2$'] },
+  { say = "That is the cost for one.", work = ["2 dollars each"] },
 ]
 answer = "Each apple costs 2 dollars."
+check = "Check: 3 times 2 is 6."
 
-[[lesson.example]]
-title = "Pears"
-steps = [
-  { do = '$12 \div 4 = 3$', why = "Split the cost over the four pears." },
-  { do = "3 dollars each", why = "That is the cost for one." },
-]
-answer = "Each pear costs 3 dollars."
-
-[lesson.rule]
-text = "Cost for one = total cost divided by how many."
-
-[lesson.mistake]
-wrong = '$3 \div 6$'
-right = '$6 \div 3$'
-why = "Put the total on top."
-
-[[lesson.try]]
+[lesson.example.turn]
 prompt = "Eight pens cost 16 dollars. How much is one pen?"
 answer = "2"
 check = "16 / 8"
 solution = "Divide 16 by 8 to get 2."
 
-[[lesson.try]]
+[[lesson.example]]
+title = "Pears"
+steps = [
+  { say = "Split the cost over the four pears.", work = ['$12 \div 4 = 3$'] },
+  { say = "That is the cost for one.", work = ["3 dollars each"] },
+]
+answer = "Each pear costs 3 dollars."
+check = "Check: 4 times 3 is 12."
+
+[lesson.example.turn]
 prompt = "Five cans cost 10 dollars. How much is one can?"
 choices = ["2", "5"]
 answer = "2"
 check = "10 / 5"
 solution = "Divide 10 by 5 to get 2."
+
+[[lesson.mistake]]
+wrong = '$3 \div 6$'
+right = '$6 \div 3$'
+why = "Put the total first."
+
+[[lesson.practice]]
+prompt = "Two hats cost 8 dollars. How much is one hat?"
+answer = "4"
+check = "8 / 2"
+solution = "Divide 8 by 2 to get 4."
+
+[[lesson.practice]]
+prompt = "Six eggs cost 3 dollars. How much is one egg, in dollars?"
+answer = "0.5"
+check = "3 / 6"
+solution = "Divide 3 by 6 to get 0.5."
+
+[lesson.review]
+example = "6 dollars for 3 apples: 6 / 3 = 2 dollars each."
 "#;
 
 fn with_lesson(dest: &str, text: &str) -> PathBuf {
@@ -248,9 +274,9 @@ fn a_well_formed_lesson_passes() {
 fn lesson_rules_are_enforced() {
     let bad = GOOD_LESSON
         .replace("title = \"Unit rates\"", "title = \"Unit rates, ratios\"")
-        .replace("You compare prices", "You simply compare prices")
+        .replace("A unit rate tells you", "A unit rate simply tells you")
         .replace("check = \"16 / 8\"", "check = \"16 / 4\"")
-        .replace("{ do = \"2 dollars each\", why = \"That is the cost for one.\" },", "");
+        .replacen("  { say = \"That is the cost for one.\", work = [\"2 dollars each\"] },\n", "", 1);
     let r = check_content(&with_lesson("lesson-bad", &bad));
     assert!(r.mentions("title has a comma"), "{:?}", r.diagnostics);
     assert!(r.mentions("uses \"simply\""));

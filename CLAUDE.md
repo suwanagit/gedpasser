@@ -43,8 +43,9 @@ Repo: https://github.com/suwanagit/gedpasser.git
   names and lessons are our own words. Never copy text from the GED guide.
   Lessons follow the same draft -> reviewed rule as questions.
 - Every lesson follows `docs/LESSON_STYLE.md`: one idea per lesson, written
-  for adults who know only basic arithmetic, in the fixed order (why, idea,
-  two worked examples, rule, mistake, try it, recap). Lessons live in
+  for adults who know only basic arithmetic, laid out the way real
+  educators do it (goal, problem, idea with a picture, worked example and
+  your turn twice, how-to, watch out, practice, quick review). Lessons live in
   `content/lessons/<skill>.toml`; read the style guide before writing one.
 - Every principle has a short card (shown as "Quick review") in
   `content/cards/<skill>.toml` (format in

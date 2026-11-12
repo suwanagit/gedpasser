@@ -26,8 +26,7 @@ export function LessonPanel({
   const [lesson, setLesson] = useState<Lesson | null>(null)
   const [error, setError] = useState<string | null>(null)
   const closeRef = useRef<HTMLButtonElement>(null)
-  const reviewRef = useRef<HTMLDivElement>(null)
-  const [playing, setPlaying] = useState<string | null>(null)
+  const [playing, setPlaying] = useState<{ id: string; review: boolean } | null>(null)
   const reduce = useReducedMotion()
 
   useEffect(() => {
@@ -98,21 +97,26 @@ export function LessonPanel({
               <section className="lesson-list">
                 <p className="eyebrow">Lessons</p>
                 {lesson.lessons.map((l) => (
-                  <button key={l.id} className="row row-btn lesson-row" onClick={() => setPlaying(l.id)}>
-                    <span className="lesson-play">
-                      <Icon name="play" size={16} fill />
-                    </span>
-                    <span>
-                      {l.title} {l.draft && <span className="pill draft">Draft</span>}
-                    </span>
-                    <Icon name="right" size={18} />
-                  </button>
+                  <div key={l.id} className="lesson-row">
+                    <button className="row row-btn" onClick={() => setPlaying({ id: l.id, review: false })}>
+                      <span className="lesson-play">
+                        <Icon name="play" size={16} fill />
+                      </span>
+                      <span>
+                        {l.title} {l.draft && <span className="pill draft">Draft</span>}
+                      </span>
+                      <Icon name="right" size={18} />
+                    </button>
+                    <button className="link small" onClick={() => setPlaying({ id: l.id, review: true })}>
+                      Quick review
+                    </button>
+                  </div>
                 ))}
               </section>
             )}
             {lesson.card ? (
-              <div ref={reviewRef} className="quick-review">
-                <p className="eyebrow">Quick review</p>
+              <div className="quick-review">
+                <p className="eyebrow">{lesson.lessons.length > 0 ? 'Quick review: the whole topic' : 'Quick review'}</p>
                 <LessonCard card={lesson.card} />
               </div>
             ) : (
@@ -142,12 +146,9 @@ export function LessonPanel({
       {playing && (
         <div onClick={(e) => e.stopPropagation()}>
           <LessonPlayer
-            lessonId={playing}
+            lessonId={playing.id}
+            startAtReview={playing.review}
             onClose={() => setPlaying(null)}
-            onQuickReview={() => {
-              setPlaying(null)
-              requestAnimationFrame(() => reviewRef.current?.scrollIntoView({ block: 'start' }))
-            }}
             onPractice={
               onPractice
                 ? () => {

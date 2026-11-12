@@ -18,8 +18,8 @@ use std::fmt;
 use std::path::{Path, PathBuf};
 
 pub use schema::{
-    Area, Card, Figure, Formula, Lesson, LessonFile, LessonRule, Mistake, Principle, PrincipleFile, Question, QuestionFile, QuestionType, Review, ReviewKind,
-    Skill, SkillFile, Stage, Status, StrategyFile, Tactic, Term, TryIt, Verdict, WorkedExample, WorkedStep,
+    Area, Card, Figure, Formula, Idea, Lesson, LessonFile, Mistake, Principle, Problem, PrincipleFile, Question, QuestionFile, QuestionType, Review, ReviewKind,
+    Skill, SkillFile, Stage, Status, StrategyFile, Tactic, TryIt, Verdict, WorkedExample, WorkedStep,
 };
 
 /// Prompts whose word sets overlap at least this much are flagged.

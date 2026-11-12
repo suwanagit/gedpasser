@@ -4,6 +4,7 @@ Newest first. One line per decision: date, decision, reason.
 
 | Date | Decision | Reason |
 | --- | --- | --- |
+| 2026-11-11 | Lessons follow how established materials teach (Illustrative Mathematics, OpenStax Prealgebra, Math is Fun, TERC EMPower): a problem before the new word, a picture, worked examples written like paper work with a full-sentence answer and a check, a "your turn" after each example, numbered how-to steps with a hook, common mistakes, practice, a Quick review for that lesson only, and a self-rating | Jon: the first sample read like AI and its Quick review showed a formula (the distributive property) the lesson never taught |
 | 2026-11-11 | Real lessons, one idea each, in `content/lessons/<skill>.toml`, following `docs/LESSON_STYLE.md`: why, idea, two worked examples with a reason for every step, rule, common mistake, 2–3 try-its with worked solutions, recap. Shown one step at a time in a full-screen player. A principle can have several lessons | Jon: the cards were cheat sheets for people who already know the math; learners who never learned it, or haven't done math in years, need real lessons |
 | 2026-11-11 | Cards are renamed "Quick review". The question screen's Hint button becomes Quick review (still counted as help), and every lesson ends with a link to it | Keep the cheat sheet for review, separate from teaching |
 | 2026-11-11 | Path stages keep showing cards until all of a principle's lessons exist | A stage could otherwise quiz on ideas its lesson hasn't taught yet |

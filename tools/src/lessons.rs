@@ -5,7 +5,8 @@ use std::collections::{HashMap, HashSet};
 use std::path::{Path, PathBuf};
 
 use crate::extra::prose_only;
-use crate::schema::{Lesson, LessonFile};
+use crate::extra::figure_problems;
+use crate::schema::{Lesson, LessonFile, TryIt};
 use crate::{Level, Report, close_enough, expr, parse_answer, read_toml};
 
 /// Words the style guide bans.
@@ -22,29 +23,49 @@ pub fn id_prefix(principle: &str) -> String {
 
 /// Every piece of prose in a lesson, labeled, in reading order.
 pub fn texts(l: &Lesson) -> Vec<(String, &str)> {
-    let mut out: Vec<(String, &str)> = vec![("title".into(), l.title.as_str()), ("why".into(), &l.why), ("idea".into(), &l.idea)];
+    let mut out: Vec<(String, &str)> = vec![
+        ("title".into(), l.title.as_str()),
+        ("goal".into(), &l.goal),
+        ("problem".into(), &l.problem.text),
+        ("problem answer".into(), &l.problem.answer),
+        ("idea".into(), &l.idea.text),
+    ];
     for (i, e) in l.example.iter().enumerate() {
-        out.push((format!("example {} title", i + 1), &e.title));
+        let n = i + 1;
+        out.push((format!("example {n} title"), &e.title));
         for (j, s) in e.steps.iter().enumerate() {
-            out.push((format!("example {} step {}", i + 1, j + 1), &s.work));
-            out.push((format!("example {} step {} why", i + 1, j + 1), &s.why));
+            out.push((format!("example {n} step {}", j + 1), &s.say));
+            for w in &s.work {
+                out.push((format!("example {n} step {} work", j + 1), w));
+            }
         }
-        out.push((format!("example {} answer", i + 1), &e.answer));
+        out.push((format!("example {n} answer"), &e.answer));
+        out.push((format!("example {n} check"), &e.check));
+        out.push((format!("your turn {n} prompt"), &e.turn.prompt));
+        out.push((format!("your turn {n} solution"), &e.turn.solution));
     }
-    out.push(("rule".into(), &l.rule.text));
-    for t in &l.rule.terms {
-        out.push((format!("term {}", t.term), &t.means));
+    for (i, h) in l.how_to.iter().enumerate() {
+        out.push((format!("how-to step {}", i + 1), h));
     }
-    out.push(("mistake wrong".into(), &l.mistake.wrong));
-    out.push(("mistake right".into(), &l.mistake.right));
-    out.push(("mistake why".into(), &l.mistake.why));
-    for (i, t) in l.tries.iter().enumerate() {
-        out.push((format!("try {} prompt", i + 1), &t.prompt));
-        out.push((format!("try {} solution", i + 1), &t.solution));
+    out.push(("hook".into(), &l.hook));
+    for (i, m) in l.mistake.iter().enumerate() {
+        out.push((format!("mistake {} wrong", i + 1), &m.wrong));
+        out.push((format!("mistake {} right", i + 1), &m.right));
+        out.push((format!("mistake {} why", i + 1), &m.why));
     }
-    for (i, r) in l.recap.iter().enumerate() {
-        out.push((format!("recap {}", i + 1), r));
+    for (i, t) in l.practice.iter().enumerate() {
+        out.push((format!("practice {} prompt", i + 1), &t.prompt));
+        out.push((format!("practice {} solution", i + 1), &t.solution));
     }
+    out.push(("review example".into(), &l.review.example));
+    out
+}
+
+/// The questions in a lesson: one after each example, then the practice.
+pub fn questions(l: &Lesson) -> Vec<(String, &TryIt)> {
+    let mut out: Vec<(String, &TryIt)> =
+        l.example.iter().enumerate().map(|(i, e)| (format!("your turn {}", i + 1), &e.turn)).collect();
+    out.extend(l.practice.iter().enumerate().map(|(i, t)| (format!("practice {}", i + 1), t)));
     out
 }
 
@@ -88,13 +109,15 @@ pub fn syllables(word: &str) -> usize {
     count.max(1)
 }
 
-/// Flesch–Kincaid grade level of a lesson's explanation text: why, idea,
-/// the reasons in the examples, the rule and the mistake.
+/// Flesch–Kincaid grade level of a lesson's explanation text: goal,
+/// problem, idea, what the examples say, and why the mistakes happen.
 pub fn reading_grade(l: &Lesson) -> f64 {
-    let mut parts: Vec<&str> = vec![&l.why, &l.idea, &l.rule.text, &l.mistake.why];
+    let mut parts: Vec<&str> = vec![&l.goal, &l.problem.text, &l.idea.text];
     for e in &l.example {
-        parts.extend(e.steps.iter().map(|s| s.why.as_str()));
+        parts.extend(e.steps.iter().map(|s| s.say.as_str()));
+        parts.push(&e.answer);
     }
+    parts.extend(l.mistake.iter().map(|m| m.why.as_str()));
     let (mut n_sent, mut n_words, mut n_syl) = (0usize, 0usize, 0usize);
     for p in parts {
         for sent in sentences(p) {
@@ -171,6 +194,18 @@ fn lesson_problems(l: &Lesson, skill: &str, principle_skill: &HashMap<&str, &str
     if l.title.contains(',') {
         err("title has a comma: one idea per lesson, so split it".into());
     }
+    let marks = l.idea.text.matches("{{pictures}}").count();
+    if l.idea.figures.is_empty() && marks > 0 {
+        err("idea has a {{pictures}} marker but no figures".into());
+    }
+    if !l.idea.figures.is_empty() && marks != 1 {
+        err("idea text needs one {{pictures}} line where the figures go".into());
+    }
+    for f in &l.idea.figures {
+        for p in figure_problems(f) {
+            err(format!("idea figure: {p}"));
+        }
+    }
     if l.example.len() != 2 {
         err(format!("needs exactly two worked examples (has {})", l.example.len()));
     }
@@ -178,56 +213,45 @@ fn lesson_problems(l: &Lesson, skill: &str, principle_skill: &HashMap<&str, &str
         if e.steps.len() < 2 {
             err(format!("example {} needs at least two steps", i + 1));
         }
-        if e.title.trim().is_empty() || e.answer.trim().is_empty() {
-            err(format!("example {} needs a title and an answer", i + 1));
-        }
-        for (j, s) in e.steps.iter().enumerate() {
-            if s.work.trim().is_empty() || s.why.trim().is_empty() {
-                err(format!("example {} step {} needs both `do` and `why`", i + 1, j + 1));
-            }
-        }
     }
-    for t in &l.rule.terms {
-        if t.term.trim().is_empty() || t.means.trim().is_empty() {
-            err("every rule term needs a term and what it means".into());
-        }
+    if !(2..=5).contains(&l.how_to.len()) {
+        err(format!("how_to needs 2 to 5 steps (has {})", l.how_to.len()));
     }
-    if !(2..=3).contains(&l.tries.len()) {
-        err(format!("needs 2 or 3 try-it questions (has {})", l.tries.len()));
+    if !(1..=2).contains(&l.mistake.len()) {
+        err(format!("needs one or two mistakes (has {})", l.mistake.len()));
     }
-    for (i, t) in l.tries.iter().enumerate() {
-        let n = i + 1;
+    if l.practice.len() != 2 {
+        err(format!("needs exactly two practice questions (has {})", l.practice.len()));
+    }
+    for (name, t) in questions(l) {
         if t.prompt.trim().is_empty() || t.answer.trim().is_empty() || t.solution.trim().is_empty() {
-            err(format!("try {n} needs a prompt, an answer and a solution"));
+            err(format!("{name} needs a prompt, an answer and a solution"));
         }
         if !t.choices.is_empty() {
             if t.choices.len() < 2 {
-                err(format!("try {n} needs at least two choices"));
+                err(format!("{name} needs at least two choices"));
             }
             if !t.choices.iter().any(|c| c.trim() == t.answer.trim()) {
-                err(format!("try {n}: answer {:?} is not one of the choices", t.answer));
+                err(format!("{name}: answer {:?} is not one of the choices", t.answer));
             }
         }
         let number = parse_answer(&t.answer);
         if number.is_some() && t.check.trim().is_empty() {
-            err(format!("try {n}: a numeric answer needs a check expression"));
+            err(format!("{name}: a numeric answer needs a check expression"));
         }
         if !t.check.trim().is_empty() {
             match (expr::eval(&t.check), number) {
-                (Err(e), _) => err(format!("try {n}: check {:?} failed: {e}", t.check)),
-                (Ok(_), None) => err(format!("try {n}: answer {:?} is not a number but has a check", t.answer)),
+                (Err(e), _) => err(format!("{name}: check {:?} failed: {e}", t.check)),
+                (Ok(_), None) => err(format!("{name}: answer {:?} is not a number but has a check", t.answer)),
                 (Ok(v), Some(want)) if !close_enough(v, want) => {
-                    err(format!("try {n}: WRONG KEY: check {:?} = {v} but answer is {want}", t.check))
+                    err(format!("{name}: WRONG KEY: check {:?} = {v} but answer is {want}", t.check))
                 }
                 _ => {}
             }
         }
     }
-    if !(2..=4).contains(&l.recap.len()) {
-        err(format!("recap needs 2 to 4 lines (has {})", l.recap.len()));
-    }
     for (name, text) in texts(l) {
-        if text.trim().is_empty() && !name.starts_with("term") {
+        if text.trim().is_empty() {
             err(format!("{name} must not be empty"));
         }
         let words = words_of(text);

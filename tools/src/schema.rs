@@ -160,6 +160,13 @@ pub enum Figure {
         #[serde(default)]
         label: Option<String>,
     },
+    /// A rectangle of `rows` by `cols` squares, e.g. to show factor pairs.
+    Array {
+        rows: u32,
+        cols: u32,
+        #[serde(default)]
+        label: Option<String>,
+    },
     /// Geometry: polygons with side labels, circles, extra segments. No axes.
     Shape {
         #[serde(default)]
@@ -293,55 +300,69 @@ pub struct Lesson {
     pub principle: String,
     pub status: Status,
     pub title: String,
-    /// A real situation where this comes up.
-    pub why: String,
-    /// The idea in plain words, no symbols.
-    pub idea: String,
-    /// Exactly two worked examples, the second a little harder.
+    /// One line: "You'll learn to …".
+    pub goal: String,
+    /// The method as short numbered commands.
+    #[serde(default)]
+    pub how_to: Vec<String>,
+    /// A memory hook for the method.
+    pub hook: String,
+    /// A real situation posed as a question before any new word appears.
+    pub problem: Problem,
+    /// The idea in plain words, with pictures.
+    pub idea: Idea,
+    /// Exactly two worked examples, each followed by a "your turn".
     #[serde(default)]
     pub example: Vec<WorkedExample>,
-    pub rule: LessonRule,
-    pub mistake: Mistake,
-    /// Two or three questions inside the lesson.
-    #[serde(default, rename = "try")]
-    pub tries: Vec<TryIt>,
-    /// Two to four short lines: the cheat-sheet version.
+    /// One or two common mistakes, shown and corrected.
     #[serde(default)]
-    pub recap: Vec<String>,
+    pub mistake: Vec<Mistake>,
+    /// Two more practice questions.
+    #[serde(default)]
+    pub practice: Vec<TryIt>,
+    /// The lesson's own Quick review: the how-to steps, this small example
+    /// and the hook.
+    pub review: Review2,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct Problem {
+    pub text: String,
+    /// Said after example 1, which solves it.
+    pub answer: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct Idea {
+    pub text: String,
+    #[serde(default)]
+    pub figures: Vec<Figure>,
 }
 
 #[derive(Debug, Clone, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct WorkedExample {
     pub title: String,
+    /// Shown one per tap.
     pub steps: Vec<WorkedStep>,
-    /// The result, said in a full sentence.
+    /// The result, in a full sentence that restates the question.
     pub answer: String,
+    /// How to check the answer.
+    pub check: String,
+    /// A question in the same format with new numbers.
+    pub turn: TryIt,
 }
 
 #[derive(Debug, Clone, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct WorkedStep {
-    /// One line of work.
-    #[serde(rename = "do")]
-    pub work: String,
-    /// Why this step.
-    pub why: String,
-}
-
-#[derive(Debug, Clone, Deserialize)]
-#[serde(deny_unknown_fields)]
-pub struct LessonRule {
-    pub text: String,
+    /// What we do and why, in a sentence or two.
+    pub say: String,
+    /// The written work, one line each; `**bold**` for highlights.
     #[serde(default)]
-    pub terms: Vec<Term>,
-}
-
-#[derive(Debug, Clone, Deserialize)]
-#[serde(deny_unknown_fields)]
-pub struct Term {
-    pub term: String,
-    pub means: String,
+    pub work: Vec<String>,
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -365,6 +386,13 @@ pub struct TryIt {
     pub check: String,
     /// The full worked solution, shown when the learner is wrong.
     pub solution: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct Review2 {
+    /// One small worked example, a few lines.
+    pub example: String,
 }
 
 /// `content/cards/<skill>.toml`: one short card per principle.

@@ -65,11 +65,15 @@ structure, banned words and sentence length. You check what code cannot:
 - **The examples match the rule as written.** Same operation, same order.
 - **Each step says why**, not just what.
 - **The examples are right.** Work each one yourself.
-- **The try-its.** Solve each one blind before reading the answer, and
+- **The your-turn and practice questions.** Solve each one blind before reading the answer, and
   record your answers in the note. Check that each solution is complete
   enough to learn from.
 - **The mistake is real**: one that learners actually make, shown and then
   corrected.
+- **It reads like a good teacher**, following "How to word it" in the style
+  guide: a problem before the new word, work laid out like paper, a
+  full-sentence answer with a check, and a Quick review that covers only
+  this lesson.
 
 ## Principle notes (`content/principles.toml`, kind = "lesson")
 

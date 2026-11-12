@@ -14,6 +14,7 @@ export function Figure({ view }: { view: FigureView }) {
       {f.kind === 'dots' && <Dots f={f} />}
       {f.kind === 'box' && <BoxPlot f={f} />}
       {f.kind === 'shape' && <Shape f={f} />}
+      {f.kind === 'array' && <SquareArray f={f} />}
     </figure>
   )
 }
@@ -32,6 +33,8 @@ function describe(f: FigureData): string {
       return 'Box plot'
     case 'shape':
       return 'Diagram'
+    case 'array':
+      return `${f.rows} rows of ${f.cols} squares`
   }
 }
 
@@ -416,6 +419,29 @@ function Shape({ f }: { f: ShapeF }) {
           {l.label}
         </text>
       ))}
+    </svg>
+  )
+}
+
+/** A rectangle of rows × cols squares, with its label underneath. */
+function SquareArray({ f }: { f: Extract<FigureData, { kind: 'array' }> }) {
+  const cell = 18
+  const gap = 3
+  const w = f.cols * (cell + gap) - gap
+  const h = f.rows * (cell + gap) - gap
+  const labelH = f.label ? 22 : 0
+  return (
+    <svg className="fig-array" viewBox={`-2 -2 ${w + 4} ${h + labelH + 4}`} width={w + 4} role="img">
+      {Array.from({ length: f.rows }, (_, r) =>
+        Array.from({ length: f.cols }, (_, c) => (
+          <rect key={`${r}-${c}`} x={c * (cell + gap)} y={r * (cell + gap)} width={cell} height={cell} rx={4} className="fig-cell" />
+        )),
+      )}
+      {f.label && (
+        <text x={w / 2} y={h + 17} textAnchor="middle" className="fig-label">
+          {f.label}
+        </text>
+      )}
     </svg>
   )
 }
