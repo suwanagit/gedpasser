@@ -1,0 +1,406 @@
+# Social Studies: main ideas and inferences (SSP.1.a, SSP.1.b, SSP.2.a, SSP.2.b)
+# Every question cites its sources (docs/CONTENT_RULES.md). Explanations
+# follow docs/EXPLANATION_STYLE.md: one line per step, answer in bold.
+
+# ── The Preamble (social-preamble) ───────────────────────────────────
+
+[[question]]
+id = "ss-main-ideas-0001"
+skill = "ss-main-ideas"
+principle = "SSP.2.a"
+topic = "CG.b.2"
+difficulty = 1
+type = "multiple_choice"
+status = "reviewed"
+stimulus = "social-preamble"
+sources = ["Passage social-preamble", "National Archives, The Constitution of the United States: A Transcription: https://www.archives.gov/founding-docs/constitution-transcript", "OpenStax American Government 3e 2.3 The Development of the Constitution: https://openstax.org/books/american-government-3e/pages/2-3-the-development-of-the-constitution", "National Archives, The Bill of Rights: A Transcription: https://www.archives.gov/founding-docs/bill-of-rights-transcript"]
+prompt = "Which statement best expresses the central idea of the Preamble?"
+choices = ["The people of the United States create the Constitution to reach shared goals", "The states form a union that can overrule the people", "The Constitution lists the rights that every citizen has", "The President is given the power to defend the country"]
+answer = "The people of the United States create the Constitution to reach shared goals"
+explanation = '''
+The Preamble names who acts: "We the People of the United States".
+It lists goals such as justice, peace at home, defense, the general welfare and liberty.
+It ends with the people "do ordain and establish this Constitution".
+So the central idea is that **the people of the United States create the Constitution to reach shared goals**.
+'''
+common_mistake = "Picking the list of rights. Rights are listed in the Bill of Rights, the first ten amendments; the Preamble states goals."
+
+[[question]]
+id = "ss-main-ideas-0002"
+skill = "ss-main-ideas"
+principle = "SSP.1.b"
+topic = "CG.b.2"
+difficulty = 2
+type = "multiple_choice"
+status = "reviewed"
+stimulus = "social-preamble"
+sources = ["Passage social-preamble", "National Archives, The Constitution of the United States: A Transcription: https://www.archives.gov/founding-docs/constitution-transcript", "OpenStax American Government 3e 2.3 The Development of the Constitution: https://openstax.org/books/american-government-3e/pages/2-3-the-development-of-the-constitution"]
+prompt = "Which words from the Preamble best support the idea that the government's power comes from the people?"
+choices = ["\"We the People of the United States ... do ordain and establish this Constitution\"", "\"provide for the common defence\"", "\"insure domestic Tranquility\"", "\"promote the general Welfare\""]
+answer = "\"We the People of the United States ... do ordain and establish this Constitution\""
+explanation = '''
+The idea is about where the government's power comes from.
+Only one choice says who creates the Constitution: the people, who "ordain and establish" it.
+The other choices are goals of the government, not the source of its power.
+So the best support is **"We the People of the United States ... do ordain and establish this Constitution"**.
+'''
+common_mistake = "Picking one of the goals. Goals say what the government should do, not who gave it power."
+
+[[question]]
+id = "ss-main-ideas-0003"
+skill = "ss-main-ideas"
+principle = "SSP.1.a"
+topic = "CG.b.3"
+difficulty = 2
+type = "multiple_choice"
+status = "reviewed"
+stimulus = "social-preamble"
+sources = ["Passage social-preamble", "National Archives, The Constitution of the United States: A Transcription: https://www.archives.gov/founding-docs/constitution-transcript"]
+prompt = "The Preamble says the Constitution will \"secure the Blessings of Liberty to ourselves and our Posterity.\" What does this suggest about the writers?"
+choices = ["They wanted the Constitution to protect liberty for future generations as well as their own", "They expected the Constitution to last only until the war debts were paid", "They meant the Constitution to apply only to the people who signed it", "They planned to give later generations more rights than they had themselves"]
+answer = "They wanted the Constitution to protect liberty for future generations as well as their own"
+explanation = '''
+"Ourselves" means the people living then.
+"Posterity" means the people who come after them: their children and later generations.
+So the writers wanted **the Constitution to protect liberty for future generations as well as their own**.
+'''
+common_mistake = "Picking \"only the people who signed it\". The word Posterity reaches past the people alive then."
+
+# ── The Declaration of Independence (social-declaration) ──────────────
+
+[[question]]
+id = "ss-main-ideas-0004"
+skill = "ss-main-ideas"
+principle = "SSP.1.a"
+topic = "CG.b.1"
+difficulty = 1
+type = "multiple_choice"
+status = "reviewed"
+stimulus = "social-declaration"
+sources = ["Passage social-declaration", "National Archives, Declaration of Independence: A Transcription: https://www.archives.gov/founding-docs/declaration-transcript"]
+prompt = "According to the passage, why are governments created?"
+choices = ["To secure people's rights", "To decide which rights people have", "To collect taxes for defense", "To choose who is created equal"]
+answer = "To secure people's rights"
+explanation = '''
+The passage says: "to secure these rights, Governments are instituted among Men".
+"Instituted" means set up, and "these rights" are life, liberty and the pursuit of happiness.
+So governments are created **to secure people's rights**.
+'''
+common_mistake = "Picking \"to decide which rights people have\". The passage says people are born with these rights; government only protects them."
+
+[[question]]
+id = "ss-main-ideas-0005"
+skill = "ss-main-ideas"
+principle = "SSP.1.a"
+topic = "USH.a.1"
+difficulty = 2
+type = "multiple_choice"
+status = "reviewed"
+stimulus = "social-declaration"
+sources = ["Passage social-declaration", "National Archives, Declaration of Independence: A Transcription: https://www.archives.gov/founding-docs/declaration-transcript"]
+prompt = "Based on the passage, what may the people do when a government destroys the rights it was meant to protect?"
+choices = ["Change the government or replace it with a new one", "Ask the king to restore their rights", "Wait for the courts to decide whether the rights still exist", "Leave the country and start over somewhere else"]
+answer = "Change the government or replace it with a new one"
+explanation = '''
+The passage says that when a government "becomes destructive of these ends", the people may "alter or to abolish it".
+It adds that they may "institute new Government".
+So the people may **change the government or replace it with a new one**.
+'''
+common_mistake = "Picking \"ask the king\". The colonists had already tried that; the passage claims the right to change the government itself."
+
+[[question]]
+id = "ss-main-ideas-0006"
+skill = "ss-main-ideas"
+principle = "SSP.1.b"
+topic = "CG.b.2"
+difficulty = 2
+type = "multiple_choice"
+status = "reviewed"
+stimulus = "social-declaration"
+sources = ["Passage social-declaration", "National Archives, Declaration of Independence: A Transcription: https://www.archives.gov/founding-docs/declaration-transcript", "OpenStax American Government 3e 1.1 What is Government?: https://openstax.org/books/american-government-3e/pages/1-1-what-is-government"]
+prompt = "Which words from the passage best support the idea that a government's authority depends on the agreement of the people?"
+choices = ["\"deriving their just powers from the consent of the governed\"", "\"all men are created equal\"", "\"endowed by their Creator with certain unalienable Rights\"", "\"laying its foundation on such principles\""]
+answer = "\"deriving their just powers from the consent of the governed\""
+explanation = '''
+The idea is that a government's power rests on the people agreeing to it.
+"Consent of the governed" means the agreement of the people being governed.
+The other choices are about equality, where rights come from, or how a new government is built.
+So the best support is **"deriving their just powers from the consent of the governed"**.
+'''
+common_mistake = "Picking \"endowed by their Creator\". That line says where rights come from, not where government power comes from."
+
+[[question]]
+id = "ss-main-ideas-0007"
+skill = "ss-main-ideas"
+principle = "SSP.2.a"
+topic = "USH.a.1"
+difficulty = 2
+type = "dropdown"
+status = "reviewed"
+stimulus = "social-declaration"
+sources = ["Passage social-declaration", "National Archives, Declaration of Independence: A Transcription: https://www.archives.gov/founding-docs/declaration-transcript"]
+prompt = "Complete the central idea of the passage: people have {{1}} that no government gives them, and a government that {{2}} them may be changed."
+blanks = [
+  { choices = ["rights", "duties", "property"], answer = "rights" },
+  { choices = ["destroys", "protects", "writes down"], answer = "destroys" },
+]
+explanation = '''
+The passage says people are "endowed by their Creator" with rights, so the rights come before any government.
+It says the people may change a government that "becomes destructive of these ends".
+So: people have **rights** that no government gives them, and a government that **destroys** those rights may be changed.
+'''
+common_mistake = "Picking \"protects\". The passage says governments exist to protect rights; it is a government that destroys them that may be changed."
+
+# ── The road to Alaska statehood (social-alaska-statehood) ────────────
+
+[[question]]
+id = "ss-main-ideas-0008"
+skill = "ss-main-ideas"
+principle = "SSP.1.a"
+topic = "G.b.1"
+difficulty = 1
+type = "fill_in"
+status = "reviewed"
+alaska = true
+stimulus = "social-alaska-statehood"
+sources = ["Original passage social-alaska-statehood", "University of Alaska Fairbanks, A place to write a new Alaska: https://uaf.edu/centennial/uaf100/ideas/constitution.php"]
+prompt = "According to the passage, Alaska became which number state? Type a number."
+answer = "49"
+check = "49"
+explanation = '''
+The passage says the proclamation "made Alaska the 49th state".
+So Alaska became state number **49**.
+'''
+common_mistake = "Typing 1959, the year. The question asks which number state Alaska became."
+
+[[question]]
+id = "ss-main-ideas-0009"
+skill = "ss-main-ideas"
+principle = "SSP.2.b"
+topic = "G.b.1"
+difficulty = 2
+type = "multiple_choice"
+status = "reviewed"
+alaska = true
+stimulus = "social-alaska-statehood"
+sources = ["Original passage social-alaska-statehood", "University of Alaska Fairbanks, A place to write a new Alaska: https://uaf.edu/centennial/uaf100/ideas/constitution.php", "University of Alaska, Creating Alaska: Territory Differs from State: https://www.alaska.edu/uajourney/history-and-trivia/alaska-history/creating-alaska/statehood-files/territory-differs-from-st/", "Alaska Statehood Act, Public Law 85-508 (1958), 72 Stat. 339: https://www.govinfo.gov/content/pkg/STATUTE-72/pdf/STATUTE-72-Pg339.pdf"]
+prompt = "According to the passage, how did statehood change Alaska's place in Congress?"
+choices = ["Alaska gained members of Congress who could vote on laws", "Alaska sent someone to Congress for the first time", "Alaska lost its delegate and had no one in Congress", "Alaska gained a vote in Congress but still had only one member there"]
+answer = "Alaska gained members of Congress who could vote on laws"
+explanation = '''
+Before statehood, Alaska's one delegate "had no vote".
+After statehood, Alaska could elect two senators and a representative with "full votes in Congress".
+So **Alaska gained members of Congress who could vote on laws**.
+'''
+common_mistake = "Picking \"for the first time\". The passage says Alaska already sent a delegate as a territory."
+
+[[question]]
+id = "ss-main-ideas-0010"
+skill = "ss-main-ideas"
+principle = "SSP.1.a"
+topic = "G.b.1"
+difficulty = 2
+type = "multiple_choice"
+status = "reviewed"
+alaska = true
+stimulus = "social-alaska-statehood"
+sources = ["Original passage social-alaska-statehood", "University of Alaska Fairbanks, A place to write a new Alaska: https://uaf.edu/centennial/uaf100/ideas/constitution.php", "University of Alaska, Creating Alaska: Territory Differs from State: https://www.alaska.edu/uajourney/history-and-trivia/alaska-history/creating-alaska/statehood-files/territory-differs-from-st/", "Office of the Historian, US Department of State, Purchase of Alaska, 1867: https://history.state.gov/milestones/1866-1898/alaska-purchase"]
+prompt = "Based on the passage, which was most likely one reason many Alaskans wanted statehood?"
+choices = ["Congress could overrule the laws passed by Alaska's own legislature", "Russia could still overrule Alaska's legislature", "Alaska had no representative of any kind in Congress", "Statehood would end all federal laws in Alaska"]
+answer = "Congress could overrule the laws passed by Alaska's own legislature"
+explanation = '''
+The passage says Congress "could still pass laws for Alaska that overruled the territorial legislature", and Alaska's delegate "had no vote".
+The next sentence says "Many Alaskans wanted more say."
+So one likely reason was that **Congress could overrule the laws passed by Alaska's own legislature**.
+'''
+common_mistake = "Picking \"no representative of any kind\". The passage says Alaska had a delegate, but one with no vote."
+
+[[question]]
+id = "ss-main-ideas-0011"
+skill = "ss-main-ideas"
+principle = "SSP.2.a"
+topic = "G.b.1"
+difficulty = 2
+type = "multiple_choice"
+status = "reviewed"
+alaska = true
+stimulus = "social-alaska-statehood"
+sources = ["Original passage social-alaska-statehood", "University of Alaska Fairbanks, A place to write a new Alaska: https://uaf.edu/centennial/uaf100/ideas/constitution.php", "Alaska Lieutenant Governor, The Constitution of the State of Alaska: https://ltgov.alaska.gov/information/alaskas-constitution/"]
+prompt = "Which conclusion is best supported by the passage?"
+choices = ["Alaskans took several steps of their own to reach statehood", "Congress made Alaska a state without Alaskans asking for it", "Alaska became a state soon after it was bought from Russia", "Statehood gave Alaska control of its trade with other countries"]
+answer = "Alaskans took several steps of their own to reach statehood"
+explanation = '''
+The passage shows Alaskans electing delegates, writing a constitution, and voting twice: on the constitution and on the terms.
+It also shows that 92 years passed between the purchase (1867) and statehood (1959).
+So the best-supported conclusion is that **Alaskans took several steps of their own to reach statehood**.
+'''
+common_mistake = "Picking \"soon after it was bought\". The purchase was in 1867 and statehood came in 1959."
+
+# ── One budget, two projects (social-town-budget) ─────────────────────
+
+[[question]]
+id = "ss-main-ideas-0012"
+skill = "ss-main-ideas"
+principle = "SSP.2.a"
+topic = "E.c.5"
+difficulty = 1
+type = "multiple_choice"
+status = "reviewed"
+stimulus = "social-town-budget"
+sources = ["Original passage social-town-budget", "OpenStax Principles of Economics 3e 2.1 How Individuals Make Choices Based on Their Budget Constraint: https://openstax.org/books/principles-economics-3e/pages/2-1-how-individuals-make-choices-based-on-their-budget-constraint"]
+prompt = "What is the passage mainly about?"
+choices = ["A town choosing between two useful projects with limited money", "Why fishing boats move from one town to another", "How patients travel to a hospital by plane", "How a town raises taxes to pay for new projects"]
+answer = "A town choosing between two useful projects with limited money"
+explanation = '''
+The passage begins with \$2 million and a choice of "one of two projects".
+It gives the reasons for each project, then says the other must wait.
+So it is mainly about **a town choosing between two useful projects with limited money**.
+'''
+common_mistake = "Picking a detail, like boats or patients, that supports only one side."
+
+[[question]]
+id = "ss-main-ideas-0013"
+skill = "ss-main-ideas"
+principle = "SSP.1.a"
+topic = "E.c.5"
+difficulty = 2
+type = "multiple_choice"
+status = "reviewed"
+stimulus = "social-town-budget"
+sources = ["Original passage social-town-budget", "OpenStax Principles of Economics 3e 2.1 How Individuals Make Choices Based on Their Budget Constraint: https://openstax.org/books/principles-economics-3e/pages/2-1-how-individuals-make-choices-based-on-their-budget-constraint"]
+prompt = "Suppose the council chooses to repair the harbor. Based on the passage, what is the opportunity cost of that choice?"
+choices = ["Expanding the health clinic this year", "The \\$2 million spent on the harbor", "Jobs at the fish plant", "Repairing the harbor"]
+answer = "Expanding the health clinic this year"
+explanation = '''
+The passage defines opportunity cost as "the value of the best choice given up".
+If the council repairs the harbor, the choice it gives up is the clinic.
+So the opportunity cost is **expanding the health clinic this year**.
+'''
+common_mistake = "Picking the \\$2 million. That is what the harbor costs in money; the opportunity cost is the other project the town gives up."
+
+[[question]]
+id = "ss-main-ideas-0014"
+skill = "ss-main-ideas"
+principle = "SSP.1.b"
+topic = "E.c.5"
+difficulty = 2
+type = "multiple_choice"
+status = "reviewed"
+stimulus = "social-town-budget"
+sources = ["Original passage social-town-budget", "OpenStax Principles of Economics 3e 2.1 How Individuals Make Choices Based on Their Budget Constraint: https://openstax.org/books/principles-economics-3e/pages/2-1-how-individuals-make-choices-based-on-their-budget-constraint"]
+prompt = "Which detail from the passage best supports the claim that expanding the clinic would help families?"
+choices = ["The clinic now sends many patients to a hospital 300 kilometers away by plane", "Fishing boats unload their catch at the harbor", "The town has \\$2 million left in its budget", "The project not chosen will have to wait at least a year"]
+answer = "The clinic now sends many patients to a hospital 300 kilometers away by plane"
+explanation = '''
+The claim is that a bigger clinic would help families.
+Long plane trips to a faraway hospital are what cost families "time and money".
+A bigger clinic could treat more of those patients at home.
+So the best support is that **the clinic now sends many patients to a hospital 300 kilometers away by plane**.
+'''
+common_mistake = "Picking the \\$2 million. It is true, but it says nothing about how the clinic would help families."
+
+# ── The Federalist No. 51 (social-federalist-51) ─────────────────────
+
+[[question]]
+id = "ss-main-ideas-0015"
+skill = "ss-main-ideas"
+principle = "SSP.2.a"
+topic = "CG.b.5"
+difficulty = 3
+type = "multiple_choice"
+status = "reviewed"
+stimulus = "social-federalist-51"
+sources = ["Passage social-federalist-51", "The Federalist No. 51 (1788), Avalon Project, Yale Law School: https://avalon.law.yale.edu/18th_century/fed51.asp", "National Constitution Center, James Madison, Federalist No. 51 (1788): https://constitutioncenter.org/the-constitution/historic-document-library/detail/james-madison-federalist-no-51-1788", "Library of Congress, Full Text of The Federalist Papers: https://guides.loc.gov/federalist-papers/full-text", "OpenStax American Government 3e 2.3 The Development of the Constitution: https://openstax.org/books/american-government-3e/pages/2-3-the-development-of-the-constitution"]
+prompt = "Which statement best expresses the central idea of the passage?"
+choices = ["A government needs power over the people and also limits on its own power", "No government is needed if leaders are chosen carefully", "The people should be controlled strictly so the government stays safe", "Only the wisest people should be allowed to govern"]
+answer = "A government needs power over the people and also limits on its own power"
+explanation = '''
+The last sentence names "the great difficulty".
+First, the government must be able "to control the governed".
+Next, it must be obliged "to control itself".
+So the central idea is that **a government needs power over the people and also limits on its own power**.
+'''
+common_mistake = "Picking \"no government is needed\". The passage says that would be true only \"if men were angels\", and they are not."
+
+[[question]]
+id = "ss-main-ideas-0016"
+skill = "ss-main-ideas"
+principle = "SSP.1.a"
+topic = "CG.b.5"
+difficulty = 3
+type = "multiple_choice"
+status = "reviewed"
+stimulus = "social-federalist-51"
+sources = ["Passage social-federalist-51", "The Federalist No. 51 (1788), Avalon Project, Yale Law School: https://avalon.law.yale.edu/18th_century/fed51.asp", "National Constitution Center, James Madison, Federalist No. 51 (1788): https://constitutioncenter.org/the-constitution/historic-document-library/detail/james-madison-federalist-no-51-1788", "OpenStax American Government 3e 2.3 The Development of the Constitution: https://openstax.org/books/american-government-3e/pages/2-3-the-development-of-the-constitution"]
+prompt = "Based on the passage, which plan would the author most likely support?"
+choices = ["Dividing power so that each part of the government can check the others", "Giving one leader full power so the government can act quickly", "Letting each state ignore federal laws it does not like", "Ending elections because voters can make mistakes"]
+answer = "Dividing power so that each part of the government can check the others"
+explanation = '''
+The author says the government must be made "to control itself".
+Rulers are people, not angels, so controls on the government are needed.
+Dividing power so that each part limits the others is such a control.
+So the author would most likely support **dividing power so that each part of the government can check the others**.
+'''
+common_mistake = "Picking \"one leader with full power\". That removes the controls the author says a government needs."
+
+[[question]]
+id = "ss-main-ideas-0017"
+skill = "ss-main-ideas"
+principle = "SSP.1.b"
+topic = "CG.b.5"
+difficulty = 2
+type = "multiple_choice"
+status = "reviewed"
+stimulus = "social-federalist-51"
+sources = ["Passage social-federalist-51", "The Federalist No. 51 (1788), Avalon Project, Yale Law School: https://avalon.law.yale.edu/18th_century/fed51.asp", "National Constitution Center, James Madison, Federalist No. 51 (1788): https://constitutioncenter.org/the-constitution/historic-document-library/detail/james-madison-federalist-no-51-1788"]
+prompt = "Which words from the passage best support the idea that the people who run a government need limits?"
+choices = ["\"If angels were to govern men, neither external nor internal controls on government would be necessary\"", "\"If men were angels, no government would be necessary\"", "\"you must first enable the government to control the governed\"", "\"the great difficulty lies in this\""]
+answer = "\"If angels were to govern men, neither external nor internal controls on government would be necessary\""
+explanation = '''
+The idea is about the people who govern, not the people being governed.
+This sentence says controls on government would not be needed if angels ruled.
+People, not angels, run governments, so controls are needed.
+So the best support is **"If angels were to govern men, neither external nor internal controls on government would be necessary"**.
+'''
+common_mistake = "Picking \"If men were angels, no government would be necessary\". That sentence is about why people need a government at all, not about limits on rulers."
+
+# ── Stand-alone ─────────────────────────────────────────────────────
+
+[[question]]
+id = "ss-main-ideas-0018"
+skill = "ss-main-ideas"
+principle = "SSP.2.b"
+topic = "CG.b.5"
+difficulty = 1
+type = "multiple_choice"
+status = "reviewed"
+sources = ["OpenStax American Government 3e 2.3 The Development of the Constitution: https://openstax.org/books/american-government-3e/pages/2-3-the-development-of-the-constitution"]
+prompt = "Congress passes a bill, and the President signs it into law. Later, a federal court rules that the law goes against the Constitution, so it can no longer be enforced. Which statement best describes how these events connect?"
+choices = ["Each branch of government had a part in deciding the law's fate", "The President alone decided whether the law would stand", "The court wrote the law and then changed it", "Congress overruled the court to keep the law in place"]
+answer = "Each branch of government had a part in deciding the law's fate"
+explanation = '''
+Congress (the legislative branch) passed the bill.
+The President (the executive branch) signed it.
+A court (the judicial branch) then ruled on it.
+So **each branch of government had a part in deciding the law's fate**.
+'''
+common_mistake = "Picking \"the President alone\". The President signed the law, but Congress wrote it and a court later struck it down."
+
+[[question]]
+id = "ss-main-ideas-0019"
+skill = "ss-main-ideas"
+principle = "SSP.2.b"
+topic = "USH.c.3"
+difficulty = 2
+type = "multiple_choice"
+status = "reviewed"
+sources = ["National Archives, 13th Amendment to the U.S. Constitution: https://www.archives.gov/milestone-documents/13th-amendment", "National Archives, Bill of Rights (1791): https://www.archives.gov/milestone-documents/bill-of-rights", "National Archives, 14th Amendment to the U.S. Constitution: https://www.archives.gov/milestone-documents/14th-amendment", "National Archives, 15th Amendment to the U.S. Constitution: https://www.archives.gov/milestone-documents/15th-amendment"]
+prompt = "The 13th Amendment (1865) ended slavery in the United States. The 14th Amendment (1868) made people born in the United States citizens and promised all persons the equal protection of the laws. The 15th Amendment (1870) said the right to vote could not be denied because of race. How are these three amendments connected?"
+choices = ["All three came at the end of the Civil War or soon after, to extend freedom and rights to formerly enslaved people", "All three were part of the original Bill of Rights", "All three gave women the right to vote", "All three were passed before the Civil War to prevent it"]
+answer = "All three came at the end of the Civil War or soon after, to extend freedom and rights to formerly enslaved people"
+explanation = '''
+The 13th Amendment was passed at the end of the Civil War and ratified in 1865; the 14th and 15th followed in 1868 and 1870.
+Together they ended slavery, made formerly enslaved people citizens with equal protection, and protected their right to vote.
+So **all three came at the end of the Civil War or soon after, to extend freedom and rights to formerly enslaved people**.
+'''
+common_mistake = "Picking the Bill of Rights. Those are the first ten amendments, added in 1791."

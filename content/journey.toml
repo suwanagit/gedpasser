@@ -266,3 +266,21 @@ checkpoint = true
 cumulative = true
 size = 10
 max_difficulty = 3
+
+[[stage]]
+id = "soc-d1a"
+subject = "social"
+day = 1
+title = "Main ideas"
+principles = ["SSP.2.a", "SSP.1.a"]
+size = 5
+max_difficulty = 2
+
+[[stage]]
+id = "soc-d1b"
+subject = "social"
+day = 1
+title = "Evidence and connections"
+principles = ["SSP.1.b", "SSP.2.b"]
+size = 5
+max_difficulty = 3

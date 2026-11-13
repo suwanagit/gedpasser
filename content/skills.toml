@@ -276,3 +276,16 @@ describing data with the mean, median, mode and range.\
 difficulty_min = 1
 difficulty_max = 3
 targets = ["SP.7.b", "SP.8.a"]
+
+[[skill]]
+id = "ss-main-ideas"
+subject = "social"
+name = "Main ideas and inferences"
+description = """
+Reading social studies sources: what a source says and what it suggests, \
+the evidence behind an inference, the central idea, and how people, \
+places and events connect.\
+"""
+difficulty_min = 1
+difficulty_max = 3
+targets = ["SSP.1.a", "SSP.1.b", "SSP.2.a", "SSP.2.b"]

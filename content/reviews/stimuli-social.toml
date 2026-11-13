@@ -1,0 +1,301 @@
+# Review notes for ss-main-ideas. See content/reviews/CHECKLIST.md.
+
+[[review]]
+id = "social-preamble"
+kind = "stimulus"
+hash = "b08228053f9a3bc1"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+note = "Verbatim Preamble, with a one-line intro that is clear and not misleading. Its above-grade-10 reading level is acceptable on purpose: the GED Social Studies test draws on founding documents in their original wording (the Great American Conversation, AG p17), and learners need practice with that language. It is a short, realistic length and carries 3 questions."
+date = "2026-11-13"
+
+[[review]]
+id = "social-declaration"
+kind = "stimulus"
+hash = "bf1f262894262c74"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+note = "Verbatim excerpt of the second paragraph, with an accurate intro. Its above-grade-10 reading level is acceptable on purpose: the real test uses founding-document excerpts in their original 18th-century wording, and the questions guide the learner through the key phrases. It is a realistic length and carries 4 questions; a practice test picks at most set_max (3) of them."
+date = "2026-11-13"
+
+[[review]]
+id = "social-alaska-statehood"
+kind = "stimulus"
+hash = "10c7cc42bff38808"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+note = "Clear original passage at a suitable reading level, short and in order. It gives everything the 4 questions need, with no misleading wording. The facts are for the fact-checker."
+date = "2026-11-13"
+
+[[review]]
+id = "social-town-budget"
+kind = "stimulus"
+hash = "6666729230fdf81f"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+note = "Clear, clearly labeled as a made-up town, and balanced between the two sides. It defines opportunity cost in the text and uses metric units (300 kilometers). It is a good length for 3 questions."
+date = "2026-11-13"
+
+[[review]]
+id = "social-federalist-51"
+kind = "stimulus"
+hash = "ea75141ed30b4a8e"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+note = "A well-known verbatim excerpt. The intro is accurate and hedged ('usually credited to James Madison'). The hard 18th-century wording is acceptable on purpose, as with the other founding documents. It is short and carries 3 questions."
+date = "2026-11-13"
+
+[[review]]
+id = "social-preamble"
+kind = "stimulus"
+hash = "b08228053f9a3bc1"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+note = "Verbatim Preamble with original spelling (insure, defence, Tranquility), matching the National Archives transcription as I know it; intro accurate (opening sentence, 1787). It reads far above grade 10 (warned about 18.9) because it is one long 18th-century sentence. That difficulty is acceptable on purpose: the real GED Social Studies test leans on founding documents in their original wording, and the questions on it need only the gist and key phrases. Short, realistic length."
+date = "2026-11-13"
+
+[[review]]
+id = "social-declaration"
+kind = "stimulus"
+hash = "bf1f262894262c74"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+note = "Verbatim from the second paragraph, including the '--That' dashes of the National Archives transcription; intro accurate (Second Continental Congress, July 1776, 13 colonies). The grade 17.5 warning is acceptable on purpose: founding documents in original language are core GED Social Studies stimuli, the excerpt is short, and the questions target its plain key phrases."
+date = "2026-11-13"
+
+[[review]]
+id = "social-alaska-statehood"
+kind = "stimulus"
+hash = "10c7cc42bff38808"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+note = "Clear, neutral, realistic length, about grade 8 to 10. Sequence and facts agree with what I know (1867 purchase, 1912 territorial legislature, non-voting delegate, 55-delegate convention at the University of Alaska 1955-56, April 1956 ratification, 1958 Statehood Act and August vote, January 3, 1959 proclamation, 49th state); fact-checker to confirm against sources. Supports its four questions without giving answers away."
+date = "2026-11-13"
+
+[[review]]
+id = "social-town-budget"
+kind = "stimulus"
+hash = "6666729230fdf81f"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "fix"
+note = "Clear made-up scenario, balanced arguments, correct definition of opportunity cost, metric units, realistic Alaska setting. Fix notation only: '$2 million' uses a bare dollar sign; write '\\$2 million' per the checklist (it works now only through the renderer's unclosed-$ fallback)."
+date = "2026-11-13"
+
+[[review]]
+id = "social-federalist-51"
+kind = "stimulus"
+hash = "ea75141ed30b4a8e"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+note = "Verbatim, well-known Federalist No. 51 excerpt; intro accurate (1787-88 essays urging New York; 'usually credited to Madison' is suitably hedged). Old-fashioned wording but short; no reading-level warning. Clear and suits three questions."
+date = "2026-11-13"
+
+[[review]]
+id = "social-preamble"
+kind = "stimulus"
+hash = "b08228053f9a3bc1"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "pass"
+note = "Quote matches the National Archives Constitution transcription (archives.gov/founding-docs/constitution-transcript) word for word, including capitals (Order, Union, Justice, Tranquility, Welfare, Blessings, Liberty, Posterity) and the spelling 'defence'. It is the opening sentence; the same transcription dates the Constitution 1787. A US founding document from 1787 is public domain."
+date = "2026-11-13"
+
+[[review]]
+id = "social-declaration"
+kind = "stimulus"
+hash = "bf1f262894262c74"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "pass"
+note = "Quote matches the National Archives Declaration transcription (archives.gov/founding-docs/declaration-transcript) exactly, including 'unalienable', the capitals, and the dashes '.--That' and ', --That'. It is the start of the second paragraph there (after 'When in the Course...'). The transcription confirms 'In Congress, July 4, 1776', 'the thirteen united States' and dissolving the connection with Great Britain. 'Second Continental Congress' is not on the cited page but is confirmed by the Library of Congress guide (guides.loc.gov/declaration-of-independence); citing it is optional. Public domain (1776)."
+date = "2026-11-13"
+
+[[review]]
+id = "social-alaska-statehood"
+kind = "stimulus"
+hash = "10c7cc42bff38808"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "fix"
+note = "Confirmed: 1867 purchase from Russia (history.state.gov/milestones/1866-1898/alaska-purchase, which also gives Jan 3, 1959 statehood). UAF 'A place to write a new Alaska' (uaf.edu/centennial/uaf100/ideas/constitution.php): 55 elected delegates, University of Alaska in Fairbanks, first day Nov. 8, 1955; voters ratified in April 1956 (Lt. Governor page: April 24, 1956); Congress passed a terms bill in June 1958; voters endorsed it in August 1958; Eisenhower signed the proclamation Jan. 3, 1959, 49th state. NOT confirmed by any working cited source: (a) 1912 territory with its own elected legislature; (b) a delegate who could speak but not vote; (c) federal control of salmon fishing rules; (d) two senators and one representative. The cited US House History URL (history.house.gov/Historical-Highlights/1951-2000/Alaska-and-Hawaii-statehood/) returns an Error Document page (curl and WebFetch, 2026-11-13), so it confirms nothing. The source line also names histories without URLs. Fix: cite working pages, e.g. University of Alaska Creating Alaska 'Territory Differs from State' (alaska.edu/uajourney/history-and-trivia/alaska-history/creating-alaska/statehood-files/territory-differs-from-st/), which confirms the Organic Act of 1912 legislative powers, a Delegate who 'has no vote', and two senators per state; plus a source for federal control of fish (salmon, fish traps), e.g. Gruening's 1955 convention speech on the same site, and the Alaska Statehood Act (Pub. L. 85-508) for one representative. The 'could speak' part also needs a source."
+date = "2026-11-13"
+
+[[review]]
+id = "social-town-budget"
+kind = "stimulus"
+hash = "6666729230fdf81f"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "pass"
+note = "Original, made-up town, so no outside facts beyond economics. The definition 'the value of the best choice given up' matches OpenStax Principles of Economics 3e 2.1: 'opportunity cost is the value of the next best alternative.' Metric units (300 kilometers)."
+date = "2026-11-13"
+
+[[review]]
+id = "social-federalist-51"
+kind = "stimulus"
+hash = "ea75141ed30b4a8e"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "fix"
+note = "Quote matches the Avalon Project text (avalon.law.yale.edu/18th_century/fed51.asp) exactly. No. 51 dates from 1788 (Avalon: New York Packet, Feb. 8, 1788). The LOC guide (guides.loc.gov/federalist-papers/full-text) confirms the essays ran from Oct 1787 to May 1788 in New York papers to urge New Yorkers to ratify. Public domain (1788). Problem: 'usually credited to James Madison' is historically fair (Founders Online files No. 51 in the Madison Papers; the National Constitution Center titles it 'James Madison, Federalist No. 51 (1788)'), but both sources the No. 51 questions cite list the author as 'Hamilton or Madison', and the stimulus source line gives no URL. Fix: add a source that supports the Madison credit, e.g. constitutioncenter.org/the-constitution/historic-document-library/detail/james-madison-federalist-no-51-1788 or founders.archives.gov/documents/Madison/01-10-02-0279, and give a URL for the text (Avalon)."
+date = "2026-11-13"
+
+[[review]]
+id = "social-alaska-statehood"
+kind = "stimulus"
+hash = "0f911a6ba091917e"
+reviewer = "solver-ssc"
+role = "solver"
+verdict = "pass"
+note = "Clear chronological passage of about 170 words, a realistic Social Studies length, at roughly grade 8-9. Supports all four questions (0008-0011) without giving answers away; the before/after contrast (non-voting delegate vs full votes) is stated plainly. Not misleading. Tiny style option: 'Alaska could now elect two senators and one representative' reads more smoothly than the current split sentence."
+date = "2026-11-13"
+
+[[review]]
+id = "social-town-budget"
+kind = "stimulus"
+hash = "ebcc63a88c12f857"
+reviewer = "solver-ssc"
+role = "solver"
+verdict = "pass"
+note = "Clearly labeled as a made-up town, balanced presentation of two sides, metric distance, plain reading level, about 130 words. It defines opportunity cost in the last sentence so 0013 is answerable from the passage. The constraint (only one project this year) is stated, and the dollar sign is escaped correctly."
+date = "2026-11-13"
+
+[[review]]
+id = "social-federalist-51"
+kind = "stimulus"
+hash = "0ad4d49ab26fb15f"
+reviewer = "solver-ssc"
+role = "solver"
+verdict = "pass"
+note = "Short excerpt (three sentences) with a clear intro that names the series, purpose and usual author. The 1788 prose is above grade 10 on purpose: GED Social Studies uses founding documents from the Great American Conversation, and the questions on it are tagged difficulty 2-3. Not misleading; the excerpt is self-contained enough to support 0015-0017."
+date = "2026-11-13"
+
+[[review]]
+id = "social-alaska-statehood"
+kind = "stimulus"
+hash = "0f911a6ba091917e"
+reviewer = "solver-ssd"
+role = "solver"
+verdict = "pass"
+note = "Clear, short (about 170 words), in time order, and supports all four questions with one reading each. Reading level about grade 8 to 9, at or under target. Not misleading: it separates the nonvoting delegate from later voting members. Optional wording polish: 'Like every state, Alaska could now elect two senators, and it could elect a representative' reads awkwardly; 'two senators and at least one representative' would be smoother."
+date = "2026-11-13"
+
+[[review]]
+id = "social-town-budget"
+kind = "stimulus"
+hash = "ebcc63a88c12f857"
+reviewer = "solver-ssd"
+role = "solver"
+verdict = "pass"
+note = "Clearly labeled as a made-up town, both projects presented evenly, and opportunity cost is defined in the text so 0013 is answerable from the passage. Metric distance, dollar sign escaped correctly. Realistic short length, easy reading level; the Alaska-like setting is realistic and respectful."
+date = "2026-11-13"
+
+[[review]]
+id = "social-federalist-51"
+kind = "stimulus"
+hash = "0ad4d49ab26fb15f"
+reviewer = "solver-ssd"
+role = "solver"
+verdict = "pass"
+note = "Quoted text matches the standard Federalist No. 51 wording; the intro gives needed context (essays urging New York to ratify, usually credited to Madison) without giving answers away. Short, realistic founding-document excerpt. Reading level is above grade 10 because of the 18th-century prose; that is hard on purpose and typical of GED founding-document stimuli, and its items are tagged difficulty 2 to 3."
+date = "2026-11-13"
+
+[[review]]
+id = "social-alaska-statehood"
+kind = "stimulus"
+hash = "0f911a6ba091917e"
+reviewer = "factcheck-ssb"
+role = "factcheck"
+verdict = "fix"
+note = 'One claim is not confirmed: "In 1912, Congress gave the Territory of Alaska its own ELECTED legislature." UA "Territory Differs from State" says only that "especially in the Organic Act of 1912, Congress has granted certain local and territorial legislative powers to the people of Alaska" and refers to a Territorial Legislature with two houses; it never says the legislature was elected (the only "elect" on the page is about California electing its governor). No other cited source (UAF, State Dept, Statehood Act) covers 1912. Fix: either drop "elected" ("its own legislature" is confirmed), or add a source that says it, e.g. the text of the Alaska Organic Act of 1912 (37 Stat. 512) or an Alaska Legislature/State history page, and list it in the source line and on the questions. Everything else confirmed: 1867 purchase (State Dept); Congress could overrule ("acts of Congress take precedence over and repeal acts of the Territorial Legislature", "Any law of the legislature may be rendered void by a specific action of Congress") and one delegate with no vote (UA); 55 elected delegates, 1955, University of Alaska in Fairbanks, April 1956 ratification, 1958 terms bill, August 1958 vote, Jan 3 1959 Eisenhower proclamation, 49th state (UAF; Lt. Gov page gives April 24, 1956); two Senators and one Representative with all rights and privileges of other states (Statehood Act Sec. 7, 8(c), 9). "Original" source label is appropriate.'
+date = "2026-11-13"
+
+[[review]]
+id = "social-town-budget"
+kind = "stimulus"
+hash = "ebcc63a88c12f857"
+reviewer = "factcheck-ssb"
+role = "factcheck"
+verdict = "pass"
+note = 'Made-up town, labeled Original and "made-up" in the text; metric (300 kilometers). The one outside fact, the definition "the value of the best choice given up", matches OpenStax Principles of Economics 3e 2.1 ("opportunity cost is the value of the next best alternative"), which the questions on this passage cite. Optional: add that OpenStax section to the source line so the passage carries its own citation.'
+date = "2026-11-13"
+
+[[review]]
+id = "social-federalist-51"
+kind = "stimulus"
+hash = "0ad4d49ab26fb15f"
+reviewer = "factcheck-ssb"
+role = "factcheck"
+verdict = "pass"
+note = 'Quoted text matches Avalon fed51 verbatim (checked raw HTML). Public domain is correct (1788; Avalon header: New York Packet, Friday, February 8, 1788). Intro confirmed: LOC Federalist guide says 85 essays, October 1787 to May 1788, mainly in New York newspapers, aimed to persuade New Yorkers to ratify. Madison credit: NCC page titled "James Madison, Federalist No. 51 (1788)" says "On February 8, 1788, James Madison published Federalist 51"; Avalon and LOC list "Hamilton or Madison" and LOC notes attribution varies, so "usually credited to James Madison" is accurate. Source line format is valid. Optional: the source line cites only Avalon, whose header says "HAMILTON OR MADISON"; add the NCC and LOC links to it so the Madison credit and context are sourced on the passage itself.'
+date = "2026-11-13"
+
+[[review]]
+id = "social-alaska-statehood"
+kind = "stimulus"
+hash = "c959d75257bb4056"
+reviewer = "solver-sse"
+role = "solver"
+verdict = "fix"
+note = "Clear, realistic length (about 170 words), readable at about grade 8 to 10, and supports all four questions. One misleading sentence: 'Like every state, Alaska could now elect two senators, plus one representative' can be read as saying every state gets one representative. Rewrite as, for example: 'Like every state, Alaska could now elect two senators. Based on its population, it could also elect one representative. All of them had full votes in Congress.' (Facts themselves are for the fact-checker.)"
+date = "2026-11-13"
+
+[[review]]
+id = "social-alaska-statehood"
+kind = "stimulus"
+hash = "c959d75257bb4056"
+reviewer = "solver-ssf"
+role = "solver"
+verdict = "fix"
+note = 'Clear, realistic length (about 170 words), grade-10 level or below, dates consistent and support all four questions. One misleading sentence: "Like every state, Alaska could now elect two senators, plus one representative" reads as if every state has exactly one representative. Fix: "Like every state, Alaska could now elect two senators. Based on its small population, it also elected one representative. All had full votes in Congress." (or move "like every state" so it covers only the senators).'
+date = "2026-11-13"
+
+[[review]]
+id = "social-alaska-statehood"
+kind = "stimulus"
+hash = "c959d75257bb4056"
+reviewer = "factcheck-ssc"
+role = "factcheck"
+verdict = "pass"
+note = "Every claim confirmed: 1867 purchase from Russia (history.state.gov, Purchase of Alaska); 1912 legislature and Congress's power to override it, plus the voteless delegate (alaska.edu Creating Alaska, Sundborg: 'especially in the Organic Act of 1912, Congress has granted certain local and territorial legislative powers'; 'acts of Congress take precedence over and repeal acts of the Territorial Legislature'; Delegate 'has no vote'); 55 elected delegates at the University of Alaska in Fairbanks from Nov. 1955, April 1956 approval, June 1958 bill, August 1958 vote, Jan. 3, 1959 Eisenhower proclamation, 49th state (uaf.edu constitution page); April 24, 1956 vote also in the Statehood Act sec. 1; two Senators and one Representative with the full rights and privileges of other states' members (Statehood Act sec. 8, govinfo PDF). Source label 'Original' is right: the text is our own wording, not copied from these pages."
+date = "2026-11-13"
+
+[[review]]
+id = "social-alaska-statehood"
+kind = "stimulus"
+hash = "7360267163e10602"
+reviewer = "solver-ssg"
+role = "solver"
+verdict = "pass"
+note = "Clear, chronological and not misleading: each step (1867 purchase, 1912 legislature, Congress could still overrule, non-voting delegate, 1955 convention of 55 delegates in Fairbanks, April 1956 vote, 1958 act, August vote, January 3, 1959 proclamation, two senators and one representative) matches my understanding of the history; full fact-checking is left to the factcheck role. About 170 words in short sentences, a realistic Social Studies stimulus at or below the grade-10 target. It supports all four questions without stating their inferences outright. Original wording; source line is correctly marked Original."
+date = "2026-11-13"
+
+[[review]]
+id = "social-alaska-statehood"
+kind = "stimulus"
+hash = "7360267163e10602"
+reviewer = "solver-ssh"
+role = "solver"
+verdict = "pass"
+note = "Clear, neutral, in date order and about 180 words: a realistic short Social Studies text at or below grade 10 reading level. Not misleading: it correctly separates the territorial delegate (no vote) from the two senators and one representative after statehood, and the dates (1867, 1912, 1955, April 1956, 1958, August 1958, January 3, 1959) read consistently. Supports the four questions without giving one another's answers away. Source line starts with 'Original'. Facts left to the fact-checker."
+date = "2026-11-13"
+
+[[review]]
+id = "social-alaska-statehood"
+kind = "stimulus"
+hash = "7360267163e10602"
+reviewer = "factcheck-ssd"
+role = "factcheck"
+verdict = "pass"
+note = "Source line starts with Original, as required. Every claim confirmed. 1867 purchase from Russia: history.state.gov Alaska Purchase (treaty signed, Senate approval April 9, transfer October 18, 1867). 1912 legislature, Congress could overrule it, delegate with no vote: UA Creating Alaska, Territory Differs from State (Sundborg): Organic Act of 1912 granted local legislative powers; acts of Congress take precedence over and repeal territorial acts; Alaska's Delegate to Congress has no vote. 55 elected delegates at the University of Alaska in Fairbanks from Nov. 8, 1955; voters ratified in April 1956 (2-1); Congress passed a statehood bill in June 1958; voters approved the terms August 1958 (5-1); Jan. 3, 1959 Eisenhower proclamation, 49th state: UAF A place to write a new Alaska. April 24, 1956 ratification also in Statehood Act sec. 1 and ltgov.alaska.gov. Two senators and one representative with all rights of other states' members: Statehood Act (PL 85-508, 72 Stat. 339) secs. 7, 8(c), 9; two senators from each state: Sundborg page. Minor: the stimulus source names its histories without URLs, but every URL is in the questions' sources."
+date = "2026-11-13"

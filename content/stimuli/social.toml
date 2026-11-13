@@ -1,0 +1,61 @@
+# Shared passages, tables and figures for Social Studies. See docs/CONTENT_RULES.md.
+# Every source is Original, Public domain: or Data: (never copyrighted).
+
+[[stimulus]]
+id = "social-preamble"
+status = "reviewed"
+title = "The Preamble to the Constitution"
+text = '''
+The Preamble is the opening sentence of the United States Constitution, written in 1787.
+
+> We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.
+'''
+source = "Public domain: Preamble to the Constitution of the United States, 1787 (National Archives transcription)"
+
+[[stimulus]]
+id = "social-declaration"
+status = "reviewed"
+title = "The Declaration of Independence"
+text = '''
+In July 1776, the Second Continental Congress approved the Declaration of Independence, which announced that the 13 American colonies were breaking away from Great Britain. This is part of its second paragraph.
+
+> We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just powers from the consent of the governed, --That whenever any Form of Government becomes destructive of these ends, it is the Right of the People to alter or to abolish it, and to institute new Government, laying its foundation on such principles and organizing its powers in such form, as to them shall seem most likely to effect their Safety and Happiness.
+'''
+source = "Public domain: Declaration of Independence, 1776 (National Archives transcription)"
+
+[[stimulus]]
+id = "social-alaska-statehood"
+status = "reviewed"
+title = "The road to Alaska statehood"
+text = '''
+The United States bought Alaska from Russia in 1867. In 1912, Congress gave the Territory of Alaska a legislature of its own. But Congress could still pass laws for Alaska that overruled the territorial legislature. Alaska sent one delegate to Congress, and the delegate had no vote.
+
+Many Alaskans wanted more say. In 1955, 55 elected delegates met at the University of Alaska in Fairbanks to write a constitution for a future state. Alaska voters approved it in April 1956. In 1958, Congress passed a bill that set the terms of statehood. Alaska voters said yes to the terms that August. On January 3, 1959, President Dwight Eisenhower signed the proclamation that made Alaska the 49th state. Like every state, Alaska could now elect two senators. It could also elect one representative. All three would have full votes in Congress.
+'''
+source = "Original (written from University of Alaska and US State Department histories and the Alaska Statehood Act)"
+
+[[stimulus]]
+id = "social-town-budget"
+status = "reviewed"
+title = "One budget, two projects"
+text = '''
+Bear Creek, a made-up fishing town, has \$2 million left in its budget this year. The town council must choose one of two projects.
+
+Some council members want to repair the harbor, where fishing boats unload their catch. They say that if the harbor is not repaired, boats may start unloading in another town, and the fish plant could lose jobs.
+
+Other members want to expand the health clinic. Right now, the clinic sends many patients to a hospital 300 kilometers away by plane. They say the trips cost families time and money.
+
+Whichever project the council picks, the other one will have to wait at least a year. Economists call the value of the best choice given up the opportunity cost.
+'''
+source = "Original (made-up town for practice)"
+
+[[stimulus]]
+id = "social-federalist-51"
+status = "reviewed"
+title = "The Federalist No. 51"
+text = '''
+In 1787 and 1788, a series of newspaper essays urged New York to approve the new Constitution. They are known as *The Federalist*. This passage is from No. 51, usually credited to James Madison.
+
+> If men were angels, no government would be necessary. If angels were to govern men, neither external nor internal controls on government would be necessary. In framing a government which is to be administered by men over men, the great difficulty lies in this: you must first enable the government to control the governed; and in the next place oblige it to control itself.
+'''
+source = "Public domain: The Federalist No. 51, 1788 (text: Avalon Project, Yale Law School, https://avalon.law.yale.edu/18th_century/fed51.asp)"

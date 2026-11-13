@@ -663,3 +663,32 @@ links = [
   { title = "OpenStax Introductory Statistics 2e, 2.5 Measures of the center of the data", url = "https://openstax.org/books/introductory-statistics-2e/pages/2-5-measures-of-the-center-of-the-data" },
   { title = "Math is Fun: Finding a Central Value (Mean, Median, Mode)", url = "https://www.mathsisfun.com/data/central-measures.html" },
 ]
+
+[[topic]]
+principle = "SSP.1.a"
+search = "making inferences from primary sources"
+links = [
+  { title = "OpenStax College Success, 5.2 Effective reading strategies", url = "https://openstax.org/books/college-success/pages/5-2-effective-reading-strategies" },
+  { title = "National Archives: Document analysis worksheets", url = "https://www.archives.gov/education/lessons/worksheets" },
+]
+
+[[topic]]
+principle = "SSP.1.b"
+search = "finding supporting details and evidence in a reading"
+links = [
+  { title = "NROC Developmental English: Supporting details", url = "https://content.nroc.org/DevelopmentalEnglish/unit02/Foundations/supporting-details.html" },
+]
+
+[[topic]]
+principle = "SSP.2.a"
+search = "finding the central idea of a text"
+links = [
+  { title = "i-Pathways: Introduction to the main idea", url = "https://i-pathways.org/public/sampleLesson/languageArts/p2.jsp" },
+]
+
+[[topic]]
+principle = "SSP.2.b"
+search = "patterns of organization in reading sequence cause comparison"
+links = [
+  { title = "LibreTexts, Introduction to College Composition: Organizational patterns", url = "https://human.libretexts.org/Bookshelves/Composition/Introductory_Composition/Introduction_to_College_Composition_(Lumen)/01%3A_Reading/7%3A_Logic_and_Structure/7.2%3A_Organizational_Patterns" },
+]

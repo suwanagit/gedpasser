@@ -143,6 +143,16 @@ That is 23 tested practices.
 | G.c.1–3 | Borders: region and place, diversity, geographic tools and skills |
 | G.d.1–4 | Migration: immigration, cultural diffusion, population trends, rural and urban settlement |
 
+### Sub-codes used in question `topic` tags (AG p10–15)
+
+Short labels in our words; the guide lists the same numbering.
+
+- **CG.a.1** types of government. **CG.b.1–9** natural rights; popular sovereignty and consent of the governed; constitutionalism; majority rule and minority rights; checks and balances; separation of powers; rule of law; individual rights; federalism. **CG.c.1–6** the three federal branches; individual offices; federal and state powers; shared powers; the amendment process; departments and agencies. **CG.d.1–2** the Bill of Rights; personal and civil liberties. **CG.e.1–3** political parties; interest groups; campaigns and elections.
+- **USH.a.1** key documents. **USH.b.1–7** Revolutionary War; War of 1812; George Washington; Thomas Jefferson; Articles of Confederation; Manifest Destiny; US Indian policy. **USH.c.1–4** slavery; sectionalism; Civil War amendments; Reconstruction. **USH.d.1–5** Jim Crow laws; women's suffrage; the civil rights movement; *Plessy* and *Brown*; Warren Court decisions. **USH.f.1–13** alliances; imperialism, nationalism and militarism; Russian Revolution; Woodrow Wilson; Versailles and the League of Nations; Neutrality Acts; isolationism; Allied and Axis powers; fascism, Nazism and totalitarianism; the Holocaust; Japanese American internment; decolonization; the GI Bill. **USH.g.1–9** communism and capitalism; NATO and the Warsaw Pact; the US as a world power; divided Germany and the Berlin Airlift; Truman Doctrine; Marshall Plan; Johnson and the Great Society; Nixon and Watergate; collapse of the USSR.
+- **E.c.1–11** markets; incentives; monopoly and competition; labor and capital; opportunity cost; profit; entrepreneurship; comparative advantage; specialization; productivity; interdependence. **E.d.1–11** supply, demand and price; individual choice; institutions; fiscal and monetary policy; regulation and its costs; investment; government and market failures; inflation and deflation; GDP; unemployment; tariffs. **E.e.1–3** types of credit; savings and banking; consumer credit laws.
+- **G.b.1–5** nationhood and statehood; sustainability; technology; natural resources; human changes to the environment. **G.c.1–3** region and place; natural and cultural diversity; geographic tools and skills. **G.d.1–4** migration; culture and cultural diffusion; population trends; rural and urban settlement.
+- Topics without sub-codes are tagged by the letter alone: CG.f, USH.e, USH.h, E.a, E.b, E.f, E.g, E.h, G.a.
+
 ## Question types
 
 | Type | Used for | Source |

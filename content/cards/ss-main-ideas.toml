@@ -1,0 +1,65 @@
+# Quick review cards for ss-main-ideas (SSP.1.a, SSP.1.b, SSP.2.a, SSP.2.b). See WRITING.md.
+
+[[card]]
+id = "SSP.1.a"
+status = "reviewed"
+title = "Says and suggests"
+key = "Stated: find the sentence. Suggested: the evidence must point there."
+steps = [
+  'Find the part of the source the question is about.',
+  'Stated: match it, even in other words.',
+  'Suggested: pick what the evidence shows, nothing extra.',
+]
+example = '''
+"The town lost its only doctor in May."
+**Suggests:** people may need to travel for care. Not "the doctor was fired".
+'''
+hack = 'If an answer needs facts the source never gave, it is too far.'
+
+[[card]]
+id = "SSP.1.b"
+status = "reviewed"
+title = "Pointing to evidence"
+key = "Pick the detail that proves this idea, not just any true detail."
+steps = [
+  'Say the idea in your own words.',
+  'Test each choice: does it prove that idea?',
+  'Drop details that are true but prove something else.',
+]
+example = '''
+Idea: the plan was popular.
+**Evidence:** "Voters approved it 2 to 1." Not "It was approved in April."
+'''
+hack = 'Ask "so what?" The right detail answers with the idea itself.'
+
+[[card]]
+id = "SSP.2.a"
+status = "reviewed"
+title = "Central idea"
+key = "The central idea covers the whole source, not one detail."
+steps = [
+  'Say what the whole source is about in one sentence.',
+  'Drop answers about only one part.',
+  'Drop conclusions that go past the evidence.',
+]
+example = '''
+A speech on why voting matters, with three reasons.
+**Central idea:** citizens should vote. Not one of the reasons.
+'''
+hack = "Could the answer be the source's title? Then it is central."
+
+[[card]]
+id = "SSP.2.b"
+status = "reviewed"
+title = "How things connect"
+key = "Name the link: a cause, a step, something in common, or a change."
+steps = [
+  'List the people, places or events in the source.',
+  'Ask what they have in common, or how one sets up the next.',
+  'Pick the answer that matches the source.',
+]
+example = '''
+A town passes a recycling law, a state cleans a river, a country bans a pesticide.
+**Link:** they share a goal, protecting the environment.
+'''
+hack = 'Draw an arrow or an equals sign between them. Arrow: one led to the next. Equals: they share something.'

@@ -1513,3 +1513,59 @@ Each measure describes data in a different way.
 - Range: the largest value minus the smallest.
 - One very large or very small value pulls the mean toward it much more than it moves the median.
 '''
+
+[[principle]]
+id = "SSP.1.a"
+skill = "ss-main-ideas"
+status = "reviewed"
+name = "What a source says and suggests"
+summary = "Find what a source states, and draw only the inferences its evidence supports."
+lesson = '''
+Some answers are stated in the source. Others are inferences: things the source shows without saying them outright.
+
+- For "according to the passage", find the sentence that says it, maybe in other words.
+- For "suggests" or "most likely", pick the answer the evidence points to, not just one that sounds true.
+- An inference must not go beyond the source. If an answer adds a new idea, drop it.
+'''
+
+[[principle]]
+id = "SSP.1.b"
+skill = "ss-main-ideas"
+status = "reviewed"
+name = "Pointing to evidence"
+summary = "Pick the detail from a source that best supports an inference or claim."
+lesson = '''
+Evidence questions give you an idea and ask which detail proves it.
+
+- First say the idea in your own words.
+- Test each choice: does this detail, on its own, show the idea is true? If yes, it is your evidence.
+- A choice can be true and from the source, yet support a different idea. Pick the one that fits this idea.
+'''
+
+[[principle]]
+id = "SSP.2.a"
+skill = "ss-main-ideas"
+status = "reviewed"
+name = "Central idea"
+summary = "Find what a whole source is about, and check a conclusion against its evidence."
+lesson = '''
+The central idea is the point the whole source makes. Details back it up.
+
+- Ask: what is the author mostly saying? Answer in one sentence.
+- A central-idea answer covers the whole source, not one detail.
+- A conclusion is supported only if the source gives evidence for it. One that goes further than the evidence is wrong.
+'''
+
+[[principle]]
+id = "SSP.2.b"
+skill = "ss-main-ideas"
+status = "reviewed"
+name = "How people and events connect"
+summary = "Describe people, places, events and processes, and how they connect."
+lesson = '''
+Social studies often asks how things link: who did what, where, and what it led to.
+
+- Note who acts, what they do, and what changes as a result.
+- Look for what the people or events have in common, or how one sets up the next.
+- Check that the answer matches the source, not just what you remember.
+'''

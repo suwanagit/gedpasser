@@ -222,7 +222,8 @@ fn demo_bank_builds_clean() {
         eprintln!("{d}");
     }
     assert_eq!(r.errors(), 0);
-    assert_eq!(r.stimuli.len(), 2, "only the demo passages: real Science is left out");
+    let science = r.stimuli.iter().filter(|(_, s)| s.id.starts_with("science-")).count();
+    assert_eq!(science, 2, "only the demo passages: real Science is left out");
     assert!(r.questions.iter().any(|(_, q)| q.kind == ged_content::QuestionType::Sort));
 }
 

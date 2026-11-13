@@ -694,11 +694,11 @@ async fn second_subject_formats_paths_and_tests() {
     let r = &app.router;
     let (_, cookie) = create(r, "Sci", "abcd").await;
 
-    // Subjects: Math and the demo science are ready; the others are not.
+    // Subjects: Math, the demo science and real Social Studies are ready; Language Arts is not.
     let (_, subjects, _) = call(r, "GET", "/api/subjects", Some(&cookie), None).await;
     let ready: Vec<&str> =
         subjects.as_array().unwrap().iter().filter(|s| s["ready"] == true).map(|s| s["id"].as_str().unwrap()).collect();
-    assert_eq!(ready, vec!["math", "science"]);
+    assert_eq!(ready, vec!["math", "science", "social"]);
     let sci = subjects.as_array().unwrap().iter().find(|s| s["id"] == "science").unwrap();
     assert_eq!(sci["stages_total"], 3, "the demo path only: real Science is left out");
     assert_eq!(sci["calculator"], true);

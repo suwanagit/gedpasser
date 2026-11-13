@@ -1,0 +1,1595 @@
+# Review notes for ss-main-ideas. See content/reviews/CHECKLIST.md.
+
+[[review]]
+id = "SSP.1.a"
+kind = "lesson"
+hash = "c9a601616dc764f9"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+note = "Correct difference between stated facts and inferences; the 'don't go beyond the source' rule is right and clear for adult learners."
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.1.b"
+kind = "lesson"
+hash = "b3df31b89f6839c6"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "fix"
+note = "The second bullet asks 'if this detail were missing, would the idea still be supported?' but never says which answer points to the evidence, so a learner could read it backwards. Reword it, for example: 'Test each choice: if this detail were missing, would the idea lose its support? If yes, that is your evidence.' The rest is correct."
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.2.a"
+kind = "lesson"
+hash = "5e113847ed9ef62d"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+note = "Central idea versus detail is explained correctly, and the test for an overreaching conclusion matches SSP.2.a. Short and clear."
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.2.b"
+kind = "lesson"
+hash = "1b765ea5a5ca0fb3"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+note = "Correct and short. It covers who acts, what changes, and links such as a shared goal or one event setting up the next, which matches SSP.2.b."
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.1.a"
+kind = "card"
+hash = "c255f342f6529728"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+note = "Short and correct. The doctor example shows a fair inference next to one that goes too far, and the hack ('needs facts the source never gave') is sound."
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.1.b"
+kind = "card"
+hash = "0a328c3dccaa10b6"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+note = "Correct and short. The 2-to-1 vote versus 'approved in April' example shows a true detail that proves nothing. It does not give away any question."
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.2.a"
+kind = "card"
+hash = "7232fa2aabb7d390"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+note = "Correct and short, and the voting-speech example is clear. The 'could it be the title' hack is a common main-idea heuristic and works on these items. A small risk: the central idea is a claim, while a title can be only a topic."
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.2.b"
+kind = "card"
+hash = "464863f0ab8e504f"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "fix"
+note = "Two problems with the example. (1) 'Congress passes a law; a court strikes it down' is the scenario of question ss-main-ideas-0018, so the card gives that question away. (2) The 'Link: each branch checks the others' does not follow, because only two branches appear. Use a scenario no question uses, for example: 'A factory opens; families move to town; a new school is built. Link: each step led to the next.'"
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0001"
+kind = "question"
+hash = "9a27011f6fe3cd86"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+solved = "The people of the United States create the Constitution to reach shared goals"
+note = "My blind answer matches the key. The distractors are clearly wrong: the Preamble lists no rights, gives the President no power, and does not put the states over the people. The explanation is in style, and SSP.2.a / CG.b.2 fit."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0002"
+kind = "question"
+hash = "af86e599c068c6fe"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+solved = "\"We the People of the United States ... do ordain and establish this Constitution\""
+note = "My blind answer matches the key. The other three choices are goals, not the source of power, so only one is defensible. SSP.1.b and CG.b.2 (popular sovereignty) fit, and the explanation is clear."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0003"
+kind = "question"
+hash = "77f36a938e87e723"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+solved = "They wanted the Constitution to protect liberty for future generations as well as their own"
+note = "My blind answer matches the key. 'Ourselves and our Posterity' rules out every distractor, and the explanation defines Posterity. SSP.1.a fits. CG.b.3 (constitutionalism) is a reasonable topic tag."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0004"
+kind = "question"
+hash = "0292e1ff1be71a24"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+solved = "To secure people's rights"
+note = "My blind answer matches the key, which is stated directly in the passage. The distractors are clearly wrong, and the one about government deciding rights is a real misreading. SSP.1.a and CG.b.1 (natural rights) fit."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0005"
+kind = "question"
+hash = "44fda9830569ca06"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+solved = "Change the government or replace it with a new one"
+note = "My blind answer matches the key, which the passage states ('alter or to abolish it ... institute new Government'). The distractors are clearly wrong. USH.a.1 (key documents) fits per the Assessment Guide. One outside claim needs a source: the common_mistake says the colonists had already petitioned the king. That is true, since the Declaration lists the petitions, but the fact-checker should confirm a cited source covers it."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0006"
+kind = "question"
+hash = "8af924d29620f83e"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+solved = "\"deriving their just powers from the consent of the governed\""
+note = "My blind answer matches the key, the only choice about where power comes from. The distractors are tempting but clearly wrong. SSP.1.b and CG.b.2 fit, and the explanation defines 'consent of the governed'."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0007"
+kind = "question"
+hash = "a58eb6fe53a43121"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+solved = "rights / destroys"
+note = "My blind answer matches the key, and each menu has exactly one defensible option. The 'protects' trap is a real misreading. The explanation ties both blanks to quoted words. SSP.2.a and USH.a.1 fit."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0008"
+kind = "question"
+hash = "c5512167683c3ef7"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+solved = "49"
+note = "My blind answer matches the key, which is stated in the passage, and 1959 is a fair trap. 'Type a number' is clear. A learner may still type '49th', so consider accepting it if the checker allows. SSP.1.a and G.b.1 (nationhood and statehood) fit."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0009"
+kind = "question"
+hash = "62af843fbdc3dcbe"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+solved = "Alaska gained members of Congress who could vote on laws"
+note = "My blind answer matches the key. The passage contrasts the non-voting delegate with full-vote members, and the 'first time' distractor targets a real misreading. SSP.2.b and G.b.1 (statehood) fit."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0010"
+kind = "question"
+hash = "8c158a8dd5a35f42"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+solved = "Important decisions about Alaska were made by officials far away"
+note = "My blind answer matches the key. 'Officials far away' comes right before 'wanted more say', and each distractor contradicts the passage. The inference is supported, and SSP.1.a fits."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0011"
+kind = "question"
+hash = "d4c6177c580b7dfb"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+solved = "Alaskans took several steps of their own to reach statehood"
+note = "My blind answer matches the key. The passage shows the steps: the convention, the 1956 vote and the 1958 vote. The 92-year gap (1959 - 1867) is correct and rules out 'soon after'. SSP.2.a fits."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0012"
+kind = "question"
+hash = "2db2162fbf9eeba8"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+solved = "A town choosing between two useful projects with limited money"
+note = "My blind answer matches the key. The distractors are one-sided details or something the passage never says (taxes). SSP.2.a and E.c.5 (opportunity cost) fit."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0013"
+kind = "question"
+hash = "e6e46dabc20a0d87"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+solved = "Expanding the health clinic this year"
+note = "My blind answer matches the key and follows the passage's definition of opportunity cost. The money-cost distractor and the 'jobs' distractor are real confusions. The explanation is clear, and E.c.5 fits."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0014"
+kind = "question"
+hash = "f487ab754b1cf4a0"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+solved = "The clinic now sends many patients to a hospital 300 kilometers away by plane"
+note = "My blind answer matches the key, the only choice tied to families' time and money. The other choices are true but irrelevant. SSP.1.b fits, and the units are metric."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0015"
+kind = "question"
+hash = "5aaa7f9f6cdeb13b"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+solved = "A government needs power over the people and also limits on its own power"
+note = "My blind answer matches the key, which paraphrases the passage's last sentence. The distractors are clearly wrong. SSP.2.a and CG.b.5 fit, and difficulty 3 is reasonable for the 18th-century language."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0016"
+kind = "question"
+hash = "50edb5712ea6dad4"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+solved = "Dividing power so that each part of the government can check the others"
+note = "My blind answer matches the key, a fair inference from 'oblige it to control itself'. The distractors remove the controls or break the government's ability to govern. CG.b.5 fits."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0017"
+kind = "question"
+hash = "285c7f58d2b60a77"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+solved = "\"If angels were to govern men, neither external nor internal controls on government would be necessary\""
+note = "My blind answer matches the key. It is the only choice about controls on the rulers, and the common mistake targets the 'men were angels' line well. The explanation's 'unneeded only if angels ruled' slightly overstates the logic but is fine at this level."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0018"
+kind = "question"
+hash = "7cef8e1667142c21"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+solved = "Each branch of government had a part in deciding the law's fate"
+note = "My blind answer matches the key. The three branches are named in the explanation, and the distractors are clearly wrong. SSP.2.b and CG.b.5 fit. The SSP.2.b card's example repeats this scenario and should change (see the card note)."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0019"
+kind = "question"
+hash = "4dfe0c825324b25b"
+reviewer = "solver-ssa"
+role = "solver"
+verdict = "pass"
+solved = "All three were added after the Civil War to extend freedom and rights to formerly enslaved people"
+note = "My blind answer matches the key. The distractors are clearly wrong, and the dates (1865/1868/1870, Bill of Rights 1791) are right. SSP.2.b fits, and USH.c.3 (Civil War Amendments in the Assessment Guide) is the exact topic."
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.1.a"
+kind = "lesson"
+hash = "c9a601616dc764f9"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+note = "Correct split of stated vs inferred answers; the 'according to' vs 'suggests / most likely' cue words match how the questions are worded; the 'do not go beyond the source' rule is right. Adult-level, short."
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.1.b"
+kind = "lesson"
+hash = "b3df31b89f6839c6"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "fix"
+note = "Second bullet's test is backwards and confusing: 'if this detail were missing, would the idea still be supported?' A learner can't tell whether yes or no means pick it (and with other details present the answer is often yes even for the right detail). Replace with a direct test that matches the card: 'Test each choice: does this detail, on its own, show the idea is true?' The rest is correct."
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.2.a"
+kind = "lesson"
+hash = "5e113847ed9ef62d"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+note = "Correct: central idea covers the whole source, details support it, and a conclusion must not outrun the evidence (covers both halves of SSP.2.a). Clear and short."
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.2.b"
+kind = "lesson"
+hash = "1b765ea5a5ca0fb3"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+note = "Correct and fits SSP.2.b: who acts, what they do, what changes, what links events; the reminder to check against the source rather than memory is good. Clear."
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.1.a"
+kind = "card"
+hash = "c255f342f6529728"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+note = "Key, steps and example correct; the doctor example shows a supported inference vs an unsupported one without reusing any question. Hack ('needs facts the source never gave = too far') is accurate. Short enough."
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.1.b"
+kind = "card"
+hash = "0a328c3dccaa10b6"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+note = "Correct and short; the 'approved 2 to 1' vs 'approved in April' example shows true-but-irrelevant evidence and gives no question away. Optional polish: the hack's 'answers with the idea itself' is a little cryptic, e.g. 'The right detail leads straight to the idea.'"
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.2.a"
+kind = "card"
+hash = "7232fa2aabb7d390"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+note = "Key, steps and example correct; the voting-speech example separates the central idea from a supporting reason. The title hack is a fair shortcut (a whole-source summary could serve as a title; a detail could not). Short."
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.2.b"
+kind = "card"
+hash = "464863f0ab8e504f"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "fix"
+note = "The example ('Congress passes a law; a court strikes it down. Link: each branch checks the others.') is the same scenario and answer as question ss-main-ideas-0018, so the card gives that question away. Use a different link, e.g. 'Farm jobs fell; many families moved to cities. Link: one change led to the next.' Key, steps and hack are fine."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0001"
+kind = "question"
+hash = "9a27011f6fe3cd86"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+solved = "The people of the United States create the Constitution to reach shared goals"
+note = "Blind answer matches key. Only one choice covers both the actor (We the People) and the list of goals; distractors (President, list of rights, states over people) are clearly wrong yet tempting. SSP.2.a and CG.b.2 (popular sovereignty) fit. Explanation stepwise with bold answer; common mistake real."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0002"
+kind = "question"
+hash = "af86e599c068c6fe"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+solved = "\"We the People of the United States ... do ordain and establish this Constitution\""
+note = "Blind answer matches key. Evidence check: the three other quotes are all goals and none names a source of power, so only one quote defensibly supports the idea. SSP.1.b and CG.b.2 fit. Explanation and common mistake good."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0003"
+kind = "question"
+hash = "77f36a938e87e723"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+solved = "They wanted the Constitution to protect liberty for future generations as well as their own"
+note = "Blind answer matches key. 'ourselves and our Posterity' rules out 'only the signers' and 'more rights for later generations'; the war-debts choice has no basis. Explanation defines Posterity clearly. CG.b.3 (constitutionalism) is acceptable; CG.b.8 or USH.a would also do."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0004"
+kind = "question"
+hash = "0292e1ff1be71a24"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+solved = "To secure people's rights"
+note = "Blind answer matches key; stated directly ('to secure these rights, Governments are instituted'). 'Decide which rights' is a good distractor, clearly wrong given 'unalienable' and 'endowed by their Creator'. SSP.1.a and CG.b.1 fit; explanation defines 'instituted'."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0005"
+kind = "question"
+hash = "44fda9830569ca06"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+solved = "Change the government or replace it with a new one"
+note = "Blind answer matches key ('alter or to abolish it, and to institute new Government'). Distractors clearly wrong. Explanation good. The common mistake leans on outside history (colonists had petitioned the king), which is true and fine. Topic USH.a.1: docs/subjects/social-studies.md lists USH.a without subcodes; fact-checker should confirm the guide uses USH.a.1."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0006"
+kind = "question"
+hash = "8af924d29620f83e"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+solved = "\"deriving their just powers from the consent of the governed\""
+note = "Blind answer matches key. Evidence check: no other quote speaks to where government authority comes from ('endowed by their Creator' is about rights, 'such principles' about a new government's design), so exactly one defensible answer. Easy for difficulty 2 since the key nearly restates the idea, but acceptable. Explanation and common mistake good."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0007"
+kind = "question"
+hash = "a58eb6fe53a43121"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "fix"
+solved = "rights / destroys"
+note = "Blind answer matches key and the statement is a correct central idea. Problem: the prompt gives away blank 1, because it goes on to say 'a government that {{2}} those rights', so 'rights' can be filled from the sentence alone without reading the passage. Reword so blank 1 is not echoed, for example end with 'a government that {{2}} them may be changed' instead of 'those rights'. Menus are otherwise fine (duties, property, protects and writes down are clearly wrong)."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0008"
+kind = "question"
+hash = "c5512167683c3ef7"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+solved = "49"
+note = "Blind answer matches key. The grader parses '49th' as 49 (trailing letters are trimmed), so natural answers are accepted. Stated fact, SSP.1.a fits; difficulty 1 right. Common mistake (typing 1959) is realistic. G.b.1 (nationhood and statehood) acceptable."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0009"
+kind = "question"
+hash = "62af843fbdc3dcbe"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+solved = "Alaska gained members of Congress who could vote on laws"
+note = "Blind answer matches key; the passage contrasts the non-voting delegate with 'two senators and a representative with full votes'. Distractors wrong (already had a delegate; did not lose representation; a state does not approve laws for other states). SSP.2.b fits. Topic G.b.1 is defensible, though a CG.c (structure of Congress) code would fit this item a bit better."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0010"
+kind = "question"
+hash = "8c158a8dd5a35f42"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+solved = "Important decisions about Alaska were made by officials far away"
+note = "Blind answer matches key; inference supported by 'officials far away' followed by 'wanted more say'. Distractors contradict the passage (Russia sold Alaska in 1867; Alaska had a delegate; statehood does not end federal law). Explanation and common mistake good."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0011"
+kind = "question"
+hash = "d4c6177c580b7dfb"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+solved = "Alaskans took several steps of their own to reach statehood"
+note = "Blind answer matches key. The steps (elected convention, two votes) support it; 'without Alaskans asking', 'soon after purchase' (92 years, 1959 - 1867, correct) and 'control of foreign trade' are clearly unsupported. SSP.2.a (testing a conclusion against evidence) fits."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0012"
+kind = "question"
+hash = "2db2162fbf9eeba8"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "fix"
+solved = "A town choosing between two useful projects with limited money"
+note = "Blind answer matches key; distractors are single details or unsupported (taxes), good. Fix notation only: the explanation writes '$2 million' with a bare dollar sign. The checklist requires a literal dollar to be written \\$ (so '\\$2 million'); it renders today only because the renderer shows an unclosed $ as text, and a second amount on the same line would turn into math."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0013"
+kind = "question"
+hash = "e6e46dabc20a0d87"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "fix"
+solved = "Expanding the health clinic this year"
+note = "Blind answer matches key; it uses the passage's own definition, and 'Jobs at the fish plant' is a good trap (that is the cost of choosing the clinic). Explanation and common mistake good. Fix notation: the choice 'The $2 million spent on the harbor' and the common_mistake use a bare $; write '\\$2 million' per the checklist."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0014"
+kind = "question"
+hash = "f487ab754b1cf4a0"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "fix"
+solved = "The clinic now sends many patients to a hospital 300 kilometers away by plane"
+note = "Blind answer matches key; only one choice is about the clinic, the others are true but say nothing about families, so one defensible answer (easy for difficulty 2, acceptable). Fix notation: the choice 'The town has $2 million left in its budget' and the common_mistake use a bare $; write '\\$2 million'."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0015"
+kind = "question"
+hash = "5aaa7f9f6cdeb13b"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+solved = "A government needs power over the people and also limits on its own power"
+note = "Blind answer matches key; it paraphrases both halves of the last sentence. Distractors misread the angels lines or keep only half the idea. SSP.2.a and CG.b.5 fit; difficulty 3 reasonable given the 18th-century language."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0016"
+kind = "question"
+hash = "50edb5712ea6dad4"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+solved = "Dividing power so that each part of the government can check the others"
+note = "Blind answer matches key. Only the key satisfies both halves (government able to govern, and controlled). 'States ignore federal laws' is a kind of limit but breaks 'control the governed', so it is still clearly not the best answer. Optional: one explanation line on why the states option fails would help. SSP.1.a (inference) and CG.b.5 fit."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0017"
+kind = "question"
+hash = "285c7f58d2b60a77"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+solved = "\"If angels were to govern men, neither external nor internal controls on government would be necessary\""
+note = "Blind answer matches key. Evidence check: 'If men were angels' is about the governed needing a government; 'enable the government to control the governed' is about power over the people; 'the great difficulty' says nothing. Only the key speaks to controls on rulers, so one defensible answer (the strongest phrase, 'oblige it to control itself', is rightly not offered). Explanation and common mistake target the real trap."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0018"
+kind = "question"
+hash = "7cef8e1667142c21"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+solved = "Each branch of government had a part in deciding the law's fate"
+note = "Blind answer matches key; the scenario supplies every fact and the distractors contradict it. SSP.2.b and CG.b.5 fit; the explanation names each branch. Note: card SSP.2.b repeats this exact scenario and answer as its example (fix filed on the card)."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0019"
+kind = "question"
+hash = "4dfe0c825324b25b"
+reviewer = "solver-ssb"
+role = "solver"
+verdict = "pass"
+solved = "All three were added after the Civil War to extend freedom and rights to formerly enslaved people"
+note = "Blind answer matches key; the dates in the prompt rule out 'before the war' and 'original Bill of Rights', and the 15th names race, not sex. Explanation correct (war ended April 1865; 13th ratified December 1865). SSP.2.b fits. Fact-checker: confirm USH.c.3 is the guide's subcode for these amendments (Reconstruction may carry a different USH.c number)."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0001"
+kind = "question"
+hash = "9a27011f6fe3cd86"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "fix"
+note = "Quotes and the reading of the Preamble match the National Archives transcription; OpenStax 2.3 confirms 'The Constitution consists of a preamble and seven articles.' Not confirmed by any cited source: the common mistake's claim that rights are 'listed later, in the Bill of Rights' (neither the Constitution transcript page nor OpenStax 2.3 mentions the Bill of Rights). Fix: add a source such as National Archives, The Bill of Rights: A Transcription (archives.gov/founding-docs/bill-of-rights-transcript), which confirms the first 10 amendments."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0002"
+kind = "question"
+hash = "af86e599c068c6fe"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "pass"
+note = "All quoted phrases ('We the People of the United States', 'do ordain and establish this Constitution', 'provide for the common defence', 'insure domestic Tranquility', 'promote the general Welfare') match the National Archives transcription exactly. The explanation's claims rest on the passage itself."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0003"
+kind = "question"
+hash = "77f36a938e87e723"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "pass"
+note = "Quote 'secure the Blessings of Liberty to ourselves and our Posterity' matches the National Archives transcription. 'Posterity' meaning later generations is the standard meaning; no other outside facts."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0004"
+kind = "question"
+hash = "0292e1ff1be71a24"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "pass"
+note = "Quote 'to secure these rights, Governments are instituted among Men' matches the National Archives Declaration transcription; 'these rights' refers to Life, Liberty and the pursuit of Happiness in the same sentence. The common mistake follows from 'endowed by their Creator'."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0005"
+kind = "question"
+hash = "44fda9830569ca06"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "pass"
+note = "Quotes 'becomes destructive of these ends', 'alter or to abolish it' and 'institute new Government' match the National Archives transcription. The common mistake's 'the colonists had already tried that' is confirmed by the same transcription: 'In every stage of these Oppressions We have Petitioned for Redress in the most humble terms.'"
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0006"
+kind = "question"
+hash = "8af924d29620f83e"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "pass"
+note = "All four quoted choices match the National Archives Declaration transcription exactly. OpenStax American Government 3e 1.1 supports the idea that people consent to being governed (Locke: 'people should be free to consent to being governed')."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0007"
+kind = "question"
+hash = "a58eb6fe53a43121"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "pass"
+note = "Quotes 'endowed by their Creator' and 'becomes destructive of these ends' match the National Archives transcription; the central idea follows from the passage. No other outside facts."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0008"
+kind = "question"
+hash = "c5512167683c3ef7"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "pass"
+note = "UAF 'A place to write a new Alaska' confirms Eisenhower signed the proclamation on Jan. 3, 1959 'declaring Alaska the 49th state'. Answer 49 is correct; 1959 in the common mistake is also confirmed."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0009"
+kind = "question"
+hash = "62af843fbdc3dcbe"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "fix"
+note = "The claims that the territorial delegate 'could speak but could not vote' and that the state got 'two senators and a representative with full votes' are not confirmed by any working cited source: the UAF page does not mention them. The cited US House History URL (history.house.gov/Historical-Highlights/1951-2000/Alaska-and-Hawaii-statehood/) returns an Error Document page (curl and WebFetch, 2026-11-13), so it confirms nothing. Fix: replace the House link with a working source, e.g. University of Alaska Creating Alaska 'Territory Differs from State' (delegate 'has no vote'; two senators per state), plus a source for one representative (Alaska Statehood Act, Pub. L. 85-508) and for the delegate's right to speak."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0010"
+kind = "question"
+hash = "8c158a8dd5a35f42"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "fix"
+note = "The State Dept Office of the Historian page confirms the 1867 purchase from Russia (so the 'Russia still controlled' distractor is wrong). The key rests on the claim that decisions such as salmon fishing rules 'were made by federal officials far away', and the common mistake on the delegate; neither is confirmed by a working cited source (the UAF page is silent). The cited US House History URL (history.house.gov/Historical-Highlights/1951-2000/Alaska-and-Hawaii-statehood/) returns an Error Document page (curl and WebFetch, 2026-11-13), so it confirms nothing. Fix: cite a working source for federal control of Alaska fisheries before statehood (e.g. Gruening's 1955 convention speech on the University of Alaska Creating Alaska site, on fish traps kept by federal authority) and for the delegate."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0011"
+kind = "question"
+hash = "d4c6177c580b7dfb"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "pass"
+note = "The UAF page confirms elected delegates, the convention writing the constitution, the April 1956 vote and the August 1958 vote on the terms; the Alaska Lt. Governor page confirms ratification on April 24, 1956 and the Jan. 3, 1959 proclamation. The 1867 purchase is confirmed by history.state.gov (not cited by this question, but in the passage and in 0010); 1959 - 1867 = 92 years is correct."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0012"
+kind = "question"
+hash = "2db2162fbf9eeba8"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "pass"
+note = "Main idea rests on the original passage; OpenStax Principles of Economics 3e 2.1 confirms the choice-under-a-budget framing. No other outside facts."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0013"
+kind = "question"
+hash = "e6e46dabc20a0d87"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "pass"
+note = "OpenStax Principles of Economics 3e 2.1: 'opportunity cost is the value of the next best alternative', and a dollar price 'may not accurately capture the true opportunity cost'. This supports the key (the clinic given up) and the common mistake (the $2 million is the money cost)."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0014"
+kind = "question"
+hash = "f487ab754b1cf4a0"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "pass"
+note = "All details come from the original passage (300 kilometers by plane; trips cost families 'time and money'). No outside facts."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0015"
+kind = "question"
+hash = "5aaa7f9f6cdeb13b"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "pass"
+note = "Quotes 'the great difficulty', 'to control the governed', 'to control itself' and 'if men were angels' match the Avalon Project text of No. 51 exactly. The question makes no authorship claim. LOC guide and OpenStax 2.3 (checks and balances) are consistent."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0016"
+kind = "question"
+hash = "50edb5712ea6dad4"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "pass"
+note = "Quote 'to control itself' matches Avalon. Avalon's title for No. 51, 'The Structure of the Government Must Furnish the Proper Checks and Balances Between the Different Departments', and OpenStax 2.3 on separation of powers and checks and balances support the key."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0017"
+kind = "question"
+hash = "285c7f58d2b60a77"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "pass"
+note = "All four quoted choices match the Avalon Project text of No. 51 exactly. The reasoning rests on the passage."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0018"
+kind = "question"
+hash = "7cef8e1667142c21"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "pass"
+note = "OpenStax American Government 3e 2.3 confirms three separate branches, checks and balances, the president's role in signing or vetoing bills, and judicial review (Marbury v. Madison, 1803: courts rule on the constitutionality of laws). Branch labels (Congress legislative, President executive, courts judicial) are correct."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0019"
+kind = "question"
+hash = "4dfe0c825324b25b"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "fix"
+note = "National Archives milestone pages confirm: the 13th was ratified Dec. 6, 1865 and abolished slavery; the 14th was ratified July 9, 1868, gives citizenship to 'All persons born or naturalized' and 'the equal protection of the laws'; the 15th was ratified Feb. 3, 1870, and the vote may not be denied 'on account of race, color, or previous condition of servitude'. The 14th page says 'Following the Civil War, Congress submitted to the states three amendments' for formerly enslaved people. Not confirmed by the cited sources: 'The Civil War ended in 1865' (explanation) and the Bill of Rights as the first ten amendments 'added in 1791' (common mistake). Fix: add sources, e.g. National Archives Bill of Rights transcription (archives.gov/founding-docs/bill-of-rights-transcript: ratified Dec. 15, 1791, first 10 amendments) and a source for the 1865 end of the war. Note: the 13th passed Congress Jan. 31, 1865, before the war ended; 'added after the Civil War' is still right because it was ratified in December 1865."
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.1.b"
+kind = "lesson"
+hash = "4fa3ff6b353d6331"
+reviewer = "solver-ssc"
+role = "solver"
+verdict = "pass"
+note = "Correct and short: restate the idea, test each detail on its own, drop true details that support a different idea. This is exactly the SSP.1.b skill and matches how 0002, 0006, 0014 and 0017 work. Adult-friendly wording."
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.2.b"
+kind = "card"
+hash = "695239ee4fb9e04d"
+reviewer = "solver-ssc"
+role = "solver"
+verdict = "fix"
+note = "The key ('what it led to'), the drought example and the hack ('Draw arrows: event, then what it led to') all teach cause and effect, which is SSP.3.c in ss-cause-effect. SSP.2.b is about describing people, places, events and processes and how they connect, and this skill's own SSP.2.b items connect by shared goal (0019: three amendments with one purpose) or by each part playing a role (0018: three branches), not by one thing causing another. A learner drawing cause arrows on 0019 could pick a wrong 'X led to Y' reading. Fix: make the key cover all link types, e.g. 'Name the people or events, then the link: a cause, a step, or a shared goal.' Change the hack to something like 'Ask what they have in common or how one sets up the next.' Optionally use a non-causal example (two laws with the same aim) so the card does not duplicate the cause-effect card."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0001"
+kind = "question"
+hash = "e380ecc722b647b8"
+reviewer = "solver-ssc"
+role = "solver"
+verdict = "pass"
+solved = "The people of the United States create the Constitution to reach shared goals"
+note = "Blind answer matches the key. Only choice covering who acts (We the People), the list of goals and the act (ordain and establish). The rights-list distractor targets a real confusion with the Bill of Rights; President and states-overrule choices are clearly wrong. SSP.2.a and CG.b.2 fit. Explanation is one line per step with a bold full-sentence answer."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0007"
+kind = "question"
+hash = "fdffbb80232eeaf4"
+reviewer = "solver-ssc"
+role = "solver"
+verdict = "pass"
+solved = "rights; destroys"
+note = "Blind answers match both blanks. Menu 1: duties and property are not what the passage says people are endowed with (Life, Liberty, pursuit of Happiness), so rights is the only defensible pick. Menu 2: protects is the tempting reversal; writes down is clearly wrong. The completed sentence is a fair statement of the passage's central idea (SSP.2.a); USH.a.1 fits a key founding document. Explanation quotes the right phrases."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0008"
+kind = "question"
+hash = "8c61505f1812a9e5"
+reviewer = "solver-ssc"
+role = "solver"
+verdict = "pass"
+solved = "49"
+note = "Blind answer matches the key; the passage states it directly, fitting SSP.1.a at difficulty 1. The common mistake (typing 1959) is real. G.b.1 (nationhood and statehood) is an acceptable tag. Minor suggestion only: if fill_in supports an accept list, also accept '49th', since learners may type the ordinal despite 'Type a number'."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0009"
+kind = "question"
+hash = "a93fc185f114510f"
+reviewer = "solver-ssc"
+role = "solver"
+verdict = "pass"
+solved = "Alaska gained members of Congress who could vote on laws"
+note = "Blind answer matches the key. The passage contrasts the delegate with 'no vote' and the new members with 'full votes'. The 'first time' distractor is a real misreading and is clearly wrong because the territory already had a delegate; 'lost its delegate' and 'approve laws for other states' are clearly wrong. SSP.2.b fits (how statehood changed Alaska's place); explanation is clear."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0010"
+kind = "question"
+hash = "8906b8ac337bdcca"
+reviewer = "solver-ssc"
+role = "solver"
+verdict = "pass"
+solved = "Congress could overrule the laws passed by Alaska's own legislature"
+note = "Blind answer matches the key. The passage places 'Congress could still pass laws ... that overruled the territorial legislature' right before 'Many Alaskans wanted more say', so the inference is well supported (SSP.1.a). Distractors: Russia had no role after 1867; 'no representative of any kind' contradicts the delegate; 'end all federal laws' is false. All clearly wrong yet tempting. Explanation good."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0011"
+kind = "question"
+hash = "63b964907ffe2439"
+reviewer = "solver-ssc"
+role = "solver"
+verdict = "pass"
+solved = "Alaskans took several steps of their own to reach statehood"
+note = "Blind answer matches the key. The passage lists elected delegates, a constitution, and two votes by Alaskans. 'Soon after it was bought' is contradicted by 1867 vs 1959, 'without Alaskans asking' by 'Many Alaskans wanted more say', and trade control is never mentioned. SSP.2.a (test a conclusion against evidence) fits. Explanation's 92-year arithmetic is correct (1959 - 1867)."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0012"
+kind = "question"
+hash = "a549d46ba25deaac"
+reviewer = "solver-ssc"
+role = "solver"
+verdict = "pass"
+solved = "A town choosing between two useful projects with limited money"
+note = "Blind answer matches the key. Only choice covering the whole passage; boats and patients are one-side details, and taxes are never mentioned. SSP.2.a and E.c.5 fit. Explanation and common mistake are clear, and the dollar signs are escaped correctly."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0013"
+kind = "question"
+hash = "b4bad7a56e019213"
+reviewer = "solver-ssc"
+role = "solver"
+verdict = "pass"
+solved = "Expanding the health clinic this year"
+note = "Blind answer matches the key. The passage defines opportunity cost as the best choice given up, so it is answerable from the passage. The money-cost distractor (2 million dollars) is the classic mistake named in common_mistake; 'repairing the harbor' (the choice itself) and 'jobs at the fish plant' (what the harbor protects) are clearly wrong. E.c.5 fits exactly."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0014"
+kind = "question"
+hash = "b6566e768ec1d798"
+reviewer = "solver-ssc"
+role = "solver"
+verdict = "pass"
+solved = "The clinic now sends many patients to a hospital 300 kilometers away by plane"
+note = "Blind answer matches the key. Only detail tied to the families' cost in time and money; the others are true but support nothing about families. SSP.1.b fits, metric units. Explanation is short and gives the reasoning step."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0015"
+kind = "question"
+hash = "9bc539e9efead7d9"
+reviewer = "solver-ssc"
+role = "solver"
+verdict = "pass"
+solved = "A government needs power over the people and also limits on its own power"
+note = "Blind answer matches the key; it restates both halves of the last sentence. 'No government is needed' misreads the counterfactual, 'control the people strictly' keeps only the first half, 'only the wisest' is not stated. SSP.2.a and CG.b.5 fit; difficulty 3 is fair for 18th-century prose."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0016"
+kind = "question"
+hash = "b13db7f4346c3b03"
+reviewer = "solver-ssc"
+role = "solver"
+verdict = "pass"
+solved = "Dividing power so that each part of the government can check the others"
+note = "Blind answer matches the key. Only choice that is a way to 'oblige it to control itself'. One-leader and end-elections choices remove controls; state nullification would weaken the government's ability to 'control the governed', the first half of the passage. All clearly wrong. SSP.1.a inference and CG.b.5 fit."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0017"
+kind = "question"
+hash = "1f9138991fb0adb6"
+reviewer = "solver-ssc"
+role = "solver"
+verdict = "pass"
+solved = '"If angels were to govern men, neither external nor internal controls on government would be necessary"'
+note = "Blind answer matches the key; it is the only offered line about controls on the rulers. 'Enable the government to control the governed' is about limits on the people, 'If men were angels' is about needing government at all, and 'the great difficulty' says nothing. SSP.1.b and CG.b.5 fit. Small wording note, not blocking: explanation line 2 says controls would be unneeded 'only if angels ruled'; the source says 'if', so 'unneeded if angels ruled' would be more exact."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0019"
+kind = "question"
+hash = "5ef8348ddf5bd4df"
+reviewer = "solver-ssc"
+role = "solver"
+verdict = "fix"
+solved = "All three were added after the Civil War to extend freedom and rights to formerly enslaved people"
+note = "Blind answer matches the key, distractors are clearly wrong, and SSP.2.b and USH.c.3 fit. But explanation line 1 says the 13th Amendment 'was passed at the end of the Civil War', while the key says all three were 'added after the Civil War'. Congress passed it in January 1865, before the war ended (April 1865), and it was ratified (added) in December 1865. A learner reads this as a contradiction. Fix line 1 to e.g. 'The Civil War ended in 1865. The 13th Amendment was added (ratified) later that year, and the 14th and 15th followed in 1868 and 1870.' This also tells the learner the general fact the item relies on (the war's end date), which the prompt does not give."
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.1.b"
+kind = "lesson"
+hash = "4fa3ff6b353d6331"
+reviewer = "solver-ssd"
+role = "solver"
+verdict = "pass"
+note = "Lesson is correct and short: restate the idea, test each detail on its own, drop true details that support a different idea. Matches SSP.1.b (evidence for an inference) and the approach needed for 0002, 0006, 0014, 0017. Plain adult reading level."
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.2.b"
+kind = "card"
+hash = "695239ee4fb9e04d"
+reviewer = "solver-ssd"
+role = "solver"
+verdict = "fix"
+note = "Card is short and correct, but the key (what it led to), the drought example and the hack (Draw arrows: event, then what it led to) all frame SSP.2.b as cause and effect, which is SSP.3.c (ss-cause-effect). SSP.2.b is about describing how people, places, events and processes connect, and this batch's SSP.2.b items are a process with a role for each branch (0018), a shared purpose (0019) and a before/after change (0009), none a plain cause. Fix: make the key name the kinds of link, e.g. 'Name how they link: a cause, a step in a process, or a shared goal.'; swap the example for a non-cause link (e.g. three laws passed in different years all aimed at clean water: link = a shared goal); change the hack to e.g. 'Name the link in one word: cause, step or goal.' Do not reuse the amendments or branches examples."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0001"
+kind = "question"
+hash = "e380ecc722b647b8"
+reviewer = "solver-ssd"
+role = "solver"
+verdict = "pass"
+solved = "The people of the United States create the Constitution to reach shared goals"
+note = "Blind answer matches the key. Only that choice covers both the actor (We the People) and the list of goals; the rights, states-overrule and President choices are clearly wrong. CG.b.2 and SSP.2.a fit. Explanation is step by step and ends with a bold answer; common mistake (confusing the Preamble with the Bill of Rights) is real and matches a distractor."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0007"
+kind = "question"
+hash = "fdffbb80232eeaf4"
+reviewer = "solver-ssd"
+role = "solver"
+verdict = "pass"
+solved = "rights; destroys"
+note = "Blind answers rights / destroys match the key. Duties and property are clearly not what the passage says people are endowed with; protects is the tempting reversal and writes down is unsupported. One reading of each blank. SSP.2.a and USH.a.1 fit. Explanation quotes the passage for each blank and bolds both answers."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0008"
+kind = "question"
+hash = "8c61505f1812a9e5"
+reviewer = "solver-ssd"
+role = "solver"
+verdict = "pass"
+solved = "49"
+note = "Blind answer 49 matches the key and check. Prompt says to type a number, so 49 is the natural entry. Easy stated-fact item; difficulty 1 fits. G.b.1 (nationhood and statehood) is acceptable. Common mistake (typing the year 1959) is realistic."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0009"
+kind = "question"
+hash = "a93fc185f114510f"
+reviewer = "solver-ssd"
+role = "solver"
+verdict = "pass"
+solved = "Alaska gained members of Congress who could vote on laws"
+note = "Blind answer matches the key. Passage gives the before (one nonvoting delegate) and after (two senators and a representative with full votes), so only the key is supported; the first-time and no-one-in-Congress distractors are directly contradicted, and approving laws for other states is unsupported. SSP.2.b fits. Topic G.b.1 is defensible since the item is about the effect of statehood, though CG.c.1 (legislative branch) would also fit; no change required. Explanation correct and in style."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0010"
+kind = "question"
+hash = "8906b8ac337bdcca"
+reviewer = "solver-ssd"
+role = "solver"
+verdict = "pass"
+solved = "Congress could overrule the laws passed by Alaska's own legislature"
+note = "Blind answer matches the key. The passage states Congress could overrule the territorial legislature, then says many Alaskans wanted more say. Russia had no role after 1867, Alaska did have a (nonvoting) delegate, and statehood does not end federal law, so each distractor is clearly wrong but tempting. SSP.1.a inference fits. Explanation and common mistake are fine."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0011"
+kind = "question"
+hash = "63b964907ffe2439"
+reviewer = "solver-ssd"
+role = "solver"
+verdict = "pass"
+solved = "Alaskans took several steps of their own to reach statehood"
+note = "Blind answer matches the key. Passage lists Alaskan actions (elected convention, constitution vote, terms vote). Without-Alaskans-asking is contradicted, soon-after-purchase is contradicted by 1867 vs 1959 (92 years, arithmetic correct), and trade control is never mentioned. SSP.2.a conclusion-against-evidence fits. Explanation correct and in style."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0012"
+kind = "question"
+hash = "a549d46ba25deaac"
+reviewer = "solver-ssd"
+role = "solver"
+verdict = "pass"
+solved = "A town choosing between two useful projects with limited money"
+note = "Blind answer matches the key. Boats and patients are single-side details; taxes are never mentioned. SSP.2.a fits; E.c.5 fits the passage. Dollar sign escaped correctly in the explanation. Common mistake names the detail trap behind two distractors."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0013"
+kind = "question"
+hash = "b4bad7a56e019213"
+reviewer = "solver-ssd"
+role = "solver"
+verdict = "pass"
+solved = "Expanding the health clinic this year"
+note = "Blind answer matches the key. The passage defines opportunity cost as the best choice given up, so only the clinic fits. The money spent, the chosen project itself and fish plant jobs (a cost of NOT repairing) are classic opportunity-cost errors and clearly wrong. Dollar signs escaped correctly. E.c.5 and SSP.1.a fit; explanation correct."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0014"
+kind = "question"
+hash = "b6566e768ec1d798"
+reviewer = "solver-ssd"
+role = "solver"
+verdict = "pass"
+solved = "The clinic now sends many patients to a hospital 300 kilometers away by plane"
+note = "Blind answer matches the key. Only the plane-trip detail bears on families; the harbor, budget and wait details are true but support other points, which is the SSP.1.b skill. Metric units. The explanation's inference (a bigger clinic could treat more patients at home) is reasonable and hedged with could."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0015"
+kind = "question"
+hash = "9bc539e9efead7d9"
+reviewer = "solver-ssd"
+role = "solver"
+verdict = "pass"
+solved = "A government needs power over the people and also limits on its own power"
+note = "Blind answer matches the key; it restates both halves of the great-difficulty sentence. No-government-needed misreads the angels conditional, only-the-wisest is not said, and control-the-people-strictly keeps half the idea and twists it. SSP.2.a and CG.b.5 fit; difficulty 3 reasonable for 18th-century text. Explanation clear."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0016"
+kind = "question"
+hash = "b13db7f4346c3b03"
+reviewer = "solver-ssd"
+role = "solver"
+verdict = "pass"
+solved = "Dividing power so that each part of the government can check the others"
+note = "Blind answer matches the key. Oblige-it-to-control-itself points to internal checks; one leader with full power and ending elections remove controls; state nullification is not the government controlling itself and has no support in the passage. SSP.1.a inference and CG.b.5 fit. Explanation sound."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0017"
+kind = "question"
+hash = "1f9138991fb0adb6"
+reviewer = "solver-ssd"
+role = "solver"
+verdict = "pass"
+solved = "\"If angels were to govern men, neither external nor internal controls on government would be necessary\""
+note = "Blind answer matches the key. Only the angels-were-to-govern sentence is about controls on rulers; control-the-governed is about the people governed, if-men-were-angels is about the need for government at all, and the-great-difficulty carries no content. The strongest line (oblige it to control itself) is left out, so the item needs a short inference, which the explanation spells out. SSP.1.b fits."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0019"
+kind = "question"
+hash = "5ef8348ddf5bd4df"
+reviewer = "solver-ssd"
+role = "solver"
+verdict = "pass"
+solved = "All three were added after the Civil War to extend freedom and rights to formerly enslaved people"
+note = "Blind answer matches the key. Prompt dates (1865 to 1870) plus general knowledge that the war ended in 1865 rule out before-the-war; women's suffrage and the Bill of Rights are clearly wrong. USH.c.3 (Civil War Amendments) and SSP.2.b fit exactly. Minor: Congress passed the 13th in January 1865, before the war ended, and it was ratified in December 1865; the explanation's 'passed at the end of the Civil War' is loose but acceptable (could read 'ratified in 1865, as the war ended')."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0001"
+kind = "question"
+hash = "e380ecc722b647b8"
+reviewer = "factcheck-ssb"
+role = "factcheck"
+verdict = "pass"
+note = 'Preamble wording ("We the People of the United States", the listed goals, "do ordain and establish this Constitution") matches the National Archives Constitution transcription. Bill of Rights claim confirmed by the National Archives Bill of Rights transcription: "The ratified Articles (Articles 3-12) constitute the first 10 amendments of the Constitution, or the U.S. Bill of Rights" (ratified December 15, 1791). OpenStax AmGov 3e 2.3 opens and confirms the Constitution "consists of a preamble and seven articles"; it does not discuss the Bill of Rights, but the NARA transcript covers that. Distractors are defensibly wrong per the text.'
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0007"
+kind = "question"
+hash = "fdffbb80232eeaf4"
+reviewer = "factcheck-ssb"
+role = "factcheck"
+verdict = "pass"
+note = 'National Archives Declaration transcription confirms "endowed by their Creator with certain unalienable Rights", "becomes destructive of these ends" and "alter or to abolish it". Both blanks (rights / destroys) and the explanation match the text. No outside facts.'
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0008"
+kind = "question"
+hash = "8c61505f1812a9e5"
+reviewer = "factcheck-ssb"
+role = "factcheck"
+verdict = "pass"
+note = 'UAF "A place to write a new Alaska" opens and says "On Jan. 3, 1959, President Dwight Eisenhower signed the proclamation declaring Alaska the 49th state." Answer 49 and the 1959 mistake are correct. Note: the passage (social-alaska-statehood) has a separate fact-check fix on the 1912 "elected" legislature; this question does not rely on that claim.'
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0009"
+kind = "question"
+hash = "a93fc185f114510f"
+reviewer = "factcheck-ssb"
+role = "factcheck"
+verdict = "pass"
+note = 'Delegate with no vote: UA "Territory Differs from State" says "It is true that Alaska sends a Delegate to Congress. But this representative has no vote." Two senators and one representative with full rights: Alaska Statehood Act PDF (govinfo, 72 Stat. 339, opened) Sec. 7 "shall in any event include two Senators and one Representative in Congress", Sec. 8(c) they "shall be entitled to be admitted to seats in Congress and to all the rights and privileges of Senators and Representatives of other States", Sec. 9 one Representative. UA page also: "The Senate is made up of two members from each state." Key and "for the first time" mistake are correct. Passage has a separate fix on "elected" 1912 legislature, not used here.'
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0010"
+kind = "question"
+hash = "8906b8ac337bdcca"
+reviewer = "factcheck-ssb"
+role = "factcheck"
+verdict = "pass"
+note = 'UA "Territory Differs from State" confirms Congress could overrule the territorial legislature: "The acts of Congress take precedence over and repeal acts of the Territorial Legislature in conflict therewith" and "Any law of the legislature may be rendered void by a specific action of Congress"; and the delegate "has no vote". State Dept Office of the Historian confirms the 1867 purchase/transfer from Russia, so the Russia distractor is wrong. UAF page opens (dates). Key and mistake correct.'
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0011"
+kind = "question"
+hash = "63b964907ffe2439"
+reviewer = "factcheck-ssb"
+role = "factcheck"
+verdict = "pass"
+note = 'UAF page: "The people of Alaska had elected 55 delegates", convention Nov 8 1955 at the University of Alaska in Fairbanks, ratified in April 1956 (2-1), Congress passed the terms bill June 1958, voters endorsed it August 1958 (5-1), proclamation Jan 3 1959. Alaska Lt. Governor page (opened with curl; WebFetch failed on its certificate) confirms adopted Feb 5 1956, ratified April 24 1956, operative with the Proclamation of Statehood Jan 3 1959. 1959 - 1867 = 92 years correct. Explanation claims (elected delegates, wrote constitution, two votes) all confirmed.'
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0012"
+kind = "question"
+hash = "a549d46ba25deaac"
+reviewer = "factcheck-ssb"
+role = "factcheck"
+verdict = "pass"
+note = 'Made-up town; all details come from the passage ($2 million, one of two projects, other waits). OpenStax Principles of Economics 3e 2.1 opens and supports the trade-off framing ("every choice has an opportunity cost"). No unsourced outside facts.'
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0013"
+kind = "question"
+hash = "b4bad7a56e019213"
+reviewer = "factcheck-ssb"
+role = "factcheck"
+verdict = "pass"
+note = 'OpenStax Principles of Economics 3e 2.1: "In short, opportunity cost is the value of the next best alternative" and "what people must give up to obtain what they desire". The passage definition ("the value of the best choice given up") matches; with only two options the clinic is the next best alternative. The money-cost mistake is a correct distinction.'
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0014"
+kind = "question"
+hash = "b6566e768ec1d798"
+reviewer = "factcheck-ssb"
+role = "factcheck"
+verdict = "pass"
+note = 'All details (300 kilometers by plane, "time and money") are in the made-up passage. OpenStax econ 2.1 opens. No outside facts to verify; explanation matches the passage.'
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0015"
+kind = "question"
+hash = "9bc539e9efead7d9"
+reviewer = "factcheck-ssb"
+role = "factcheck"
+verdict = "pass"
+note = 'Avalon Project text of No. 51 checked verbatim: "If men were angels ... oblige it to control itself." Quotes in the explanation match. NCC page credits James Madison (Feb 8, 1788). LOC full-text guide confirms the series and lists No. 51 as "Hamilton or Madison", New York Packet, Feb 8, 1788. OpenStax AmGov 2.3 opens and describes giving each branch "the power to restrict the actions of the others". Key correct.'
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0016"
+kind = "question"
+hash = "b13db7f4346c3b03"
+reviewer = "factcheck-ssb"
+role = "factcheck"
+verdict = "pass"
+note = 'Avalon title of No. 51: "The Structure of the Government Must Furnish the Proper Checks and Balances Between the Different Departments". NCC page: Madison "explained how the structure of the Constitution checked the powers of the elected branches", "This is the principle of checks and balances". OpenStax 2.3 confirms three branches each able to restrict the others. Key (dividing power so each part checks the others) confirmed; quotes match Avalon.'
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0017"
+kind = "question"
+hash = "1f9138991fb0adb6"
+reviewer = "factcheck-ssb"
+role = "factcheck"
+verdict = "pass"
+note = 'All four quoted choices match the Avalon text verbatim. The explanation reads the text correctly ("If angels were to govern men" is about controls on government). NCC page opens and confirms the Madison credit and the passage. No other outside facts.'
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0019"
+kind = "question"
+hash = "5ef8348ddf5bd4df"
+reviewer = "factcheck-ssb"
+role = "factcheck"
+verdict = "pass"
+note = 'NARA 13th Amendment: passed by Congress Jan 31, 1865, ratified Dec 6, 1865, "abolished slavery", and "was passed at the end of the Civil War" (matches the explanation exactly). NARA 14th: ratified 1868, "All persons born or naturalized", "equal protection of the laws", made formerly enslaved people citizens; "Following the Civil War, Congress submitted to the states three amendments as part of its Reconstruction program" supports "added after the Civil War". NARA 15th: ratified Feb 3, 1870, vote not denied "on account of race", granted African American men the vote; no mention of women, so the women distractor is wrong. NARA Bill of Rights milestone: first 10 amendments, 1791. All confirmed.'
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.2.b"
+kind = "card"
+hash = "6d68d42ebb476e93"
+reviewer = "solver-sse"
+role = "solver"
+verdict = "pass"
+note = "Short and correct. The key names three kinds of link (cause, step in a process, shared goal), so it covers SSP.2.b's connections and is not cause and effect alone; step 1 covers people, places and events. The example (recycling law, river cleanup, pesticide ban) is unrelated to every question in the batch, so it gives nothing away, though it models the same shared-goal pattern as 0019, which is the point of the card. The hack is memorable and does not mislead on 0009, 0018 or 0019."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0008"
+kind = "question"
+hash = "4a0496c67182ca01"
+reviewer = "solver-sse"
+role = "solver"
+verdict = "pass"
+solved = "49"
+note = "Blind answer 49 matches the key. Stated plainly in the passage; fits SSP.1.a and difficulty 1. The prompt says Type a number, so 49 is the natural entry. Common mistake (typing 1959) is real. Explanation quotes the passage and ends with a bold answer. Topic G.b.1 (statehood) fits."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0009"
+kind = "question"
+hash = "b6285837eb31621c"
+reviewer = "solver-sse"
+role = "solver"
+verdict = "fix"
+solved = "Alaska gained members of Congress who could vote on laws"
+note = "Blind answer matches the key, and the explanation and common mistake are good. Fix one distractor: 'Alaska gained the power to approve laws for other states' is partly defensible, because Alaska's new voting senators and representative do help pass federal laws that apply in every other state. Replace it with something clearly wrong from the passage, for example 'Alaska gained more members of Congress than most states' (the passage says Alaska got two senators like every state, and one representative). Principle SSP.2.b is acceptable (describes how a change in status connects to representation), and G.b.1 fits."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0010"
+kind = "question"
+hash = "2c5443adee9c63e9"
+reviewer = "solver-sse"
+role = "solver"
+verdict = "pass"
+solved = "Congress could overrule the laws passed by Alaska's own legislature"
+note = "Blind answer matches the key. The key is a supported inference from the overrule sentence plus 'Many Alaskans wanted more say' (SSP.1.a fits). Distractors are clearly wrong: Russia sold Alaska in 1867, Alaska did have a (nonvoting) delegate, and nothing says statehood ends federal law. The no-representative distractor is a real trap and is the stated common mistake. Explanation is clear and in style."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0011"
+kind = "question"
+hash = "63e26ad28fb6ddf4"
+reviewer = "solver-sse"
+role = "solver"
+verdict = "pass"
+solved = "Alaskans took several steps of their own to reach statehood"
+note = "Blind answer matches the key. The passage lists delegates, a constitution and two votes, so the conclusion is well supported (SSP.2.a fits). Each distractor is contradicted by the passage (Alaskans asked; 92 years passed; trade is never mentioned). 1959 - 1867 = 92 is correct. Explanation and common mistake are clear and in style."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0017"
+kind = "question"
+hash = "95cb85a108859dad"
+reviewer = "solver-sse"
+role = "solver"
+verdict = "pass"
+solved = "\"If angels were to govern men, neither external nor internal controls on government would be necessary\""
+note = "Blind answer matches the key. It is the only choice about controls on the rulers; 'enable the government to control the governed' is the tempting half-quote about the governed, and 'If men were angels' is the natural trap named in the common mistake. 'the great difficulty lies in this' is clearly too vague. Explanation spells out the counterfactual step well. SSP.1.b and CG.b.5 fit."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0019"
+kind = "question"
+hash = "6c0e18fe21ef5923"
+reviewer = "solver-sse"
+role = "solver"
+verdict = "pass"
+solved = "All three came at the end of the Civil War or soon after, to extend freedom and rights to formerly enslaved people"
+note = "Blind answer matches the key. Answerable from the prompt plus general knowledge the targets expect (Civil War ended 1865; Bill of Rights is the first ten amendments). Distractors are clearly wrong: the dates rule out before the war and the original Bill of Rights, and none mentions women. Fits SSP.2.b (how events connect) and USH.c.3. Minor: the key is much longer than the other choices, a length cue, but not enough to require a fix. Explanation is accurate and in style."
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.2.b"
+kind = "card"
+hash = "6d68d42ebb476e93"
+reviewer = "solver-ssf"
+role = "solver"
+verdict = "fix"
+note = 'Short and correct, example (environment laws) gives away no question. But the key and hack limit links to three kinds, "cause, step or goal", while step 2 says "what they have in common" and SSP.2.b also covers things that share a trait without a goal (same era, same kind of change, before/after). The hack "name the link in one word: cause, step or goal" could mislead on a question like ss-main-ideas-0009 (before vs. after statehood). Fix: change "a shared goal" to "something in common" in the key, and the hack to "Name the link in one word: cause, step or in-common." (or similar); keep the example, which then shows one kind of in-common link.'
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0008"
+kind = "question"
+hash = "4a0496c67182ca01"
+reviewer = "solver-ssf"
+role = "solver"
+verdict = "pass"
+solved = "49"
+note = "Blind 49 matches key. Stated directly in the passage (49th state); prompt asks for a number so 49 is the natural entry. Common mistake (typing 1959) is real. SSP.1.a and G.b.1 (statehood) fit; difficulty 1 right."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0009"
+kind = "question"
+hash = "b6285837eb31621c"
+reviewer = "solver-ssf"
+role = "solver"
+verdict = "pass"
+solved = "Alaska gained members of Congress who could vote on laws"
+note = "Blind answer matches key. Distractors are each contradicted by the passage: a delegate already existed (not first time, not none), and nothing about approving other states' laws. Explanation quotes both before and after; common mistake is the tempting distractor. SSP.2.b (change over time) and G.b.1 fit."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0010"
+kind = "question"
+hash = "2c5443adee9c63e9"
+reviewer = "solver-ssf"
+role = "solver"
+verdict = "pass"
+solved = "Congress could overrule the laws passed by Alaska's own legislature"
+note = "Blind answer matches key. Inference is well supported by the overrule sentence followed by 'Many Alaskans wanted more say.' Russia distractor is wrong (sold in 1867), 'no representative of any kind' is wrong (non-voting delegate), 'end all federal laws' is unsupported. Explanation and common mistake fine. SSP.1.a fits."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0011"
+kind = "question"
+hash = "63e26ad28fb6ddf4"
+reviewer = "solver-ssf"
+role = "solver"
+verdict = "pass"
+solved = "Alaskans took several steps of their own to reach statehood"
+note = "Blind answer matches key. Checked distractors against dates: 1867 to 1959 is 92 years (not soon after); Alaskans wrote and voted on a constitution and the terms (not without asking); trade is never mentioned. Explanation arithmetic correct. SSP.2.a (conclusion supported by evidence) fits."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0017"
+kind = "question"
+hash = "95cb85a108859dad"
+reviewer = "solver-ssf"
+role = "solver"
+verdict = "pass"
+solved = '"If angels were to govern men, neither external nor internal controls on government would be necessary"'
+note = "Blind answer matches key. Only the key mentions controls on government (the rulers); 'control the governed' is about the people ruled, 'If men were angels' is about the need for government at all, 'the great difficulty' is a lead-in. The strongest support ('oblige it to control itself') is not offered, so no second defensible choice. Explanation clear; SSP.1.b and CG.b.5 fit."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0019"
+kind = "question"
+hash = "6c0e18fe21ef5923"
+reviewer = "solver-ssf"
+role = "solver"
+verdict = "pass"
+solved = "All three came at the end of the Civil War or soon after, to extend freedom and rights to formerly enslaved people"
+note = "Blind answer matches key. Distractors are clearly wrong with the expected general knowledge (Civil War 1861-1865, Bill of Rights 1791, women's vote not in these). Explanation dates correct (13th passed by Congress early 1865, ratified December 1865). Common mistake is real. SSP.2.b and USH.c.3 fit."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0008"
+kind = "question"
+hash = "4a0496c67182ca01"
+reviewer = "factcheck-ssc"
+role = "factcheck"
+verdict = "pass"
+note = "Opened the UAF page (uaf.edu/centennial/uaf100/ideas/constitution.php): 'On Jan. 3, 1959, President Dwight Eisenhower signed the proclamation declaring Alaska the 49th state.' Answer 49 matches the passage and the source; the common mistake (typing 1959) is accurate."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0009"
+kind = "question"
+hash = "b6285837eb31621c"
+reviewer = "factcheck-ssc"
+role = "factcheck"
+verdict = "pass"
+note = "UA Creating Alaska page (Sundborg, 'How a territory differs from a state'): 'Alaska sends a Delegate to Congress. But this representative has no vote.' Statehood Act PDF (govinfo, PL 85-508, 72 Stat. 339, July 7, 1958), sec. 8: officers elected 'shall in any event include two Senators and one Representative in Congress', who are 'entitled to be admitted to seats in Congress and to all the rights and privileges of Senators and Representatives of other States'. So the key (members who could vote) and the common mistake (a delegate already existed) are supported. UAF page confirms the 1959 statehood."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0010"
+kind = "question"
+hash = "2c5443adee9c63e9"
+reviewer = "factcheck-ssc"
+role = "factcheck"
+verdict = "pass"
+note = "Sundborg page (alaska.edu Creating Alaska): Organic Act of 1912 granted territorial legislative powers; 'The acts of Congress take precedence over and repeal acts of the Territorial Legislature', 'Any law of the legislature may be rendered void by a specific action of Congress', and the Delegate 'has no vote'. State Dept Office of the Historian page confirms the 1867 purchase from Russia (so the Russia distractor is wrong; Russia's presence ended). Key and common mistake are accurate."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0011"
+kind = "question"
+hash = "63e26ad28fb6ddf4"
+reviewer = "factcheck-ssc"
+role = "factcheck"
+verdict = "pass"
+note = "UAF page: 55 elected delegates, convention at the University of Alaska in Fairbanks from Nov. 8, 1955; voters ratified the constitution in April (1956); Congress passed the statehood bill June 1958; voters endorsed it August 1958; statehood Jan. 3, 1959. Lt. Governor constitution page confirms the April 24, 1956 ratification vote and the Feb. 5, 1956 agreement. 1959 - 1867 = 92 years is correct (1867 purchase per the cited UAF/State Dept histories). Key and explanation are supported."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0017"
+kind = "question"
+hash = "95cb85a108859dad"
+reviewer = "factcheck-ssc"
+role = "factcheck"
+verdict = "pass"
+note = "Avalon Project text of Federalist No. 51 (New York Packet, Feb. 8, 1788) matches every quoted phrase word for word, including the passage excerpt. National Constitution Center page credits Madison (Avalon lists 'Hamilton or Madison', so 'usually credited to James Madison' is fair). The key sentence is the one about controls on government; the other sentence is about government itself, as the explanation and common mistake say."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0019"
+kind = "question"
+hash = "6c0e18fe21ef5923"
+reviewer = "factcheck-ssc"
+role = "factcheck"
+verdict = "pass"
+note = "National Archives pages: 13th passed by Congress Jan. 31, 1865, ratified Dec. 6, 1865, 'passed at the end of the Civil War', abolished slavery; 14th ratified July 9, 1868, transcript has 'born or naturalized' citizenship and 'equal protection of the laws'; 15th ratified Feb. 3, 1870, vote not denied 'on account of race'; Bill of Rights: the 10 ratified amendments 'became the Bill of Rights in 1791'. The 13th page calls the three 'the trio of Civil War amendments'. All dates and claims in prompt, key, explanation and common mistake check out."
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.2.b"
+kind = "card"
+hash = "be1e00a839fa4b55"
+reviewer = "solver-ssg"
+role = "solver"
+verdict = "fix"
+note = "Key, steps and example are correct, short and fit SSP.2.b; the environment example shares a pattern with ss-main-ideas-0019 (three items with a common goal) but different content, so it gives nothing away. Problem: the hack ('Name the link in a few words: cause, step, in common, or change.') repeats the key almost word for word, so it is wasted words and not a memory device or shortcut. Replace it with a real hack, for example: 'Draw an arrow or an equals sign between them. Arrow: one led to the next. Equals: they share something.' Optional: the example's last line reads awkwardly; 'Link: they share a goal, protecting the environment.' is clearer."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0008"
+kind = "question"
+hash = "2ad547cf93eff26f"
+reviewer = "solver-ssg"
+role = "solver"
+verdict = "pass"
+solved = "49"
+note = "Blind answer 49 matches the key; the passage states 'the 49th state' and the prompt says 'Type a number', so 49 is the natural entry. Stated-fact recall fits SSP.1.a and difficulty 1; G.b.1 (nationhood and statehood) fits. Explanation quotes the passage and ends with a bold answer; common mistake (typing the year 1959) is a real slip."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0009"
+kind = "question"
+hash = "09af867029c505ed"
+reviewer = "solver-ssg"
+role = "solver"
+verdict = "pass"
+solved = "Alaska gained members of Congress who could vote on laws"
+note = "Blind answer matches the key. Only one defensible choice: 'first time' is wrong (a delegate was already sent), 'had no one' is wrong (three members), 'still only one member' is wrong (two senators plus one representative); each is tempting to a careless reader. Before/after change fits SSP.2.b and G.b.1. Explanation contrasts 'had no vote' with 'full votes' in two short lines and ends in bold; common mistake matches a distractor."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0010"
+kind = "question"
+hash = "1cb8312e349deb2b"
+reviewer = "solver-ssg"
+role = "solver"
+verdict = "pass"
+solved = "Congress could overrule the laws passed by Alaska's own legislature"
+note = "Blind answer matches the key. The inference is directly supported by the overrule sentence followed by 'Many Alaskans wanted more say'. Distractors are clearly wrong from the passage: Russia sold Alaska in 1867; Alaska had a non-voting delegate; nothing says statehood ends federal law. Inference from evidence fits SSP.1.a; explanation is correct, short and in style; common mistake is real and tied to a distractor."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0011"
+kind = "question"
+hash = "07f68b0f7c973d68"
+reviewer = "solver-ssg"
+role = "solver"
+verdict = "pass"
+solved = "Alaskans took several steps of their own to reach statehood"
+note = "Blind answer matches the key. Supported by the convention, the 1956 vote on the constitution and the 1958 vote on the terms. Other choices are clearly unsupported or contradicted: Alaskans did ask (wanted more say, wrote a constitution); 92 years is not 'soon'; trade is never mentioned. Testing a conclusion against evidence fits SSP.2.a. Explanation arithmetic 1959 - 1867 = 92 is correct; style and common mistake are fine."
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.2.b"
+kind = "card"
+hash = "be1e00a839fa4b55"
+reviewer = "solver-ssh"
+role = "solver"
+verdict = "fix"
+note = "Rule, steps and example are correct, short and fit SSP.2.b; the environment example gives away no question (0019 is about amendments, 0018 about branches). Problem: the hack ('Name the link in a few words: cause, step, in common, or change.') repeats the key almost word for word, so it is not a separate memory device and wastes words. Replace it with a real test shortcut, e.g. 'Came before is not caused: pick a cause only if the source says one led to the other.' Optional: in the example, 'Link: something in common, a goal of protecting the environment' reads better as 'Link: a shared goal, protecting the environment.'"
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0008"
+kind = "question"
+hash = "2ad547cf93eff26f"
+reviewer = "solver-ssh"
+role = "solver"
+verdict = "pass"
+solved = "49"
+note = "Blind answer 49 matches key. Stated directly in the passage, fits SSP.1.a (find what a source states) and G.b.1 (statehood); difficulty 1 is right. Common mistake (typing the year 1959) is real. Explanation quotes the passage and ends with a bold answer."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0009"
+kind = "question"
+hash = "09af867029c505ed"
+reviewer = "solver-ssh"
+role = "solver"
+verdict = "pass"
+solved = "Alaska gained members of Congress who could vote on laws"
+note = "Blind answer matches key. Distractors are clearly wrong from the passage: Alaska already had a delegate (not first time), did not lose representation, and gained three members, not one. Fits SSP.2.b (how the event changed Alaska's place). Explanation contrasts before and after with quotes; common mistake matches a distractor."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0010"
+kind = "question"
+hash = "1cb8312e349deb2b"
+reviewer = "solver-ssh"
+role = "solver"
+verdict = "pass"
+solved = "Congress could overrule the laws passed by Alaska's own legislature"
+note = "Blind answer matches key. Only one choice is supported: Russia sold Alaska in 1867, Alaska had a non-voting delegate (not 'no representative of any kind'), and nothing says statehood ends federal law. Inference from 'Many Alaskans wanted more say' fits SSP.1.a. Explanation quotes the supporting lines; common mistake is the most tempting distractor."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0011"
+kind = "question"
+hash = "07f68b0f7c973d68"
+reviewer = "solver-ssh"
+role = "solver"
+verdict = "pass"
+solved = "Alaskans took several steps of their own to reach statehood"
+note = "Blind answer matches key. Passage shows elected delegates, a constitution and two votes, so the key is well supported; 'without Alaskans asking' contradicts it, 'soon after' is wrong (1867 to 1959 = 92 years, checked), and trade control is never mentioned. Fits SSP.2.a (test conclusions against evidence). Explanation is correct and short."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0008"
+kind = "question"
+hash = "2ad547cf93eff26f"
+reviewer = "factcheck-ssd"
+role = "factcheck"
+verdict = "pass"
+note = "Answer 49 matches the passage and the cited UAF page (Jan. 3, 1959, Eisenhower proclamation declaring Alaska the 49th state). Common mistake (typing 1959) is factually consistent with the same source."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0009"
+kind = "question"
+hash = "09af867029c505ed"
+reviewer = "factcheck-ssd"
+role = "factcheck"
+verdict = "pass"
+note = "Key confirmed: delegate had no vote (UA Territory Differs from State: Alaska sends a Delegate to Congress, but this representative has no vote); after statehood two Senators and one Representative entitled to seats and all rights and privileges of other states' members (Statehood Act PL 85-508 secs. 7, 8(c), 9, govinfo PDF). Common mistake correct: Alaska already had a delegate as a territory (same UA page). Wrong choices are factually wrong per these sources (Alaska gained three voting members, not one)."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0010"
+kind = "question"
+hash = "1cb8312e349deb2b"
+reviewer = "factcheck-ssd"
+role = "factcheck"
+verdict = "pass"
+note = "Key confirmed by UA Territory Differs from State: acts of Congress take precedence over and repeal conflicting acts of the Territorial Legislature; any territorial law may be voided by Congress; Delegate has no vote. Distractor on Russia is false per history.state.gov (purchase ended Russia's presence in North America, 1867). 'No representative of any kind' is false (delegate existed, UA page). 'End all federal laws' is false (Statehood Act sec. 8(d): US laws have the same force in Alaska as elsewhere; Act not cited by this item but not needed for the key)."
+date = "2026-11-13"
+
+[[review]]
+id = "ss-main-ideas-0011"
+kind = "question"
+hash = "07f68b0f7c973d68"
+reviewer = "factcheck-ssd"
+role = "factcheck"
+verdict = "pass"
+note = "Explanation's facts confirmed: elected delegates, constitution written, two votes (constitution April 1956, terms August 1958) per UAF A place to write a new Alaska; April 24, 1956 ratification and Jan. 3, 1959 per ltgov.alaska.gov Constitution page. 1959 - 1867 = 92 years, correct (1867 purchase per history.state.gov, cited in sibling items). Wrong choice on foreign trade control is unsupported by the passage and untrue for any state (Congress regulates foreign commerce)."
+date = "2026-11-13"
+
+[[review]]
+id = "SSP.2.b"
+kind = "card"
+hash = "d8cb81839e0322e1"
+reviewer = "solver-ssi"
+role = "solver"
+verdict = "pass"
+note = "Correct for SSP.2.b: the key names the main link types (cause, step/sequence, shared trait, change) and the steps lead to matching the source. Short, plain words, high-school level. The arrow/equals hack is a real, drawable device that sorts sequence/cause from shared-trait links and does not mislead on the bank's items (0018 chains as arrows, 0019 is an equals; a before-to-after change also reads as an arrow). Example (recycling law, river cleanup, pesticide ban sharing an environmental goal) uses a different topic from all three SSP.2.b questions (Alaska statehood, branches deciding a law, Reconstruction amendments) and gives none away."
+date = "2026-11-13"

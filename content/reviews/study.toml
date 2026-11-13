@@ -212,3 +212,43 @@ hash = "903e0af4467aeb32"
 verdict = "pass"
 note = "Link-checked all 105 unique URLs in content/study.toml with curl -L (browser UA): every one returned HTTP 200, and every page title is the real page (no OpenStax soft-404 'OpenStax' titles; a bad slug was confirmed to give that title). New topics: SP.7.b links OpenStax College Physics 2e 2.3 (average speed = distance / time) and Chemistry 2e 1.4 (density = mass / volume), both teach using a given formula at a suitable level; search words 'using physics formulas speed force density' fit. SP.8.a links OpenStax Intro Stats 2e 2.5 (mean, median) and Math is Fun central-measures (mean, median, mode); titles match the pages; search 'mean median mode and range' fits. Earlier reviewed topics: link check only, all pass."
 date = "2026-11-12"
+
+[[review]]
+id = "study"
+kind = "study"
+hash = "9c9c6b56b986d973"
+reviewer = "factcheck-ssa"
+role = "factcheck"
+verdict = "fix"
+note = "New topics. SSP.1.a: OpenStax College Success 5.2 (opens; has 'Inferring and Implying' and evaluating evidence) and National Archives Document analysis worksheets (opens; meet the document, observe, make sense of it, use it as evidence) both fit; search words fit. SSP.1.b: the Archives worksheets fit (use the source as evidence); search words fit. SSP.2.a: problem. College Success 5.2 has no section on finding the main or central idea, only one line ('Question what main point the author is making'), so it does not teach this principle. Fix: add or swap in a free page that teaches finding the central idea of a text and testing conclusions against it. SSP.2.b: both OpenStax American Government links open and fit the three-branch content at a GED level, but SSP.2.b is about describing people, places, events and processes and how they connect in general; the search words 'how the three branches of government work together' cover only one example. Suggest broader search words (e.g. 'how historical events and people are connected') or a link on connecting events. Spot-check of 14 earlier links (OpenStax, mathsisfun, NCES): all return 200."
+date = "2026-11-13"
+
+[[review]]
+id = "study"
+kind = "study"
+hash = "f5eae446422642a0"
+reviewer = "factcheck-ssb"
+role = "factcheck"
+verdict = "fix"
+note = 'All links checked open (HTTP 200). SSP.1.a pass: OpenStax College Success 5.2 teaches inferring and evaluating evidence; NARA worksheets page is a fair supplement; search words fit. SSP.2.a pass: i-Pathways "Introduction to the Main Idea" is an adult GED-style lesson on stated and implied main ideas; title and search fit. SSP.1.b FIX: its only link is the NARA "Document analysis worksheets" page, an educator index of blank analysis forms; it does not teach picking the detail that best supports a claim. Add a page that teaches supporting evidence (e.g. OpenStax College Success 5.2, which says to "Identify what evidence/support the author uses", or an i-Pathways supporting-details page). SSP.2.b FIX: both links (OpenStax AmGov 3e 2.3 and 1.1) are US government content pages; they show some connected history but do not teach the skill of describing how people, events and processes connect (sequence, cause and effect). Add at least one page that teaches cause and effect / sequence in history or social studies reading, and consider search words like "cause and effect and sequence in history". Titles for both are accurate. Spot-check of earlier topics: Q.1.a, Q.1.b (7.3 distributive property fits the principle), SP.1.b (chemical equations for symbols), SP.6.a (NCES graph choice), SP.8.a, SP.8.b links open and fit.'
+date = "2026-11-13"
+
+[[review]]
+id = "study"
+kind = "study"
+hash = "0ecf7796f2b5348f"
+reviewer = "factcheck-ssc"
+role = "factcheck"
+verdict = "fix"
+note = "All checked links return HTTP 200. SSP.1.a: OpenStax College Success 5.2 has an 'Inferring and Implying' section and evidence steps (fits); National Archives Document Analysis page opens with primary-source worksheets (fits, though the landing text is teacher-facing). SSP.1.b: NROC 'Supporting Details' teaches identifying major/minor supporting details with a 3-step process (good fit). SSP.2.a: i-Pathways sample lesson page 2 'Introduction to the Main Idea' teaches stated and implied main idea at adult GED level (good fit). Spot-checked earlier topics SP.6.a (NCES Kids' Zone graph choice), SP.8.c (OpenStax Concepts of Biology 8.2 Laws of Inheritance), SP.8.a (Math is Fun Finding a Central Value): open and match titles. FIX SSP.2.b: (1) https://open.ocolearnok.org/woscreadinghandbook/chapter/patterns-of-organization/ redirects to https://pressbooks.openlearnok.org/woscreadinghandbook/chapter/patterns-of-organization/; use the final URL. (2) The page is very thin: one paragraph naming patterns (time order, compare/contrast, cause and effect, process) plus a signal-word table that is an image hotlinked from brainfuse.com over http; a second image (wosc.instructure.com/courses/239/files/2600/preview) is behind a college login and shows broken. As the only link it barely teaches how events and processes connect; add a fuller free page on sequence, cause and effect and comparison (for example a chronological-order or cause-and-effect reading lesson) alongside or instead of it."
+date = "2026-11-13"
+
+[[review]]
+id = "study"
+kind = "study"
+hash = "2c47b3e12ec37370"
+reviewer = "factcheck-ssd"
+role = "factcheck"
+verdict = "pass"
+note = "All four new links return HTTP 200 and match their titles. SSP.1.a: OpenStax College Success 5.2 Effective Reading Strategies has an 'Inferring and Implying' section on drawing conclusions from evidence, adult level; National Archives Document Analysis page holds primary-source worksheets (Meet the document, Observe, Make sense, Use as evidence), teacher-facing wording but usable by learners. SSP.1.b: NROC Developmental English Supporting Details teaches identifying major and minor supporting details, fits. SSP.2.a: i-Pathways Introduction to the Main Idea (2 of 6), a GED RLA sample lesson on finding the main idea, fits. SSP.2.b: LibreTexts 7.2 Organizational Patterns (Lumen) is a live embedded YouTube video (Z0tKwlRt8WI, 'Organizational Patterns', checked via oembed) plus a list of six patterns incl. chronological order, cause and effect, comparison and contrast; fits, though its text alone is thin, so a text-based second link would help. Search words fit each principle. Spot-checked Q.1.a OpenStax Prealgebra 5.3, SP.8.a Math is Fun Finding a Central Value, SP.6.b OpenStax Chemistry 2.4, SP.8.b OpenStax Contemporary Math 7.3: all 200, titles match."
+date = "2026-11-13"
