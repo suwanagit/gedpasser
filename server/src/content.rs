@@ -43,7 +43,9 @@ impl Bank {
                 .map(|d| d.to_string())
                 .collect();
             return Err(format!(
-                "the question bank has {} error(s); run `cargo content`:\n{}",
+                "the question bank has {} error(s); run `cargo content`:\n{}\n\n\
+                 If `cargo content` shows no errors, this server is older than the content \
+                 (for example after a pull). Rebuild it with `scripts\\build.ps1`.",
                 lines.len(),
                 lines.join("\n")
             ));
